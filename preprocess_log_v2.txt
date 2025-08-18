@@ -1,0 +1,18 @@
+INFO:RedHeart.DataPreprocessingV2:디바이스: cuda
+INFO:RedHeart.DataPreprocessingV2:Loading sentence transformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:RedHeart.DataPreprocessingV2:✅ 개선된 전처리 파이프라인 초기화 완료
+INFO:RedHeart.DataPreprocessingV2:📚 데이터셋 처리 시작: parsed_raw_datasets.json
+INFO:RedHeart.DataPreprocessingV2:총 10개 샘플 처리 예정
+INFO:RedHeart.DataPreprocessingV2:🔄 HelpingAI 9B 모델 로딩 중...
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 478, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 471, in main
+    preprocessor.process_dataset(
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 393, in process_dataset
+    self.initialize_llm()
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 92, in initialize_llm
+    self.llm_engine = AdvancedLLMEngine(config)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: AdvancedLLMEngine.__init__() takes 1 positional argument but 2 were given

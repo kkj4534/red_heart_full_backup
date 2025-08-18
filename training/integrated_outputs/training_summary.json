@@ -1,0 +1,28 @@
+{
+  "total_epochs": 2,
+  "total_samples": 30,
+  "total_steps": 10,
+  "config": {
+    "epochs": 2,
+    "learning_rate": 0.001,
+    "batch_size": 3,
+    "max_samples": 15,
+    "save_frequency": 5,
+    "emotion_loss_weight": 1.0,
+    "bentham_loss_weight": 1.0,
+    "regret_loss_weight": 1.0,
+    "surd_loss_weight": 1.0,
+    "integration_loss_weight": 2.0
+  },
+  "performance": {
+    "avg_total_loss": 0.0,
+    "avg_emotion_loss": 0.0,
+    "avg_bentham_loss": 0.0,
+    "avg_regret_loss": 0.0,
+    "avg_surd_loss": 0.0,
+    "avg_integration_loss": 0.0,
+    "avg_success_rate": 0.0,
+    "avg_processing_time": 0.35070319175720216
+  },
+  "timestamp": "2025-07-08T01:01:13.208827"
+}

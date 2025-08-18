@@ -1,0 +1,126 @@
+{
+  "test_summary": {
+    "total_tests": 17,
+    "successful_tests": 14,
+    "success_rate": 82.35294117647058,
+    "test_duration": 14.8641996383667,
+    "fallback_detected": false,
+    "errors_count": 3,
+    "system_complete": false,
+    "cuda_available": true,
+    "timestamp": "2025-08-18T01:30:24.751271"
+  },
+  "test_results": {
+    "Compute_System": {
+      "success": true,
+      "details": "GPU 가속: NVIDIA GeForce RTX 2070 SUPER, Memory: 8.0GB",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:09.988831"
+    },
+    "CPU_Cores": {
+      "success": true,
+      "details": "8 threads available",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:09.988883"
+    },
+    "Hybrid_Config": {
+      "success": true,
+      "details": "Target: 3,000,000,000 params, Workers: 2",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:09.988947"
+    },
+    "Model_Parameters": {
+      "success": false,
+      "details": "Only 481,972,998 parameters (Target: 3B)",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:15.369482"
+    },
+    "Model_Forward": {
+      "success": true,
+      "details": "All outputs present: ['emotion_predictions', 'semantic_predictions', 'reasoning_features', 'integration_features', 'pooled_output']",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:16.535376"
+    },
+    "Async_Regret": {
+      "success": true,
+      "details": "7 regret scenarios generated",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:16.536830"
+    },
+    "XAI_Tracing": {
+      "success": true,
+      "details": "Operation ID: fee59e4d-3af4-465e-91cf-47d2fe9fc569",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:16.548448"
+    },
+    "XAI_Decision": {
+      "success": true,
+      "details": "Decision: {'decision': 'test', 'confidence': 0.95}",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:16.550330"
+    },
+    "XAI_Performance": {
+      "success": true,
+      "details": "Ops tracked: 1",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:16.550596"
+    },
+    "LLM_Integration": {
+      "success": false,
+      "details": "LLM error: LLM 모델 로드 실패, fallback 비활성화됨: llama-3.2-1b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:18.896625"
+    },
+    "Emotion_Model": {
+      "success": true,
+      "details": "Output shape: torch.Size([4, 6])",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:18.948220"
+    },
+    "Semantic_Model": {
+      "success": true,
+      "details": "Output shape: torch.Size([4, 128])",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:19.037697"
+    },
+    "Counterfactual_Model": {
+      "success": true,
+      "details": "Scenarios: 5",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:19.209113"
+    },
+    "Data_Files": {
+      "success": true,
+      "details": "6 batch files found",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:19.224012"
+    },
+    "Data_Structure": {
+      "success": true,
+      "details": "Sample has all required fields",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:19.351536"
+    },
+    "Trainer_Model": {
+      "success": false,
+      "details": "Only 481,972,998 parameters",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:24.614419"
+    },
+    "Trainer_Data": {
+      "success": true,
+      "details": "94 batches prepared",
+      "fallback_used": false,
+      "timestamp": "2025-08-18T01:30:24.748432"
+    }
+  },
+  "errors_detected": [
+    "Model_Parameters: Only 481,972,998 parameters (Target: 3B)",
+    "LLM_Integration: LLM error: LLM 모델 로드 실패, fallback 비활성화됨: llama-3.2-1b is not a local folder and is not a valid model identifier listed on 'https://huggingface.co/models'\nIf this is a private repository, make sure to pass a token having permission to this repo either by logging in with `hf auth login` or by passing `token=<your_token>`",
+    "Trainer_Model: Only 481,972,998 parameters"
+  ],
+  "recommendations": [
+    "감지된 오류들을 수정해야 합니다.",
+    "테스트 성공률을 90% 이상으로 개선해야 합니다."
+  ]
+}

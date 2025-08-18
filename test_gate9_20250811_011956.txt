@@ -1,0 +1,437 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+Device set to use cuda:0
+Device set to use cuda:0
+언로드 요청된 모델이 레지스트리에 없음: semantic_analyzer
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+   ⚠️ neural_components nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ 클래스 'AdvancedSurdAnalyzer' 대신 'AdvancedSURDAnalyzer' 사용 (유사도 기반)
+   ⚠️ surd_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ 클래스 'AdvancedBayesianInferenceModule' 대신 'AdvancedBayesianInference' 사용 (유사도 기반)
+   ⚠️ bayesian_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ llm_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ experience_database nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ hierarchical_emotion nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ usage_pattern_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ meta_integration 이미 등록됨 (동일 타입: AdvancedMetaIntegrationSystem), 스킵
+⚠️ GPU 사용률이 낮습니다 (41.4%) - 더 적극적 로딩 필요
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.289GB (41.1%)
+   📦 예약됨: 3.338GB
+   💚 여유: 4.711GB
+   🔄 config.py 측정: 41.1%
+   🧠 GPU 텐서: 1717개, 3.261GB
+   📋 큰 텐서 TOP 5:
+      1. [50265, 1024] (torch.float32) - 196.3MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.049GB
+   🔝 새로운 Peak 메모리: 3.316GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.010GB (62.6%)
+   📦 예약됨: 5.092GB
+   💚 여유: 2.990GB
+   🔄 config.py 측정: 62.6%
+   🧠 GPU 텐서: 1961개, 4.946GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.082GB
+   🔝 새로운 Peak 메모리: 5.010GB (at 백본 초기화 후)
+[O] set_swap_manager OK: self_id=137616837531680 global_id=137616837531680
+✅ 백본 DSM 등록 완료 (CRITICAL 우선순위)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.010GB (62.6%)
+   📦 예약됨: 5.092GB
+   💚 여유: 2.990GB
+   🔄 config.py 측정: 62.6%
+   🧠 GPU 텐서: 1961개, 4.946GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.082GB
+[DSM@스왑매니저초기화후] models=['unified_backbone']
+[DSM@스왑매니저초기화후] gpu_resident=['unified_backbone'] sizes={'unified_backbone': '1725.4MB'}
+[DSM@스왑매니저초기화후] priorities={'unified_backbone': 'critical'}
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['unified_backbone']
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.010GB (62.6%)
+   📦 예약됨: 5.092GB
+   💚 여유: 2.990GB
+   🔄 config.py 측정: 62.6%
+   🧠 GPU 텐서: 1961개, 4.946GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.082GB
+   🔝 새로운 Peak 메모리: 5.010GB (at 헤드 호환성 매니저 생성 후)
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['emotion_empathy_head', 'unified_backbone']
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+⚠️ 메모리 관리 주의: 63.6% (85% 초과)
+📊 추가 활용 가능: 현재 66.3% (목표 82%)
+🔍 initialize_all_heads() 호출 완료!
+🚨 헤드 초기화 완료 - 메모리 상태 확인 중...
+🔍 [모든 헤드 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.303GB (66.3%)
+   📦 예약됨: 5.404GB
+   💚 여유: 2.696GB
+   🔄 config.py 측정: 66.3%
+   🧠 GPU 텐서: 2006개, 5.238GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.101GB
+   🔝 새로운 Peak 메모리: 5.303GB (at 모든 헤드 초기화 후)
+[DSM@헤드초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@헤드초기화후] gpu_resident=['unified_backbone', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'unified_backbone': '1725.4MB', 'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@헤드초기화후] priorities={'unified_backbone': 'critical', 'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [시너지 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.303GB (66.3%)
+   📦 예약됨: 5.404GB
+   💚 여유: 2.696GB
+   🔄 config.py 측정: 66.3%
+   🧠 GPU 텐서: 2006개, 5.238GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.101GB
+[ULS] DSM id=137616837531680
+🔍 [학습 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.025GB (87.8%)
+   📦 예약됨: 7.160GB
+   💚 여유: 0.975GB
+   🔄 config.py 측정: 87.8%
+   🧠 GPU 텐서: 2250개, 6.923GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.136GB
+   🔝 새로운 Peak 메모리: 7.025GB (at 학습 시스템 초기화 후)
+[DSM@학습시스템초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@학습시스템초기화후] gpu_resident=['unified_backbone', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'unified_backbone': '1725.4MB', 'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@학습시스템초기화후] priorities={'unified_backbone': 'critical', 'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [패턴 분석기 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.025GB (87.8%)
+   📦 예약됨: 7.160GB
+   💚 여유: 0.975GB
+   🔄 config.py 측정: 87.8%
+   🧠 GPU 텐서: 2250개, 6.923GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.136GB
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['bentham_fromm_head', 'emotion_empathy_head', 'meta_integration_head', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+GPU 메모리 긴급 상황(87.8%) - 최소 배치로 학습 계속
+emotion_empathy_head forward 실패: 'dict' object has no attribute 'shape'
+입력 shape: torch.Size([1, 768])
+헤드 emotion_empathy_head 출력이 requires_grad=False입니다
+훈련 중 오류 발생: 헤드 emotion_empathy_head 출력에 gradient가 연결되지 않음
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1624, in train_unified_system
+    step_metrics = await self.trainer.train_step(batch_data, active_heads)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 489, in train_step
+    outputs = self.forward_with_checkpointing(batch_data, active_heads)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 460, in forward_with_checkpointing
+    raise RuntimeError(f"헤드 {head_type.value} 출력에 gradient가 연결되지 않음")
+RuntimeError: 헤드 emotion_empathy_head 출력에 gradient가 연결되지 않음
+
+🔍 에러 타입: RuntimeError
+📍 에퟼크: 1/1, 배치: 0
+Python 통합 학습 오류: 헤드 emotion_empathy_head 출력에 gradient가 연결되지 않음
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 2030, in _run_python_training
+    await self.learning_system.train_unified_system(
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1624, in train_unified_system
+    step_metrics = await self.trainer.train_step(batch_data, active_heads)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 489, in train_step
+    outputs = self.forward_with_checkpointing(batch_data, active_heads)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 460, in forward_with_checkpointing
+    raise RuntimeError(f"헤드 {head_type.value} 출력에 gradient가 연결되지 않음")
+RuntimeError: 헤드 emotion_empathy_head 출력에 gradient가 연결되지 않음
+
+🔍 에러 타입: RuntimeError
+📍 num_epochs: 1, num_batches: 1
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.037GB (88.0%)
+   📦 예약됨: 7.955GB
+   💚 여유: 0.963GB
+   🔄 config.py 측정: 88.0%
+   🧠 GPU 텐서: 2265개, 6.927GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.918GB
+   🔝 새로운 Peak 메모리: 7.762GB (at 초기화 시작 전)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+[GPU BLOCKING] ❌ transformers.models.auto.tokenization_auto_opus-mt-ko-en 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.models.auto.tokenization_auto_opus-mt-ko-en
+[GPU BLOCKING] ❌ translator_opus-mt-ko-en 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: translator_opus-mt-ko-en
+⚠️ translator 이미 등록됨 (동일 타입: LocalTranslator), 스킵
+   ⚠️ translator DSM 등록 중 경고: name 'SwapPriority' is not defined
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 87.9%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754843462 (필요: 857.0936447143554MB, 확보: FalseMB)
+GPU 메모리 부족으로 CPU에서 실행: translator
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 87.9%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754843519 (필요: 1000MB, 확보: FalseMB)
+[GPU BLOCKING] ❌ transformers.pipelines.base_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.pipelines.base_emotion-english-distilroberta-base
+[GPU BLOCKING] ❌ transformers.pipelines_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.pipelines_emotion-english-distilroberta-base
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+[GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+[GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+다국어 모델 로드 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+모델 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+AdvancedEmotionAnalyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+⚠️ 대형 모델 로드 실패했지만 기본 네트워크로 계속 진행
+⚠️ emotion_analyzer 이미 등록됨 (동일 타입: AdvancedEmotionAnalyzer), 스킵
+   ⚠️ emotion_analyzer DSM 등록 중 경고: name 'SwapPriority' is not defined
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 87.9%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754843610 (필요: 537.2746658325195MB, 확보: FalseMB)
+GPU 메모리 부족으로 CPU에서 실행: emotion_analyzer
+GPU 메모리 사용률 위험 수준: 87.9%
+긴급 GPU 메모리 최적화 시작
+긴급 GPU 메모리 최적화 완료
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 87.9%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754843613 (필요: 600MB, 확보: FalseMB)
+⚠️ bentham_calculator 이미 등록됨 (동일 타입: AdvancedBenthamCalculator), 스킵
+   ⚠️ bentham_calculator DSM 등록 중 경고: name 'SwapPriority' is not defined
+모델 초기화 실패: 감정 분석 모델 GPU 로딩 실패: device=cpu, model=None
+재시도 1 실패: 감정 분석 모델 로딩 실패: model is None
+재시도 2 실패: 감정 분석 모델 로딩 실패: model is None
+재시도 3 실패: 감정 분석 모델 로딩 실패: model is None
+모든 재시도 실패 - 시스템 종료
+AdvancedMultiLevelSemanticAnalyzer 초기화 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+❌ 모듈 semantic_analyzer 로딩 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+🚨 semantic_analyzer 로딩 실패 상세 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1941, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 244, in _initialize_models
+    raise RuntimeError(f"감정 분석 모델 GPU 로딩 실패: device={emotion_device}, model={emotion_model}")
+RuntimeError: 감정 분석 모델 GPU 로딩 실패: device=cpu, model=None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 415, in _initialize_models
+    raise RuntimeError(f"감정 분석 모델 로딩 실패: model is None")
+RuntimeError: 감정 분석 모델 로딩 실패: model is None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1287, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 145, in initialize
+    self._initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 531, in _initialize_models
+    raise Exception(f"모델 초기화 최종 실패: {retry_error}")
+Exception: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+
+   ❌ semantic_analyzer 초기화 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+❌ 전역 모듈 초기화 실패: 필수 모듈 semantic_analyzer 초기화 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+❌ 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1941, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 244, in _initialize_models
+    raise RuntimeError(f"감정 분석 모델 GPU 로딩 실패: device={emotion_device}, model={emotion_model}")
+RuntimeError: 감정 분석 모델 GPU 로딩 실패: device=cpu, model=None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 415, in _initialize_models
+    raise RuntimeError(f"감정 분석 모델 로딩 실패: model is None")
+RuntimeError: 감정 분석 모델 로딩 실패: model is None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 980, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1287, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 145, in initialize
+    self._initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 531, in _initialize_models
+    raise Exception(f"모델 초기화 최종 실패: {retry_error}")
+Exception: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1720, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1139, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 semantic_analyzer 초기화 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+
+자동 복구 실패: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-11 01:21:33
+------------------------------------------------------------
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+[01:30:00] ✅ 시스템 초기화 완료
+[01:30:00] 🧪 테스트 모드 시작...
+🔍 백본 Gradient 추적 시작
+   백본 training 모드: True
+   input_ids.requires_grad: False
+   input_ids.shape: torch.Size([1, 128])
+   token_embedding 후: False
+   🔧 gradient 흐름 강제 활성화: True
+   token_embedding 파라미터 requires_grad: True
+   🔧 pooled_output gradient 흐름 강제 활성화: True
+   unified_representation_network 후: False
+   🔧 unified_features gradient 흐름 강제 활성화: True
+   memory_bank.requires_grad: True
+   unified_representation_network 파라미터 requires_grad: True
+   memory_expanded.requires_grad: True
+   unified_expanded.requires_grad: True
+   [cross_modal_fusion 실행 전]
+     query.requires_grad: True
+     key.requires_grad: True
+     value.requires_grad: True
+     cross_modal_fusion 파라미터 requires_grad: True
+   cross_modal_fusion 후: False
+   cross_modal_output.grad_fn: None
+   🔧 cross_modal_output gradient 흐름 강제 활성화: True
+🎯 최종 cross_modal_features.requires_grad: True
+   output_projection 후: False
+   🔧 final_output gradient 흐름 강제 활성화: True
+✅ 백본 출력 gradient 연결 확인: requires_grad=True
+🎉 최종 백본 출력 성공: shared_embedding.requires_grad=True
+
+============================================================
+🚨 필수 모듈 semantic_analyzer 로딩 실패!
+============================================================
+에러: 모델 초기화 최종 실패: 감정 분석 모델 로딩 실패: model is None
+모듈 경로: advanced_multi_level_semantic_analyzer.AdvancedMultiLevelSemanticAnalyzer
+============================================================
+
+[01:33:35] ❌ 테스트 모드 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

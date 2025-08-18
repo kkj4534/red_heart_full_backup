@@ -1,0 +1,770 @@
+{
+  "metadata": {
+    "total_scenarios": 30,
+    "processing_statistics": {
+      "total_processed": 30,
+      "rule_based": 30,
+      "average_processing_time": 2.5844573974609376e-05,
+      "start_time": 1751727650.6408327
+    },
+    "total_processing_time": 0.006594657897949219,
+    "scenarios_per_second": 4549.136659436009,
+    "timestamp": "2025-07-06T00:00:50.647434"
+  },
+  "scenarios": [
+    {
+      "id": "ebs_literature_0_ec8e5125",
+      "title": "복덕방 (이태준)",
+      "description": "일제강점기 이후의 혼란스러운 시대에 적응하지 못하고 몰락한 세대인 '안 초시', '서 참의', '박희완 영감'이 복덕방에 모여 시간을 보내다, '안 초시'가 부동산 투기로 큰돈을 벌려던 계획이 실패하고 딸에게도 냉대받으며 비참하게 죽음을 맞이하는 상황에서 친구들이 그의 장례를 치르는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "친구"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.084,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_1_89ccd67f",
+      "title": "역마 (김동리)",
+      "description": "역마살을 타고난 '성기'가 정착을 바라는 어머니 '옥화'와 할머니의 기대에 부응하여 중(僧)이 되거나 책 장사를 하지만, 결국 '계연'과의 비극적인 혈연 관계로 인해 사랑이 좌절되고 자신의 역마살을 운명으로 받아들이는 상황에서 내면적 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0695,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_2_14952728",
+      "title": "두 파산 (염상섭)",
+      "description": "해방 후 혼란스러운 사회에서, 기회주의적이고 세속적인 삶의 태도를 지닌 '옥임'과 전통적인 가치관을 고수하며 정직하게 살아가려는 '정례 모친'이 돈 문제로 인해 갈등하고, 결국 '정례 모친'이 정신적, 물질적 파산을 겪는 비극적인 상황이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.069,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_3_28a60931",
+      "title": "유예 (오상원)",
+      "description": "전쟁 중 홀로 남아 부상당한 채 적에게 잡혀 총살형을 앞둔 주인공 '그'가 죽음의 극한 상황 속에서 삶의 의미와 인간적 존엄성을 탐색하고, 자신에게 총을 겨눈 '사수' 또한 인간으로서의 고뇌를 느끼는 비극적인 상황이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.063,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_4_9108d9b9",
+      "title": "탑 (황석영)",
+      "description": "베트남 전쟁에 참전한 '나'가 미군 병사들과 함께 오래된 탑을 옮기는 임무를 수행하는 과정에서, 탑의 존재와 그 탑을 지키려 애쓰는 베트남인들의 모습을 통해 전쟁의 비인간성과 무의미함을 인식하고 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.8,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0585,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_5_d546e6d3",
+      "title": "큰 산 (이호철)",
+      "description": "6.25 전쟁으로 인해 가족을 잃고 고향을 떠나 해방촌에 정착한 '나'(주인공)가 어릴 적 고향에서 보았던 '큰 산'의 기억과 연결된 '고무신짝' 사건을 겪으며, 전쟁 이후 파괴된 공동체의 모습과 현대 사회의 이기적인 인간 본성에 대한 깊은 고민과 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "개인",
+        "가족",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0735,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_6_73fb11eb",
+      "title": "우리 동네 김 씨 (이문구)",
+      "description": "농업 근대화 사업으로 인해 전통적인 농촌 공동체가 해체되고, 구제역 발병으로 인해 농촌의 삶이 더욱 피폐해지는 상황에서 '김 씨'(주인공)가 자신의 가치관을 지키려 노력하지만, 결국 시대의 변화 앞에서 무력감을 느끼는 비극적인 상황이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.7,
+        "purity": 0.5,
+        "extent": 0.6000000000000001
+      },
+      "category": "business",
+      "stakeholders": [
+        "개인",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.068,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_7_63c3b8b0",
+      "title": "소리의 빛 (이청준)",
+      "description": "소리꾼 아버지와 함께 유랑하며 소리를 배워온 여인이, 병든 아버지의 눈을 뜨게 하기 위해 오빠가 눈을 멀게 했다는 비밀을 알게 되고, 진실과 한(恨)의 의미를 깨달으며 자신의 소리를 통해 이를 승화시키려는 내면적 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0635,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_8_44b2b5b4",
+      "title": "그해 겨울은 따뜻했네 (박완서)",
+      "description": "6.25 전쟁으로 인해 헤어진 남매인 '수철'과 '수지', 그리고 전쟁고아가 된 '오목'의 삶을 통해 전쟁이 남긴 상처와 해방 후 물질주의가 팽배한 사회에서 가족 공동체의 해체와 인간성 상실을 겪는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "가족",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.06,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_9_fdb04be3",
+      "title": "달로 간 코미디언 (김연수)",
+      "description": "1977년 이리역 폭발 사고로 시력을 잃어가는 코미디언 '안복남'이 가족을 버리고 애인과 함께 미국으로 도피한 사건을 겪은 딸 '안미선'이 아버지의 흔적을 추적하며, 과거의 비극적인 사건이 현재의 삶에 미치는 영향과 진실의 의미를 탐색하는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.6,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "가족"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0715,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_10_6274ce85",
+      "title": "통영 오광대 (작자 미상)",
+      "description": "조선 후기 사회의 모순과 부조리를 풍자하는 탈놀음으로, 양반들의 허위의식과 무능함을 '말뚝이'가 폭로하고 비판하는 과정에서 지배층과 피지배층 간의 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0455,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_11_e1350f00",
+      "title": "영웅 모집 (채만식)",
+      "description": "일제강점기 파고다 공원을 배경으로, 다양한 인물들(신사 A, B, 노동자, 피에로, 이주민 가족 등)이 등장하여 혼란스러운 시대 상황 속에서 각자의 방식으로 삶을 영위하고 생존하려 하지만, 결국 피에로는 부조리한 현실에 대한 비판과 무력감을 느끼는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "가족"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.074,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_12_bdc6a5d6",
+      "title": "소 (유치진)",
+      "description": "일제강점기 말기, 농민 '국서'는 자신의 아들을 일본으로 팔아넘겨 소를 되찾으려 하고, 소가 농민의 생존과 직결된 중요한 자산임에도 불구하고 자식을 팔아 소를 지키려는 비극적인 선택 앞에서 가족 공동체의 붕괴와 인간성 상실에 대한 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "개인",
+        "가족",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0685,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_13_e4ddb74c",
+      "title": "불꽃 (선우휘 원작, 이은성·윤삼육 각색)",
+      "description": "일제강점기부터 6.25 전쟁 이후까지의 격동적인 한국 현대사 속에서, 지식인 '현'(주인공)이 자신의 신념과 양심을 지키기 위해 불의한 현실에 맞서 싸우지만, 결국 비극적인 죽음을 맞이하는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0575,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_14_d79790e1",
+      "title": "토지 (박경리 원작, 이형우 각색)",
+      "description": "일제강점기 국권 침탈과 토지 수탈로 인해 만석꾼 최 참판 일가가 몰락하고, 이에 저항하려던 농민들이 무력하게 희생되면서, 민족의 비극적인 현실과 이에 대한 저항 의지가 충돌하는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.054,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_15_40d5449f",
+      "title": "경주의 달밤 (이병기)",
+      "description": "일제강점기 경주를 여행하던 글쓴이가 경주의 밤 풍경을 감상하며, 과거의 영화(榮華)를 잃고 식민지 현실 속에서 쇠락해 가는 경주의 모습을 목격하며 시대적 비애와 무상감을 느끼는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.6,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.054,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_16_8f36c974",
+      "title": "봄 (윤오영)",
+      "description": "글쓴이가 봄날의 정경을 감상하며, 계절의 변화와 시간의 흐름 속에서 인생의 의미와 가치를 성찰하고, 과거에 대한 아쉬움과 함께 현재의 삶을 긍정적으로 바라보는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.049,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_17_68fef8d6",
+      "title": "내가 잃어버린 나무들 (나희덕)",
+      "description": "글쓴이가 자신의 집 정원에 나무를 가꾸는 경험을 통해 소유와 집착의 의미를 성찰하고, 뜻하지 않은 이사로 인해 나무들과 헤어지게 되면서, 소유와 상실, 그리고 삶의 의미에 대해 깊은 고뇌와 성찰을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.057,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_18_9a634abc",
+      "title": "말하는 돌 (문순태) / 석가산폭포기 (채수) / 고향 (유종호)",
+      "description": "전쟁으로 인해 가족을 잃고 누명을 쓴 채 죽임을 당한 아버지의 한을 풀기 위해 고향으로 돌아온 '나'가, 아버지의 묘 이장 작업을 통해 마을 사람들의 위선과 무력감을 마주하며 겪는 내면적 갈등이 발생한다. 또한, 자연물을 통해 삶의 진리를 성찰하는 모습과 고향에 대한 복합적인 인식이 드러난다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "개인",
+        "가족"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.082,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_19_d825a885",
+      "title": "곡두 운동회 (임철우)",
+      "description": "6.25 전쟁 직후의 혼란스러운 시기에, 가상의 마을에서 반란군과 정부군이 대치하는 가운데, 마을 사람들이 강제로 이념적 성향에 따라 분류되고, 이에 대한 권력자들의 기만적이고 비인간적인 행태를 목격하며 고통과 혼란을 겪는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "기관"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.067,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_20_3252d7b7",
+      "title": "임진록 (작자 미상)",
+      "description": "임진왜란이라는 국가적 위기 속에서, 영웅적 면모를 지닌 '홍립'과 '김웅서'가 왜군에 맞서 싸우지만, 개인적인 욕망과 시대의 한계로 인해 갈등하고 비극적인 최후를 맞이하는 상황이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0525,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_21_3c1aec01",
+      "title": "오래된 잠버릇 (함민복)",
+      "description": "화자가 잠 못 드는 밤, 천장에 매달린 파리의 모습을 관찰하며 자신과 파리의 존재 의미를 고뇌하고, 외로움과 불안감 속에서 존재의 본질적인 가치와 삶의 의미를 탐색하는 내면적 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.6,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.053,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_22_1b89e186",
+      "title": "어둠도 자세히 보면 환하다 (김기택)",
+      "description": "글쓴이가 자신의 낡고 누추한 어둠의 방을 관찰하며, 보잘것없는 잡동사니들이 서로를 비춰주고 의지하는 모습을 발견하고, 이를 통해 어둠 속에서도 빛과 가치를 발견하는 통찰을 얻는 내면적 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0555,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_23_f59b23ae",
+      "title": "거꾸로 보기 (법정)",
+      "description": "글쓴이가 차를 끓이는 경험과 일상 속에서 마주하는 사물, 사람들을 '거꾸로 보기'라는 새로운 시선으로 관찰하며, 고정관념에서 벗어나 대상의 진정한 가치와 삶의 지혜를 발견하는 내면적 갈등을 겪는다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.055,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_24_fc214c29",
+      "title": "흥부 부부상 (박재삼) / 지상의 방 한 칸-박영한 님의 죄를 빌려 (김사인) / 오발탄 (이범선)",
+      "description": "가난한 현실 속에서 '흥부 부부'가 보여주는 정신적 가치와 '나'(화자)가 겪는 도시 빈민으로서의 고통과 무력감, 그리고 6.25 전쟁 이후 혼란스러운 사회에서 '철호' 가족이 겪는 비극적인 삶을 통해 물질적 풍요와 정신적 가치의 충돌, 그리고 현실에 대한 비애와 무력감을 느끼는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "개인",
+        "가족",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.083,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_25_32cf00f4",
+      "title": "원고지 (이근삼)",
+      "description": "글 쓰는 일로 가족의 생계를 책임져야 하는 가장(교수)이 돈벌이만을 강요하는 아내와 출판사의 압력에 시달리며, 학자로서의 정체성을 잃고 번역 기계로 전락해가는 비극적인 상황에서 현실의 부조리와 개인의 소외를 겪는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.7,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 1.0,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "personal",
+      "stakeholders": [
+        "가족"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.064,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_26_f8d58b66",
+      "title": "상행 (김광규)",
+      "description": "고속도로를 달리는 자동차 안에서 '나'(화자)가 도시로 향하는 풍경을 바라보며, 산업화와 근대화로 인해 변화된 사회의 모습과 그 속에서 사라져 가는 소중한 가치들, 그리고 무비판적으로 현실을 수용하는 사람들의 태도에 대한 비판적 인식을 겪는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "개인",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.072,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_27_353ba9fc",
+      "title": "광문자전 (박지원)",
+      "description": "못생긴 외모와 천한 신분으로 인해 사회적으로 소외되던 '광문'이 거지 패거리에게 오해를 받아 쫓겨나고, 도둑으로 오인받는 등 여러 시련을 겪지만, 자신의 진실한 인품과 인간적인 신의를 바탕으로 사회적 편견을 극복하고, 결국 많은 사람들에게 인정받는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "개인",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.074,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_28_947a8ee0",
+      "title": "토끼전 (작자 미상)",
+      "description": "병이 든 용왕을 살리기 위해 토끼의 간이 필요하다는 말에, '별주부'가 토끼를 속여 용궁으로 데려오지만, 토끼가 기지를 발휘하여 위기에서 벗어나고, 결국 용왕과 별주부의 어리석음, 그리고 사회 지도층의 무능함을 풍자하는 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.8,
+        "purity": 0.5,
+        "extent": 0.7
+      },
+      "category": "social",
+      "stakeholders": [
+        "개인",
+        "사회"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.066,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    },
+    {
+      "id": "ebs_literature_29_6e3e6d9b",
+      "title": "심청가 (작자 미상)",
+      "description": "앞을 보지 못하는 아버지 '심학규'의 눈을 뜨게 하기 위해 '심청'이 공양미 삼백 석에 몸을 팔아 인당수에 뛰어들지만, 옥황상제의 도움으로 환생하여 황후가 되고, 맹인 잔치를 열어 아버지를 다시 만나 눈을 뜨게 하는 과정을 통해 효(孝)의 지극한 가치와 인간의 고통, 그리고 초월적 존재의 개입으로 인한 갈등이 발생한다.",
+      "source_type": "ebs_literature",
+      "bentham_factors": {
+        "intensity": 0.5,
+        "duration": 0.5,
+        "certainty": 0.5,
+        "propinquity": 0.7,
+        "fecundity": 0.5,
+        "purity": 0.5,
+        "extent": 0.3
+      },
+      "category": "general",
+      "stakeholders": [
+        "개인"
+      ],
+      "ethical_themes": [],
+      "binary_label": null,
+      "complexity_score": 0.0895,
+      "controversy_score": 0.5,
+      "processing_method": "rule_based",
+      "quality_confidence": 0.85
+    }
+  ]
+}

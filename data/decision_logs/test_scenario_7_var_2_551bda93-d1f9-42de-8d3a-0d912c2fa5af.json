@@ -1,0 +1,145 @@
+{
+  "id": "551bda93-d1f9-42de-8d3a-0d912c2fa5af",
+  "situation": {
+    "id": "24c55db0-cac6-4e2a-885f-2ae47e148a28",
+    "title": "기업 내부 고발 딜레마",
+    "description": "회사가 환경오염을 은폐하고 있다는 사실을 발견했습니다. 고발하면 회사와 동료들에게 피해가 가지만 환경을 보호할 수 있습니다.",
+    "context": {
+      "location": "회사",
+      "time": "야간",
+      "weather": "실내",
+      "people_involved": [
+        "나",
+        "동료들",
+        "회사",
+        "지역주민"
+      ]
+    },
+    "variables": {
+      "environmental_damage": 0.8,
+      "job_security_risk": 0.9,
+      "legal_protection": 0.3,
+      "moral_obligation": 0.9
+    },
+    "options": [
+      {
+        "id": "whistleblow",
+        "text": "내부 고발한다",
+        "affected_count": 1000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "internal_report",
+        "text": "내부적으로만 보고한다",
+        "affected_count": 100,
+        "duration_seconds": 2592000
+      },
+      {
+        "id": "stay_silent",
+        "text": "침묵을 유지한다",
+        "affected_count": 1000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "collect_evidence",
+        "text": "더 많은 증거를 수집한다",
+        "affected_count": 1000,
+        "duration_seconds": 7776000
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.362522",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.362528"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.362530"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 10.0,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "f5babf77-2e5d-414d-9faa-34f39a1eacc2",
+    "situation_id": "24c55db0-cac6-4e2a-885f-2ae47e148a28",
+    "choice": "whistleblow",
+    "reasoning": "'내부 고발한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "whistleblow"
+    },
+    "timestamp": "2025-06-29T01:27:35.362534"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.6,
+    "primary_emotion": "ANXIETY",
+    "option_outcomes": {
+      "whistleblow": {
+        "hedonic": 0.6,
+        "emotion": "ANXIETY"
+      },
+      "internal_report": {
+        "hedonic": 0.4,
+        "emotion": "ANXIETY"
+      },
+      "stay_silent": {
+        "hedonic": 0.1,
+        "emotion": "GUILT"
+      },
+      "collect_evidence": {
+        "hedonic": 0.8,
+        "emotion": "TRUST"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 내부 고발한다"
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.20000000000000007,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.09999999999999998,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.6,
+      "hedonic_difference": 0.09999999999999998,
+      "better_options": [],
+      "was_optimal": false
+    },
+    "timestamp": 1751128055.362539
+  },
+  "timestamp": "2025-06-29T01:27:35.362539"
+}

@@ -1,0 +1,145 @@
+{
+  "id": "1810e06a-413f-4882-9386-348c2141d48e",
+  "situation": {
+    "id": "f7345765-671f-48d8-89b3-c480b2fd554d",
+    "title": "환경보호 vs 경제발전 딜레마",
+    "description": "지역의 마지막 남은 숲을 보존할지, 일자리 창출을 위해 공장을 건설할지 결정해야 합니다.",
+    "context": {
+      "location": "시의회",
+      "time": "오전",
+      "weather": "맑음",
+      "people_involved": [
+        "시민들",
+        "환경단체",
+        "기업",
+        "정부"
+      ]
+    },
+    "variables": {
+      "unemployment_rate": 0.8,
+      "environmental_damage": 0.9,
+      "economic_benefit": 0.7,
+      "public_opinion": 0.5
+    },
+    "options": [
+      {
+        "id": "preserve_forest",
+        "text": "숲을 보존한다",
+        "affected_count": 10000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "build_factory",
+        "text": "공장을 건설한다",
+        "affected_count": 10000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "compromise_solution",
+        "text": "절충안을 찾는다",
+        "affected_count": 10000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "public_referendum",
+        "text": "주민투표로 결정한다",
+        "affected_count": 10000,
+        "duration_seconds": 2592000
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.348026",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.348040"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.348051"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 100.0,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "2fd0ae52-5835-4f50-ac64-d16da99831b5",
+    "situation_id": "f7345765-671f-48d8-89b3-c480b2fd554d",
+    "choice": "compromise_solution",
+    "reasoning": "'절충안을 찾는다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "compromise_solution"
+    },
+    "timestamp": "2025-06-29T01:27:35.348057"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.6,
+    "primary_emotion": "TRUST",
+    "option_outcomes": {
+      "preserve_forest": {
+        "hedonic": 0.7,
+        "emotion": "JOY"
+      },
+      "build_factory": {
+        "hedonic": 0.5,
+        "emotion": "ANXIETY"
+      },
+      "compromise_solution": {
+        "hedonic": 0.6,
+        "emotion": "TRUST"
+      },
+      "public_referendum": {
+        "hedonic": 0.8,
+        "emotion": "TRUST"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 절충안을 찾는다"
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.20000000000000007,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.09999999999999998,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.6,
+      "hedonic_difference": 0.09999999999999998,
+      "better_options": [],
+      "was_optimal": false
+    },
+    "timestamp": 1751128055.3480618
+  },
+  "timestamp": "2025-06-29T01:27:35.348062"
+}

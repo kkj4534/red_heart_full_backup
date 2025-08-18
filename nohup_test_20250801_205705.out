@@ -1,0 +1,191 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+   🔝 새로운 Peak 메모리: 0.000GB (at 초기화 시작 전)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/models/marian/tokenization_marian.py:175: UserWarning: Recommended: pip install sacremoses.
+  warnings.warn("Recommended: pip install sacremoses.")
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+Device set to use cuda:0
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/pipelines/text_classification.py:106: UserWarning: `return_all_scores` is now deprecated,  if want a similar functionality use `top_k=None` instead of `return_all_scores=True` or `top_k=1` instead of `return_all_scores=False`.
+  warnings.warn(
+⚠️ GPU 사용률이 낮습니다 (24.7%) - 더 적극적 로딩 필요
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 1.954GB (24.4%)
+   📦 예약됨: 2.078GB
+   💚 여유: 6.045GB
+   🔄 config.py 측정: 24.4%
+   🧠 GPU 텐서: 1161개, 1.944GB
+   📋 큰 텐서 TOP 5:
+      1. [54343, 768] (torch.float32) - 159.2MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.124GB
+   🔝 새로운 Peak 메모리: 2.224GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.676GB (46.0%)
+   📦 예약됨: 3.799GB
+   💚 여유: 4.323GB
+   🔄 config.py 측정: 46.0%
+   🧠 GPU 텐서: 1405개, 3.629GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.122GB
+   🔝 새로운 Peak 메모리: 3.676GB (at 백본 초기화 후)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.676GB (46.0%)
+   📦 예약됨: 3.799GB
+   💚 여유: 4.323GB
+   🔄 config.py 측정: 46.0%
+   🧠 GPU 텐서: 1405개, 3.629GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.122GB
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.676GB (46.0%)
+   📦 예약됨: 3.799GB
+   💚 여유: 4.323GB
+   🔄 config.py 측정: 46.0%
+   🧠 GPU 텐서: 1405개, 3.629GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.122GB
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+AdvancedMultiLevelSemanticAnalyzer: PyTorch 네트워크를 찾지 못했습니다
+❌ semantic_surd_head 헤드 초기화 실패: PyTorch 네트워크를 찾지 못했습니다
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 46.0% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=3.68GB, 예약=3.79GB
+🗑️ 총 191개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 153개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 46.0% → 46.0% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+전역 bentham_calculator에 get_pytorch_network 메서드가 없음
+전역 emotion_analyzer에 get_pytorch_network 메서드가 없음
+AdvancedMultiLevelSemanticAnalyzer: PyTorch 네트워크를 찾지 못했습니다
+semantic_analyzer.get_pytorch_network() 호출 실패: PyTorch 네트워크를 찾지 못했습니다
+semantic_analyzer에서 PyTorch 네트워크 탐색 실패
+❌ semantic_surd_head에 대한 PyTorch 네트워크를 찾을 수 없습니다.
+시스템 초기화 실패: 헤드 semantic_surd_head의 PyTorch 네트워크가 없음 - 시스템 중단
+🚨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 686, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1217, in _initialize_core_components
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/head_compatibility_interface.py", line 1821, in initialize_all_heads
+    self._register_heads_with_swap_manager()
+  File "/mnt/c/large_project/linux_red_heart/head_compatibility_interface.py", line 1655, in _register_heads_with_swap_manager
+    raise RuntimeError(f"헤드 {head_type.value}의 PyTorch 네트워크가 없음 - 시스템 중단")
+RuntimeError: 헤드 semantic_surd_head의 PyTorch 네트워크가 없음 - 시스템 중단
+
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-01 20:58:53
+------------------------------------------------------------
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+
+============================================================
+🚨 시스템 초기화 실패!
+============================================================
+에러: 헤드 semantic_surd_head의 PyTorch 네트워크가 없음 - 시스템 중단
+============================================================
+상세 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 686, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1217, in _initialize_core_components
+    await asyncio.wait_for(
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/head_compatibility_interface.py", line 1821, in initialize_all_heads
+    self._register_heads_with_swap_manager()
+  File "/mnt/c/large_project/linux_red_heart/head_compatibility_interface.py", line 1655, in _register_heads_with_swap_manager
+    raise RuntimeError(f"헤드 {head_type.value}의 PyTorch 네트워크가 없음 - 시스템 중단")
+RuntimeError: 헤드 semantic_surd_head의 PyTorch 네트워크가 없음 - 시스템 중단
+
+============================================================
+
+[21:03:07] ❌ 시스템 초기화 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

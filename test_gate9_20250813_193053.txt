@@ -1,0 +1,254 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 320M v2 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 그래디언트 체크 (NaN, 끊김 검증)
+[0;34m[INFO][0m    - 텐서 계산 무결성 확인
+[0;34m[INFO][0m    - 파라미터 업데이트 없음 (베이스라인 회귀)
+2025-08-13 19:32:43,646 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+2025-08-13 19:32:43,658 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-13 19:32:43,658 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-13 19:32:43,658 - dynamic_swap_manager - INFO - RedHeartDynamicSwapManager 초기화 완료
+2025-08-13 19:32:43,658 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO - Red Heart AI 통합 학습 시스템 v2 초기화
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO -   - 모델 크기: 320M 파라미터
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO -   - 디바이스: cuda
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO -   - 모드: train-test
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습률: 0.0001
+2025-08-13 19:32:43,659 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 19:32:43,660 - RedHeart.UnifiedTrainingV2 - INFO - 
+============================================================
+2025-08-13 19:32:43,660 - RedHeart.UnifiedTrainingV2 - INFO - 🚀 Red Heart AI 통합 학습 시작
+2025-08-13 19:32:43,660 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 19:32:43,660 - RedHeart.UnifiedTrainingV2 - INFO - 
+📊 데이터 준비 시작
+2025-08-13 19:32:43,661 - RedHeart.UnifiedTrainingV2 - INFO - 📂 전처리된 데이터 로드: preprocessed_dataset_v2.json
+2025-08-13 19:32:43,663 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 데이터 준비 완료
+2025-08-13 19:32:43,663 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습: 2 샘플
+2025-08-13 19:32:43,663 - RedHeart.UnifiedTrainingV2 - INFO -   - 검증: 1 샘플
+2025-08-13 19:32:43,663 - RedHeart.UnifiedTrainingV2 - INFO - 
+🤖 모델 초기화 시작
+2025-08-13 19:32:43,663 - RedHeart.ModuleSelector - INFO - 실행 모드 변경: training
+2025-08-13 19:32:43,664 - RedHeart.ModuleSelector - INFO - 활성 모듈 수: 12
+2025-08-13 19:32:43,664 - RedHeart.ModuleSelector - DEBUG - 활성 모듈: ['bentham_fromm_head', 'emotion_dsp_simulator', 'emotion_empathy_head', 'kalman_filter', 'meta_integration_head', 'neural_bentham', 'neural_emotion', 'neural_regret', 'neural_surd', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+2025-08-13 19:32:43,664 - RedHeart.UnifiedTrainingV2 - INFO - 📊 메모리 상태:
+2025-08-13 19:32:43,664 - RedHeart.UnifiedTrainingV2 - INFO -   - 필요: 1853.0 MB
+2025-08-13 19:32:43,664 - RedHeart.UnifiedTrainingV2 - INFO -   - 가용: 8191.6 MB
+2025-08-13 19:32:43,665 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_dsp_simulator
+2025-08-13 19:32:43,717 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-13 19:32:43,964 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: kalman_filter
+2025-08-13 19:32:43,968 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_bentham
+2025-08-13 19:32:43,968 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_emotion
+2025-08-13 19:32:43,968 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_regret
+2025-08-13 19:32:43,968 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_surd
+2025-08-13 19:32:43,968 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: unified_backbone
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-13 19:32:44,734 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-13 19:32:44,735 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-13 19:32:44,879 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: bentham_fromm_head
+2025-08-13 19:32:44,970 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-13 19:32:45,061 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 벤담 헤드 로드 성공 (27M)
+2025-08-13 19:32:45,061 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_empathy_head
+2025-08-13 19:32:45,137 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-13 19:32:45,161 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 감정 헤드 로드 성공 (30M)
+2025-08-13 19:32:45,161 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: meta_integration_head
+2025-08-13 19:32:45,162 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: regret_learning_head
+2025-08-13 19:32:45,240 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-13 19:32:45,269 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 후회 헤드 로드 성공 (30M)
+2025-08-13 19:32:45,269 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: semantic_surd_head
+2025-08-13 19:32:45,317 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-13 19:32:45,336 - RedHeart.UnifiedTrainingV2 - INFO - ✅ SURD 헤드 로드 성공 (22M)
+2025-08-13 19:32:45,336 - RedHeart.UnifiedTrainingV2 - INFO - 🎯 학습 필수 모듈 강제 로드 중...
+2025-08-13 19:32:45,337 - RedHeart.UnifiedTrainingV2 - INFO - 🤖 신경망 분석기 로드 중 (232M 파라미터)...
+2025-08-13 19:32:46,048 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,333,263 파라미터
+2025-08-13 19:32:46,607 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,019,458 파라미터
+2025-08-13 19:32:47,708 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,610,522 파라미터
+2025-08-13 19:32:47,806 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,276,424 파라미터
+2025-08-13 19:32:47,807 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 367,239,667 (367.2M)
+2025-08-13 19:32:47,963 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ emotion 신경망 분석기 로드 성공
+2025-08-13 19:32:48,042 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ bentham 신경망 분석기 로드 성공
+2025-08-13 19:32:48,229 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ regret 신경망 분석기 로드 성공
+2025-08-13 19:32:48,243 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ surd 신경망 분석기 로드 성공
+2025-08-13 19:32:48,243 - RedHeart.UnifiedTrainingV2 - INFO -   - emotion_head 로드
+2025-08-13 19:32:48,243 - RedHeart.UnifiedTrainingV2 - INFO -   - bentham_head 로드
+2025-08-13 19:32:48,244 - RedHeart.UnifiedTrainingV2 - INFO -   - regret_head 로드
+2025-08-13 19:32:48,244 - RedHeart.UnifiedTrainingV2 - INFO -   - surd_head 로드
+2025-08-13 19:32:48,244 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 모델 초기화 완료
+2025-08-13 19:32:48,244 - RedHeart.UnifiedTrainingV2 - INFO - 
+📊 최종 로드된 모듈 요약:
+2025-08-13 19:32:48,244 - RedHeart.UnifiedTrainingV2 - INFO - 
+======================================================================
+2025-08-13 19:32:48,245 - RedHeart.UnifiedTrainingV2 - INFO - 🔍 상세 파라미터 분석
+2025-08-13 19:32:48,245 - RedHeart.UnifiedTrainingV2 - INFO - ======================================================================
+2025-08-13 19:32:48,246 - RedHeart.UnifiedTrainingV2 - INFO - 
+📌 백본:
+2025-08-13 19:32:48,246 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 파라미터: 90,624,132 (90.62M)
+2025-08-13 19:32:48,246 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습가능: 90,624,132 (90.62M)
+2025-08-13 19:32:48,246 - RedHeart.UnifiedTrainingV2 - INFO - 
+📌 헤드 모듈 (4개):
+2025-08-13 19:32:48,247 - RedHeart.UnifiedTrainingV2 - INFO -   [bentham]
+2025-08-13 19:32:48,247 - RedHeart.UnifiedTrainingV2 - INFO -     - 총: 13,871,919 (13.87M)
+2025-08-13 19:32:48,247 - RedHeart.UnifiedTrainingV2 - INFO -     - 학습가능: 13,871,919
+2025-08-13 19:32:48,248 - RedHeart.UnifiedTrainingV2 - INFO -   [emotion]
+2025-08-13 19:32:48,248 - RedHeart.UnifiedTrainingV2 - INFO -     - 총: 17,254,583 (17.25M)
+2025-08-13 19:32:48,248 - RedHeart.UnifiedTrainingV2 - INFO -     - 학습가능: 17,254,583
+2025-08-13 19:32:48,249 - RedHeart.UnifiedTrainingV2 - INFO -   [regret]
+2025-08-13 19:32:48,249 - RedHeart.UnifiedTrainingV2 - INFO -     - 총: 19,897,161 (19.90M)
+2025-08-13 19:32:48,249 - RedHeart.UnifiedTrainingV2 - INFO -     - 학습가능: 19,897,161
+2025-08-13 19:32:48,250 - RedHeart.UnifiedTrainingV2 - INFO -   [surd]
+2025-08-13 19:32:48,250 - RedHeart.UnifiedTrainingV2 - INFO -     - 총: 12,025,739 (12.03M)
+2025-08-13 19:32:48,250 - RedHeart.UnifiedTrainingV2 - INFO -     - 학습가능: 12,025,739
+2025-08-13 19:32:48,250 - RedHeart.UnifiedTrainingV2 - INFO - 
+📌 분석기 모듈 (6개):
+2025-08-13 19:32:48,250 - RedHeart.UnifiedTrainingV2 - INFO -   🤖 Neural Analyzers:
+2025-08-13 19:32:48,251 - RedHeart.UnifiedTrainingV2 - INFO -     [neural_emotion]
+2025-08-13 19:32:48,251 - RedHeart.UnifiedTrainingV2 - INFO -       - 총: 122,333,263 (122.33M)
+2025-08-13 19:32:48,251 - RedHeart.UnifiedTrainingV2 - INFO -       - 학습가능: 122,333,263
+2025-08-13 19:32:48,252 - RedHeart.UnifiedTrainingV2 - INFO -     [neural_bentham]
+2025-08-13 19:32:48,252 - RedHeart.UnifiedTrainingV2 - INFO -       - 총: 78,019,458 (78.02M)
+2025-08-13 19:32:48,252 - RedHeart.UnifiedTrainingV2 - INFO -       - 학습가능: 78,019,458
+2025-08-13 19:32:48,253 - RedHeart.UnifiedTrainingV2 - INFO -     [neural_regret]
+2025-08-13 19:32:48,253 - RedHeart.UnifiedTrainingV2 - INFO -       - 총: 153,610,522 (153.61M)
+2025-08-13 19:32:48,253 - RedHeart.UnifiedTrainingV2 - INFO -       - 학습가능: 153,610,522
+2025-08-13 19:32:48,254 - RedHeart.UnifiedTrainingV2 - INFO -     [neural_surd]
+2025-08-13 19:32:48,254 - RedHeart.UnifiedTrainingV2 - INFO -       - 총: 13,276,424 (13.28M)
+2025-08-13 19:32:48,254 - RedHeart.UnifiedTrainingV2 - INFO -       - 학습가능: 13,276,424
+2025-08-13 19:32:48,254 - RedHeart.UnifiedTrainingV2 - INFO -     📊 Neural Analyzer 합계: 367,239,667 (367.24M)
+2025-08-13 19:32:48,255 - RedHeart.UnifiedTrainingV2 - INFO -   📈 기타 분석기:
+2025-08-13 19:32:48,255 - RedHeart.UnifiedTrainingV2 - INFO -     [dsp]: 2,328,629 params
+2025-08-13 19:32:48,255 - RedHeart.UnifiedTrainingV2 - INFO -     [kalman]: 742 params
+2025-08-13 19:32:48,256 - RedHeart.UnifiedTrainingV2 - INFO - 
+======================================================================
+2025-08-13 19:32:48,256 - RedHeart.UnifiedTrainingV2 - INFO - 📊 전체 통계:
+2025-08-13 19:32:48,256 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 파라미터: 523,242,572 (523.24M)
+2025-08-13 19:32:48,256 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습가능 파라미터: 523,242,572 (523.24M)
+2025-08-13 19:32:48,256 - RedHeart.UnifiedTrainingV2 - INFO -   - 목표: 450M, 실제: 523.24M
+2025-08-13 19:32:48,257 - RedHeart.UnifiedTrainingV2 - INFO - 
+💾 GPU 메모리:
+2025-08-13 19:32:48,257 - RedHeart.UnifiedTrainingV2 - ERROR - ❌ 오류 발생: 'used_mb'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 827, in run
+    self.initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 246, in initialize_models
+    self._print_detailed_parameters()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 326, in _print_detailed_parameters
+    logger.info(f"  - 사용중: {gpu_info['used_mb']:.1f} MB")
+                               ~~~~~~~~^^^^^^^^^^^
+KeyError: 'used_mb'
+2025-08-13 19:32:48,259 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧹 시스템 정리 중...
+2025-08-13 19:32:48,391 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 정리 완료
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (12개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (12개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 935, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 931, in main
+    system.run()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 827, in run
+    self.initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 246, in initialize_models
+    self._print_detailed_parameters()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 326, in _print_detailed_parameters
+    logger.info(f"  - 사용중: {gpu_info['used_mb']:.1f} MB")
+                               ~~~~~~~~^^^^^^^^^^^
+KeyError: 'used_mb'
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

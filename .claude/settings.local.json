@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(sudo apt:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(source:*)",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(export PATH=$PATH:/home/kkj/.local/bin)",
+      "Bash(chmod:*)",
+      "Bash(/home/kkj/.local/bin/pip install pandas matplotlib seaborn jinja2 markdown --break-system-packages)",
+      "Bash(/home/kkj/.local/bin/python3:*)",
+      "Bash(PYTHONPATH=/mnt/c/large_project/linux_red_heart:/home/kkj/.local/lib/python3.12/site-packages python3 training/start_training.py)",
+      "Bash(ls:*)",
+      "Bash(pgrep:*)",
+      "Bash(ps:*)",
+      "Bash(PYTHONPATH=/mnt/c/large_project/linux_red_heart:/home/kkj/.local/lib/python3.12/site-packages python3 training/test_hybrid_full_system.py)",
+      "Bash(nvidia-smi:*)",
+      "Bash(cat:*)",
+      "Bash(rg:*)",
+      "Bash(mv:*)",
+      "Bash(export PATH=\"$HOME/miniconda3/bin:$PATH\")",
+      "Bash(conda install:*)",
+      "Bash(rm:*)",
+      "Bash(timeout 180 python3 unified_system_main.py --mode test --samples 2 --epochs 1 --batch-size 1 --debug --timeout 120)",
+      "Bash(./run_learning.sh:*)",
+      "WebSearch"
+    ],
+    "deny": []
+  }
+}

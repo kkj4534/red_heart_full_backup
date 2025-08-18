@@ -1,0 +1,5863 @@
+{
+  "metadata": {
+    "dataset_name": "scruples",
+    "batch_info": "100/100",
+    "scenario_count": 209,
+    "creation_time": "2025-06-22T01:34:42.308361",
+    "converter_version": "1.0"
+  },
+  "scenarios": [
+    {
+      "id": "f7f4a1e0-be23-4144-a10f-69ea958009f5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "JXUrEnq5eoShU4BhwWGljNGo5yWlygIy",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731610"
+    },
+    {
+      "id": "245b2a68-af45-4f66-a2a4-921996692797",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "zvQEjbfESpxuVNj0In3c3WV7Yt316eNx",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731626"
+    },
+    {
+      "id": "10b41646-9f26-45b6-8cae-516e4d4b8c48",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Yw5T2BidCsg0QyxA9xBfndCh2pvN9pOh",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731640"
+    },
+    {
+      "id": "f601b1e4-ec4d-4c8d-9cdc-a38c1d6c33ab",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "zf5vFt2CmWslXWUKcgYP9sMani6Z0Tmt",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731653"
+    },
+    {
+      "id": "4956a82c-b30a-4d66-8126-725db69555f9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "akdbkcQhyTWTcIPPiMdUzKLlak3atOy7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731665"
+    },
+    {
+      "id": "eb8d321e-ffd6-4fae-83c4-3bbed3e23b7d",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "q8UkM5rMbMfA0gmZumLkhxMdaifqcBlb",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731682"
+    },
+    {
+      "id": "59730aa5-7e6e-4aee-b9c3-a4810bc6867e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "wxMkFOsZQOo2zFFWAFNbIQpEgBlGW20B",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731695"
+    },
+    {
+      "id": "272bf725-5589-41dc-9964-23f4dde1192a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "VL8bZcBo1UpcT0z0tgU8wwA5P4MoWHk4",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731710"
+    },
+    {
+      "id": "1f3ee0e9-8448-4d55-a528-ed0803847233",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "B2XG5gS0JGvLD1DOv06IQ4uY4uzTnWll",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731722"
+    },
+    {
+      "id": "f2d9eb20-673d-4ec6-8ac3-79758619634e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "GVJW5PQQrgmOLWGh6UIevuHnnkYiR8p0",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731734"
+    },
+    {
+      "id": "15036422-b8e1-4c69-8721-f96f38a88b17",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "MySKmX9CArasVrY5gUghYtFdc1PKtA5S",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731749"
+    },
+    {
+      "id": "f6389dd0-322d-4803-9da3-f9742be7aab8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ffRsL9vCI6Io1Bbl1nXHHqvA0pd4w4C9",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731762"
+    },
+    {
+      "id": "723da72b-9502-4d2c-9883-427aab7ca189",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "wlrfANYHKRsuiAVkHUU68Xvpy8vkegIP",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731774"
+    },
+    {
+      "id": "57a8e79b-541c-4b83-a304-c0c3439f6542",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Yt9yNi2hlDCB2pRPAgWxAHnJaf5aBamO",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731792"
+    },
+    {
+      "id": "b4768bfc-b41d-49d5-84b0-d3b050b513e0",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "VIyFPmAxoPEFxWzVg7UWFhDmW9BqfyrH",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731804"
+    },
+    {
+      "id": "e9a9e039-3945-4c25-b8f4-dc7bb36b9466",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "KhUAN5ua3QuOtJSUueFkQXt5N1PianDG",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731816"
+    },
+    {
+      "id": "9e33de78-8965-4d81-99d6-9d84c90e5181",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6uZJ1EKNOnrVzJUh2T9VwVcevqNsmT5Z",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731827"
+    },
+    {
+      "id": "4c235e98-c069-4f1e-a23d-ecfbaf219ebf",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "jUy8hBP7P5aHU10IuYvJmh3R9QcHULwG",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731839"
+    },
+    {
+      "id": "a843bc59-b9d1-4694-8c14-625684c6527e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "pZxVTxtLfKoqPScJJHgsn3aiSg2hyo4K",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731851"
+    },
+    {
+      "id": "a31f552f-41ad-4fec-a947-64174fe9fc54",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "FqVn0fcWpI5rt0nG5yTXQsCTPVZtWZ4C",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.731862"
+    },
+    {
+      "id": "e56c3e93-8950-4c28-8487-efe3c7cbaea8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "WcwwBBhvmrQwZpGzQdX6P8629O6mwuXD",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732154"
+    },
+    {
+      "id": "70a22f15-4004-48ee-97f0-aa32524b953e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "1BHggNmIfPs4S9SB6c5MMBwAq7V9yjEP",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732171"
+    },
+    {
+      "id": "9ebd4ad1-1a93-4d58-a0cf-e40d8406fe67",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "03Q6jYnSLFv3WcVqNgefsMWnKiy93V4V",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732188"
+    },
+    {
+      "id": "2f16c74f-a84b-4ccb-878b-2c4578da14e7",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "MQBZvhGqwLNl7VL5ZJTozWCnXXjOXQtk",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732201"
+    },
+    {
+      "id": "c23bec67-2db2-4c47-8ee1-36bf5309a638",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "1lxTaY5dBqkRXiIWw6w6HRwU547X1dEw",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732217"
+    },
+    {
+      "id": "08388811-a3a1-4901-9a00-3291b4fcfd51",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6t5oCk7GRRf5UIwIAFyMZPVQvVAecsKX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732243"
+    },
+    {
+      "id": "a0bde221-b91e-41f7-a23a-fce57cc49afb",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "nsOF2xUFjtGWvJandKF7kqXQRXxz7T0J",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732266"
+    },
+    {
+      "id": "cffd719e-e303-43e5-8970-40ad1cfae57c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "UbmyXerQ4dDiznGU4317ZWuHFF1zew1v",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732286"
+    },
+    {
+      "id": "a4689a22-475e-4752-8edc-d6e9d9874ab6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Fi6O7isBpyQVJC26q3b0sty2KNeVehNe",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732300"
+    },
+    {
+      "id": "d90bbe98-10b9-48bf-bb68-9a111cc8ed68",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "wNVhau6CM6fdd44PKk21wg1qIp2HlYvM",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732313"
+    },
+    {
+      "id": "6b6f2991-40c0-44dc-ab22-b9e88b223642",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "hkWEnewdVpYIGijdySiTwKpzF5BOVEha",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732347"
+    },
+    {
+      "id": "2aae847c-f612-4853-adaa-4a27c500b8b3",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "mFVwT75OjXlnLZdKyrelW0Q8wGp2AiSg",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732364"
+    },
+    {
+      "id": "c290e9b9-e8b7-4644-8225-be5a675e8683",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "RfptJ4K72AfRI5UeYk293ElKQUtr26vh",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732376"
+    },
+    {
+      "id": "af3cef13-8ef9-4352-97f3-cd7670b955d5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "yvwSz5gvhR2ngrwqNjn8vWe7VS5UFVB1",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732389"
+    },
+    {
+      "id": "1e2f91a7-7371-4993-afcc-169da9f4bd91",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "MrFMAP3MIGFd1EK90GLw43wRXBITWoXo",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732400"
+    },
+    {
+      "id": "32bf03b5-0f84-4d28-a3e0-382b09ba6ad6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "P9nG79o8Ae3BTZCX1SUuH63wBlM8U55a",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732412"
+    },
+    {
+      "id": "ddc91ca0-5350-40e6-b467-c2ead775b639",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "MR1UggbCoSMTWjXZWYoklBmKrKgCUAq9",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732427"
+    },
+    {
+      "id": "913c8d6d-2ab2-4d40-ab49-cdd830cd21d9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "k3qIqoH9rYFfupKqVqFfkcz1IAgSG4m2",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732439"
+    },
+    {
+      "id": "5b7d362b-b9f6-4668-8902-59ca84e3c163",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Up0FU9hH46et6l9a8niiQs4TrtbeC2CX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732452"
+    },
+    {
+      "id": "2b311783-5bbd-4b06-99ad-f020ae437e0d",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "4aWTjz3Og7N7YZDcFLjf7iq5EHgcdKLe",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732466"
+    },
+    {
+      "id": "bca488e6-137b-4e10-a081-645e6e9492e5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "0KMHhLVrJa3oktvcgCDNIrjsbLH0Gl4s",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732765"
+    },
+    {
+      "id": "1f9aa4fc-bb91-40ef-8ea0-0f3570314dfe",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6Q2kegxK8O2gJbxdIE78YREaZn8MQQNa",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732786"
+    },
+    {
+      "id": "c20ef644-eb63-48c5-9219-8e3773bc9faf",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "7eBKUhREaiCJRR5JmhxqgimrzktJien5",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732805"
+    },
+    {
+      "id": "721937d9-c73a-443c-8296-0b92666d04be",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "3wKcgh94i7zFQv3dxsZtbZojG0gTLO8n",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732818"
+    },
+    {
+      "id": "f97cec25-043c-4624-b851-513c2f83be2a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "f1utnviPhSc9sySuFf8PbTWeFpRpk4mI",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732831"
+    },
+    {
+      "id": "51738d38-eaeb-467f-92a5-15509a171868",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "FlkzluV5LyKt3byn1l3yQVdNtMXn2K1B",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732843"
+    },
+    {
+      "id": "74fa52ca-1e8b-45b5-bb9f-38d19e88a28b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "vRarEzuVc46C0BgBJZIJqaVhBJriJYsr",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732859"
+    },
+    {
+      "id": "aceef7d8-2926-4e5b-a4c2-f8942351231e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "fIgnybXPnY2Bwyy4gShXs2cJotz4A9Ta",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732871"
+    },
+    {
+      "id": "b3c144cd-094b-4213-a1dd-4c86e0a4b5a8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "c7wM0txAWG3ye0dbznN1UdxXZSAw3BWq",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732884"
+    },
+    {
+      "id": "9596673e-d9bb-46b1-a781-27a2b8f3fe6f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "PeW5qk2k95ORf23uA1DyS7ePVJEyrumg",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732896"
+    },
+    {
+      "id": "dbf96122-ecc1-48b0-a3c3-402c2ded37a8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SY1liO18gJIyjwGlBvKXejgChyJF6PqU",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732907"
+    },
+    {
+      "id": "4f754e1b-c78d-4401-b7db-dca7e3f5b7b5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SI8fbriudS0uy9YXWziZrS2vcdog43pX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732919"
+    },
+    {
+      "id": "21b36a33-7789-42a6-b28e-241c306d2470",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "U6aFtpZivhKWd5ohnzacg6p6z5G9iDM6",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732934"
+    },
+    {
+      "id": "65f5bfe7-569d-478a-8935-064a1020e4ce",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "WvMjs6ONmIuTnMGcX9QG2TrwKxA0Txti",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732946"
+    },
+    {
+      "id": "a3947196-9edb-4649-9788-113653cdec40",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "qllgtnS2ZvQsGcNOz97vDeKF8M7fwDfx",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.732958"
+    },
+    {
+      "id": "4bf0d020-354a-4893-9969-46a23de46f05",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6IzN5xEOVeXDtLtHNV0rKvYYXAB3BrXD",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733017"
+    },
+    {
+      "id": "f83690de-4653-4fb9-99a5-3803e243d4cb",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "jk8kIPJKWXHVTcGuErNAi9KariNMuHRv",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733040"
+    },
+    {
+      "id": "7da3fcfa-b874-43d3-b915-7fa3e8aec852",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "YNdMEUlRTKoNHDHl1T9yWzTKcfQm5TvJ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733054"
+    },
+    {
+      "id": "7028f490-d7c7-4665-9c89-ad7508811380",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "KdUloMnuUEmGduxOTMKcah4F9yoil8Ok",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733067"
+    },
+    {
+      "id": "6161589f-40fd-4298-8fe6-c3b3c0e78bbb",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "VE3VP8FfqNIgKNP0uRVloTXVtBVJgc92",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733079"
+    },
+    {
+      "id": "7094ee73-64ad-4742-af75-ac713a15d7d4",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Xs350qKcofY8InsWj8HATEXA4YtsD1nk",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733380"
+    },
+    {
+      "id": "c4b8699c-6118-485d-82cd-33526f788b32",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "r3Teuo2yDHrvUAcDFuChzY7W261YUdmu",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733397"
+    },
+    {
+      "id": "1c75c87c-6c5f-477c-bf7c-67a81eba0734",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "AtsBFi5jbGu02XnSStaJGmm24BUzvg6X",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733410"
+    },
+    {
+      "id": "5796be99-69de-4b16-a78e-9582d943bcbd",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "uTHxESD7WljfoaHScYI7jjdX71p62mlJ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733428"
+    },
+    {
+      "id": "c7a7cf77-6706-4b93-9f5b-05fb4e0e4062",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "2r5p7tEekrwnDOJT7RuFGqIHBYERXIs7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733441"
+    },
+    {
+      "id": "cf037c59-c436-4fe8-b773-83bd88da1cd0",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "pwDpj8pCDM7NvJ5J9z8Ag8hn4Hcejg0D",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733453"
+    },
+    {
+      "id": "68af971a-ce28-4090-8011-ababf9c954de",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Be86qrouTOhb9HUZcMQbZmoMlHoHTqgQ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733472"
+    },
+    {
+      "id": "8e69c684-2871-4e91-952f-f3d101ba2131",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "dCxaBKYszpfrjVNe5kVTeDT29uXz9I3Z",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733484"
+    },
+    {
+      "id": "50a93005-f6fe-4a42-ab92-43315e90e92a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Th6nz5wbulQZQmZACq3pzZBFKiLWHMXw",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733496"
+    },
+    {
+      "id": "e1930a0c-6665-403e-9af4-87820018a970",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SnvdWKoVX4jXumI9ZUiBgdcsOHfnfAVh",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733508"
+    },
+    {
+      "id": "88bf3238-68fe-4205-b8c7-f500c3ae5e0f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "acoCbhGAO6kWfRaeo2t1bVg714BVznl4",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733520"
+    },
+    {
+      "id": "dab43b32-26ed-4e2b-87ab-063fa0710e93",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "m524IQDFt3F9XpK5ucwINB15wR7Wwb6r",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733532"
+    },
+    {
+      "id": "df1db163-ad1d-4526-8606-52bb29822a9e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "rMonjzV6wEmYmwgK1JxDyFIEs7772J18",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733544"
+    },
+    {
+      "id": "67b1d8e9-747b-4ef2-ac2f-18cf53746453",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "bOHWf27zh2mXp9I6TpJLiXyTW6jdvtTm",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733559"
+    },
+    {
+      "id": "17d5953c-0acf-4b66-9d2c-c5d7b0d871f9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "7yNgTeUIYvnDCMfLL4vOTMKoHpjbZPub",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733575"
+    },
+    {
+      "id": "b21dd599-3909-4a3c-8a8c-b36be6c6fca4",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "P6CeXQ5mFFcLA7Nre7rPpdZL6WBOsR9e",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733587"
+    },
+    {
+      "id": "fbde346e-a1b0-4f5b-b1fa-639c7ef0f253",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "T4ruQUtPIFye0Dm2vyHorVuW8h2N96XD",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733598"
+    },
+    {
+      "id": "a5380bf5-a72e-457c-a3e7-275a1a33f038",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "eltz1TY1LRz0DOSeMC3pzTaoJbWbir9J",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733610"
+    },
+    {
+      "id": "fda17d67-4170-4a45-8f7d-62fdbd71aa8a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "IkMcKGh2cZB7dl1sZcIkhCkAmS0fYm17",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733625"
+    },
+    {
+      "id": "b73158c4-5383-49fa-9283-67bc9b2d10a4",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ZKuCczswQu9L0erZ6wl48eFzxzEWWkJe",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733930"
+    },
+    {
+      "id": "360c8875-4150-462a-88a5-7cc3f414705b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "obdCne3rqUrDg0bz8Zi0ZBwDVTf87yp7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733946"
+    },
+    {
+      "id": "0ac76eb3-ba43-48cb-b36c-b5d866381ccd",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "sMehzW0sEglpEQ0eYvyTkTN1hnvXvB57",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733959"
+    },
+    {
+      "id": "2169cec7-ce9c-4d76-ab3e-0d7ba196a610",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6rEwUHuuNuUUfYwSnsnVhqc15Ka84zV7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733972"
+    },
+    {
+      "id": "4379893b-a6ff-4bd1-b21b-ae684482dd32",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "OTWzcYWbb5kpDBZLhMk066ZtkaE6VDzD",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.733985"
+    },
+    {
+      "id": "e64d6d8d-bb0e-408d-961f-909234b36c17",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "POEeX6UPdyHICDIQMudovIiADh01JLhh",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734002"
+    },
+    {
+      "id": "10c935cf-3f39-4e21-ac80-462687db5a79",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "LQiFIFf7F2dW6T1Ive8zDacxxZ6RFrRF",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734018"
+    },
+    {
+      "id": "4f5b2e3e-2635-4333-87f3-8673d55f30ab",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "BSg0pra2sWgPWvcsmsbdQ5wRGeTeCHwu",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734031"
+    },
+    {
+      "id": "545cf839-a345-46a8-8c1e-ad1e0995b4a7",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "5N1P969eJ2wPiYuQldgDjluI9iKCiB6b",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734046"
+    },
+    {
+      "id": "30695e86-5a26-4b03-b555-969cab30033c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "zvVABXkiUt17qq8QuXDDXS0if014oeUP",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734058"
+    },
+    {
+      "id": "38cc0f4d-0602-4c62-a607-a1cda9a57323",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "8XMrlUKqdr98Kgik000JBpporDboRTLR",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734070"
+    },
+    {
+      "id": "4e50db81-bd94-42a4-abc9-1f0988613fc8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Q8m7i1U7F7LJ9EtGAZgN1TlS3AZsigxl",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734085"
+    },
+    {
+      "id": "5820ef8a-0caf-4790-8ed3-7d6a0d4270eb",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "FRxalRGXxsT5FS4FjtoETtDfnT88OSq3",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734097"
+    },
+    {
+      "id": "73a3adb8-26ca-4abf-9ddc-84be63a16d28",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SK06pFiJrfbrjOal5WJQkhXK7vEN7Lcc",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734109"
+    },
+    {
+      "id": "d2c81c11-fa0c-4ce0-90d1-fe436683cc25",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "GDAq6qdFyL4jgntWpYV7fUYWTeIaZe34",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734120"
+    },
+    {
+      "id": "33651fc6-f8d8-48fd-87db-a08ed1346abf",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "PFBJ53tcwDafvX9IftDNrW2YLn1ZDfbX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734133"
+    },
+    {
+      "id": "a781ccec-26bf-426d-98e0-56d54923e4e9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "cnJaqkLI8peAzyMzqA6pndKcxVy08gQI",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734148"
+    },
+    {
+      "id": "7ab9ad47-c7ba-4f18-8898-9097aea5f2ca",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "PJd9K8xDuoGXZDHGfj5OwGG1JK1eTCEd",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734161"
+    },
+    {
+      "id": "5f43d3f5-2b6d-44f3-b8fb-fe4d071df569",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "XhmMdCk1NxL5fVjAktzSMHtNFjmGkQms",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734173"
+    },
+    {
+      "id": "5aefb47f-7223-402e-a34c-61a58b6b6910",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "o1QpotWgV2vQND7aVEPmTFsp7CUnnWnF",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734185"
+    },
+    {
+      "id": "2962d7e2-a9ae-4220-9d93-a6dd2d91c995",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "q0nGqGOpbdOMNxN4RYhs3JRNQakzkwei",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734479"
+    },
+    {
+      "id": "536e9340-1b49-43d3-82ea-6ace01b18fd8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "oCUL7RGqYumt3YVY1uWN5GnHFu1Bby5J",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734496"
+    },
+    {
+      "id": "dfff3f5a-babc-4312-9a5a-aa0de11116e5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Q1tPP8Kw7b1dIxk4z8jTPlOaKxsSEJch",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734509"
+    },
+    {
+      "id": "e207cff9-ce0d-471e-bbac-65d70c398ffd",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "TJWAmfJuNv9XnJPiXmEOGeyym91W3zjQ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734521"
+    },
+    {
+      "id": "987c5d58-5c4b-4eb6-93db-8fedc9f06e88",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "sW02sULpJUaAB9ivrzd5m4WNB93p1nnF",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734534"
+    },
+    {
+      "id": "5b0545f3-0baa-4929-a5ec-83c5af5991fd",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SWqGfeJm7PC09PldFQ2907YosfV97p6L",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734546"
+    },
+    {
+      "id": "9aff6e44-c3e2-4b8c-ba19-527c5e9a5d2a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "TQ6Q38u9KPi0qFxNqFhDnYSBqKW88Tk2",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734566"
+    },
+    {
+      "id": "094ef434-ec6f-4e06-a785-546b4b312bfc",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "eqHA4bSX06k07UU2rzMmFS0oRdDFdQDB",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734579"
+    },
+    {
+      "id": "0c19f8e7-1308-4244-bb35-83c9de359dab",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "uA2E1pa2YzUPfl3WZ15mdV54T1P0s0vA",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734592"
+    },
+    {
+      "id": "21d076e2-cf2b-4dd0-8281-12000156c153",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "YjDAcBpQIFMwsWFl6p60kNYE96OUEGda",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734607"
+    },
+    {
+      "id": "d64281ec-0963-4d65-98d0-7773abc91b19",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "uKC87fNKhhhMW9E7J3LCxYiOjezdK07d",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734619"
+    },
+    {
+      "id": "65f2615b-e1e2-4a5b-8d04-5b961502f563",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "u9j1E0j1SrpSyoIcI2Ak3H4S1xXGshBt",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734631"
+    },
+    {
+      "id": "badf38cf-bf12-4297-9639-aac044fbf1c1",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "oZoNKLuS9xVcOOe59lxy2WooB63MkpVW",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734643"
+    },
+    {
+      "id": "9ffdc4dc-9bfb-4c69-959d-e456c088eb9d",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "fm6WQHhjGOeMDP8p95nEr43Hd8bCJqep",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734655"
+    },
+    {
+      "id": "0b8f4f94-88ba-40ae-8430-9e3abbd0841d",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "sQwcmY3Y1Ycm19mv9yu5xw3oDnZAzzw6",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734667"
+    },
+    {
+      "id": "04828940-d778-4740-8eea-f47188da9f6a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "42hyLCjjdMBVuSg7bemPRHnnjtN2Tin0",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734680"
+    },
+    {
+      "id": "2fcc5e9e-ce9f-4507-aea8-ec71dc09c4f1",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "hMF65RZTcXDpa10U1s8m3iI1ThusGz4m",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734692"
+    },
+    {
+      "id": "f405ac1e-db27-4518-b538-2257c34cac12",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "kEtiWuRBrm6Ic01s2Uy90NYsLN8DfmFt",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734707"
+    },
+    {
+      "id": "848acbe8-725c-49f7-a9e7-03782c9f0c8b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "qdSDInwkZeXErhzZdUak6KYuLK9eNSyj",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734719"
+    },
+    {
+      "id": "46701d2c-5879-42cc-9b66-e5a7ad398bd5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "BuEERmXjtGyUbd8OVOQwVzIJzLACBZbs",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.734731"
+    },
+    {
+      "id": "011a1a8a-e9e0-4e99-ba13-7b0f9b5a8107",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "QOgc4MRYLznteUSHEhl7XovYLBQgmZUW",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735077"
+    },
+    {
+      "id": "0b61ac5f-a7be-4fbf-bdc6-e06a6793af38",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "uTq6aJ1y2QwhiPnQfSESHSXUbg2gapXS",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735096"
+    },
+    {
+      "id": "fe24de92-b0ee-4a64-82a2-47c9c5ce7f80",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Nrqs1zcO8rR0aETJNh145ZVLgJOocvg6",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735114"
+    },
+    {
+      "id": "54621cf5-2dc4-4d68-a7df-adae4388c1d9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "9obfq75lFSjjuiqZjjE1O8V5SIwHtsxS",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735130"
+    },
+    {
+      "id": "5634818b-29b8-4331-b6ba-c21aea91cbc1",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "vNPlNVdBhtQixpr0CTxzIrlYPs1I2FqX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735143"
+    },
+    {
+      "id": "c39b5a6e-9497-4b69-84ef-63cdb204b570",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "amkyu7hRPVOFkmwrFOM2jPFkXCc06EfJ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735164"
+    },
+    {
+      "id": "58a93927-2ad2-4abf-bdab-27d5f766b0a8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Ju4HjxMMEDVwklhJ0cmuCl2TSwhIW3zk",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735177"
+    },
+    {
+      "id": "eb203890-0084-4e0c-9a75-8e73ba2d0774",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "PALsRt9bzwikL7hjnmugOD6gNKvOTdCp",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735190"
+    },
+    {
+      "id": "d90374ab-6cb1-4c0f-8d09-b46ef6059809",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "jGJKWReM17Nso9d3cd0tS6lPuuq5d3qZ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735206"
+    },
+    {
+      "id": "1858f23f-0613-4abf-81e8-97de15c189df",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "GzNmbD92djXgZCXOGU80QFfbMLXFJSRW",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735241"
+    },
+    {
+      "id": "08e0785f-d886-4175-b913-e2da86584da6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "wAdgDw4K7Wx2awoEXDLeJYL8hnnyF1zH",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735265"
+    },
+    {
+      "id": "bc8ad329-edaf-4996-b741-02c3f0f20d1c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "3ECgYGM77TSNrDUsmmeJyqqMz7kQuJZS",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735280"
+    },
+    {
+      "id": "01a5265a-8aea-48dc-80ad-dec6742e43a0",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "QQ7ma0ZeOdDWKxfrbMjjoklsyEvVLYI9",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735293"
+    },
+    {
+      "id": "d6f68df8-d903-45de-958d-17bf2d83cf71",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Z18B8PizWGljgIsoOhpkrJ4QGu4PRsDH",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735305"
+    },
+    {
+      "id": "5f57f95d-c50a-40a0-909f-cadfd0366822",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "aqz5D5Bj2ydHpPk3yvNREs9td2mjBCOI",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735317"
+    },
+    {
+      "id": "ec9328e5-a33f-4be4-8a29-921714b243af",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "OYqgyOfMiOP1VWRxjO5MUcWBbDSvsk4V",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735329"
+    },
+    {
+      "id": "0a6095bb-4116-4362-b57b-3e30feb3a54c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "aC9VpjkpttRz7UcO3esWGoGYB0wPDLWf",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735341"
+    },
+    {
+      "id": "17559477-e2c8-4c6e-bcff-d853921ddf0f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "xV74TPzxPpUjF7eZxbtFD1mkDBI9OAyY",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735353"
+    },
+    {
+      "id": "09b4ef5b-dabd-4aba-84f0-44b541994625",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ot50QGxykblKTOT01aR07RBKQ3Fa6cIM",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735370"
+    },
+    {
+      "id": "53a6288d-7283-4364-ab5e-9d3cc94dd75f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "9bmYjR45h0vOyvd6FAnzWWjX9Hsfb1yX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735382"
+    },
+    {
+      "id": "a00789a0-1f43-4a25-9d4d-99e042f695be",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "pUFegMg2O3sJRwhuiEWZ4NxoCXwVkAlb",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735572"
+    },
+    {
+      "id": "abe7f8a0-4955-440c-a15a-edcb61f2305d",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "OYRGhlbMdMbKmE82NXBZzhzBljqk5QDk",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735590"
+    },
+    {
+      "id": "275829c9-dfc9-4077-b752-fc9a6b1f3709",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "yBZW5KlEtoSOrtWvVaXIgxTRucgdXfLq",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735608"
+    },
+    {
+      "id": "7dc88618-d92e-462a-9f11-4570aa8a1b16",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "VYbCF64T87XD66kRapjUXSlCTGXhpwge",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735622"
+    },
+    {
+      "id": "a76e669f-fefb-441a-ba8e-4fb207f508d6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ZqrTdq1GZSH8WXNi7Hlpu9UzT3r6aVID",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735635"
+    },
+    {
+      "id": "b7ccac16-f2ad-41f9-b302-10a20e37aa74",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "56GfAuqENb58tkVVIAQVDrG4eWBfdZfG",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735650"
+    },
+    {
+      "id": "fbb3e9ce-d25f-450f-b3c7-a3e89198a888",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "t1kQtKeQ709GA59BsWvZllm8KrAOWbyI",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735663"
+    },
+    {
+      "id": "2955de0d-d846-4ab5-8504-f7d37f5b3434",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "4bf0FgftJU5eq4Ri1nZ3xim1ppxcY9ED",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735694"
+    },
+    {
+      "id": "bd4942e6-b7f3-47d3-9197-ff39add5c851",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "f8tnXiCM5OpOlSvpkJQWkXqHQ8qFV6lX",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735708"
+    },
+    {
+      "id": "0f053966-2827-468c-82b2-7c4e8980b5f2",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ssSrWlKRY1Lie3bH2bnT0Q5weoA89WVr",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735725"
+    },
+    {
+      "id": "afa04fa6-6632-4f4b-ab87-3eeb5992d04c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "hgclb4EBcAJzaAhdplytARmdLC5aLyJq",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735737"
+    },
+    {
+      "id": "cfef1702-2901-4c69-b8bb-1f23f3b6257f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "aOhWVvF3UPv9FsJMtlLoZsx7dAyJtAD2",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735751"
+    },
+    {
+      "id": "58f437d7-1d38-4402-bb54-061178039cd3",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "u0zDyFkh7uOuVYWdGOa7kQIuKxupTpNz",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735763"
+    },
+    {
+      "id": "cbb37fed-de1f-4d76-8fc9-041011dd8b08",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "sO7MbV6X6zDJaAnixR3GayhxW9J4UDdZ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735778"
+    },
+    {
+      "id": "1b5b0825-4a1b-4858-aa85-5f2606a6293e",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "un2m0sb2CX3PHFNQZdLElkUPDqEd0fDf",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735790"
+    },
+    {
+      "id": "4090c5cd-4dd6-4175-b08c-78378fc112fe",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "yaBpztF68ZjQKWelwaj9bA9C7EXgxn7N",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735802"
+    },
+    {
+      "id": "d371121d-d190-4066-bdd1-75f86aea8add",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "yNNKP0gPQV7Zj1fNgmVnH6zyu42yVRvT",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735814"
+    },
+    {
+      "id": "a51cd541-722a-4aa2-b611-e09cddde50b0",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "IIzd4q67aN5xs1Me3xb8pJSMiSt6P0mo",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735825"
+    },
+    {
+      "id": "5f5ab238-a3ce-44f2-9c89-b16e403641b5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "bdX8agtcNpBm9pquxObOvlgIpSTVQAFw",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.735837"
+    },
+    {
+      "id": "7ed91a5a-21cd-46f7-9328-3dc510c24dbc",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Qafe3eqT2vLB6s58CjgCffReubC4bdKo",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736033"
+    },
+    {
+      "id": "e52eb6bc-b235-4438-a235-9f7c8fe2c217",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "UCQpkirJptvpygjPKlMnvAG6qeEESimP",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736054"
+    },
+    {
+      "id": "758fcb87-0472-43d1-ab60-90fddbf5d166",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "G2DYSFUghjajlXpAtjWaaSpcgoXMU2Wn",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736068"
+    },
+    {
+      "id": "23d7fdfa-12a3-489d-a02e-e247abaf8ae9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "vhGprpdb2dkgMaPX5hf33YSf7psqKVS7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736080"
+    },
+    {
+      "id": "52a718c8-008c-4067-9c19-f14052f4ab67",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "QQJjx6k1DXS9nbunLAePPgyUfvw8gB43",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736094"
+    },
+    {
+      "id": "d792fc28-e5ef-4d02-bf10-65efc3ac8360",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "jRivVW4ci261ePWI9bPHaHQLP4CbWikr",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736112"
+    },
+    {
+      "id": "1c6ed885-5a92-4132-91fc-7667a67f3037",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "FhxFkR6Td8NuUsgvWQaabVOixNJJgd0r",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736125"
+    },
+    {
+      "id": "40e1d45c-7b4c-4de8-8c04-485fc4cfb4f6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Z83TPm0g50Yxqzl6P5D6ype4LiHyn21M",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736137"
+    },
+    {
+      "id": "a87d57c9-7ddb-49cc-bbb2-78f5f9dd2a2f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "F2W8DdA8JLIru5wXwa3EjmFYzECArPCh",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736149"
+    },
+    {
+      "id": "cf8bbc37-bc58-4a30-b50e-9f2e013b97c0",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "ZfFtNM1QpgTPhNkg0Da1PqguLS4vTuqm",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736165"
+    },
+    {
+      "id": "dabd4118-f687-4950-b154-2ac7e3df9c95",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "0WhyAu4NUJBObmbsRandY7Pk8JurQNvZ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736177"
+    },
+    {
+      "id": "b41c6d21-9d58-4764-9993-55723445a701",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "aVcc2XeEOu6nNBICdVdf2CWJqidyGLNH",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736193"
+    },
+    {
+      "id": "93c85e20-64a4-4984-9705-f0f7238fdb2b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "tw2N9CycGsQGzzUX5r2YgDuIBoaiAioB",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736205"
+    },
+    {
+      "id": "f9216fb2-2b73-4d44-b046-378e1c4db0d6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "7EfRwUvQ2t6bH3lFBojfv7QjmBqfQq2o",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736233"
+    },
+    {
+      "id": "a8f65168-1f93-447e-ac12-4e455dc0be71",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "qkm1oTxfPYf2dyRbjq0Jyyto6XVxkacD",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736254"
+    },
+    {
+      "id": "ce45335f-f0d1-4568-a3c6-488811893bb8",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6OZgpOy6wOVC6emup33XsGK03obBwpS7",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736268"
+    },
+    {
+      "id": "14718ebe-4efe-46c4-8aa4-69ff24f12490",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "bNJLQfwOwdoNoosyp1vk0f47JJi19rml",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736281"
+    },
+    {
+      "id": "3d5abd5c-5ccb-4aff-b74d-d533c527c38f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "pg8KQtkbytVaIEFeleiaIbjjsdJ7d4yv",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736294"
+    },
+    {
+      "id": "ca6d4212-4c6a-4ba1-8064-d64bdc960e5a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "WGMfkD8IcB0qPBo58nyK55Sxd3wE87s5",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736356"
+    },
+    {
+      "id": "66c2f3e4-2a94-4f7d-9bcd-07bcdff1929b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "bWVT5NZfmSmFcaj7GIAxMhyM4V7Vy7bm",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736374"
+    },
+    {
+      "id": "2dd13543-1023-43b2-944d-3b031fda644a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "qe7zYKNpduDWn4ExrDGpdBVmKjZMTPPU",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736569"
+    },
+    {
+      "id": "56337261-40dd-48f7-87d2-3c0ec1ac4036",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Z3wASzfYMRqZnBOL0xnYgn8bY138KICl",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736587"
+    },
+    {
+      "id": "67b8dd74-1895-43f7-9587-ec31719ca269",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Q4qo04SvdCji2ACsBmKZnx4Iw6FW8bGO",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736608"
+    },
+    {
+      "id": "3e747996-0d0d-40b1-af82-a75585f35065",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SEB1YTSzbA3HteQjx1KealrlIC7ApDzv",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736621"
+    },
+    {
+      "id": "17fb7933-e695-48f7-b69a-bd0bd202941f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "TpZ3l77YfKVugsQdedLcqkzjDlWT4MtZ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736634"
+    },
+    {
+      "id": "0f44399a-fac4-4a6c-afb3-f6fbaca5bbc5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6X3FgTNV3zEZYzz3xPNpkHXy17y9zxbn",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736653"
+    },
+    {
+      "id": "2c66cca9-84ce-4b00-a61a-4f5e8770387c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "SztTONuSi722j4IZsORkoQxUmAOUrpQt",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736666"
+    },
+    {
+      "id": "511efa6f-9f3f-491e-b8ac-e8e8bd04f108",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "MhN4JRIJK6kCBEyCA92lUzfMkGqMrJFb",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736677"
+    },
+    {
+      "id": "eff4edf3-60b7-4977-9eae-af26d2aa9aa6",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "CvrUR5BosoROI4kZobOcJNd3bF9xz9Hg",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736690"
+    },
+    {
+      "id": "ceb5262c-ddc4-4934-9756-1ed9e3f42355",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "mhrY3xuEXQutb2SA7ogF3QtLbSLNjpBt",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736701"
+    },
+    {
+      "id": "7e6fd92d-d5a4-43bd-ae08-5ef40443931c",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "6YGicHmghoGqvqHpdBp0Zm70LL1V3zZ3",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736713"
+    },
+    {
+      "id": "d86d08a7-2c4e-451e-a5c6-694bafb73e3f",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "Js8FbjSUXfGSOgyr3HGnaVkivb2cMUII",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736725"
+    },
+    {
+      "id": "392d2bff-4267-4592-948c-6a2730462492",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "zZN9LAKgE3tBF9x51bKSWCvvpTKAxa4d",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736740"
+    },
+    {
+      "id": "0afb6e9e-a6ae-4007-ba07-ae476634a687",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "5cGEPoh40PEO6fwd3Q74BGwQhvm8qQBa",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736752"
+    },
+    {
+      "id": "08b1e14e-7ea9-423e-a561-775503691269",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "5lNKeUxQOpABrHbkUvhHwFHm8YLI36pc",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736768"
+    },
+    {
+      "id": "7c57917f-973c-48a1-bbba-7144e1712137",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "tKuFbVu034wEddBvWNGGX0IEMigno8Nw",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736780"
+    },
+    {
+      "id": "41b5d781-4e4e-4586-bfa5-7a578623cb5b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "2pLpHyWf7XrPmLrQg5JbB8v58rV2YFdg",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736792"
+    },
+    {
+      "id": "244a7c30-e78b-410a-8873-b5e42ca7f40b",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "JnveCDx1zgaPN1xdNbWSAGPOYGvYgTiQ",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736804"
+    },
+    {
+      "id": "fb428e61-3023-4379-8deb-d66f9dfb94dd",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "WNclv383I5CUyg4u2J1kylglvekKaFYC",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736816"
+    },
+    {
+      "id": "aad2b9f6-5408-4c18-8a71-9c72ce596a08",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "vGuUoiyD1uxk5PX79NMleea8NG6zpGzs",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.736828"
+    },
+    {
+      "id": "e8f66d76-ccfa-4b73-ad30-1840de440ba9",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "vBhHOKUr7i7LDewLAKcWly0Bgz0ipYHN",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737159"
+    },
+    {
+      "id": "c2d4dc8f-321a-4eb8-8d7f-7397fd9693fb",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "pzPeQRqzj6WQELce2z0fRw5THmz0FwUS",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737176"
+    },
+    {
+      "id": "dbb36c81-ce78-4079-92b3-845e595bc7d2",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "9f1b32RY6R4MDwbMsD53HL2g87ZCBWc0",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737189"
+    },
+    {
+      "id": "03b2fb5e-cac5-4965-9150-80a7af712c74",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "mEnUwqhMk7BDMwYM7vheRJOa9o08TrSu",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737221"
+    },
+    {
+      "id": "2a2edf50-3172-470a-9e20-20bc143fcd32",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "KN48LJ0A9PzU05fpMratIWSIIwMOJ8vw",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737250"
+    },
+    {
+      "id": "01a4b8d5-1f8d-4ef0-8c9a-b7bcfe594e19",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "z5cf9NvlUSB1RToyvEpKEf28TMgtNPOP",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737265"
+    },
+    {
+      "id": "0f883cb5-47ab-4959-9b48-db69d5ee1eb5",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "iLY4fhzqkd9wRaMle2s7ChDnCfTWsz2o",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737278"
+    },
+    {
+      "id": "b4680f42-e53b-4bea-99b1-b6e7aaf64958",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "h5SBOmIDSPaWYIXjNntZKYeyA6TBpEqM",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737291"
+    },
+    {
+      "id": "191acc36-161c-449c-b1ec-1677f3c18c2a",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "jA4qAiCjkbMns4EwfIIJix878boJPwFc",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737306"
+    },
+    {
+      "id": "0b9ca37b-9f22-4fb4-9fff-499871b71aed",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "P72oCAaMX0Nemn7ug2cO7gvUSwT03BZ3",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737332"
+    },
+    {
+      "id": "8a12ec50-31a3-47fa-b0ed-e01ed5043203",
+      "title": "Ethical Scenario",
+      "description": "",
+      "context": {
+        "source": "scruples_dilemmas",
+        "action_description": "",
+        "moral_judgment": "UNKNOWN",
+        "label_scores": {},
+        "binarized_judgment": "UNKNOWN",
+        "emotions": {},
+        "language": "english",
+        "post_type": "UNKNOWN"
+      },
+      "options": [
+        "Follow through with the action",
+        "Avoid the action",
+        "Seek alternative approach"
+      ],
+      "metadata": {
+        "data_type": "scruples_dilemmas",
+        "processing_quality": "medium",
+        "original_id": "UD0up86D35nJ54TgeXd7DvnDx91njqx9",
+        "post_id": "",
+        "moral_complexity": 0
+      },
+      "created_at": "2025-06-22T01:34:32.737347"
+    }
+  ]
+}

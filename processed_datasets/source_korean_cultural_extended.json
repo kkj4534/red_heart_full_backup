@@ -1,0 +1,3510 @@
+[
+  {
+    "id": "kor_ext_효도와_0_개인",
+    "title": "개인에서의 효도와 개인의 자유: 의대 진학 vs 예술가의 꿈",
+    "description": "개인 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 의대 진학 vs 예술가의 꿈에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6657029189540703,
+    "controversy_score": 0.6666373038275311,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "의대 진학 vs 예술가의 꿈",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_0_가족",
+    "title": "가족에서의 효도와 개인의 자유: 의대 진학 vs 예술가의 꿈",
+    "description": "가족 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 의대 진학 vs 예술가의 꿈에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8242426162260674,
+    "controversy_score": 0.5335497484817754,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "의대 진학 vs 예술가의 꿈",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_0_직장",
+    "title": "직장에서의 효도와 개인의 자유: 의대 진학 vs 예술가의 꿈",
+    "description": "직장 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 의대 진학 vs 예술가의 꿈에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6706890686877087,
+    "controversy_score": 0.7066653066019327,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "의대 진학 vs 예술가의 꿈",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_0_사회",
+    "title": "사회에서의 효도와 개인의 자유: 의대 진학 vs 예술가의 꿈",
+    "description": "사회 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 의대 진학 vs 예술가의 꿈에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7954895124324844,
+    "controversy_score": 0.8336063657398028,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "의대 진학 vs 예술가의 꿈",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_1_개인",
+    "title": "개인에서의 효도와 개인의 자유: 안정적인 직장 vs 창업",
+    "description": "개인 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 안정적인 직장 vs 창업에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7888121434608607,
+    "controversy_score": 0.8404771935323143,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "안정적인 직장 vs 창업",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_1_가족",
+    "title": "가족에서의 효도와 개인의 자유: 안정적인 직장 vs 창업",
+    "description": "가족 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 안정적인 직장 vs 창업에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8168351340297353,
+    "controversy_score": 0.5404268887304378,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "안정적인 직장 vs 창업",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_1_직장",
+    "title": "직장에서의 효도와 개인의 자유: 안정적인 직장 vs 창업",
+    "description": "직장 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 안정적인 직장 vs 창업에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.654199920705802,
+    "controversy_score": 0.6239458687041671,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "안정적인 직장 vs 창업",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_1_사회",
+    "title": "사회에서의 효도와 개인의 자유: 안정적인 직장 vs 창업",
+    "description": "사회 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 안정적인 직장 vs 창업에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7798566986496024,
+    "controversy_score": 0.5694393091487481,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "안정적인 직장 vs 창업",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_2_개인",
+    "title": "개인에서의 효도와 개인의 자유: 결혼 상대방에 대한 의견 차이",
+    "description": "개인 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 결혼 상대방에 대한 의견 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7674518180354566,
+    "controversy_score": 0.7416346114029485,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "결혼 상대방에 대한 의견 차이",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_2_가족",
+    "title": "가족에서의 효도와 개인의 자유: 결혼 상대방에 대한 의견 차이",
+    "description": "가족 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 결혼 상대방에 대한 의견 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6497283170632598,
+    "controversy_score": 0.5533095198586573,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "결혼 상대방에 대한 의견 차이",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_2_직장",
+    "title": "직장에서의 효도와 개인의 자유: 결혼 상대방에 대한 의견 차이",
+    "description": "직장 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 결혼 상대방에 대한 의견 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7611463343493572,
+    "controversy_score": 0.7067154354360511,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "결혼 상대방에 대한 의견 차이",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_2_사회",
+    "title": "사회에서의 효도와 개인의 자유: 결혼 상대방에 대한 의견 차이",
+    "description": "사회 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 결혼 상대방에 대한 의견 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.870884884498284,
+    "controversy_score": 0.7313200737976462,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "결혼 상대방에 대한 의견 차이",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_3_개인",
+    "title": "개인에서의 효도와 개인의 자유: 부모님 모시기 vs 독립",
+    "description": "개인 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 부모님 모시기 vs 독립에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6554670446345529,
+    "controversy_score": 0.8587498614624258,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "부모님 모시기 vs 독립",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_3_가족",
+    "title": "가족에서의 효도와 개인의 자유: 부모님 모시기 vs 독립",
+    "description": "가족 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 부모님 모시기 vs 독립에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7559029093028655,
+    "controversy_score": 0.6324449847640174,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "부모님 모시기 vs 독립",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_3_직장",
+    "title": "직장에서의 효도와 개인의 자유: 부모님 모시기 vs 독립",
+    "description": "직장 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 부모님 모시기 vs 독립에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8371479121540772,
+    "controversy_score": 0.7578655335925799,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "부모님 모시기 vs 독립",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_효도와_3_사회",
+    "title": "사회에서의 효도와 개인의 자유: 부모님 모시기 vs 독립",
+    "description": "사회 맥락에서 부모님이 원하는 진로와 자신의 꿈이 다른 상황 상황입니다. 구체적으로는 부모님 모시기 vs 독립에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7706119322452976,
+    "controversy_score": 0.5818050060516647,
+    "metadata": {
+      "template": "효도와 개인의 자유",
+      "variation": "부모님 모시기 vs 독립",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_0_개인",
+    "title": "개인에서의 선후배 관계와 정의: 선배의 부당한 요구",
+    "description": "개인 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 선배의 부당한 요구에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "상사"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7695123846889493,
+    "controversy_score": 0.7757190789666452,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "선배의 부당한 요구",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_0_가족",
+    "title": "가족에서의 선후배 관계와 정의: 선배의 부당한 요구",
+    "description": "가족 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 선배의 부당한 요구에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "상사",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6060425028696005,
+    "controversy_score": 0.8657491453917197,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "선배의 부당한 요구",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_0_직장",
+    "title": "직장에서의 선후배 관계와 정의: 선배의 부당한 요구",
+    "description": "직장 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 선배의 부당한 요구에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "상사"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8207088620980199,
+    "controversy_score": 0.7296822021636062,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "선배의 부당한 요구",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_0_사회",
+    "title": "사회에서의 선후배 관계와 정의: 선배의 부당한 요구",
+    "description": "사회 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 선배의 부당한 요구에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "상사",
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8131359940710803,
+    "controversy_score": 0.6238162424707905,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "선배의 부당한 요구",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_1_개인",
+    "title": "개인에서의 선후배 관계와 정의: 후배에 대한 과도한 간섭",
+    "description": "개인 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 후배에 대한 과도한 간섭에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "부하"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7397536102189007,
+    "controversy_score": 0.7552664856872979,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "후배에 대한 과도한 간섭",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_1_가족",
+    "title": "가족에서의 선후배 관계와 정의: 후배에 대한 과도한 간섭",
+    "description": "가족 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 후배에 대한 과도한 간섭에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "부하",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8172283456486802,
+    "controversy_score": 0.5916454104268516,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "후배에 대한 과도한 간섭",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_1_직장",
+    "title": "직장에서의 선후배 관계와 정의: 후배에 대한 과도한 간섭",
+    "description": "직장 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 후배에 대한 과도한 간섭에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "부하"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8326438447653033,
+    "controversy_score": 0.8862190907829459,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "후배에 대한 과도한 간섭",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_1_사회",
+    "title": "사회에서의 선후배 관계와 정의: 후배에 대한 과도한 간섭",
+    "description": "사회 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 후배에 대한 과도한 간섭에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "부하",
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6725536731742157,
+    "controversy_score": 0.798023999161145,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "후배에 대한 과도한 간섭",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_2_개인",
+    "title": "개인에서의 선후배 관계와 정의: 연공서열 vs 능력주의",
+    "description": "개인 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 연공서열 vs 능력주의에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8145408369016863,
+    "controversy_score": 0.8665368727689451,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "연공서열 vs 능력주의",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_2_가족",
+    "title": "가족에서의 선후배 관계와 정의: 연공서열 vs 능력주의",
+    "description": "가족 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 연공서열 vs 능력주의에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7513285201889115,
+    "controversy_score": 0.8157106446716129,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "연공서열 vs 능력주의",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_2_직장",
+    "title": "직장에서의 선후배 관계와 정의: 연공서열 vs 능력주의",
+    "description": "직장 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 연공서열 vs 능력주의에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.631953056005223,
+    "controversy_score": 0.7329590532640129,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "연공서열 vs 능력주의",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_2_사회",
+    "title": "사회에서의 선후배 관계와 정의: 연공서열 vs 능력주의",
+    "description": "사회 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 연공서열 vs 능력주의에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8201571512594752,
+    "controversy_score": 0.5094871529475389,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "연공서열 vs 능력주의",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_3_개인",
+    "title": "개인에서의 선후배 관계와 정의: 군대식 문화 vs 수평적 문화",
+    "description": "개인 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 군대식 문화 vs 수평적 문화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7500966708068286,
+    "controversy_score": 0.7605885850431997,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "군대식 문화 vs 수평적 문화",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_3_가족",
+    "title": "가족에서의 선후배 관계와 정의: 군대식 문화 vs 수평적 문화",
+    "description": "가족 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 군대식 문화 vs 수평적 문화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8942905257260864,
+    "controversy_score": 0.589871157001406,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "군대식 문화 vs 수평적 문화",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_3_직장",
+    "title": "직장에서의 선후배 관계와 정의: 군대식 문화 vs 수평적 문화",
+    "description": "직장 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 군대식 문화 vs 수평적 문화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6081938549848771,
+    "controversy_score": 0.823273304027322,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "군대식 문화 vs 수평적 문화",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_선후배_3_사회",
+    "title": "사회에서의 선후배 관계와 정의: 군대식 문화 vs 수평적 문화",
+    "description": "사회 맥락에서 위계질서와 공정함 사이의 갈등 상황입니다. 구체적으로는 군대식 문화 vs 수평적 문화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6270101889005255,
+    "controversy_score": 0.722778510515462,
+    "metadata": {
+      "template": "선후배 관계와 정의",
+      "variation": "군대식 문화 vs 수평적 문화",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_0_개인",
+    "title": "개인에서의 체면과 진실: 실수 인정 vs 체면 유지",
+    "description": "개인 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 실수 인정 vs 체면 유지에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6410643358950647,
+    "controversy_score": 0.5630054362863705,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "실수 인정 vs 체면 유지",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_0_가족",
+    "title": "가족에서의 체면과 진실: 실수 인정 vs 체면 유지",
+    "description": "가족 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 실수 인정 vs 체면 유지에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7995732155080868,
+    "controversy_score": 0.5158187152484379,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "실수 인정 vs 체면 유지",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_0_직장",
+    "title": "직장에서의 체면과 진실: 실수 인정 vs 체면 유지",
+    "description": "직장 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 실수 인정 vs 체면 유지에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6654508891909817,
+    "controversy_score": 0.8695168837021551,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "실수 인정 vs 체면 유지",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_0_사회",
+    "title": "사회에서의 체면과 진실: 실수 인정 vs 체면 유지",
+    "description": "사회 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 실수 인정 vs 체면 유지에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8135487987915417,
+    "controversy_score": 0.8724656069022954,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "실수 인정 vs 체면 유지",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_1_개인",
+    "title": "개인에서의 체면과 진실: 경제적 어려움 공개 여부",
+    "description": "개인 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 경제적 어려움 공개 여부에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7599085087958528,
+    "controversy_score": 0.6349911607246489,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "경제적 어려움 공개 여부",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_1_가족",
+    "title": "가족에서의 체면과 진실: 경제적 어려움 공개 여부",
+    "description": "가족 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 경제적 어려움 공개 여부에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7005397124535814,
+    "controversy_score": 0.5078593435411763,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "경제적 어려움 공개 여부",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_1_직장",
+    "title": "직장에서의 체면과 진실: 경제적 어려움 공개 여부",
+    "description": "직장 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 경제적 어려움 공개 여부에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7590313206644294,
+    "controversy_score": 0.815070141307031,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "경제적 어려움 공개 여부",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_1_사회",
+    "title": "사회에서의 체면과 진실: 경제적 어려움 공개 여부",
+    "description": "사회 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 경제적 어려움 공개 여부에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6756420230019822,
+    "controversy_score": 0.7126104186403979,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "경제적 어려움 공개 여부",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_2_개인",
+    "title": "개인에서의 체면과 진실: 학력/배경 허위 기재",
+    "description": "개인 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 학력/배경 허위 기재에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8106072661062808,
+    "controversy_score": 0.5120018692715035,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "학력/배경 허위 기재",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_2_가족",
+    "title": "가족에서의 체면과 진실: 학력/배경 허위 기재",
+    "description": "가족 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 학력/배경 허위 기재에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8311310333306003,
+    "controversy_score": 0.8507226704623367,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "학력/배경 허위 기재",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_2_직장",
+    "title": "직장에서의 체면과 진실: 학력/배경 허위 기재",
+    "description": "직장 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 학력/배경 허위 기재에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7683400387264842,
+    "controversy_score": 0.8496660453740786,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "학력/배경 허위 기재",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_2_사회",
+    "title": "사회에서의 체면과 진실: 학력/배경 허위 기재",
+    "description": "사회 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 학력/배경 허위 기재에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8792343840638183,
+    "controversy_score": 0.6729756807962941,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "학력/배경 허위 기재",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_3_개인",
+    "title": "개인에서의 체면과 진실: 사회적 성공 과시 vs 솔직함",
+    "description": "개인 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 사회적 성공 과시 vs 솔직함에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8520445167179141,
+    "controversy_score": 0.6002489416470358,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "사회적 성공 과시 vs 솔직함",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_3_가족",
+    "title": "가족에서의 체면과 진실: 사회적 성공 과시 vs 솔직함",
+    "description": "가족 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 사회적 성공 과시 vs 솔직함에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회",
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8687557347840134,
+    "controversy_score": 0.6889117157136231,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "사회적 성공 과시 vs 솔직함",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_3_직장",
+    "title": "직장에서의 체면과 진실: 사회적 성공 과시 vs 솔직함",
+    "description": "직장 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 사회적 성공 과시 vs 솔직함에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7738500785344041,
+    "controversy_score": 0.8623418257506534,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "사회적 성공 과시 vs 솔직함",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_체면과_3_사회",
+    "title": "사회에서의 체면과 진실: 사회적 성공 과시 vs 솔직함",
+    "description": "사회 맥락에서 사회적 체면과 개인적 진실성의 충돌 상황입니다. 구체적으로는 사회적 성공 과시 vs 솔직함에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8687635222400345,
+    "controversy_score": 0.6604185471395233,
+    "metadata": {
+      "template": "체면과 진실",
+      "variation": "사회적 성공 과시 vs 솔직함",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_0_개인",
+    "title": "개인에서의 조화와 개인 의견: 회식 문화와 개인 시간",
+    "description": "개인 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 회식 문화와 개인 시간에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8824217080753594,
+    "controversy_score": 0.628217304869559,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "회식 문화와 개인 시간",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_0_가족",
+    "title": "가족에서의 조화와 개인 의견: 회식 문화와 개인 시간",
+    "description": "가족 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 회식 문화와 개인 시간에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6742413216975163,
+    "controversy_score": 0.817344677190337,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "회식 문화와 개인 시간",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_0_직장",
+    "title": "직장에서의 조화와 개인 의견: 회식 문화와 개인 시간",
+    "description": "직장 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 회식 문화와 개인 시간에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6229758917519157,
+    "controversy_score": 0.7071676562459135,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "회식 문화와 개인 시간",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_0_사회",
+    "title": "사회에서의 조화와 개인 의견: 회식 문화와 개인 시간",
+    "description": "사회 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 회식 문화와 개인 시간에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7749692241033054,
+    "controversy_score": 0.6536993314925766,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "회식 문화와 개인 시간",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_1_개인",
+    "title": "개인에서의 조화와 개인 의견: 다수 의견에 반대하는 소수 의견",
+    "description": "개인 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 다수 의견에 반대하는 소수 의견에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6362481635715533,
+    "controversy_score": 0.6935446290389139,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "다수 의견에 반대하는 소수 의견",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_1_가족",
+    "title": "가족에서의 조화와 개인 의견: 다수 의견에 반대하는 소수 의견",
+    "description": "가족 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 다수 의견에 반대하는 소수 의견에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6039946349685761,
+    "controversy_score": 0.7452507198936238,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "다수 의견에 반대하는 소수 의견",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_1_직장",
+    "title": "직장에서의 조화와 개인 의견: 다수 의견에 반대하는 소수 의견",
+    "description": "직장 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 다수 의견에 반대하는 소수 의견에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7898565235168554,
+    "controversy_score": 0.5943858638714223,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "다수 의견에 반대하는 소수 의견",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_1_사회",
+    "title": "사회에서의 조화와 개인 의견: 다수 의견에 반대하는 소수 의견",
+    "description": "사회 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 다수 의견에 반대하는 소수 의견에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8738914028841297,
+    "controversy_score": 0.6851526459452723,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "다수 의견에 반대하는 소수 의견",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_2_개인",
+    "title": "개인에서의 조화와 개인 의견: 팀워크 vs 개인 성과",
+    "description": "개인 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 팀워크 vs 개인 성과에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6576367712960441,
+    "controversy_score": 0.5807228810888416,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "팀워크 vs 개인 성과",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_2_가족",
+    "title": "가족에서의 조화와 개인 의견: 팀워크 vs 개인 성과",
+    "description": "가족 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 팀워크 vs 개인 성과에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7337498414969709,
+    "controversy_score": 0.5683255708553944,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "팀워크 vs 개인 성과",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_2_직장",
+    "title": "직장에서의 조화와 개인 의견: 팀워크 vs 개인 성과",
+    "description": "직장 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 팀워크 vs 개인 성과에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7701436654033657,
+    "controversy_score": 0.6016632370813338,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "팀워크 vs 개인 성과",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_2_사회",
+    "title": "사회에서의 조화와 개인 의견: 팀워크 vs 개인 성과",
+    "description": "사회 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 팀워크 vs 개인 성과에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6424519268475902,
+    "controversy_score": 0.6149620828789414,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "팀워크 vs 개인 성과",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_3_개인",
+    "title": "개인에서의 조화와 개인 의견: 갑질 목격 시 대응",
+    "description": "개인 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 갑질 목격 시 대응에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8999486842405794,
+    "controversy_score": 0.6466889197088119,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "갑질 목격 시 대응",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_3_가족",
+    "title": "가족에서의 조화와 개인 의견: 갑질 목격 시 대응",
+    "description": "가족 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 갑질 목격 시 대응에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.804851324726947,
+    "controversy_score": 0.6380740272996779,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "갑질 목격 시 대응",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_3_직장",
+    "title": "직장에서의 조화와 개인 의견: 갑질 목격 시 대응",
+    "description": "직장 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 갑질 목격 시 대응에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7660737089422992,
+    "controversy_score": 0.5273774817933494,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "갑질 목격 시 대응",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_조화와_3_사회",
+    "title": "사회에서의 조화와 개인 의견: 갑질 목격 시 대응",
+    "description": "사회 맥락에서 집단의 조화와 개인의 신념 사이의 선택 상황입니다. 구체적으로는 갑질 목격 시 대응에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8419324299618348,
+    "controversy_score": 0.7610334932254019,
+    "metadata": {
+      "template": "조화와 개인 의견",
+      "variation": "갑질 목격 시 대응",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_0_개인",
+    "title": "개인에서의 전통과 진보: 제사 문화와 성평등",
+    "description": "개인 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 제사 문화와 성평등에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6530045253205686,
+    "controversy_score": 0.532130892689064,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "제사 문화와 성평등",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_0_가족",
+    "title": "가족에서의 전통과 진보: 제사 문화와 성평등",
+    "description": "가족 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 제사 문화와 성평등에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6762295473626617,
+    "controversy_score": 0.8918241819279936,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "제사 문화와 성평등",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_0_직장",
+    "title": "직장에서의 전통과 진보: 제사 문화와 성평등",
+    "description": "직장 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 제사 문화와 성평등에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7800119744290046,
+    "controversy_score": 0.6680140799808627,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "제사 문화와 성평등",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_0_사회",
+    "title": "사회에서의 전통과 진보: 제사 문화와 성평등",
+    "description": "사회 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 제사 문화와 성평등에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8296006693544379,
+    "controversy_score": 0.881906282979126,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "제사 문화와 성평등",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_1_개인",
+    "title": "개인에서의 전통과 진보: 혼례 방식의 선택",
+    "description": "개인 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 혼례 방식의 선택에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7390325969237845,
+    "controversy_score": 0.6981134274761641,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "혼례 방식의 선택",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_1_가족",
+    "title": "가족에서의 전통과 진보: 혼례 방식의 선택",
+    "description": "가족 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 혼례 방식의 선택에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.811186465603082,
+    "controversy_score": 0.5618956972950078,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "혼례 방식의 선택",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_1_직장",
+    "title": "직장에서의 전통과 진보: 혼례 방식의 선택",
+    "description": "직장 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 혼례 방식의 선택에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.602435947083177,
+    "controversy_score": 0.7484848039973039,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "혼례 방식의 선택",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_1_사회",
+    "title": "사회에서의 전통과 진보: 혼례 방식의 선택",
+    "description": "사회 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 혼례 방식의 선택에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8788134650323547,
+    "controversy_score": 0.6820262909261815,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "혼례 방식의 선택",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_2_개인",
+    "title": "개인에서의 전통과 진보: 양육 방식의 차이",
+    "description": "개인 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 양육 방식의 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6285173020910847,
+    "controversy_score": 0.7504317128408787,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "양육 방식의 차이",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_2_가족",
+    "title": "가족에서의 전통과 진보: 양육 방식의 차이",
+    "description": "가족 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 양육 방식의 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8056134144422074,
+    "controversy_score": 0.5171237949938702,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "양육 방식의 차이",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_2_직장",
+    "title": "직장에서의 전통과 진보: 양육 방식의 차이",
+    "description": "직장 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 양육 방식의 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6854434246274447,
+    "controversy_score": 0.7703762729657955,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "양육 방식의 차이",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_2_사회",
+    "title": "사회에서의 전통과 진보: 양육 방식의 차이",
+    "description": "사회 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 양육 방식의 차이에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.6562438035608011,
+    "controversy_score": 0.6400969891563004,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "양육 방식의 차이",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_3_개인",
+    "title": "개인에서의 전통과 진보: 명절 문화의 변화",
+    "description": "개인 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 명절 문화의 변화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7968871236356452,
+    "controversy_score": 0.8999594113586079,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "명절 문화의 변화",
+      "context_type": "개인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_3_가족",
+    "title": "가족에서의 전통과 진보: 명절 문화의 변화",
+    "description": "가족 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 명절 문화의 변화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7488939357295876,
+    "controversy_score": 0.6395921543785545,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "명절 문화의 변화",
+      "context_type": "가족",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_3_직장",
+    "title": "직장에서의 전통과 진보: 명절 문화의 변화",
+    "description": "직장 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 명절 문화의 변화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "professional",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.8173426011630833,
+    "controversy_score": 0.6725220590451639,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "명절 문화의 변화",
+      "context_type": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_ext_전통과_3_사회",
+    "title": "사회에서의 전통과 진보: 명절 문화의 변화",
+    "description": "사회 맥락에서 전통적 가치와 현대적 가치의 충돌 상황입니다. 구체적으로는 명절 문화의 변화에 관한 문제입니다. 한국의 전통적 가치와 현대적 가치 사이에서 어떤 선택을 하시겠습니까?",
+    "category": "cultural",
+    "source_type": "korean_cultural_extended",
+    "source_file": "korean_cultural_templates.py",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "현대적 가치를 선택한다"
+      },
+      {
+        "id": "balanced",
+        "text": "전통과 현대의 균형을 찾는다"
+      },
+      {
+        "id": "situational",
+        "text": "상황에 따라 유연하게 대처한다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "modernity",
+      "cultural_values",
+      "individual_freedom"
+    ],
+    "cultural_context": "Korean Traditional vs Modern Values",
+    "complexity_score": 0.7315379480856022,
+    "controversy_score": 0.5124821805504156,
+    "metadata": {
+      "template": "전통과 진보",
+      "variation": "명절 문화의 변화",
+      "context_type": "사회",
+      "language": "Korean"
+    }
+  }
+]

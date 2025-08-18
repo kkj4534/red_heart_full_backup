@@ -1,0 +1,83 @@
+{
+  "learning_success": true,
+  "total_learning_time": 503.2611961364746,
+  "learning_results": {
+    "learning_config": {
+      "regrets_per_step": 3,
+      "bentham_per_environment": 2,
+      "general_data_cycles": 1,
+      "ebs_data_cycles": 1,
+      "max_scenarios_per_batch": 3
+    },
+    "learning_progress": {
+      "current_cycle": 1,
+      "current_batch": 20,
+      "current_scenario": 1,
+      "total_regrets": 0,
+      "total_bentham_calculations": 0,
+      "total_scenarios_processed": 261,
+      "phase_transitions": 0,
+      "start_time": "2025-07-15 19:02:35.354826"
+    },
+    "learning_statistics": {
+      "regret_history": [],
+      "bentham_scores": [],
+      "phase_transitions": [],
+      "emotion_evolution": [],
+      "performance_metrics": []
+    },
+    "summary": {
+      "total_scenarios_processed": 261,
+      "total_regrets": 0,
+      "total_bentham_calculations": 0,
+      "total_duration": "0:08:08.755715",
+      "regrets_per_scenario": 3,
+      "bentham_per_scenario": 6,
+      "ebs_cycles": 1,
+      "general_cycles": 1
+    }
+  },
+  "integrated_analysis": {
+    "phase_analysis": {},
+    "module_performance": {},
+    "learning_quality": {
+      "scenarios_processed": 261,
+      "total_regrets": 0,
+      "total_bentham_calculations": 0,
+      "efficiency": 0.0
+    }
+  },
+  "decision_test_results": {
+    "test_success": false,
+    "error": "'AdvancedEmotionAnalyzer' object has no attribute 'analyze_comprehensive'"
+  },
+  "ethical_analysis_results": {
+    "analysis_success": true,
+    "dilemma_type": "medical_ethics",
+    "extracted_choices": 3,
+    "stakeholders_identified": 2,
+    "recommended_choice": "적극적 행동",
+    "reasoning_chain": [
+      "상황 분석: medical_ethics 유형의 윤리적 딜레마",
+      "식별된 선택지: 3개",
+      "주요 이해관계자: 의사, 환자",
+      "최적 선택지: 적극적 행동",
+      "유틸리티 점수: 0.083",
+      "신뢰도: 0.537",
+      "위험 조정 점수: 0.045"
+    ],
+    "processing_time": 14.502399682998657,
+    "analysis_quality": 1.4
+  },
+  "summary": {
+    "total_learning_time": 503.2611961364746,
+    "learning_quality": {
+      "scenarios_processed": 261,
+      "total_regrets": 0,
+      "total_bentham_calculations": 0,
+      "efficiency": 0.0
+    },
+    "decision_accuracy": 0.0,
+    "ethical_analysis_quality": 1.4
+  }
+}

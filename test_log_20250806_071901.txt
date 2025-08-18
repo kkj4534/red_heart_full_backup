@@ -1,0 +1,173 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/models/marian/tokenization_marian.py:175: UserWarning: Recommended: pip install sacremoses.
+  warnings.warn("Recommended: pip install sacremoses.")
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+❌ 모듈 semantic_analyzer 로딩 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+🚨 semantic_analyzer 로딩 실패 상세 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 995, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 116, in initialize
+    from unified_system_orchestrator import MODULE_SPECS
+ImportError: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+   ❌ semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+❌ 전역 모듈 초기화 실패: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+❌ 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 824, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 995, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 116, in initialize
+    from unified_system_orchestrator import MODULE_SPECS
+ImportError: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1263, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 873, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+시스템 초기화 실패: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+🚨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 824, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 995, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 116, in initialize
+    from unified_system_orchestrator import MODULE_SPECS
+ImportError: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1263, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 873, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 713, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1270, in _initialize_core_components
+    raise RuntimeError(f"전역 모듈 초기화 실패 - 시스템 중단: {e}") from e
+RuntimeError: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-06 07:20:16
+------------------------------------------------------------
+
+============================================================
+🚨 필수 모듈 semantic_analyzer 로딩 실패!
+============================================================
+에러: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+모듈 경로: advanced_multi_level_semantic_analyzer.AdvancedMultiLevelSemanticAnalyzer
+============================================================
+
+
+============================================================
+🚨 시스템 초기화 실패!
+============================================================
+에러: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+============================================================
+상세 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 824, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 995, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 116, in initialize
+    from unified_system_orchestrator import MODULE_SPECS
+ImportError: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1263, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 873, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 713, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1270, in _initialize_core_components
+    raise RuntimeError(f"전역 모듈 초기화 실패 - 시스템 중단: {e}") from e
+RuntimeError: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: cannot import name 'MODULE_SPECS' from 'unified_system_orchestrator' (/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py)
+
+============================================================
+
+[07:24:25] ❌ 시스템 초기화 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

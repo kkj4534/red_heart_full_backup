@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.pyc
+.git/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# 대용량 모델 파일 제외
+*.pth
+*.pt
+*.gguf
+*.safetensors
+*.bin
+*.ckpt
+*.h5
+*.pkl
+
+# 대용량 모델 디렉토리 제외
+training/hybrid_outputs/checkpoints/
+llm_oss_20b_gguf/
+llm_oss_20b_model/
+llm_module/
+dolphin_llama3_8b/
+models/sentence_transformers/
+models/semantic_models/
+models/experience_db/
+models/bentham_models/
+checkpoints_v2/
+
+# 가상환경 라이브러리 (너무 큼)
+red_heart_env/lib/
+red_heart_env/bin/
+red_heart_env/include/
+
+# Miniconda 설치 파일
+Miniconda3-latest-Linux-x86_64.sh
+
+# 캐시 및 임시 파일
+cache/
+preprocessed_cache/
+.cache/
+*.log
+
+# faiss 오래된 git objects
+faiss_old/

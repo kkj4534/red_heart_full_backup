@@ -1,0 +1,26 @@
+{
+  "processing_date": "2025-06-19T18:19:25.272633",
+  "datasets_processed": {
+    "academic": {
+      "files": 0,
+      "records": 0
+    },
+    "augmented": {
+      "files": 1,
+      "records": 22
+    },
+    "ethical_scenarios": {
+      "files": 1,
+      "records": 2
+    },
+    "literature": {
+      "files": 1,
+      "records": 559
+    },
+    "scruples": {
+      "files": 1,
+      "records": 200
+    }
+  },
+  "total_records": 783
+}

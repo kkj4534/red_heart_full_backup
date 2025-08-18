@@ -1,0 +1,58 @@
+INFO:RedHeart.DataPreprocessingV3:디바이스: cuda
+INFO:RedHeart.DataPreprocessingV3:Loading sentence transformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:RedHeart.DataPreprocessingV3:🌐 번역 파이프라인 초기화 중...
+INFO:RedHeart.DataPreprocessingV3:📥 NLLB-200 모델 로드 중: facebook/nllb-200-distilled-600M
+INFO:RedHeart.DataPreprocessingV3:✅ NLLB 모델 GPU 로드 완료
+INFO:RedHeart.DataPreprocessingV3:✅ HelpingAI 전처리 파이프라인 v3 초기화 완료
+INFO:RedHeart.DataPreprocessingV3:📚 데이터셋 처리 시작: parsed_raw_datasets.json
+INFO:RedHeart.DataPreprocessingV3:총 3개 샘플 처리 예정
+INFO:RedHeart.DataPreprocessingV3:🔄 HelpingAI 엔진 초기화 중...
+INFO:RedHeart.AdvancedLLM:모델 설정 준비 완료: ['helpingai']
+INFO:RedHeart.AdvancedLLM:동적 GPU-RAM 스왑 시스템 초기화 완료
+INFO:RedHeart.DataPreprocessingV3:✅ LLM 초기화 완료
+INFO:RedHeart.DataPreprocessingV3:진행률: 0/3 (0.0%)
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]
+ERROR:RedHeart.DataPreprocessingV3:NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+ERROR:RedHeart.DataPreprocessingV3:샘플 0 처리 실패: NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 80.07it/s]
+ERROR:RedHeart.DataPreprocessingV3:NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+ERROR:RedHeart.DataPreprocessingV3:샘플 1 처리 실패: NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 84.80it/s]
+ERROR:RedHeart.DataPreprocessingV3:NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+ERROR:RedHeart.DataPreprocessingV3:샘플 2 처리 실패: NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+ERROR:RedHeart.DataPreprocessingV3:연속 3개 실패로 중단
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 116, in translate_to_english
+    forced_bos_token_id=self.nllb_tokenizer.lang_code_to_id['eng_Latn'],
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 1100, in __getattr__
+    raise AttributeError(f"{self.__class__.__name__} has no attribute {key}")
+AttributeError: NllbTokenizerFast has no attribute lang_code_to_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 503, in process_dataset
+    result = self.process_single_item(item)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 449, in process_single_item
+    emotion_result = self.analyze_emotions_with_llm(text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 148, in analyze_emotions_with_llm
+    english_text = self.translate_to_english(text)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 135, in translate_to_english
+    raise RuntimeError(f"NLLB 번역 실패: {e}")
+RuntimeError: NLLB 번역 실패: NllbTokenizerFast has no attribute lang_code_to_id
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 602, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 595, in main
+    preprocessor.process_dataset(
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v3.py", line 517, in process_dataset
+    raise RuntimeError(f"전처리 실패 - 연속 {failed_count}개 샘플 처리 실패")
+RuntimeError: 전처리 실패 - 연속 3개 샘플 처리 실패

@@ -1,0 +1,2264 @@
+[
+  {
+    "id": "ai_raw_data_by_claude_210_0",
+    "title": "** 2024-03-15 / 오랜 친구가 배우자를 속이고 있다는 사실을 고백함",
+    "description": "사례 1: 디지털 시대의 프라이버시 1. 상황 설명 날짜/시간: 2016-02-16 09:00 상황 제목: 애플 vs. FBI: 샌 버나디노 테러리스트의 아이폰 잠금 해제 요청 상황 설명: 2015년 12월 2일, 캘리포니아 샌 버나디노에서 발생한 테러 공격 후, FBI는 테러리스트 중 한 명이 사용했던 iPhone 5C의 잠금을 해제해달라고 애플에 요청했습니다. FBI는 수사에 중요한 정보가 포함되어 있을 수 있다고 주장했지만, 애플은 백도어를 만드는 것이 모든 아이폰 사용자의 보안을 위협할 수 있다며 거부했습니다. 이는 국가 안보와 개인 프라이버시 사이의 중대한 충돌을 야기했습니다. 관련된 핵심 가치/원칙: 국가 안보와 테러 방지 개인 프라이버시 및 디지털 권리 기업의 사회적 책임 법적 의무와 기술적 한계 선례 설정의 위험성 2. 의사결정 과정 선택 가능한 옵션들: FBI의 요청을 수락하고 백도어를 개발 FBI의 요청을 거부하고 법적 대응 제한적 도움을 제공하되 백도어는 만들지 않음 제3자의 중재를 통한 해결책 모색",
+    "category": "legal",
+    "source_type": "ai_generated",
+    "options": [
+      {
+        "id": "approve",
+        "text": "이 행동을 지지한다"
+      },
+      {
+        "id": "disapprove",
+        "text": "이 행동을 반대한다"
+      },
+      {
+        "id": "neutral",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회"
+    ],
+    "ethical_themes": [
+      "justice",
+      "responsibility",
+      "freedom"
+    ],
+    "cultural_context": "Korean Contemporary",
+    "complexity_score": 0.6,
+    "controversy_score": 0.3,
+    "metadata": {
+      "source_file": "raw_data_by_claude_210",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "ai_raw_data_novel_123_0",
+    "title": "** 사쿠라이가 키요타카의 불법 체류자 신분을 알게 된 후 자신의 위험을 감수하고 도움을 주기로 결정",
+    "description": "### 사례 1: 사쿠라이의 불법체류자 보호 결정 ** 사쿠라이가 키요타카의 불법 체류자 신분을 알게 된 후 자신의 위험을 감수하고 도움을 주기로 결정 **결정 옵션:** 1) 당국에 신고하기 2) 모른 척하고 지나가기 3) 자신의 위험을 감수하고 적극적 도움 제공하기 **최종 선택:** 3) 자신의 위험을 감수하고 적극적 도움 제공하기 **결정 이유:** 인간적 연민과 개인의 가치를 법적 지위보다 중요하게 여기는 윤리적 판단",
+    "category": "legal",
+    "source_type": "ai_generated",
+    "options": [
+      {
+        "id": "approve",
+        "text": "이 행동을 지지한다"
+      },
+      {
+        "id": "disapprove",
+        "text": "이 행동을 반대한다"
+      },
+      {
+        "id": "neutral",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [
+      "freedom"
+    ],
+    "cultural_context": "Korean Contemporary",
+    "complexity_score": 0.6,
+    "controversy_score": 0.3,
+    "metadata": {
+      "source_file": "raw_data_novel_123",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "huck_finn_slavery",
+    "title": "우정 vs 법 - 허클베리 핀의 선택",
+    "description": "도망친 노예인 친구 짐을 도와줄 것인가, 아니면 법에 따라 신고할 것인가? 개인적 우정과 사회 규범이 충돌하는 상황이다.",
+    "category": "relationship",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "친구",
+      "사회"
+    ],
+    "ethical_themes": [
+      "friendship",
+      "law",
+      "moral_courage",
+      "freedom"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Adventures of Huckleberry Finn",
+      "language": "English"
+    }
+  },
+  {
+    "id": "frankenstein_responsibility",
+    "title": "창조의 책임 - 과학자의 딜레마",
+    "description": "자신이 만든 생명체가 사회에 해를 끼치고 있다. 창조자로서 어떤 책임을 져야 하는가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회"
+    ],
+    "ethical_themes": [
+      "responsibility",
+      "science",
+      "creation",
+      "consequences"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Frankenstein",
+      "language": "English"
+    }
+  },
+  {
+    "id": "romeo_juliet_love",
+    "title": "사랑 vs 가족 - 로미오와 줄리엣",
+    "description": "원수 가문의 사람과 사랑에 빠졌다. 가족의 뜻을 따를 것인가, 사랑을 선택할 것인가?",
+    "category": "relationship",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "love",
+      "family",
+      "tradition",
+      "individual_choice"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Romeo and Juliet",
+      "language": "English"
+    }
+  },
+  {
+    "id": "gatsby_dreams",
+    "title": "꿈의 추구 - 개츠비의 선택",
+    "description": "불가능해 보이는 꿈을 계속 추구할 것인가, 현실을 받아들일 것인가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "dreams",
+      "reality",
+      "ambition",
+      "acceptance"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "The Great Gatsby",
+      "language": "English"
+    }
+  },
+  {
+    "id": "moby_dick_obsession",
+    "title": "복수와 집착 - 에이헙의 딜레마",
+    "description": "개인적 복수를 위해 다른 사람들을 위험에 빠뜨려도 되는가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "revenge",
+      "obsession",
+      "leadership",
+      "sacrifice"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Moby Dick",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_0",
+    "title": "Hiding my controller?",
+    "description": "Backstory: So, I got an Xbox one for Christmas that technically me and my sister share. She's 17, I'm 15 and she likes to pretend that she has authority over me. \n\nI bought myself custom controller and she likes to use it when she uses the Xbox for Netflix. I'm okay with this. The problem is that sh...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_1",
+    "title": "Ratting out my supervisor?",
+    "description": "I work with about six other people at might job. It's a retail job, and my superior has been working there for 10 years while I have worked there for about 3. \n\nWhen I first started working there I was greeted with an implied ultimatum: I had to choose between loyalty to the owner of the store or lo...",
+    "category": "professional",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회"
+    ],
+    "ethical_themes": [
+      "honesty",
+      "loyalty"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_2",
+    "title": "Commenting that unfamiliar indie bands at artists were the best types of music to listen to?",
+    "description": "Context: There was an Instagram post about unpopular opinions about music on my explore page. Everybody else was contributing, so I decided to get my two cents in. The specific comment was \"the best bands and artists are the ones nobody pays attention to.\" In three hours, at least fifteen different ...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_3",
+    "title": "Arguing for my friend to surrender in a game before the game is done?",
+    "description": "Me and my friends spent sometime organizing a game of diplomacy (a board game) online that we'd play in real time. The game is going to last for 5 hours if we play through the whole thing, so I tell my parents that I won't be able to do anything that night (It was a night that my mom was hoping do s...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "AUTHOR",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_4",
+    "title": "Being mad at my wife for neglecting/ willfully trashing my cars?",
+    "description": "A little background. I'm a far from rich guy who has two cars. One is a 20 year old pickup (my baby) and a 21 year old luxury car. I bought the car because it was hella cheap, still in pretty good shape, known for reliability, and mostly because my wife was finally getting a job for the first time i...",
+    "category": "professional",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_5",
+    "title": "Wibta for reporting my brother-in-law for animal neglect?",
+    "description": "TL;DR: sister's husband recently purchased a (now) nine week old border collie puppy.  They live in a rural area with several large predators (coyotes, wolves, predatory birds) capable of killing or carrying off a young puppy.  They also live somewhere with high winds and low temperatures during the...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [
+      "honesty"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_6",
+    "title": "Refusing my boyfriend to drive my car after seeing how he drives his?",
+    "description": "We live in a country where we drive with shift stick mostly. My boyfriend drives like a maniac, he keeps the car in low gears while the Rpm goes to 4000 and 5000. You can practically hear the engine about to explode. I mentioned it while we were out driving and he kind of bit my head off and told me...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [
+      "compassion"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_7",
+    "title": "Aita; buying a boat, not - 윤리적 판단",
+    "description": "I am looking to buy a boat/trailer. From day 1 the \"owner\" didnt know a few things about the boat that I thought most would. Now, he is a younger guy &amp; maybe doesn't know much about boats. Initially he had the year of the boat wrong, but we worked together on that.\n\nWe agreed on a price &amp; he...",
+    "category": "professional",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_8",
+    "title": "Wanting to keep some smelly hair conditioner?",
+    "description": "A couple months ago, I was having a SUPER rough day. We have three kids under five, they'd been at home for weeks, I was stressed out. So I went to a salon and bought this conditioner that I remembered being used on me once there, I remembered thinking it smelled really good. It was pretty expensive...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "NOBODY",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_9",
+    "title": "Being offended that my boyfriend's baby mama just wants to only communicate with him regarding their child?",
+    "description": "So, basically what the title suggests, but there's more. \n\nMy boyfriend (Joseph) and I live together. His baby mama (Karen) has a fiance (Adam) and another child. \n\nJoseph and Karen have a child together, Savannah. Savannah is 10, wonderful child, and she and I are very close. She knows that me and ...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_10",
+    "title": "Pulling the disability card?",
+    "description": "I’m a wheelchair user, I work in a 20 story office building. We have maybe 15-20 lifts around the building, the small lift lobbies have 2 steps up to the office area, they aren’t busy as they are out of the way. I work on the 12th floor and our canteen is on the 8th floor. I use the main lift lobby ...",
+    "category": "professional",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_11",
+    "title": "Refusing to give my best friend a job recommendation due to past issues?",
+    "description": "I (18F) and my best friend who we’ll call Cami (20F) have known each other for over 10 years now, and we even live together. We both got jobs in fast food around 16; my best friend at Dairy Queen and me at McDonald’s. Cami has been looking to get into Walmart, Sam’s Club or Publix for about a year n...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_12",
+    "title": "Not tipping a bathroom attendant?",
+    "description": "Me (23f) and a few of my friends went to a bar for my birthday this weekend. I don’t go to bars often and this is the first one I’ve been to since my 21st birthday. \n\nAnyway an hour into the night I went to the bathroom and was surprised to see a bathroom attendant there. Again, I don’t really go to...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_13",
+    "title": "Not wanting to name my son after my girlfriend's ex?",
+    "description": "My girlfriend and I are expecting our first born son. The other night when discussing names, she said she would like his middle name to be that of her ex, who died. Saying further that it would mean a lot to his family who she is still close with.\n\nI said that makes me really uncomfortable and don't...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_14",
+    "title": "Not going to rehab - 윤리적 판단",
+    "description": "Before you judge to harshly im not asking if im the asshole for being an addict but for refusing rehab now because of what happened. I stayed off drugs for 14 months thanks to methadone but my parents pressured and demanded i come off it. I didnt think i was ready to make the step but they fought me...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_15",
+    "title": "Not tipping a cashier?",
+    "description": "I went bowling last night with my girlfriend. When paying for our games played afterwards the receipt the cashier printed for me is a tip line. All he did was ring us up, so I put a line through it to indicate no tip. The cashier gave me a look after looking down at the receipt. AITA for believing s...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [
+      "honesty"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_16",
+    "title": "Wibta if i want to see my child?",
+    "description": "This is a doozy, bare with me.\n\nWhen I was 16, my first girlfriend, also 16, became pregnant. Her parents literally uprooted their whole lives to move away due to it. We found out one day, I was barred from seeing or contacting her or her family by threats of police involvement the next day. I was a...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_17",
+    "title": "Looking alternative even when it makes my dad sad?",
+    "description": "im 19, and still live with my parents, just stating that\n\ni personally love tattoos and piercings and i love expressing myself it makes me more confident. i have prettyy low self esteem and suffered with depression, and i still dont love the way i look but i love how i look a lot more when i dye my ...",
+    "category": "general",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "가족"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_18",
+    "title": "Sticking up for an ex?",
+    "description": "A girl I dated a few years ago and I have remained good friends since our breakup. I've still had romantic feelings for her since then and the past 2 years she's been dating this guy that nobody seems to understand them as a couple. I've never cared for the guy despite my best efforts. I want to sup...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [
+      "compassion"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "AUTHOR",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_anec_19",
+    "title": "Not participating in secret santa - 윤리적 판단",
+    "description": "I work in an office with 8 other ladies.   6 of us are very friendly with each other and work every single day togetther, we decided this year to do a Secret Santa with our group of 6 and drew names back in October.  The week of Thanksgiving our Manager &amp; Assistant manager sent an email asking i...",
+    "category": "relationship",
+    "source_type": "scruples_anecdotes",
+    "options": [
+      {
+        "id": "not_wrong",
+        "text": "이 행동은 문제없다"
+      },
+      {
+        "id": "wrong",
+        "text": "이 행동은 잘못되었다"
+      },
+      {
+        "id": "depends",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "친구"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.7,
+    "metadata": {
+      "original_label": "OTHER",
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_0",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) trying to be a decent parent B) remaining Friendly with my racist coworker",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "trying to be a decent parent"
+      },
+      {
+        "id": "action_b",
+        "text": "remaining Friendly with my racist coworker"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.4,
+    "metadata": {
+      "controversial": false,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_1",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) not wanting to constantly help my girlfriend's mom B) telling my tutor not to scribble/randomly write things in my personal diaries",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "not wanting to constantly help my girlfriend's mom"
+      },
+      {
+        "id": "action_b",
+        "text": "telling my tutor not to scribble/randomly write things in my personal diaries"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_2",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) yelling at a kid who sits by me B) letting my sister and her fiance to stay overnight in my apartment while I'm gone",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "yelling at a kid who sits by me"
+      },
+      {
+        "id": "action_b",
+        "text": "letting my sister and her fiance to stay overnight in my apartment while I'm gone"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.4,
+    "metadata": {
+      "controversial": false,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_3",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) liking a musician who is a terrible person B) telling someone why they couldn't see and save my art",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "liking a musician who is a terrible person"
+      },
+      {
+        "id": "action_b",
+        "text": "telling someone why they couldn't see and save my art"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_4",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) my group being loud at a restaurant B) breaking it to my father that his step daughter snuck marijuana into his house and had him unknowingly drive with it",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "my group being loud at a restaurant"
+      },
+      {
+        "id": "action_b",
+        "text": "breaking it to my father that his step daughter snuck marijuana into his house and had him unknowingly drive with it"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_5",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) expexting my friend to do more to help themselves B) being upset because my friend implied that I am culturally uneducated",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "expexting my friend to do more to help themselves"
+      },
+      {
+        "id": "action_b",
+        "text": "being upset because my friend implied that I am culturally uneducated"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [
+      "honesty"
+    ],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_6",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) not wanting to take my mothers mlm pills B) not letting my best friend stay with my wife and I while he's going through a divorce",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "not wanting to take my mothers mlm pills"
+      },
+      {
+        "id": "action_b",
+        "text": "not letting my best friend stay with my wife and I while he's going through a divorce"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.4,
+    "metadata": {
+      "controversial": false,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_7",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) letting an ex-friend end our friendship because of my behavior B) not letting my bf buy games that his friend wants him to buy to play together",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "letting an ex-friend end our friendship because of my behavior"
+      },
+      {
+        "id": "action_b",
+        "text": "not letting my bf buy games that his friend wants him to buy to play together"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_8",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) leaving a small dent on someone's car bonnet B) not wanting to go back to a local coffeehouse",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "leaving a small dent on someone's car bonnet"
+      },
+      {
+        "id": "action_b",
+        "text": "not wanting to go back to a local coffeehouse"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 0.4,
+    "metadata": {
+      "controversial": false,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_9",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) trying to seduce my teacher B) wanting a (mostly) childfree day on mothers day",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "trying to seduce my teacher"
+      },
+      {
+        "id": "action_b",
+        "text": "wanting a (mostly) childfree day on mothers day"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_10",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) not wanting to go on a family holiday B) separating a kitten from his sisters",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "not wanting to go on a family holiday"
+      },
+      {
+        "id": "action_b",
+        "text": "separating a kitten from his sisters"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_11",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) telling a gay person to \"leave me the fuck alone\" B) telling my attention seeking friend to stop contacting me",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "telling a gay person to \"leave me the fuck alone\""
+      },
+      {
+        "id": "action_b",
+        "text": "telling my attention seeking friend to stop contacting me"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_12",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) blocking my sister on Facebook B) admitting to my gf that I don't have faith in our 3-year relationship when got asked by her",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "blocking my sister on Facebook"
+      },
+      {
+        "id": "action_b",
+        "text": "admitting to my gf that I don't have faith in our 3-year relationship when got asked by her"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_13",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) wanting my boyfriend to say \"no\" more B) keeping my feelings a secret",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "wanting my boyfriend to say \"no\" more"
+      },
+      {
+        "id": "action_b",
+        "text": "keeping my feelings a secret"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "scr_dil_14",
+    "title": "윤리적 선택: 행동 A vs 행동 B",
+    "description": "다음 중 어느 행동이 더 윤리적인가? A) telling a virtual friend of mine that he shouldn't come to visit after he bought his plane tickets B) being resentful? future in-laws collecting on an inherited loan to my fiancé",
+    "category": "comparative_ethics",
+    "source_type": "scruples_dilemmas",
+    "options": [
+      {
+        "id": "action_a",
+        "text": "telling a virtual friend of mine that he shouldn't come to visit after he bought his plane tickets"
+      },
+      {
+        "id": "action_b",
+        "text": "being resentful? future in-laws collecting on an inherited loan to my fiancé"
+      },
+      {
+        "id": "both_wrong",
+        "text": "둘 다 문제가 있다"
+      }
+    ],
+    "stakeholders": [
+      "행위자",
+      "영향받는 사람들"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Western Internet Culture",
+    "complexity_score": 0.6,
+    "controversy_score": 1.0,
+    "metadata": {
+      "controversial": true,
+      "language": "English"
+    }
+  },
+  {
+    "id": "kor_0",
+    "title": "효도 vs 개인의 꿈",
+    "description": "부모님이 의대 진학을 강력히 원하시지만, 당신의 꿈은 예술가입니다. 어떻게 해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "filial_piety",
+      "individual_freedom",
+      "family_expectations"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "filial_piety",
+        "individual_freedom",
+        "family_expectations"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_1",
+    "title": "선후배 관계에서의 정의",
+    "description": "선배가 후배에게 부당한 일을 시키는 것을 목격했습니다. 선후배 관계와 정의 중 무엇을 우선할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "상사"
+    ],
+    "ethical_themes": [
+      "hierarchy",
+      "justice",
+      "social_harmony"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "hierarchy",
+        "justice",
+        "social_harmony"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_2",
+    "title": "체면 vs 솔직함",
+    "description": "실수로 큰 손해를 끼쳤지만, 인정하면 체면이 크게 깎입니다. 어떻게 하시겠습니까?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "face_saving",
+      "honesty",
+      "responsibility"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "face_saving",
+        "honesty",
+        "responsibility"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_3",
+    "title": "집단 조화 vs 개인 의견",
+    "description": "팀 회의에서 모든 사람이 잘못된 결정에 동의했습니다. 혼자서라도 반대 의견을 말해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "group_harmony",
+      "individual_opinion",
+      "courage"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "group_harmony",
+        "individual_opinion",
+        "courage"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_4",
+    "title": "은혜 vs 객관적 판단",
+    "description": "큰 은혜를 받은 분이 부정한 일을 저지르는 것을 알게 되었습니다. 어떻게 행동해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "gratitude",
+      "objectivity",
+      "moral_courage"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "gratitude",
+        "objectivity",
+        "moral_courage"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_5",
+    "title": "전통 vs 진보",
+    "description": "오래된 가족 전통이 현대적 가치와 충돌합니다. 어느 쪽을 선택하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "progress",
+      "cultural_change"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "tradition",
+        "progress",
+        "cultural_change"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_0",
+    "title": "학교에서의 진실 vs 친절",
+    "description": "학교에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_1",
+    "title": "직장에서의 진실 vs 친절",
+    "description": "직장에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_2",
+    "title": "가정에서의 진실 vs 친절",
+    "description": "가정에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_3",
+    "title": "온라인에서의 진실 vs 친절",
+    "description": "온라인에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_0",
+    "title": "학교에서의 개인 vs 집단",
+    "description": "학교에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_1",
+    "title": "직장에서의 개인 vs 집단",
+    "description": "직장에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_2",
+    "title": "가정에서의 개인 vs 집단",
+    "description": "가정에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_3",
+    "title": "온라인에서의 개인 vs 집단",
+    "description": "온라인에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_0",
+    "title": "학교에서의 원칙 vs 상황",
+    "description": "학교에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_1",
+    "title": "직장에서의 원칙 vs 상황",
+    "description": "직장에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_2",
+    "title": "가정에서의 원칙 vs 상황",
+    "description": "가정에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_3",
+    "title": "온라인에서의 원칙 vs 상황",
+    "description": "온라인에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_0",
+    "title": "학교에서의 현재 vs 미래",
+    "description": "학교에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_1",
+    "title": "직장에서의 현재 vs 미래",
+    "description": "직장에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_2",
+    "title": "가정에서의 현재 vs 미래",
+    "description": "가정에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_3",
+    "title": "온라인에서의 현재 vs 미래",
+    "description": "온라인에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  }
+]

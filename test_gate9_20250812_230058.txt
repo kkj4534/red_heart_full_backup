@@ -1,0 +1,221 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 320M v2 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 그래디언트 체크 (NaN, 끊김 검증)
+[0;34m[INFO][0m    - 텐서 계산 무결성 확인
+[0;34m[INFO][0m    - 파라미터 업데이트 없음 (베이스라인 회귀)
+2025-08-12 23:03:04,627 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+2025-08-12 23:03:04,638 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-12 23:03:04,638 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-12 23:03:04,638 - dynamic_swap_manager - INFO - RedHeartDynamicSwapManager 초기화 완료
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO - Red Heart AI 통합 학습 시스템 v2 초기화
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO -   - 모델 크기: 320M 파라미터
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO -   - 디바이스: cuda
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO -   - 모드: train-test
+2025-08-12 23:03:04,639 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습률: 0.0001
+2025-08-12 23:03:04,640 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-12 23:03:04,640 - RedHeart.UnifiedTrainingV2 - INFO - 
+============================================================
+2025-08-12 23:03:04,640 - RedHeart.UnifiedTrainingV2 - INFO - 🚀 Red Heart AI 통합 학습 시작
+2025-08-12 23:03:04,640 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-12 23:03:04,640 - RedHeart.UnifiedTrainingV2 - INFO - 
+📊 데이터 준비 시작
+2025-08-12 23:03:04,641 - RedHeart.UnifiedTrainingV2 - INFO - 📂 전처리된 데이터 로드: preprocessed_dataset_v2.json
+2025-08-12 23:03:04,643 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 데이터 준비 완료
+2025-08-12 23:03:04,643 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습: 2 샘플
+2025-08-12 23:03:04,643 - RedHeart.UnifiedTrainingV2 - INFO -   - 검증: 1 샘플
+2025-08-12 23:03:04,644 - RedHeart.UnifiedTrainingV2 - INFO - 
+🤖 모델 초기화 시작
+2025-08-12 23:03:04,644 - RedHeart.ModuleSelector - INFO - 실행 모드 변경: training
+2025-08-12 23:03:04,644 - RedHeart.ModuleSelector - INFO - 활성 모듈 수: 9
+2025-08-12 23:03:04,644 - RedHeart.ModuleSelector - DEBUG - 활성 모듈: ['bentham_calculator', 'bentham_fromm_head', 'emotion_dsp_simulator', 'emotion_empathy_head', 'kalman_filter', 'meta_integration_head', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+2025-08-12 23:03:04,645 - RedHeart.UnifiedTrainingV2 - INFO - 📊 메모리 상태:
+2025-08-12 23:03:04,645 - RedHeart.UnifiedTrainingV2 - INFO -   - 필요: 400.0 MB
+2025-08-12 23:03:04,645 - RedHeart.UnifiedTrainingV2 - INFO -   - 가용: 8191.6 MB
+2025-08-12 23:03:04,645 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: bentham_calculator
+2025-08-12 23:03:12,646 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-08-12 23:03:12,661 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)
+2025-08-12 23:03:12,673 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-12 23:03:12,673 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-08-12 23:03:12,674 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-12 23:03:12,674 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-08-12 23:03:12,674 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로딩 중...
+2025-08-12 23:03:12,675 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 3.5%, 필요: 100MB)
+2025-08-12 23:03:12,678 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로드: cuda (100MB)
+2025-08-12 23:03:12,679 - RedHeart.AdvancedBenthamCalculator - INFO - 메모리 사용량: RAM 789MB, GPU 285MB
+2025-08-12 23:03:12,679 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-12 23:03:12,679 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook GPU 메모리 관리 활성화
+2025-08-12 23:03:12,679 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook 시스템 초기화 완료
+2025-08-12 23:03:12,680 - RedHeart.PhaseControllerHook - INFO - 성능 모니터링 시작
+2025-08-12 23:03:12,680 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 PhaseController Hook 초기화 완료
+2025-08-12 23:03:12,680 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-12 23:03:12,680 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 GPU 메모리 관리 활성화
+2025-08-12 23:03:12,681 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-12 23:03:12,681 - RedHeart.LegalExpertSystem - INFO - inference 모드 - 법률 전문가 시스템 활성화
+2025-08-12 23:03:12,681 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-08-12 23:03:12,681 - RedHeart.AdvancedBenthamCalculator - INFO - 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-08-12 23:03:12,681 - RedHeart.AdvancedBenthamCalculator - INFO - 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-08-12 23:03:12,682 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-08-12 23:03:12,682 - RedHeart.AdvancedBenthamCalculator - INFO -    - 파라미터 수: 3,137
+2025-08-12 23:03:12,683 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 벤담 계산기 로드 성공
+2025-08-12 23:03:12,683 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_dsp_simulator
+2025-08-12 23:03:12,705 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~20M 파라미터)
+2025-08-12 23:03:12,711 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: kalman_filter
+2025-08-12 23:03:12,714 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: unified_backbone
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-12 23:03:13,112 - unified_backbone - INFO - 백본 총 파라미터: 92,817,412 (92.82M)
+2025-08-12 23:03:13,112 - unified_backbone - INFO - 학습 가능 파라미터: 92,817,412 (92.82M)
+2025-08-12 23:03:13,204 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: bentham_fromm_head
+2025-08-12 23:03:13,239 - unified_heads - INFO - 벤담 헤드 파라미터: 5,460,699 (5.46M)
+2025-08-12 23:03:13,255 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 벤담 헤드 로드 성공 (20M)
+2025-08-12 23:03:13,255 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_empathy_head
+2025-08-12 23:03:13,283 - unified_heads - INFO - 감정 헤드 파라미터: 6,708,575 (6.71M)
+2025-08-12 23:03:13,297 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 감정 헤드 로드 성공 (22M)
+2025-08-12 23:03:13,297 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: meta_integration_head
+2025-08-12 23:03:13,297 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: regret_learning_head
+2025-08-12 23:03:13,340 - unified_heads - INFO - 후회 헤드 파라미터: 11,233,289 (11.23M)
+2025-08-12 23:03:13,372 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 후회 헤드 로드 성공 (22M)
+2025-08-12 23:03:13,373 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: semantic_surd_head
+2025-08-12 23:03:13,393 - unified_heads - INFO - SURD 헤드 파라미터: 4,992,779 (4.99M)
+2025-08-12 23:03:13,405 - RedHeart.UnifiedTrainingV2 - INFO - ✅ SURD 헤드 로드 성공 (16M)
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO - 🎯 학습 필수 모듈 강제 로드 중...
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - regret_analyzer 추가 로드
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - surd_analyzer 추가 로드
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - emotion_head 로드
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - bentham_head 로드
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - regret_head 로드
+2025-08-12 23:03:13,406 - RedHeart.UnifiedTrainingV2 - INFO -   - surd_head 로드
+2025-08-12 23:03:13,407 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 모델 초기화 완료
+2025-08-12 23:03:13,407 - RedHeart.UnifiedTrainingV2 - INFO - 🔧 옵티마이저 초기화 중...
+2025-08-12 23:03:13,407 - RedHeart.UnifiedTrainingV2 - INFO -   백본 파라미터 추가됨
+2025-08-12 23:03:13,407 - RedHeart.UnifiedTrainingV2 - INFO -   bentham 헤드 파라미터 추가됨
+2025-08-12 23:03:13,408 - RedHeart.UnifiedTrainingV2 - INFO -   emotion 헤드 파라미터 추가됨
+2025-08-12 23:03:13,408 - RedHeart.UnifiedTrainingV2 - INFO -   regret 헤드 파라미터 추가됨
+2025-08-12 23:03:13,408 - RedHeart.UnifiedTrainingV2 - INFO -   surd 헤드 파라미터 추가됨
+2025-08-12 23:03:13,409 - RedHeart.UnifiedTrainingV2 - INFO -   dsp 분석기 파라미터 추가됨
+2025-08-12 23:03:13,409 - RedHeart.UnifiedTrainingV2 - INFO -   kalman 분석기 파라미터 추가됨
+2025-08-12 23:03:13,409 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 옵티마이저 초기화 완료
+2025-08-12 23:03:13,410 - RedHeart.UnifiedTrainingV2 - INFO -   - 옵티마이저: AdamW
+2025-08-12 23:03:13,410 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습률: 0.0001
+2025-08-12 23:03:13,410 - RedHeart.UnifiedTrainingV2 - INFO -   - 스케줄러: CosineAnnealingLR
+2025-08-12 23:03:13,410 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 파라미터: 122,395,197
+2025-08-12 23:03:13,410 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습 가능 파라미터: 122,395,197
+2025-08-12 23:03:13,411 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 1/10 시작
+2025-08-12 23:03:13,411 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-12 23:03:13,411 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-12 23:03:13,411 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 768])
+2025-08-12 23:03:13,412 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-12 23:03:13,441 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 2.433774
+2025-08-12 23:03:13,441 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-12 23:03:13,447 - RedHeart.UnifiedTrainingV2 - ERROR - ❌ 오류 발생: element 0 of tensors does not require grad and does not have a grad_fn
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 535, in run
+    train_loss = self.train_epoch(epoch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 350, in train_epoch
+    loss = self._train_step(batch_data, batch_idx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 410, in _train_step
+    loss.backward()
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+2025-08-12 23:03:13,457 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧹 시스템 정리 중...
+2025-08-12 23:03:13,587 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 정리 완료
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 287,210,742
+  - 총 메모리: 1103.1 MB
+  - GPU 메모리: 400.0 MB
+  - CPU 메모리: 703.1 MB
+
+✅ 활성 모듈 (9개):
+
+  [analyzer]
+    - bentham_calculator: 8,330,000 params, 32.0 MB
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+============================================================
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 631, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 627, in main
+    system.run()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 535, in run
+    train_loss = self.train_epoch(epoch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 350, in train_epoch
+    loss = self._train_step(batch_data, batch_idx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 410, in _train_step
+    loss.backward()
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/_tensor.py", line 581, in backward
+    torch.autograd.backward(
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/autograd/__init__.py", line 347, in backward
+    _engine_run_backward(
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/autograd/graph.py", line 825, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

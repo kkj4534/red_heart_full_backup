@@ -1,0 +1,32 @@
+[
+  {
+    "index": 0,
+    "source": "scruples",
+    "text_preview": "My boyfriend (well just call him M) and I are creators on Instagram (he is also on TikTok). I'm a digital and traditional artist and in one of my classes we create t shirts and things (socks, lanyards...",
+    "error": "감정 분석 최종 실패: 감정 파싱 실패: 7개 감정 중 0개만 추출",
+    "error_type": "ValueError",
+    "metadata": {
+      "id": "ySQlJw4BNwbaNiHcdS6Hdf3ZHnBrAg9d",
+      "title": "AITA for wanting to wear a shirt?",
+      "post_id": "axdpn3",
+      "subreddit": "",
+      "site": "reddit"
+    },
+    "timestamp": "2025-08-15T18:58:19.416747"
+  },
+  {
+    "index": 1,
+    "source": "scruples",
+    "text_preview": "Background: I have ocd and the only contamination issue I have is around food. Both parents know this. What has lead me to ask this question is this mornings reaction from parent B.\n\nThis morning pare...",
+    "error": "감정 분석 최종 실패: 감정 파싱 실패: 7개 감정 중 0개만 추출",
+    "error_type": "ValueError",
+    "metadata": {
+      "id": "P96wm6qNDeGdaHy25VrNmYPWbtyTAxDN",
+      "title": "Aita here? Two parents, two different reactions",
+      "post_id": "actige",
+      "subreddit": "",
+      "site": "reddit"
+    },
+    "timestamp": "2025-08-15T18:58:29.343922"
+  }
+]

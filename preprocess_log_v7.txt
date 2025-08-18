@@ -1,0 +1,3 @@
+INFO:RedHeart.DataPreprocessingV3:디바이스: cuda
+INFO:RedHeart.DataPreprocessingV3:Loading sentence transformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2

@@ -1,0 +1,194 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cpu
+Device set to use cpu
+Device set to use cpu
+⛔ semantic_analyzer 초기화 취소됨 (타임아웃/중단)
+   ❌ semantic_analyzer 초기화 타임아웃 (360초)
+   💔 타임아웃 발생 (설정: 360초, 기본: 120초)
+❌ 전역 모듈 초기화 실패: semantic_analyzer 초기화 타임아웃
+❌ 스택 트레이스:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1421, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 270, in initialize
+    await asyncio.to_thread(self._setup_neural_networks_cpu)
+  File "/usr/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1041, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/usr/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1854, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1243, in _initialize_global_modules_sequential
+    raise RuntimeError(f"{spec['name']} 초기화 타임아웃")
+RuntimeError: semantic_analyzer 초기화 타임아웃
+
+시스템 초기화 실패: 전역 모듈 초기화 실패 - 시스템 중단: semantic_analyzer 초기화 타임아웃
+🚨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1421, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 270, in initialize
+    await asyncio.to_thread(self._setup_neural_networks_cpu)
+  File "/usr/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1041, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/usr/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1854, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1243, in _initialize_global_modules_sequential
+    raise RuntimeError(f"{spec['name']} 초기화 타임아웃")
+RuntimeError: semantic_analyzer 초기화 타임아웃
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 847, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1861, in _initialize_core_components
+    raise RuntimeError(f"전역 모듈 초기화 실패 - 시스템 중단: {e}") from e
+RuntimeError: 전역 모듈 초기화 실패 - 시스템 중단: semantic_analyzer 초기화 타임아웃
+
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-11 23:14:42
+------------------------------------------------------------
+
+============================================================
+🚨 시스템 초기화 실패!
+============================================================
+에러: 전역 모듈 초기화 실패 - 시스템 중단: semantic_analyzer 초기화 타임아웃
+============================================================
+상세 스택 트레이스:
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1421, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 270, in initialize
+    await asyncio.to_thread(self._setup_neural_networks_cpu)
+  File "/usr/lib/python3.12/asyncio/threads.py", line 25, in to_thread
+    return await loop.run_in_executor(None, func_call)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1041, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 519, in wait_for
+    async with timeouts.timeout(timeout):
+  File "/usr/lib/python3.12/asyncio/timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1854, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1243, in _initialize_global_modules_sequential
+    raise RuntimeError(f"{spec['name']} 초기화 타임아웃")
+RuntimeError: semantic_analyzer 초기화 타임아웃
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 847, in initialize_system
+    await self._initialize_core_components()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1861, in _initialize_core_components
+    raise RuntimeError(f"전역 모듈 초기화 실패 - 시스템 중단: {e}") from e
+RuntimeError: 전역 모듈 초기화 실패 - 시스템 중단: semantic_analyzer 초기화 타임아웃
+
+============================================================
+
+[23:28:16] ❌ 시스템 초기화 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

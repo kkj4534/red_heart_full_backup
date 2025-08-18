@@ -1,0 +1,57 @@
+{
+  "total_scenarios": 28882,
+  "num_batches": 6,
+  "batch_size": 5000,
+  "batch_files": [
+    "processed_datasets/full_scenarios_batch_001.json",
+    "processed_datasets/full_scenarios_batch_002.json",
+    "processed_datasets/full_scenarios_batch_003.json",
+    "processed_datasets/full_scenarios_batch_004.json",
+    "processed_datasets/full_scenarios_batch_005.json",
+    "processed_datasets/full_scenarios_batch_006.json"
+  ],
+  "source_files": {
+    "ai_generated_full": "processed_datasets/source_ai_generated_full.json",
+    "literature": "processed_datasets/source_literature.json",
+    "scruples_anecdotes": "processed_datasets/source_scruples_anecdotes.json",
+    "scruples_dilemmas": "processed_datasets/source_scruples_dilemmas.json",
+    "korean_cultural_extended": "processed_datasets/source_korean_cultural_extended.json",
+    "augmented_massive": "processed_datasets/source_augmented_massive.json"
+  },
+  "source_distribution": {
+    "ai_generated_full": 2,
+    "literature": 1327,
+    "scruples_anecdotes": 9701,
+    "scruples_dilemmas": 14700,
+    "korean_cultural_extended": 80,
+    "augmented_massive": 3072
+  },
+  "category_distribution": {
+    "legal": 165,
+    "moral_personal": 404,
+    "relationship": 5395,
+    "financial": 955,
+    "educational": 277,
+    "professional": 1373,
+    "general": 2309,
+    "social": 63,
+    "cultural": 58,
+    "health": 90,
+    "technology": 21,
+    "comparative_ethics": 14700,
+    "honesty_vs_kindness": 384,
+    "individual_vs_collective": 384,
+    "short_term_vs_long_term": 384,
+    "rules_vs_exceptions": 384,
+    "freedom_vs_security": 384,
+    "efficiency_vs_fairness": 384,
+    "tradition_vs_innovation": 384,
+    "privacy_vs_transparency": 384
+  },
+  "complexity_distribution": {
+    "low": 0,
+    "medium": 8853,
+    "high": 20029
+  },
+  "processing_date": "2025-06-19T18:42:22.316638"
+}

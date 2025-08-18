@@ -1,0 +1,144 @@
+{
+  "id": "a95d2386-f718-456f-bbdc-ed90a2df600c",
+  "situation": {
+    "id": "c5dd4a49-1d4c-4945-b3b0-e309dec4e407",
+    "title": "자율주행차 사고 회피 딜레마",
+    "description": "자율주행차가 사고를 피할 수 없는 상황에서 보행자 1명과 승객 2명 중 누구를 보호할지 결정해야 합니다.",
+    "context": {
+      "location": "도심 교차로",
+      "time": "저녁",
+      "weather": "우천시",
+      "people_involved": [
+        "승객들",
+        "보행자",
+        "시스템"
+      ]
+    },
+    "variables": {
+      "vehicle_speed": 0.6,
+      "pedestrian_age": 0.3,
+      "passenger_age": 0.7,
+      "traffic_density": 0.8
+    },
+    "options": [
+      {
+        "id": "protect_pedestrian",
+        "text": "보행자를 보호한다",
+        "affected_count": 3,
+        "duration_seconds": 30
+      },
+      {
+        "id": "protect_passengers",
+        "text": "승객들을 보호한다",
+        "affected_count": 3,
+        "duration_seconds": 30
+      },
+      {
+        "id": "minimize_harm",
+        "text": "최소 피해를 목표로 한다",
+        "affected_count": 3,
+        "duration_seconds": 30
+      },
+      {
+        "id": "random_choice",
+        "text": "랜덤하게 결정한다",
+        "affected_count": 3,
+        "duration_seconds": 30
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.335502",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.335508"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.335510"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 0.03,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "688a6232-07b7-4000-9e62-5ce1da85884e",
+    "situation_id": "c5dd4a49-1d4c-4945-b3b0-e309dec4e407",
+    "choice": "minimize_harm",
+    "reasoning": "'최소 피해를 목표로 한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "minimize_harm"
+    },
+    "timestamp": "2025-06-29T01:27:35.335514"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.8,
+    "primary_emotion": "RELIEF",
+    "option_outcomes": {
+      "protect_pedestrian": {
+        "hedonic": 0.6,
+        "emotion": "TRUST"
+      },
+      "protect_passengers": {
+        "hedonic": 0.4,
+        "emotion": "GUILT"
+      },
+      "minimize_harm": {
+        "hedonic": 0.8,
+        "emotion": "RELIEF"
+      },
+      "random_choice": {
+        "hedonic": 0.2,
+        "emotion": "ANXIETY"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 최소 피해를 목표로 한다"
+  },
+  "has_regret": false,
+  "regret_data": {
+    "intensity": 0,
+    "threshold": 0.3,
+    "was_optimal": true,
+    "analysis": {
+      "prediction_error": 0.30000000000000004,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.8,
+      "hedonic_difference": 0.30000000000000004,
+      "better_options": [],
+      "was_optimal": true
+    },
+    "timestamp": 1751128055.335519
+  },
+  "timestamp": "2025-06-29T01:27:35.335519"
+}

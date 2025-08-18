@@ -1,0 +1,1116 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+   🔝 새로운 Peak 메모리: 0.000GB (at 초기화 시작 전)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/models/marian/tokenization_marian.py:175: UserWarning: Recommended: pip install sacremoses.
+  warnings.warn("Recommended: pip install sacremoses.")
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+Device set to use cuda:0
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/pipelines/text_classification.py:106: UserWarning: `return_all_scores` is now deprecated,  if want a similar functionality use `top_k=None` instead of `return_all_scores=True` or `top_k=1` instead of `return_all_scores=False`.
+  warnings.warn(
+Device set to use cuda:0
+Device set to use cuda:0
+⚠️ GPU 사용률이 낮습니다 (52.8%) - 더 적극적 로딩 필요
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 4.203GB (52.5%)
+   📦 예약됨: 4.367GB
+   💚 여유: 3.796GB
+   🔄 config.py 측정: 52.5%
+   🧠 GPU 텐서: 1996개, 4.191GB
+   📋 큰 텐서 TOP 5:
+      1. [50265, 1024] (torch.float32) - 196.3MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.164GB
+   🔝 새로운 Peak 메모리: 4.231GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.925GB (74.1%)
+   📦 예약됨: 6.107GB
+   💚 여유: 2.075GB
+   🔄 config.py 측정: 74.1%
+   🧠 GPU 텐서: 2240개, 5.876GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.183GB
+   🔝 새로운 Peak 메모리: 5.925GB (at 백본 초기화 후)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.925GB (74.1%)
+   📦 예약됨: 6.107GB
+   💚 여유: 2.075GB
+   🔄 config.py 측정: 74.1%
+   🧠 GPU 텐서: 2240개, 5.876GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.183GB
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.925GB (74.1%)
+   📦 예약됨: 6.107GB
+   💚 여유: 2.075GB
+   🔄 config.py 측정: 74.1%
+   🧠 GPU 텐서: 2240개, 5.876GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.183GB
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+전역 bentham_calculator에 get_pytorch_network 메서드가 없음
+전역 emotion_analyzer에 get_pytorch_network 메서드가 없음
+📊 추가 활용 가능: 현재 77.7% (목표 82%)
+🔍 initialize_all_heads() 호출 완료!
+🚨 헤드 초기화 완료 - 메모리 상태 확인 중...
+🔍 [모든 헤드 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.219GB (77.7%)
+   📦 예약됨: 6.402GB
+   💚 여유: 1.781GB
+   🔄 config.py 측정: 77.7%
+   🧠 GPU 텐서: 2285개, 6.168GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.184GB
+   🔝 새로운 Peak 메모리: 6.219GB (at 모든 헤드 초기화 후)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 77.7% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=6.22GB, 예약=6.40GB
+🗑️ 총 347개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 155개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 77.7% → 77.7% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+🔍 [자동 메모리 정리 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.219GB (77.7%)
+   📦 예약됨: 6.402GB
+   💚 여유: 1.781GB
+   🔄 config.py 측정: 77.7%
+   🧠 GPU 텐서: 2285개, 6.168GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.184GB
+🔍 [시너지 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.219GB (77.7%)
+   📦 예약됨: 6.402GB
+   💚 여유: 1.781GB
+   🔄 config.py 측정: 77.7%
+   🧠 GPU 텐서: 2285개, 6.168GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.184GB
+🔍 [학습 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.940GB (99.3%)
+   📦 예약됨: 8.156GB
+   💚 여유: 0.060GB
+   🔄 config.py 측정: 99.3%
+   🧠 GPU 텐서: 2529개, 7.853GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.217GB
+   ⚠️ WARNING: 높은 메모리 사용률 (99.3%)
+   🔝 새로운 Peak 메모리: 7.940GB (at 학습 시스템 초기화 후)
+🔍 [패턴 분석기 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.940GB (99.3%)
+   📦 예약됨: 8.156GB
+   💚 여유: 0.060GB
+   🔄 config.py 측정: 99.3%
+   🧠 GPU 텐서: 2529개, 7.853GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.217GB
+   ⚠️ WARNING: 높은 메모리 사용률 (99.3%)
+훈련 중 오류 발생: 등록되지 않은 헤드: emotion_empathy_head
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1375, in train_unified_system
+    await self._load_active_heads(active_heads)
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1448, in _load_active_heads
+    await self.swap_manager.load_head_to_gpu(head_type.value)
+  File "/mnt/c/large_project/linux_red_heart/dynamic_swap_manager.py", line 422, in load_head_to_gpu
+    raise ValueError(f"등록되지 않은 헤드: {head_name}")
+ValueError: 등록되지 않은 헤드: emotion_empathy_head
+
+🔍 에러 타입: ValueError
+📍 에퟼크: 1/1, 배치: 0
+Python 통합 학습 오류: 등록되지 않은 헤드: emotion_empathy_head
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1416, in _run_python_training
+    await self.learning_system.train_unified_system(
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1375, in train_unified_system
+    await self._load_active_heads(active_heads)
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1448, in _load_active_heads
+    await self.swap_manager.load_head_to_gpu(head_type.value)
+  File "/mnt/c/large_project/linux_red_heart/dynamic_swap_manager.py", line 422, in load_head_to_gpu
+    raise ValueError(f"등록되지 않은 헤드: {head_name}")
+ValueError: 등록되지 않은 헤드: emotion_empathy_head
+
+🔍 에러 타입: ValueError
+📍 num_epochs: 1, num_batches: 1
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.940GB (99.3%)
+   📦 예약됨: 8.156GB
+   💚 여유: 0.060GB
+   🔄 config.py 측정: 99.3%
+   🧠 GPU 텐서: 2529개, 7.853GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.217GB
+   ⚠️ WARNING: 높은 메모리 사용률 (99.3%)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+⚠️ GPU 메모리 부족 - 정리 시작 (사용률: 99.3%, 여유: 61.41455078125MB)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 99.3% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=7.94GB, 예약=8.16GB
+🗑️ 총 435개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 395개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 99.3% → 99.3% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+⚠️ 메모리 사용률이 여전히 높음 - 추가 조치 필요
+❌ GPU 메모리 공간 확보 실패 - 필요: 400MB, 여유: 61.41455078125MB
+스왑 공간 확보 실패: temp_model_1754054788 - 'RedHeartDynamicSwapManager' object has no attribute 'free_gpu_space_intelligent'
+비동기 실행 타임아웃
+⚠️ GPU 메모리 부족 - 정리 시작 (사용률: 99.3%, 여유: 61.41455078125MB)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 99.3% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=7.94GB, 예약=8.16GB
+🗑️ 총 435개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 70개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 99.3% → 99.3% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+⚠️ 메모리 사용률이 여전히 높음 - 추가 조치 필요
+❌ GPU 메모리 공간 확보 실패 - 필요: 500MB, 여유: 61.41455078125MB
+비동기 실행 타임아웃
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cpu
+스왑 대기 타임아웃: temp_model_1754054788 (최대 대기 시간 30.0초 초과)
+스왑 공간 확보 실패: temp_model_1754054795 - 'RedHeartDynamicSwapManager' object has no attribute 'free_gpu_space_intelligent'
+스왑 대기 타임아웃: temp_model_1754054795 (최대 대기 시간 30.0초 초과)
+모델 가비지 컬렉션 감지: discovered_RobertaForSequenceClassification_313MB_123216591642048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaForSequenceClassification_313MB_123216591642048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaModel_311MB_123216366884848 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaModel_311MB_123216366884848 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEmbeddings_148MB_123216291747584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEmbeddings_148MB_123216291747584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_147MB_123216294019040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_147MB_123216294019040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEncoder_162MB_123216293228576 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEncoder_162MB_123216293228576 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_162MB_123216293976384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_162MB_123216293976384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216293969312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216293969312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591642672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591642672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591645504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591645504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591647376 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591647376 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591650448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591650448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591648768 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216591648768 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaForSequenceClassification_313MB_123216272243072 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaForSequenceClassification_313MB_123216272243072 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaModel_311MB_123216272242688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaModel_311MB_123216272242688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEmbeddings_148MB_123216293230496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEmbeddings_148MB_123216293230496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_147MB_123216293424176 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_147MB_123216293424176 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEncoder_162MB_123216293424608 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEncoder_162MB_123216293424608 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_162MB_123216272242496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_162MB_123216272242496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272242640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272242640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216366894496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216366894496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272244560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272244560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272241584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272241584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272240672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272240672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272239808 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216272239808 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraModel_485MB_123216284626784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraModel_485MB_123216284626784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEmbeddings_160MB_123216370664800 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEmbeddings_160MB_123216370664800 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_159MB_123216355349168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_159MB_123216355349168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEncoder_324MB_123216291620016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEncoder_324MB_123216291620016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_324MB_123216293422544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_324MB_123216293422544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216282167936 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216282167936 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216290809952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216290809952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289280080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289280080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289826096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289826096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216284654224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216284654224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289892400 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289892400 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289900944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289900944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216288976624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216288976624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289031152 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289031152 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289030048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289030048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289022704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289022704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289023712 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289023712 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraForSequenceClassification_487MB_123216289274752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraForSequenceClassification_487MB_123216289274752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraModel_485MB_123216290795920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraModel_485MB_123216290795920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEmbeddings_160MB_123216289278880 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEmbeddings_160MB_123216289278880 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_159MB_123216282205168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_159MB_123216282205168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEncoder_324MB_123216355328560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraEncoder_324MB_123216355328560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_324MB_123216290968016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_324MB_123216290968016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216294664128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216294664128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216295363312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216295363312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216355350560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216355350560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289071808 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289071808 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289077136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289077136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289085536 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289085536 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289097312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289097312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289097840 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289097840 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289093568 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289093568 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289039472 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289039472 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289054352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216289054352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216272229584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ElectraLayer_27MB_123216272229584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianMTModel_297MB_123216356277280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianMTModel_297MB_123216356277280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianModel_297MB_123216356277520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianModel_297MB_123216356277520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoder_200MB_123216356277328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoder_200MB_123216356277328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_72MB_123216591640464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_72MB_123216591640464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216572256512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216572256512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216591640032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216591640032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216591639120 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216591639120 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216354820704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216354820704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216356276896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216356276896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216356276416 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianEncoderLayer_12MB_123216356276416 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoder_224MB_123216354821280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoder_224MB_123216354821280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_126MB_123216371532912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_126MB_123216371532912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_96MB_123216370660368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_96MB_123216370660368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216591638736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216591638736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354822288 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354822288 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354823104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354823104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354823920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354823920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354824736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354824736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354825552 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MarianDecoderLayer_16MB_123216354825552 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_126MB_123216591639216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_126MB_123216591639216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_HierarchicalEmotionModel_31MB_123216282190912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Phase1EmpathyModel_14MB_123216289269568 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Phase2CommunityModel_14MB_123216289092944 - 레지스트리 정리
+Device set to use cuda:0
+Device set to use cuda:0
+Device set to use cuda:0
+🚨 GPU 메모리 위험: 94.6% - 긴급 정리 시작
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 94.6% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=7.57GB, 예약=7.71GB
+🗑️ 총 510개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 86개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 94.6% → 94.6% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+⚠️ 메모리 사용률이 여전히 높음 - 추가 조치 필요
+AdvancedMultiLevelSemanticAnalyzer 초기화 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+❌ 모듈 semantic_analyzer 로딩 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+🚨 semantic_analyzer 로딩 실패 상세 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1330, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1002, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 133, in initialize
+    self._setup_neural_networks()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 613, in _setup_neural_networks
+    raise RuntimeError(f"의미 융합 네트워크 GPU 로딩 실패: device={fusion_device}, models={fusion_models}")
+RuntimeError: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+
+   ❌ semantic_analyzer 초기화 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+❌ 전역 모듈 초기화 실패: 필수 모듈 semantic_analyzer 초기화 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+❌ 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1330, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 848, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1002, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 133, in initialize
+    self._setup_neural_networks()
+  File "/mnt/c/large_project/linux_red_heart/advanced_multi_level_semantic_analyzer.py", line 613, in _setup_neural_networks
+    raise RuntimeError(f"의미 융합 네트워크 GPU 로딩 실패: device={fusion_device}, models={fusion_models}")
+RuntimeError: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1187, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 897, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 semantic_analyzer 초기화 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+
+자동 복구 실패: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 semantic_analyzer 초기화 실패: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+모델 가비지 컬렉션 감지: discovered_RobertaForSequenceClassification_313MB_123216239477632 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaModel_311MB_123216239478256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEmbeddings_148MB_123216239488384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_147MB_123216239480416 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaEncoder_162MB_123216273433248 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_162MB_123216239488912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216239480512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216239491456 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216363801872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216239490784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123216239490256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RobertaLayer_27MB_123215296890544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertModel_417MB_123216239086960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: semantic_ethical_model - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertEmbeddings_90MB_123216360666944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_89MB_123216289826288 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertEncoder_324MB_123216267767504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_324MB_123216239482288 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216273171056 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360667088 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216239095984 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360668192 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360667376 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360665840 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360665024 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360664112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360662960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360662000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360661040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BertLayer_27MB_123216360660080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartForSequenceClassification_1553MB_123215296897120 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartModel_1549MB_123216294663408 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartScaledWordEmbedding_196MB_123215296893520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoder_776MB_123215296897264 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartScaledWordEmbedding_196MB_123216355329760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_576MB_123215296894048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216355329952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123215296893712 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123215296890400 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216366896768 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216289830320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216273173408 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216239482336 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216355350752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216355349936 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216355358144 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216267798880 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216293228576 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216293230496 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216572256512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216272242352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216272231648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216272232080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216272239184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216272240720 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216272242976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216272232464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216272241872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360657008 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360654608 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216360654368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360653120 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360654896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360654704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216239088736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216239096560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360592480 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360593632 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216360601888 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360591424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360587440 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360587776 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216360592960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360603424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360588880 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360599488 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216360589552 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360591952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360598240 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360594976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartEncoderLayer_48MB_123216360590704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360589792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360590512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360589408 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoder_969MB_123216355332064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartScaledWordEmbedding_196MB_123216239476864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_768MB_123216360657104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216360658016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123215296890448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360594640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360594544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360597040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216360591040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360589216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360594352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360597808 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360600352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216360602464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360597952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216360598000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360596800 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216360592528 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216290807984 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216290811008 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216294165296 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216282173360 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216282170816 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216282158480 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216591646752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216591645648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216591647040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216591637008 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216591638736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216591639888 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216591638064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216591638688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216591644016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216591648864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216591639744 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216290785872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216290780352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216290786592 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216290787792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216290789424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216289253568 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216289252176 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216289256448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216289252128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216289262592 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216289258704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216289252896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216289256928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216289272064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216289268512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216289275712 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216288960384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216288964752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216288965184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216288958224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216288961200 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216284657344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216284651104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartDecoderLayer_64MB_123216284654224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216284662864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BartAttention_16MB_123216284651968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216284652064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_16MB_123216284649136 - 레지스트리 정리
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-01 22:22:04
+------------------------------------------------------------
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+[22:26:27] ✅ 시스템 초기화 완료
+[22:26:27] 🧪 테스트 모드 시작...
+
+============================================================
+🚨 필수 모듈 semantic_analyzer 로딩 실패!
+============================================================
+에러: 의미 융합 네트워크 GPU 로딩 실패: device=cpu, models=None
+모듈 경로: advanced_multi_level_semantic_analyzer.AdvancedMultiLevelSemanticAnalyzer
+============================================================
+
+[22:29:51] ❌ 테스트 모드 실패
+모델 가비지 컬렉션 감지: discovered_RedHeartUnifiedBackbone_1685MB_123216289262304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RedHeartUnifiedBackbone_1685MB_123216289262304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_244MB_123216290816912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_244MB_123216290816912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_1351MB_123216275391696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_1351MB_123216275391696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289799424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289799424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiHeadCrossAttention_25MB_123216289799328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiHeadCrossAttention_25MB_123216289799328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289805952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289805952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216289803024 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216289803024 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289799760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289799760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216289799520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216289799520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289802976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289802976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289802112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289802112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289802640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289802640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289802256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289802256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216288987184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216288987184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216271706688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216271706688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216290715920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216290715920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289804320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289804320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_EmotionEmpathyHeadAdapter_35MB_123216289794192 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_EmotionEmpathyHeadAdapter_35MB_123216289794192 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BenthamFrommHeadAdapter_41MB_123216274324992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_BenthamFrommHeadAdapter_41MB_123216274324992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_LightweightCrossAttention_25MB_123216282277872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_LightweightCrossAttention_25MB_123216282277872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_LightweightCrossAttention_25MB_123216282259760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_LightweightCrossAttention_25MB_123216282259760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_OptimizedDimensionAdapter_10MB_123216282257792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_OptimizedDimensionAdapter_10MB_123216282257792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MixtureOfExperts_25MB_123216291732688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MixtureOfExperts_25MB_123216291732688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216366884944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216366884944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216275391648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216275391648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289075504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289075504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274319040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274319040 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274320960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274320960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274321728 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274321728 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274323360 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274323360 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274318560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274318560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274316256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274316256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274315200 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274315200 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274313280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274313280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274312368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274312368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274310352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216274310352 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_OptimizedDimensionAdapter_16MB_123216282271872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_OptimizedDimensionAdapter_16MB_123216282271872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289804944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289804944 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289803648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289803648 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289804080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289804080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289806096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289806096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216290716016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216290716016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216290716784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216290716784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216275391744 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216275391744 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274315872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274315872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_23MB_123216291619344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_23MB_123216291619344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216288986512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216288986512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216271717824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216271717824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289079728 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289079728 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274318752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274318752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274319616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274319616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274320384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274320384 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274320672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274320672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216366898448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216366898448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274322064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274322064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274321104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274321104 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274325280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274325280 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274324368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274324368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274318464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274318464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274316544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274316544 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274316112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274316112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274314336 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274314336 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274315296 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274315296 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274321584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274321584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274313232 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274313232 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274312896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274312896 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274312320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274312320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274310736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274310736 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274310304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274310304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274309968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216274309968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274309392 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216274309392 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216290714000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216290714000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289806336 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289806336 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289803696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289803696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289805424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289805424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289805856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289805856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290716112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290716112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290716688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290716688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216275390928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216275390928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216288980128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216288980128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216271717968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216271717968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274319520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274319520 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274319472 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274319472 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274320864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274320864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290816096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216290816096 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274321440 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274321440 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274325184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274325184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274325136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274325136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274324560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274324560 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318848 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274318848 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274316160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274316160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274316064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274316064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314480 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314480 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274315248 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274315248 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274314912 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274313184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274313184 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274312992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274312992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274312272 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274312272 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274309344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274309344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216274310928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RedHeartUnifiedBackbone_1685MB_123216289118112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_RedHeartUnifiedBackbone_1685MB_123216289118112 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_244MB_123216289118160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Embedding_244MB_123216289118160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_1351MB_123216289120080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_ModuleList_1351MB_123216289120080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270986704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270986704 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270987616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270987616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270988576 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270988576 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270987664 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270987664 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270988048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270988048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270988624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270988624 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270988960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270988960 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270989824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270989824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270990160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270990160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270987760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270987760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270987952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270987952 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270988672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270988672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270988864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270988864 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270989872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270989872 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270990064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270990064 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270996928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270996928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiHeadCrossAttention_25MB_123216270993856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiHeadCrossAttention_25MB_123216270993856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MemoryEfficientTrainer_1685MB_123216270992032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MemoryEfficientTrainer_1685MB_123216270992032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289796832 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289796832 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216270994528 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216270994528 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289105968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289105968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289107936 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289107936 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289106688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289106688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289109088 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289109088 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289108128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289108128 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289115856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216289115856 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272238032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272238032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272228432 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272228432 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272243312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272243312 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272229680 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216272229680 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270999424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270999424 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270998032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270998032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270983920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270983920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270984688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270984688 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270985744 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_TransformerEncoderLayer_75MB_123216270985744 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216270989776 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_12MB_123216270989776 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289107696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289107696 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270986752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270986752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270987088 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270987088 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270985792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270985792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270986176 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270986176 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270984928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270984928 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270985264 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270985264 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270983968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270983968 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270984304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270984304 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270997360 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270997360 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270983344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270983344 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270996208 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216270996208 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270998512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216270998512 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272233904 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272233904 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272238368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272238368 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272231504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272231504 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272231168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272231168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272235824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272235824 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272229920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272229920 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272237216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216272237216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272234672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216272234672 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289119072 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289119072 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289108464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289108464 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289119888 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289119888 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289111584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289111584 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289116048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289116048 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289107600 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289107600 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289119600 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289119600 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289120224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MultiheadAttention_25MB_123216289120224 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289110000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Sequential_50MB_123216289110000 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986800 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986800 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986992 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270985840 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270985840 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270986080 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270985168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270985168 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984208 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270984208 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270998320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270998320 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270983248 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270983248 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270996160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270996160 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270999136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216270999136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236448 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236976 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272236784 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272230256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272230256 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272233136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272233136 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272229008 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272229008 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272231792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272231792 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272228528 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216272228528 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289108032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289108032 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109616 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289106640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289106640 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289106016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289106016 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109760 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289117296 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289117296 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289114752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289114752 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289109328 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289116144 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289116144 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289119216 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_Linear_25MB_123216289119216 - 레지스트리 정리
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

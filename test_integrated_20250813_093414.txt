@@ -1,0 +1,520 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 320M v2 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 그래디언트 체크 (NaN, 끊김 검증)
+[0;34m[INFO][0m    - 텐서 계산 무결성 확인
+[0;34m[INFO][0m    - 파라미터 업데이트 없음 (베이스라인 회귀)
+2025-08-13 09:36:14,531 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+2025-08-13 09:36:14,543 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-13 09:36:14,543 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-13 09:36:14,543 - dynamic_swap_manager - INFO - RedHeartDynamicSwapManager 초기화 완료
+2025-08-13 09:36:14,543 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO - Red Heart AI 통합 학습 시스템 v2 초기화
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO -   - 모델 크기: 320M 파라미터
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO -   - 디바이스: cuda
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO -   - 모드: train-test
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습률: 0.0001
+2025-08-13 09:36:14,544 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 09:36:14,545 - RedHeart.UnifiedTrainingV2 - INFO - 
+============================================================
+2025-08-13 09:36:14,545 - RedHeart.UnifiedTrainingV2 - INFO - 🚀 Red Heart AI 통합 학습 시작
+2025-08-13 09:36:14,545 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 09:36:14,545 - RedHeart.UnifiedTrainingV2 - INFO - 
+📊 데이터 준비 시작
+2025-08-13 09:36:14,546 - RedHeart.UnifiedTrainingV2 - INFO - 📂 전처리된 데이터 로드: preprocessed_dataset_v2.json
+2025-08-13 09:36:14,548 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 데이터 준비 완료
+2025-08-13 09:36:14,548 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습: 2 샘플
+2025-08-13 09:36:14,548 - RedHeart.UnifiedTrainingV2 - INFO -   - 검증: 1 샘플
+2025-08-13 09:36:14,548 - RedHeart.UnifiedTrainingV2 - INFO - 
+🤖 모델 초기화 시작
+2025-08-13 09:36:14,548 - RedHeart.ModuleSelector - INFO - 실행 모드 변경: training
+2025-08-13 09:36:14,549 - RedHeart.ModuleSelector - INFO - 활성 모듈 수: 12
+2025-08-13 09:36:14,549 - RedHeart.ModuleSelector - DEBUG - 활성 모듈: ['bentham_fromm_head', 'emotion_dsp_simulator', 'emotion_empathy_head', 'kalman_filter', 'meta_integration_head', 'neural_bentham', 'neural_emotion', 'neural_regret', 'neural_surd', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+2025-08-13 09:36:14,549 - RedHeart.UnifiedTrainingV2 - INFO - 📊 메모리 상태:
+2025-08-13 09:36:14,549 - RedHeart.UnifiedTrainingV2 - INFO -   - 필요: 1853.0 MB
+2025-08-13 09:36:14,550 - RedHeart.UnifiedTrainingV2 - INFO -   - 가용: 8191.6 MB
+2025-08-13 09:36:14,550 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_dsp_simulator
+2025-08-13 09:36:14,602 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-13 09:36:14,867 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: kalman_filter
+2025-08-13 09:36:14,871 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_bentham
+2025-08-13 09:36:14,872 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_emotion
+2025-08-13 09:36:14,872 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_regret
+2025-08-13 09:36:14,872 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: neural_surd
+2025-08-13 09:36:14,872 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: unified_backbone
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-13 09:36:15,356 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-13 09:36:15,356 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-13 09:36:15,498 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: bentham_fromm_head
+2025-08-13 09:36:15,588 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-13 09:36:15,676 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 벤담 헤드 로드 성공 (27M)
+2025-08-13 09:36:15,676 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: emotion_empathy_head
+2025-08-13 09:36:15,753 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-13 09:36:15,776 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 감정 헤드 로드 성공 (30M)
+2025-08-13 09:36:15,776 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: meta_integration_head
+2025-08-13 09:36:15,777 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: regret_learning_head
+2025-08-13 09:36:15,857 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-13 09:36:15,886 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 후회 헤드 로드 성공 (30M)
+2025-08-13 09:36:15,886 - RedHeart.UnifiedTrainingV2 - DEBUG - 모듈 로드: semantic_surd_head
+2025-08-13 09:36:15,934 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-13 09:36:15,952 - RedHeart.UnifiedTrainingV2 - INFO - ✅ SURD 헤드 로드 성공 (22M)
+2025-08-13 09:36:15,952 - RedHeart.UnifiedTrainingV2 - INFO - 🎯 학습 필수 모듈 강제 로드 중...
+2025-08-13 09:36:15,952 - RedHeart.UnifiedTrainingV2 - INFO - 🤖 신경망 분석기 로드 중 (232M 파라미터)...
+2025-08-13 09:36:16,657 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,333,263 파라미터
+2025-08-13 09:36:17,219 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,019,458 파라미터
+2025-08-13 09:36:18,329 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,610,522 파라미터
+2025-08-13 09:36:18,430 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,276,424 파라미터
+2025-08-13 09:36:18,431 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 367,239,667 (367.2M)
+2025-08-13 09:36:18,593 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ emotion 신경망 분석기 로드 성공
+2025-08-13 09:36:18,686 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ bentham 신경망 분석기 로드 성공
+2025-08-13 09:36:18,887 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ regret 신경망 분석기 로드 성공
+2025-08-13 09:36:18,922 - RedHeart.UnifiedTrainingV2 - INFO -   ✅ surd 신경망 분석기 로드 성공
+2025-08-13 09:36:18,922 - RedHeart.UnifiedTrainingV2 - INFO -   - emotion_head 로드
+2025-08-13 09:36:18,922 - RedHeart.UnifiedTrainingV2 - INFO -   - bentham_head 로드
+2025-08-13 09:36:18,922 - RedHeart.UnifiedTrainingV2 - INFO -   - regret_head 로드
+2025-08-13 09:36:18,922 - RedHeart.UnifiedTrainingV2 - INFO -   - surd_head 로드
+2025-08-13 09:36:18,923 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 모델 초기화 완료
+2025-08-13 09:36:18,923 - RedHeart.UnifiedTrainingV2 - INFO - 
+📊 최종 로드된 모듈 요약:
+2025-08-13 09:36:18,923 - RedHeart.UnifiedTrainingV2 - INFO - 🔧 옵티마이저 초기화 중...
+2025-08-13 09:36:18,923 - RedHeart.UnifiedTrainingV2 - INFO -   백본 파라미터 추가됨
+2025-08-13 09:36:18,924 - RedHeart.UnifiedTrainingV2 - INFO -   bentham 헤드 파라미터 추가됨
+2025-08-13 09:36:18,924 - RedHeart.UnifiedTrainingV2 - INFO -   emotion 헤드 파라미터 추가됨
+2025-08-13 09:36:18,925 - RedHeart.UnifiedTrainingV2 - INFO -   regret 헤드 파라미터 추가됨
+2025-08-13 09:36:18,925 - RedHeart.UnifiedTrainingV2 - INFO -   surd 헤드 파라미터 추가됨
+2025-08-13 09:36:18,925 - RedHeart.UnifiedTrainingV2 - INFO -   dsp 분석기 파라미터 추가됨
+2025-08-13 09:36:18,925 - RedHeart.UnifiedTrainingV2 - INFO -   kalman 분석기 파라미터 추가됨
+2025-08-13 09:36:18,926 - RedHeart.UnifiedTrainingV2 - INFO -   neural_emotion 분석기 파라미터 추가됨
+2025-08-13 09:36:18,926 - RedHeart.UnifiedTrainingV2 - INFO -   neural_bentham 분석기 파라미터 추가됨
+2025-08-13 09:36:18,926 - RedHeart.UnifiedTrainingV2 - INFO -   neural_regret 분석기 파라미터 추가됨
+2025-08-13 09:36:18,927 - RedHeart.UnifiedTrainingV2 - INFO -   neural_surd 분석기 파라미터 추가됨
+2025-08-13 09:36:18,928 - RedHeart.UnifiedTrainingV2 - INFO -   - 스케줄러 T_max: 20 steps
+2025-08-13 09:36:18,928 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 옵티마이저 초기화 완료
+2025-08-13 09:36:18,928 - RedHeart.UnifiedTrainingV2 - INFO -   - 옵티마이저: AdamW
+2025-08-13 09:36:18,928 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습률: 0.0001
+2025-08-13 09:36:18,928 - RedHeart.UnifiedTrainingV2 - INFO -   - 스케줄러: CosineAnnealingLR
+2025-08-13 09:36:18,929 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 파라미터: 523,242,572
+2025-08-13 09:36:18,929 - RedHeart.UnifiedTrainingV2 - INFO -   - 학습 가능 파라미터: 523,242,572
+2025-08-13 09:36:18,930 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 1/10 시작
+2025-08-13 09:36:18,932 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:18,932 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:18,932 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:18,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:18,933 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:18,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:18,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:18,933 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:19,104 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:19,104 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:19,104 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:19,135 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:19,180 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 0.812502
+2025-08-13 09:36:19,181 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:19,402 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 9.7349
+2025-08-13 09:36:19,431 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:19,434 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 0.8125
+2025-08-13 09:36:19,435 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 1 완료 - 평균 손실: 0.8125
+2025-08-13 09:36:19,435 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:19,437 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:19,443 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:19,443 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:19,443 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:19,447 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:19,451 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 0.452069
+2025-08-13 09:36:19,451 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 0.4521
+2025-08-13 09:36:21,400 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_1.pt
+2025-08-13 09:36:23,403 - RedHeart.UnifiedTrainingV2 - INFO - 🏆 최고 모델 갱신: checkpoints_v2/best_model.pt
+2025-08-13 09:36:23,404 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 2/10 시작
+2025-08-13 09:36:23,406 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:23,407 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:23,408 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:23,415 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:23,415 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:23,416 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:23,441 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:23,449 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 0.790968
+2025-08-13 09:36:23,449 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:23,676 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 6.1637
+2025-08-13 09:36:23,679 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:23,714 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 0.7910
+2025-08-13 09:36:23,715 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 2 완료 - 평균 손실: 0.7910
+2025-08-13 09:36:23,715 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:23,716 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:23,721 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:23,721 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:23,721 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:23,733 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:23,737 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 0.532192
+2025-08-13 09:36:23,737 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 0.5322
+2025-08-13 09:36:25,678 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_2.pt
+2025-08-13 09:36:25,678 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 3/10 시작
+2025-08-13 09:36:25,681 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:25,681 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:25,682 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:25,682 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:25,682 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:25,682 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:25,683 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:25,683 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:25,690 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:25,691 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:25,691 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:25,700 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:25,704 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.105443
+2025-08-13 09:36:25,704 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:25,846 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 10.0838
+2025-08-13 09:36:25,849 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:25,879 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.1054
+2025-08-13 09:36:25,879 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 3 완료 - 평균 손실: 1.1054
+2025-08-13 09:36:25,879 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:25,881 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:25,885 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:25,885 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:25,885 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:25,896 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:25,899 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 1.354433
+2025-08-13 09:36:25,900 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 1.3544
+2025-08-13 09:36:27,929 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_3.pt
+2025-08-13 09:36:27,930 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 4/10 시작
+2025-08-13 09:36:27,932 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:27,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:27,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:27,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:27,933 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:27,933 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:27,934 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:27,934 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:27,942 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:27,942 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:27,942 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:27,976 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:27,984 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.058333
+2025-08-13 09:36:27,984 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:28,247 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 7.9437
+2025-08-13 09:36:28,250 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:28,253 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.0583
+2025-08-13 09:36:28,253 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 4 완료 - 평균 손실: 1.0583
+2025-08-13 09:36:28,253 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:28,255 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:28,258 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:28,259 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:28,259 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:28,262 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:28,265 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 0.502752
+2025-08-13 09:36:28,265 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 0.5028
+2025-08-13 09:36:30,198 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_4.pt
+2025-08-13 09:36:30,198 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 5/10 시작
+2025-08-13 09:36:30,201 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:30,201 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:30,202 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:30,210 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:30,210 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:30,210 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:30,250 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:30,256 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.020620
+2025-08-13 09:36:30,256 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:30,447 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 8.1956
+2025-08-13 09:36:30,450 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:30,453 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.0206
+2025-08-13 09:36:30,454 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 5 완료 - 평균 손실: 1.0206
+2025-08-13 09:36:30,454 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:30,455 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:30,459 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:30,459 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:30,459 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:30,462 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:30,465 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 0.748371
+2025-08-13 09:36:30,465 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 0.7484
+2025-08-13 09:36:32,428 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_5.pt
+2025-08-13 09:36:32,429 - RedHeart.UnifiedTrainingV2 - INFO - 📊 GPU 메모리: 29.9% 사용
+2025-08-13 09:36:32,429 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 6/10 시작
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:32,432 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:32,433 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:32,433 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:32,440 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:32,440 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:32,440 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:32,450 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:32,454 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 0.591653
+2025-08-13 09:36:32,454 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:32,594 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 6.2172
+2025-08-13 09:36:32,719 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:32,740 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 0.5917
+2025-08-13 09:36:32,740 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 6 완료 - 평균 손실: 0.5917
+2025-08-13 09:36:32,740 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:32,742 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:32,746 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:32,746 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:32,746 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:32,756 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:32,760 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 1.376805
+2025-08-13 09:36:32,760 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 1.3768
+2025-08-13 09:36:34,783 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_6.pt
+2025-08-13 09:36:34,784 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 7/10 시작
+2025-08-13 09:36:34,787 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:34,787 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:34,787 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:34,787 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:34,788 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:34,788 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:34,788 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:34,788 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:34,796 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:34,796 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:34,796 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:34,825 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:34,834 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.719599
+2025-08-13 09:36:34,835 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:35,076 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 10.5231
+2025-08-13 09:36:35,079 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:35,082 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.7196
+2025-08-13 09:36:35,082 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 7 완료 - 평균 손실: 1.7196
+2025-08-13 09:36:35,082 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:35,084 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:35,088 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:35,088 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:35,088 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:35,091 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:35,094 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 1.727765
+2025-08-13 09:36:35,094 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 1.7278
+2025-08-13 09:36:37,065 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_7.pt
+2025-08-13 09:36:37,066 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 8/10 시작
+2025-08-13 09:36:37,069 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:37,069 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:37,069 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:37,069 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:37,069 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:37,070 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:37,070 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:37,070 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:37,077 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:37,078 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:37,078 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:37,087 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:37,091 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 0.918146
+2025-08-13 09:36:37,091 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:37,231 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 8.3855
+2025-08-13 09:36:37,234 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:37,264 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 0.9181
+2025-08-13 09:36:37,264 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 8 완료 - 평균 손실: 0.9181
+2025-08-13 09:36:37,265 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:37,266 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:37,270 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:37,271 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:37,271 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:37,281 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:37,284 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 1.079124
+2025-08-13 09:36:37,285 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 1.0791
+2025-08-13 09:36:39,302 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_8.pt
+2025-08-13 09:36:39,302 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 9/10 시작
+2025-08-13 09:36:39,305 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:39,306 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:39,306 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:39,306 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:39,306 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:39,306 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:39,307 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:39,307 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:39,315 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:39,315 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:39,315 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:39,344 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:39,353 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.304724
+2025-08-13 09:36:39,353 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:39,660 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 10.5679
+2025-08-13 09:36:39,664 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:39,667 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.3047
+2025-08-13 09:36:39,667 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 9 완료 - 평균 손실: 1.3047
+2025-08-13 09:36:39,667 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:39,669 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:39,672 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:39,672 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:39,673 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:39,676 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:39,679 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 0.685124
+2025-08-13 09:36:39,679 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 0.6851
+2025-08-13 09:36:41,628 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_9.pt
+2025-08-13 09:36:41,629 - RedHeart.UnifiedTrainingV2 - INFO - 
+📚 Epoch 10/10 시작
+2025-08-13 09:36:41,632 - RedHeart.UnifiedTrainingV2 - INFO - 📊 에포크 상세 정보:
+2025-08-13 09:36:41,632 - RedHeart.UnifiedTrainingV2 - INFO -   - 총 샘플 수: 2
+2025-08-13 09:36:41,632 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 크기: 4
+2025-08-13 09:36:41,632 - RedHeart.UnifiedTrainingV2 - INFO -   - 배치 수: 1
+2025-08-13 09:36:41,632 - RedHeart.UnifiedTrainingV2 - INFO - 
+🔍 배치 1 처리 중:
+2025-08-13 09:36:41,633 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 범위: 0 ~ 4
+2025-08-13 09:36:41,633 - RedHeart.UnifiedTrainingV2 - INFO -   - 샘플 수: 2
+2025-08-13 09:36:41,633 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:41,640 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([2, 896])
+2025-08-13 09:36:41,641 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:41,641 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss
+2025-08-13 09:36:41,651 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([2, 7])
+2025-08-13 09:36:41,657 - RedHeart.UnifiedTrainingV2 - INFO -       - 손실값: 1.159806
+2025-08-13 09:36:41,657 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 3] Parameter Update
+2025-08-13 09:36:41,877 - RedHeart.UnifiedTrainingV2 - INFO -       - 그래디언트 norm: 9.1313
+2025-08-13 09:36:41,880 - RedHeart.UnifiedTrainingV2 - INFO -       - 파라미터 업데이트 스킵 (--no-param-update)
+2025-08-13 09:36:41,883 - RedHeart.UnifiedTrainingV2 - INFO -   Batch 1/1 - Loss: 1.1598
+2025-08-13 09:36:41,883 - RedHeart.UnifiedTrainingV2 - INFO - ✅ Epoch 10 완료 - 평균 손실: 1.1598
+2025-08-13 09:36:41,884 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧪 평가 시작
+2025-08-13 09:36:41,885 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 1] Forward Pass 시작
+2025-08-13 09:36:41,889 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 shape: torch.Size([1, 896])
+2025-08-13 09:36:41,889 - RedHeart.UnifiedTrainingV2 - INFO -       - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+2025-08-13 09:36:41,889 - RedHeart.UnifiedTrainingV2 - INFO -     [STAGE 2] Compute Loss (평가)
+2025-08-13 09:36:41,892 - RedHeart.UnifiedTrainingV2 - INFO -       - 감정 예측 shape: torch.Size([1, 7])
+2025-08-13 09:36:41,895 - RedHeart.UnifiedTrainingV2 - INFO -       - 평가 손실값: 1.229097
+2025-08-13 09:36:41,895 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 평가 완료 - 평균 손실: 1.2291
+2025-08-13 09:36:43,846 - RedHeart.UnifiedTrainingV2 - INFO - 💾 체크포인트 저장: checkpoints_v2/checkpoint_epoch_10.pt
+2025-08-13 09:36:43,847 - RedHeart.UnifiedTrainingV2 - INFO - 📊 GPU 메모리: 29.9% 사용
+2025-08-13 09:36:43,847 - RedHeart.UnifiedTrainingV2 - INFO - 
+============================================================
+2025-08-13 09:36:43,847 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 학습/평가 완료!
+2025-08-13 09:36:43,847 - RedHeart.UnifiedTrainingV2 - INFO - ============================================================
+2025-08-13 09:36:43,847 - RedHeart.UnifiedTrainingV2 - INFO - 
+🧹 시스템 정리 중...
+2025-08-13 09:36:43,968 - RedHeart.UnifiedTrainingV2 - INFO - ✅ 정리 완료
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (12개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (12개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+[0;32m[SUCCESS][0m 🎉 Red Heart AI 학습 시스템 완료!
+
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

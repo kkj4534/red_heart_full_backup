@@ -1,0 +1,341 @@
+[
+  {
+    "work": {
+      "title": "운수좋은날",
+      "author": "현진건",
+      "genre": "단편소설",
+      "publication_year": "1924",
+      "era": "일제강점기"
+    },
+    "main_conflict": "김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있음을 발견하는 상황",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "슬픔",
+      "절망",
+      "아이러니",
+      "연민",
+      "동정"
+    ],
+    "character_psychology": "겉으로는 거친 말을 하지만 속으로는 아내를 걱정하고 사랑하는 복잡한 심리. 가난에 찌든 삶에서도 가족에 대한 애정을 간직한 인물",
+    "theme": "일제강점기 하층민의 절박하고 비참한 삶, 사회적 불평등과 빈곤 문제",
+    "social_context": "일제강점기 도시 빈민층의 극한적인 삶, 인력거꾼이라는 최하층 노동자의 현실",
+    "literary_techniques": [
+      "반전기법",
+      "사실주의적 묘사",
+      "반어법",
+      "대조법"
+    ],
+    "key_scenes": [
+      "아내의 죽음 발견",
+      "설렁탕 구매 시도",
+      "하루 종일의 운수좋은 일들"
+    ],
+    "source_url": "naver_blog_analysis",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "메밀꽃 필 무렵",
+      "author": "이효석",
+      "genre": "단편소설",
+      "publication_year": "1936",
+      "era": "일제강점기"
+    },
+    "main_conflict": "허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해",
+    "conflict_type": "interpersonal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "회한",
+      "부성애",
+      "화해",
+      "향수"
+    ],
+    "character_psychology": "과거 방탕했던 자신을 성찰하며 아들과의 만남에서 복잡한 감정을 느끼는 허생원의 심리",
+    "theme": "인간적 정감과 따뜻한 인정, 향토적 정서와 서정성",
+    "social_context": "농촌 장터의 목가적 풍경과 전통적인 인간관계",
+    "literary_techniques": [
+      "서정적 묘사",
+      "회상기법",
+      "토속적 언어",
+      "공간의 상징성"
+    ],
+    "key_scenes": [
+      "달밤의 메밀밭",
+      "장터에서의 만남",
+      "부자 관계의 깨달음"
+    ],
+    "source_url": "study_zum_analysis",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "동백꽃",
+      "author": "김유정",
+      "genre": "단편소설",
+      "publication_year": "1936",
+      "era": "일제강점기"
+    },
+    "main_conflict": "순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해",
+    "conflict_type": "interpersonal_conflict",
+    "emotional_elements": [
+      "풋사랑",
+      "질투",
+      "오해",
+      "순수함",
+      "해학"
+    ],
+    "character_psychology": "점순이의 적극적 표현을 이해하지 못하는 순박한 소년의 심리와 간접적으로 마음을 표현하는 점순이의 심리",
+    "theme": "순수한 사랑과 농촌의 향토적 정서, 해학과 풍자",
+    "social_context": "농촌 사회의 소작농과 마름집 딸의 계층적 관계",
+    "literary_techniques": [
+      "1인칭 서술",
+      "해학적 표현",
+      "방언 사용",
+      "상징기법"
+    ],
+    "key_scenes": [
+      "닭싸움",
+      "감 따기",
+      "오해와 화해"
+    ],
+    "source_url": "literature_analysis_blog",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "상록수",
+      "author": "심훈",
+      "genre": "장편소설",
+      "publication_year": "1935",
+      "era": "일제강점기"
+    },
+    "main_conflict": "농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "의지",
+      "희생",
+      "좌절",
+      "희망",
+      "연대감"
+    ],
+    "character_psychology": "농촌 현실을 개선하려는 이상과 현실의 한계 사이에서 갈등하는 지식인들의 복잡한 심리",
+    "theme": "농촌 계몽과 사회 개혁 의지, 지식인의 사회적 책임",
+    "social_context": "일제강점기 농촌의 피폐한 현실과 계몽 운동",
+    "literary_techniques": [
+      "전지적 작가 시점",
+      "교육소설적 성격",
+      "계몽주의적 문체"
+    ],
+    "key_scenes": [
+      "농촌 계몽 활동",
+      "현실적 좌절",
+      "희망의 상징"
+    ],
+    "source_url": "modern_novel_analysis",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "감자",
+      "author": "김동인",
+      "genre": "단편소설",
+      "publication_year": "1925",
+      "era": "일제강점기"
+    },
+    "main_conflict": "극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "절망",
+      "굴욕",
+      "생존본능",
+      "도덕적갈등",
+      "비극"
+    ],
+    "character_psychology": "가난으로 인해 도덕적 타락의 길로 빠져드는 복녀의 비극적 심리",
+    "theme": "환경 결정론적 사상, 극한 빈곤이 인간에게 미치는 영향",
+    "social_context": "일제강점기 극빈층 여성의 비참한 현실",
+    "literary_techniques": [
+      "자연주의 기법",
+      "환경묘사",
+      "심리묘사"
+    ],
+    "key_scenes": [
+      "감자밭에서의 타락",
+      "남편의 귀향",
+      "비극적 결말"
+    ],
+    "source_url": "naturalism_novel_study",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "진달래꽃",
+      "author": "김소월",
+      "genre": "자유시",
+      "publication_year": "1922",
+      "era": "일제강점기"
+    },
+    "main_conflict": "임을 떠나보내면서도 원망하지 않고 축복하려는 화자의 내적 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "이별의정한",
+      "체념",
+      "사랑",
+      "한",
+      "승화"
+    ],
+    "character_psychology": "이별의 아픔을 역설적으로 승화시키며, 전통적 한의 정서와 여성적 어조로 소극적이면서도 깊은 사랑을 표현하는 화자의 심리",
+    "theme": "이별의 아픔과 한국적 서정성, 전통적 한의 정서",
+    "social_context": "일제강점기 민족적 현실과 개인적 정서의 결합",
+    "literary_techniques": [
+      "역설법",
+      "의인법",
+      "점층법",
+      "수사의문문"
+    ],
+    "key_scenes": [
+      "진달래꽃 뿌리기",
+      "눈물 흘리지 않겠다는 다짐",
+      "말없이 보내드리겠다는 의지"
+    ],
+    "source_url": "naver_blog_modern_poetry",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "님의 침묵",
+      "author": "한용운",
+      "genre": "자유시",
+      "publication_year": "1926",
+      "era": "일제강점기"
+    },
+    "main_conflict": "님과의 이별로 인한 슬픔을 새로운 만남의 희망으로 전환하려는 화자의 의지적 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "슬픔",
+      "희망",
+      "의지",
+      "신념",
+      "기다림"
+    ],
+    "character_psychology": "불교의 역설적 진리를 바탕으로 이별의 슬픔을 극복하고 재회의 희망을 품는 의지적이고 능동적인 화자의 심리",
+    "theme": "이별과 만남의 변증법, 불교적 세계관과 의지적 미래관",
+    "social_context": "일제강점기 현실에 대한 종교적·철학적 극복 의지",
+    "literary_techniques": [
+      "역설법",
+      "의인법",
+      "대조법",
+      "영탄법"
+    ],
+    "key_scenes": [
+      "님의 떠남",
+      "슬픔의 인정",
+      "새로운 만남에 대한 확신"
+    ],
+    "source_url": "korean_encyclopedia_nim",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "청포도",
+      "author": "이육사",
+      "genre": "자유시",
+      "publication_year": "1939",
+      "era": "일제강점기"
+    },
+    "main_conflict": "현실적 절망과 미래에 대한 희망 사이의 갈등, 조국 광복에 대한 간절한 소망",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "그리움",
+      "희망",
+      "기다림",
+      "의지",
+      "소망"
+    ],
+    "character_psychology": "일제강점기 현실을 이겨내고 독립이라는 밝은 미래를 기다리는 간절하면서도 의지적인 화자의 심리",
+    "theme": "미래에 대한 희망과 의지, 조국 광복에 대한 소망",
+    "social_context": "일제강점기 민족의 현실과 광복 의지",
+    "literary_techniques": [
+      "상징법",
+      "대조법",
+      "색채 이미지",
+      "공감각적 표현"
+    ],
+    "key_scenes": [
+      "청포도가 익는 칠월",
+      "손님을 기다리는 마음",
+      "은쟁반과 모시 수건 준비"
+    ],
+    "source_url": "study_zum_cheongpodo",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "향수",
+      "author": "정지용",
+      "genre": "자유시",
+      "publication_year": "1926",
+      "era": "일제강점기"
+    },
+    "main_conflict": "고향에 대한 그리움과 현실적으로 돌아갈 수 없는 상황 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "향수",
+      "애수",
+      "그리움",
+      "회상"
+    ],
+    "character_psychology": "고향을 떠나 타향에서 느끼는 깊은 그리움과 애수를 감각적 이미지로 표현하는 화자의 섬세한 심리",
+    "theme": "고향에 대한 그리움과 향토 의식",
+    "social_context": "근대화 과정에서의 이농 현상과 고향 상실감",
+    "literary_techniques": [
+      "감각적 이미지",
+      "의성어",
+      "의태어",
+      "영탄법"
+    ],
+    "key_scenes": [
+      "넓은 벌",
+      "실개천",
+      "조밭",
+      "울타리"
+    ],
+    "source_url": "namu_wiki_hyangsoo",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "화가 이중섭",
+      "author": "엄광용",
+      "genre": "수필",
+      "publication_year": "1970년대",
+      "era": "해방 이후"
+    },
+    "main_conflict": "예술가의 이상과 현실적 고통 사이의 갈등, 가족에 대한 그리움과 예술적 소명 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "고독",
+      "예술혼",
+      "가족애",
+      "비극"
+    ],
+    "character_psychology": "예술에 대한 열정과 가족에 대한 사랑, 현실적 고통이 복합적으로 얽힌 예술가의 복잡한 내면 심리",
+    "theme": "예술가의 고독과 현실, 예술과 삶의 괴리",
+    "social_context": "분단 현실과 전후 사회의 예술가 처지",
+    "literary_techniques": [
+      "회상법",
+      "대조법",
+      "구체적 묘사",
+      "상징적 표현"
+    ],
+    "key_scenes": [
+      "소를 바라보는 이중섭",
+      "가족과의 이별",
+      "예술적 창작 과정"
+    ],
+    "source_url": "essay_lee_jungseop",
+    "reliability_score": 0.8
+  }
+]

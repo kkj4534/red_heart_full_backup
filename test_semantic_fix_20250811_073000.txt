@@ -1,0 +1,586 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+Device set to use cpu
+Device set to use cpu
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+   ⚠️ neural_components nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ 클래스 'AdvancedSurdAnalyzer' 대신 'AdvancedSURDAnalyzer' 사용 (유사도 기반)
+   ⚠️ surd_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ 클래스 'AdvancedBayesianInferenceModule' 대신 'AdvancedBayesianInference' 사용 (유사도 기반)
+   ⚠️ bayesian_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ llm_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ experience_database nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ hierarchical_emotion nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ usage_pattern_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ meta_integration 이미 등록됨 (동일 타입: AdvancedMetaIntegrationSystem), 스킵
+⚠️ GPU 사용률이 낮습니다 (20.3%) - 더 적극적 로딩 필요
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 1.598GB (20.0%)
+   📦 예약됨: 1.686GB
+   💚 여유: 6.402GB
+   🔄 config.py 측정: 20.0%
+   🧠 GPU 텐서: 1095개, 1.590GB
+   📋 큰 텐서 TOP 5:
+      1. [54343, 768] (torch.float32) - 159.2MB
+      2. [50265, 768] (torch.float32) - 147.3MB
+      3. [65001, 512] (torch.float32) - 127.0MB
+      4. [30522, 768] (torch.float32) - 89.4MB
+      5. [3072, 768] (torch.float32) - 9.0MB
+   🗂️ 캐시된 메모리: 0.088GB
+   🔝 새로운 Peak 메모리: 1.914GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.319GB (41.5%)
+   📦 예약됨: 3.441GB
+   💚 여유: 4.681GB
+   🔄 config.py 측정: 41.5%
+   🧠 GPU 텐서: 1339개, 3.275GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.122GB
+   🔝 새로운 Peak 메모리: 3.319GB (at 백본 초기화 후)
+[O] set_swap_manager OK: self_id=126886791937152 global_id=126886791937152
+✅ 백본 DSM 등록 완료 (CRITICAL 우선순위)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.319GB (41.5%)
+   📦 예약됨: 3.441GB
+   💚 여유: 4.681GB
+   🔄 config.py 측정: 41.5%
+   🧠 GPU 텐서: 1339개, 3.275GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.122GB
+[DSM@스왑매니저초기화후] models=['unified_backbone']
+[DSM@스왑매니저초기화후] gpu_resident=['unified_backbone'] sizes={'unified_backbone': '1725.4MB'}
+[DSM@스왑매니저초기화후] priorities={'unified_backbone': 'critical'}
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['unified_backbone']
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.319GB (41.5%)
+   📦 예약됨: 3.441GB
+   💚 여유: 4.681GB
+   🔄 config.py 측정: 41.5%
+   🧠 GPU 텐서: 1339개, 3.275GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.122GB
+   🔝 새로운 Peak 메모리: 3.319GB (at 헤드 호환성 매니저 생성 후)
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['emotion_empathy_head', 'unified_backbone']
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+📊 메모리 과소 활용: 42.4% (GPU 리소스 낭비)
+📊 추가 활용 가능: 현재 45.2% (목표 82%)
+🔍 initialize_all_heads() 호출 완료!
+🚨 헤드 초기화 완료 - 메모리 상태 확인 중...
+🔍 [모든 헤드 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.612GB (45.2%)
+   📦 예약됨: 3.740GB
+   💚 여유: 4.387GB
+   🔄 config.py 측정: 45.2%
+   🧠 GPU 텐서: 1384개, 3.568GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.128GB
+   🔝 새로운 Peak 메모리: 3.612GB (at 모든 헤드 초기화 후)
+[DSM@헤드초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@헤드초기화후] gpu_resident=['unified_backbone', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'unified_backbone': '1725.4MB', 'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@헤드초기화후] priorities={'unified_backbone': 'critical', 'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [시너지 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.612GB (45.2%)
+   📦 예약됨: 3.740GB
+   💚 여유: 4.387GB
+   🔄 config.py 측정: 45.2%
+   🧠 GPU 텐서: 1384개, 3.568GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [50265, 768] (torch.float32) - 147.3MB
+      4. [65001, 512] (torch.float32) - 127.0MB
+      5. [30522, 768] (torch.float32) - 89.4MB
+   🗂️ 캐시된 메모리: 0.128GB
+[ULS] DSM id=126886791937152
+🔍 [학습 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.334GB (66.7%)
+   📦 예약됨: 5.496GB
+   💚 여유: 2.666GB
+   🔄 config.py 측정: 66.7%
+   🧠 GPU 텐서: 1628개, 5.253GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.163GB
+   🔝 새로운 Peak 메모리: 5.334GB (at 학습 시스템 초기화 후)
+[DSM@학습시스템초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@학습시스템초기화후] gpu_resident=['unified_backbone', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'unified_backbone': '1725.4MB', 'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@학습시스템초기화후] priorities={'unified_backbone': 'critical', 'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [패턴 분석기 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.334GB (66.7%)
+   📦 예약됨: 5.496GB
+   💚 여유: 2.666GB
+   🔄 config.py 측정: 66.7%
+   🧠 GPU 텐서: 1628개, 5.253GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.163GB
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['bentham_fromm_head', 'emotion_empathy_head', 'meta_integration_head', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+emotion_empathy_head forward 실패: 'dict' object has no attribute 'shape'
+입력 shape: torch.Size([4, 768])
+헤드 emotion_empathy_head - gradient 끊김 감지, 재계산 시도...
+emotion_empathy_head forward 실패: 'dict' object has no attribute 'shape'
+입력 shape: torch.Size([4, 768])
+emotion_empathy_head loss 계산 실패: The size of tensor a (10) must match the size of tensor b (1280) at non-singleton dimension 1, fallback MSE 사용
+훈련 중 오류 발생: The size of tensor a (1280) must match the size of tensor b (10) at non-singleton dimension 1
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 125, in _calculate_safe_loss
+    loss = F.kl_div(F.log_softmax(output, dim=-1), target_probs, reduction='batchmean')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/functional.py", line 3381, in kl_div
+    reduced = torch.kl_div(input, target, reduction_enum, log_target=log_target)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (10) must match the size of tensor b (1280) at non-singleton dimension 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1729, in train_unified_system
+    step_metrics = await self.trainer.train_step(batch_data, active_heads)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 597, in train_step
+    losses = self._calculate_losses(outputs, batch_data, active_heads)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 680, in _calculate_losses
+    losses = self._stable_loss_calculator.calculate_stable_losses(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 52, in calculate_stable_losses
+    loss = self._calculate_safe_loss(head_output, target, head_type, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 147, in _calculate_safe_loss
+    loss = F.mse_loss(output, target)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/functional.py", line 3791, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/functional.py", line 76, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (1280) must match the size of tensor b (10) at non-singleton dimension 1
+
+🔍 에러 타입: RuntimeError
+📍 에퟼크: 1/1, 배치: 0
+Python 통합 학습 오류: The size of tensor a (1280) must match the size of tensor b (10) at non-singleton dimension 1
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 125, in _calculate_safe_loss
+    loss = F.kl_div(F.log_softmax(output, dim=-1), target_probs, reduction='batchmean')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/functional.py", line 3381, in kl_div
+    reduced = torch.kl_div(input, target, reduction_enum, log_target=log_target)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (10) must match the size of tensor b (1280) at non-singleton dimension 1
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 2030, in _run_python_training
+    await self.learning_system.train_unified_system(
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1729, in train_unified_system
+    step_metrics = await self.trainer.train_step(batch_data, active_heads)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 597, in train_step
+    losses = self._calculate_losses(outputs, batch_data, active_heads)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 680, in _calculate_losses
+    losses = self._stable_loss_calculator.calculate_stable_losses(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 52, in calculate_stable_losses
+    loss = self._calculate_safe_loss(head_output, target, head_type, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/fix_nan_loss.py", line 147, in _calculate_safe_loss
+    loss = F.mse_loss(output, target)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/functional.py", line 3791, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/functional.py", line 76, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (1280) must match the size of tensor b (10) at non-singleton dimension 1
+
+🔍 에러 타입: RuntimeError
+📍 num_epochs: 1, num_batches: 1
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.350GB (66.9%)
+   📦 예약됨: 6.295GB
+   💚 여유: 2.650GB
+   🔄 config.py 측정: 66.9%
+   🧠 GPU 텐서: 1636개, 5.256GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [65001, 512] (torch.float32) - 127.0MB
+   🗂️ 캐시된 메모리: 0.945GB
+   🔝 새로운 Peak 메모리: 6.084GB (at 초기화 시작 전)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+⚠️ translator 이미 등록됨 (동일 타입: LocalTranslator), 스킵
+   ⚠️ translator DSM 등록 중 경고: name 'SwapPriority' is not defined
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+⚠️ emotion_analyzer 이미 등록됨 (동일 타입: AdvancedEmotionAnalyzer), 스킵
+   ⚠️ emotion_analyzer DSM 등록 중 경고: name 'SwapPriority' is not defined
+GPU 메모리 사용률 위험 수준: 81.0%
+긴급 GPU 메모리 최적화 시작
+긴급 GPU 메모리 최적화 완료
+⚠️ bentham_calculator 이미 등록됨 (동일 타입: AdvancedBenthamCalculator), 스킵
+   ⚠️ bentham_calculator DSM 등록 중 경고: name 'SwapPriority' is not defined
+Device set to use cpu
+Device set to use cpu
+⚠️ semantic_analyzer 이미 등록됨 (동일 타입: AdvancedMultiLevelSemanticAnalyzer), 스킵
+   ⚠️ semantic_analyzer DSM 등록 중 경고: name 'SwapPriority' is not defined
+⚠️ regret_analyzer 이미 등록됨 (동일 타입: AdvancedRegretAnalyzer), 스킵
+   ⚠️ regret_analyzer DSM 등록 중 경고: name 'SwapPriority' is not defined
+⚠️ neural_components 이미 등록됨 (동일 타입: HierarchicalPatternStructure), 스킵
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+   ⚠️ neural_components nn.Module 추출 실패 - DSM 등록 스킵
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+HierarchicalPatternStructure: PyTorch 네트워크가 없음 (딕셔너리 기반 구조)
+   ⚠️ neural_components nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ meta_integration 이미 등록됨 (동일 타입: AdvancedMetaIntegrationSystem), 스킵
+   ⚠️ meta_integration DSM 등록 중 경고: name 'SwapPriority' is not defined
+⚠️ 클래스 'AdvancedSurdAnalyzer' 대신 'AdvancedSURDAnalyzer' 사용 (유사도 기반)
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865710 (필요: 1000MB, 확보: FalseMB)
+⚠️ surd_analyzer 이미 등록됨 (동일 타입: AdvancedSURDAnalyzer), 스킵
+   ⚠️ surd_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ surd_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ 클래스 'AdvancedBayesianInferenceModule' 대신 'AdvancedBayesianInference' 사용 (유사도 기반)
+⚠️ bayesian_engine 이미 등록됨 (동일 타입: AdvancedBayesianInference), 스킵
+   ⚠️ bayesian_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ bayesian_engine nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ llm_engine 이미 등록됨 (동일 타입: AdvancedLLMEngine), 스킵
+   ⚠️ llm_engine nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ llm_engine nn.Module 추출 실패 - DSM 등록 스킵
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865710 (필요: 1000MB, 확보: FalseMB)
+⚠️ experience_database 이미 등록됨 (동일 타입: AdvancedExperienceDatabase), 스킵
+   ⚠️ experience_database nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ experience_database nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ hierarchical_emotion 이미 등록됨 (동일 타입: AdvancedHierarchicalEmotionSystem), 스킵
+   ⚠️ hierarchical_emotion nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ hierarchical_emotion nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ usage_pattern_analyzer 이미 등록됨 (동일 타입: AdvancedUsagePatternAnalyzer), 스킵
+   ⚠️ usage_pattern_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+   ⚠️ usage_pattern_analyzer nn.Module 추출 실패 - DSM 등록 스킵
+⚠️ meta_integration 이미 등록됨 (동일 타입: AdvancedMetaIntegrationSystem), 스킵
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.899GB (86.2%)
+   📦 예약됨: 7.164GB
+   💚 여유: 1.101GB
+   🔄 config.py 측정: 86.2%
+   🧠 GPU 텐서: 2624개, 6.803GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.266GB
+   🔝 새로운 Peak 메모리: 7.259GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.899GB (86.2%)
+   📦 예약됨: 7.164GB
+   💚 여유: 1.101GB
+   🔄 config.py 측정: 86.2%
+   🧠 GPU 텐서: 2624개, 6.803GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.266GB
+[O] set_swap_manager OK: self_id=126886786946432 global_id=126886786946432
+✅ 백본 DSM 등록 완료 (CRITICAL 우선순위)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.899GB (86.2%)
+   📦 예약됨: 7.164GB
+   💚 여유: 1.101GB
+   🔄 config.py 측정: 86.2%
+   🧠 GPU 텐서: 2624개, 6.803GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.266GB
+[DSM@스왑매니저초기화후] models=['unified_backbone']
+[DSM@스왑매니저초기화후] gpu_resident=[] sizes={}
+[DSM@스왑매니저초기화후] priorities={}
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['unified_backbone']
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865716 (필요: 500.024641418457MB, 확보: FalseMB)
+[DSM] emotion_empathy_head GPU 로딩 실패: device=cpu (NO FALLBACK)
+헤드 GPU 로딩 실패: emotion_empathy_head, 오류: [DSM] emotion_empathy_head GPU 로딩 실패: GPU 메모리 부족 (NO FALLBACK)
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865781 (필요: 500.02669486999514MB, 확보: FalseMB)
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865781 (필요: 500.02669486999514MB, 확보: FalseMB)
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754865782 (필요: 500.02669486999514MB, 확보: FalseMB)
+⚠️ warm load/unload 실패: [DSM] emotion_empathy_head GPU 로딩 실패: GPU 메모리 부족 (NO FALLBACK)
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.899GB (86.2%)
+   📦 예약됨: 7.139GB
+   💚 여유: 1.101GB
+   🔄 config.py 측정: 86.2%
+   🧠 GPU 텐서: 2624개, 6.803GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.240GB
+📋 헤드 선등록 보장 함수 호출됨
+📋 swap_manager 상태: <class 'dynamic_swap_manager.RedHeartDynamicSwapManager'>
+📊 DSM 등록된 키(선등록 전): ['emotion_empathy_head', 'unified_backbone']
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+🔍 initialize_all_heads() 호출 완료!
+🚨 헤드 초기화 완료 - 메모리 상태 확인 중...
+🔍 [모든 헤드 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.899GB (86.2%)
+   📦 예약됨: 7.139GB
+   💚 여유: 1.101GB
+   🔄 config.py 측정: 86.2%
+   🧠 GPU 텐서: 2624개, 6.803GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.240GB
+[DSM@헤드초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@헤드초기화후] gpu_resident=['meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@헤드초기화후] priorities={'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🚨 GPU 사용률 86.2% - DSM 긴급 정리 수행 (target=85%)
+[DSM@긴급정리전] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@긴급정리전] gpu_resident=['meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head', 'emotion_empathy_head'] sizes={'meta_integration_head': '23.6MB', 'semantic_surd_head': '417.6MB', 'bentham_fromm_head': '0.0MB', 'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@긴급정리전] priorities={'meta_integration_head': 'low', 'semantic_surd_head': 'medium', 'bentham_fromm_head': 'high', 'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [자동 메모리 정리 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.466GB (80.8%)
+   📦 예약됨: 6.719GB
+   💚 여유: 1.534GB
+   🔄 config.py 측정: 80.8%
+   🧠 GPU 텐서: 2366개, 6.372GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.253GB
+[DSM@긴급정리후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@긴급정리후] gpu_resident=['regret_learning_head', 'emotion_empathy_head'] sizes={'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@긴급정리후] priorities={'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [시너지 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 6.466GB (80.8%)
+   📦 예약됨: 6.719GB
+   💚 여유: 1.534GB
+   🔄 config.py 측정: 80.8%
+   🧠 GPU 텐서: 2366개, 6.372GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.253GB
+[ULS] DSM id=126886786946432
+🔍 [학습 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 8.188GB (102.4%)
+   📦 예약됨: 8.434GB
+   💚 여유: -0.189GB
+   🔄 config.py 측정: 102.4%
+   🧠 GPU 텐서: 2610개, 8.057GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50000, 1280] (torch.float32) - 244.1MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.245GB
+   🚨🚨🚨 CRITICAL: 메모리 오버플로우 (102.4%)
+   🔝 새로운 Peak 메모리: 8.188GB (at 학습 시스템 초기화 후)
+[DSM@학습시스템초기화후] models=['unified_backbone', 'emotion_empathy_head', 'meta_integration_head', 'semantic_surd_head', 'bentham_fromm_head', 'regret_learning_head']
+[DSM@학습시스템초기화후] gpu_resident=['regret_learning_head', 'emotion_empathy_head'] sizes={'regret_learning_head': '4.8MB', 'emotion_empathy_head': '31.1MB'}
+[DSM@학습시스템초기화후] priorities={'regret_learning_head': 'medium', 'emotion_empathy_head': 'high'}
+🔍 [패턴 분석기 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 8.188GB (102.4%)
+   📦 예약됨: 8.434GB
+   💚 여유: -0.189GB
+   🔄 config.py 측정: 102.4%
+   🧠 GPU 텐서: 2610개, 8.057GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50000, 1280] (torch.float32) - 244.1MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.245GB
+   🚨🚨🚨 CRITICAL: 메모리 오버플로우 (102.4%)
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-11 07:31:00
+------------------------------------------------------------
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+[07:39:42] ✅ 시스템 초기화 완료
+[07:39:42] 🧪 테스트 모드 시작...
+🔍 백본 Gradient 추적 시작
+   백본 training 모드: True
+   input_ids.requires_grad: False
+   input_ids.shape: torch.Size([4, 128])
+   token_embedding 후: False
+   🔧 gradient 흐름 강제 활성화: True
+   token_embedding 파라미터 requires_grad: True
+   🔧 pooled_output gradient 흐름 강제 활성화: True
+   unified_representation_network 후: False
+   🔧 unified_features gradient 흐름 강제 활성화: True
+   memory_bank.requires_grad: True
+   unified_representation_network 파라미터 requires_grad: True
+   memory_expanded.requires_grad: True
+   unified_expanded.requires_grad: True
+   [cross_modal_fusion 실행 전]
+     query.requires_grad: True
+     key.requires_grad: True
+     value.requires_grad: True
+     cross_modal_fusion 파라미터 requires_grad: True
+   cross_modal_fusion 후: False
+   cross_modal_output.grad_fn: None
+   🔧 cross_modal_output gradient 흐름 강제 활성화: True
+🎯 최종 cross_modal_features.requires_grad: True
+   output_projection 후: False
+   🔧 final_output gradient 흐름 강제 활성화: True
+✅ 백본 출력 gradient 연결 확인: requires_grad=True
+🎉 최종 백본 출력 성공: shared_embedding.requires_grad=True
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+[07:43:47] ❌ 테스트 모드 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

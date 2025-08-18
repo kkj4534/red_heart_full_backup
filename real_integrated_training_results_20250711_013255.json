@@ -1,0 +1,43 @@
+{
+  "training_summary": {
+    "total_items": 25,
+    "successful_integrations": 0,
+    "success_rate": 0.0,
+    "total_processing_time": 64.4427797794342,
+    "avg_processing_time": 2.577711191177368,
+    "min_processing_time": 0.04414796829223633,
+    "max_processing_time": 63.09725880622864
+  },
+  "module_performance": {
+    "emotion_success_rate": 100.0,
+    "bentham_success_rate": 0.0,
+    "regret_success_rate": 0.0,
+    "surd_success_rate": 0.0
+  },
+  "integration_analysis": {
+    "full_integration_rate": 0.0,
+    "partial_integration_rate": 100.0,
+    "total_counterfactuals_generated": 0,
+    "avg_counterfactuals_per_item": 0.0
+  },
+  "error_analysis": {
+    "error_patterns": {
+      "벤담 계산 실패": 25,
+      "후회 분석 실패": 25,
+      "SURD 분석 실패": 25
+    },
+    "total_errors": 75,
+    "error_rate": 300.0
+  },
+  "source_analysis": {
+    "scruples_batch_001_of_100_20250622_013432.json": {
+      "total": 25,
+      "success": 0
+    }
+  },
+  "performance_metrics": {
+    "items_per_second": 0.3879410553915664,
+    "successful_items_per_second": 0.0,
+    "efficiency_score": 0.0
+  }
+}

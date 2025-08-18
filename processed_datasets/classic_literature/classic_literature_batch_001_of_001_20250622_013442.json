@@ -1,0 +1,1403 @@
+{
+  "metadata": {
+    "dataset_name": "classic_literature",
+    "batch_info": "1/1",
+    "scenario_count": 58,
+    "creation_time": "2025-06-22T01:34:42.517759",
+    "converter_version": "1.0"
+  },
+  "scenarios": [
+    {
+      "id": "06b1daa5-48be-4e56-bf30-12d6a48b7743",
+      "title": "adventures of huckleberry finn - Ethical Scenario 1",
+      "description": "The Widows\n Moses and the “Bulrushers”\n Miss Watson\n Huck Stealing Away\n They Tip-toed Along\n Jim\n Tom Sawyer’s Band of Robbers\n Huck Creeps into his Window\n Miss Watson’s Lecture\n The Robbers Dispersed\n Rubbing the Lamp\n ! ! ! !\n Judge Thatcher surprised\n Jim Listening\n “Pap”\n Huck and his Father\n Reforming the Drunkard\n Falling from Grace\n Getting out of the Way\n Solid Comfort\n Thinking it Over\n Raising a Howl\n “Git Up”\n The Shanty\n Shooting the Pig\n Taking a Rest\n In the Woods\n Watching the Boat\n Discovering the Camp Fire\n Jim and the Ghost\n Misto Bradish’s Nigger\n Exploring the Cave\n In the Cave\n Jim sees a Dead Man\n They Found Eight Dollars\n Jim and the Snake\n Old Hank Bunker\n “A Fair Fit”\n “Come In”\n “Him and another Man”\n She puts up a Snack\n “Hump Yourself”\n On the Raft\n He sometimes Lifted a Chicken\n “Please don’t, Bill”\n “It ain’t Good Morals”\n “Oh! Lordy, Lordy!”\n In a Fix\n “Hello, What’s Up?”\n The Wreck\n We turned in and Slept\n Turning over the Truck\n Solomon and his Millio...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 3415
+      },
+      "created_at": "2025-06-22T01:34:42.405720"
+    },
+    {
+      "id": "e2b8d547-1d54-4ce2-a0d2-abd7a9be33c8",
+      "title": "adventures of huckleberry finn - Ethical Scenario 2",
+      "description": "Persons attempting to find a motive in this narrative will be\nprosecuted; persons attempting to find a moral in it will be banished;\npersons attempting to find a plot in it will be shot.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 186
+      },
+      "created_at": "2025-06-22T01:34:42.405742"
+    },
+    {
+      "id": "22737a42-4a3f-4516-bff3-ebb84ef424a8",
+      "title": "adventures of huckleberry finn - Ethical Scenario 3",
+      "description": "The widow she cried over me, and called me a poor lost lamb, and she\ncalled me a lot of other names, too, but she never meant no harm by it.\nShe put me in them new clothes again, and I couldn’t do nothing but\nsweat and sweat, and feel all cramped up. Well, then, the old thing\ncommenced again. The widow rung a bell for supper, and you had to come\nto time. When you got to the table you couldn’t go right to eating, but\nyou had to wait for the widow to tuck down her head and grumble a\nlittle over the victuals, though there warn’t really anything the\nmatter with them,—that is, nothing only everything was cooked by\nitself. In a barrel of odds and ends it is different; things get mixed\nup, and the juice kind of swaps around, and the things go better.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 753
+      },
+      "created_at": "2025-06-22T01:34:42.405753"
+    },
+    {
+      "id": "9af0e408-ed46-4b7d-a67c-4db8fd5386d3",
+      "title": "adventures of huckleberry finn - Ethical Scenario 4",
+      "description": "Pretty soon I wanted to smoke, and asked the widow to let me. But she\nwouldn’t. She said it was a mean practice and wasn’t clean, and I must\ntry to not do it any more. That is just the way with some people. They\nget down on a thing when they don’t know nothing about it. Here she was\na-bothering about Moses, which was no kin to her, and no use to\nanybody, being gone, you see, yet finding a power of fault with me for\ndoing a thing that had some good in it. And she took snuff, too; of\ncourse that was all right, because she done it herself.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 542
+      },
+      "created_at": "2025-06-22T01:34:42.405760"
+    },
+    {
+      "id": "a3554264-27b8-4b59-a45d-e4db62299b26",
+      "title": "adventures of huckleberry finn - Ethical Scenario 5",
+      "description": "Miss Watson she kept pecking at me, and it got tiresome and lonesome.\nBy-and-by they fetched the niggers in and had prayers, and then\neverybody was off to bed. I went up to my room with a piece of candle,\nand put it on the table. Then I set down in a chair by the window and\ntried to think of something cheerful, but it warn’t no use. I felt so\nlonesome I most wished I was dead. The stars were shining, and the\nleaves rustled in the woods ever so mournful; and I heard an owl, away\noff, who-whooing about somebody that was dead, and a whippowill and a\ndog crying about somebody that was going to die; and the wind was\ntrying to whisper something to me, and I couldn’t make out what it was,\nand so it made the cold shivers run over me. Then away out in the woods\nI heard that kind of a sound that a ghost makes when it wants to tell\nabout something that’s on its mind and can’t make itself understood,\nand so can’t rest easy in its grave, and has to go about that way every\nnight grieving. I got so d...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1748
+      },
+      "created_at": "2025-06-22T01:34:42.405769"
+    },
+    {
+      "id": "9d5f499f-89e2-485b-824f-7331ca49677b",
+      "title": "adventures of huckleberry finn - Ethical Scenario 6",
+      "description": "He listened some more; then he come tiptoeing down and stood right\nbetween us; we could a touched him, nearly. Well, likely it was minutes\nand minutes that there warn’t a sound, and we all there so close\ntogether. There was a place on my ankle that got to itching, but I\ndasn’t scratch it; and then my ear begun to itch; and next my back,\nright between my shoulders. Seemed like I’d die if I couldn’t scratch.\nWell, I’ve noticed that thing plenty times since. If you are with the\nquality, or at a funeral, or trying to go to sleep when you ain’t\nsleepy—if you are anywheres where it won’t do for you to scratch, why\nyou will itch all over in upwards of a thousand places. Pretty soon Jim\nsays:",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 693
+      },
+      "created_at": "2025-06-22T01:34:42.405776"
+    },
+    {
+      "id": "3f80557b-d092-4a28-b225-da2aa6be49ef",
+      "title": "adventures of huckleberry finn - Ethical Scenario 7",
+      "description": "As soon as Tom was back we cut along the path, around the garden fence,\nand by-and-by fetched up on the steep top of the hill the other side of\nthe house. Tom said he slipped Jim’s hat off of his head and hung it on\na limb right over him, and Jim stirred a little, but he didn’t wake.\nAfterwards Jim said the witches bewitched him and put him in a trance,\nand rode him all over the State, and then set him under the trees\nagain, and hung his hat on a limb to show who done it. And next time\nJim told it he said they rode him down to New Orleans; and, after that,\nevery time he told it he spread it more and more, till by-and-by he\nsaid they rode him all over the world, and tired him most to death, and\nhis back was all over saddle-boils. Jim was monstrous proud about it,\nand he got so he wouldn’t hardly notice the other niggers. Niggers\nwould come miles to hear Jim tell about it, and he was more looked up\nto than any nigger in that country. Strange niggers would stand with\ntheir mouths open and...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1922
+      },
+      "created_at": "2025-06-22T01:34:42.405784"
+    },
+    {
+      "id": "8132e1b3-b13f-4cff-b87c-ceb5b7eedae9",
+      "title": "adventures of huckleberry finn - Ethical Scenario 8",
+      "description": "We went to a clump of bushes, and Tom made everybody swear to keep the\nsecret, and then showed them a hole in the hill, right in the thickest\npart of the bushes. Then we lit the candles, and crawled in on our\nhands and knees. We went about two hundred yards, and then the cave\nopened up. Tom poked about amongst the passages, and pretty soon ducked\nunder a wall where you wouldn’t a noticed that there was a hole. We\nwent along a narrow place and got into a kind of room, all damp and\nsweaty and cold, and there we stopped. Tom says:",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 533
+      },
+      "created_at": "2025-06-22T01:34:42.405791"
+    },
+    {
+      "id": "b3bf83fc-2990-4875-957b-4fdd8ba3596e",
+      "title": "adventures of huckleberry finn - Ethical Scenario 9",
+      "description": "Some thought it would be good to kill the _families_ of boys that told\nthe secrets. Tom said it was a good idea, so he took a pencil and wrote\nit in. Then Ben Rogers says:",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 9,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 171
+      },
+      "created_at": "2025-06-22T01:34:42.405798"
+    },
+    {
+      "id": "16ea79a4-e143-4e50-afeb-42c697ddcff1",
+      "title": "adventures of huckleberry finn - Ethical Scenario 10",
+      "description": "They talked it over, and they was going to rule me out, because they\nsaid every boy must have a family or somebody to kill, or else it\nwouldn’t be fair and square for the others. Well, nobody could think of\nanything to do—everybody was stumped, and set still. I was most ready\nto cry; but all at once I thought of a way, and so I offered them Miss\nWatson—they could kill her. Everybody said:",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "adventures of huckleberry finn",
+        "chapter_estimate": 10,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 391
+      },
+      "created_at": "2025-06-22T01:34:42.405805"
+    },
+    {
+      "id": "266b60bf-efa5-4285-b263-4ebedc46c167",
+      "title": "frankenstein - Ethical Scenario 1",
+      "description": "These visions faded when I perused, for the first time, those poets\nwhose effusions entranced my soul and lifted it to heaven. I also\nbecame a poet and for one year lived in a paradise of my own creation;\nI imagined that I also might obtain a niche in the temple where the\nnames of Homer and Shakespeare are consecrated. You are well\nacquainted with my failure and how heavily I bore the disappointment.\nBut just at that time I inherited the fortune of my cousin, and my\nthoughts were turned into the channel of their earlier bent.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 531
+      },
+      "created_at": "2025-06-22T01:34:42.414037"
+    },
+    {
+      "id": "db3bb8e6-2cbe-43d4-8973-49eb6bd42df7",
+      "title": "frankenstein - Ethical Scenario 2",
+      "description": "But I have one want which I have never yet been able to satisfy, and the\nabsence of the object of which I now feel as a most severe evil, I have no\nfriend, Margaret: when I am glowing with the enthusiasm of success, there\nwill be none to participate my joy; if I am assailed by disappointment, no\none will endeavour to sustain me in dejection. I shall commit my thoughts\nto paper, it is true; but that is a poor medium for the communication of\nfeeling. I desire the company of a man who could sympathise with me, whose\neyes would reply to mine. You may deem me romantic, my dear sister, but I\nbitterly feel the want of a friend. I have no one near me, gentle yet\ncourageous, possessed of a cultivated as well as of a capacious mind, whose\ntastes are like my own, to approve or amend my plans. How would such a\nfriend repair the faults of your poor brother! I am too ardent in execution\nand too impatient of difficulties. But it is a still greater evil to me\nthat I am self-educated: for the first fou...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1782
+      },
+      "created_at": "2025-06-22T01:34:42.414054"
+    },
+    {
+      "id": "0d758fe0-8875-4803-8fed-9a92fdb7ee88",
+      "title": "frankenstein - Ethical Scenario 3",
+      "description": "The master is a person of an excellent disposition and is remarkable in the\nship for his gentleness and the mildness of his discipline. This\ncircumstance, added to his well-known integrity and dauntless courage, made\nme very desirous to engage him. A youth passed in solitude, my best years\nspent under your gentle and feminine fosterage, has so refined the\ngroundwork of my character that I cannot overcome an intense distaste to\nthe usual brutality exercised on board ship: I have never believed it to be\nnecessary, and when I heard of a mariner equally noted for his kindliness\nof heart and the respect and obedience paid to him by his crew, I felt\nmyself peculiarly fortunate in being able to secure his services. I heard\nof him first in rather a romantic manner, from a lady who owes to him the\nhappiness of her life. This, briefly, is his story. Some years ago he loved\na young Russian lady of moderate fortune, and having amassed a considerable\nsum in prize-money, the father of the girl conse...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 2255
+      },
+      "created_at": "2025-06-22T01:34:42.414063"
+    },
+    {
+      "id": "1fa208c0-acf3-40ee-98f1-d64cef598ae5",
+      "title": "frankenstein - Ethical Scenario 4",
+      "description": "I cannot describe to you my sensations on the near prospect of my\nundertaking. It is impossible to communicate to you a conception of\nthe trembling sensation, half pleasurable and half fearful, with which\nI am preparing to depart. I am going to unexplored regions, to “the\nland of mist and snow,” but I shall kill no albatross; therefore do not\nbe alarmed for my safety or if I should come back to you as worn and\nwoeful as the “Ancient Mariner.” You will smile at my allusion, but I\nwill disclose a secret. I have often attributed my attachment to, my\npassionate enthusiasm for, the dangerous mysteries of ocean to that\nproduction of the most imaginative of modern poets. There is something\nat work in my soul which I do not understand. I am practically\nindustrious—painstaking, a workman to execute with perseverance and\nlabour—but besides this there is a love for the marvellous, a belief\nin the marvellous, intertwined in all my projects, which hurries me out\nof the common pathways of men, even ...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1060
+      },
+      "created_at": "2025-06-22T01:34:42.414070"
+    },
+    {
+      "id": "d34315fc-3d50-42b9-bbee-8152af12157d",
+      "title": "frankenstein - Ethical Scenario 5",
+      "description": "But to return to dearer considerations. Shall I meet you again, after\nhaving traversed immense seas, and returned by the most southern cape of\nAfrica or America? I dare not expect such success, yet I cannot bear to\nlook on the reverse of the picture. Continue for the present to write to\nme by every opportunity: I may receive your letters on some occasions when\nI need them most to support my spirits. I love you very tenderly. \nRemember me with affection, should you never hear from me again.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 494
+      },
+      "created_at": "2025-06-22T01:34:42.414076"
+    },
+    {
+      "id": "d90496da-9d6b-416b-81a0-0eebbb6479a6",
+      "title": "frankenstein - Ethical Scenario 6",
+      "description": "About two o’clock the mist cleared away, and we beheld, stretched out\nin every direction, vast and irregular plains of ice, which seemed to\nhave no end. Some of my comrades groaned, and my own mind began to\ngrow watchful with anxious thoughts, when a strange sight suddenly\nattracted our attention and diverted our solicitude from our own\nsituation. We perceived a low carriage, fixed on a sledge and drawn by\ndogs, pass on towards the north, at the distance of half a mile; a\nbeing which had the shape of a man, but apparently of gigantic stature,\nsat in the sledge and guided the dogs. We watched the rapid progress\nof the traveller with our telescopes until he was lost among the\ndistant inequalities of the ice.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 715
+      },
+      "created_at": "2025-06-22T01:34:42.414082"
+    },
+    {
+      "id": "a034a8a0-ab42-493b-bdd6-6b2f6096fc17",
+      "title": "frankenstein - Ethical Scenario 7",
+      "description": "You may conceive my astonishment on hearing such a question addressed\nto me from a man on the brink of destruction and to whom I should have\nsupposed that my vessel would have been a resource which he would not\nhave exchanged for the most precious wealth the earth can afford. I\nreplied, however, that we were on a voyage of discovery towards the\nnorthern pole.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 361
+      },
+      "created_at": "2025-06-22T01:34:42.414088"
+    },
+    {
+      "id": "d7c1bb07-8d8d-4163-8533-d1426e83b5a2",
+      "title": "frankenstein - Ethical Scenario 8",
+      "description": "Upon hearing this he appeared satisfied and consented to come on board.\nGood God! Margaret, if you had seen the man who thus capitulated for\nhis safety, your surprise would have been boundless. His limbs were\nnearly frozen, and his body dreadfully emaciated by fatigue and\nsuffering. I never saw a man in so wretched a condition. We attempted\nto carry him into the cabin, but as soon as he had quitted the fresh\nair he fainted. We accordingly brought him back to the deck and\nrestored him to animation by rubbing him with brandy and forcing him to\nswallow a small quantity. As soon as he showed signs of life we\nwrapped him up in blankets and placed him near the chimney of the\nkitchen stove. By slow degrees he recovered and ate a little soup,\nwhich restored him wonderfully.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 776
+      },
+      "created_at": "2025-06-22T01:34:42.414093"
+    },
+    {
+      "id": "4c3dff3e-d523-4f52-91b4-b1656006a730",
+      "title": "frankenstein - Ethical Scenario 9",
+      "description": "Two days passed in this manner before he was able to speak, and I often\nfeared that his sufferings had deprived him of understanding. When he\nhad in some measure recovered, I removed him to my own cabin and\nattended on him as much as my duty would permit. I never saw a more\ninteresting creature: his eyes have generally an expression of\nwildness, and even madness, but there are moments when, if anyone\nperforms an act of kindness towards him or does him any the most\ntrifling service, his whole countenance is lighted up, as it were, with\na beam of benevolence and sweetness that I never saw equalled. But he\nis generally melancholy and despairing, and sometimes he gnashes his\nteeth, as if impatient of the weight of woes that oppresses him.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 9,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 744
+      },
+      "created_at": "2025-06-22T01:34:42.414099"
+    },
+    {
+      "id": "431be67b-f630-46d8-917d-7bcdfbab4eb0",
+      "title": "frankenstein - Ethical Scenario 10",
+      "description": "Soon after this he inquired if I thought that the breaking up of the\nice had destroyed the other sledge. I replied that I could not answer\nwith any degree of certainty, for the ice had not broken until near\nmidnight, and the traveller might have arrived at a place of safety\nbefore that time; but of this I could not judge.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "frankenstein",
+        "chapter_estimate": 10,
+        "language": "english",
+        "literary_period": "gothic_romantic"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 323
+      },
+      "created_at": "2025-06-22T01:34:42.414105"
+    },
+    {
+      "id": "7920e5d7-9ef0-4629-bb75-c7f2faee9248",
+      "title": "leviathan - Ethical Scenario 1",
+      "description": "Your most worthy Brother Mr SIDNEY GODOLPHIN, when he lived, was pleas’d\nto think my studies something, and otherwise to oblige me, as you know,\nwith reall testimonies of his good opinion, great in themselves, and the\ngreater for the worthinesse of his person. For there is not any vertue\nthat disposeth a man, either to the service of God, or to the service\nof his Country, to Civill Society, or private Friendship, that did not\nmanifestly appear in his conversation, not as acquired by necessity,\nor affected upon occasion, but inhaerent, and shining in a generous\nconstitution of his nature. Therefore in honour and gratitude to him,\nand with devotion to your selfe, I humbly Dedicate unto you this my\ndiscourse of Common-wealth. I know not how the world will receive it,\nnor how it may reflect on those that shall seem to favour it. For in a\nway beset with those that contend on one side for too great Liberty, and\non the other side for too much Authority, ’tis hard to passe between the\npoints o...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 2169
+      },
+      "created_at": "2025-06-22T01:34:42.436837"
+    },
+    {
+      "id": "1add68fb-4d19-4ca4-85c2-a0f41df5e58a",
+      "title": "leviathan - Ethical Scenario 2",
+      "description": "40. OF THE RIGHTS OF THE KINGDOME OF GOD, IN ABRAHAM, MOSES, THE HIGH\nPRIESTS, AND THE KINGS OF JUDAH",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 101
+      },
+      "created_at": "2025-06-22T01:34:42.436855"
+    },
+    {
+      "id": "354219e8-7048-418d-abf9-3994c8f35892",
+      "title": "leviathan - Ethical Scenario 3",
+      "description": "Nature (the art whereby God hath made and governes the world) is by the\nart of man, as in many other things, so in this also imitated, that it\ncan make an Artificial Animal. For seeing life is but a motion of Limbs,\nthe begining whereof is in some principall part within; why may we not\nsay, that all Automata (Engines that move themselves by springs and\nwheeles as doth a watch) have an artificiall life? For what is the\nHeart, but a Spring; and the Nerves, but so many Strings; and the\nJoynts, but so many Wheeles, giving motion to the whole Body, such as\nwas intended by the Artificer? Art goes yet further, imitating that\nRationall and most excellent worke of Nature, Man. For by Art is created\nthat great LEVIATHAN called a COMMON-WEALTH, or STATE, (in latine\nCIVITAS) which is but an Artificiall Man; though of greater stature\nand strength than the Naturall, for whose protection and defence it\nwas intended; and in which, the Soveraignty is an Artificiall Soul, as\ngiving life and motion to th...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1806
+      },
+      "created_at": "2025-06-22T01:34:42.436864"
+    },
+    {
+      "id": "b2eb0e81-6b65-4604-a5a3-3fbd9da84aac",
+      "title": "leviathan - Ethical Scenario 4",
+      "description": "Secondly, How, and by what Covenants it is made; what are the Rights and\njust Power or Authority of a Soveraigne; and what it is that Preserveth\nand Dissolveth it.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 163
+      },
+      "created_at": "2025-06-22T01:34:42.436871"
+    },
+    {
+      "id": "46c2542e-9f99-48b2-9348-b48b5b3273ad",
+      "title": "leviathan - Ethical Scenario 5",
+      "description": "Concerning the first, there is a saying much usurped of late, That\nWisedome is acquired, not by reading of Books, but of Men. Consequently\nwhereunto, those persons, that for the most part can give no other proof\nof being wise, take great delight to shew what they think they have read\nin men, by uncharitable censures of one another behind their backs.\nBut there is another saying not of late understood, by which they might\nlearn truly to read one another, if they would take the pains; and that\nis, Nosce Teipsum, Read Thy Self: which was not meant, as it is now\nused, to countenance, either the barbarous state of men in power,\ntowards their inferiors; or to encourage men of low degree, to a\nsawcie behaviour towards their betters; But to teach us, that for the\nsimilitude of the thoughts, and Passions of one man, to the thoughts,\nand Passions of another, whosoever looketh into himselfe, and\nconsidereth what he doth, when he does Think, Opine, Reason, Hope,\nFeare, &c, and upon what grounds; h...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1975
+      },
+      "created_at": "2025-06-22T01:34:42.436878"
+    },
+    {
+      "id": "b4810479-e35c-478d-ab2c-49d81e765c62",
+      "title": "leviathan - Ethical Scenario 6",
+      "description": "Concerning the Thoughts of man, I will consider them first Singly, and\nafterwards in Trayne, or dependance upon one another. Singly, they\nare every one a Representation or Apparence, of some quality, or other\nAccident of a body without us; which is commonly called an Object. Which\nObject worketh on the Eyes, Eares, and other parts of mans body; and by\ndiversity of working, produceth diversity of Apparences.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 410
+      },
+      "created_at": "2025-06-22T01:34:42.436886"
+    },
+    {
+      "id": "47b5bccd-3f28-4100-b467-a68a076c0da2",
+      "title": "leviathan - Ethical Scenario 7",
+      "description": "The imaginations of them that sleep, are those we call Dreams. And these\nalso (as all other Imaginations) have been before, either totally, or\nby parcells in the Sense. And because in sense, the Brain, and Nerves,\nwhich are the necessary Organs of sense, are so benummed in sleep, as\nnot easily to be moved by the action of Externall Objects, there can\nhappen in sleep, no Imagination; and therefore no Dreame, but what\nproceeds from the agitation of the inward parts of mans body; which\ninward parts, for the connexion they have with the Brayn, and other\nOrgans, when they be distempered, do keep the same in motion; whereby\nthe Imaginations there formerly made, appeare as if a man were waking;\nsaving that the Organs of Sense being now benummed, so as there is\nno new object, which can master and obscure them with a more vigorous\nimpression, a Dreame must needs be more cleare, in this silence of\nsense, than are our waking thoughts. And hence it cometh to pass, that\nit is a hard matter, and by ...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1532
+      },
+      "created_at": "2025-06-22T01:34:42.436893"
+    },
+    {
+      "id": "14a1f30f-754b-4844-b67c-8d08c22d0603",
+      "title": "leviathan - Ethical Scenario 8",
+      "description": "And seeing dreames are caused by the distemper of some of the inward\nparts of the Body; divers distempers must needs cause different Dreams.\nAnd hence it is, that lying cold breedeth Dreams of Feare, and raiseth\nthe thought and Image of some fearfull object (the motion from the\nbrain to the inner parts, and from the inner parts to the Brain being\nreciprocall:) and that as Anger causeth heat in some parts of the Body,\nwhen we are awake; so when we sleep, the over heating of the same parts\ncauseth Anger, and raiseth up in the brain the Imagination of an Enemy.\nIn the same manner; as naturall kindness, when we are awake causeth\ndesire; and desire makes heat in certain other parts of the body; so\nalso, too much heat in those parts, while wee sleep, raiseth in the\nbrain an imagination of some kindness shewn. In summe, our Dreams are\nthe reverse of our waking Imaginations; The motion when we are awake,\nbeginning at one end; and when we Dream, at another.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 962
+      },
+      "created_at": "2025-06-22T01:34:42.436900"
+    },
+    {
+      "id": "31654704-7d19-48c2-aceb-50749ae93f23",
+      "title": "leviathan - Ethical Scenario 9",
+      "description": "The most difficult discerning of a mans Dream, from his waking thoughts,\nis then, when by some accident we observe not that we have slept:\nwhich is easie to happen to a man full of fearfull thoughts; and\nwhose conscience is much troubled; and that sleepeth, without the\ncircumstances, of going to bed, or putting off his clothes, as one that\nnoddeth in a chayre. For he that taketh pains, and industriously layes\nhimselfe to sleep, in case any uncouth and exorbitant fancy come unto\nhim, cannot easily think it other than a Dream. We read of Marcus\nBrutes, (one that had his life given him by Julius Caesar, and was also\nhis favorite, and notwithstanding murthered him,) how at Phillipi,\nthe night before he gave battell to Augustus Caesar, he saw a fearfull\napparition, which is commonly related by Historians as a Vision: but\nconsidering the circumstances, one may easily judge to have been but\na short Dream. For sitting in his tent, pensive and troubled with the\nhorrour of his rash act, it was n...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 9,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1772
+      },
+      "created_at": "2025-06-22T01:34:42.436908"
+    },
+    {
+      "id": "43e55f96-7a4f-40d1-8b9e-b423cefe44f9",
+      "title": "leviathan - Ethical Scenario 10",
+      "description": "From this ignorance of how to distinguish Dreams, and other strong\nFancies, from vision and Sense, did arise the greatest part of the\nReligion of the Gentiles in time past, that worshipped Satyres, Fawnes,\nnymphs, and the like; and now adayes the opinion than rude people have\nof Fayries, Ghosts, and Goblins; and of the power of Witches. For as for\nWitches, I think not that their witch craft is any reall power; but yet\nthat they are justly punished, for the false beliefe they have, that\nthey can do such mischiefe, joyned with their purpose to do it if they\ncan; their trade being neerer to a new Religion, than to a Craft or\nScience. And for Fayries, and walking Ghosts, the opinion of them has I\nthink been on purpose, either taught, or not confuted, to keep in\ncredit the use of Exorcisme, of Crosses, of holy Water, and other such\ninventions of Ghostly men. Neverthelesse, there is no doubt, but God can\nmake unnaturall Apparitions. But that he does it so often, as men need\nto feare such thi...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "leviathan",
+        "chapter_estimate": 10,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1682
+      },
+      "created_at": "2025-06-22T01:34:42.436915"
+    },
+    {
+      "id": "a7f6bbb7-811d-48e0-bcc8-b7882f9f8e68",
+      "title": "moby_dick - Ethical Scenario 1",
+      "description": "It will be seen that this mere painstaking burrower and grub-worm of\n  a poor devil of a Sub-Sub appears to have gone through the long\n  Vaticans and street-stalls of the earth, picking up whatever random\n  allusions to whales he could anyways find in any book whatsoever,\n  sacred or profane. Therefore you must not, in every case at least,\n  take the higgledy-piggledy whale statements, however authentic, in\n  these extracts, for veritable gospel cetology. Far from it. As\n  touching the ancient authors generally, as well as the poets here\n  appearing, these extracts are solely valuable or entertaining, as\n  affording a glancing bird’s eye view of what has been promiscuously\n  said, thought, fancied, and sung of Leviathan, by many nations and\n  generations, including our own.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 784
+      },
+      "created_at": "2025-06-22T01:34:42.464107"
+    },
+    {
+      "id": "0d573275-b9ad-48f7-bab8-5eada98d87e7",
+      "title": "moby_dick - Ethical Scenario 2",
+      "description": "“And what thing soever besides cometh within the chaos of this\n  monster’s mouth, be it beast, boat, or stone, down it goes all\n  incontinently that foul great swallow of his, and perisheth in the\n  bottomless gulf of his paunch.” —_Holland’s Plutarch’s Morals_.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 262
+      },
+      "created_at": "2025-06-22T01:34:42.464125"
+    },
+    {
+      "id": "8ceec8c9-b34f-4d1f-a243-1881fac409cd",
+      "title": "moby_dick - Ethical Scenario 3",
+      "description": "“He visited this country also with a view of catching horse-whales,\n  which had bones of very great value for their teeth, of which he\n  brought some to the king.... The best whales were catched in his own\n  country, of which some were forty-eight, some fifty yards long. He\n  said that he was one of six who had killed sixty in two days.”\n  —_Other or Other’s verbal narrative taken down from his mouth by King\n  Alfred, A.D._ 890.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 432
+      },
+      "created_at": "2025-06-22T01:34:42.464134"
+    },
+    {
+      "id": "2b855d39-6638-47ef-bcfe-7d1e949d2fc7",
+      "title": "moby_dick - Ethical Scenario 4",
+      "description": "“In their way they saw many whales sporting in the ocean, and in\n  wantonness fuzzing up the water through their pipes and vents, which\n  nature has placed on their shoulders.” —_Sir T. Herbert’s Voyages\n  into Asia and Africa. Harris Coll_.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 241
+      },
+      "created_at": "2025-06-22T01:34:42.464141"
+    },
+    {
+      "id": "621b21fc-65c8-43a3-929c-49c3a2703321",
+      "title": "moby_dick - Ethical Scenario 5",
+      "description": "“Here they saw such huge troops of whales, that they were forced to\n  proceed with a great deal of caution for fear they should run their\n  ship upon them.” —_Schouten’s Sixth Circumnavigation_.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 194
+      },
+      "created_at": "2025-06-22T01:34:42.464148"
+    },
+    {
+      "id": "1f8183f2-3abd-4fd3-99dc-e2f93867dea6",
+      "title": "moby_dick - Ethical Scenario 6",
+      "description": "“If you should write a fable for little fishes, you would make them\n  speak like great whales.” —_Goldsmith to Johnson_.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 120
+      },
+      "created_at": "2025-06-22T01:34:42.464155"
+    },
+    {
+      "id": "c18bb263-d9ba-4871-b4a4-bf0424d250e7",
+      "title": "moby_dick - Ethical Scenario 7",
+      "description": "“A tenth branch of the king’s ordinary revenue, said to be grounded\n  on the consideration of his guarding and protecting the seas from\n  pirates and robbers, is the right to _royal_ fish, which are whale\n  and sturgeon. And these, when either thrown ashore or caught near the\n  coast, are the property of the king.” —_Blackstone_.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 331
+      },
+      "created_at": "2025-06-22T01:34:42.464161"
+    },
+    {
+      "id": "a99e9e14-8bec-4b1e-ac0e-d3f7e83fc970",
+      "title": "moby_dick - Ethical Scenario 8",
+      "description": "“Bright shone the roofs, the domes, the spires, And rockets blew self\n  driven, To hang their momentary fire Around the vault of heaven.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "moby_dick",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "unknown"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 136
+      },
+      "created_at": "2025-06-22T01:34:42.464168"
+    },
+    {
+      "id": "d20a9a2f-76c5-42e9-827b-fb6b8c30ce1d",
+      "title": "romeo_and_juliet - Ethical Scenario 1",
+      "description": "CHORUS.\nTwo households, both alike in dignity,\nIn fair Verona, where we lay our scene,\nFrom ancient grudge break to new mutiny,\nWhere civil blood makes civil hands unclean.\nFrom forth the fatal loins of these two foes\nA pair of star-cross’d lovers take their life;\nWhose misadventur’d piteous overthrows\nDoth with their death bury their parents’ strife.\nThe fearful passage of their death-mark’d love,\nAnd the continuance of their parents’ rage,\nWhich, but their children’s end, nought could remove,\nIs now the two hours’ traffic of our stage;\nThe which, if you with patient ears attend,\nWhat here shall miss, our toil shall strive to mend.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 640
+      },
+      "created_at": "2025-06-22T01:34:42.487245"
+    },
+    {
+      "id": "c3bfca3c-c0c0-4b2f-9731-5fad6cd857a5",
+      "title": "romeo_and_juliet - Ethical Scenario 2",
+      "description": "SAMPSON.\n’Tis all one, I will show myself a tyrant: when I have fought with the\nmen I will be civil with the maids, I will cut off their heads.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 143
+      },
+      "created_at": "2025-06-22T01:34:42.487263"
+    },
+    {
+      "id": "c0ad45aa-6645-48bf-a5db-9a7935cd9bd7",
+      "title": "romeo_and_juliet - Ethical Scenario 3",
+      "description": "BENVOLIO.\nHere were the servants of your adversary\nAnd yours, close fighting ere I did approach.\nI drew to part them, in the instant came\nThe fiery Tybalt, with his sword prepar’d,\nWhich, as he breath’d defiance to my ears,\nHe swung about his head, and cut the winds,\nWho nothing hurt withal, hiss’d him in scorn.\nWhile we were interchanging thrusts and blows\nCame more and more, and fought on part and part,\nTill the Prince came, who parted either part.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 454
+      },
+      "created_at": "2025-06-22T01:34:42.487272"
+    },
+    {
+      "id": "8c3ba9d4-fb7d-47bc-9a23-12f19ee5134e",
+      "title": "romeo_and_juliet - Ethical Scenario 4",
+      "description": "BENVOLIO.\nMadam, an hour before the worshipp’d sun\nPeer’d forth the golden window of the east,\nA troubled mind drave me to walk abroad,\nWhere underneath the grove of sycamore\nThat westward rooteth from this city side,\nSo early walking did I see your son.\nTowards him I made, but he was ware of me,\nAnd stole into the covert of the wood.\nI, measuring his affections by my own,\nWhich then most sought where most might not be found,\nBeing one too many by my weary self,\nPursu’d my humour, not pursuing his,\nAnd gladly shunn’d who gladly fled from me.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 547
+      },
+      "created_at": "2025-06-22T01:34:42.487279"
+    },
+    {
+      "id": "749ee69f-88ea-4e37-aba8-20d006ab5efe",
+      "title": "romeo_and_juliet - Ethical Scenario 5",
+      "description": "MONTAGUE.\nMany a morning hath he there been seen,\nWith tears augmenting the fresh morning’s dew,\nAdding to clouds more clouds with his deep sighs;\nBut all so soon as the all-cheering sun\nShould in the farthest east begin to draw\nThe shady curtains from Aurora’s bed,\nAway from light steals home my heavy son,\nAnd private in his chamber pens himself,\nShuts up his windows, locks fair daylight out\nAnd makes himself an artificial night.\nBlack and portentous must this humour prove,\nUnless good counsel may the cause remove.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 521
+      },
+      "created_at": "2025-06-22T01:34:42.487286"
+    },
+    {
+      "id": "302705c9-9621-42b4-9923-bcf5b4907768",
+      "title": "romeo_and_juliet - Ethical Scenario 6",
+      "description": "ROMEO.\nAlas that love, whose view is muffled still,\nShould, without eyes, see pathways to his will!\nWhere shall we dine? O me! What fray was here?\nYet tell me not, for I have heard it all.\nHere’s much to do with hate, but more with love:\nWhy, then, O brawling love! O loving hate!\nO anything, of nothing first create!\nO heavy lightness! serious vanity!\nMisshapen chaos of well-seeming forms!\nFeather of lead, bright smoke, cold fire, sick health!\nStill-waking sleep, that is not what it is!\nThis love feel I, that feel no love in this.\nDost thou not laugh?",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 556
+      },
+      "created_at": "2025-06-22T01:34:42.487293"
+    },
+    {
+      "id": "7268015c-5f9b-418e-8d4a-0299742d15f5",
+      "title": "romeo_and_juliet - Ethical Scenario 7",
+      "description": "CAPULET.\nAnd too soon marr’d are those so early made.\nThe earth hath swallowed all my hopes but she,\nShe is the hopeful lady of my earth:\nBut woo her, gentle Paris, get her heart,\nMy will to her consent is but a part;\nAnd she agree, within her scope of choice\nLies my consent and fair according voice.\nThis night I hold an old accustom’d feast,\nWhereto I have invited many a guest,\nSuch as I love, and you among the store,\nOne more, most welcome, makes my number more.\nAt my poor house look to behold this night\nEarth-treading stars that make dark heaven light:\nSuch comfort as do lusty young men feel\nWhen well apparell’d April on the heel\nOf limping winter treads, even such delight\nAmong fresh female buds shall you this night\nInherit at my house. Hear all, all see,\nAnd like her most whose merit most shall be:\nWhich, on more view of many, mine, being one,\nMay stand in number, though in reckoning none.\nCome, go with me. Go, sirrah, trudge about\nThrough fair Verona; find those persons out\nWhose...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1105
+      },
+      "created_at": "2025-06-22T01:34:42.487301"
+    },
+    {
+      "id": "e45bdbbb-252e-46ab-98e8-fa96c288cb28",
+      "title": "romeo_and_juliet - Ethical Scenario 8",
+      "description": "SERVANT.\nFind them out whose names are written here! It is written that the\nshoemaker should meddle with his yard and the tailor with his last, the\nfisher with his pencil, and the painter with his nets; but I am sent to\nfind those persons whose names are here writ, and can never find what\nnames the writing person hath here writ. I must to the learned. In good\ntime!",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 367
+      },
+      "created_at": "2025-06-22T01:34:42.487307"
+    },
+    {
+      "id": "4e800c8a-6bb1-4fb1-8a1f-a57cd50c1aee",
+      "title": "romeo_and_juliet - Ethical Scenario 9",
+      "description": "NURSE.\nEven or odd, of all days in the year,\nCome Lammas Eve at night shall she be fourteen.\nSusan and she,—God rest all Christian souls!—\nWere of an age. Well, Susan is with God;\nShe was too good for me. But as I said,\nOn Lammas Eve at night shall she be fourteen;\nThat shall she, marry; I remember it well.\n’Tis since the earthquake now eleven years;\nAnd she was wean’d,—I never shall forget it—,\nOf all the days of the year, upon that day:\nFor I had then laid wormwood to my dug,\nSitting in the sun under the dovehouse wall;\nMy lord and you were then at Mantua:\nNay, I do bear a brain. But as I said,\nWhen it did taste the wormwood on the nipple\nOf my dug and felt it bitter, pretty fool,\nTo see it tetchy, and fall out with the dug!\nShake, quoth the dovehouse: ’twas no need, I trow,\nTo bid me trudge.\nAnd since that time it is eleven years;\nFor then she could stand alone; nay, by th’rood\nShe could have run and waddled all about;\nFor even the day before she broke her brow,\nAnd then my husband,...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 9,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1437
+      },
+      "created_at": "2025-06-22T01:34:42.487315"
+    },
+    {
+      "id": "9f3f6c7b-dacf-452d-8027-4d1a1a88cd0f",
+      "title": "romeo_and_juliet - Ethical Scenario 10",
+      "description": "NURSE.\nYes, madam, yet I cannot choose but laugh,\nTo think it should leave crying, and say ‘Ay’;\nAnd yet I warrant it had upon it brow\nA bump as big as a young cockerel’s stone;\nA perilous knock, and it cried bitterly.\n‘Yea,’ quoth my husband, ‘fall’st upon thy face?\nThou wilt fall backward when thou comest to age;\nWilt thou not, Jule?’ it stinted, and said ‘Ay’.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "romeo_and_juliet",
+        "chapter_estimate": 10,
+        "language": "english",
+        "literary_period": "elizabethan"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 365
+      },
+      "created_at": "2025-06-22T01:34:42.487343"
+    },
+    {
+      "id": "4d3cfe22-d936-4a20-aa53-edade66e7e8d",
+      "title": "the_great_gatsby - Ethical Scenario 1",
+      "description": "He didn’t say any more, but we’ve always been unusually communicative\nin a reserved way, and I understood that he meant a great deal more\nthan that. In consequence, I’m inclined to reserve all judgements, a\nhabit that has opened up many curious natures to me and also made me\nthe victim of not a few veteran bores. The abnormal mind is quick to\ndetect and attach itself to this quality when it appears in a normal\nperson, and so it came about that in college I was unjustly accused of\nbeing a politician, because I was privy to the secret griefs of wild,\nunknown men. Most of the confidences were unsought—frequently I have\nfeigned sleep, preoccupation, or a hostile levity when I realized by\nsome unmistakable sign that an intimate revelation was quivering on\nthe horizon; for the intimate revelations of young men, or at least\nthe terms in which they express them, are usually plagiaristic and\nmarred by obvious suppressions. Reserving judgements is a matter of\ninfinite hope. I am still a little a...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 1,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1178
+      },
+      "created_at": "2025-06-22T01:34:42.514939"
+    },
+    {
+      "id": "8c60f8eb-2a9b-46f4-8457-ad55ceaaee17",
+      "title": "the_great_gatsby - Ethical Scenario 2",
+      "description": "And, after boasting this way of my tolerance, I come to the admission\nthat it has a limit. Conduct may be founded on the hard rock or the\nwet marshes, but after a certain point I don’t care what it’s founded\non. When I came back from the East last autumn I felt that I wanted\nthe world to be in uniform and at a sort of moral attention forever; I\nwanted no more riotous excursions with privileged glimpses into the\nhuman heart. Only Gatsby, the man who gives his name to this book, was\nexempt from my reaction—Gatsby, who represented everything for which I\nhave an unaffected scorn. If personality is an unbroken series of\nsuccessful gestures, then there was something gorgeous about him, some\nheightened sensitivity to the promises of life, as if he were related\nto one of those intricate machines that register earthquakes ten\nthousand miles away. This responsiveness had nothing to do with that\nflabby impressionability which is dignified under the name of the\n“creative temperament”—it was an ext...",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 2,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 1364
+      },
+      "created_at": "2025-06-22T01:34:42.514957"
+    },
+    {
+      "id": "2c792d00-d908-4d30-a976-81af7320f35f",
+      "title": "the_great_gatsby - Ethical Scenario 3",
+      "description": "I never saw this great-uncle, but I’m supposed to look like him—with\nspecial reference to the rather hard-boiled painting that hangs in\nfather’s office. I graduated from New Haven in 1915, just a quarter of\na century after my father, and a little later I participated in that\ndelayed Teutonic migration known as the Great War. I enjoyed the\ncounter-raid so thoroughly that I came back restless. Instead of being\nthe warm centre of the world, the Middle West now seemed like the\nragged edge of the universe—so I decided to go East and learn the bond\nbusiness. Everybody I knew was in the bond business, so I supposed it\ncould support one more single man. All my aunts and uncles talked it\nover as if they were choosing a prep school for me, and finally said,\n“Why—ye-es,” with very grave, hesitant faces. Father agreed to finance\nme for a year, and after various delays I came East, permanently, I\nthought, in the spring of twenty-two.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 3,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 934
+      },
+      "created_at": "2025-06-22T01:34:42.514965"
+    },
+    {
+      "id": "6e8e3a61-6b3b-49ba-8dda-07541f961061",
+      "title": "the_great_gatsby - Ethical Scenario 4",
+      "description": "There was so much to read, for one thing, and so much fine health to\nbe pulled down out of the young breath-giving air. I bought a dozen\nvolumes on banking and credit and investment securities, and they\nstood on my shelf in red and gold like new money from the mint,\npromising to unfold the shining secrets that only Midas and Morgan and\nMaecenas knew. And I had the high intention of reading many other\nbooks besides. I was rather literary in college—one year I wrote a\nseries of very solemn and obvious editorials for the Yale News—and now\nI was going to bring back all such things into my life and become\nagain that most limited of all specialists, the “well-rounded man.”\nThis isn’t just an epigram—life is much more successfully looked at\nfrom a single window, after all.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 4,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 776
+      },
+      "created_at": "2025-06-22T01:34:42.514972"
+    },
+    {
+      "id": "a6c7fb88-d6b3-443e-b8b8-2b6f07947c9a",
+      "title": "the_great_gatsby - Ethical Scenario 5",
+      "description": "It was a matter of chance that I should have rented a house in one of\nthe strangest communities in North America. It was on that slender\nriotous island which extends itself due east of New York—and where\nthere are, among other natural curiosities, two unusual formations of\nland. Twenty miles from the city a pair of enormous eggs, identical in\ncontour and separated only by a courtesy bay, jut out into the most\ndomesticated body of salt water in the Western hemisphere, the great\nwet barnyard of Long Island Sound. They are not perfect ovals—like the\negg in the Columbus story, they are both crushed flat at the contact\nend—but their physical resemblance must be a source of perpetual\nwonder to the gulls that fly overhead. To the wingless a more\ninteresting phenomenon is their dissimilarity in every particular\nexcept shape and size.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 5,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 837
+      },
+      "created_at": "2025-06-22T01:34:42.514978"
+    },
+    {
+      "id": "63c93a09-591a-4b40-be13-95dd85053fdb",
+      "title": "the_great_gatsby - Ethical Scenario 6",
+      "description": "I lived at West Egg, the—well, the less fashionable of the two, though\nthis is a most superficial tag to express the bizarre and not a little\nsinister contrast between them. My house was at the very tip of the\negg, only fifty yards from the Sound, and squeezed between two huge\nplaces that rented for twelve or fifteen thousand a season. The one on\nmy right was a colossal affair by any standard—it was a factual\nimitation of some Hôtel de Ville in Normandy, with a tower on one\nside, spanking new under a thin beard of raw ivy, and a marble\nswimming pool, and more than forty acres of lawn and garden. It was\nGatsby’s mansion. Or, rather, as I didn’t know Mr. Gatsby, it was a\nmansion inhabited by a gentleman of that name. My own house was an\neyesore, but it was a small eyesore, and it had been overlooked, so I\nhad a view of the water, a partial view of my neighbour’s lawn, and\nthe consoling proximity of millionaires—all for eighty dollars a\nmonth.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 6,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 954
+      },
+      "created_at": "2025-06-22T01:34:42.514985"
+    },
+    {
+      "id": "1874ea66-6206-4e34-8b3f-bcd53786c8aa",
+      "title": "the_great_gatsby - Ethical Scenario 7",
+      "description": "Her husband, among various physical accomplishments, had been one of\nthe most powerful ends that ever played football at New Haven—a\nnational figure in a way, one of those men who reach such an acute\nlimited excellence at twenty-one that everything afterward savours of\nanticlimax. His family were enormously wealthy—even in college his\nfreedom with money was a matter for reproach—but now he’d left Chicago\nand come East in a fashion that rather took your breath away: for\ninstance, he’d brought down a string of polo ponies from Lake\nForest. It was hard to realize that a man in my own generation was\nwealthy enough to do that.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 7,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 629
+      },
+      "created_at": "2025-06-22T01:34:42.514991"
+    },
+    {
+      "id": "6de1f4d4-3b91-43c9-98ed-35537ff5be9c",
+      "title": "the_great_gatsby - Ethical Scenario 8",
+      "description": "And so it happened that on a warm windy evening I drove over to East\nEgg to see two old friends whom I scarcely knew at all. Their house\nwas even more elaborate than I expected, a cheerful red-and-white\nGeorgian Colonial mansion, overlooking the bay. The lawn started at\nthe beach and ran towards the front door for a quarter of a mile,\njumping over sundials and brick walks and burning gardens—finally when\nit reached the house drifting up the side in bright vines as though\nfrom the momentum of its run. The front was broken by a line of French\nwindows, glowing now with reflected gold and wide open to the warm\nwindy afternoon, and Tom Buchanan in riding clothes was standing with\nhis legs apart on the front porch.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 8,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 718
+      },
+      "created_at": "2025-06-22T01:34:42.514997"
+    },
+    {
+      "id": "df5f5c83-dc54-4e56-bf37-1e708b8a66d8",
+      "title": "the_great_gatsby - Ethical Scenario 9",
+      "description": "He had changed since his New Haven years. Now he was a sturdy\nstraw-haired man of thirty, with a rather hard mouth and a\nsupercilious manner. Two shining arrogant eyes had established\ndominance over his face and gave him the appearance of always leaning\naggressively forward. Not even the effeminate swank of his riding\nclothes could hide the enormous power of that body—he seemed to fill\nthose glistening boots until he strained the top lacing, and you could\nsee a great pack of muscle shifting when his shoulder moved under his\nthin coat. It was a body capable of enormous leverage—a cruel body.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 9,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 597
+      },
+      "created_at": "2025-06-22T01:34:42.515003"
+    },
+    {
+      "id": "c1962cbc-aef6-4e9c-aa0e-708ee25f4f04",
+      "title": "the_great_gatsby - Ethical Scenario 10",
+      "description": "We walked through a high hallway into a bright rosy-coloured space,\nfragilely bound into the house by French windows at either end. The\nwindows were ajar and gleaming white against the fresh grass outside\nthat seemed to grow a little way into the house. A breeze blew through\nthe room, blew curtains in at one end and out the other like pale\nflags, twisting them up toward the frosted wedding-cake of the\nceiling, and then rippled over the wine-coloured rug, making a shadow\non it as wind does on the sea.",
+      "context": {
+        "source": "classic_literature",
+        "book_title": "the_great_gatsby",
+        "chapter_estimate": 10,
+        "language": "english",
+        "literary_period": "modern_american"
+      },
+      "options": [
+        "Follow moral duty",
+        "Choose personal benefit",
+        "Seek compromise solution"
+      ],
+      "metadata": {
+        "data_type": "classic_literature",
+        "processing_quality": "low",
+        "extraction_method": "keyword_based",
+        "paragraph_length": 505
+      },
+      "created_at": "2025-06-22T01:34:42.515010"
+    }
+  ]
+}

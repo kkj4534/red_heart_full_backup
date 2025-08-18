@@ -1,0 +1,41 @@
+# API 키 (절대 커밋하지 마세요!)
+api_key.json
+
+# 체크포인트
+checkpoint*.pkl
+*.checkpoint
+
+# 출력 파일
+claude_preprocessed_*.jsonl
+claude_failed_*.jsonl
+test_output/
+
+# 로그
+*.log
+preprocessing_*.log
+
+# 테스트 파일
+test_samples.jsonl
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# 환경
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

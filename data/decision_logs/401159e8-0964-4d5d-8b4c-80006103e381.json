@@ -1,0 +1,249 @@
+{
+  "id": "401159e8-0964-4d5d-8b4c-80006103e381",
+  "situation": {
+    "id": "56ea2634-8437-4758-a4f5-bedea405ae28",
+    "title": "노숙자 돕기 딜레마",
+    "description": "길을 걷다가 한 노숙자가 도움을 청하고 있습니다. 당신의 지갑에는 중요한 약속을 위해 사용할 예정이었던 돈이 있습니다.",
+    "context": {
+      "location": "도시 거리",
+      "time": "오후",
+      "weather": "춥고 비가 오는 날씨",
+      "people_involved": [
+        "나",
+        "노숙자"
+      ]
+    },
+    "variables": {
+      "money_amount": 30000,
+      "urgency_of_appointment": 0.8,
+      "homeless_person_condition": 0.7
+    },
+    "options": [
+      {
+        "id": "give_money",
+        "text": "노숙자에게 돈을 준다",
+        "affected_count": 2,
+        "duration_seconds": 3600
+      },
+      {
+        "id": "give_food",
+        "text": "근처 가게에서 음식을 사서 준다",
+        "affected_count": 2,
+        "duration_seconds": 1800
+      },
+      {
+        "id": "ignore",
+        "text": "무시하고 지나간다",
+        "affected_count": 1,
+        "duration_seconds": 300
+      },
+      {
+        "id": "call_shelter",
+        "text": "노숙자 쉼터에 연락한다",
+        "affected_count": 2,
+        "duration_seconds": 1200
+      }
+    ],
+    "created_at": "2025-06-20T03:00:22.000450",
+    "source": "manual"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-20T03:00:22.000938"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-20T03:00:22.000362"
+  },
+  "hedonic_values": {
+    "intensity": 0.35,
+    "duration": 1.0,
+    "certainty": 0.395,
+    "propinquity": 0.8,
+    "fecundity": 0.0,
+    "purity": 0.5,
+    "extent": 0.2,
+    "hedonic_total": 0.03318
+  },
+  "decision": {
+    "id": "0dcc76be-04b7-40c8-a8b8-327b1febe09b",
+    "situation_id": "56ea2634-8437-4758-a4f5-bedea405ae28",
+    "choice": "give_money",
+    "reasoning": "'노숙자에게 돈을 준다'를 선택했습니다. 이 선택은 약 0.03의 쾌락 가치를 가지며(과거 경험 조정 후: 0.03), 주로 'NEUTRAL' 감정을 유발할 것으로 예측됩니다. 주요 결정 요인: [긴 지속시간, propinquity(0.80)]. 최적 대안 '근처 가게에서 음식을 사서 준다'(조정 후 예상 쾌락: 0.03, 예상 감정: 'NEUTRAL')과 비교 시, 조정 후 쾌락 가치는 유사하나, 예측된 감정('NEUTRAL') 등을 고려하여 최종 선택했습니다.",
+    "confidence": 0.249,
+    "reasoning_log": {
+      "options_analyzed": [
+        {
+          "id": "give_money",
+          "text": "노숙자에게 돈을 준다",
+          "hedonic_values": {
+            "intensity": 0.35,
+            "duration": 1.0,
+            "certainty": 0.395,
+            "propinquity": 0.8,
+            "fecundity": 0.0,
+            "purity": 0.5,
+            "extent": 0.2,
+            "hedonic_total": 0.03318,
+            "adjusted_total": 0.03318,
+            "past_experience_adjustment": 0.0
+          },
+          "predicted_emotion": {
+            "primary_emotion": "NEUTRAL",
+            "intensity": "MODERATE",
+            "arousal": 0.0,
+            "valence": 0.0,
+            "secondary_emotions": {},
+            "confidence": 0.35,
+            "timestamp": "2025-06-20T03:00:22.000731"
+          }
+        },
+        {
+          "id": "give_food",
+          "text": "근처 가게에서 음식을 사서 준다",
+          "hedonic_values": {
+            "intensity": 0.35,
+            "duration": 1.0,
+            "certainty": 0.395,
+            "propinquity": 0.8,
+            "fecundity": 0.0,
+            "purity": 0.5,
+            "extent": 0.2,
+            "hedonic_total": 0.03318,
+            "adjusted_total": 0.03318,
+            "past_experience_adjustment": 0.0
+          },
+          "predicted_emotion": {
+            "primary_emotion": "NEUTRAL",
+            "intensity": "MODERATE",
+            "arousal": 0.0,
+            "valence": 0.0,
+            "secondary_emotions": {},
+            "confidence": 0.35,
+            "timestamp": "2025-06-20T03:00:22.000788"
+          }
+        },
+        {
+          "id": "ignore",
+          "text": "무시하고 지나간다",
+          "hedonic_values": {
+            "intensity": 0.35,
+            "duration": 0.5,
+            "certainty": 0.395,
+            "propinquity": 0.8,
+            "fecundity": 0.0,
+            "purity": 0.5,
+            "extent": 0.1,
+            "hedonic_total": 0.015207500000000004,
+            "adjusted_total": 0.015207500000000004,
+            "past_experience_adjustment": 0.0
+          },
+          "predicted_emotion": {
+            "primary_emotion": "NEUTRAL",
+            "intensity": "MODERATE",
+            "arousal": 0.0,
+            "valence": 0.0,
+            "secondary_emotions": {},
+            "confidence": 0.35,
+            "timestamp": "2025-06-20T03:00:22.000826"
+          }
+        },
+        {
+          "id": "call_shelter",
+          "text": "노숙자 쉼터에 연락한다",
+          "hedonic_values": {
+            "intensity": 0.35,
+            "duration": 1.0,
+            "certainty": 0.395,
+            "propinquity": 0.8,
+            "fecundity": 0.0,
+            "purity": 0.5,
+            "extent": 0.2,
+            "hedonic_total": 0.03318,
+            "adjusted_total": 0.03318,
+            "past_experience_adjustment": 0.0
+          },
+          "predicted_emotion": {
+            "primary_emotion": "NEUTRAL",
+            "intensity": "MODERATE",
+            "arousal": 0.0,
+            "valence": 0.0,
+            "secondary_emotions": {},
+            "confidence": 0.35,
+            "timestamp": "2025-06-20T03:00:22.000859"
+          }
+        }
+      ],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.0,
+        "emotion_pred": 0.35,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.395
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.03318,
+      "adjusted_hedonic_value": 0.03318,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "give_money"
+    },
+    "timestamp": "2025-06-20T03:00:22.000931"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.7,
+    "primary_emotion": "JOY",
+    "option_outcomes": {
+      "give_money": {
+        "hedonic_value": 0.7,
+        "primary_emotion": "JOY"
+      },
+      "give_food": {
+        "hedonic_value": 0.8,
+        "primary_emotion": "JOY"
+      },
+      "ignore": {
+        "hedonic_value": -0.4,
+        "primary_emotion": "SADNESS"
+      },
+      "call_shelter": {
+        "hedonic_value": 0.6,
+        "primary_emotion": "TRUST"
+      }
+    },
+    "description": "노숙자는 매우 감사해했고, 당신은 좋은 기분을 느꼈습니다. 약속에는 조금 늦었지만 큰 문제는 없었습니다."
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.5750804999999999,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.383387,
+      "predicted_hedonic": 0.03318,
+      "actual_hedonic": 0.7,
+      "hedonic_difference": 0.66682,
+      "better_options": [
+        {
+          "option_id": "give_food",
+          "hedonic_value": 0.8,
+          "difference": 0.10000000000000009
+        }
+      ],
+      "was_optimal": false
+    },
+    "timestamp": 1750356022.0461483
+  },
+  "timestamp": "2025-06-20T03:00:22.000953"
+}

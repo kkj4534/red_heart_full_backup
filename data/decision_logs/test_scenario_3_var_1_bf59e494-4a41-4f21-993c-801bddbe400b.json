@@ -1,0 +1,144 @@
+{
+  "id": "bf59e494-4a41-4f21-993c-801bddbe400b",
+  "situation": {
+    "id": "b9850f3e-b1c6-4f54-b8d1-0ec8a49a9be4",
+    "title": "의료 자원 배분 딜레마",
+    "description": "병원에 인공호흡기가 1대밖에 없는데 2명의 환자가 모두 필요한 상황입니다. 한 명은 젊지만 회복 가능성이 낮고, 다른 한 명은 고령이지만 회복 가능성이 높습니다.",
+    "context": {
+      "location": "응급실",
+      "time": "밤",
+      "weather": "실내",
+      "people_involved": [
+        "젊은 환자",
+        "고령 환자",
+        "의료진"
+      ]
+    },
+    "variables": {
+      "young_patient_recovery": 0.3,
+      "old_patient_recovery": 0.8,
+      "resource_scarcity": 0.9,
+      "family_pressure": 0.7
+    },
+    "options": [
+      {
+        "id": "prioritize_young",
+        "text": "젊은 환자를 우선한다",
+        "affected_count": 4,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "prioritize_recoverable",
+        "text": "회복 가능성이 높은 환자를 우선한다",
+        "affected_count": 4,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "first_come_first_serve",
+        "text": "먼저 온 순서대로 결정한다",
+        "affected_count": 4,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "committee_decision",
+        "text": "의료 위원회에서 결정한다",
+        "affected_count": 4,
+        "duration_seconds": 7200
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.340503",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.340509"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.340511"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 0.04,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "075b67e5-1407-4bac-801d-3e12ff44aee5",
+    "situation_id": "b9850f3e-b1c6-4f54-b8d1-0ec8a49a9be4",
+    "choice": "committee_decision",
+    "reasoning": "'의료 위원회에서 결정한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "committee_decision"
+    },
+    "timestamp": "2025-06-29T01:27:35.340515"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.7,
+    "primary_emotion": "TRUST",
+    "option_outcomes": {
+      "prioritize_young": {
+        "hedonic": 0.3,
+        "emotion": "GUILT"
+      },
+      "prioritize_recoverable": {
+        "hedonic": 0.8,
+        "emotion": "TRUST"
+      },
+      "first_come_first_serve": {
+        "hedonic": 0.6,
+        "emotion": "RELIEF"
+      },
+      "committee_decision": {
+        "hedonic": 0.7,
+        "emotion": "TRUST"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 의료 위원회에서 결정한다"
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.10000000000000009,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.19999999999999996,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.7,
+      "hedonic_difference": 0.19999999999999996,
+      "better_options": [],
+      "was_optimal": false
+    },
+    "timestamp": 1751128055.3405204
+  },
+  "timestamp": "2025-06-29T01:27:35.340520"
+}

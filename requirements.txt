@@ -1,0 +1,63 @@
+# Red Heart AI - 메인 의존성 파일
+# 
+# ⚠️ 이 파일은 간소화된 버전입니다.
+# 전체 의존성은 requirements/current/ 폴더를 참조하세요.
+#
+# 설치 방법:
+# 1. 전체 설치: requirements/current/README.md 참조
+# 2. 빠른 설치: pip install -r requirements.txt
+#
+# 자세한 내용: requirements/current/requirements_complete.txt
+
+# === 핵심 ML/AI ===
+torch==2.5.1
+transformers==4.53.1
+sentence-transformers==5.0.0
+accelerate==1.8.1
+llama_cpp_python==0.3.12
+
+# === 과학 계산 ===
+numpy==1.26.4  # FAISS 호환
+scipy==1.16.0
+pandas==2.3.0
+scikit-learn==1.7.0
+
+# === NLP 한국어 ===
+konlpy==0.6.0
+kss==6.0.0
+soynlp==0.0.493
+
+# === NLP 일반 ===
+nltk==3.9.1
+tokenizers==0.21.2
+sentencepiece==0.2.0
+
+# === 시각화 ===
+matplotlib==3.10.3
+seaborn==0.13.2
+plotly==5.24.1
+
+# === 유틸리티 ===
+tqdm==4.67.1
+rich==14.0.0
+python-dotenv==1.1.1
+psutil==7.0.0
+pydantic==2.11.7
+
+# === 웹/API ===
+fastapi==0.115.6
+uvicorn==0.34.0
+httpx==0.28.1
+aiohttp==3.11.11
+
+# === 데이터 ===
+huggingface-hub==0.33.2
+pillow==11.2.1
+beautifulsoup4==4.13.4
+
+# === 개발 도구 ===
+pytest==8.3.4
+black==24.10.0
+isort==5.13.2
+
+# 전체 목록: requirements/current/requirements_complete.txt

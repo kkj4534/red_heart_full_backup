@@ -1,0 +1,2213 @@
+[
+  {
+    "id": "korean_lit_001",
+    "title": "운수좋은날 - 김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있...",
+    "description": "문학 작품 『운수좋은날』(현진건, 1924)의 상황:\n\n김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있음을 발견하는 상황\n\n인물의 심리: 겉으로는 거친 말을 하지만 속으로는 아내를 걱정하고 사랑하는 복잡한 심리. 가난에 찌든 삶에서도 가족에 대한 애정을 간직한 인물\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "운수좋은날 (현진건)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "sympathy",
+      "despair",
+      "sadness",
+      "compassion"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "운수좋은날",
+        "author": "현진건",
+        "genre": "단편소설",
+        "publication_year": "1924",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "슬픔",
+        "절망",
+        "아이러니",
+        "연민",
+        "동정"
+      ],
+      "theme": "일제강점기 하층민의 절박하고 비참한 삶, 사회적 불평등과 빈곤 문제",
+      "literary_techniques": [
+        "반전기법",
+        "사실주의적 묘사",
+        "반어법",
+        "대조법"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "메밀꽃 필 무렵 - 허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해...",
+    "description": "문학 작품 『메밀꽃 필 무렵』(이효석, 1936)의 상황:\n\n허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해\n\n인물의 심리: 과거 방탕했던 자신을 성찰하며 아들과의 만남에서 복잡한 감정을 느끼는 허생원의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "interpersonal_relations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "메밀꽃 필 무렵 (이효석)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "연인",
+      "친구",
+      "이웃"
+    ],
+    "ethical_themes": [
+      "longing"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "메밀꽃 필 무렵",
+        "author": "이효석",
+        "genre": "단편소설",
+        "publication_year": "1936",
+        "era": "일제강점기"
+      },
+      "conflict_type": "interpersonal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "회한",
+        "부성애",
+        "화해",
+        "향수"
+      ],
+      "theme": "인간적 정감과 따뜻한 인정, 향토적 정서와 서정성",
+      "literary_techniques": [
+        "서정적 묘사",
+        "회상기법",
+        "토속적 언어",
+        "공간의 상징성"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "동백꽃 - 순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해...",
+    "description": "문학 작품 『동백꽃』(김유정, 1936)의 상황:\n\n순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해\n\n인물의 심리: 점순이의 적극적 표현을 이해하지 못하는 순박한 소년의 심리와 간접적으로 마음을 표현하는 점순이의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "interpersonal_relations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "동백꽃 (김유정)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "연인",
+      "친구",
+      "이웃"
+    ],
+    "ethical_themes": [
+      "love",
+      "romantic_love",
+      "jealousy"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "동백꽃",
+        "author": "김유정",
+        "genre": "단편소설",
+        "publication_year": "1936",
+        "era": "일제강점기"
+      },
+      "conflict_type": "interpersonal_conflict",
+      "emotional_elements": [
+        "풋사랑",
+        "질투",
+        "오해",
+        "순수함",
+        "해학"
+      ],
+      "theme": "순수한 사랑과 농촌의 향토적 정서, 해학과 풍자",
+      "literary_techniques": [
+        "1인칭 서술",
+        "해학적 표현",
+        "방언 사용",
+        "상징기법"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "상록수 - 농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등...",
+    "description": "문학 작품 『상록수』(심훈, 1935)의 상황:\n\n농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등\n\n인물의 심리: 농촌 현실을 개선하려는 이상과 현실의 한계 사이에서 갈등하는 지식인들의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "상록수 (심훈)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "hope"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "상록수",
+        "author": "심훈",
+        "genre": "장편소설",
+        "publication_year": "1935",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "의지",
+        "희생",
+        "좌절",
+        "희망",
+        "연대감"
+      ],
+      "theme": "농촌 계몽과 사회 개혁 의지, 지식인의 사회적 책임",
+      "literary_techniques": [
+        "전지적 작가 시점",
+        "교육소설적 성격",
+        "계몽주의적 문체"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "감자 - 극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제...",
+    "description": "문학 작품 『감자』(김동인, 1925)의 상황:\n\n극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제\n\n인물의 심리: 가난으로 인해 도덕적 타락의 길로 빠져드는 복녀의 비극적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "감자 (김동인)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "poverty",
+      "despair"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "감자",
+        "author": "김동인",
+        "genre": "단편소설",
+        "publication_year": "1925",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "절망",
+        "굴욕",
+        "생존본능",
+        "도덕적갈등",
+        "비극"
+      ],
+      "theme": "환경 결정론적 사상, 극한 빈곤이 인간에게 미치는 영향",
+      "literary_techniques": [
+        "자연주의 기법",
+        "환경묘사",
+        "심리묘사"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_001",
+    "title": "진달래꽃 - 임을 떠나보내면서도 원망하지 않고 축복하려는 화자의 내적 갈등...",
+    "description": "문학 작품 『진달래꽃』(김소월, 1922)의 상황:\n\n임을 떠나보내면서도 원망하지 않고 축복하려는 화자의 내적 갈등\n\n인물의 심리: 이별의 아픔을 역설적으로 승화시키며, 전통적 한의 정서와 여성적 어조로 소극적이면서도 깊은 사랑을 표현하는 화자의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "진달래꽃 (김소월)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "love",
+      "resignation",
+      "tradition"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "진달래꽃",
+        "author": "김소월",
+        "genre": "자유시",
+        "publication_year": "1922",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "이별의정한",
+        "체념",
+        "사랑",
+        "한",
+        "승화"
+      ],
+      "theme": "이별의 아픔과 한국적 서정성, 전통적 한의 정서",
+      "literary_techniques": [
+        "역설법",
+        "의인법",
+        "점층법",
+        "수사의문문"
+      ],
+      "source_reliability": 0.95
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "님의 침묵 - 님과의 이별로 인한 슬픔을 새로운 만남의 희망으로 전환하려는 화자의 의지적 갈등...",
+    "description": "문학 작품 『님의 침묵』(한용운, 1926)의 상황:\n\n님과의 이별로 인한 슬픔을 새로운 만남의 희망으로 전환하려는 화자의 의지적 갈등\n\n인물의 심리: 불교의 역설적 진리를 바탕으로 이별의 슬픔을 극복하고 재회의 희망을 품는 의지적이고 능동적인 화자의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "님의 침묵 (한용운)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "sadness",
+      "hope"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "님의 침묵",
+        "author": "한용운",
+        "genre": "자유시",
+        "publication_year": "1926",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "슬픔",
+        "희망",
+        "의지",
+        "신념",
+        "기다림"
+      ],
+      "theme": "이별과 만남의 변증법, 불교적 세계관과 의지적 미래관",
+      "literary_techniques": [
+        "역설법",
+        "의인법",
+        "대조법",
+        "영탄법"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "청포도 - 현실적 절망과 미래에 대한 희망 사이의 갈등, 조국 광복에 대한 간절한 소망...",
+    "description": "문학 작품 『청포도』(이육사, 1939)의 상황:\n\n현실적 절망과 미래에 대한 희망 사이의 갈등, 조국 광복에 대한 간절한 소망\n\n인물의 심리: 일제강점기 현실을 이겨내고 독립이라는 밝은 미래를 기다리는 간절하면서도 의지적인 화자의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "청포도 (이육사)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "longing",
+      "hope"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "청포도",
+        "author": "이육사",
+        "genre": "자유시",
+        "publication_year": "1939",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "그리움",
+        "희망",
+        "기다림",
+        "의지",
+        "소망"
+      ],
+      "theme": "미래에 대한 희망과 의지, 조국 광복에 대한 소망",
+      "literary_techniques": [
+        "상징법",
+        "대조법",
+        "색채 이미지",
+        "공감각적 표현"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "향수 - 고향에 대한 그리움과 현실적으로 돌아갈 수 없는 상황 사이의 갈등...",
+    "description": "문학 작품 『향수』(정지용, 1926)의 상황:\n\n고향에 대한 그리움과 현실적으로 돌아갈 수 없는 상황 사이의 갈등\n\n인물의 심리: 고향을 떠나 타향에서 느끼는 깊은 그리움과 애수를 감각적 이미지로 표현하는 화자의 섬세한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "향수 (정지용)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "longing"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "향수",
+        "author": "정지용",
+        "genre": "자유시",
+        "publication_year": "1926",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "향수",
+        "애수",
+        "그리움",
+        "회상"
+      ],
+      "theme": "고향에 대한 그리움과 향토 의식",
+      "literary_techniques": [
+        "감각적 이미지",
+        "의성어",
+        "의태어",
+        "영탄법"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "화가 이중섭 - 예술가의 이상과 현실적 고통 사이의 갈등, 가족에 대한 그리움과 예술적 소명 사이의 갈등...",
+    "description": "문학 작품 『화가 이중섭』(엄광용, 1970년대)의 상황:\n\n예술가의 이상과 현실적 고통 사이의 갈등, 가족에 대한 그리움과 예술적 소명 사이의 갈등\n\n인물의 심리: 예술에 대한 열정과 가족에 대한 사랑, 현실적 고통이 복합적으로 얽힌 예술가의 복잡한 내면 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "화가 이중섭 (엄광용)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "longing",
+      "solitude"
+    ],
+    "cultural_context": "Korean Literature - 해방 이후",
+    "complexity_score": 0.7999999999999999,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "화가 이중섭",
+        "author": "엄광용",
+        "genre": "수필",
+        "publication_year": "1970년대",
+        "era": "해방 이후"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "고독",
+        "예술혼",
+        "가족애",
+        "비극"
+      ],
+      "theme": "예술가의 고독과 현실, 예술과 삶의 괴리",
+      "literary_techniques": [
+        "회상법",
+        "대조법",
+        "구체적 묘사",
+        "상징적 표현"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_001",
+    "title": "무정 - 전통적 여성 박영채와 신여성 김선형 사이에서 갈등하는 개화 지식인 이형식의 애정 갈등...",
+    "description": "문학 작품 『무정』(이광수, 1917)의 상황:\n\n전통적 여성 박영채와 신여성 김선형 사이에서 갈등하는 개화 지식인 이형식의 애정 갈등\n\n인물의 심리: 봉건적 윤리관과 개화 문명 사이에서 혼란을 겪는 근대 지식인의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "moral_dilemma",
+    "source_type": "korean_literature_analysis",
+    "source_work": "무정 (이광수)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "love"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "무정",
+        "author": "이광수",
+        "genre": "장편소설",
+        "publication_year": "1917",
+        "era": "일제강점기"
+      },
+      "conflict_type": "value_conflict",
+      "emotional_elements": [
+        "갈등",
+        "사랑",
+        "고민",
+        "선택",
+        "문명개화"
+      ],
+      "theme": "민족 계몽과 근대 문명 수용, 봉건제의 타파",
+      "literary_techniques": [
+        "전지적 작가 시점",
+        "계몽주의적 문체",
+        "대조법"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "태백산맥 - 해방 후부터 한국전쟁까지 좌우 이념 갈등과 민중들의 선택의 양상...",
+    "description": "문학 작품 『태백산맥』(조정래, 1983-1989)의 상황:\n\n해방 후부터 한국전쟁까지 좌우 이념 갈등과 민중들의 선택의 양상\n\n인물의 심리: 이념적 대립 속에서 각자의 생존을 위해 노선을 선택해야 하는 민중들의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "태백산맥 (조정래)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "division"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.5,
+    "metadata": {
+      "work_info": {
+        "title": "태백산맥",
+        "author": "조정래",
+        "genre": "대하소설",
+        "publication_year": "1983-1989",
+        "era": "현대"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "이념갈등",
+        "분열",
+        "고통",
+        "선택",
+        "현실"
+      ],
+      "theme": "분단 현실과 이념 갈등, 민중의 삶과 역사 의식",
+      "literary_techniques": [
+        "다원적 시점",
+        "현실주의적 묘사",
+        "역사적 서술"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "엄마의 말뚝 - 6.25 전쟁으로 아들을 잃은 어머니의 트라우마와 딸의 성장 과정에서의 갈등...",
+    "description": "문학 작품 『엄마의 말뚝』(박완서, 1980-1991)의 상황:\n\n6.25 전쟁으로 아들을 잃은 어머니의 트라우마와 딸의 성장 과정에서의 갈등\n\n인물의 심리: 전쟁으로 인한 상실의 아픔을 안고 살아가는 어머니와 그런 어머니를 이해하려는 딸의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "엄마의 말뚝 (박완서)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "family",
+      "war",
+      "femininity"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "엄마의 말뚝",
+        "author": "박완서",
+        "genre": "연작소설",
+        "publication_year": "1980-1991",
+        "era": "현대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "상실",
+        "트라우마",
+        "모성애",
+        "성장",
+        "갈등"
+      ],
+      "theme": "전쟁의 상흔과 가족애, 여성의 삶과 모성",
+      "literary_techniques": [
+        "회고적 서술",
+        "자전적 기법",
+        "내면 의식 서술"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "소나기 - 순수한 소년과 소녀의 만남과 이별, 죽음으로 인한 영원한 이별...",
+    "description": "문학 작품 『소나기』(황순원, 1953)의 상황:\n\n순수한 소년과 소녀의 만남과 이별, 죽음으로 인한 영원한 이별\n\n인물의 심리: 순수한 첫사랑과 갑작스러운 죽음으로 인한 상실감을 경험하는 소년의 애절한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "moral_dilemma",
+    "source_type": "korean_literature_analysis",
+    "source_work": "소나기 (황순원)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "love",
+      "longing"
+    ],
+    "cultural_context": "Korean Literature - 해방 이후",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "소나기",
+        "author": "황순원",
+        "genre": "단편소설",
+        "publication_year": "1953",
+        "era": "해방 이후"
+      },
+      "conflict_type": "fate_conflict",
+      "emotional_elements": [
+        "순수",
+        "사랑",
+        "죽음",
+        "이별",
+        "그리움"
+      ],
+      "theme": "순수한 사랑과 죽음, 자연과 인간의 조화",
+      "literary_techniques": [
+        "설화체 문장",
+        "상징법",
+        "서정적 문체",
+        "자연 묘사"
+      ],
+      "source_reliability": 0.95
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "사랑손님과 어머니 - 남편과 사별한 여성이 새로운 사랑과 딸의 미래 사이에서 겪는 갈등...",
+    "description": "문학 작품 『사랑손님과 어머니』(주요섭, 1935)의 상황:\n\n남편과 사별한 여성이 새로운 사랑과 딸의 미래 사이에서 겪는 갈등\n\n인물의 심리: 개인의 행복과 자녀의 미래 사이에서 고뇌하며 결국 모성애를 선택하는 여성의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "사랑손님과 어머니 (주요섭)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "love",
+      "romantic_love",
+      "femininity"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "사랑손님과 어머니",
+        "author": "주요섭",
+        "genre": "단편소설",
+        "publication_year": "1935",
+        "era": "일제강점기"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "사랑",
+        "모성애",
+        "희생",
+        "갈등",
+        "포기"
+      ],
+      "theme": "여성의 희생과 모성애, 사회적 편견과 여성 억압",
+      "literary_techniques": [
+        "아동 서술자",
+        "간접 서술",
+        "상징법"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_006",
+    "title": "봄봄 - 혼인을 핑계로 일만 시키는 교활한 장인과 순박한 머슴 사이의 갈등...",
+    "description": "문학 작품 『봄봄』(김유정, 1935)의 상황:\n\n혼인을 핑계로 일만 시키는 교활한 장인과 순박한 머슴 사이의 갈등\n\n인물의 심리: 교활한 장인에게 이용당하면서도 끝까지 순박함을 잃지 않는 농촌 청년의 해학적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "봄봄 (김유정)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "anger"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.6,
+    "metadata": {
+      "work_info": {
+        "title": "봄봄",
+        "author": "김유정",
+        "genre": "단편소설",
+        "publication_year": "1935",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "해학",
+        "분노",
+        "좌절",
+        "순박함",
+        "저항"
+      ],
+      "theme": "농촌 사회의 모순과 계층 갈등, 해학과 풍자",
+      "literary_techniques": [
+        "해학적 문체",
+        "방언 사용",
+        "풍자법",
+        "1인칭 서술"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_007",
+    "title": "학 - 이념 갈등으로 인한 동족상잔의 비극과 인간성 상실...",
+    "description": "문학 작품 『학』(황순원, 1953)의 상황:\n\n이념 갈등으로 인한 동족상잔의 비극과 인간성 상실\n\n인물의 심리: 이념 대립보다 인간성을 우선시하면서도 현실의 벽에 좌절하는 지식인의 고뇌\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "학 (황순원)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "despair"
+    ],
+    "cultural_context": "Korean Literature - 해방 이후",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.6,
+    "metadata": {
+      "work_info": {
+        "title": "학",
+        "author": "황순원",
+        "genre": "단편소설",
+        "publication_year": "1953",
+        "era": "해방 이후"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "비극",
+        "절망",
+        "인간성",
+        "갈등",
+        "상실"
+      ],
+      "theme": "이념 갈등의 비극성과 휴머니즘",
+      "literary_techniques": [
+        "상징법",
+        "대조법",
+        "서정적 문체"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_008",
+    "title": "개밥 - 극빈층의 생존을 위한 처절한 투쟁과 인간 존엄성의 상실...",
+    "description": "문학 작품 『개밥』(주요섭, 1927)의 상황:\n\n극빈층의 생존을 위한 처절한 투쟁과 인간 존엄성의 상실\n\n인물의 심리: 극한의 가난 속에서도 인간으로서의 자존심을 지키려는 하층민의 비극적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "개밥 (주요섭)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "despair",
+      "compassion",
+      "poverty",
+      "anger"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.6,
+    "metadata": {
+      "work_info": {
+        "title": "개밥",
+        "author": "주요섭",
+        "genre": "단편소설",
+        "publication_year": "1927",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "절망",
+        "굴욕",
+        "생존",
+        "분노",
+        "연민"
+      ],
+      "theme": "빈곤 문제와 계급 갈등, 인도주의적 휴머니즘",
+      "literary_techniques": [
+        "사실주의적 묘사",
+        "동정적 시각",
+        "비판적 현실 인식"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_001",
+    "title": "우리들의 일그러진 영웅 - 선량한 개인과 부정한 지배자가 군림하는 집단 간의 갈등, 민주주의와 권위주의의 대립...",
+    "description": "문학 작품 『우리들의 일그러진 영웅』(이문열, 1987)의 상황:\n\n선량한 개인과 부정한 지배자가 군림하는 집단 간의 갈등, 민주주의와 권위주의의 대립\n\n인물의 심리: 합리적·민주적 사고를 지닌 한병태가 엄석대의 권위에 도전하지만 현실의 부조리함에 좌절하는 지식인의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "우리들의 일그러진 영웅 (이문열)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "anger"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "우리들의 일그러진 영웅",
+        "author": "이문열",
+        "genre": "중편소설",
+        "publication_year": "1987",
+        "era": "현대"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "좌절",
+        "분노",
+        "무력감",
+        "저항",
+        "현실인식"
+      ],
+      "theme": "권력 구조의 부조리와 개인의 저항, 한국 현대사의 우화적 형상화",
+      "literary_techniques": [
+        "우화적 기법",
+        "상징법",
+        "대조법",
+        "액자소설"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "채식주의자 - 가부장제 사회에서 여성의 자율적 선택과 사회적 억압 사이의 갈등...",
+    "description": "문학 작품 『채식주의자』(한강, 2007)의 상황:\n\n가부장제 사회에서 여성의 자율적 선택과 사회적 억압 사이의 갈등\n\n인물의 심리: 가부장제의 폭력에 맞서 극단적 선택을 통해 자유를 추구하려는 여성의 비극적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "채식주의자 (한강)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "despair",
+      "femininity"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7999999999999999,
+    "controversy_score": 0.6,
+    "metadata": {
+      "work_info": {
+        "title": "채식주의자",
+        "author": "한강",
+        "genre": "연작소설",
+        "publication_year": "2007",
+        "era": "현대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "억압",
+        "저항",
+        "광기",
+        "자유의지",
+        "절망"
+      ],
+      "theme": "여성의 주체성과 사회적 억압, 가부장제 비판, 인간의 폭력성",
+      "literary_techniques": [
+        "상징법",
+        "몽타주 기법",
+        "의식의 흐름",
+        "환상적 사실주의"
+      ],
+      "source_reliability": 0.95
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "별 헤는 밤 - 순수한 이상과 현실 사이의 갈등, 고향과 친구들에 대한 그리움과 현실적 절망...",
+    "description": "문학 작품 『별 헤는 밤』(윤동주, 1941)의 상황:\n\n순수한 이상과 현실 사이의 갈등, 고향과 친구들에 대한 그리움과 현실적 절망\n\n인물의 심리: 별을 헤며 과거를 회상하고 현재의 자신을 성찰하는 서정적이고 순수한 화자의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "별 헤는 밤 (윤동주)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "longing"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "별 헤는 밤",
+        "author": "윤동주",
+        "genre": "자유시",
+        "publication_year": "1941",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "향수",
+        "순수",
+        "자기성찰",
+        "애수"
+      ],
+      "theme": "순수한 세계에 대한 동경, 고향과 친구에 대한 그리움",
+      "literary_techniques": [
+        "영탄법",
+        "점층법",
+        "대조법",
+        "의인법"
+      ],
+      "source_reliability": 0.95
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "서시 - 도덕적 완성에 대한 의지와 현실적 한계 사이의 갈등...",
+    "description": "문학 작품 『서시』(윤동주, 1941)의 상황:\n\n도덕적 완성에 대한 의지와 현실적 한계 사이의 갈등\n\n인물의 심리: 자신의 부족함을 인정하면서도 끊임없이 도덕적 완성을 추구하는 의지적 화자의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "서시 (윤동주)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "서시",
+        "author": "윤동주",
+        "genre": "자유시",
+        "publication_year": "1941",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "참회",
+        "의지",
+        "겸손",
+        "성찰",
+        "다짐"
+      ],
+      "theme": "자기 성찰과 도덕적 의지, 양심적 지식인의 자세",
+      "literary_techniques": [
+        "의지법",
+        "점층법",
+        "영탄법",
+        "수사의문문"
+      ],
+      "source_reliability": 0.95
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "자화상 - 현재의 자신에 대한 불만과 이상적 자아 추구 사이의 갈등...",
+    "description": "문학 작품 『자화상』(윤동주, 1939)의 상황:\n\n현재의 자신에 대한 불만과 이상적 자아 추구 사이의 갈등\n\n인물의 심리: 우물에 비친 자신의 모습을 보며 현재의 자아를 부정하고 새로운 자아를 추구하는 의지적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "자화상 (윤동주)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "loneliness"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7999999999999999,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "자화상",
+        "author": "윤동주",
+        "genre": "자유시",
+        "publication_year": "1939",
+        "era": "일제강점기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "성찰",
+        "자기혐오",
+        "외로움",
+        "의지",
+        "변화욕구"
+      ],
+      "theme": "자아 성찰과 변신 의지, 현실 부정과 이상 추구",
+      "literary_techniques": [
+        "구체적 행동을 통한 내면 형상화",
+        "의인법",
+        "영탄법"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_006",
+    "title": "중국인 거리 - 소녀의 성장 과정에서 겪는 정체성 혼란과 여성으로서의 각성...",
+    "description": "문학 작품 『중국인 거리』(오정희, 1979)의 상황:\n\n소녀의 성장 과정에서 겪는 정체성 혼란과 여성으로서의 각성\n\n인물의 심리: 전쟁 후 황폐한 현실 속에서 성장하며 여성 정체성을 찾아가는 소녀의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "interpersonal_relations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "중국인 거리 (오정희)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "연인",
+      "친구",
+      "이웃"
+    ],
+    "ethical_themes": [
+      "femininity",
+      "growth"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "중국인 거리",
+        "author": "오정희",
+        "genre": "단편소설",
+        "publication_year": "1979",
+        "era": "현대"
+      },
+      "conflict_type": "interpersonal_conflict",
+      "emotional_elements": [
+        "성장의고통",
+        "정체성혼란",
+        "여성의식",
+        "소외감",
+        "각성"
+      ],
+      "theme": "여성의 정체성 탐구, 성장의 아픔, 공간의 상징적 의미",
+      "literary_techniques": [
+        "공간의 대조법",
+        "감각적 묘사",
+        "상징법",
+        "내적 독백"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_007",
+    "title": "그해 겨울은 따뜻했네 - 전쟁으로 인한 가족 해체와 중산층의 이기심, 혈육 간의 냉정한 계산...",
+    "description": "문학 작품 『그해 겨울은 따뜻했네』(박완서, 1983)의 상황:\n\n전쟁으로 인한 가족 해체와 중산층의 이기심, 혈육 간의 냉정한 계산\n\n인물의 심리: 전쟁의 상흔과 가족의 이기심을 경험하며 인간관계에 대해 냉철하게 인식하게 되는 인물들의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "그해 겨울은 따뜻했네 (박완서)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "family",
+      "war"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.5,
+    "metadata": {
+      "work_info": {
+        "title": "그해 겨울은 따뜻했네",
+        "author": "박완서",
+        "genre": "장편소설",
+        "publication_year": "1983",
+        "era": "현대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "배신감",
+        "상실",
+        "이기심",
+        "냉정함",
+        "현실인식"
+      ],
+      "theme": "전쟁의 후유증과 가족 해체, 중산층의 허위의식 비판",
+      "literary_techniques": [
+        "회고적 서술",
+        "심리 묘사",
+        "현실 비판적 시각"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_008",
+    "title": "경희 - 전통적 여성상과 근대적 여성상 사이의 갈등, 신여성의 자아 실현 의지...",
+    "description": "문학 작품 『경희』(나혜석, 1918)의 상황:\n\n전통적 여성상과 근대적 여성상 사이의 갈등, 신여성의 자아 실현 의지\n\n인물의 심리: 전통적 가치관에 맞서 근대적 교육을 받고 경제적 자립을 추구하는 신여성의 진취적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "moral_dilemma",
+    "source_type": "korean_literature_analysis",
+    "source_work": "경희 (나혜석)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "femininity"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "경희",
+        "author": "나혜석",
+        "genre": "단편소설",
+        "publication_year": "1918",
+        "era": "일제강점기"
+      },
+      "conflict_type": "value_conflict",
+      "emotional_elements": [
+        "진보의지",
+        "갈등",
+        "자립정신",
+        "저항",
+        "각성"
+      ],
+      "theme": "여성의 자주성과 근대 의식, 전통과 근대의 충돌",
+      "literary_techniques": [
+        "대화를 통한 사상 전개",
+        "대조법",
+        "계몽적 문체"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_001",
+    "title": "춘향전 - 양반과 천민이라는 신분차에 굴하지 않는 춘향과 몽룡의 사랑, 변학도의 횡포와 춘향의 저항...",
+    "description": "문학 작품 『춘향전』(작자미상, 조선후기)의 상황:\n\n양반과 천민이라는 신분차에 굴하지 않는 춘향과 몽룡의 사랑, 변학도의 횡포와 춘향의 저항\n\n인물의 심리: 신분의 차이를 극복하려는 의지적 사랑과 불의에 굴복하지 않는 강인한 정신력\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "춘향전 (작자미상)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "love",
+      "romantic_love"
+    ],
+    "cultural_context": "Korean Literature - 조선시대",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.5,
+    "metadata": {
+      "work_info": {
+        "title": "춘향전",
+        "author": "작자미상",
+        "genre": "고전소설",
+        "publication_year": "조선후기",
+        "era": "조선시대"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "사랑",
+        "의지",
+        "한",
+        "저항",
+        "신분갈등"
+      ],
+      "theme": "신분제 사회의 모순 비판, 사랑의 승리, 민중의 의지",
+      "literary_techniques": [
+        "판소리 형식",
+        "해학과 풍자",
+        "현실묘사",
+        "서민의식"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "심청전 - 아버지의 개안을 위한 심청의 효행과 가혹한 현실(가난) 사이의 갈등...",
+    "description": "문학 작품 『심청전』(작자미상, 조선후기)의 상황:\n\n아버지의 개안을 위한 심청의 효행과 가혹한 현실(가난) 사이의 갈등\n\n인물의 심리: 맹목적이고 미성숙한 효행에서 성숙한 자아로 변모하는 과정의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "심청전 (작자미상)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "family",
+      "sadness"
+    ],
+    "cultural_context": "Korean Literature - 조선시대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "심청전",
+        "author": "작자미상",
+        "genre": "고전소설",
+        "publication_year": "조선후기",
+        "era": "조선시대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "효",
+        "희생",
+        "슬픔",
+        "재생",
+        "모성애"
+      ],
+      "theme": "효의 실천과 그 한계, 가족애와 희생정신",
+      "literary_techniques": [
+        "판소리 형식",
+        "초월적 결말",
+        "불교적 세계관",
+        "권선징악"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "흥부전 - 형제간의 선악 대립, 탐욕과 선량함의 갈등...",
+    "description": "문학 작품 『흥부전』(작자미상, 조선후기)의 상황:\n\n형제간의 선악 대립, 탐욕과 선량함의 갈등\n\n인물의 심리: 흥부의 순수하고 선량한 마음과 놀부의 욕심과 악행이 대비되는 이원적 구조\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "흥부전 (작자미상)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Korean Literature - 조선시대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "흥부전",
+        "author": "작자미상",
+        "genre": "고전소설",
+        "publication_year": "조선후기",
+        "era": "조선시대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "선악대립",
+        "탐욕",
+        "선량함",
+        "인과응보",
+        "해학"
+      ],
+      "theme": "권선징악과 인과응보, 형제애와 도덕성",
+      "literary_techniques": [
+        "판소리 형식",
+        "해학과 풍자",
+        "선악 대조",
+        "환상적 요소"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "금오신화 - 현실과 이상의 괴리, 꿈과 현실의 경계에서 겪는 정신적 갈등...",
+    "description": "문학 작품 『금오신화』(김시습, 15세기)의 상황:\n\n현실과 이상의 괴리, 꿈과 현실의 경계에서 겪는 정신적 갈등\n\n인물의 심리: 현실에 좌절한 지식인이 환상과 꿈을 통해 위안을 구하려는 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "금오신화 (김시습)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "love",
+      "longing",
+      "despair"
+    ],
+    "cultural_context": "Korean Literature - 조선전기",
+    "complexity_score": 0.7999999999999999,
+    "controversy_score": 0.6,
+    "metadata": {
+      "work_info": {
+        "title": "금오신화",
+        "author": "김시습",
+        "genre": "전기소설",
+        "publication_year": "15세기",
+        "era": "조선전기"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "환상",
+        "절망",
+        "초월",
+        "현실도피"
+      ],
+      "theme": "현실 비판과 이상 추구, 사랑과 그리움의 초월성",
+      "literary_techniques": [
+        "몽유록 형식",
+        "환상과 현실의 교차",
+        "상징법",
+        "전기적 요소"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_001",
+    "title": "산불 - 분단과 전쟁으로 인한 이데올로기 갈등과 인간 본성의 대립...",
+    "description": "문학 작품 『산불』(차범석, 1963)의 상황:\n\n분단과 전쟁으로 인한 이데올로기 갈등과 인간 본성의 대립\n\n인물의 심리: 전쟁으로 희망을 상실한 젊은이와 그를 둘러싼 복잡한 인간관계의 갈등 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "산불 (차범석)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "division",
+      "despair"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "산불",
+        "author": "차범석",
+        "genre": "희곡",
+        "publication_year": "1963",
+        "era": "현대"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "좌절",
+        "절망",
+        "증오",
+        "화해",
+        "인간성"
+      ],
+      "theme": "분단의 비극과 인간성 회복, 이념보다 인간의 가치",
+      "literary_techniques": [
+        "사실주의 기법",
+        "갈등의 객관적 제시",
+        "상징적 제목"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "결혼 - 빈털터리 사기꾼 남자의 결혼을 위한 전략과 현실 사이의 갈등...",
+    "description": "문학 작품 『결혼』(이강백, 1974)의 상황:\n\n빈털터리 사기꾼 남자의 결혼을 위한 전략과 현실 사이의 갈등\n\n인물의 심리: 가난한 현실을 벗어나기 위해 결혼을 수단으로 삼는 인물의 계산적이고 현실적인 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "결혼 (이강백)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.5,
+    "metadata": {
+      "work_info": {
+        "title": "결혼",
+        "author": "이강백",
+        "genre": "희곡",
+        "publication_year": "1974",
+        "era": "현대"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "기만",
+        "욕망",
+        "생존",
+        "해학",
+        "풍자"
+      ],
+      "theme": "물질만능주의 사회 비판, 결혼 제도에 대한 풍자",
+      "literary_techniques": [
+        "실험적 기법",
+        "제4의 벽 허물기",
+        "관객 참여",
+        "메타연극"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "자전거 - 한국전쟁 중 친족 살해의 트라우마와 동족상잔의 비극...",
+    "description": "문학 작품 『자전거』(오태석, 1983)의 상황:\n\n한국전쟁 중 친족 살해의 트라우마와 동족상잔의 비극\n\n인물의 심리: 어린 시절 전쟁의 기억과 친족 살해에 대한 죄책감으로 고통받는 인물의 내면 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "family_obligations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "자전거 (오태석)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "부모",
+      "자녀",
+      "친족"
+    ],
+    "ethical_themes": [
+      "war"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "자전거",
+        "author": "오태석",
+        "genre": "희곡",
+        "publication_year": "1983",
+        "era": "현대"
+      },
+      "conflict_type": "family_conflict",
+      "emotional_elements": [
+        "트라우마",
+        "죄책감",
+        "기억",
+        "치유",
+        "화해"
+      ],
+      "theme": "전쟁의 상흔과 치유, 동족상잔의 비극",
+      "literary_techniques": [
+        "상징적 기법",
+        "의식의 흐름",
+        "비선형적 구성"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "강아지똥 - 자신의 존재 가치에 대한 의문과 자아 정체성 탐구...",
+    "description": "문학 작품 『강아지똥』(권정생, 1969)의 상황:\n\n자신의 존재 가치에 대한 의문과 자아 정체성 탐구\n\n인물의 심리: 자신을 더럽고 쓸모없는 존재로 여기다가 타인을 위한 희생을 통해 존재 의미를 발견하는 성장 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "강아지똥 (권정생)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "love",
+      "hope"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "강아지똥",
+        "author": "권정생",
+        "genre": "아동문학",
+        "publication_year": "1969",
+        "era": "현대"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "자존감",
+        "희생",
+        "사랑",
+        "성장",
+        "희망"
+      ],
+      "theme": "존재의 의미와 가치, 희생과 사랑의 숭고함",
+      "literary_techniques": [
+        "의인법",
+        "상징법",
+        "순환구조",
+        "교훈적 서술"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "마당을 나온 암탉 - 자유를 향한 의지와 현실의 제약 사이의 갈등, 모성애와 희생...",
+    "description": "문학 작품 『마당을 나온 암탉』(황선미, 2000)의 상황:\n\n자유를 향한 의지와 현실의 제약 사이의 갈등, 모성애와 희생\n\n인물의 심리: 안정된 울타리를 벗어나 자유롭게 살고자 하는 의지와 새끼를 지키려는 모성본능의 복합적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "personal_identity",
+    "source_type": "korean_literature_analysis",
+    "source_work": "마당을 나온 암탉 (황선미)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "인물의 내적 갈등을 이해하고 공감하며 지지한다"
+      },
+      {
+        "id": "option_2",
+        "text": "인물의 선택을 비판적으로 분석하고 대안을 제시한다"
+      },
+      {
+        "id": "option_3",
+        "text": "사회적 맥락에서 인물의 상황을 이해하려 노력한다"
+      },
+      {
+        "id": "option_4",
+        "text": "인물의 행동에 대해 도덕적 판단을 유보한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원"
+    ],
+    "ethical_themes": [
+      "growth"
+    ],
+    "cultural_context": "Korean Literature - 현대",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "마당을 나온 암탉",
+        "author": "황선미",
+        "genre": "아동문학",
+        "publication_year": "2000",
+        "era": "현대"
+      },
+      "conflict_type": "internal_conflict",
+      "emotional_elements": [
+        "자유의지",
+        "모성애",
+        "희생",
+        "성장",
+        "용기"
+      ],
+      "theme": "자유 의지와 모성애, 성장과 희생의 가치",
+      "literary_techniques": [
+        "의인법",
+        "상징법",
+        "모험 서사",
+        "성장 소설"
+      ],
+      "source_reliability": 0.8
+    }
+  }
+]

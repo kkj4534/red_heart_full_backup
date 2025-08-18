@@ -1,0 +1,32 @@
+# Red Heart AI - 시스템 레벨 패키지
+# 수동 설치 또는 특별 처리 필요
+
+# ===============================
+# CUDA 지원 PyTorch (수동 설치)
+# ===============================
+# torch==2.5.1+cu121 (CUDA 12.1 지원)
+# 설치 명령어: pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# ===============================
+# CUDA 지원 llama-cpp-python (수동 설치)
+# ===============================
+# llama-cpp-python==0.3.12 (CUDA 지원)
+# 설치 명령어: CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python
+
+# ===============================
+# 제외된 패키지 (호환성 문제)
+# ===============================
+# numpy>=2.0.0 (FAISS 호환성 문제로 제외)
+# xgboost (의존성 충돌 가능성)
+# lightgbm (의존성 충돌 가능성)
+
+# ===============================
+# 설치 순서 권장사항
+# ===============================
+# 1. conda 환경 생성: conda create -n faiss-test python=3.12
+# 2. conda 패키지 설치: conda run -n faiss-test pip install -r requirements_conda.txt
+# 3. venv 환경 생성: python -m venv red_heart_env
+# 4. venv 활성화: source red_heart_env/bin/activate
+# 5. PyTorch CUDA 설치: pip install torch==2.5.1+cu121 --index-url https://download.pytorch.org/whl/cu121
+# 6. llama-cpp-python CUDA 설치: CMAKE_ARGS="-DLLAMA_CUBLAS=on" pip install llama-cpp-python
+# 7. venv 나머지 패키지 설치: pip install -r requirements_venv.txt

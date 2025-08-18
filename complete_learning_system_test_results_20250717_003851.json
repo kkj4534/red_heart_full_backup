@@ -1,0 +1,363 @@
+{
+  "learning_success": true,
+  "total_learning_time": 256.9651095867157,
+  "learning_results": {
+    "learning_config": {
+      "regrets_per_step": 3,
+      "bentham_per_environment": 2,
+      "general_data_cycles": 1,
+      "ebs_data_cycles": 1,
+      "max_scenarios_per_batch": 3
+    },
+    "learning_progress": {
+      "current_cycle": 1,
+      "current_batch": 1,
+      "current_scenario": 3,
+      "total_regrets": 9,
+      "total_bentham_calculations": 27,
+      "total_scenarios_processed": 3,
+      "phase_transitions": 0,
+      "start_time": "2025-07-17 00:34:34.710103"
+    },
+    "learning_statistics": {
+      "regret_history": [
+        {
+          "scenario_id": 1,
+          "regret_type": "INACTION",
+          "intensity": 0.850694458380771,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 1,
+          "regret_type": "TIMING",
+          "intensity": 0.5025711940389976,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 1,
+          "regret_type": "CHOICE",
+          "intensity": 0.8489369775693327,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 2,
+          "regret_type": "INACTION",
+          "intensity": 0.8421070118071743,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 2,
+          "regret_type": "TIMING",
+          "intensity": 0.39743341766388707,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 2,
+          "regret_type": "CHOICE",
+          "intensity": 0.6044112747120916,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 3,
+          "regret_type": "INACTION",
+          "intensity": 0.6272104706558269,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 3,
+          "regret_type": "TIMING",
+          "intensity": 0.4448949657978474,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        },
+        {
+          "scenario_id": 3,
+          "regret_type": "CHOICE",
+          "intensity": 0.23485999715355077,
+          "dataset": "EBS_Cycle_1",
+          "is_ebs": true
+        }
+      ],
+      "bentham_scores": [
+        {
+          "scenario_id": 1,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.850694458380771
+        },
+        {
+          "scenario_id": 1,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.850694458380771
+        },
+        {
+          "scenario_id": 1,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.850694458380771
+        },
+        {
+          "scenario_id": 1,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.5025711940389976
+        },
+        {
+          "scenario_id": 1,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.5025711940389976
+        },
+        {
+          "scenario_id": 1,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.5025711940389976
+        },
+        {
+          "scenario_id": 1,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.8489369775693327
+        },
+        {
+          "scenario_id": 1,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.8489369775693327
+        },
+        {
+          "scenario_id": 1,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.8489369775693327
+        },
+        {
+          "scenario_id": 2,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.8421070118071743
+        },
+        {
+          "scenario_id": 2,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.8421070118071743
+        },
+        {
+          "scenario_id": 2,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.8421070118071743
+        },
+        {
+          "scenario_id": 2,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.39743341766388707
+        },
+        {
+          "scenario_id": 2,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.39743341766388707
+        },
+        {
+          "scenario_id": 2,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.39743341766388707
+        },
+        {
+          "scenario_id": 2,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.6044112747120916
+        },
+        {
+          "scenario_id": 2,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.6044112747120916
+        },
+        {
+          "scenario_id": 2,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.6044112747120916
+        },
+        {
+          "scenario_id": 3,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.6272104706558269
+        },
+        {
+          "scenario_id": 3,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.6272104706558269
+        },
+        {
+          "scenario_id": 3,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "INACTION",
+          "regret_intensity": 0.6272104706558269
+        },
+        {
+          "scenario_id": 3,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.4448949657978474
+        },
+        {
+          "scenario_id": 3,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.4448949657978474
+        },
+        {
+          "scenario_id": 3,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "TIMING",
+          "regret_intensity": 0.4448949657978474
+        },
+        {
+          "scenario_id": 3,
+          "environment": "optimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.23485999715355077
+        },
+        {
+          "scenario_id": 3,
+          "environment": "realistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.23485999715355077
+        },
+        {
+          "scenario_id": 3,
+          "environment": "pessimistic",
+          "hedonic_score": 3.018246164987995e-09,
+          "regret_type": "CHOICE",
+          "regret_intensity": 0.23485999715355077
+        }
+      ],
+      "phase_transitions": [],
+      "emotion_evolution": [],
+      "performance_metrics": [
+        {
+          "scenario_id": 1,
+          "avg_regret_intensity": 0.7340675433297005,
+          "avg_hedonic_score": 3.018246164987995e-09,
+          "regret_phase": "PHASE_0",
+          "emotion_phase": "CALIBRATION",
+          "is_ebs_data": true,
+          "timestamp": "2025-07-17T00:35:51.891448"
+        },
+        {
+          "scenario_id": 2,
+          "avg_regret_intensity": 0.6146505680610509,
+          "avg_hedonic_score": 3.018246164987995e-09,
+          "regret_phase": "PHASE_0",
+          "emotion_phase": "CALIBRATION",
+          "is_ebs_data": true,
+          "timestamp": "2025-07-17T00:36:06.826862"
+        },
+        {
+          "scenario_id": 3,
+          "avg_regret_intensity": 0.43565514453574167,
+          "avg_hedonic_score": 3.018246164987995e-09,
+          "regret_phase": "PHASE_0",
+          "emotion_phase": "CALIBRATION",
+          "is_ebs_data": true,
+          "timestamp": "2025-07-17T00:38:12.811552"
+        }
+      ]
+    },
+    "summary": {
+      "total_scenarios_processed": 3,
+      "total_regrets": 9,
+      "total_bentham_calculations": 27,
+      "total_duration": "0:03:38.101576",
+      "regrets_per_scenario": 3,
+      "bentham_per_scenario": 6,
+      "ebs_cycles": 1,
+      "general_cycles": 1
+    }
+  },
+  "integrated_analysis": {
+    "phase_analysis": {
+      "recent_regret_avg": 0.5947910853088311,
+      "recent_hedonic_avg": 3.0182461649879945e-09
+    },
+    "module_performance": {
+      "regret_system": {
+        "avg_intensity": 0.5947910853088311,
+        "total_processed": 9
+      },
+      "bentham_system": {
+        "avg_score": 3.018246164987994e-09,
+        "total_processed": 27
+      }
+    },
+    "learning_quality": {
+      "scenarios_processed": 3,
+      "total_regrets": 9,
+      "total_bentham_calculations": 27,
+      "efficiency": 3.0
+    }
+  },
+  "decision_test_results": {
+    "test_success": false,
+    "error": "object EnhancedHedonicResult can't be used in 'await' expression"
+  },
+  "ethical_analysis_results": {
+    "analysis_success": false,
+    "error": "unsupported operand type(s) for +: 'float' and 'EmotionIntensity'"
+  },
+  "summary": {
+    "total_learning_time": 256.9651095867157,
+    "learning_quality": {
+      "scenarios_processed": 3,
+      "total_regrets": 9,
+      "total_bentham_calculations": 27,
+      "efficiency": 3.0
+    },
+    "decision_accuracy": 0.0,
+    "ethical_analysis_quality": 0.0
+  }
+}

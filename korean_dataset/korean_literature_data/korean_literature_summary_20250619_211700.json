@@ -1,0 +1,21 @@
+{
+  "collection_date": "20250619_211700",
+  "total_analyses": 26,
+  "total_scenarios": 26,
+  "works_by_era": {
+    "일제강점기": 17,
+    "해방 이후": 3,
+    "현대": 6
+  },
+  "conflict_types": {
+    "social_conflict": 9,
+    "interpersonal_conflict": 3,
+    "internal_conflict": 7,
+    "value_conflict": 2,
+    "family_conflict": 4,
+    "fate_conflict": 1
+  },
+  "validation_summary": {
+    "avg_reliability": 0.8807692307692307
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "real_training_summary": {
+    "total_scenarios": 3,
+    "successful_completions": 0,
+    "success_rate": 0.0,
+    "total_processing_time": 192.45918655395508,
+    "avg_processing_time": 64.15306218465169
+  },
+  "module_performance": {
+    "emotion": {
+      "success_rate": 0.0,
+      "avg_time": 63.01335549354553
+    },
+    "bentham": {
+      "success_rate": 0.0,
+      "avg_time": 0
+    },
+    "regret": {
+      "success_rate": 0.0,
+      "avg_time": 0
+    },
+    "surd": {
+      "success_rate": 0.0,
+      "avg_time": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "real_test_001",
+      "success": false,
+      "processing_time": 76.70806527137756,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "EthicalSituation.__init__() got an unexpected keyword argument 'stakeholders'"
+    },
+    {
+      "scenario_id": "real_test_002",
+      "success": false,
+      "processing_time": 49.32150197029114,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "EthicalSituation.__init__() got an unexpected keyword argument 'stakeholders'"
+    },
+    {
+      "scenario_id": "real_test_003",
+      "success": false,
+      "processing_time": 66.42961931228638,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패"
+    }
+  ],
+  "performance_insights": [
+    "전체 성공률이 낮습니다. 시스템 안정성 개선이 필요합니다.",
+    "emotion 모듈의 성공률이 0.0%로 낮습니다.",
+    "emotion 모듈의 평균 처리시간이 63.0초로 깁니다.",
+    "bentham 모듈의 성공률이 0.0%로 낮습니다.",
+    "regret 모듈의 성공률이 0.0%로 낮습니다.",
+    "surd 모듈의 성공률이 0.0%로 낮습니다."
+  ]
+}

@@ -1,0 +1,610 @@
+[
+  {
+    "id": "aug_0_0",
+    "title": "학교에서의 진실 vs 친절",
+    "description": "학교에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_1",
+    "title": "직장에서의 진실 vs 친절",
+    "description": "직장에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_2",
+    "title": "가정에서의 진실 vs 친절",
+    "description": "가정에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_0_3",
+    "title": "온라인에서의 진실 vs 친절",
+    "description": "온라인에서 친구에게 상처를 주지 않기 위해 작은 거짓말을 해야 하는 상황입니다.",
+    "category": "honesty_vs_kindness",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "honesty_vs_kindness",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_0",
+    "title": "학교에서의 개인 vs 집단",
+    "description": "학교에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_1",
+    "title": "직장에서의 개인 vs 집단",
+    "description": "직장에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_2",
+    "title": "가정에서의 개인 vs 집단",
+    "description": "가정에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_1_3",
+    "title": "온라인에서의 개인 vs 집단",
+    "description": "온라인에서 개인적으로는 손해지만 집단에게는 이익이 되는 선택을 해야 합니다.",
+    "category": "individual_vs_group",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "individual_vs_group",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_0",
+    "title": "학교에서의 원칙 vs 상황",
+    "description": "학교에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_1",
+    "title": "직장에서의 원칙 vs 상황",
+    "description": "직장에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_2",
+    "title": "가정에서의 원칙 vs 상황",
+    "description": "가정에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_2_3",
+    "title": "온라인에서의 원칙 vs 상황",
+    "description": "온라인에서 규칙을 어기면 안 되지만, 이번 상황은 특별해 보입니다.",
+    "category": "rules_vs_context",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "rules_vs_context",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_0",
+    "title": "학교에서의 현재 vs 미래",
+    "description": "학교에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "학교 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "학교",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_1",
+    "title": "직장에서의 현재 vs 미래",
+    "description": "직장에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "직장 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "직장",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_2",
+    "title": "가정에서의 현재 vs 미래",
+    "description": "가정에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "가정 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "가정",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "aug_3_3",
+    "title": "온라인에서의 현재 vs 미래",
+    "description": "온라인에서 지금 당장의 이익과 장기적 이익 중 하나를 선택해야 합니다.",
+    "category": "present_vs_future",
+    "source_type": "augmented",
+    "options": [
+      {
+        "id": "principle",
+        "text": "원칙을 지킨다"
+      },
+      {
+        "id": "flexible",
+        "text": "상황에 맞게 융통성을 발휘한다"
+      },
+      {
+        "id": "creative",
+        "text": "제3의 해결책을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "관련된 사람들"
+    ],
+    "ethical_themes": [
+      "wisdom",
+      "balance",
+      "adaptability"
+    ],
+    "cultural_context": "온라인 Environment",
+    "complexity_score": 0.5,
+    "controversy_score": 0.4,
+    "metadata": {
+      "base_type": "present_vs_future",
+      "context": "온라인",
+      "language": "Korean"
+    }
+  }
+]

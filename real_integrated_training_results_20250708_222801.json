@@ -1,0 +1,66 @@
+{
+  "real_training_summary": {
+    "total_scenarios": 3,
+    "successful_completions": 2,
+    "success_rate": 66.66666666666666,
+    "total_processing_time": 162.10640835762024,
+    "avg_processing_time": 54.03546945254008
+  },
+  "module_performance": {
+    "emotion": {
+      "success_rate": 66.66666666666666,
+      "avg_time": 46.19729292392731
+    },
+    "bentham": {
+      "success_rate": 66.66666666666666,
+      "avg_time": 0.02092421054840088
+    },
+    "regret": {
+      "success_rate": 66.66666666666666,
+      "avg_time": 1.1920928955078125e-07
+    },
+    "surd": {
+      "success_rate": 66.66666666666666,
+      "avg_time": 1.0728836059570312e-06
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "real_test_001",
+      "success": true,
+      "processing_time": 40.63961601257324,
+      "emotion_success": true,
+      "bentham_success": true,
+      "regret_success": true,
+      "surd_success": true,
+      "error": null
+    },
+    {
+      "scenario_id": "real_test_002",
+      "success": true,
+      "processing_time": 51.79745578765869,
+      "emotion_success": true,
+      "bentham_success": true,
+      "regret_success": true,
+      "surd_success": true,
+      "error": null
+    },
+    {
+      "scenario_id": "real_test_003",
+      "success": false,
+      "processing_time": 69.6693365573883,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패"
+    }
+  ],
+  "performance_insights": [
+    "전체 성공률이 낮습니다. 시스템 안정성 개선이 필요합니다.",
+    "emotion 모듈의 성공률이 66.7%로 낮습니다.",
+    "bentham 모듈의 성공률이 66.7%로 낮습니다.",
+    "regret 모듈의 성공률이 66.7%로 낮습니다.",
+    "surd 모듈의 성공률이 66.7%로 낮습니다."
+  ]
+}

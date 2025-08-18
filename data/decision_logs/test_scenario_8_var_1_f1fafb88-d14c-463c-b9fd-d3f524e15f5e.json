@@ -1,0 +1,145 @@
+{
+  "id": "f1fafb88-d14c-463c-b9fd-d3f524e15f5e",
+  "situation": {
+    "id": "a0ba7b79-b72a-40a6-bd37-8a3ec6ee2ac0",
+    "title": "소셜미디어 검열 딜레마",
+    "description": "온라인 플랫폼에서 가짜뉴스와 표현의 자유 사이에서 어떤 기준으로 콘텐츠를 관리할지 결정해야 합니다.",
+    "context": {
+      "location": "온라인 플랫폼",
+      "time": "실시간",
+      "weather": "가상공간",
+      "people_involved": [
+        "사용자들",
+        "플랫폼",
+        "정부",
+        "언론"
+      ]
+    },
+    "variables": {
+      "misinformation_harm": 0.8,
+      "censorship_concern": 0.9,
+      "user_autonomy": 0.8,
+      "platform_responsibility": 0.7
+    },
+    "options": [
+      {
+        "id": "strict_moderation",
+        "text": "엄격한 검열을 시행한다",
+        "affected_count": 100000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "user_flagging",
+        "text": "사용자 신고 시스템을 운영한다",
+        "affected_count": 100000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "ai_detection",
+        "text": "AI 기반 자동 탐지를 사용한다",
+        "affected_count": 100000,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "transparency_focus",
+        "text": "투명성과 팩트체크에 집중한다",
+        "affected_count": 100000,
+        "duration_seconds": 31536000
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.364901",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.364908"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.364911"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 1000.0,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "0730b684-13b2-4b95-93a8-e5fad8ff368b",
+    "situation_id": "a0ba7b79-b72a-40a6-bd37-8a3ec6ee2ac0",
+    "choice": "ai_detection",
+    "reasoning": "'AI 기반 자동 탐지를 사용한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "ai_detection"
+    },
+    "timestamp": "2025-06-29T01:27:35.364914"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.7,
+    "primary_emotion": "TRUST",
+    "option_outcomes": {
+      "strict_moderation": {
+        "hedonic": 0.3,
+        "emotion": "ANXIETY"
+      },
+      "user_flagging": {
+        "hedonic": 0.6,
+        "emotion": "TRUST"
+      },
+      "ai_detection": {
+        "hedonic": 0.7,
+        "emotion": "TRUST"
+      },
+      "transparency_focus": {
+        "hedonic": 0.8,
+        "emotion": "JOY"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: AI 기반 자동 탐지를 사용한다"
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.10000000000000009,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.19999999999999996,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.7,
+      "hedonic_difference": 0.19999999999999996,
+      "better_options": [],
+      "was_optimal": false
+    },
+    "timestamp": 1751128055.3649192
+  },
+  "timestamp": "2025-06-29T01:27:35.364919"
+}

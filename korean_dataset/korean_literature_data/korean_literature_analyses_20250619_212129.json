@@ -1,0 +1,1180 @@
+[
+  {
+    "work": {
+      "title": "운수좋은날",
+      "author": "현진건",
+      "genre": "단편소설",
+      "publication_year": "1924",
+      "era": "일제강점기"
+    },
+    "main_conflict": "김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있음을 발견하는 상황",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "슬픔",
+      "절망",
+      "아이러니",
+      "연민",
+      "동정"
+    ],
+    "character_psychology": "겉으로는 거친 말을 하지만 속으로는 아내를 걱정하고 사랑하는 복잡한 심리. 가난에 찌든 삶에서도 가족에 대한 애정을 간직한 인물",
+    "theme": "일제강점기 하층민의 절박하고 비참한 삶, 사회적 불평등과 빈곤 문제",
+    "social_context": "일제강점기 도시 빈민층의 극한적인 삶, 인력거꾼이라는 최하층 노동자의 현실",
+    "literary_techniques": [
+      "반전기법",
+      "사실주의적 묘사",
+      "반어법",
+      "대조법"
+    ],
+    "key_scenes": [
+      "아내의 죽음 발견",
+      "설렁탕 구매 시도",
+      "하루 종일의 운수좋은 일들"
+    ],
+    "source_url": "naver_blog_analysis",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "메밀꽃 필 무렵",
+      "author": "이효석",
+      "genre": "단편소설",
+      "publication_year": "1936",
+      "era": "일제강점기"
+    },
+    "main_conflict": "허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해",
+    "conflict_type": "interpersonal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "회한",
+      "부성애",
+      "화해",
+      "향수"
+    ],
+    "character_psychology": "과거 방탕했던 자신을 성찰하며 아들과의 만남에서 복잡한 감정을 느끼는 허생원의 심리",
+    "theme": "인간적 정감과 따뜻한 인정, 향토적 정서와 서정성",
+    "social_context": "농촌 장터의 목가적 풍경과 전통적인 인간관계",
+    "literary_techniques": [
+      "서정적 묘사",
+      "회상기법",
+      "토속적 언어",
+      "공간의 상징성"
+    ],
+    "key_scenes": [
+      "달밤의 메밀밭",
+      "장터에서의 만남",
+      "부자 관계의 깨달음"
+    ],
+    "source_url": "study_zum_analysis",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "동백꽃",
+      "author": "김유정",
+      "genre": "단편소설",
+      "publication_year": "1936",
+      "era": "일제강점기"
+    },
+    "main_conflict": "순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해",
+    "conflict_type": "interpersonal_conflict",
+    "emotional_elements": [
+      "풋사랑",
+      "질투",
+      "오해",
+      "순수함",
+      "해학"
+    ],
+    "character_psychology": "점순이의 적극적 표현을 이해하지 못하는 순박한 소년의 심리와 간접적으로 마음을 표현하는 점순이의 심리",
+    "theme": "순수한 사랑과 농촌의 향토적 정서, 해학과 풍자",
+    "social_context": "농촌 사회의 소작농과 마름집 딸의 계층적 관계",
+    "literary_techniques": [
+      "1인칭 서술",
+      "해학적 표현",
+      "방언 사용",
+      "상징기법"
+    ],
+    "key_scenes": [
+      "닭싸움",
+      "감 따기",
+      "오해와 화해"
+    ],
+    "source_url": "literature_analysis_blog",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "상록수",
+      "author": "심훈",
+      "genre": "장편소설",
+      "publication_year": "1935",
+      "era": "일제강점기"
+    },
+    "main_conflict": "농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "의지",
+      "희생",
+      "좌절",
+      "희망",
+      "연대감"
+    ],
+    "character_psychology": "농촌 현실을 개선하려는 이상과 현실의 한계 사이에서 갈등하는 지식인들의 복잡한 심리",
+    "theme": "농촌 계몽과 사회 개혁 의지, 지식인의 사회적 책임",
+    "social_context": "일제강점기 농촌의 피폐한 현실과 계몽 운동",
+    "literary_techniques": [
+      "전지적 작가 시점",
+      "교육소설적 성격",
+      "계몽주의적 문체"
+    ],
+    "key_scenes": [
+      "농촌 계몽 활동",
+      "현실적 좌절",
+      "희망의 상징"
+    ],
+    "source_url": "modern_novel_analysis",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "감자",
+      "author": "김동인",
+      "genre": "단편소설",
+      "publication_year": "1925",
+      "era": "일제강점기"
+    },
+    "main_conflict": "극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "절망",
+      "굴욕",
+      "생존본능",
+      "도덕적갈등",
+      "비극"
+    ],
+    "character_psychology": "가난으로 인해 도덕적 타락의 길로 빠져드는 복녀의 비극적 심리",
+    "theme": "환경 결정론적 사상, 극한 빈곤이 인간에게 미치는 영향",
+    "social_context": "일제강점기 극빈층 여성의 비참한 현실",
+    "literary_techniques": [
+      "자연주의 기법",
+      "환경묘사",
+      "심리묘사"
+    ],
+    "key_scenes": [
+      "감자밭에서의 타락",
+      "남편의 귀향",
+      "비극적 결말"
+    ],
+    "source_url": "naturalism_novel_study",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "진달래꽃",
+      "author": "김소월",
+      "genre": "자유시",
+      "publication_year": "1922",
+      "era": "일제강점기"
+    },
+    "main_conflict": "임을 떠나보내면서도 원망하지 않고 축복하려는 화자의 내적 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "이별의정한",
+      "체념",
+      "사랑",
+      "한",
+      "승화"
+    ],
+    "character_psychology": "이별의 아픔을 역설적으로 승화시키며, 전통적 한의 정서와 여성적 어조로 소극적이면서도 깊은 사랑을 표현하는 화자의 심리",
+    "theme": "이별의 아픔과 한국적 서정성, 전통적 한의 정서",
+    "social_context": "일제강점기 민족적 현실과 개인적 정서의 결합",
+    "literary_techniques": [
+      "역설법",
+      "의인법",
+      "점층법",
+      "수사의문문"
+    ],
+    "key_scenes": [
+      "진달래꽃 뿌리기",
+      "눈물 흘리지 않겠다는 다짐",
+      "말없이 보내드리겠다는 의지"
+    ],
+    "source_url": "naver_blog_modern_poetry",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "님의 침묵",
+      "author": "한용운",
+      "genre": "자유시",
+      "publication_year": "1926",
+      "era": "일제강점기"
+    },
+    "main_conflict": "님과의 이별로 인한 슬픔을 새로운 만남의 희망으로 전환하려는 화자의 의지적 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "슬픔",
+      "희망",
+      "의지",
+      "신념",
+      "기다림"
+    ],
+    "character_psychology": "불교의 역설적 진리를 바탕으로 이별의 슬픔을 극복하고 재회의 희망을 품는 의지적이고 능동적인 화자의 심리",
+    "theme": "이별과 만남의 변증법, 불교적 세계관과 의지적 미래관",
+    "social_context": "일제강점기 현실에 대한 종교적·철학적 극복 의지",
+    "literary_techniques": [
+      "역설법",
+      "의인법",
+      "대조법",
+      "영탄법"
+    ],
+    "key_scenes": [
+      "님의 떠남",
+      "슬픔의 인정",
+      "새로운 만남에 대한 확신"
+    ],
+    "source_url": "korean_encyclopedia_nim",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "청포도",
+      "author": "이육사",
+      "genre": "자유시",
+      "publication_year": "1939",
+      "era": "일제강점기"
+    },
+    "main_conflict": "현실적 절망과 미래에 대한 희망 사이의 갈등, 조국 광복에 대한 간절한 소망",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "그리움",
+      "희망",
+      "기다림",
+      "의지",
+      "소망"
+    ],
+    "character_psychology": "일제강점기 현실을 이겨내고 독립이라는 밝은 미래를 기다리는 간절하면서도 의지적인 화자의 심리",
+    "theme": "미래에 대한 희망과 의지, 조국 광복에 대한 소망",
+    "social_context": "일제강점기 민족의 현실과 광복 의지",
+    "literary_techniques": [
+      "상징법",
+      "대조법",
+      "색채 이미지",
+      "공감각적 표현"
+    ],
+    "key_scenes": [
+      "청포도가 익는 칠월",
+      "손님을 기다리는 마음",
+      "은쟁반과 모시 수건 준비"
+    ],
+    "source_url": "study_zum_cheongpodo",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "향수",
+      "author": "정지용",
+      "genre": "자유시",
+      "publication_year": "1926",
+      "era": "일제강점기"
+    },
+    "main_conflict": "고향에 대한 그리움과 현실적으로 돌아갈 수 없는 상황 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "향수",
+      "애수",
+      "그리움",
+      "회상"
+    ],
+    "character_psychology": "고향을 떠나 타향에서 느끼는 깊은 그리움과 애수를 감각적 이미지로 표현하는 화자의 섬세한 심리",
+    "theme": "고향에 대한 그리움과 향토 의식",
+    "social_context": "근대화 과정에서의 이농 현상과 고향 상실감",
+    "literary_techniques": [
+      "감각적 이미지",
+      "의성어",
+      "의태어",
+      "영탄법"
+    ],
+    "key_scenes": [
+      "넓은 벌",
+      "실개천",
+      "조밭",
+      "울타리"
+    ],
+    "source_url": "namu_wiki_hyangsoo",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "화가 이중섭",
+      "author": "엄광용",
+      "genre": "수필",
+      "publication_year": "1970년대",
+      "era": "해방 이후"
+    },
+    "main_conflict": "예술가의 이상과 현실적 고통 사이의 갈등, 가족에 대한 그리움과 예술적 소명 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "고독",
+      "예술혼",
+      "가족애",
+      "비극"
+    ],
+    "character_psychology": "예술에 대한 열정과 가족에 대한 사랑, 현실적 고통이 복합적으로 얽힌 예술가의 복잡한 내면 심리",
+    "theme": "예술가의 고독과 현실, 예술과 삶의 괴리",
+    "social_context": "분단 현실과 전후 사회의 예술가 처지",
+    "literary_techniques": [
+      "회상법",
+      "대조법",
+      "구체적 묘사",
+      "상징적 표현"
+    ],
+    "key_scenes": [
+      "소를 바라보는 이중섭",
+      "가족과의 이별",
+      "예술적 창작 과정"
+    ],
+    "source_url": "essay_lee_jungseop",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "무정",
+      "author": "이광수",
+      "genre": "장편소설",
+      "publication_year": "1917",
+      "era": "일제강점기"
+    },
+    "main_conflict": "전통적 여성 박영채와 신여성 김선형 사이에서 갈등하는 개화 지식인 이형식의 애정 갈등",
+    "conflict_type": "value_conflict",
+    "emotional_elements": [
+      "갈등",
+      "사랑",
+      "고민",
+      "선택",
+      "문명개화"
+    ],
+    "character_psychology": "봉건적 윤리관과 개화 문명 사이에서 혼란을 겪는 근대 지식인의 복잡한 심리",
+    "theme": "민족 계몽과 근대 문명 수용, 봉건제의 타파",
+    "social_context": "일제강점기 개화기 지식인의 가치관 갈등과 민족 계몽 의식",
+    "literary_techniques": [
+      "전지적 작가 시점",
+      "계몽주의적 문체",
+      "대조법"
+    ],
+    "key_scenes": [
+      "영채와 선형 사이의 선택",
+      "신교육에 대한 갈등",
+      "민족 계몽 의지"
+    ],
+    "source_url": "korean_literature_analysis_mujeong",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "태백산맥",
+      "author": "조정래",
+      "genre": "대하소설",
+      "publication_year": "1983-1989",
+      "era": "현대"
+    },
+    "main_conflict": "해방 후부터 한국전쟁까지 좌우 이념 갈등과 민중들의 선택의 양상",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "이념갈등",
+      "분열",
+      "고통",
+      "선택",
+      "현실"
+    ],
+    "character_psychology": "이념적 대립 속에서 각자의 생존을 위해 노선을 선택해야 하는 민중들의 복잡한 심리",
+    "theme": "분단 현실과 이념 갈등, 민중의 삶과 역사 의식",
+    "social_context": "해방 후 분단 체제 성립과 한국전쟁의 비극적 현실",
+    "literary_techniques": [
+      "다원적 시점",
+      "현실주의적 묘사",
+      "역사적 서술"
+    ],
+    "key_scenes": [
+      "벌교 지역의 좌우 갈등",
+      "민중들의 이념 선택",
+      "전쟁의 참상"
+    ],
+    "source_url": "namu_wiki_taebaeksanmaek",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "엄마의 말뚝",
+      "author": "박완서",
+      "genre": "연작소설",
+      "publication_year": "1980-1991",
+      "era": "현대"
+    },
+    "main_conflict": "6.25 전쟁으로 아들을 잃은 어머니의 트라우마와 딸의 성장 과정에서의 갈등",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "상실",
+      "트라우마",
+      "모성애",
+      "성장",
+      "갈등"
+    ],
+    "character_psychology": "전쟁으로 인한 상실의 아픔을 안고 살아가는 어머니와 그런 어머니를 이해하려는 딸의 복잡한 심리",
+    "theme": "전쟁의 상흔과 가족애, 여성의 삶과 모성",
+    "social_context": "6.25 전쟁의 후유증과 전후 복구 과정에서의 가족사",
+    "literary_techniques": [
+      "회고적 서술",
+      "자전적 기법",
+      "내면 의식 서술"
+    ],
+    "key_scenes": [
+      "오빠의 죽음",
+      "어머니의 트라우마",
+      "문안과 문밖의 대조"
+    ],
+    "source_url": "naver_blog_mommastake",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "소나기",
+      "author": "황순원",
+      "genre": "단편소설",
+      "publication_year": "1953",
+      "era": "해방 이후"
+    },
+    "main_conflict": "순수한 소년과 소녀의 만남과 이별, 죽음으로 인한 영원한 이별",
+    "conflict_type": "fate_conflict",
+    "emotional_elements": [
+      "순수",
+      "사랑",
+      "죽음",
+      "이별",
+      "그리움"
+    ],
+    "character_psychology": "순수한 첫사랑과 갑작스러운 죽음으로 인한 상실감을 경험하는 소년의 애절한 심리",
+    "theme": "순수한 사랑과 죽음, 자연과 인간의 조화",
+    "social_context": "전후 사회의 혼란 속에서도 변하지 않는 순수한 인간성",
+    "literary_techniques": [
+      "설화체 문장",
+      "상징법",
+      "서정적 문체",
+      "자연 묘사"
+    ],
+    "key_scenes": [
+      "소나기 속의 만남",
+      "수숫단 속의 대화",
+      "소녀의 죽음"
+    ],
+    "source_url": "korean_literature_sonagi",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "사랑손님과 어머니",
+      "author": "주요섭",
+      "genre": "단편소설",
+      "publication_year": "1935",
+      "era": "일제강점기"
+    },
+    "main_conflict": "남편과 사별한 여성이 새로운 사랑과 딸의 미래 사이에서 겪는 갈등",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "사랑",
+      "모성애",
+      "희생",
+      "갈등",
+      "포기"
+    ],
+    "character_psychology": "개인의 행복과 자녀의 미래 사이에서 고뇌하며 결국 모성애를 선택하는 여성의 복잡한 심리",
+    "theme": "여성의 희생과 모성애, 사회적 편견과 여성 억압",
+    "social_context": "가부장적 사회에서 여성의 재혼에 대한 사회적 편견",
+    "literary_techniques": [
+      "아동 서술자",
+      "간접 서술",
+      "상징법"
+    ],
+    "key_scenes": [
+      "사랑손님의 등장",
+      "어머니의 갈등",
+      "사랑의 포기"
+    ],
+    "source_url": "korean_encyclopedia_juyoseop",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "봄봄",
+      "author": "김유정",
+      "genre": "단편소설",
+      "publication_year": "1935",
+      "era": "일제강점기"
+    },
+    "main_conflict": "혼인을 핑계로 일만 시키는 교활한 장인과 순박한 머슴 사이의 갈등",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "해학",
+      "분노",
+      "좌절",
+      "순박함",
+      "저항"
+    ],
+    "character_psychology": "교활한 장인에게 이용당하면서도 끝까지 순박함을 잃지 않는 농촌 청년의 해학적 심리",
+    "theme": "농촌 사회의 모순과 계층 갈등, 해학과 풍자",
+    "social_context": "일제강점기 농촌의 경제적 어려움과 계층적 갈등",
+    "literary_techniques": [
+      "해학적 문체",
+      "방언 사용",
+      "풍자법",
+      "1인칭 서술"
+    ],
+    "key_scenes": [
+      "장인의 교활한 술수",
+      "머슴의 분노",
+      "해학적 갈등"
+    ],
+    "source_url": "naver_blog_bomhbom",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "학",
+      "author": "황순원",
+      "genre": "단편소설",
+      "publication_year": "1953",
+      "era": "해방 이후"
+    },
+    "main_conflict": "이념 갈등으로 인한 동족상잔의 비극과 인간성 상실",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "비극",
+      "절망",
+      "인간성",
+      "갈등",
+      "상실"
+    ],
+    "character_psychology": "이념 대립보다 인간성을 우선시하면서도 현실의 벽에 좌절하는 지식인의 고뇌",
+    "theme": "이념 갈등의 비극성과 휴머니즘",
+    "social_context": "분단과 전쟁으로 인한 이념 대립의 참상",
+    "literary_techniques": [
+      "상징법",
+      "대조법",
+      "서정적 문체"
+    ],
+    "key_scenes": [
+      "학의 상징",
+      "이념 갈등의 현실",
+      "인간성의 발견"
+    ],
+    "source_url": "hwang_soonwon_hak",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "개밥",
+      "author": "주요섭",
+      "genre": "단편소설",
+      "publication_year": "1927",
+      "era": "일제강점기"
+    },
+    "main_conflict": "극빈층의 생존을 위한 처절한 투쟁과 인간 존엄성의 상실",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "절망",
+      "굴욕",
+      "생존",
+      "분노",
+      "연민"
+    ],
+    "character_psychology": "극한의 가난 속에서도 인간으로서의 자존심을 지키려는 하층민의 비극적 심리",
+    "theme": "빈곤 문제와 계급 갈등, 인도주의적 휴머니즘",
+    "social_context": "일제강점기 극빈층의 비참한 현실과 생존 투쟁",
+    "literary_techniques": [
+      "사실주의적 묘사",
+      "동정적 시각",
+      "비판적 현실 인식"
+    ],
+    "key_scenes": [
+      "개밥을 먹는 상황",
+      "인간 존엄성의 상실",
+      "사회적 무관심"
+    ],
+    "source_url": "juyoseop_gaebap",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "우리들의 일그러진 영웅",
+      "author": "이문열",
+      "genre": "중편소설",
+      "publication_year": "1987",
+      "era": "현대"
+    },
+    "main_conflict": "선량한 개인과 부정한 지배자가 군림하는 집단 간의 갈등, 민주주의와 권위주의의 대립",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "좌절",
+      "분노",
+      "무력감",
+      "저항",
+      "현실인식"
+    ],
+    "character_psychology": "합리적·민주적 사고를 지닌 한병태가 엄석대의 권위에 도전하지만 현실의 부조리함에 좌절하는 지식인의 복잡한 심리",
+    "theme": "권력 구조의 부조리와 개인의 저항, 한국 현대사의 우화적 형상화",
+    "social_context": "1980년대 민주화 시대 한국 사회의 정치적 갈등과 권위주의 체제 비판",
+    "literary_techniques": [
+      "우화적 기법",
+      "상징법",
+      "대조법",
+      "액자소설"
+    ],
+    "key_scenes": [
+      "엄석대의 권력 장악",
+      "한병태의 저항과 좌절",
+      "권력 구조의 고발"
+    ],
+    "source_url": "brunch_lee_munyeol_analysis",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "채식주의자",
+      "author": "한강",
+      "genre": "연작소설",
+      "publication_year": "2007",
+      "era": "현대"
+    },
+    "main_conflict": "가부장제 사회에서 여성의 자율적 선택과 사회적 억압 사이의 갈등",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "억압",
+      "저항",
+      "광기",
+      "자유의지",
+      "절망"
+    ],
+    "character_psychology": "가부장제의 폭력에 맞서 극단적 선택을 통해 자유를 추구하려는 여성의 비극적 심리",
+    "theme": "여성의 주체성과 사회적 억압, 가부장제 비판, 인간의 폭력성",
+    "social_context": "현대 한국 사회의 가부장적 질서와 여성 억압 구조",
+    "literary_techniques": [
+      "상징법",
+      "몽타주 기법",
+      "의식의 흐름",
+      "환상적 사실주의"
+    ],
+    "key_scenes": [
+      "채식 선언",
+      "몽고반점과 꽃",
+      "나무가 되려는 욕망"
+    ],
+    "source_url": "namu_wiki_vegetarian",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "별 헤는 밤",
+      "author": "윤동주",
+      "genre": "자유시",
+      "publication_year": "1941",
+      "era": "일제강점기"
+    },
+    "main_conflict": "순수한 이상과 현실 사이의 갈등, 고향과 친구들에 대한 그리움과 현실적 절망",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "향수",
+      "순수",
+      "자기성찰",
+      "애수"
+    ],
+    "character_psychology": "별을 헤며 과거를 회상하고 현재의 자신을 성찰하는 서정적이고 순수한 화자의 심리",
+    "theme": "순수한 세계에 대한 동경, 고향과 친구에 대한 그리움",
+    "social_context": "일제강점기 지식인의 현실 인식과 내면적 갈등",
+    "literary_techniques": [
+      "영탄법",
+      "점층법",
+      "대조법",
+      "의인법"
+    ],
+    "key_scenes": [
+      "별을 헤는 행위",
+      "친구들의 이름 부르기",
+      "어머니와 고향 그리움"
+    ],
+    "source_url": "naver_blog_star_counting",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "서시",
+      "author": "윤동주",
+      "genre": "자유시",
+      "publication_year": "1941",
+      "era": "일제강점기"
+    },
+    "main_conflict": "도덕적 완성에 대한 의지와 현실적 한계 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "참회",
+      "의지",
+      "겸손",
+      "성찰",
+      "다짐"
+    ],
+    "character_psychology": "자신의 부족함을 인정하면서도 끊임없이 도덕적 완성을 추구하는 의지적 화자의 심리",
+    "theme": "자기 성찰과 도덕적 의지, 양심적 지식인의 자세",
+    "social_context": "일제강점기 지식인의 내면적 성찰과 의지적 다짐",
+    "literary_techniques": [
+      "의지법",
+      "점층법",
+      "영탄법",
+      "수사의문문"
+    ],
+    "key_scenes": [
+      "하늘에 대한 부끄러움",
+      "잎새에 바람에 대한 괴로움",
+      "사랑에 대한 다짐"
+    ],
+    "source_url": "naver_blog_preface_analysis",
+    "reliability_score": 0.95
+  },
+  {
+    "work": {
+      "title": "자화상",
+      "author": "윤동주",
+      "genre": "자유시",
+      "publication_year": "1939",
+      "era": "일제강점기"
+    },
+    "main_conflict": "현재의 자신에 대한 불만과 이상적 자아 추구 사이의 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "성찰",
+      "자기혐오",
+      "외로움",
+      "의지",
+      "변화욕구"
+    ],
+    "character_psychology": "우물에 비친 자신의 모습을 보며 현재의 자아를 부정하고 새로운 자아를 추구하는 의지적 심리",
+    "theme": "자아 성찰과 변신 의지, 현실 부정과 이상 추구",
+    "social_context": "일제강점기 젊은 지식인의 자아 정체성 탐구",
+    "literary_techniques": [
+      "구체적 행동을 통한 내면 형상화",
+      "의인법",
+      "영탄법"
+    ],
+    "key_scenes": [
+      "우물에 비친 얼굴",
+      "슬픈 사람에 대한 언급",
+      "산호와 진주 언급"
+    ],
+    "source_url": "naver_blog_self_portrait",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "중국인 거리",
+      "author": "오정희",
+      "genre": "단편소설",
+      "publication_year": "1979",
+      "era": "현대"
+    },
+    "main_conflict": "소녀의 성장 과정에서 겪는 정체성 혼란과 여성으로서의 각성",
+    "conflict_type": "interpersonal_conflict",
+    "emotional_elements": [
+      "성장의고통",
+      "정체성혼란",
+      "여성의식",
+      "소외감",
+      "각성"
+    ],
+    "character_psychology": "전쟁 후 황폐한 현실 속에서 성장하며 여성 정체성을 찾아가는 소녀의 복잡한 심리",
+    "theme": "여성의 정체성 탐구, 성장의 아픔, 공간의 상징적 의미",
+    "social_context": "전후 사회의 혼란과 여성의 지위, 외국 문화와의 접촉",
+    "literary_techniques": [
+      "공간의 대조법",
+      "감각적 묘사",
+      "상징법",
+      "내적 독백"
+    ],
+    "key_scenes": [
+      "중국인 거리의 발견",
+      "소녀의 내면 변화",
+      "정체성의 각성"
+    ],
+    "source_url": "naver_blog_chinatown",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "그해 겨울은 따뜻했네",
+      "author": "박완서",
+      "genre": "장편소설",
+      "publication_year": "1983",
+      "era": "현대"
+    },
+    "main_conflict": "전쟁으로 인한 가족 해체와 중산층의 이기심, 혈육 간의 냉정한 계산",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "배신감",
+      "상실",
+      "이기심",
+      "냉정함",
+      "현실인식"
+    ],
+    "character_psychology": "전쟁의 상흔과 가족의 이기심을 경험하며 인간관계에 대해 냉철하게 인식하게 되는 인물들의 심리",
+    "theme": "전쟁의 후유증과 가족 해체, 중산층의 허위의식 비판",
+    "social_context": "6.25 전쟁 후 한국 사회의 혼란과 급속한 변화",
+    "literary_techniques": [
+      "회고적 서술",
+      "심리 묘사",
+      "현실 비판적 시각"
+    ],
+    "key_scenes": [
+      "가족의 냉정한 계산",
+      "전쟁의 상처",
+      "중산층의 이기심 폭로"
+    ],
+    "source_url": "naver_blog_warm_winter",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "경희",
+      "author": "나혜석",
+      "genre": "단편소설",
+      "publication_year": "1918",
+      "era": "일제강점기"
+    },
+    "main_conflict": "전통적 여성상과 근대적 여성상 사이의 갈등, 신여성의 자아 실현 의지",
+    "conflict_type": "value_conflict",
+    "emotional_elements": [
+      "진보의지",
+      "갈등",
+      "자립정신",
+      "저항",
+      "각성"
+    ],
+    "character_psychology": "전통적 가치관에 맞서 근대적 교육을 받고 경제적 자립을 추구하는 신여성의 진취적 심리",
+    "theme": "여성의 자주성과 근대 의식, 전통과 근대의 충돌",
+    "social_context": "개화기 신여성의 등장과 전통적 가부장제와의 갈등",
+    "literary_techniques": [
+      "대화를 통한 사상 전개",
+      "대조법",
+      "계몽적 문체"
+    ],
+    "key_scenes": [
+      "재봉틀 기술 습득",
+      "전통적 어머니와의 대화",
+      "신여성의 각성"
+    ],
+    "source_url": "dbpia_na_hyeseok_analysis",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "춘향전",
+      "author": "작자미상",
+      "genre": "고전소설",
+      "publication_year": "조선후기",
+      "era": "조선시대"
+    },
+    "main_conflict": "양반과 천민이라는 신분차에 굴하지 않는 춘향과 몽룡의 사랑, 변학도의 횡포와 춘향의 저항",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "사랑",
+      "의지",
+      "한",
+      "저항",
+      "신분갈등"
+    ],
+    "character_psychology": "신분의 차이를 극복하려는 의지적 사랑과 불의에 굴복하지 않는 강인한 정신력",
+    "theme": "신분제 사회의 모순 비판, 사랑의 승리, 민중의 의지",
+    "social_context": "조선후기 신분제 사회의 모순과 민중의 현실",
+    "literary_techniques": [
+      "판소리 형식",
+      "해학과 풍자",
+      "현실묘사",
+      "서민의식"
+    ],
+    "key_scenes": [
+      "이별 장면",
+      "옥중 고생",
+      "암행어사 출두"
+    ],
+    "source_url": "namu_wiki_chunhyang",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "심청전",
+      "author": "작자미상",
+      "genre": "고전소설",
+      "publication_year": "조선후기",
+      "era": "조선시대"
+    },
+    "main_conflict": "아버지의 개안을 위한 심청의 효행과 가혹한 현실(가난) 사이의 갈등",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "효",
+      "희생",
+      "슬픔",
+      "재생",
+      "모성애"
+    ],
+    "character_psychology": "맹목적이고 미성숙한 효행에서 성숙한 자아로 변모하는 과정의 복잡한 심리",
+    "theme": "효의 실천과 그 한계, 가족애와 희생정신",
+    "social_context": "조선시대 유교 이념과 효 사상, 빈곤 문제",
+    "literary_techniques": [
+      "판소리 형식",
+      "초월적 결말",
+      "불교적 세계관",
+      "권선징악"
+    ],
+    "key_scenes": [
+      "인당수 투신",
+      "용궁에서의 경험",
+      "왕후가 되어 재회"
+    ],
+    "source_url": "classical_novel_simcheong",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "흥부전",
+      "author": "작자미상",
+      "genre": "고전소설",
+      "publication_year": "조선후기",
+      "era": "조선시대"
+    },
+    "main_conflict": "형제간의 선악 대립, 탐욕과 선량함의 갈등",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "선악대립",
+      "탐욕",
+      "선량함",
+      "인과응보",
+      "해학"
+    ],
+    "character_psychology": "흥부의 순수하고 선량한 마음과 놀부의 욕심과 악행이 대비되는 이원적 구조",
+    "theme": "권선징악과 인과응보, 형제애와 도덕성",
+    "social_context": "조선후기 서민사회의 경제적 어려움과 도덕의식",
+    "literary_techniques": [
+      "판소리 형식",
+      "해학과 풍자",
+      "선악 대조",
+      "환상적 요소"
+    ],
+    "key_scenes": [
+      "제비 다리 고쳐주기",
+      "박 타기",
+      "부자가 된 흥부"
+    ],
+    "source_url": "classical_novel_heungbu",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "금오신화",
+      "author": "김시습",
+      "genre": "전기소설",
+      "publication_year": "15세기",
+      "era": "조선전기"
+    },
+    "main_conflict": "현실과 이상의 괴리, 꿈과 현실의 경계에서 겪는 정신적 갈등",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "그리움",
+      "환상",
+      "절망",
+      "초월",
+      "현실도피"
+    ],
+    "character_psychology": "현실에 좌절한 지식인이 환상과 꿈을 통해 위안을 구하려는 복잡한 심리",
+    "theme": "현실 비판과 이상 추구, 사랑과 그리움의 초월성",
+    "social_context": "조선 전기 사대부의 현실 인식과 문학적 상상력",
+    "literary_techniques": [
+      "몽유록 형식",
+      "환상과 현실의 교차",
+      "상징법",
+      "전기적 요소"
+    ],
+    "key_scenes": [
+      "만복사 저포기",
+      "이생규장전",
+      "취유부벽정기"
+    ],
+    "source_url": "classical_geumo_sinwha",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "산불",
+      "author": "차범석",
+      "genre": "희곡",
+      "publication_year": "1963",
+      "era": "현대"
+    },
+    "main_conflict": "분단과 전쟁으로 인한 이데올로기 갈등과 인간 본성의 대립",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "좌절",
+      "절망",
+      "증오",
+      "화해",
+      "인간성"
+    ],
+    "character_psychology": "전쟁으로 희망을 상실한 젊은이와 그를 둘러싼 복잡한 인간관계의 갈등 심리",
+    "theme": "분단의 비극과 인간성 회복, 이념보다 인간의 가치",
+    "social_context": "6.25 전쟁 후 분단 현실과 이데올로기 대립",
+    "literary_techniques": [
+      "사실주의 기법",
+      "갈등의 객관적 제시",
+      "상징적 제목"
+    ],
+    "key_scenes": [
+      "갈등의 폭발",
+      "화해의 모색",
+      "인간성의 발견"
+    ],
+    "source_url": "cha_beomseok_mountain_fire",
+    "reliability_score": 0.9
+  },
+  {
+    "work": {
+      "title": "결혼",
+      "author": "이강백",
+      "genre": "희곡",
+      "publication_year": "1974",
+      "era": "현대"
+    },
+    "main_conflict": "빈털터리 사기꾼 남자의 결혼을 위한 전략과 현실 사이의 갈등",
+    "conflict_type": "social_conflict",
+    "emotional_elements": [
+      "기만",
+      "욕망",
+      "생존",
+      "해학",
+      "풍자"
+    ],
+    "character_psychology": "가난한 현실을 벗어나기 위해 결혼을 수단으로 삼는 인물의 계산적이고 현실적인 심리",
+    "theme": "물질만능주의 사회 비판, 결혼 제도에 대한 풍자",
+    "social_context": "1970년대 급속한 산업화 과정의 사회상",
+    "literary_techniques": [
+      "실험적 기법",
+      "제4의 벽 허물기",
+      "관객 참여",
+      "메타연극"
+    ],
+    "key_scenes": [
+      "관객과의 직접 대화",
+      "결혼 전략 수립",
+      "성공적 결혼"
+    ],
+    "source_url": "lee_kangbaek_marriage",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "자전거",
+      "author": "오태석",
+      "genre": "희곡",
+      "publication_year": "1983",
+      "era": "현대"
+    },
+    "main_conflict": "한국전쟁 중 친족 살해의 트라우마와 동족상잔의 비극",
+    "conflict_type": "family_conflict",
+    "emotional_elements": [
+      "트라우마",
+      "죄책감",
+      "기억",
+      "치유",
+      "화해"
+    ],
+    "character_psychology": "어린 시절 전쟁의 기억과 친족 살해에 대한 죄책감으로 고통받는 인물의 내면 심리",
+    "theme": "전쟁의 상흔과 치유, 동족상잔의 비극",
+    "social_context": "한국전쟁의 상흔과 분단 트라우마",
+    "literary_techniques": [
+      "상징적 기법",
+      "의식의 흐름",
+      "비선형적 구성"
+    ],
+    "key_scenes": [
+      "자전거의 상징",
+      "기억의 재현",
+      "치유의 과정"
+    ],
+    "source_url": "oh_taeseok_bicycle",
+    "reliability_score": 0.8
+  },
+  {
+    "work": {
+      "title": "강아지똥",
+      "author": "권정생",
+      "genre": "아동문학",
+      "publication_year": "1969",
+      "era": "현대"
+    },
+    "main_conflict": "자신의 존재 가치에 대한 의문과 자아 정체성 탐구",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "자존감",
+      "희생",
+      "사랑",
+      "성장",
+      "희망"
+    ],
+    "character_psychology": "자신을 더럽고 쓸모없는 존재로 여기다가 타인을 위한 희생을 통해 존재 의미를 발견하는 성장 심리",
+    "theme": "존재의 의미와 가치, 희생과 사랑의 숭고함",
+    "social_context": "1960년대 한국 사회의 어려운 현실과 희망",
+    "literary_techniques": [
+      "의인법",
+      "상징법",
+      "순환구조",
+      "교훈적 서술"
+    ],
+    "key_scenes": [
+      "강아지똥의 자책",
+      "민들레와의 만남",
+      "꽃으로 피어남"
+    ],
+    "source_url": "korean_children_literature",
+    "reliability_score": 0.85
+  },
+  {
+    "work": {
+      "title": "마당을 나온 암탉",
+      "author": "황선미",
+      "genre": "아동문학",
+      "publication_year": "2000",
+      "era": "현대"
+    },
+    "main_conflict": "자유를 향한 의지와 현실의 제약 사이의 갈등, 모성애와 희생",
+    "conflict_type": "internal_conflict",
+    "emotional_elements": [
+      "자유의지",
+      "모성애",
+      "희생",
+      "성장",
+      "용기"
+    ],
+    "character_psychology": "안정된 울타리를 벗어나 자유롭게 살고자 하는 의지와 새끼를 지키려는 모성본능의 복합적 심리",
+    "theme": "자유 의지와 모성애, 성장과 희생의 가치",
+    "social_context": "현대 사회의 개인 자아실현과 가족 가치",
+    "literary_techniques": [
+      "의인법",
+      "상징법",
+      "모험 서사",
+      "성장 소설"
+    ],
+    "key_scenes": [
+      "울타리를 나오는 장면",
+      "애한이와의 만남",
+      "족제비와의 대결"
+    ],
+    "source_url": "korean_children_modern",
+    "reliability_score": 0.8
+  }
+]

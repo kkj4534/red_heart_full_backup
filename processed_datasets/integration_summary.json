@@ -1,0 +1,23 @@
+{
+  "total_scenarios": 64,
+  "source_distribution": {
+    "ai_generated": 2,
+    "literature": 5,
+    "scruples_anecdotes": 20,
+    "scruples_dilemmas": 15,
+    "korean_cultural": 6,
+    "augmented": 16
+  },
+  "category_distribution": {
+    "legal": 2,
+    "relationship": 13,
+    "general": 14,
+    "professional": 4,
+    "comparative_ethics": 15,
+    "honesty_vs_kindness": 4,
+    "individual_vs_group": 4,
+    "rules_vs_context": 4,
+    "present_vs_future": 4
+  },
+  "processing_date": "2025-06-19T18:24:58.494007"
+}

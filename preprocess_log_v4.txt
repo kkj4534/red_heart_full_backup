@@ -1,0 +1,44 @@
+INFO:RedHeart.DataPreprocessingV2:디바이스: cuda
+INFO:RedHeart.DataPreprocessingV2:Loading sentence transformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: sentence-transformers/all-MiniLM-L6-v2
+INFO:RedHeart.DataPreprocessingV2:✅ 개선된 전처리 파이프라인 초기화 완료
+INFO:RedHeart.DataPreprocessingV2:📚 데이터셋 처리 시작: parsed_raw_datasets.json
+INFO:RedHeart.DataPreprocessingV2:총 10개 샘플 처리 예정
+INFO:RedHeart.DataPreprocessingV2:🔄 LLM 엔진 초기화 중...
+INFO:RedHeart.AdvancedLLM:모델 설정 준비 완료: ['helpingai', 'dialogpt', 'blenderbot']
+INFO:RedHeart.AdvancedLLM:동적 GPU-RAM 스왑 시스템 초기화 완료
+INFO:RedHeart.DataPreprocessingV2:✅ LLM 초기화 완료
+INFO:RedHeart.DataPreprocessingV2:진행률: 0/10 (0.0%)
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+INFO:RedHeart.AdvancedLLM:🎯 작업 유형 'emotion_analysis' (복잡도: moderate)에 대해 선호 모델: helpingai
+INFO:RedHeart.AdvancedLLM:💡 선호 모델 helpingai 로딩 시도...
+INFO:RedHeart.AdvancedLLM:🚀 모델 helpingai (llama_cpp) GPU 로딩 시작...
+INFO:RedHeart.AdvancedLLM:📁 모델 경로: /mnt/c/large_project/linux_red_heart/llm_module/HelpingAI2-9B.Q4_K_M.gguf
+ERROR:RedHeart.AdvancedLLM:Llama.cpp 모델 로드 실패: 'NoneType' object cannot be interpreted as an integer
+ERROR:RedHeart.AdvancedLLM:💥 모델 helpingai 로드 실패: 'NoneType' object cannot be interpreted as an integer
+ERROR:RedHeart.AdvancedLLM:🔍 상세 오류: TypeError: 'NoneType' object cannot be interpreted as an integer
+WARNING:RedHeart.AdvancedLLM:⚠️ 선호 모델 helpingai 로딩 실패, 폴백 모델 검색 중...
+INFO:RedHeart.AdvancedLLM:🔄 폴백 모델 dialogpt 로딩 시도...
+INFO:RedHeart.AdvancedLLM:🚀 모델 dialogpt (huggingface) GPU 로딩 시작...
+INFO:RedHeart.AdvancedLLM:📁 모델 경로: microsoft/DialoGPT-small
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Device set to use cuda:0
+INFO:RedHeart.AdvancedLLM:HuggingFace 모델 로드 완료: microsoft/DialoGPT-small
+INFO:RedHeart.AdvancedLLM:🤗 HuggingFace 모델 dialogpt 로드 완료
+INFO:RedHeart.AdvancedLLM:✅ 모델 dialogpt GPU 로드 완료 및 활성화
+WARNING:RedHeart.AdvancedLLM:🚨 폴백 모델 사용: helpingai → dialogpt (작업: emotion_analysis)
+ERROR:RedHeart.DataPreprocessingV2:샘플 0 처리 실패: LLM이 유효한 JSON 형식으로 응답하지 않음
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 468, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 461, in main
+    preprocessor.process_dataset(
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 394, in process_dataset
+    result = self.process_single_item(item)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 332, in process_single_item
+    emotion_result = self.analyze_emotions_with_llm(text)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/data_preprocessing_pipeline_v2.py", line 139, in analyze_emotions_with_llm
+    raise ValueError("LLM이 유효한 JSON 형식으로 응답하지 않음")
+ValueError: LLM이 유효한 JSON 형식으로 응답하지 않음

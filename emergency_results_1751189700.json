@@ -1,0 +1,146 @@
+[
+  {
+    "test_number": 1,
+    "test_id": "integrated_learning_test_01_1751189079",
+    "status": "success",
+    "run_time": 58.83510637283325,
+    "timestamp": "2025-06-29T18:25:38.633953",
+    "results": {
+      "total_training_time": 23.615862131118774,
+      "final_train_loss": 0.2882597032716564,
+      "final_train_accuracy": 0.6903992879576268,
+      "final_val_loss": 0.19653367971905808,
+      "final_val_accuracy": 0.7224441809719606,
+      "best_loss": 0.19638387648293118,
+      "epochs_completed": 4,
+      "training_history": {
+        "loss": [
+          0.2879703041821319,
+          0.28827993284944176,
+          0.28808027195777475,
+          0.2882597032716564
+        ],
+        "accuracy": [
+          0.6908816143310847,
+          0.6903655703551355,
+          0.6906983337736907,
+          0.6903992879576268
+        ],
+        "gpu_memory": [
+          452.46976,
+          0.0,
+          15.804416,
+          0.0
+        ],
+        "processing_time": [
+          21.832010507583618,
+          0.3651142120361328,
+          0.7049734592437744,
+          0.7127196788787842
+        ],
+        "gpu_utilization": [],
+        "memory_efficiency": []
+      }
+    },
+    "analytics": {
+      "emotion_circuit_status": {
+        "performance_metrics": {
+          "total_decisions": 84,
+          "average_processing_time": 0.2597342814717975,
+          "emotion_conflict_rate": 1.0,
+          "critical_loss_rate": 0.0
+        },
+        "learning_memory_size": {
+          "decision_history": 84,
+          "successful_patterns": 1,
+          "regret_patterns": 0
+        },
+        "recent_decisions": 84
+      },
+      "policy_analytics": {
+        "current_policy": {
+          "policy_id": "default_default_1751128664",
+          "user_id": "default",
+          "care_harm": 0.8,
+          "fairness_cheating": 0.7,
+          "loyalty_betrayal": 0.6,
+          "authority_subversion": 0.5,
+          "sanctity_degradation": 0.6,
+          "individual_weight": 0.4,
+          "community_weight": 0.6,
+          "cultural_context": {
+            "hierarchy_respect": 0.7,
+            "group_harmony": 0.8,
+            "face_saving": 0.6,
+            "long_term_thinking": 0.9
+          },
+          "creation_time": 1751128664.735237,
+          "last_updated": 1751128664.7352374,
+          "update_count": 0,
+          "confidence_score": 0.5
+        },
+        "update_statistics": {
+          "total_updates": 0,
+          "successful_updates": 0,
+          "average_improvement": 0.0,
+          "convergence_rate": 0.0
+        },
+        "recent_updates": [],
+        "experience_buffer_size": 64
+      },
+      "phase_analytics": {
+        "current_state": {
+          "phase": "learning",
+          "duration": 40.2765736579895,
+          "success_rate": 0.0,
+          "average_confidence": 0.5,
+          "user_satisfaction": 0.5,
+          "decision_count": 0
+        },
+        "phase_statistics": {
+          "learning": {
+            "total_time": 0.0,
+            "total_decisions": 0,
+            "success_count": 0,
+            "average_performance": 0.0
+          },
+          "execution": {
+            "total_time": 0.0,
+            "total_decisions": 0,
+            "success_count": 0,
+            "average_performance": 0.0
+          },
+          "reflection": {
+            "total_time": 0.0,
+            "total_decisions": 0,
+            "success_count": 0,
+            "average_performance": 0.0
+          },
+          "transition": {
+            "total_time": 0.0,
+            "total_decisions": 0,
+            "success_count": 0,
+            "average_performance": 0.0
+          }
+        },
+        "transition_readiness": 0.0,
+        "recent_transitions": [],
+        "performance_trends": {
+          "learning": 0.0,
+          "execution": 0.0,
+          "reflection": 0.0
+        }
+      },
+      "xai_analytics": {
+        "statistics": {
+          "total_interpretations": 64,
+          "successful_integrations": 0,
+          "average_user_understanding": 0.0,
+          "average_explanation_quality": 0.0,
+          "improvement_rate": 0.0
+        },
+        "recent_interpretations": 64,
+        "recent_actions": 128,
+        "feature_importance_trends": {
+          "ethical_score": 0.899998174719655,
+          "confidence": 

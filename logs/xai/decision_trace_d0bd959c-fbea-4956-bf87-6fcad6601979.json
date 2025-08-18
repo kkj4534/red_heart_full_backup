@@ -1,0 +1,17 @@
+{
+  "decision_id": "d0bd959c-fbea-4956-bf87-6fcad6601979",
+  "timestamp": "2025-08-18T01:30:16.548479",
+  "model_components": [
+    "__main__",
+    "test_decision"
+  ],
+  "input_features": {},
+  "intermediate_outputs": {},
+  "final_decision": {
+    "type": "dict",
+    "summary": "{'decision': 'test', 'confidence': 0.95}"
+  },
+  "explanation_chain": [],
+  "llm_reasoning": null,
+  "uncertainty_measures": null
+}

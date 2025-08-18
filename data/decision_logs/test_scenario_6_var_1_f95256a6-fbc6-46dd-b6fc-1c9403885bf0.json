@@ -1,0 +1,144 @@
+{
+  "id": "f95256a6-fbc6-46dd-b6fc-1c9403885bf0",
+  "situation": {
+    "id": "8a0c9cc9-c8e2-4470-ad21-7a4ebfa90637",
+    "title": "교육 기회 배분 딜레마",
+    "description": "우수한 대학 추천서를 써줄 수 있는데, 성적이 우수한 학생과 가정형편이 어려운 학생 중 누구를 선택해야 합니다.",
+    "context": {
+      "location": "학교",
+      "time": "오후",
+      "weather": "맑음",
+      "people_involved": [
+        "우수 학생",
+        "어려운 학생",
+        "교사"
+      ]
+    },
+    "variables": {
+      "student_a_grades": 0.9,
+      "student_b_need": 0.9,
+      "recommendation_impact": 0.8,
+      "fairness_concern": 0.7
+    },
+    "options": [
+      {
+        "id": "choose_merit",
+        "text": "성적이 우수한 학생을 선택한다",
+        "affected_count": 3,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "choose_need",
+        "text": "가정형편이 어려운 학생을 선택한다",
+        "affected_count": 3,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "write_both",
+        "text": "둘 다 추천서를 써준다",
+        "affected_count": 3,
+        "duration_seconds": 31536000
+      },
+      {
+        "id": "transparent_criteria",
+        "text": "공개적인 기준을 마련한다",
+        "affected_count": 10,
+        "duration_seconds": 31536000
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.355301",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.355307"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.355309"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 0.03,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "70f94419-8d4b-4916-907d-974fb7adfd96",
+    "situation_id": "8a0c9cc9-c8e2-4470-ad21-7a4ebfa90637",
+    "choice": "choose_merit",
+    "reasoning": "'성적이 우수한 학생을 선택한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "choose_merit"
+    },
+    "timestamp": "2025-06-29T01:27:35.355312"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.5,
+    "primary_emotion": "GUILT",
+    "option_outcomes": {
+      "choose_merit": {
+        "hedonic": 0.5,
+        "emotion": "GUILT"
+      },
+      "choose_need": {
+        "hedonic": 0.7,
+        "emotion": "JOY"
+      },
+      "write_both": {
+        "hedonic": 0.9,
+        "emotion": "JOY"
+      },
+      "transparent_criteria": {
+        "hedonic": 0.8,
+        "emotion": "TRUST"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 성적이 우수한 학생을 선택한다"
+  },
+  "has_regret": true,
+  "regret_data": {
+    "intensity": 0.30000000000000004,
+    "threshold": 0.3,
+    "was_optimal": false,
+    "analysis": {
+      "prediction_error": 0.0,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.5,
+      "hedonic_difference": 0.0,
+      "better_options": [],
+      "was_optimal": false
+    },
+    "timestamp": 1751128055.3553176
+  },
+  "timestamp": "2025-06-29T01:27:35.355317"
+}

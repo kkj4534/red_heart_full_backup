@@ -1,0 +1,120 @@
+You are operating as a coding assistant in Anthropic Claude 4 with Extended Thinking and Plan Mode activated. 
+I am providing you with the following development task, requiring careful design, planning, and generation of production-ready Python code.
+
+Context:
+I am developing an ethical AI backend system named "Red Heart", consisting of modular components including:
+- Emotion analysis module
+- Bayesian regret analysis module
+- SURD analyzer
+- Bentham utilitarian calculator
+- XAI feedback logger
+- Modular semantic analyzer
+
+This system currently lacks:
+1. A **self-reflection and empathy module** that builds upon the existing hierarchical emotion analyzer, designed to:
+    - Analyze self-oriented emotional states
+    - Simulate empathy by predicting the emotional state of others
+    - Integrate seamlessly with utilitarian calculus (outputting normalized scores)
+
+2. A **multi-level semantic expression module** that adds:
+    - Hierarchical semantic layers for interpretation (surface meaning, ethical meaning, causal meaning, emotional meaning)
+    - Outputs interpretable semantic layers as structured objects, JSON schema or hierarchical data structures.
+
+Your task:
+- Plan and write clean, modular, production-quality Python code for both modules
+- Ensure compatibility with existing Red Heart system architecture (modular, async-capable, utilitarian scoring aware)
+- Follow clear separation of concerns
+- Provide testable and extensible interfaces
+
+Output:
+- Plan summary
+- Well-structured code
+- Comments explaining the design and functionality
+
+
+추가 대화 내용
+2️⃣ Self-reflection & empathy simulation
+
+현재 system은 "decision auditing" + "emotion impact weighting"은 있음 → 여기에 "self-reflection/empathy layer" framing 추가는 가능.
+
+💡 방법:
+
+self-reflection framing:
+
+현재 regret analysis module output + SURD output →
+“자신의 judgment에 대한 confidence, regret-based hindsight metric”으로 리포트.
+
+empathy framing:
+
+감정 analyzer output + 벤담 calculator result →
+“타인 perspective 분석”으로 post-process.
+
+
+3️⃣ 다중수준 의미론적 표현
+
+현재 semantic analyzer 구조에서 “single layer 의미 해석”은 구현됨.
+
+multi-level로 확장하려면:
+
+표면 의미 → 도덕/감정적 의미 → causal semantic 연결
+이 계층적 processing 설계 필요.
+
+💡 방법:
+
+기존 analyzer output을 MultiLevelSemanticAnalyzer style로 wrap하면 prototype 가능.
+
+단순히 post-processing으로 “output interpretation 레이어”를 계층화한 framing
+
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+You are operating as a coding assistant in Anthropic Claude 4 with Extended Thinking and Plan Mode enabled. 
+Your task is to implement and integrate the following enhancements into an existing ethical AI backend system called "Red Heart".
+
+Context:
+Red Heart consists of:
+- Hierarchical emotion analysis system
+- Multi-level semantic analyzer
+- Bayesian regret system
+- SURD uncertainty analyzer
+- Modular utilitarian (Bentham-style) calculator
+- XAI feedback logger
+
+Objectives:
+
+1️⃣ Expand empathy learning workflow into a fully structured "self-other-community" phased architecture:
+- Refine emotion system classes to support empathy learning at individual (self), interpersonal (other), and communal levels.
+- Ensure empathy simulation outputs are normalized and utilitarian-compatible.
+
+2️⃣ Enhance multi-level semantic analyzer to support hashtag-based hierarchical semantic structuring:
+- Add hashtag tagging functionality to semantic layer outputs.
+- Structure semantic output as a hierarchical, JSON-compliant object.
+
+3️⃣ Increase SURD analyzer integration:
+- Ensure that uncertainty/confidence metrics influence both empathy learning and semantic interpretation layers.
+- Propagate SURD output into downstream decision auditing.
+
+4️⃣ Philosophical framework extensions:
+- Add modular placeholders and stubs for supporting ethical reasoning from:
+  - Existentialism
+  - Communitarianism
+  - Anti-fascism
+  - Individualism
+  - Capitalism
+  - Erich Fromm’s “To Have or To Be” ethical dichotomy.
+
+5️⃣ Design the system so that additional philosophical frameworks can be easily integrated in the future:
+- Ensure modularity and separation of concerns.
+- Maintain GPU-aware configuration and async-capable interfaces.
+
+Output requirements:
+- Plan summary before code.
+- Production-quality, Python 3.9+ compatible code.
+- Thorough comments explaining all classes, methods, and integration points.
+- Clear interfaces for downstream modules to query empathy, semantic layers, and ethical framework outputs.
+
+Constraints:
+- Ensure full compatibility with Red Heart’s existing modular architecture.
+- Prioritize performance and maintainability.
+- Design API signatures consistent with Red Heart’s current style.
+

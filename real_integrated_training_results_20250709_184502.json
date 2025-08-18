@@ -1,0 +1,66 @@
+{
+  "real_training_summary": {
+    "total_scenarios": 3,
+    "successful_completions": 0,
+    "success_rate": 0.0,
+    "total_processing_time": 61.25708627700806,
+    "avg_processing_time": 20.419028759002686
+  },
+  "module_performance": {
+    "emotion": {
+      "success_rate": 0.0,
+      "avg_time": 0.23665249347686768
+    },
+    "bentham": {
+      "success_rate": 0.0,
+      "avg_time": 0.02604961395263672
+    },
+    "regret": {
+      "success_rate": 0.0,
+      "avg_time": 0.00027620792388916016
+    },
+    "surd": {
+      "success_rate": 0.0,
+      "avg_time": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "real_test_001",
+      "success": false,
+      "processing_time": 0.4487597942352295,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "SURD 분석 실패 - fallback 금지로 시스템 정지: 'AdvancedSURDAnalyzer' object has no attribute 'analyze_integrated_system'"
+    },
+    {
+      "scenario_id": "real_test_002",
+      "success": false,
+      "processing_time": 0.08653473854064941,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "SURD 분석 실패 - fallback 금지로 시스템 정지: 'AdvancedSURDAnalyzer' object has no attribute 'analyze_integrated_system'"
+    },
+    {
+      "scenario_id": "real_test_003",
+      "success": false,
+      "processing_time": 60.72179174423218,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패"
+    }
+  ],
+  "performance_insights": [
+    "전체 성공률이 낮습니다. 시스템 안정성 개선이 필요합니다.",
+    "emotion 모듈의 성공률이 0.0%로 낮습니다.",
+    "bentham 모듈의 성공률이 0.0%로 낮습니다.",
+    "regret 모듈의 성공률이 0.0%로 낮습니다.",
+    "surd 모듈의 성공률이 0.0%로 낮습니다."
+  ]
+}

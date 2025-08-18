@@ -1,0 +1,145 @@
+{
+  "id": "f114c889-64d0-4204-8aec-027ac740879e",
+  "situation": {
+    "id": "af147b47-0d94-4d7f-b6cb-0946b2d57c12",
+    "title": "장기이식 우선순위 딜레마",
+    "description": "심장이식이 필요한 두 환자가 있습니다. 한 명은 과거 생활습관이 좋지 않았고, 다른 한 명은 유전적 질환 환자입니다.",
+    "context": {
+      "location": "병원",
+      "time": "응급상황",
+      "weather": "실내",
+      "people_involved": [
+        "환자 A",
+        "환자 B",
+        "의료진",
+        "가족들"
+      ]
+    },
+    "variables": {
+      "patient_a_lifestyle": 0.3,
+      "patient_b_genetic": 0.9,
+      "survival_rate_a": 0.7,
+      "survival_rate_b": 0.8
+    },
+    "options": [
+      {
+        "id": "prioritize_genetic",
+        "text": "유전적 질환 환자를 우선한다",
+        "affected_count": 6,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "prioritize_survival",
+        "text": "생존률이 높은 환자를 우선한다",
+        "affected_count": 6,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "first_registered",
+        "text": "먼저 등록한 환자를 우선한다",
+        "affected_count": 6,
+        "duration_seconds": 86400
+      },
+      {
+        "id": "committee_review",
+        "text": "윤리위원회에서 검토한다",
+        "affected_count": 6,
+        "duration_seconds": 3600
+      }
+    ],
+    "created_at": "2025-06-29T01:27:35.369663",
+    "source": "generated"
+  },
+  "biosignals": {
+    "eeg": {},
+    "ecg": {},
+    "gsr": {},
+    "voice": {},
+    "eye_tracking": {},
+    "timestamp": "2025-06-29T01:27:35.369668"
+  },
+  "emotions": {
+    "primary_emotion": "NEUTRAL",
+    "intensity": "MODERATE",
+    "arousal": 0.0,
+    "valence": 0.0,
+    "secondary_emotions": {},
+    "confidence": 0.5,
+    "timestamp": "2025-06-29T01:27:35.369670"
+  },
+  "hedonic_values": {
+    "intensity": 0.5,
+    "duration": 1.0,
+    "certainty": 0.5,
+    "propinquity": 0.8,
+    "fecundity": 0.3,
+    "purity": 0.6,
+    "extent": 0.06,
+    "hedonic_total": 0.5
+  },
+  "decision": {
+    "id": "8bd141db-ffb2-49ff-8da2-db948887899b",
+    "situation_id": "af147b47-0d94-4d7f-b6cb-0946b2d57c12",
+    "choice": "committee_review",
+    "reasoning": "'윤리위원회에서 검토한다'를 선택했습니다.",
+    "confidence": 0.7,
+    "reasoning_log": {
+      "options_analyzed": [],
+      "activated_experience_ids": [],
+      "avg_past_hedonic": null,
+      "avg_past_regret": null,
+      "confidence_factors": {
+        "hedonic_diff": 0.2,
+        "emotion_pred": 0.6,
+        "past_exp": 0.5,
+        "bentham_certainty": 0.5
+      }
+    },
+    "predicted_outcome": {
+      "hedonic_value": 0.5,
+      "adjusted_hedonic_value": 0.5,
+      "primary_emotion": "NEUTRAL",
+      "selected_option": "committee_review"
+    },
+    "timestamp": "2025-06-29T01:27:35.369674"
+  },
+  "actual_outcome": {
+    "hedonic_value": 0.9,
+    "primary_emotion": "TRUST",
+    "option_outcomes": {
+      "prioritize_genetic": {
+        "hedonic": 0.8,
+        "emotion": "TRUST"
+      },
+      "prioritize_survival": {
+        "hedonic": 0.6,
+        "emotion": "ANXIETY"
+      },
+      "first_registered": {
+        "hedonic": 0.7,
+        "emotion": "TRUST"
+      },
+      "committee_review": {
+        "hedonic": 0.9,
+        "emotion": "TRUST"
+      }
+    },
+    "description": "결정의 결과입니다. 선택한 옵션: 윤리위원회에서 검토한다"
+  },
+  "has_regret": false,
+  "regret_data": {
+    "intensity": 0,
+    "threshold": 0.3,
+    "was_optimal": true,
+    "analysis": {
+      "prediction_error": 0.4,
+      "predicted_hedonic": 0.5,
+      "actual_hedonic": 0.9,
+      "hedonic_difference": 0.4,
+      "better_options": [],
+      "was_optimal": true
+    },
+    "timestamp": 1751128055.3696787
+  },
+  "timestamp": "2025-06-29T01:27:35.369679"
+}

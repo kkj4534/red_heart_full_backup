@@ -1,0 +1,536 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[1;33m[WARNING][0m ❌ FAISS 설치되지 않음
+[1;33m[WARNING][0m    수동 설치 필요: conda run -n faiss-test pip install -r requirements_conda.txt
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 320M v2 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 그래디언트 체크 (NaN, 끊김 검증)
+[0;34m[INFO][0m    - 텐서 계산 무결성 확인
+[0;34m[INFO][0m    - 파라미터 업데이트 없음 (베이스라인 회귀)
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+INFO:workflow_aware_memory_manager:✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+INFO:workflow_aware_memory_manager:✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+INFO:dynamic_swap_manager:RedHeartDynamicSwapManager 초기화 완료
+INFO:RedHeart.UnifiedTrainingV2:============================================================
+INFO:RedHeart.UnifiedTrainingV2:Red Heart AI 통합 학습 시스템 v2 초기화
+INFO:RedHeart.UnifiedTrainingV2:  - 모델 크기: 320M 파라미터
+INFO:RedHeart.UnifiedTrainingV2:  - 디바이스: cuda
+INFO:RedHeart.UnifiedTrainingV2:  - 모드: train-test
+INFO:RedHeart.UnifiedTrainingV2:  - 학습률: 0.0001
+INFO:RedHeart.UnifiedTrainingV2:============================================================
+INFO:RedHeart.UnifiedTrainingV2:
+============================================================
+INFO:RedHeart.UnifiedTrainingV2:🚀 Red Heart AI 통합 학습 시작
+INFO:RedHeart.UnifiedTrainingV2:============================================================
+INFO:RedHeart.UnifiedTrainingV2:
+📊 데이터 준비 시작
+INFO:RedHeart.UnifiedTrainingV2:📂 전처리된 데이터 로드: claude_api_preprocessing/claude_preprocessed_complete.json
+INFO:RedHeart.UnifiedTrainingV2:로드된 데이터: 10460 샘플
+INFO:RedHeart.UnifiedTrainingV2:샘플 제한 적용: 10460 → 3
+INFO:RedHeart.UnifiedTrainingV2:✅ 데이터 준비 완료
+INFO:RedHeart.UnifiedTrainingV2:  - 학습: 2 샘플
+INFO:RedHeart.UnifiedTrainingV2:  - 검증: 1 샘플
+INFO:RedHeart.UnifiedTrainingV2:
+🤖 모델 초기화 시작
+INFO:RedHeart.ModuleSelector:실행 모드 변경: training
+INFO:RedHeart.ModuleSelector:활성 모듈 수: 12
+DEBUG:RedHeart.ModuleSelector:활성 모듈: ['bentham_fromm_head', 'emotion_dsp_simulator', 'emotion_empathy_head', 'kalman_filter', 'meta_integration_head', 'neural_bentham', 'neural_emotion', 'neural_regret', 'neural_surd', 'regret_learning_head', 'semantic_surd_head', 'unified_backbone']
+INFO:RedHeart.UnifiedTrainingV2:📊 메모리 상태:
+INFO:RedHeart.UnifiedTrainingV2:  - 필요: 1853.0 MB
+INFO:RedHeart.UnifiedTrainingV2:  - 가용: 8191.6 MB
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: emotion_dsp_simulator
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: kalman_filter
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: neural_bentham
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: neural_emotion
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: neural_regret
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: neural_surd
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: unified_backbone
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+INFO:unified_backbone:백본 총 파라미터: 90,624,132 (90.62M)
+INFO:unified_backbone:학습 가능 파라미터: 90,624,132 (90.62M)
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: bentham_fromm_head
+INFO:unified_heads:벤담 헤드 파라미터: 13,871,919 (13.87M)
+INFO:RedHeart.UnifiedTrainingV2:✅ 벤담 헤드 로드 성공 (27M)
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: emotion_empathy_head
+INFO:unified_heads:감정 헤드 파라미터: 17,254,583 (17.25M)
+INFO:RedHeart.UnifiedTrainingV2:✅ 감정 헤드 로드 성공 (30M)
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: meta_integration_head
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: regret_learning_head
+INFO:unified_heads:후회 헤드 파라미터: 19,897,161 (19.90M)
+INFO:RedHeart.UnifiedTrainingV2:✅ 후회 헤드 로드 성공 (30M)
+DEBUG:RedHeart.UnifiedTrainingV2:모듈 로드: semantic_surd_head
+INFO:unified_heads:SURD 헤드 파라미터: 12,025,739 (12.03M)
+INFO:RedHeart.UnifiedTrainingV2:✅ SURD 헤드 로드 성공 (22M)
+INFO:RedHeart.UnifiedTrainingV2:🎯 학습 필수 모듈 강제 로드 중...
+INFO:RedHeart.UnifiedTrainingV2:🤖 신경망 분석기 로드 중 (232M 파라미터)...
+INFO:analyzer_neural_modules:NeuralEmotionAnalyzer 초기화: 122,333,263 파라미터
+INFO:analyzer_neural_modules:NeuralBenthamCalculator 초기화: 78,019,458 파라미터
+INFO:analyzer_neural_modules:NeuralRegretAnalyzer 초기화: 153,610,522 파라미터
+INFO:analyzer_neural_modules:NeuralSURDAnalyzer 초기화: 13,276,424 파라미터
+INFO:analyzer_neural_modules:전체 신경망 분석기 파라미터: 367,239,667 (367.2M)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ emotion 신경망 분석기 로드 성공
+INFO:RedHeart.UnifiedTrainingV2:  ✅ bentham 신경망 분석기 로드 성공
+INFO:RedHeart.UnifiedTrainingV2:  ✅ regret 신경망 분석기 로드 성공
+INFO:RedHeart.UnifiedTrainingV2:  ✅ surd 신경망 분석기 로드 성공
+INFO:RedHeart.UnifiedTrainingV2:🔄 Translator 모듈 초기화 중...
+INFO:RedHeart.Config:🔍 get_system_module 호출: module_id=translator
+INFO:RedHeart.Config:🔍 현재 등록된 모듈들: []
+INFO:RedHeart.Config:🔍 결과: None
+INFO:local_translator:LocalTranslator 생성 - 전역 모듈로 초기화됨
+INFO:local_translator:🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+DEBUG:hf_model_wrapper:✅ AutoModel.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForSequenceClassification.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForTokenClassification.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForCausalLM.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoProcessor.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoImageProcessor.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ MarianMTModel.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ ElectraForSequenceClassification.from_pretrained 패치됨
+INFO:hf_model_wrapper:✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+DEBUG:hf_model_wrapper:CPU 전용 owner(translator) → device=cpu 강제
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /Helsinki-NLP/opus-mt-ko-en/resolve/main/custom_generate/generate.py HTTP/1.1" 404 0
+DEBUG:hf_model_wrapper:모델 크기 추정: 1189.3MB (학습가능: True)
+INFO:local_translator:✅ OPUS-MT 모델 로드 완료 (소요시간: 1.5초, 디바이스: cpu)
+INFO:local_translator:📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:local_translator:DSM 등록을 위한 이벤트 루프 생성
+INFO:dynamic_swap_manager:[DSM] translator 크기: 297.6MB (mgr_id=132054891927632)
+INFO:dynamic_swap_manager:   💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+DEBUG:dynamic_swap_manager:   master_model_registry에 translator 등록 (priority=3)
+INFO:dynamic_swap_manager:[REGISTER HEAD] translator (297.6MB, 우선순위: high)
+INFO:local_translator:✅ Translator를 DSM에 등록 (HIGH priority)
+INFO:RedHeart.Config:🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+INFO:RedHeart.Config:🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+INFO:RedHeart.UnifiedTrainingV2:  ✅ LocalTranslator 초기화 및 전역 등록 완료
+INFO:RedHeart.UnifiedTrainingV2:🚀 Advanced 분석기 통합 중 (nn.Module Wrapper)...
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 24.7%, 필요: 500MB)
+INFO:RedHeart.Config:🔍 get_system_module 호출: module_id=translator
+INFO:RedHeart.Config:🔍 현재 등록된 모듈들: ['translator']
+INFO:RedHeart.Config:🔍 결과: <class 'local_translator.LocalTranslator'>
+INFO:RedHeartLinux.AdvancedEmotion:✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+INFO:RedHeartLinux.AdvancedEmotion:감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+INFO:RedHeartLinux.AdvancedEmotion:  - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+INFO:RedHeartLinux.AdvancedEmotion:  - emotion_moe None 여부: False
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:RedHeartLinux.AdvancedEmotion:✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+INFO:RedHeartLinux.AdvancedEmotion:  - DSP 시뮬레이터: 20M 파라미터
+INFO:RedHeartLinux.AdvancedEmotion:  - 칼만 필터: 융합용
+INFO:RedHeartLinux.AdvancedEmotion:계층적 감정 모델 초기화 완료
+INFO:RedHeart.AdvancedLLM:모델 설정 준비 완료: ['helpingai']
+INFO:RedHeart.AdvancedLLM:동적 GPU-RAM 스왑 시스템 초기화 완료
+INFO:RedHeartLinux.AdvancedEmotion:LLM 엔진 연결 완료
+INFO:RedHeartLinux.AdvancedEmotion:고급 감정 분석 시스템이 초기화되었습니다.
+INFO:RedHeartLinux.AdvancedEmotion:🔍 hierarchical_model이 이미 존재함
+INFO:advanced_analyzer_wrappers:  - biometric_processor 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - multimodal_fusion 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - temporal_emotion 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - cultural_nuance 등록 (13M)
+INFO:advanced_analyzer_wrappers:  - advanced_moe 등록 (5M)
+INFO:advanced_analyzer_wrappers:  - emotion_moe 등록
+INFO:advanced_analyzer_wrappers:✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /klue/bert-base/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/klue/bert-base/77c8b3d707df785034b4e50f2da5d37be5f0f546/tokenizer_config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/klue/bert-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+INFO:advanced_regret_analyzer:✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+INFO:advanced_regret_analyzer:후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:advanced_regret_analyzer:후회 분석기 3뷰 시나리오 시스템 초기화 완료
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook GPU 메모리 관리 활성화
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook 시스템 초기화 완료
+INFO:RedHeart.PhaseControllerHook:성능 모니터링 시작
+INFO:advanced_regret_analyzer:후회 분석기 PhaseController Hook 초기화 완료
+INFO:advanced_regret_analyzer:Advanced Regret Analyzer initialized on cuda
+INFO:advanced_regret_analyzer:동적 임계값 시스템 통합 완료
+INFO:advanced_analyzer_wrappers:  - regret_network 등록 (3M)
+INFO:advanced_analyzer_wrappers:  - counterfactual_sim 등록 (15M)
+INFO:advanced_analyzer_wrappers:  - temporal_propagation 등록 (12M)
+INFO:advanced_analyzer_wrappers:  - decision_tree 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - bayesian_inference 등록 (10M)
+INFO:advanced_analyzer_wrappers:✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 30.3%, 필요: 500MB)
+INFO:RedHeart.AdvancedSURDAnalyzer:✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+INFO:RedHeart.AdvancedSURDAnalyzer:새로운 고급 SURD 모델 초기화 완료
+INFO:RedHeart.AdvancedSURDAnalyzer:LLM 엔진 연결 완료
+INFO:RedHeart.AdvancedSURDAnalyzer:고급 SURD 분석 시스템 초기화 완료
+INFO:advanced_analyzer_wrappers:  - deep_causal 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - info_decomposition 등록 (8M)
+INFO:advanced_analyzer_wrappers:  - neural_causal_model 등록 (5M)
+INFO:advanced_analyzer_wrappers:✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+INFO:RedHeart.AdvancedBenthamCalculator:✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+INFO:RedHeart.AdvancedBenthamCalculator:신경망 가중치 예측기 로딩 중...
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 34.4%, 필요: 100MB)
+INFO:RedHeart.AdvancedBenthamCalculator:신경망 가중치 예측기 로드: cuda (100MB)
+INFO:RedHeart.AdvancedBenthamCalculator:메모리 사용량: RAM 1779MB, GPU 2815MB
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook GPU 메모리 관리 활성화
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook 시스템 초기화 완료
+INFO:RedHeart.PhaseControllerHook:성능 모니터링 시작
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 PhaseController Hook 초기화 완료
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.LegalExpertSystem:법률 전문가 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.LegalExpertSystem:법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:RedHeart.LegalExpertSystem:inference 모드 - 법률 전문가 시스템 활성화
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 법률 전문가 시스템 초기화 완료
+INFO:RedHeart.AdvancedBenthamCalculator:고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+INFO:RedHeart.AdvancedBenthamCalculator:🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+INFO:RedHeart.AdvancedBenthamCalculator:✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+INFO:RedHeart.AdvancedBenthamCalculator:   - 파라미터 수: 3,137
+INFO:RedHeart.AdvancedBenthamCalculator:트랜스포머 맥락 분석기 로딩 중...
+INFO:config:GPU 로딩 워커 스레드 시작
+INFO:RedHeart.Config:순차적 GPU 로딩 시스템 시작
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:RedHeart.Config:GPU 로딩 시작: bentham_emotion_classifier (예상 메모리: 732MB)
+INFO:hf_model_wrapper:🔄 HF 파이프라인 생성 중: text-classification (모델: j-hartmann/emotion-english-distilroberta-base, 소유자: advanced_bentham_calculator)
+INFO:hf_model_wrapper:📊 파이프라인 로드 전 메모리 요청: advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base (1000.0MB)
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+DEBUG:workflow_aware_memory_manager:[GPU BLOCKING] 여유 공간: free=5357.6MB, reserved_free=18.9MB, total=5376.4MB
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] ✅ advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base 할당 성공 (폴링)
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/j-hartmann/emotion-english-distilroberta-base/0e1cd914e3d46199ed785853e12b57304e04178b/config.json HTTP/1.1" 200 0
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: j-hartmann/emotion-english-distilroberta-base (소유자: transformers.pipelines.base)
+INFO:hf_model_wrapper:📊 모델 로드 전 메모리 요청: transformers.pipelines.base_emotion-english-distilroberta-base (1000.0MB)
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] transformers.pipelines.base_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+DEBUG:workflow_aware_memory_manager:[GPU BLOCKING] 여유 공간: free=5357.6MB, reserved_free=18.9MB, total=5376.4MB
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] ✅ transformers.pipelines.base_emotion-english-distilroberta-base 할당 성공 (폴링)
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/model.safetensors HTTP/1.1" 404 0
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): huggingface.co:443
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base HTTP/1.1" 200 5096
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/main HTTP/1.1" 200 11013
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/discussions?p=0 HTTP/1.1" 200 35391
+DEBUG:hf_model_wrapper:모델 크기 추정: 1253.1MB (학습가능: True)
+INFO:hf_model_wrapper:✅ 모델 'transformers.pipelines.base_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: transformers.pipelines.base, 크기: 1253.1MB)
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/refs%2Fpr%2F3017 HTTP/1.1" 200 11763
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+Device set to use cuda:0
+DEBUG:hf_model_wrapper:모델 크기 추정: 1253.1MB (학습가능: True)
+INFO:hf_model_wrapper:✅ 모델 'advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: advanced_bentham_calculator, 크기: 1253.1MB)
+INFO:RedHeart.Config:GPU 로딩 성공: bentham_emotion_classifier (사용률: 34.4% → 38.2%, 실제: 307MB)
+INFO:advanced_analyzer_wrappers:  - cross_cultural 등록
+INFO:advanced_analyzer_wrappers:  - deep_ethics 등록
+INFO:advanced_analyzer_wrappers:  - default_network 등록
+INFO:advanced_analyzer_wrappers:  - ethics_moe 등록
+INFO:advanced_analyzer_wrappers:  - long_term_predictor 등록
+INFO:advanced_analyzer_wrappers:  - neural_predictor 등록
+INFO:advanced_analyzer_wrappers:  - social_impact 등록
+INFO:RedHeart.AdvancedBenthamCalculator:가중치 레이어들 로딩 중...
+INFO:RedHeart.AdvancedBenthamCalculator:메모리 사용량: RAM 1782MB, GPU 3129MB
+INFO:advanced_analyzer_wrappers:✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+INFO:advanced_analyzer_wrappers:✅ Advanced Analyzer Wrappers 생성 완료
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors.index.json HTTP/1.1" 404 0
+INFO:advanced_analyzer_wrappers:  - 총 Wrapper 수: 4
+INFO:advanced_analyzer_wrappers:  - 총 파라미터: 190,575,565
+INFO:RedHeart.UnifiedTrainingV2:  ✅ advanced_emotion Wrapper 로드 완료 (63,004,760 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ advanced_regret Wrapper 로드 완료 (44,163,743 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ advanced_surd Wrapper 로드 완료 (7,562,071 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ advanced_bentham Wrapper 로드 완료 (75,844,991 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:🌀 3-Phase Hierarchical Emotion System 통합 중...
+INFO:RedHeart.UnifiedTrainingV2:  ✅ Phase0 ProjectionNet 로드 (2M 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ Phase2 CommunityNet 로드 (2.5M 파라미터)
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors HTTP/1.1" 302 0
+INFO:RedHeart.UnifiedTrainingV2:  ✅ Hierarchical Emotion Integrator 로드
+INFO:RedHeart.UnifiedTrainingV2:🎵 DSP Simulator & Kalman Filter 통합 중...
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ Emotion DSP Simulator 로드 (14M 파라미터, 384차원)
+INFO:RedHeart.UnifiedTrainingV2:  ✅ Dynamic Kalman Filter 로드 (700 파라미터, 7차원 state)
+INFO:RedHeart.UnifiedTrainingV2:  - emotion_head 로드
+INFO:RedHeart.UnifiedTrainingV2:  - bentham_head 로드
+INFO:RedHeart.UnifiedTrainingV2:  - regret_head 로드
+INFO:RedHeart.UnifiedTrainingV2:  - surd_head 로드
+INFO:RedHeart.UnifiedTrainingV2:✅ 모델 초기화 완료
+INFO:RedHeart.UnifiedTrainingV2:
+📊 최종 로드된 모듈 요약:
+INFO:RedHeart.UnifiedTrainingV2:
+======================================================================
+INFO:RedHeart.UnifiedTrainingV2:🔍 상세 파라미터 분석
+INFO:RedHeart.UnifiedTrainingV2:======================================================================
+INFO:RedHeart.UnifiedTrainingV2:
+📌 백본:
+INFO:RedHeart.UnifiedTrainingV2:  - 총 파라미터: 90,624,132 (90.62M)
+INFO:RedHeart.UnifiedTrainingV2:  - 학습가능: 90,624,132 (90.62M)
+INFO:RedHeart.UnifiedTrainingV2:
+📌 헤드 모듈 (4개):
+INFO:RedHeart.UnifiedTrainingV2:  [bentham]
+INFO:RedHeart.UnifiedTrainingV2:    - 총: 13,871,919 (13.87M)
+INFO:RedHeart.UnifiedTrainingV2:    - 학습가능: 13,871,919
+INFO:RedHeart.UnifiedTrainingV2:  [emotion]
+INFO:RedHeart.UnifiedTrainingV2:    - 총: 17,254,583 (17.25M)
+INFO:RedHeart.UnifiedTrainingV2:    - 학습가능: 17,254,583
+INFO:RedHeart.UnifiedTrainingV2:  [regret]
+INFO:RedHeart.UnifiedTrainingV2:    - 총: 19,897,161 (19.90M)
+INFO:RedHeart.UnifiedTrainingV2:    - 학습가능: 19,897,161
+INFO:RedHeart.UnifiedTrainingV2:  [surd]
+INFO:RedHeart.UnifiedTrainingV2:    - 총: 12,025,739 (12.03M)
+INFO:RedHeart.UnifiedTrainingV2:    - 학습가능: 12,025,739
+INFO:RedHeart.UnifiedTrainingV2:
+📌 분석기 모듈 (10개):
+INFO:RedHeart.UnifiedTrainingV2:  🤖 Neural Analyzers:
+INFO:RedHeart.UnifiedTrainingV2:    [neural_emotion]
+INFO:RedHeart.UnifiedTrainingV2:      - 총: 122,333,263 (122.33M)
+INFO:RedHeart.UnifiedTrainingV2:      - 학습가능: 122,333,263
+INFO:RedHeart.UnifiedTrainingV2:    [neural_bentham]
+INFO:RedHeart.UnifiedTrainingV2:      - 총: 78,019,458 (78.02M)
+INFO:RedHeart.UnifiedTrainingV2:      - 학습가능: 78,019,458
+INFO:RedHeart.UnifiedTrainingV2:    [neural_regret]
+INFO:RedHeart.UnifiedTrainingV2:      - 총: 153,610,522 (153.61M)
+INFO:RedHeart.UnifiedTrainingV2:      - 학습가능: 153,610,522
+INFO:RedHeart.UnifiedTrainingV2:    [neural_surd]
+INFO:RedHeart.UnifiedTrainingV2:      - 총: 13,276,424 (13.28M)
+INFO:RedHeart.UnifiedTrainingV2:      - 학습가능: 13,276,424
+INFO:RedHeart.UnifiedTrainingV2:    📊 Neural Analyzer 합계: 367,239,667 (367.24M)
+INFO:RedHeart.UnifiedTrainingV2:  📈 기타 분석기:
+INFO:RedHeart.UnifiedTrainingV2:    [dsp]: 2,328,629 params
+INFO:RedHeart.UnifiedTrainingV2:    [kalman]: 742 params
+INFO:RedHeart.UnifiedTrainingV2:    [advanced_emotion]: 63,004,760 params
+INFO:RedHeart.UnifiedTrainingV2:    [advanced_regret]: 44,163,743 params
+INFO:RedHeart.UnifiedTrainingV2:    [advanced_surd]: 7,562,071 params
+INFO:RedHeart.UnifiedTrainingV2:    [advanced_bentham]: 75,844,991 params
+INFO:RedHeart.UnifiedTrainingV2:
+======================================================================
+INFO:RedHeart.UnifiedTrainingV2:📊 전체 통계:
+INFO:RedHeart.UnifiedTrainingV2:  - 총 파라미터: 713,818,137 (713.82M)
+INFO:RedHeart.UnifiedTrainingV2:  - 학습가능 파라미터: 713,818,137 (713.82M)
+INFO:RedHeart.UnifiedTrainingV2:  - 목표: 450M, 실제: 713.82M
+INFO:RedHeart.UnifiedTrainingV2:
+💾 GPU 메모리:
+INFO:RedHeart.UnifiedTrainingV2:  - 할당됨: 3201.9 MB
+INFO:RedHeart.UnifiedTrainingV2:  - 여유: 4929.6 MB
+INFO:RedHeart.UnifiedTrainingV2:  - 전체: 8191.6 MB
+INFO:RedHeart.UnifiedTrainingV2:======================================================================
+
+INFO:RedHeart.UnifiedTrainingV2:🔧 옵티마이저 초기화 중...
+INFO:RedHeart.UnifiedTrainingV2:  백본 파라미터 추가됨
+INFO:RedHeart.UnifiedTrainingV2:  bentham 헤드 파라미터 추가됨
+INFO:RedHeart.UnifiedTrainingV2:  emotion 헤드 파라미터 추가됨
+INFO:RedHeart.UnifiedTrainingV2:  regret 헤드 파라미터 추가됨
+INFO:RedHeart.UnifiedTrainingV2:  surd 헤드 파라미터 추가됨
+INFO:RedHeart.UnifiedTrainingV2:  dsp 분석기 파라미터 추가됨: 2,328,629
+INFO:RedHeart.UnifiedTrainingV2:  kalman 분석기 파라미터 추가됨: 742
+INFO:RedHeart.UnifiedTrainingV2:  neural_emotion 분석기 파라미터 추가됨: 122,333,263
+INFO:RedHeart.UnifiedTrainingV2:  neural_bentham 분석기 파라미터 추가됨: 78,019,458
+INFO:RedHeart.UnifiedTrainingV2:  neural_regret 분석기 파라미터 추가됨: 153,610,522
+INFO:RedHeart.UnifiedTrainingV2:  neural_surd 분석기 파라미터 추가됨: 13,276,424
+INFO:RedHeart.UnifiedTrainingV2:  advanced_emotion 분석기 파라미터 추가됨: 63,004,760
+INFO:RedHeart.UnifiedTrainingV2:  advanced_regret 분석기 파라미터 추가됨: 44,163,743
+INFO:RedHeart.UnifiedTrainingV2:  advanced_surd 분석기 파라미터 추가됨: 7,562,071
+INFO:RedHeart.UnifiedTrainingV2:  advanced_bentham 분석기 파라미터 추가됨: 75,844,991
+INFO:RedHeart.UnifiedTrainingV2:  Phase0 ProjectionNet 파라미터 추가됨: 792,134
+INFO:RedHeart.UnifiedTrainingV2:  Phase2 CommunityNet 파라미터 추가됨: 7,040,266
+INFO:RedHeart.UnifiedTrainingV2:  Hierarchical Integrator 파라미터 추가됨: 7,833,271
+INFO:RedHeart.UnifiedTrainingV2:  DSP Simulator 파라미터 추가됨: 2,328,629
+INFO:RedHeart.UnifiedTrainingV2:  Kalman Filter 파라미터 추가됨: 742
+INFO:RedHeart.UnifiedTrainingV2:  - 스케줄러 T_max: 20 steps
+INFO:RedHeart.UnifiedTrainingV2:✅ 옵티마이저 초기화 완료
+INFO:RedHeart.UnifiedTrainingV2:  - 옵티마이저: AdamW
+INFO:RedHeart.UnifiedTrainingV2:  - 학습률: 0.0001
+INFO:RedHeart.UnifiedTrainingV2:  - 스케줄러: CosineAnnealingLR
+INFO:RedHeart.UnifiedTrainingV2:  - 총 파라미터: 731,813,179
+INFO:RedHeart.UnifiedTrainingV2:  - 학습 가능 파라미터: 731,813,179
+INFO:RedHeart.UnifiedTrainingV2:
+📚 Epoch 1/10 시작
+INFO:RedHeart.UnifiedTrainingV2:📊 에포크 상세 정보:
+INFO:RedHeart.UnifiedTrainingV2:  - 총 샘플 수: 2
+INFO:RedHeart.UnifiedTrainingV2:  - 배치 크기: 4
+INFO:RedHeart.UnifiedTrainingV2:  - 배치 수: 1
+INFO:RedHeart.UnifiedTrainingV2:
+🔍 배치 1 처리 중:
+INFO:RedHeart.UnifiedTrainingV2:  - 샘플 범위: 0 ~ 4
+INFO:RedHeart.UnifiedTrainingV2:  - 샘플 수: 2
+INFO:RedHeart.UnifiedTrainingV2:    [STAGE 1] Forward Pass 시작
+INFO:RedHeart.TargetMapping:🔄 Sentence-Transformers 인코더 초기화 중...
+INFO:sentence_transformers.SentenceTransformer:Use pytorch device_name: cuda:0
+INFO:sentence_transformers.SentenceTransformer:Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config_sentence_transformers.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config_sentence_transformers.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/modules.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/modules.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/sentence_bert_config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/sentence_bert_config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/adapter_config.json HTTP/1.1" 404 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/config.json HTTP/1.1" 200 0
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: sentence-transformers/all-MiniLM-L6-v2 (소유자: sentence_transformers.models.Transformer)
+INFO:hf_model_wrapper:📊 모델 로드 전 메모리 요청: sentence_transformers.models.Transformer_all-MiniLM-L6-v2 (800.0MB)
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] sentence_transformers.models.Transformer_all-MiniLM-L6-v2: 800.0MB 동기 요청 시작
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:workflow_aware_memory_manager:[GPU QUEUE] sentence_transformers.models.Transformer_all-MiniLM-L6-v2: 800.0MB 요청 (의존성 0개)
+INFO:workflow_aware_memory_manager:[GPU MEM] 현재: 39.1% 사용, 4989.7MB 실제 여유
+INFO:workflow_aware_memory_manager:[GPU MEM] ✅ sentence_transformers.models.Transformer_all-MiniLM-L6-v2 할당 완료: 800.0MB
+DEBUG:hf_model_wrapper:모델 크기 추정: 346.6MB (학습가능: True)
+INFO:hf_model_wrapper:✅ 모델 'sentence_transformers.models.Transformer_all-MiniLM-L6-v2' 메모리 매니저에 등록됨 (소유자: sentence_transformers.models.Transformer, 크기: 346.6MB)
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/tokenizer_config.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /sentence-transformers/all-MiniLM-L6-v2/resolve/main/1_Pooling/config.json HTTP/1.1" 307 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "HEAD /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/1_Pooling%2Fconfig.json HTTP/1.1" 200 0
+DEBUG:urllib3.connectionpool:https://huggingface.co:443 "GET /api/models/sentence-transformers/all-MiniLM-L6-v2 HTTP/1.1" 200 6857
+INFO:RedHeart.TargetMapping:✅ Sentence-Transformers 인코더 준비 완료 (device: cuda)
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (12개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+
+============================================================
+모듈 선택기 요약 - 모드: training
+============================================================
+
+📊 메모리 사용량:
+  - 총 파라미터: 657,147,865
+  - 총 메모리: 2524.1 MB
+  - GPU 메모리: 1853.0 MB
+  - CPU 메모리: 671.1 MB
+
+✅ 활성 모듈 (16개):
+
+  [analyzer]
+    - emotion_dsp_simulator: 1,180,000 params, 5.0 MB
+
+  [core]
+    - unified_backbone: 104,000,000 params, 400.0 MB
+
+  [filter]
+    - kalman_filter: 742 params, 0.1 MB
+
+  [head]
+    - bentham_fromm_head: 41,700,000 params, 160.0 MB
+    - emotion_empathy_head: 48,600,000 params, 186.0 MB
+    - meta_integration_head: 14,000,000 params, 54.0 MB
+    - regret_learning_head: 41,700,000 params, 160.0 MB
+    - semantic_surd_head: 27,700,000 params, 106.0 MB
+
+  [neural_analyzer]
+    - neural_bentham: 78,019,458 params, 300.0 MB
+    - neural_emotion: 133,360,719 params, 512.0 MB
+    - neural_regret: 153,610,522 params, 590.0 MB
+    - neural_surd: 13,276,424 params, 51.0 MB
+============================================================
+
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]
+DEBUG:RedHeart.TargetMapping:투영 레이어 생성: 384 -> 768
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 73.73it/s]
+INFO:RedHeart.UnifiedTrainingV2:      - 백본 출력 shape: torch.Size([2, 896])
+INFO:RedHeart.UnifiedTrainingV2:      - 백본 출력 키: ['emotion', 'bentham', 'regret', 'surd']
+INFO:RedHeart.UnifiedTrainingV2:    [STAGE 2] Compute Loss
+INFO:RedHeart.UnifiedTrainingV2:      - 감정 예측 shape: torch.Size([2, 7])
+INFO:RedHeart.UnifiedTrainingV2:    [STAGE 2] Neural Analyzer Processing
+INFO:RedHeart.UnifiedTrainingV2:      - DSP 출력: torch.Size([1])
+ERROR:RedHeart.UnifiedTrainingV2:    neural_emotion 처리 실패: mat1 and mat2 shapes cannot be multiplied (2x896 and 768x2048)
+ERROR:RedHeart.UnifiedTrainingV2:    neural_bentham 처리 실패: mat1 and mat2 shapes cannot be multiplied (2x896 and 768x2048)
+ERROR:RedHeart.UnifiedTrainingV2:    neural_regret 처리 실패: mat1 and mat2 shapes cannot be multiplied (2x896 and 768x2048)
+ERROR:RedHeart.UnifiedTrainingV2:    neural_surd 처리 실패: mat1 and mat2 shapes cannot be multiplied (2x896 and 768x1536)
+INFO:RedHeart.UnifiedTrainingV2:      - advanced_regret 손실: 0.761901
+ERROR:RedHeart.UnifiedTrainingV2:    advanced_bentham 처리 실패: The size of tensor a (7) must match the size of tensor b (10) at non-singleton dimension 1
+INFO:RedHeart.UnifiedTrainingV2:      - 헤드 손실: 0.969631
+INFO:RedHeart.UnifiedTrainingV2:      - 분석기 손실: 0.761901
+INFO:RedHeart.UnifiedTrainingV2:      - 손실값: 0.907312
+INFO:RedHeart.UnifiedTrainingV2:    [STAGE 3] Parameter Update
+INFO:RedHeart.UnifiedTrainingV2:      - 그래디언트 norm: 4.2632
+ERROR:RedHeart.UnifiedTrainingV2:❌ 오류 발생: 'UnifiedTrainingSystemV2' object has no attribute 'use_mixed_precision'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 1135, in run
+    train_loss = self.train_epoch(epoch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 702, in train_epoch
+    loss = self._train_step(batch_data, batch_idx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 950, in _train_step
+    if self.use_mixed_precision and self.scaler is not None:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UnifiedTrainingSystemV2' object has no attribute 'use_mixed_precision'
+INFO:RedHeart.UnifiedTrainingV2:
+🧹 시스템 정리 중...
+INFO:RedHeart.UnifiedTrainingV2:✅ 정리 완료
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 1233, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 1229, in main
+    system.run()
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 1135, in run
+    train_loss = self.train_epoch(epoch)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 702, in train_epoch
+    loss = self._train_step(batch_data, batch_idx)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_training_v2.py", line 950, in _train_step
+    if self.use_mixed_precision and self.scaler is not None:
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UnifiedTrainingSystemV2' object has no attribute 'use_mixed_precision'
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

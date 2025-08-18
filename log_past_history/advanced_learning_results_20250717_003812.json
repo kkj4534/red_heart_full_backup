@@ -1,0 +1,17 @@
+{
+  "learning_config": {
+    "regrets_per_step": 3,
+    "bentham_per_environment": 2,
+    "general_data_cycles": 1,
+    "ebs_data_cycles": 1,
+    "max_scenarios_per_batch": 3
+  },
+  "learning_progress": {
+    "current_cycle": 1,
+    "current_batch": 1,
+    "current_scenario": 3,
+    "total_regrets": 9,
+    "total_bentham_calculations": 27,
+    "total_scenarios_processed": 3,
+    "phase_transitions": 0,
+    "start_time": 

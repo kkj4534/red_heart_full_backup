@@ -1,0 +1,62 @@
+{
+  "real_training_summary": {
+    "total_scenarios": 3,
+    "successful_completions": 3,
+    "success_rate": 100.0,
+    "total_processing_time": 66.50311803817749,
+    "avg_processing_time": 22.16770601272583
+  },
+  "module_performance": {
+    "emotion": {
+      "success_rate": 100.0,
+      "avg_time": 22.148058493932087
+    },
+    "bentham": {
+      "success_rate": 100.0,
+      "avg_time": 0.014369328816731771
+    },
+    "regret": {
+      "success_rate": 100.0,
+      "avg_time": 0.00021807352701822916
+    },
+    "surd": {
+      "success_rate": 100.0,
+      "avg_time": 0.004409074783325195
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "real_test_001",
+      "success": true,
+      "processing_time": 52.972018003463745,
+      "emotion_success": true,
+      "bentham_success": true,
+      "regret_success": true,
+      "surd_success": true,
+      "error": null
+    },
+    {
+      "scenario_id": "real_test_002",
+      "success": true,
+      "processing_time": 0.04681563377380371,
+      "emotion_success": true,
+      "bentham_success": true,
+      "regret_success": true,
+      "surd_success": true,
+      "error": null
+    },
+    {
+      "scenario_id": "real_test_003",
+      "success": true,
+      "processing_time": 13.484284400939941,
+      "emotion_success": true,
+      "bentham_success": true,
+      "regret_success": true,
+      "surd_success": true,
+      "error": null
+    }
+  ],
+  "performance_insights": [
+    "우수한 성능을 보입니다. 더 복잡한 시나리오로 확장 가능합니다."
+  ]
+}

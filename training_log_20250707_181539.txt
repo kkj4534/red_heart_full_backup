@@ -1,0 +1,282 @@
+2025-07-07 18:15:46,671 - IntegratedSystemTrainer - INFO - 통합 시스템 훈련기 초기화 완료 (device: cuda)
+2025-07-07 18:15:46,671 - IntegratedSystemTrainer - INFO - === 통합 시스템 모듈 초기화 시작 ===
+2025-07-07 18:15:46,671 - IntegratedSystemTrainer - INFO - 감정 분석기 초기화...
+2025-07-07 18:15:46,673 - RedHeartLinux.AdvancedEmotion - INFO - 다국어 감정 분석 모델 로딩...
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+2025-07-07 18:15:49,881 - RedHeartLinux.AdvancedEmotion - INFO - 다국어 모델 로드 완료: j-hartmann/emotion-english-distilroberta-base
+2025-07-07 18:15:49,881 - RedHeartLinux.AdvancedEmotion - INFO - 한국어 특화 모델 로딩...
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+2025-07-07 18:15:54,035 - RedHeartLinux.AdvancedEmotion - INFO - 한국어 모델 로드 완료: beomi/KcELECTRA-base-v2022
+2025-07-07 18:15:54,035 - RedHeartLinux.AdvancedEmotion - INFO - 감정 임베딩 모델 로딩...
+2025-07-07 18:15:54,045 - sentence_transformer_singleton - INFO - SentenceTransformerManager 초기화 완료
+2025-07-07 18:15:54,046 - sentence_transformer_singleton - INFO - 새 모델 로드 중: paraphrase-multilingual-mpnet-base-v2_cuda
+2025-07-07 18:15:54,047 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: paraphrase-multilingual-mpnet-base-v2
+2025-07-07 18:16:03,290 - sentence_transformer_singleton - INFO - 모델 로드 완료: paraphrase-multilingual-mpnet-base-v2_cuda
+2025-07-07 18:16:03,290 - sentence_transformer_singleton - INFO - 새 모델 로드 중: jhgan/ko-sroberta-multitask_cuda
+2025-07-07 18:16:03,292 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: jhgan/ko-sroberta-multitask
+2025-07-07 18:16:10,769 - sentence_transformer_singleton - INFO - 모델 로드 완료: jhgan/ko-sroberta-multitask_cuda
+2025-07-07 18:16:10,769 - RedHeartLinux.AdvancedEmotion - INFO - 임베딩 모델 로드 완료 (싱글톤): paraphrase-multilingual-mpnet-base-v2, jhgan/ko-sroberta-multitask
+2025-07-07 18:16:10,769 - RedHeartLinux.AdvancedEmotion - INFO - 생체신호 분석 모델 비활성화됨 (센서 미연결)
+2025-07-07 18:16:10,845 - RedHeartLinux.AdvancedEmotion - INFO - 계층적 감정 모델 초기화 완료
+2025-07-07 18:16:10,846 - RedHeart.AdvancedLLM - INFO - 모델 설정 준비 완료: ['helpingai', 'dialogpt', 'blenderbot']
+2025-07-07 18:16:10,847 - RedHeart.AdvancedLLM - INFO - 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-07-07 18:16:10,847 - RedHeartLinux.AdvancedEmotion - INFO - LLM 엔진 연결 완료
+2025-07-07 18:16:10,847 - RedHeartLinux.AdvancedEmotion - INFO - 고급 감정 분석 시스템이 초기화되었습니다.
+2025-07-07 18:16:10,847 - IntegratedSystemTrainer - INFO - ✅ 감정 분석기 초기화 완료
+2025-07-07 18:16:10,847 - IntegratedSystemTrainer - INFO - 벤담 계산기 초기화...
+Device set to use cpu
+Device set to use cpu
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cpu
+2025-07-07 18:16:15,021 - RedHeart.AdvancedBenthamCalculator - INFO - 트랜스포머 맥락 분석기 초기화 완료
+2025-07-07 18:16:15,021 - RedHeart.AdvancedBenthamCalculator - INFO - 고급 벤담 쾌락 계산기 초기화 완료
+2025-07-07 18:16:15,022 - IntegratedSystemTrainer - INFO - ✅ 벤담 계산기 초기화 완료
+2025-07-07 18:16:15,022 - IntegratedSystemTrainer - INFO - 후회 분석기 초기화...
+2025-07-07 18:16:15,033 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-07-07 18:16:15,488 - advanced_regret_analyzer - INFO - Advanced Regret Analyzer initialized on cuda
+2025-07-07 18:16:15,489 - IntegratedSystemTrainer - INFO - ✅ 후회 분석기 초기화 완료
+2025-07-07 18:16:15,489 - IntegratedSystemTrainer - INFO - SURD 분석기 초기화...
+2025-07-07 18:16:15,538 - RedHeart.AdvancedSURDAnalyzer - INFO - 새로운 고급 SURD 모델 초기화 완료
+2025-07-07 18:16:15,538 - RedHeart.AdvancedSURDAnalyzer - INFO - LLM 엔진 연결 완료
+2025-07-07 18:16:15,538 - RedHeart.AdvancedSURDAnalyzer - INFO - 고급 SURD 분석 시스템 초기화 완료
+2025-07-07 18:16:15,539 - IntegratedSystemTrainer - INFO - ✅ SURD 분석기 초기화 완료
+2025-07-07 18:16:15,539 - IntegratedSystemTrainer - INFO - 경험 데이터베이스 초기화...
+2025-07-07 18:16:15,548 - sentence_transformer_singleton - INFO - 기존 모델 반환: paraphrase-multilingual-mpnet-base-v2_cuda
+2025-07-07 18:16:15,548 - RedHeart.AdvancedExperienceDB - INFO - 임베딩 모델 로드 완료 (싱글톤, 차원: 768)
+2025-07-07 18:16:15,550 - RedHeart.AdvancedExperienceDB - INFO - GPU 메모리: 8.6GB, 사용중: 3.4GB, 여유: 5.2GB
+2025-07-07 18:16:15,960 - RedHeart.AdvancedExperienceDB - INFO - FAISS GPU 인덱스를 사용합니다.
+2025-07-07 18:16:15,961 - RedHeart.AdvancedExperienceDB - INFO - GPU 배치 처리 워커 시작됨 (무한 대기 이슈 해결)
+2025-07-07 18:16:15,976 - RedHeart.AdvancedExperienceDB - INFO - 메타데이터 데이터베이스가 초기화되었습니다.
+2025-07-07 18:16:16,034 - RedHeart.AdvancedExperienceDB - INFO - 신경망 메모리 시스템이 초기화되었습니다.
+2025-07-07 18:16:16,034 - RedHeart.AdvancedExperienceDB - INFO - 학습 시스템들이 초기화되었습니다.
+2025-07-07 18:16:16,034 - RedHeart.AdvancedExperienceDB - INFO - 고급 경험 데이터베이스가 초기화되었습니다.
+2025-07-07 18:16:16,034 - IntegratedSystemTrainer - INFO - ✅ 경험 데이터베이스 초기화 완료
+2025-07-07 18:16:16,034 - IntegratedSystemTrainer - INFO - 벤담 ML 모델 훈련 시작...
+2025-07-07 18:16:16,035 - IntegratedSystemTrainer - INFO - 벤담 ML 모델 훈련 데이터 로딩...
+2025-07-07 18:16:16,326 - IntegratedSystemTrainer - INFO - 벤담 ML 훈련 데이터 40개 로드 완료
+2025-07-07 18:16:16,327 - IntegratedSystemTrainer - INFO - 벤담 contextual 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,384 - IntegratedSystemTrainer - INFO - ✅ contextual 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/contextual_model.joblib
+2025-07-07 18:16:16,384 - IntegratedSystemTrainer - INFO - 벤담 temporal 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,431 - IntegratedSystemTrainer - INFO - ✅ temporal 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/temporal_model.joblib
+2025-07-07 18:16:16,431 - IntegratedSystemTrainer - INFO - 벤담 social 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,483 - IntegratedSystemTrainer - INFO - ✅ social 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/social_model.joblib
+2025-07-07 18:16:16,484 - IntegratedSystemTrainer - INFO - 벤담 ethical 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,536 - IntegratedSystemTrainer - INFO - ✅ ethical 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/ethical_model.joblib
+2025-07-07 18:16:16,537 - IntegratedSystemTrainer - INFO - 벤담 emotional 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,585 - IntegratedSystemTrainer - INFO - ✅ emotional 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/emotional_model.joblib
+2025-07-07 18:16:16,585 - IntegratedSystemTrainer - INFO - 벤담 cognitive 레이어 ML 모델 훈련 중...
+2025-07-07 18:16:16,632 - IntegratedSystemTrainer - INFO - ✅ cognitive 모델 저장: /mnt/c/large_project/linux_red_heart/models/bentham_models/cognitive_model.joblib
+2025-07-07 18:16:16,632 - IntegratedSystemTrainer - INFO - 🎯 벤담 ML 모델 훈련 완료
+2025-07-07 18:16:16,642 - IntegratedSystemTrainer - INFO - ✅ 벤담 ML 모델 훈련 완료
+2025-07-07 18:16:16,643 - IntegratedSystemTrainer - INFO - 훈련 가능한 파라미터 설정 중...
+2025-07-07 18:16:16,644 - IntegratedSystemTrainer - INFO - ✅ emotion_multilingual_direct 파라미터 설정 완료
+2025-07-07 18:16:16,644 - IntegratedSystemTrainer - INFO - ✅ emotion_korean 파라미터 설정 완료
+2025-07-07 18:16:16,645 - IntegratedSystemTrainer - INFO - ✅ emotion_hierarchical_model 파라미터 설정 완료 (69개 파라미터)
+2025-07-07 18:16:16,645 - IntegratedSystemTrainer - INFO - ✅ bentham_neural_predictor 파라미터 설정 완료 (18개 파라미터)
+2025-07-07 18:16:16,646 - IntegratedSystemTrainer - WARNING - ⚠️ regret_loss_fn 모델에 파라미터가 없습니다
+2025-07-07 18:16:16,646 - IntegratedSystemTrainer - INFO - ✅ regret_regret_network 파라미터 설정 완료 (18개 파라미터)
+2025-07-07 18:16:16,647 - IntegratedSystemTrainer - INFO - ✅ surd_new_surd_analyzer 파라미터 설정 완료 (120개 파라미터)
+2025-07-07 18:16:16,647 - IntegratedSystemTrainer - INFO - 총 6개 파라미터 그룹 설정 완료
+2025-07-07 18:16:16,647 - IntegratedSystemTrainer - INFO - 🎯 모든 모듈 초기화 완료
+2025-07-07 18:16:16,648 - IntegratedSystemTrainer - INFO - 🚀 통합 시스템 훈련 시작
+2025-07-07 18:16:16,648 - IntegratedSystemTrainer - INFO - 훈련 데이터 로딩 중...
+2025-07-07 18:16:16,691 - IntegratedSystemTrainer - INFO - ✅ 15개 훈련 샘플 로드 완료
+2025-07-07 18:16:16,691 - IntegratedSystemTrainer - INFO - 📊 총 15개 샘플로 2 에포크 훈련
+2025-07-07 18:16:16,692 - IntegratedSystemTrainer - INFO - 
+==================================================
+2025-07-07 18:16:16,692 - IntegratedSystemTrainer - INFO - 🎯 에포크 1/2
+2025-07-07 18:16:16,692 - IntegratedSystemTrainer - INFO - ==================================================
+2025-07-07 18:16:16,692 - IntegratedSystemTrainer - INFO - 배치 1 처리 중... (3개 샘플)
+2025-07-07 18:16:17,005 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,005 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: My boyfriend (well just call him M) and I are crea...
+2025-07-07 18:16:17,006 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,006 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,113 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,114 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요:  
+
+My really good friend is getting married. Yay!h...
+2025-07-07 18:16:17,114 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,114 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,154 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,155 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: I've been very lonely for a long time, few friends...
+2025-07-07 18:16:17,155 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,155 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,156 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.46초
+2025-07-07 18:16:17,293 - IntegratedSystemTrainer - INFO - 배치 2 처리 중... (3개 샘플)
+2025-07-07 18:16:17,307 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,307 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Alt account because friends know my real one. 
+
+Th...
+2025-07-07 18:16:17,308 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,308 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,318 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,319 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Pretty much was hanging out with two friends. I wa...
+2025-07-07 18:16:17,319 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,319 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,330 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,331 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Okay, some quick backstory. I'm 18 almost 19 in co...
+2025-07-07 18:16:17,331 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,331 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,331 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:17,468 - IntegratedSystemTrainer - INFO - 배치 3 처리 중... (3개 샘플)
+2025-07-07 18:16:17,483 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,483 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: She was constantly lying to me, whether it be out ...
+2025-07-07 18:16:17,483 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,483 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,495 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,496 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Backstory is that we have a mint budget we follow ...
+2025-07-07 18:16:17,496 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,496 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,508 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,508 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Hey guys, I'm sorry if it's obvious one way or the...
+2025-07-07 18:16:17,509 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,509 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,509 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:17,646 - IntegratedSystemTrainer - INFO - 배치 4 처리 중... (3개 샘플)
+2025-07-07 18:16:17,660 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,661 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Some years ago my husband and I built a DIY patio ...
+2025-07-07 18:16:17,661 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,661 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+2025-07-07 18:16:17,673 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,674 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: I don't even know where to begin here. Unlike a lo...
+2025-07-07 18:16:17,674 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,674 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,686 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,686 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Okay so here is the situation. So my girlfriend an...
+2025-07-07 18:16:17,687 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,687 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,687 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:17,824 - IntegratedSystemTrainer - INFO - 배치 5 처리 중... (3개 샘플)
+2025-07-07 18:16:17,838 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,839 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: So...my mom and dad split up over 20 years ago and...
+2025-07-07 18:16:17,839 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,839 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,851 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,851 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Background for reference: I'm a 44 year old marrie...
+2025-07-07 18:16:17,851 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,851 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,863 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:17,863 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: AITA? So in another thread, a woman made an off ha...
+2025-07-07 18:16:17,863 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,864 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:17,864 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:17,869 - IntegratedSystemTrainer - INFO - 💾 체크포인트 저장: training/integrated_outputs/checkpoints/integrated_model_epoch_0_step_5_20250707_181617.pth
+2025-07-07 18:16:18,006 - IntegratedSystemTrainer - INFO - 
+에포크 1 완료:
+2025-07-07 18:16:18,006 - IntegratedSystemTrainer - INFO -   평균 손실: 0.0000
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO -   평균 성공률: 0.00%
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO -   처리된 샘플: 15
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO - 
+==================================================
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO - 🎯 에포크 2/2
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO - ==================================================
+2025-07-07 18:16:18,007 - IntegratedSystemTrainer - INFO - 배치 1 처리 중... (3개 샘플)
+2025-07-07 18:16:18,021 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,022 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: My boyfriend (well just call him M) and I are crea...
+2025-07-07 18:16:18,022 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,022 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,034 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,034 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요:  
+
+My really good friend is getting married. Yay!h...
+2025-07-07 18:16:18,035 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,035 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,046 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,047 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: I've been very lonely for a long time, few friends...
+2025-07-07 18:16:18,047 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,047 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,047 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:18,183 - IntegratedSystemTrainer - INFO - 배치 2 처리 중... (3개 샘플)
+2025-07-07 18:16:18,198 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,198 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Alt account because friends know my real one. 
+
+Th...
+2025-07-07 18:16:18,199 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,199 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,210 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,210 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Pretty much was hanging out with two friends. I wa...
+2025-07-07 18:16:18,210 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,210 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,222 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,222 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Okay, some quick backstory. I'm 18 almost 19 in co...
+2025-07-07 18:16:18,223 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,223 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,223 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:18,364 - IntegratedSystemTrainer - INFO - 배치 3 처리 중... (3개 샘플)
+2025-07-07 18:16:18,378 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,379 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: She was constantly lying to me, whether it be out ...
+2025-07-07 18:16:18,379 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,379 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,391 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,391 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Backstory is that we have a mint budget we follow ...
+2025-07-07 18:16:18,392 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,392 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,404 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,404 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Hey guys, I'm sorry if it's obvious one way or the...
+2025-07-07 18:16:18,404 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,404 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,405 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:18,541 - IntegratedSystemTrainer - INFO - 배치 4 처리 중... (3개 샘플)
+2025-07-07 18:16:18,555 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,556 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Some years ago my husband and I built a DIY patio ...
+2025-07-07 18:16:18,556 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,556 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,568 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,569 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: I don't even know where to begin here. Unlike a lo...
+2025-07-07 18:16:18,569 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,569 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,581 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,581 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Okay so here is the situation. So my girlfriend an...
+2025-07-07 18:16:18,581 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,581 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,582 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:18,719 - IntegratedSystemTrainer - INFO - 배치 5 처리 중... (3개 샘플)
+2025-07-07 18:16:18,733 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,734 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: So...my mom and dad split up over 20 years ago and...
+2025-07-07 18:16:18,734 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,734 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,746 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,746 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: Background for reference: I'm a 44 year old marrie...
+2025-07-07 18:16:18,746 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,746 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,758 - RedHeart.AdvancedLLM - ERROR - LLM 생성 실패: 사용 가능한 모델이 없습니다.
+2025-07-07 18:16:18,758 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 응답이 None - 시스템 정지 필요: AITA? So in another thread, a woman made an off ha...
+2025-07-07 18:16:18,758 - RedHeartLinux.AdvancedEmotion - ERROR - LLM 분석 호출 실패: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,759 - IntegratedSystemTrainer - WARNING - 순전파 실패: LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패
+2025-07-07 18:16:18,759 - IntegratedSystemTrainer - INFO -   손실: 0.0000, 성공률: 0.00%, 시간: 0.04초
+2025-07-07 18:16:18,764 - IntegratedSystemTrainer - INFO - 💾 체크포인트 저장: training/integrated_outputs/checkpoints/integrated_model_epoch_1_step_5_20250707_181618.pth
+2025-07-07 18:16:18,901 - IntegratedSystemTrainer - INFO - 
+에포크 2 완료:
+2025-07-07 18:16:18,902 - IntegratedSystemTrainer - INFO -   평균 손실: 0.0000
+2025-07-07 18:16:18,902 - IntegratedSystemTrainer - INFO -   평균 성공률: 0.00%
+2025-07-07 18:16:18,902 - IntegratedSystemTrainer - INFO -   처리된 샘플: 30
+2025-07-07 18:16:18,908 - IntegratedSystemTrainer - INFO - 💾 체크포인트 저장: training/integrated_outputs/checkpoints/integrated_model_epoch_1_step_final_20250707_181618.pth
+2025-07-07 18:16:18,908 - IntegratedSystemTrainer - INFO - 
+🎉 통합 시스템 훈련 완료!
+2025-07-07 18:16:18,909 - IntegratedSystemTrainer - INFO - 📊 총 처리 샘플: 30
+2025-07-07 18:16:18,909 - IntegratedSystemTrainer - INFO - 💾 최종 체크포인트: training/integrated_outputs/checkpoints/integrated_model_epoch_1_step_final_20250707_181618.pth
+🚀 Red Heart AI 통합 시스템 훈련 시작
+============================================================
+📊 훈련 설정:
+  - 에포크: 2
+  - 학습률: 0.001
+  - 배치 크기: 3
+  - 최대 샘플: 15
+============================================================
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+
+🎉 통합 훈련 성공적으로 완료!
+📊 최종 통계:
+  - 총 에포크: 2
+  - 총 샘플: 30
+  - 총 스텝: 10
+  - 평균 손실: 0.0000
+  - 평균 성공률: 0.00%
+  - 평균 처리시간: 0.08초
+📄 훈련 요약 저장: training/integrated_outputs/training_summary.json

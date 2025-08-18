@@ -1,0 +1,15 @@
+{
+  "collection_date": "20250619_205633",
+  "total_analyses": 5,
+  "total_scenarios": 5,
+  "works_by_era": {
+    "일제강점기": 5
+  },
+  "conflict_types": {
+    "social_conflict": 3,
+    "interpersonal_conflict": 2
+  },
+  "validation_summary": {
+    "avg_reliability": 0.85
+  }
+}

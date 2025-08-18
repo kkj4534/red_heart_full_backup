@@ -1,0 +1,326 @@
+[
+  {
+    "id": "korean_lit_001",
+    "title": "운수좋은날 - 김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있...",
+    "description": "문학 작품 『운수좋은날』(현진건, 1924)의 상황:\n\n김첨지가 운수좋은 날에 벌어들인 돈으로 아내에게 설렁탕을 사주려 했으나 이미 아내가 죽어있음을 발견하는 상황\n\n인물의 심리: 겉으로는 거친 말을 하지만 속으로는 아내를 걱정하고 사랑하는 복잡한 심리. 가난에 찌든 삶에서도 가족에 대한 애정을 간직한 인물\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "운수좋은날 (현진건)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "compassion",
+      "sadness",
+      "despair",
+      "poverty"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "운수좋은날",
+        "author": "현진건",
+        "genre": "단편소설",
+        "publication_year": "1924",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "슬픔",
+        "절망",
+        "아이러니",
+        "연민",
+        "동정"
+      ],
+      "theme": "일제강점기 하층민의 절박하고 비참한 삶, 사회적 불평등과 빈곤 문제",
+      "literary_techniques": [
+        "반전기법",
+        "사실주의적 묘사",
+        "반어법",
+        "대조법"
+      ],
+      "source_reliability": 0.9
+    }
+  },
+  {
+    "id": "korean_lit_002",
+    "title": "메밀꽃 필 무렵 - 허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해...",
+    "description": "문학 작품 『메밀꽃 필 무렵』(이효석, 1936)의 상황:\n\n허생원과 동이 사이의 과거와 현재를 잇는 부자 관계의 발견과 화해\n\n인물의 심리: 과거 방탕했던 자신을 성찰하며 아들과의 만남에서 복잡한 감정을 느끼는 허생원의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "interpersonal_relations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "메밀꽃 필 무렵 (이효석)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "연인",
+      "친구",
+      "이웃"
+    ],
+    "ethical_themes": [
+      "longing"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "메밀꽃 필 무렵",
+        "author": "이효석",
+        "genre": "단편소설",
+        "publication_year": "1936",
+        "era": "일제강점기"
+      },
+      "conflict_type": "interpersonal_conflict",
+      "emotional_elements": [
+        "그리움",
+        "회한",
+        "부성애",
+        "화해",
+        "향수"
+      ],
+      "theme": "인간적 정감과 따뜻한 인정, 향토적 정서와 서정성",
+      "literary_techniques": [
+        "서정적 묘사",
+        "회상기법",
+        "토속적 언어",
+        "공간의 상징성"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_003",
+    "title": "동백꽃 - 순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해...",
+    "description": "문학 작품 『동백꽃』(김유정, 1936)의 상황:\n\n순박한 소년과 영리한 소녀 점순이 사이의 풋사랑과 오해\n\n인물의 심리: 점순이의 적극적 표현을 이해하지 못하는 순박한 소년의 심리와 간접적으로 마음을 표현하는 점순이의 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "interpersonal_relations",
+    "source_type": "korean_literature_analysis",
+    "source_work": "동백꽃 (김유정)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "상호 이해와 소통을 통한 해결을 추구한다"
+      },
+      {
+        "id": "option_2",
+        "text": "각자의 입장을 존중하며 타협점을 찾는다"
+      },
+      {
+        "id": "option_3",
+        "text": "명확한 원칙과 기준에 따라 판단한다"
+      },
+      {
+        "id": "option_4",
+        "text": "시간의 흐름에 맡기며 자연스러운 해결을 기다린다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "연인",
+      "친구",
+      "이웃"
+    ],
+    "ethical_themes": [
+      "romantic_love",
+      "love",
+      "jealousy"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.7,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "동백꽃",
+        "author": "김유정",
+        "genre": "단편소설",
+        "publication_year": "1936",
+        "era": "일제강점기"
+      },
+      "conflict_type": "interpersonal_conflict",
+      "emotional_elements": [
+        "풋사랑",
+        "질투",
+        "오해",
+        "순수함",
+        "해학"
+      ],
+      "theme": "순수한 사랑과 농촌의 향토적 정서, 해학과 풍자",
+      "literary_techniques": [
+        "1인칭 서술",
+        "해학적 표현",
+        "방언 사용",
+        "상징기법"
+      ],
+      "source_reliability": 0.85
+    }
+  },
+  {
+    "id": "korean_lit_004",
+    "title": "상록수 - 농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등...",
+    "description": "문학 작품 『상록수』(심훈, 1935)의 상황:\n\n농촌 계몽을 위해 헌신하는 지식인들과 현실의 벽 사이의 갈등\n\n인물의 심리: 농촌 현실을 개선하려는 이상과 현실의 한계 사이에서 갈등하는 지식인들의 복잡한 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "상록수 (심훈)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "hope"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.9999999999999999,
+    "controversy_score": 0.3,
+    "metadata": {
+      "work_info": {
+        "title": "상록수",
+        "author": "심훈",
+        "genre": "장편소설",
+        "publication_year": "1935",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "의지",
+        "희생",
+        "좌절",
+        "희망",
+        "연대감"
+      ],
+      "theme": "농촌 계몽과 사회 개혁 의지, 지식인의 사회적 책임",
+      "literary_techniques": [
+        "전지적 작가 시점",
+        "교육소설적 성격",
+        "계몽주의적 문체"
+      ],
+      "source_reliability": 0.8
+    }
+  },
+  {
+    "id": "korean_lit_005",
+    "title": "감자 - 극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제...",
+    "description": "문학 작품 『감자』(김동인, 1925)의 상황:\n\n극한 빈곤 상황에서 여성이 겪는 도덕적 타락과 생존의 문제\n\n인물의 심리: 가난으로 인해 도덕적 타락의 길로 빠져드는 복녀의 비극적 심리\n\n이 상황에서 등장인물이 보이는 감정과 행동을 어떻게 이해하고 평가해야 할까요?",
+    "category": "social_justice",
+    "source_type": "korean_literature_analysis",
+    "source_work": "감자 (김동인)",
+    "options": [
+      {
+        "id": "option_1",
+        "text": "사회 구조적 문제를 비판하고 개선 방안을 모색한다"
+      },
+      {
+        "id": "option_2",
+        "text": "개인의 노력과 의지를 통한 극복을 강조한다"
+      },
+      {
+        "id": "option_3",
+        "text": "현실을 수용하며 적응하는 태도를 취한다"
+      },
+      {
+        "id": "option_4",
+        "text": "집단적 연대를 통한 문제 해결을 추구한다"
+      }
+    ],
+    "stakeholders": [
+      "주인공",
+      "가족구성원",
+      "사회",
+      "공동체",
+      "지배계층"
+    ],
+    "ethical_themes": [
+      "despair",
+      "poverty"
+    ],
+    "cultural_context": "Korean Literature - 일제강점기",
+    "complexity_score": 0.8999999999999999,
+    "controversy_score": 0.4,
+    "metadata": {
+      "work_info": {
+        "title": "감자",
+        "author": "김동인",
+        "genre": "단편소설",
+        "publication_year": "1925",
+        "era": "일제강점기"
+      },
+      "conflict_type": "social_conflict",
+      "emotional_elements": [
+        "절망",
+        "굴욕",
+        "생존본능",
+        "도덕적갈등",
+        "비극"
+      ],
+      "theme": "환경 결정론적 사상, 극한 빈곤이 인간에게 미치는 영향",
+      "literary_techniques": [
+        "자연주의 기법",
+        "환경묘사",
+        "심리묘사"
+      ],
+      "source_reliability": 0.85
+    }
+  }
+]

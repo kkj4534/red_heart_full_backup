@@ -1,0 +1,236 @@
+[
+  {
+    "id": "kor_0",
+    "title": "효도 vs 개인의 꿈",
+    "description": "부모님이 의대 진학을 강력히 원하시지만, 당신의 꿈은 예술가입니다. 어떻게 해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "filial_piety",
+      "individual_freedom",
+      "family_expectations"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "filial_piety",
+        "individual_freedom",
+        "family_expectations"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_1",
+    "title": "선후배 관계에서의 정의",
+    "description": "선배가 후배에게 부당한 일을 시키는 것을 목격했습니다. 선후배 관계와 정의 중 무엇을 우선할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "상사"
+    ],
+    "ethical_themes": [
+      "hierarchy",
+      "justice",
+      "social_harmony"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "hierarchy",
+        "justice",
+        "social_harmony"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_2",
+    "title": "체면 vs 솔직함",
+    "description": "실수로 큰 손해를 끼쳤지만, 인정하면 체면이 크게 깎입니다. 어떻게 하시겠습니까?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "face_saving",
+      "honesty",
+      "responsibility"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "face_saving",
+        "honesty",
+        "responsibility"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_3",
+    "title": "집단 조화 vs 개인 의견",
+    "description": "팀 회의에서 모든 사람이 잘못된 결정에 동의했습니다. 혼자서라도 반대 의견을 말해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "group_harmony",
+      "individual_opinion",
+      "courage"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "group_harmony",
+        "individual_opinion",
+        "courage"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_4",
+    "title": "은혜 vs 객관적 판단",
+    "description": "큰 은혜를 받은 분이 부정한 일을 저지르는 것을 알게 되었습니다. 어떻게 행동해야 할까요?",
+    "category": "general",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "gratitude",
+      "objectivity",
+      "moral_courage"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "gratitude",
+        "objectivity",
+        "moral_courage"
+      ],
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "kor_5",
+    "title": "전통 vs 진보",
+    "description": "오래된 가족 전통이 현대적 가치와 충돌합니다. 어느 쪽을 선택하시겠습니까?",
+    "category": "relationship",
+    "source_type": "korean_cultural",
+    "options": [
+      {
+        "id": "traditional",
+        "text": "전통적/기존 방식을 따른다"
+      },
+      {
+        "id": "modern",
+        "text": "개인적/현대적 가치를 선택한다"
+      },
+      {
+        "id": "balance",
+        "text": "두 가치의 균형을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "tradition",
+      "progress",
+      "cultural_change"
+    ],
+    "cultural_context": "Korean Traditional Values",
+    "complexity_score": 0.8,
+    "controversy_score": 0.7,
+    "metadata": {
+      "cultural_focus": [
+        "tradition",
+        "progress",
+        "cultural_change"
+      ],
+      "language": "Korean"
+    }
+  }
+]

@@ -1,0 +1,76 @@
+[
+  {
+    "id": "ai_full_raw_data_by_claude_210_0",
+    "title": "** 2024-03-15 / 오랜 친구가 배우자를 속이고 있다는 사실을 고백함",
+    "description": "사례 1: 디지털 시대의 프라이버시 1. 상황 설명 날짜/시간: 2016-02-16 09:00 상황 제목: 애플 vs. FBI: 샌 버나디노 테러리스트의 아이폰 잠금 해제 요청 상황 설명: 2015년 12월 2일, 캘리포니아 샌 버나디노에서 발생한 테러 공격 후, FBI는 테러리스트 중 한 명이 사용했던 iPhone 5C의 잠금을 해제해달라고 애플에 요청했습니다. FBI는 수사에 중요한 정보가 포함되어 있을 수 있다고 주장했지만, 애플은 백도어를 만드는 것이 모든 아이폰 사용자의 보안을 위협할 수 있다며 거부했습니다. 이는 국가 안보와 개인 프라이버시 사이의 중대한 충돌을 야기했습니다. 관련된 핵심 가치/원칙: 국가 안보와 테러 방지 개인 프라이버시 및 디지털 권리 기업의 사회적 책임 법적 의무와 기술적 한계 선례 설정의 위험성 2. 의사결정 과정 선택 가능한 옵션들: FBI의 요청을 수락하고 백도어를 개발 FBI의 요청을 거부하고 법적 대응 제한적 도움을 제공하되 백도어는 만들지 않음 제3자의 중재를 통한 해결책 모색",
+    "category": "legal",
+    "source_type": "ai_generated_full",
+    "source_file": "raw_data_by_claude_210.txt",
+    "options": [
+      {
+        "id": "approve",
+        "text": "이 행동을 지지한다"
+      },
+      {
+        "id": "disapprove",
+        "text": "이 행동을 반대한다"
+      },
+      {
+        "id": "neutral",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "부하",
+      "사회"
+    ],
+    "ethical_themes": [
+      "justice",
+      "responsibility",
+      "freedom"
+    ],
+    "cultural_context": "Korean Contemporary",
+    "complexity_score": 0.85,
+    "controversy_score": 0.4,
+    "metadata": {
+      "source_file": "raw_data_by_claude_210.txt",
+      "language": "Korean"
+    }
+  },
+  {
+    "id": "ai_full_raw_data_novel_123_0",
+    "title": "** 사쿠라이가 키요타카의 불법 체류자 신분을 알게 된 후 자신의 위험을 감수하고 도움을 주기로 결정",
+    "description": "### 사례 1: 사쿠라이의 불법체류자 보호 결정 ** 사쿠라이가 키요타카의 불법 체류자 신분을 알게 된 후 자신의 위험을 감수하고 도움을 주기로 결정 **결정 옵션:** 1) 당국에 신고하기 2) 모른 척하고 지나가기 3) 자신의 위험을 감수하고 적극적 도움 제공하기 **최종 선택:** 3) 자신의 위험을 감수하고 적극적 도움 제공하기 **결정 이유:** 인간적 연민과 개인의 가치를 법적 지위보다 중요하게 여기는 윤리적 판단",
+    "category": "moral_personal",
+    "source_type": "ai_generated_full",
+    "source_file": "raw_data_novel_123.txt",
+    "options": [
+      {
+        "id": "approve",
+        "text": "이 행동을 지지한다"
+      },
+      {
+        "id": "disapprove",
+        "text": "이 행동을 반대한다"
+      },
+      {
+        "id": "neutral",
+        "text": "상황에 따라 다르다"
+      }
+    ],
+    "stakeholders": [
+      "본인"
+    ],
+    "ethical_themes": [
+      "freedom"
+    ],
+    "cultural_context": "Korean Contemporary",
+    "complexity_score": 0.65,
+    "controversy_score": 0.4,
+    "metadata": {
+      "source_file": "raw_data_novel_123.txt",
+      "language": "Korean"
+    }
+  }
+]

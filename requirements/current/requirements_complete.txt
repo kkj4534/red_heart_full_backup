@@ -1,0 +1,247 @@
+# Red Heart AI - 완전한 의존성 목록
+# 생성일: 2025-08-18
+# 
+# ⚠️ 중요: venv와 conda 환경이 분리되어 있음
+# - venv: 일반 Python 패키지 (172개)
+# - conda: FAISS GPU 및 CUDA 런타임 (105개)
+#
+# 설치 순서:
+# 1. conda 환경 생성: conda env create -f requirements_conda_complete.yml
+# 2. venv 활성화: source red_heart_env/bin/activate
+# 3. pip 설치: pip install -r requirements_venv_complete.txt
+
+# ===============================================
+# VENV 전용 패키지 (pip install)
+# ===============================================
+
+# === 핵심 ML/AI 프레임워크 ===
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
+triton==3.1.0
+transformers==4.53.1
+sentence-transformers==5.0.0
+accelerate==1.8.1
+bitsandbytes==0.47.0
+llama_cpp_python==0.3.12
+
+# === 과학 계산 ===
+numpy==1.26.4  # FAISS 호환성 위해 고정
+scipy==1.16.0
+pandas==2.3.0
+scikit-learn==1.7.0
+sympy==1.13.1
+mpmath==1.3.0
+
+# === NLP 한국어 ===
+konlpy==0.6.0
+kss==6.0.0
+soynlp==0.0.493
+koparadigm==0.10.0
+kollocate==0.0.2
+hanja==0.13.3
+tossi==0.3.1
+jamo==0.4.1
+hangul-jamo==1.0.1
+pecab==1.0.8
+cmudict==1.1.1
+
+# === NLP 일반 ===
+nltk==3.9.1
+tokenizers==0.21.2
+sentencepiece==0.2.0
+sacremoses==0.1.1
+Whoosh==2.7.4
+Unidecode==1.4.0
+emoji==1.2.0
+
+# === 시각화 ===
+matplotlib==3.10.3
+seaborn==0.13.2
+plotly==5.24.1
+contourpy==1.3.2
+kiwisolver==1.4.8
+fonttools==4.58.5
+cycler==0.12.1
+
+# === 웹/API ===
+fastapi==0.115.6
+uvicorn==0.34.0
+starlette==0.41.3
+aiohttp==3.11.11
+httpx==0.28.1  # venv 버전 우선
+httpcore==1.0.9  # venv 버전 우선
+h11==0.16.0  # venv 버전 우선
+h2==4.2.0  # venv 버전 우선
+hpack==4.1.0  # venv 버전 우선
+hyperframe==6.1.0  # venv 버전 우선
+anyio==4.9.0
+sniffio==1.3.1
+aiohappyeyeballs==2.6.1
+aiosignal==1.4.0
+
+# === 데이터 처리 ===
+huggingface-hub==0.33.2
+hf-xet==1.1.5
+pyarrow==21.0.0
+pillow==11.2.1
+lxml==6.0.0
+beautifulsoup4==4.13.4
+bs4==0.0.2
+soupsieve==2.7
+xlrd==1.2.0
+
+# === 유틸리티 ===
+tqdm==4.67.1
+rich==14.0.0
+Pygments==2.19.2
+python-dotenv==1.1.1
+psutil==7.0.0
+joblib==1.5.1
+filelock==3.18.0
+networkx==3.5
+Distance==0.1.3
+RapidFuzz==3.13.0
+regex==2024.11.6
+json_repair==0.47.7  # venv 버전 우선
+
+# === 타입/검증 ===
+pydantic==2.11.7
+pydantic_core==2.33.2
+annotated-types==0.7.0
+typing_extensions==4.12.2  # venv 버전 우선
+typing-inspection==0.4.1
+attrs==25.3.0
+
+# === 개발 도구 ===
+pytest==8.3.4
+pytest-cov==6.2.1
+coverage==7.10.3
+coveralls==4.0.1
+black==24.10.0
+isort==5.13.2
+
+# === SpaCy 관련 (conda와 공유) ===
+# spacy는 conda에서 설치됨
+spacy-legacy==3.0.12
+spacy-loggers==1.0.5
+thinc==8.3.4
+blis==1.2.1
+catalogue==2.0.10
+cymem==2.0.11
+murmurhash==1.0.13
+preshed==3.0.10
+srsly==2.5.1
+wasabi==1.1.3
+weasel==0.4.1
+confection==0.1.5
+cloudpathlib==0.21.1
+smart_open==7.3.0.post1
+marisa-trie==1.2.1
+langcodes==3.5.0
+language_data==1.3.0
+
+# === 기타 의존성 ===
+certifi==2025.6.15
+charset-normalizer==3.4.2
+idna==3.10  # venv 버전 우선
+requests==2.32.4
+urllib3==2.5.0
+click==8.2.1
+typer==0.16.0
+shellingham==1.5.4
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+PyYAML==5.1.2  # venv 버전 우선
+markdown-it-py==3.0.0
+mdurl==0.1.2
+packaging==25.0
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+pytz==2025.2
+tzdata==2025.2  # venv 버전 우선
+six==1.17.0
+wrapt==1.17.2
+setuptools==70.2.0  # venv 버전 우선
+frozenlist==1.7.0
+multidict==6.6.4
+yarl==1.20.1
+bidict==0.23.1
+diskcache==5.6.3
+docopt==0.6.2
+fsspec==2025.5.1
+distro==1.9.0
+tenacity==9.1.2
+importlib_metadata==8.7.0
+importlib_resources==6.5.2
+zipp==3.23.0
+pathspec==0.12.1
+platformdirs==4.3.8
+pluggy==1.6.0
+iniconfig==2.1.0
+mypy_extensions==1.1.0
+propcache==0.3.2
+threadpoolctl==3.6.0
+jiter==0.10.0
+anthropic==0.64.0
+safetensors==0.5.3
+
+# === NVIDIA CUDA 라이브러리 (자동 설치) ===
+nvidia-cublas-cu11==11.11.3.6
+nvidia-cublas-cu12==12.1.3.1
+nvidia-cuda-cupti-cu11==11.8.87
+nvidia-cuda-cupti-cu12==12.1.105
+nvidia-cuda-nvrtc-cu11==11.8.89
+nvidia-cuda-nvrtc-cu12==12.1.105
+nvidia-cuda-runtime-cu11==11.8.89
+nvidia-cuda-runtime-cu12==12.1.105
+nvidia-cudnn-cu11==8.7.0.84
+nvidia-cudnn-cu12==9.1.0.70
+nvidia-cufft-cu11==10.9.0.58
+nvidia-cufft-cu12==11.0.2.54
+nvidia-cufile-cu12==1.11.1.6
+nvidia-curand-cu11==10.3.0.86
+nvidia-curand-cu12==10.3.2.106
+nvidia-cusolver-cu11==11.4.1.48
+nvidia-cusolver-cu12==11.4.5.107
+nvidia-cusparse-cu11==11.7.5.86
+nvidia-cusparse-cu12==12.1.0.106
+nvidia-cusparselt-cu12==0.7.1
+nvidia-nccl-cu11==2.19.3
+nvidia-nccl-cu12==2.21.5
+nvidia-nvjitlink-cu12==12.6.85
+nvidia-nvtx-cu11==11.8.86
+nvidia-nvtx-cu12==12.1.105
+
+# === JPype (Java 연동) ===
+jpype1==1.6.0
+
+# ===============================================
+# CONDA 전용 패키지
+# ===============================================
+# 아래 패키지들은 conda 환경에서 설치됨:
+#
+# faiss-gpu==1.11.0  # CUDA 11.4.4 버전
+# cuda-cudart==11.8.89
+# mkl==2023.0.0
+# spacy==3.8.7
+# 
+# conda 환경 빌드 관련:
+# _libgcc_mutex==0.1
+# _openmp_mutex==4.5
+# intel-openmp==2023.1.0
+# libblas, libcblas, liblapack (OpenBLAS)
+# libfaiss, libcublas
+# tbb==2021.13.0
+#
+# ===============================================
+# 버전 충돌 해결 정책
+# ===============================================
+# venv와 conda 간 버전 충돌 시 우선순위:
+# 1. HTTP 관련: venv 버전 사용 (최신)
+#    - h11: 0.16.0 (venv) > 0.9.0 (conda)
+#    - httpx: 0.28.1 (venv) > 0.13.3 (conda)
+# 2. 빌드 도구: 각 환경별 독립 관리
+#    - setuptools: venv(70.2.0), conda(80.9.0)
+# 3. 기타: 더 높은 버전 사용
+#    - PyYAML: 6.0.2 (conda) > 5.1.2 (venv) - 주의 필요
+#    - typing-extensions: 4.14.1 (conda) > 4.12.2 (venv)

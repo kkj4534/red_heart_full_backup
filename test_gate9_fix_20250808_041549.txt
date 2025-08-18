@@ -1,0 +1,429 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 800M 통합 시스템 테스트 모드...
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 0.000GB (0.0%)
+   📦 예약됨: 0.000GB
+   💚 여유: 8.000GB
+   🔄 config.py 측정: 0.0%
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/__init__.py:1021: FutureWarning: `torch.distributed.reduce_op` is deprecated, please use `torch.distributed.ReduceOp` instead
+  return isinstance(obj, torch.Tensor)
+   🧠 GPU 텐서: 0개, 0.000GB
+   🗂️ 캐시된 메모리: 0.000GB
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+Device set to use cuda:0
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+Some weights of ElectraForSequenceClassification were not initialized from the model checkpoint at beomi/KcELECTRA-base-v2022 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Device set to use cuda:0
+bentham_calculator CPU 고정 전환 경고: name 'torch' is not defined
+parameters() 없는 모델 - 700MB로 추정: AdvancedBenthamCalculator
+Device set to use cuda:0
+Device set to use cuda:0
+언로드 요청된 모델이 레지스트리에 없음: semantic_analyzer
+parameters() 없는 모델 - 700MB로 추정: AdvancedMultiLevelSemanticAnalyzer
+parameters() 없는 모델 - 700MB로 추정: AdvancedRegretAnalyzer
+parameters() 없는 모델 - 0MB 처리: HierarchicalPatternStructure
+meta_integration CPU 고정 전환 경고: name 'torch' is not defined
+parameters() 없는 모델 - 700MB로 추정: AdvancedMetaIntegrationSystem
+⚠️ 클래스 'AdvancedSurdAnalyzer' 대신 'AdvancedSURDAnalyzer' 사용 (유사도 기반)
+parameters() 없는 모델 - 700MB로 추정: AdvancedSURDAnalyzer
+⚠️ 클래스 'AdvancedBayesianInferenceModule' 대신 'AdvancedBayesianInference' 사용 (유사도 기반)
+parameters() 없는 모델 - 0MB 처리: AdvancedBayesianInference
+parameters() 없는 모델 - 0MB 처리: AdvancedLLMEngine
+experience_database CPU 고정 전환 경고: name 'torch' is not defined
+parameters() 없는 모델 - 700MB로 추정: AdvancedExperienceDatabase
+parameters() 없는 모델 - 0MB 처리: AdvancedHierarchicalEmotionSystem
+parameters() 없는 모델 - 0MB 처리: AdvancedUsagePatternAnalyzer
+⚠️ meta_integration 이미 등록됨 (동일 타입: AdvancedMetaIntegrationSystem), 스킵
+⚠️ GPU 사용률이 낮습니다 (47.5%) - 더 적극적 로딩 필요
+✅ 전역 모듈 순차 초기화 완료
+🔍 [전역 모듈 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 3.803GB (47.5%)
+   📦 예약됨: 3.895GB
+   💚 여유: 4.196GB
+   🔄 config.py 측정: 47.5%
+   🧠 GPU 텐서: 1816개, 3.773GB
+   📋 큰 텐서 TOP 5:
+      1. [50265, 1024] (torch.float32) - 196.3MB
+      2. [54343, 768] (torch.float32) - 159.2MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [50265, 768] (torch.float32) - 147.3MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.091GB
+   🔝 새로운 Peak 메모리: 3.807GB (at 전역 모듈 초기화 후)
+🔍 [백본 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.524GB (69.1%)
+   📦 예약됨: 5.670GB
+   💚 여유: 2.475GB
+   🔄 config.py 측정: 69.1%
+   🧠 GPU 텐서: 2060개, 5.458GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.146GB
+   🔝 새로운 Peak 메모리: 5.524GB (at 백본 초기화 후)
+🔍 [스왑 매니저 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.524GB (69.1%)
+   📦 예약됨: 5.670GB
+   💚 여유: 2.475GB
+   🔄 config.py 측정: 69.1%
+   🧠 GPU 텐서: 2060개, 5.458GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.146GB
+🔍 [헤드 호환성 매니저 생성 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.524GB (69.1%)
+   📦 예약됨: 5.670GB
+   💚 여유: 2.475GB
+   🔄 config.py 측정: 69.1%
+   🧠 GPU 텐서: 2060개, 5.458GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.146GB
+🚨 헤드 초기화 시작 - 메모리 폭발 의심 구간!
+🔍 head_compatibility_manager = <class 'head_compatibility_interface.HeadCompatibilityManager'>
+🔍 head_compatibility_manager.initialized = False
+🔍 initialize_all_heads() 호출 직전...
+⚠️ 메모리 관리 주의: 70.0% (85% 초과)
+📊 추가 활용 가능: 현재 72.7% (목표 82%)
+🔍 initialize_all_heads() 호출 완료!
+🚨 헤드 초기화 완료 - 메모리 상태 확인 중...
+🔍 [모든 헤드 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.818GB (72.7%)
+   📦 예약됨: 5.963GB
+   💚 여유: 2.182GB
+   🔄 config.py 측정: 72.7%
+   🧠 GPU 텐서: 2105개, 5.750GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.145GB
+   🔝 새로운 Peak 메모리: 5.818GB (at 모든 헤드 초기화 후)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 72.7% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=5.82GB, 예약=5.96GB
+🗑️ 총 330개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+모델 가비지 컬렉션 감지: discovered_ModuleDict_12MB_131187249542400 - 레지스트리 정리
+모델 가비지 컬렉션 감지: discovered_MetaIntegrationNetwork_23MB_131188658344096 - 레지스트리 정리
+🧹 가비지 컬렉션 1회: 1075개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 72.7% → 72.4% (+0.3%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+🔍 [자동 메모리 정리 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.794GB (72.4%)
+   📦 예약됨: 5.943GB
+   💚 여유: 2.206GB
+   🔄 config.py 측정: 72.4%
+   🧠 GPU 텐서: 2056개, 5.727GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.150GB
+🔍 [시너지 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 5.794GB (72.4%)
+   📦 예약됨: 5.943GB
+   💚 여유: 2.206GB
+   🔄 config.py 측정: 72.4%
+   🧠 GPU 텐서: 2056개, 5.727GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50265, 1024] (torch.float32) - 196.3MB
+      3. [54343, 768] (torch.float32) - 159.2MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [50265, 768] (torch.float32) - 147.3MB
+   🗂️ 캐시된 메모리: 0.150GB
+🔍 [학습 시스템 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.515GB (93.9%)
+   📦 예약됨: 7.697GB
+   💚 여유: 0.484GB
+   🔄 config.py 측정: 93.9%
+   🧠 GPU 텐서: 2300개, 7.412GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.182GB
+   ⚠️ WARNING: 높은 메모리 사용률 (93.9%)
+   🔝 새로운 Peak 메모리: 7.515GB (at 학습 시스템 초기화 후)
+🔍 [패턴 분석기 초기화 후] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.515GB (93.9%)
+   📦 예약됨: 7.697GB
+   💚 여유: 0.484GB
+   🔄 config.py 측정: 93.9%
+   🧠 GPU 텐서: 2300개, 7.412GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.182GB
+   ⚠️ WARNING: 높은 메모리 사용률 (93.9%)
+훈련 중 오류 발생: 등록되지 않은 헤드: emotion_empathy_head
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1602, in train_unified_system
+    await self._load_active_heads(active_heads)
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1675, in _load_active_heads
+    await self.swap_manager.load_head_to_gpu(head_type.value)
+  File "/mnt/c/large_project/linux_red_heart/dynamic_swap_manager.py", line 487, in load_head_to_gpu
+    raise ValueError(f"등록되지 않은 헤드: {head_name}")
+ValueError: 등록되지 않은 헤드: emotion_empathy_head
+
+🔍 에러 타입: ValueError
+📍 에퟼크: 1/1, 배치: 0
+Python 통합 학습 오류: 등록되지 않은 헤드: emotion_empathy_head
+😨 상세 에러 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1568, in _run_python_training
+    await self.learning_system.train_unified_system(
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1602, in train_unified_system
+    await self._load_active_heads(active_heads)
+  File "/mnt/c/large_project/linux_red_heart/unified_learning_system.py", line 1675, in _load_active_heads
+    await self.swap_manager.load_head_to_gpu(head_type.value)
+  File "/mnt/c/large_project/linux_red_heart/dynamic_swap_manager.py", line 487, in load_head_to_gpu
+    raise ValueError(f"등록되지 않은 헤드: {head_name}")
+ValueError: 등록되지 않은 헤드: emotion_empathy_head
+
+🔍 에러 타입: ValueError
+📍 num_epochs: 1, num_batches: 1
+🔍 [초기화 시작 전] GPU 메모리 상태:
+   💾 총 메모리: 8.00GB
+   📊 할당됨: 7.515GB (93.9%)
+   📦 예약됨: 7.697GB
+   💚 여유: 0.484GB
+   🔄 config.py 측정: 93.9%
+   🧠 GPU 텐서: 2300개, 7.412GB
+   📋 큰 텐서 TOP 5:
+      1. [50000, 1280] (torch.float32) - 244.1MB
+      2. [50000, 1280] (torch.float32) - 244.1MB
+      3. [50265, 1024] (torch.float32) - 196.3MB
+      4. [54343, 768] (torch.float32) - 159.2MB
+      5. [54343, 768] (torch.float32) - 159.2MB
+   🗂️ 캐시된 메모리: 0.182GB
+   ⚠️ WARNING: 높은 메모리 사용률 (93.9%)
+🔍 fast_init_mode = False
+🌐 전역 모듈 순차 초기화 시작 - MasterMemoryOrchestrator 관리
+⚠️ GPU 메모리 부족 - 정리 시작 (사용률: 93.9%, 여유: 309.5625MB)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 93.9% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=7.52GB, 예약=7.70GB
+🗑️ 총 415개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 257개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 93.9% → 93.9% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+⚠️ 메모리 사용률이 여전히 높음 - 추가 조치 필요
+❌ GPU 메모리 공간 확보 실패 - 필요: 900MB, 여유: 309.5625MB
+[GPU BLOCKING] ❌ transformers.models.auto.tokenization_auto_opus-mt-ko-en 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.models.auto.tokenization_auto_opus-mt-ko-en
+[GPU BLOCKING] ❌ translator_opus-mt-ko-en 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: translator_opus-mt-ko-en
+⚠️ translator 이미 등록됨 (동일 타입: LocalTranslator), 스킵
+⚠️ GPU 메모리 부족 - 정리 시작 (사용률: 93.9%, 여유: 309.5625MB)
+🚨 긴급 GPU 메모리 정리 시작
+🚨 초기 GPU 메모리: 93.9% 사용 중
+🔍 실제 GPU 상주 모델 전면 스캔 시작...
+🔍 PyTorch 실제 메모리: 할당=7.52GB, 예약=7.70GB
+🗑️ 총 415개 모델 중 CRITICAL 외 모든 모델 언로드 시작
+🧹 최종 전면 메모리 정리 시작...
+🧹 가비지 컬렉션 1회: 1837개 객체 정리
+🧹 가비지 컬렉션 2회: 0개 객체 정리
+🧹 가비지 컬렉션 3회: 0개 객체 정리
+🚀 CUDA 캐시 완전 정리 완료
+✅ 긴급 정리 완료:
+   📊 메모리 사용률: 93.9% → 93.9% (+0.0%)
+   🗑️ 언로드된 모델: 0개
+   💾 해제된 메모리: 0MB
+⚠️ 메모리 사용률이 여전히 높음 - 추가 조치 필요
+❌ GPU 메모리 공간 확보 실패 - 필요: 700MB, 여유: 309.5625MB
+[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+[DSM] GPU 사용률 93.9%로 목표 85.0% 달성 실패
+스왑 공간 부족: temp_model_1754594861 (필요: 1000MB, 확보: FalseMB)
+비동기 실행 타임아웃
+스왑 대기 타임아웃: temp_model_1754594861 (최대 대기 시간 30.0초 초과)
+[GPU BLOCKING] ❌ transformers.pipelines.base_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.pipelines.base_emotion-english-distilroberta-base
+[GPU BLOCKING] ❌ transformers.pipelines_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+⚠️ 메모리 확보 실패했지만 선택 모듈이므로 계속 진행: transformers.pipelines_emotion-english-distilroberta-base
+Device set to use cpu
+Failed to determine 'entailment' label id from the label2id mapping in the model config. Setting to -1. Define a descriptive label2id mapping in the model config to ensure correct outputs.
+[GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+[GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+다국어 모델 로드 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+모델 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+AdvancedEmotionAnalyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+❌ 모듈 emotion_analyzer 로딩 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+🚨 emotion_analyzer 로딩 실패 상세 스택:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1482, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/workflow_aware_memory_manager.py", line 570, in request_gpu_blocking
+    raise RuntimeError(msg)
+RuntimeError: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1051, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 517, in initialize
+    self._initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 559, in _initialize_models
+    self._load_multilingual_emotion_model()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 608, in _load_multilingual_emotion_model
+    self.models['multilingual_direct'] = hf_wrapper.wrapped_from_pretrained(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/hf_model_wrapper.py", line 221, in wrapped_from_pretrained
+    success = self.memory_manager.request_gpu_blocking(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/workflow_aware_memory_manager.py", line 588, in request_gpu_blocking
+    raise RuntimeError(msg) from e
+RuntimeError: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+
+   ❌ emotion_analyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+❌ 전역 모듈 초기화 실패: 필수 모듈 emotion_analyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+❌ 스택 트레이스:
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1482, in run_training_pipeline
+    raise Exception("Python 통합 학습 시스템 실행 실패")
+Exception: Python 통합 학습 시스템 실행 실패
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/workflow_aware_memory_manager.py", line 570, in request_gpu_blocking
+    raise RuntimeError(msg)
+RuntimeError: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 824, in _initialize_global_modules_sequential
+    module_instance = await asyncio.wait_for(
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1051, in _load_single_module
+    await initialize_method()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 517, in initialize
+    self._initialize_models()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 559, in _initialize_models
+    self._load_multilingual_emotion_model()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 608, in _load_multilingual_emotion_model
+    self.models['multilingual_direct'] = hf_wrapper.wrapped_from_pretrained(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/hf_model_wrapper.py", line 221, in wrapped_from_pretrained
+    success = self.memory_manager.request_gpu_blocking(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/workflow_aware_memory_manager.py", line 588, in request_gpu_blocking
+    raise RuntimeError(msg) from e
+RuntimeError: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 1339, in _initialize_core_components
+    await self._initialize_global_modules_sequential()
+  File "/mnt/c/large_project/linux_red_heart/unified_system_orchestrator.py", line 929, in _initialize_global_modules_sequential
+    raise RuntimeError(f"필수 모듈 {spec['name']} 초기화 실패: {e}")
+RuntimeError: 필수 모듈 emotion_analyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+
+자동 복구 실패: 전역 모듈 초기화 실패 - 시스템 중단: 필수 모듈 emotion_analyzer 초기화 실패: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+============================================================
+🚀 Red Heart AI 통합 시스템 (800M 파라미터)
+============================================================
+모드: test
+시작 시간: 2025-08-08 04:17:30
+------------------------------------------------------------
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+[04:26:15] ✅ 시스템 초기화 완료
+[04:26:15] 🧪 테스트 모드 시작...
+
+============================================================
+🚨 필수 모듈 emotion_analyzer 로딩 실패!
+============================================================
+에러: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 중 오류: [GPU BLOCKING] ❌ emotion_analyzer_emotion-english-distilroberta-base 할당 실패: 타임아웃 (30.0초)
+모듈 경로: advanced_emotion_analyzer.AdvancedEmotionAnalyzer
+============================================================
+
+[04:29:18] ❌ 테스트 모드 실패
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

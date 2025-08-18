@@ -1,0 +1,187 @@
+[
+  {
+    "id": "huck_finn_slavery",
+    "title": "우정 vs 법 - 허클베리 핀의 선택",
+    "description": "도망친 노예인 친구 짐을 도와줄 것인가, 아니면 법에 따라 신고할 것인가? 개인적 우정과 사회 규범이 충돌하는 상황이다.",
+    "category": "relationship",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "친구",
+      "사회"
+    ],
+    "ethical_themes": [
+      "friendship",
+      "law",
+      "moral_courage",
+      "freedom"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Adventures of Huckleberry Finn",
+      "language": "English"
+    }
+  },
+  {
+    "id": "frankenstein_responsibility",
+    "title": "창조의 책임 - 과학자의 딜레마",
+    "description": "자신이 만든 생명체가 사회에 해를 끼치고 있다. 창조자로서 어떤 책임을 져야 하는가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "본인",
+      "사회"
+    ],
+    "ethical_themes": [
+      "responsibility",
+      "science",
+      "creation",
+      "consequences"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Frankenstein",
+      "language": "English"
+    }
+  },
+  {
+    "id": "romeo_juliet_love",
+    "title": "사랑 vs 가족 - 로미오와 줄리엣",
+    "description": "원수 가문의 사람과 사랑에 빠졌다. 가족의 뜻을 따를 것인가, 사랑을 선택할 것인가?",
+    "category": "relationship",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "가족"
+    ],
+    "ethical_themes": [
+      "love",
+      "family",
+      "tradition",
+      "individual_choice"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Romeo and Juliet",
+      "language": "English"
+    }
+  },
+  {
+    "id": "gatsby_dreams",
+    "title": "꿈의 추구 - 개츠비의 선택",
+    "description": "불가능해 보이는 꿈을 계속 추구할 것인가, 현실을 받아들일 것인가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [],
+    "ethical_themes": [
+      "dreams",
+      "reality",
+      "ambition",
+      "acceptance"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "The Great Gatsby",
+      "language": "English"
+    }
+  },
+  {
+    "id": "moby_dick_obsession",
+    "title": "복수와 집착 - 에이헙의 딜레마",
+    "description": "개인적 복수를 위해 다른 사람들을 위험에 빠뜨려도 되는가?",
+    "category": "general",
+    "source_type": "literature",
+    "options": [
+      {
+        "id": "pursue",
+        "text": "자신의 신념을 끝까지 추구한다"
+      },
+      {
+        "id": "compromise",
+        "text": "타협점을 찾아 중간 길을 간다"
+      },
+      {
+        "id": "abandon",
+        "text": "기존 계획을 포기하고 다른 길을 찾는다"
+      }
+    ],
+    "stakeholders": [
+      "사회"
+    ],
+    "ethical_themes": [
+      "revenge",
+      "obsession",
+      "leadership",
+      "sacrifice"
+    ],
+    "cultural_context": "Western Literature",
+    "complexity_score": 0.8,
+    "controversy_score": 0.6,
+    "metadata": {
+      "source_book": "Moby Dick",
+      "language": "English"
+    }
+  }
+]

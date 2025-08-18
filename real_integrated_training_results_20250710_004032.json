@@ -1,0 +1,66 @@
+{
+  "real_training_summary": {
+    "total_scenarios": 3,
+    "successful_completions": 0,
+    "success_rate": 0.0,
+    "total_processing_time": 197.16719937324524,
+    "avg_processing_time": 65.72239979108174
+  },
+  "module_performance": {
+    "emotion": {
+      "success_rate": 0.0,
+      "avg_time": 30.884042263031006
+    },
+    "bentham": {
+      "success_rate": 0.0,
+      "avg_time": 0.02111196517944336
+    },
+    "regret": {
+      "success_rate": 0.0,
+      "avg_time": 0.00025343894958496094
+    },
+    "surd": {
+      "success_rate": 0.0,
+      "avg_time": 0
+    }
+  },
+  "detailed_results": [
+    {
+      "scenario_id": "real_test_001",
+      "success": false,
+      "processing_time": 61.780133962631226,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "SURD 분석 실패 - fallback 금지로 시스템 정지: AdvancedSURDResult.__init__() got an unexpected keyword argument 'synergy_score'"
+    },
+    {
+      "scenario_id": "real_test_002",
+      "success": false,
+      "processing_time": 0.05191373825073242,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "SURD 분석 실패 - fallback 금지로 시스템 정지: AdvancedSURDResult.__init__() got an unexpected keyword argument 'synergy_score'"
+    },
+    {
+      "scenario_id": "real_test_003",
+      "success": false,
+      "processing_time": 135.33515167236328,
+      "emotion_success": false,
+      "bentham_success": false,
+      "regret_success": false,
+      "surd_success": false,
+      "error": "LLM 감정 분석 실패 - fallback 금지로 시스템 정지: LLM 감정 분석이 None을 반환 - EmoLLMs 전처리 후에도 실패"
+    }
+  ],
+  "performance_insights": [
+    "전체 성공률이 낮습니다. 시스템 안정성 개선이 필요합니다.",
+    "emotion 모듈의 성공률이 0.0%로 낮습니다.",
+    "bentham 모듈의 성공률이 0.0%로 낮습니다.",
+    "regret 모듈의 성공률이 0.0%로 낮습니다.",
+    "surd 모듈의 성공률이 0.0%로 낮습니다."
+  ]
+}

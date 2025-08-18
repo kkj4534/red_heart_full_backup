@@ -1,0 +1,12 @@
+{
+    "appName": "scoracle",
+    "contact": "ronanlb",
+    "team": "aristo",
+    "args": [ "demo", "scoracle", "--port", "8000", "--expose" ],
+    "resources": {
+        "requests": {
+            "cpu": "1.0",
+            "memory": "2Gi"
+        }
+    }
+}
