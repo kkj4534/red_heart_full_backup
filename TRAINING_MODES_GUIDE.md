@@ -1,5 +1,47 @@
 # Red Heart AI 통합 학습 시스템 - 실행 모드 가이드
 
+## 🎯 핵심 명령어 (Essential Commands)
+
+### 🔍 본 학습 전 전체 시스템 검증 (Full System Validation)
+```bash
+# 파라미터 업데이트 없이 모든 기능 검증 (3 에폭, 소량 데이터)
+# LR 스윕, Sweet Spot, Checkpoint, Crossover 등 전체 파이프라인 테스트
+# 약 30분-1시간 소요, 그라디언트 계산만 하고 실제 가중치 업데이트는 건너뜀
+nohup timeout 3600 bash run_learning.sh unified-test --samples 3 --no-param-update --debug --verbose > validation_test.log 2>&1 &
+
+# 검증 로그 확인
+tail -f validation_test.log | grep -E "LR|Sweet|Checkpoint|Crossover|Loss|Error|검증"
+
+# 더 짧은 검증 (1 에폭, 5분 이내)
+SAMPLES=1 bash run_learning.sh unified-test --no-param-update --debug
+```
+
+### 🚀 전체 본 학습 실행 (Full Production Training)
+```bash
+# 60 에폭 전체 학습 - LR 스윕 → 학습 → Sweet Spot → Crossover
+# 약 2-3일 소요, 30개 체크포인트 저장, 최종 crossover_final.pth 생성
+nohup bash run_learning.sh unified-train > training_full.log 2>&1 &
+
+# 또는 screen/tmux 사용 (중단/재개 가능)
+screen -S redheart_training
+bash run_learning.sh unified-train 2>&1 | tee training_full.log
+# Ctrl+A, D로 detach / screen -r redheart_training으로 재연결
+
+# 학습 진행 상황 모니터링
+tail -f training_full.log | grep -E "Epoch|Loss|Checkpoint|Sweet|LR"
+watch -n 60 'ls -lah training/checkpoints_final/ | tail -5'  # 체크포인트 확인
+nvidia-smi -l 5  # GPU 모니터링
+```
+
+### 📊 학습 재개 (Resume from Checkpoint)
+```bash
+# 중단된 학습 재개 (최신 체크포인트에서)
+LATEST=$(ls -t training/checkpoints_final/checkpoint_*.pt | head -1)
+nohup bash run_learning.sh unified-train --resume $LATEST > training_resume.log 2>&1 &
+```
+
+---
+
 ## 📋 개요
 
 Red Heart AI 730M 파라미터 모델의 다양한 학습 및 테스트 모드를 제공합니다.

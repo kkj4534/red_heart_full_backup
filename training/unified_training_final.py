@@ -175,6 +175,7 @@ class UnifiedTrainer:
         self.global_step = 0
         self.current_epoch = 0
         self.best_loss = float('inf')
+        self.no_param_update = False  # 파라미터 업데이트 플래그
         
     def _initialize_components(self):
         """컴포넌트 초기화"""
@@ -376,14 +377,18 @@ class UnifiedTrainer:
                 # Gradient clipping
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
                 
-                # Optimizer step
-                self.optimizer.step()
-                self.scheduler.step()
+                # Optimizer step (파라미터 업데이트 플래그 확인)
+                if not self.no_param_update:
+                    self.optimizer.step()
+                    self.scheduler.step()
+                    
+                    # EMA update
+                    self.training_manager.step()
+                else:
+                    # 검증 모드: 그라디언트만 계산하고 업데이트는 건너뜀
+                    logger.debug("  [검증] 파라미터 업데이트 건너뜀")
+                
                 self.optimizer.zero_grad()
-                
-                # EMA update
-                self.training_manager.step()
-                
                 self.global_step += 1
             
             epoch_losses.append(loss.item() * self.config.gradient_accumulation)
@@ -581,6 +586,10 @@ def main():
     parser.add_argument('--batch-size', type=int, default=2, help='배치 사이즈')
     parser.add_argument('--lr', type=float, default=1e-4, help='학습률')
     parser.add_argument('--resume', type=str, help='체크포인트에서 재개')
+    parser.add_argument('--no-param-update', action='store_true', help='파라미터 업데이트 건너뛰기 (검증용)')
+    parser.add_argument('--debug', action='store_true', help='디버그 모드')
+    parser.add_argument('--verbose', action='store_true', help='상세 로깅')
+    parser.add_argument('--samples', type=int, help='테스트용 샘플 수 (에폭 수로 사용)')
     
     args = parser.parse_args()
     
@@ -589,16 +598,30 @@ def main():
     
     # 테스트 모드
     if args.test:
-        config.total_epochs = 2
-        logger.info("⚠️ 테스트 모드: 2 에폭만 실행")
+        if args.samples:
+            config.total_epochs = args.samples
+            logger.info(f"⚠️ 테스트 모드: {args.samples} 에폭 실행")
+        else:
+            config.total_epochs = 2
+            logger.info("⚠️ 테스트 모드: 2 에폭만 실행")
     else:
         config.total_epochs = args.epochs
     
     config.micro_batch_size = args.batch_size
     config.base_lr = args.lr
     
+    # 디버그/상세 로깅 설정
+    if args.debug or args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
+        config.log_interval = 1  # 매 스텝마다 로깅
+        config.val_interval = 10  # 더 자주 검증
+    
     # 트레이너 생성 및 실행
     trainer = UnifiedTrainer(config)
+    trainer.no_param_update = args.no_param_update  # 파라미터 업데이트 플래그
+    
+    if args.no_param_update:
+        logger.warning("⚠️ 파라미터 업데이트 비활성화 - 검증 모드")
     
     # 체크포인트에서 재개
     if args.resume:
