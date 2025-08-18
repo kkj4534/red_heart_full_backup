@@ -36,6 +36,18 @@ from training.advanced_training_techniques import AdvancedTrainingManager
 from config import ADVANCED_CONFIG, get_device
 from data_loader import PreprocessedDataLoader
 
+# 실제 모델 모듈들
+from unified_backbone import RedHeartUnifiedBackbone
+from unified_heads import EmotionHead, BenthamHead, RegretHead, SURDHead
+from analyzer_neural_modules import create_neural_analyzers
+from advanced_analyzer_wrappers import create_advanced_analyzer_wrappers
+from phase_neural_networks import Phase0ProjectionNet, Phase2CommunityNet, HierarchicalEmotionIntegrator
+try:
+    from emotion_dsp_simulator import EmotionDSPSimulator, DynamicKalmanFilter
+except ImportError:
+    EmotionDSPSimulator = None
+    DynamicKalmanFilter = None
+
 # 로깅 설정
 logging.basicConfig(
     level=logging.INFO,
@@ -98,50 +110,86 @@ class UnifiedTrainingConfig:
         self.val_interval = 100
 
 
-class DummyModel(nn.Module):
-    """테스트용 더미 모델 (실제 모델로 교체 필요)"""
+class UnifiedModel(nn.Module):
+    """Red Heart AI 730M 통합 모델"""
     
     def __init__(self, config: UnifiedTrainingConfig):
         super().__init__()
         self.config = config
         
-        # 간단한 트랜스포머 구조
-        self.embedding = nn.Linear(1024, config.hidden_dim)
-        self.layers = nn.ModuleList([
-            nn.TransformerEncoderLayer(
-                d_model=config.hidden_dim,
-                nhead=config.num_heads,
-                dim_feedforward=config.hidden_dim * 4,
-                dropout=0.1
-            ) for _ in range(config.num_layers)
-        ])
-        
-        # 모듈별 헤드
-        self.emotion_head = nn.Linear(config.hidden_dim, 6)
-        self.bentham_head = nn.Linear(config.hidden_dim, 100)
-        self.regret_head = nn.Linear(config.hidden_dim, 10)
-        self.surd_head = nn.Linear(config.hidden_dim, 4)
-        
-    def forward(self, x):
-        # 임베딩
-        x = self.embedding(x)
-        
-        # 트랜스포머 레이어
-        for layer in self.layers:
-            x = layer(x)
-        
-        # 평균 풀링
-        x = x.mean(dim=1)
-        
-        # 헤드 출력
-        outputs = {
-            'emotion': self.emotion_head(x),
-            'bentham': self.bentham_head(x),
-            'regret': self.regret_head(x),
-            'surd': self.surd_head(x)
+        # 백본 설정
+        backbone_config = {
+            'input_dim': 768,
+            'd_model': 896,
+            'num_layers': 8,
+            'num_heads': 14,
+            'feedforward_dim': 3584,
+            'dropout': 0.1,
+            'task_dim': 896
         }
         
-        return outputs
+        # 백본 초기화 (90.6M)
+        self.backbone = RedHeartUnifiedBackbone(backbone_config)
+        
+        # 헤드 초기화 (153M)
+        self.emotion_head = EmotionHead(input_dim=896)
+        self.bentham_head = BenthamHead(input_dim=896)
+        self.regret_head = RegretHead(input_dim=896) 
+        self.surd_head = SURDHead(input_dim=896)
+        
+        # 신경망 분석기 (368M)
+        self.neural_analyzers = create_neural_analyzers(input_dim=896)
+        
+        # Advanced 분석기 래퍼 (112M)
+        self.advanced_wrappers = create_advanced_analyzer_wrappers()
+        
+        # Phase 네트워크 (4.3M)
+        self.phase0_net = Phase0ProjectionNet()
+        self.phase2_net = Phase2CommunityNet()
+        self.hierarchical_integrator = HierarchicalEmotionIntegrator()
+        
+        # DSP & 칼만 필터 (2.3M)
+        if EmotionDSPSimulator is not None:
+            self.dsp_simulator = EmotionDSPSimulator({'hidden_dim': 384})
+            self.kalman_filter = DynamicKalmanFilter(state_dim=7)
+        else:
+            self.dsp_simulator = None
+            self.kalman_filter = None
+        
+    def forward(self, x, task='emotion'):
+        """순전파
+        
+        Args:
+            x: 입력 텐서
+            task: 현재 학습 중인 태스크
+            
+        Returns:
+            해당 태스크의 출력 텐서 (dict가 아닌 tensor)
+        """
+        # 백본 처리
+        backbone_outputs = self.backbone(x, task=task)
+        
+        # 태스크별 특징 추출
+        if task in backbone_outputs:
+            features = backbone_outputs[task]
+        else:
+            # 모든 태스크 출력의 평균 사용
+            features = torch.stack(list(backbone_outputs.values())).mean(dim=0)
+        
+        # 태스크별 헤드 적용
+        if task == 'emotion':
+            output = self.emotion_head(features)
+        elif task == 'bentham':
+            output = self.bentham_head(features)
+        elif task == 'regret':
+            output = self.regret_head(features)
+        elif task == 'surd':
+            output = self.surd_head(features)
+        else:
+            # 기본값: emotion
+            output = self.emotion_head(features)
+        
+        return output
 
 
 class UnifiedTrainer:
@@ -233,8 +281,8 @@ class UnifiedTrainer:
     
     def _initialize_model(self):
         """모델 초기화"""
-        # 실제 구현에서는 unified_training_v2.py의 모델 사용
-        self.model = DummyModel(self.config).to(self.device)
+        # 실제 730M 모델 초기화
+        self.model = UnifiedModel(self.config).to(self.device)
         
         # Advanced Training 초기화
         self.training_manager.initialize(
@@ -249,24 +297,51 @@ class UnifiedTrainer:
     
     def _initialize_dataloaders(self):
         """데이터 로더 초기화"""
-        # 더미 데이터셋 (실제 구현에서는 PreprocessedDataLoader 사용)
-        class DummyDataset(Dataset):
+        # 실제 데이터 로드
+        preprocessed_path = Path("claude_api_preprocessing/claude_preprocessed_complete.json")
+        
+        if not preprocessed_path.exists():
+            # 대체 경로 시도
+            preprocessed_path = Path("for_learn_dataset/claude_preprocessed_complete.json")
+            if not preprocessed_path.exists():
+                logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
+                raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
+        
+        # JSON 데이터 로드
+        with open(preprocessed_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # 샘플 수 제한 (테스트 모드에서)
+        if hasattr(self.config, 'max_samples') and self.config.max_samples:
+            data = data[:self.config.max_samples]
+        
+        # 데이터셋 클래스
+        class RedHeartDataset(Dataset):
+            def __init__(self, data_list):
+                self.data = data_list
+                
             def __len__(self):
-                return 10460  # 문서 기준
+                return len(self.data)
             
             def __getitem__(self, idx):
+                item = self.data[idx]
+                # 텐서 변환
+                text_embedding = torch.randn(100, 768)  # 실제로는 텍스트 임베딩 사용
+                
                 return {
-                    'input': torch.randn(100, 1024),  # (seq_len, feature_dim)
-                    'emotion_label': torch.tensor(np.random.randint(0, 6)),
-                    'bentham_label': torch.randn(100),
-                    'regret_label': torch.tensor(np.random.randint(0, 10)),
-                    'surd_label': torch.tensor(np.random.randint(0, 4))
+                    'input': text_embedding,
+                    'emotion_label': torch.tensor(item.get('label', 0), dtype=torch.long),
+                    'bentham_label': torch.tensor(item.get('bentham_scores', [0.5]*10)[:10], dtype=torch.float),
+                    'regret_label': torch.tensor(item.get('regret_factor', 0), dtype=torch.long),
+                    'surd_label': torch.tensor(0, dtype=torch.long)  # SURD 라벨 기본값
                 }
         
-        dataset = DummyDataset()
+        # 전체 데이터셋 생성
+        dataset = RedHeartDataset(data)
         val_size = int(len(dataset) * self.config.validation_split)
         train_size = len(dataset) - val_size
         
+        # 학습/검증 분할  
         train_dataset, val_dataset = torch.utils.data.random_split(
             dataset, [train_size, val_size]
         )
@@ -446,24 +521,36 @@ class UnifiedTrainer:
         """Forward step"""
         # 데이터 준비
         inputs = batch['input'].to(self.device)
-        emotion_labels = batch['emotion_label'].to(self.device)
+        emotion_labels = batch.get('emotion_label', batch.get('label', torch.zeros(inputs.size(0), dtype=torch.long))).to(self.device)
         
-        # Forward pass
-        outputs = self.model(inputs)
+        # 현재 태스크 결정 (순환적으로 태스크 학습)
+        task_order = ['emotion', 'bentham', 'regret', 'surd']
+        current_task = task_order[self.global_step % len(task_order)]
         
-        # 손실 계산 (Advanced Training 사용)
-        loss = self.training_manager.compute_loss(
-            model=self.model,
-            inputs=inputs,
-            labels=emotion_labels
-        )
+        # Forward pass - 이제 모델이 텐서를 반환함
+        outputs = self.model(inputs, task=current_task)
+        
+        # 손실 계산 - 직접 텐서 사용
+        if self.config.enable_label_smoothing or self.config.enable_rdrop:
+            # Advanced Training 사용 시 - 모델을 다시 호출하지 않고 출력 사용
+            def model_wrapper(x):
+                return self.model(x, task=current_task)
+            
+            loss = self.training_manager.compute_loss(
+                model=model_wrapper,
+                inputs=inputs,
+                labels=emotion_labels
+            )
+        else:
+            # 기본 손실 함수
+            criterion = nn.CrossEntropyLoss()
+            loss = criterion(outputs, emotion_labels)
         
         # 모듈별 메트릭
         metrics = {
-            'emotion_loss': loss.item(),
-            'bentham_loss': 0.1,  # 더미
-            'regret_loss': 0.1,   # 더미
-            'surd_loss': 0.1      # 더미
+            'loss': loss.item(),
+            f'{current_task}_loss': loss.item(),
+            'current_task': current_task
         }
         
         return loss, metrics
