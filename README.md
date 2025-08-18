@@ -6,6 +6,25 @@
 
 **Red Heart**는 다중 알고리즘을 통합한 윤리적 의사결정 분석 시스템입니다. 계층적 감정 학습, 후회 기반 학습, 베이지안 추론, 반사실적 추론, 벤담 공리주의 계산을 조합하여 윤리적 상황을 분석합니다.
 
+## 📢 최신 업데이트 (2025-08-18)
+
+### 🚀 730M 파라미터 통합 학습 시스템 구현 완료
+
+- **60 에폭 학습 파이프라인**: LR 스윕 → 학습 → Sweet Spot 탐지 → Parameter Crossover
+- **Advanced Training Techniques**: Label Smoothing, R-Drop, EMA, LLRD 통합
+- **스마트 체크포인트**: 30개 체크포인트 자동 저장 (짝수 에폭마다)
+- **OOM 핸들링**: 메모리 부족 시 자동 관리
+- **자세한 실행 가이드**: [TRAINING_MODES_GUIDE.md](TRAINING_MODES_GUIDE.md) 참조
+
+#### 빠른 시작:
+```bash
+# 시스템 검증 (파라미터 업데이트 없이)
+SAMPLES=3 bash run_learning.sh unified-test --no-param-update --debug
+
+# 전체 학습 (60 에폭, 2-3일 소요)
+nohup bash run_learning.sh unified-train > training.log 2>&1 &
+```
+
 ## 🔧 **주요 구성 요소**
 - **3단계 계층적 감정 시스템**: Phase 0(자기 캘리브레이션) → Phase 1(타인 공감) → Phase 2(공동체 이해)
 - **페이즈 기반 후회 학습**: 학습 횟수(50회) + 후회 임계값(0.3) 기반 전환
@@ -84,8 +103,8 @@
 ### 1. 저장소 클론
 
 ```bash
-git clone https://github.com/your-repo/red-heart-linux.git
-cd red-heart-linux
+git clone https://github.com/kkj4534/red_heart_full_backup.git
+cd red_heart_full_backup
 ```
 
 ### 2. 가상환경 설정
@@ -457,9 +476,9 @@ MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 ## 📞 지원 및 연락
 
-- **이슈 트래커**: [GitHub Issues](https://github.com/your-repo/red-heart-linux/issues)
-- **토론**: [GitHub Discussions](https://github.com/your-repo/red-heart-linux/discussions)
-- **이메일**: red-heart-support@example.com
+- **이슈 트래커**: [GitHub Issues](https://github.com/kkj4534/red_heart_full_backup/issues)
+- **토론**: [GitHub Discussions](https://github.com/kkj4534/red_heart_full_backup/discussions)
+- **이메일**: memento1087@gmail.com
 
 ---
 
