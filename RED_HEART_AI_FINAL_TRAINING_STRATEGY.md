@@ -900,9 +900,370 @@ class ParameterCrossover:
 
 ---
 
-## 3. 논문화 전략
+## 3. 고급 학습 기법 및 구현 세부사항
 
-### 3.1 합성 데이터 한계 및 보완 계획
+### 3.1 체크포인트 매니저 구현 (ADVANCED.md에서 병합)
+
+```python
+# checkpoint_manager.py
+class CheckpointManager:
+    """모듈별 개별 체크포인트 관리"""
+    
+    def __init__(self, base_dir: str = "checkpoints"):
+        self.base_dir = Path(base_dir)
+        self.checkpoint_dir = self.base_dir / datetime.now().strftime("%Y%m%d_%H%M%S")
+        self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
+        
+    def save_modular_checkpoint(self, epoch: int, model, optimizer, scheduler, metrics):
+        """모듈별 개별 저장 구조"""
+        checkpoint = {
+            'epoch': epoch,
+            'timestamp': datetime.now().isoformat(),
+            'metrics': metrics,
+            'optimizer_state': optimizer.state_dict(),
+            'scheduler_state': scheduler.state_dict(),
+            'model_state': {
+                'group_a': {  # Backbone + Heads
+                    'backbone': model.backbone.state_dict(),
+                    'heads': {name: head.state_dict() for name, head in model.heads.items()}
+                },
+                'group_b': {  # Neural Analyzers
+                    name: analyzer.state_dict() 
+                    for name, analyzer in model.analyzers.items() 
+                    if 'neural' in name
+                },
+                'group_c': {  # DSP + Kalman
+                    'dsp': model.analyzers.get('dsp', {}).state_dict() if 'dsp' in model.analyzers else {},
+                    'kalman': model.analyzers.get('kalman', {}).state_dict() if 'kalman' in model.analyzers else {}
+                },
+                'independent': {  # Advanced Analyzers
+                    name: analyzer.state_dict()
+                    for name, analyzer in model.analyzers.items()
+                    if 'advanced' in name
+                }
+            }
+        }
+        
+        # 저장
+        checkpoint_path = self.checkpoint_dir / f"epoch_{epoch:03d}.pt"
+        torch.save(checkpoint, checkpoint_path)
+        
+        # 메트릭만 JSON으로도 저장 (빠른 분석용)
+        metrics_path = self.checkpoint_dir / f"metrics_epoch_{epoch:03d}.json"
+        with open(metrics_path, 'w') as f:
+            json.dump(metrics, f, indent=2)
+        
+        logger.info(f"💾 모듈별 체크포인트 저장: {checkpoint_path}")
+        return checkpoint_path
+```
+
+### 3.2 고급 학습 기법 구현
+
+#### 3.2.1 Label Smoothing
+```python
+class LabelSmoothingCrossEntropy(nn.Module):
+    def __init__(self, smoothing=0.1):
+        super().__init__()
+        self.smoothing = smoothing
+        
+    def forward(self, pred, target):
+        n_class = pred.size(1)
+        one_hot = torch.zeros_like(pred).scatter(1, target.view(-1, 1), 1)
+        one_hot = one_hot * (1 - self.smoothing) + self.smoothing / n_class
+        log_prb = F.log_softmax(pred, dim=1)
+        loss = -(one_hot * log_prb).sum(dim=1).mean()
+        return loss
+```
+
+#### 3.2.2 R-Drop 정규화
+```python
+def compute_rdrop_loss(model, batch, alpha=0.7):
+    """R-Drop: 동일 입력에 대한 두 번의 forward pass 간 KL divergence 최소화"""
+    outputs1 = model(batch)
+    outputs2 = model(batch)
+    
+    ce_loss = 0.5 * (model.compute_loss(outputs1, batch) + 
+                      model.compute_loss(outputs2, batch))
+    
+    kl_loss = 0
+    for key in outputs1:
+        if 'logits' in key or 'emotion' in key:
+            p = F.log_softmax(outputs1[key], dim=-1)
+            q = F.log_softmax(outputs2[key], dim=-1)
+            kl_loss += F.kl_div(p, q, reduction='batchmean') + \
+                       F.kl_div(q, p, reduction='batchmean')
+    
+    kl_loss = kl_loss / len([k for k in outputs1 if 'logits' in k or 'emotion' in k])
+    
+    return ce_loss + alpha * kl_loss
+```
+
+#### 3.2.3 EMA (Exponential Moving Average)
+```python
+class EMA:
+    def __init__(self, model, decay=0.999):
+        self.model = model
+        self.decay = decay
+        self.shadow = {}
+        self.backup = {}
+        
+    def register(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                self.shadow[name] = param.data.clone()
+                
+    def update(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                new_average = (1.0 - self.decay) * param.data + \
+                              self.decay * self.shadow[name]
+                self.shadow[name] = new_average.clone()
+                
+    def apply_shadow(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                self.backup[name] = param.data
+                param.data = self.shadow[name]
+                
+    def restore(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                param.data = self.backup[name]
+        self.backup = {}
+```
+
+#### 3.2.4 Layer-wise Learning Rate Decay (LLRD)
+```python
+def get_llrd_params(model, base_lr=1e-4, decay_factor=0.95):
+    """깊은 레이어일수록 낮은 학습률 적용"""
+    params = []
+    
+    # Backbone: 가장 낮은 LR
+    if hasattr(model, 'backbone'):
+        backbone_layers = list(model.backbone.children())
+        for i, layer in enumerate(backbone_layers):
+            layer_lr = base_lr * (decay_factor ** (len(backbone_layers) - i))
+            params.append({'params': layer.parameters(), 'lr': layer_lr})
+    
+    # Heads: 중간 LR
+    if hasattr(model, 'heads'):
+        for head in model.heads.values():
+            params.append({'params': head.parameters(), 'lr': base_lr})
+    
+    # Analyzers: 높은 LR
+    if hasattr(model, 'analyzers'):
+        for analyzer in model.analyzers.values():
+            if hasattr(analyzer, 'parameters'):
+                params.append({'params': analyzer.parameters(), 'lr': base_lr * 1.5})
+    
+    return params
+```
+
+### 3.3 디렉토리 구조 및 백업 체계
+
+```
+C:/large_project/linux_red_heart/
+├── checkpoints/
+│   └── 20250818_HHMMSS/
+│       ├── epoch_002.pt
+│       ├── epoch_004.pt
+│       ├── ...
+│       ├── epoch_060.pt
+│       ├── metrics_epoch_002.json
+│       ├── ...
+│       └── metrics_epoch_060.json
+├── docs/
+│   └── data/
+│       ├── lr_sweep/
+│       │   ├── lr_sweep_results.json
+│       │   └── lr_*.csv
+│       ├── analysis/
+│       │   ├── sweet_spot_analysis.json
+│       │   └── visualization_data.json
+│       └── training_history/
+│           └── history_*.json
+└── models/
+    ├── final_model_crossover.pt
+    └── ensemble_variants/
+        ├── variant_delta_-4.pt
+        ├── variant_delta_-2.pt
+        ├── variant_delta_0.pt
+        ├── variant_delta_2.pt
+        └── variant_delta_4.pt
+```
+
+---
+
+## 4. 운영 가이드 (학습 전략 v1.md에서 병합)
+
+### 4.1 OOM (Out of Memory) 대응 전략
+
+```python
+# OOM 대응 설정
+class OOMHandler:
+    """GPU 메모리 부족 시 자동 대응"""
+    
+    def __init__(self, initial_batch_size=4, min_batch_size=1):
+        self.batch_size = initial_batch_size
+        self.min_batch_size = min_batch_size
+        self.gradient_accumulation = 16
+        
+    def handle_oom(self, error):
+        """OOM 발생 시 배치 크기 자동 조정"""
+        if "out of memory" in str(error).lower():
+            torch.cuda.empty_cache()
+            
+            if self.batch_size > self.min_batch_size:
+                # 배치 크기 절반으로 줄이기
+                self.batch_size = max(self.min_batch_size, self.batch_size // 2)
+                # Gradient accumulation 증가로 effective batch size 유지
+                self.gradient_accumulation *= 2
+                
+                logger.warning(f"OOM 발생! 배치 크기 조정: {self.batch_size}, "
+                             f"Gradient Accumulation: {self.gradient_accumulation}")
+                return True
+            else:
+                # DSM으로 메모리 관리
+                logger.warning("최소 배치 크기 도달. DSM 활성화...")
+                return self.activate_dsm()
+        return False
+    
+    def activate_dsm(self):
+        """Dynamic Swap Manager 활성화"""
+        # 주의: asyncio 이벤트 루프가 없는 환경에서는 create_task 에러 방지 필요
+        # try-except로 감싸거나 동기 모드로 실행하도록 DSM 설정 확인
+        os.environ['DSM_ENABLED'] = 'true'
+        os.environ['DSM_TARGET_USAGE'] = '0.75'  # GPU 메모리 75% 목표
+        os.environ['DSM_SWAP_STRATEGY'] = 'lru'  # Least Recently Used
+        os.environ['DSM_SYNC_MODE'] = 'true'  # 이벤트 루프 미존재 시 동기 모드
+        return True
+```
+
+### 4.2 학습 재개 (Resume) 기능
+
+```python
+def resume_training(checkpoint_path, model, optimizer, scheduler):
+    """중단된 학습 재개"""
+    checkpoint = torch.load(checkpoint_path)
+    
+    # 모델 상태 복원
+    model.load_state_dict(checkpoint['model_state_dict'])
+    
+    # 옵티마이저 상태 복원
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    
+    # 스케줄러 상태 복원
+    scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+    
+    # 에폭 정보
+    start_epoch = checkpoint['epoch'] + 1
+    
+    logger.info(f"✅ 학습 재개: Epoch {start_epoch}부터 시작")
+    logger.info(f"  - 이전 Loss: {checkpoint['metrics'].get('val_loss', 'N/A')}")
+    logger.info(f"  - 이전 Acc: {checkpoint['metrics'].get('val_acc', 'N/A')}")
+    
+    return start_epoch
+```
+
+### 4.3 실시간 모니터링 및 로깅
+
+```python
+class TrainingMonitor:
+    """학습 진행 실시간 모니터링"""
+    
+    def __init__(self, log_dir="logs", tensorboard=True):
+        self.log_dir = Path(log_dir)
+        self.log_dir.mkdir(exist_ok=True)
+        
+        if tensorboard:
+            from torch.utils.tensorboard import SummaryWriter
+            self.writer = SummaryWriter(self.log_dir / "tensorboard")
+        else:
+            self.writer = None
+            
+        self.metrics_history = []
+        
+    def log_metrics(self, epoch, metrics, phase="train"):
+        """메트릭 로깅"""
+        # 콘솔 출력
+        logger.info(f"[Epoch {epoch}] {phase.upper()} Metrics:")
+        for key, value in metrics.items():
+            logger.info(f"  {key}: {value:.4f}")
+        
+        # TensorBoard 로깅
+        if self.writer:
+            for key, value in metrics.items():
+                self.writer.add_scalar(f"{phase}/{key}", value, epoch)
+        
+        # 파일 저장
+        self.metrics_history.append({
+            'epoch': epoch,
+            'phase': phase,
+            'timestamp': datetime.now().isoformat(),
+            **metrics
+        })
+        
+        # GPU 메모리 모니터링
+        if torch.cuda.is_available():
+            gpu_memory = torch.cuda.max_memory_allocated() / 1e9
+            logger.info(f"  GPU Memory: {gpu_memory:.2f} GB")
+            if self.writer:
+                self.writer.add_scalar("system/gpu_memory_gb", gpu_memory, epoch)
+    
+    def save_history(self):
+        """전체 학습 이력 저장"""
+        history_path = self.log_dir / f"training_history_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        with open(history_path, 'w') as f:
+            json.dump(self.metrics_history, f, indent=2)
+        logger.info(f"📊 학습 이력 저장: {history_path}")
+```
+
+### 4.4 학습 중단 시 안전 저장
+
+```python
+import signal
+import sys
+
+class SafeTrainingWrapper:
+    """Ctrl+C 등으로 중단 시 안전하게 저장"""
+    
+    def __init__(self, model, optimizer, scheduler, checkpoint_manager):
+        self.model = model
+        self.optimizer = optimizer
+        self.scheduler = scheduler
+        self.checkpoint_manager = checkpoint_manager
+        self.current_epoch = 0
+        self.current_metrics = {}
+        
+        # 시그널 핸들러 등록
+        signal.signal(signal.SIGINT, self._signal_handler)
+        signal.signal(signal.SIGTERM, self._signal_handler)
+    
+    def _signal_handler(self, signum, frame):
+        """중단 시그널 처리"""
+        logger.warning("\n⚠️ 학습 중단 감지! 안전 저장 중...")
+        
+        # 현재 상태 저장
+        emergency_path = self.checkpoint_manager.save_modular_checkpoint(
+            epoch=self.current_epoch,
+            model=self.model,
+            optimizer=self.optimizer,
+            scheduler=self.scheduler,
+            metrics=self.current_metrics
+        )
+        
+        logger.info(f"✅ 긴급 체크포인트 저장 완료: {emergency_path}")
+        logger.info("재개 명령어:")
+        logger.info(f"python resume_training.py --checkpoint {emergency_path}")
+        
+        sys.exit(0)
+```
+
+---
+
+## 5. 논문화 전략
+
+### 5.1 합성 데이터 한계 및 보완 계획
 
 ```markdown
 ## Limitations and Future Work
@@ -910,26 +1271,77 @@ class ParameterCrossover:
 ### Current Limitations
 1. **Synthetic Labels**: 현재 모델은 LLM(Claude API)으로 생성된 합성 감정 라벨로 학습되었습니다.
 2. **Label Reliability**: 합성 라벨의 신뢰성은 소규모 인간 평가로 검증 예정입니다.
+3. **External Validity**: 실제 생리학적 반응과의 정합성 검증이 필요합니다.
 
-### Validation Strategy
-1. **EEG Calibration Study**
-   - N=20 파일럿 스터디 (피험자 내 설계)
-   - IAPS 표준 자극 사용
-   - SAM (Self-Assessment Manikin) 자가보고
-   - Frontal Alpha Asymmetry (FAA) 측정
+### EEG+SAM 기반 사후 캘리브레이션 계획
 
-2. **Calibration Methods**
-   - Temperature Scaling
-   - Platt Scaling
-   - Isotonic Regression
+#### 실험 설계
+1. **파일럿 스터디 (N=15-20)**
+   - 피험자 내 설계 (within-subject design)
+   - IAPS (International Affective Picture System) 표준 자극 60-90개
+   - 각 트라이얼 8-12초, 랜덤화 제시
+   - SAM (Self-Assessment Manikin) 9점 척도 (Valence/Arousal/Dominance)
 
-3. **Evaluation Metrics**
-   - ECE (Expected Calibration Error)
-   - Brier Score
-   - Spearman's ρ (모델 출력 vs EEG/SAM)
+2. **EEG 측정 프로토콜**
+   - 채널: 32채널 이상 (10-20 시스템)
+   - 주요 지표:
+     * Frontal Alpha Asymmetry (FAA) - valence 지표
+     * θ/α/β/γ 밴드파워 - arousal 지표
+     * Event-Related Potentials (ERPs) - P300, LPP
+   - 자극 구간 3-10초 평균 EEG 특징 추출
+
+3. **정렬 및 캘리브레이션**
+   - 모델 출력 (후회 강도/유형) ↔ EEG/SAM 라벨 매칭
+   - 피험자 내 표준화 (z-score normalization)
+   - 캘리브레이션 기법:
+     * Temperature Scaling
+     * Platt Scaling  
+     * Isotonic Regression
+   - 교차검증: Leave-One-Subject-Out (LOSO)
+
+4. **평가 지표**
+   - ECE (Expected Calibration Error): 캘리브레이션 전/후 비교
+   - Brier Score: 확률적 예측 정확도
+   - Spearman's ρ: 모델 출력과 EEG/SAM 간 상관
+   - Reliability Metrics: Krippendorff's α, Inter-rater agreement
+
+#### 공개 데이터셋 활용 계획
+- **DEAP Dataset**: 32명, 40개 음악 비디오, EEG+생리신호
+- **SEED Dataset**: 15명, 15개 영화 클립, EEG+눈추적
+- **DREAMER Dataset**: 23명, 18개 영화 클립, EEG+ECG
+
+이들 데이터셋의 텍스트 자극 로그와 연계하여 모델 출력과 생리신호 간 정합성 분석 가능.
+
+### 예상 논문 섹션 (Limitations & Calibration)
+
+"Our current regret analyzer is pre-trained on LLM-synthesized affect annotations, 
+which may induce label biases. To address this limitation, we propose a multimodal 
+calibration study combining EEG measurements and self-reports (SAM) under standardized 
+affective stimuli (IAPS). We will align model outputs to physiological and self-report 
+responses via post-hoc calibration techniques (Temperature/Platt scaling, Isotonic 
+regression) and quantify improvements using ECE and Brier scores. A pilot study 
+(N=15-20) will inform power analysis for a larger validation study (N≥40). 
+All procedures will follow IRB-approved protocols, and we plan to validate our 
+approach using publicly available datasets (DEAP, SEED, DREAMER) to ensure 
+reproducibility."
+
+### 리뷰어 예상 질문 및 답변
+
+**Q: 합성 라벨의 신뢰도는?**
+A: 소규모 인간 평가 (N=100 샘플)로 Krippendorff's α와 Spearman's ρ 보고 예정. 
+EEG/SAM 캘리브레이션 후 ECE 30% 개선, Brier Score 0.2 감소 목표.
+
+**Q: EEG로 "후회"를 직접 측정 가능한가?**
+A: 후회는 복합 정서이므로 기본 정서 차원 (Valence/Arousal)과 텍스트 맥락을 
+삼각측량하여 간접 측정. DEAP/SEED 등 선행연구에서 EEG-감정 연계 확립.
+
+**Q: 캘리브레이션 방법론의 타당성은?**
+A: 표준 자극 (IAPS), 검증된 측정도구 (SAM), 확립된 캘리브레이션 기법 
+(Platt/Isotonic), 널리 사용되는 평가지표 (ECE/Brier) 적용으로 방법론적 
+건전성 확보.
 ```
 
-### 3.2 실험 결과 보고 형식
+### 5.2 실험 결과 보고 형식
 
 ```python
 # paper_results_generator.py
@@ -1018,9 +1430,9 @@ Sweet Spot Selection & 1.65 & 82.1\\% & 81.4\\% \\\\
 
 ---
 
-## 4. 실행 스크립트
+## 6. 실행 스크립트
 
-### 4.1 통합 실행 파이프라인
+### 6.1 통합 실행 파이프라인
 
 ```bash
 #!/bin/bash
@@ -1148,7 +1560,7 @@ echo "로그 위치: $LOG_DIR"
 echo "최종 모델: final_model_crossover.pt"
 ```
 
-### 4.2 Python 통합 실행
+### 6.2 Python 통합 실행
 
 ```python
 # main_pipeline.py
@@ -1271,32 +1683,41 @@ if __name__ == '__main__':
 
 ---
 
-## 5. 예상 소요 시간 및 리소스
+## 7. 예상 소요 시간 및 리소스
 
-### 5.1 시간 추정
+### 7.1 시간 추정
 
 ```python
-# 배치 처리 시간 (실측 기반)
-batch_time = 2.5  # 초/배치 (배치 크기 4, gradient accumulation 16)
+# ⚠️ 중요: Gradient Accumulation 사용 시 시간 계산
+# GA는 optimizer step 빈도만 줄이지, forward/backward pass는 마이크로배치 수만큼 수행
+# 따라서 steps_per_epoch = N_samples / micro_batch_size (유효 배치가 아닌 실제 배치 기준)
 
-# 에폭당 시간
-samples_per_epoch = 7869  # 학습 샘플 수
-effective_batch_size = 64  # 4 * 16
-batches_per_epoch = samples_per_epoch // effective_batch_size
-time_per_epoch = batches_per_epoch * batch_time / 60  # 분
+# 실측 기반 계산 (8GB GPU, 배치 크기 4, GA=16)
+micro_batch_size = 4  # 실제 배치 크기
+samples_per_epoch = 10460  # 전체 샘플 수 (중복 제거 후)
+steps_per_epoch = samples_per_epoch // micro_batch_size  # 2,615 스텝
 
-# 전체 시간
-total_time_hours = (
-    5 * 5 * time_per_epoch / 60 +  # Phase 1: LR Sweep (5 LR x 5 epochs)
-    60 * time_per_epoch / 60 +      # Phase 2: Main Training (60 epochs)
-    2                                # Phase 3 & 4: Analysis & Crossover
-)
+# 스텝당 시간 (실측치)
+time_per_step = 0.8  # 초/스텝 (0.6-1.0초 범위 중간값)
+time_per_epoch = steps_per_epoch * time_per_step / 60  # 34.9분
+
+# 전체 시간 계산
+lr_sweep_time = 5 * 5 * time_per_epoch / 60      # LR Sweep: 14.5시간
+main_training_time = 60 * time_per_epoch / 60    # 본 학습: 34.9시간
+analysis_time = 2                                 # 분석/크로스오버: 2시간
+
+total_time_hours = lr_sweep_time + main_training_time + analysis_time
 
 print(f"예상 소요 시간: {total_time_hours:.1f} 시간 ({total_time_hours/24:.1f} 일)")
-# 출력: 예상 소요 시간: 172.5 시간 (7.2 일)
+# 출력: 예상 소요 시간: 51.4 시간 (2.1 일)
+
+# 보수적 추정 (스텝당 1.0초, I/O 오버헤드 포함)
+conservative_time = (2615 * 1.0 * 85 / 3600) + 3  # 85 에폭 + 오버헤드
+print(f"보수적 추정: {conservative_time:.1f} 시간 ({conservative_time/24:.1f} 일)")
+# 출력: 보수적 추정: 64.7 시간 (2.7 일)
 ```
 
-### 5.2 GPU 메모리 사용
+### 7.2 GPU 메모리 사용
 
 ```python
 # 메모리 추정 (8GB GPU 기준)
@@ -1316,9 +1737,9 @@ for key, value in memory_usage.items():
 
 ---
 
-## 6. 논문 작성 가이드라인
+## 8. 논문 작성 가이드라인
 
-### 6.1 Abstract 템플릿
+### 8.1 Abstract 템플릿
 
 ```latex
 We present Red Heart AI, a 730M parameter multi-task emotion analysis system 
@@ -1332,7 +1753,7 @@ and signal processing components with dynamic memory management for
 studies to address synthetic label limitations.
 ```
 
-### 6.2 주요 기여점 (Contributions)
+### 8.2 주요 기여점 (Contributions)
 
 1. **Sweet Spot Selection**: 모듈별 최적 에폭 자동 탐지 알고리즘
 2. **Parameter Crossover**: 서로 다른 에폭의 최적 파라미터 조합 기법
@@ -1341,7 +1762,7 @@ studies to address synthetic label limitations.
 
 ---
 
-## 7. 결론
+## 9. 결론
 
 이 문서는 Red Heart AI 730M 모델의 완전한 학습 전략을 제시합니다:
 
@@ -1350,5 +1771,5 @@ studies to address synthetic label limitations.
 3. **실용적 구현**: 8GB GPU 제약 하에서 실행 가능한 코드
 4. **논문화 준비**: 합성 데이터 한계 명시 및 EEG 검증 계획
 
-예상 학습 시간은 약 7-8일이며, 최종 성능은 85-90% 정확도를 목표로 합니다.
+예상 학습 시간은 약 2-3일 (50-65시간)이며, 최종 성능은 85-90% 정확도를 목표로 합니다.
 모든 코드는 현재 코드베이스와 100% 호환되도록 작성되었습니다.
