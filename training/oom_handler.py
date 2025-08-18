@@ -147,20 +147,24 @@ class OOMHandler:
         # 메모리 정리
         self._clear_memory()
         
-        # 배치 사이즈 감소
-        if self.current_batch_size > self.min_batch_size:
-            old_batch_size = self.current_batch_size
-            self.current_batch_size = max(self.min_batch_size, self.current_batch_size // 2)
-            self.batch_size_history.append(self.current_batch_size)
-            
-            # Gradient Accumulation 조정 (유효 배치 사이즈 유지)
-            effective_batch = old_batch_size * self.gradient_accumulation
-            self.gradient_accumulation = effective_batch // self.current_batch_size
-            
-            logger.info(f"  📉 배치 사이즈 조정: {old_batch_size} → {self.current_batch_size}")
-            logger.info(f"  📊 Gradient Accumulation 조정: {self.gradient_accumulation}")
-            
-            return True
+        # # 배치 사이즈 감소 (주석 처리: 배치 사이즈 2에서 더 이상 감소하지 않음)
+        # if self.current_batch_size > self.min_batch_size:
+        #     old_batch_size = self.current_batch_size
+        #     self.current_batch_size = max(self.min_batch_size, self.current_batch_size // 2)
+        #     self.batch_size_history.append(self.current_batch_size)
+        #     
+        #     # Gradient Accumulation 조정 (유효 배치 사이즈 유지)
+        #     effective_batch = old_batch_size * self.gradient_accumulation
+        #     self.gradient_accumulation = effective_batch // self.current_batch_size
+        #     
+        #     logger.info(f"  📉 배치 사이즈 조정: {old_batch_size} → {self.current_batch_size}")
+        #     logger.info(f"  📊 Gradient Accumulation 조정: {self.gradient_accumulation}")
+        #     
+        #     return True
+        
+        # 배치 사이즈 감소 대신 바로 False 반환
+        logger.warning("  ⚠️ OOM 발생: 배치 사이즈 2 유지 (폴백 비활성화)")
+        return False
         
         # DSM 활성화 시도
         if self.enable_dsm and not self.dsm_active:

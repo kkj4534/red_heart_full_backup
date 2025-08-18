@@ -378,15 +378,39 @@ run_learning_system() {
             fi
             ;;
         "unified-train")
-            print_status "📚 320M v2 통합 시스템 훈련 모드..."
-            python unified_training_v2.py --mode train "$@"
+            print_status "📚 730M 최종 통합 시스템 훈련 모드..."
+            
+            # 새로운 최종 시스템이 있으면 우선 사용
+            if [ -f "training/unified_training_final.py" ]; then
+                print_status "   ✨ 최종 통합 시스템 (730M) 사용"
+                print_status "   - 60 에폭 전체 학습"
+                print_status "   - 30개 체크포인트 저장"
+                python training/unified_training_final.py --epochs 60 "$@"
+            else
+                print_warning "최종 시스템 없음, 기존 v2 시스템 사용"
+                python unified_training_v2.py --mode train "$@"
+            fi
             ;;
         "unified-test")
-            print_status "🧪 320M v2 통합 시스템 학습 테스트 모드..."
-            print_status "   - 그래디언트 체크 (NaN, 끊김 검증)"
-            print_status "   - 텐서 계산 무결성 확인"
-            print_status "   - 파라미터 업데이트 없음 (베이스라인 회귀)"
-            python unified_training_v2.py --mode train-test --max-samples ${SAMPLES:-3} --no-param-update --debug --verbose "$@"
+            print_status "🧪 730M 최종 통합 시스템 학습 테스트 모드..."
+            print_status "   - 60 에폭 학습 테스트 (--samples로 제한 가능)"
+            print_status "   - LR 스윕, Sweet Spot, Parameter Crossover 포함"
+            print_status "   - Advanced Training Techniques 활성화"
+            
+            # 새로운 최종 시스템이 있으면 우선 사용
+            if [ -f "training/unified_training_final.py" ]; then
+                print_status "   ✨ 최종 통합 시스템 (730M) 사용"
+                if [ -n "${SAMPLES}" ]; then
+                    # 샘플 수가 지정되면 테스트 모드로 에폭 조정
+                    python training/unified_training_final.py --test --epochs ${SAMPLES:-3} "$@"
+                else
+                    # 기본 테스트 모드 (2 에폭)
+                    python training/unified_training_final.py --test "$@"
+                fi
+            else
+                print_warning "최종 시스템 없음, 기존 v2 시스템 사용"
+                python unified_training_v2.py --mode train-test --max-samples ${SAMPLES:-3} --no-param-update --debug --verbose "$@"
+            fi
             ;;
         "unified-test-v1"|"unified-test-800m")
             print_status "🧪 기존 800M 통합 시스템 테스트 모드..."
