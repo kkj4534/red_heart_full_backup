@@ -1,0 +1,508 @@
+{
+  "backbone": {
+    "module": "backbone",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "accuracy": 0.0,
+        "loss_improvement": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 2,
+        "total_voters": 2,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "emotion_head": {
+    "module": "emotion_head",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "emotion_score": 0.0,
+        "bentham_score": 0.0,
+        "regret_score": 0.0,
+        "surd_score": 0.0,
+        "combined": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "task": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 3,
+        "total_voters": 3,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "bentham_head": {
+    "module": "bentham_head",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "emotion_score": 0.0,
+        "bentham_score": 0.0,
+        "regret_score": 0.0,
+        "surd_score": 0.0,
+        "combined": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "task": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 3,
+        "total_voters": 3,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "regret_head": {
+    "module": "regret_head",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "emotion_score": 0.0,
+        "bentham_score": 0.0,
+        "regret_score": 0.0,
+        "surd_score": 0.0,
+        "combined": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "task": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 3,
+        "total_voters": 3,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "surd_head": {
+    "module": "surd_head",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "emotion_score": 0.0,
+        "bentham_score": 0.0,
+        "regret_score": 0.0,
+        "surd_score": 0.0,
+        "combined": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "task": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 3,
+        "total_voters": 3,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "neural_analyzers": {
+    "module": "neural_analyzers",
+    "metrics": {
+      "losses": [
+        0,
+        0,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "stability": 1.0,
+        "convergence": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.44999999999999996,
+          0.44999999999999996,
+          0.44999999999999996
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.44999999999999996,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 2,
+        "total_voters": 2,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  },
+  "system": {
+    "module": "system",
+    "metrics": {
+      "losses": [
+        0,
+        0.750080489633644,
+        0
+      ],
+      "accuracies": [
+        0,
+        0,
+        0
+      ],
+      "epochs": [
+        1,
+        2,
+        3
+      ],
+      "gradients": [],
+      "learning_rates": [
+        2.097152000000001e-05,
+        2.097152000000001e-05,
+        2.097152000000001e-05
+      ]
+    },
+    "analyses": {
+      "plateau": {
+        "detected": false
+      },
+      "task_scores": {
+        "accuracy": 0.0,
+        "loss_improvement": 0.0
+      },
+      "mcda": {
+        "scores": [
+          0.41081631232239985,
+          0.11081631232239984,
+          0.41081631232239985
+        ],
+        "best_epoch_idx": 0,
+        "best_epoch": 1,
+        "best_score": 0.41081631232239985,
+        "weights": {
+          "loss": 0.3,
+          "accuracy": 0.4,
+          "stability": 0.15,
+          "gradient_health": 0.15
+        }
+      },
+      "voting": {
+        "candidates": {
+          "mcda": 0,
+          "min_loss": "0"
+        },
+        "selected_epoch_idx": 0,
+        "selected_epoch": 1,
+        "votes": 2,
+        "total_voters": 2,
+        "confidence": 1.0
+      }
+    },
+    "recommendation": {
+      "epoch_idx": 0,
+      "epoch": 1,
+      "confidence": 1.0,
+      "reasoning": [
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+      ]
+    }
+  }
+}

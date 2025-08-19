@@ -1,0 +1,16 @@
+[
+  {
+    "epoch": 2,
+    "lr": 2.097152000000001e-05,
+    "timestamp": "20250819_160211",
+    "path": "training/checkpoints_final/checkpoint_epoch_0002_lr_0.000021_20250819_160211.pt",
+    "metrics": {
+      "loss": 0.750080489633644,
+      "head_losses": 4.0,
+      "analyzer_losses": 4.0,
+      "total_losses": 8.0,
+      "val_loss": 0.750080489633644
+    },
+    "file_size_mb": 586.4964923858643
+  }
+]

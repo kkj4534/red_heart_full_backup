@@ -112,11 +112,17 @@ class ParameterCrossoverSystem:
                            optimal_epochs: Dict[str, int]) -> nn.Module:
         """
         선택적 교차: 각 모듈마다 최적 에폭의 파라미터 선택
+        메모리 효율적인 방식으로 state_dict만 교체
         """
         logger.info("  📌 선택적 교차 수행 중...")
         
-        # 새 모델 생성
-        crossover_model = copy.deepcopy(model)
+        # 현재 모델의 state_dict 저장 (deepcopy 대신)
+        current_state = model.state_dict()
+        crossover_state = {}  # 새로운 state_dict 구성
+        
+        # 기본적으로 현재 state를 복사
+        for key, value in current_state.items():
+            crossover_state[key] = value.clone()
         
         # 모듈별로 최적 에폭의 파라미터 로드
         for module_name, optimal_epoch in optimal_epochs.items():
@@ -129,21 +135,51 @@ class ParameterCrossoverSystem:
             
             # 모듈별 state_dict 추출
             if 'model_state' in checkpoint:
-                module_states = checkpoint['model_state']
+                checkpoint_state = checkpoint['model_state']
+            elif 'model' in checkpoint:
+                checkpoint_state = checkpoint['model']
             else:
-                module_states = checkpoint
+                checkpoint_state = checkpoint
             
             # 해당 모듈의 파라미터만 업데이트
-            if hasattr(crossover_model, module_name):
-                module = getattr(crossover_model, module_name)
-                if module_name in module_states:
-                    try:
-                        module.load_state_dict(module_states[module_name])
-                        logger.info(f"    ✓ {module_name}: 에폭 {optimal_epoch} 파라미터 로드")
-                    except Exception as e:
-                        logger.warning(f"    ⚠️ {module_name} 로드 실패: {e}")
+            updated_keys = []
+            
+            # checkpoint_state가 모듈별로 저장된 경우
+            if module_name in checkpoint_state:
+                module_state = checkpoint_state[module_name]
+                # 모듈의 state_dict를 crossover_state에 추가
+                for key, value in module_state.items():
+                    full_key = f"{module_name}.{key}"
+                    if full_key in crossover_state:
+                        # CPU에서 작업 (이미 CPU에 있지만 명시적으로)
+                        crossover_state[full_key] = value.cpu() if torch.is_tensor(value) else value
+                        updated_keys.append(full_key)
+            else:
+                # 전체 state_dict가 플랫하게 저장된 경우 (기존 방식)
+                module_prefix = f"{module_name}."
+                for key, value in checkpoint_state.items():
+                    if key.startswith(module_prefix):
+                        if key in crossover_state:
+                            # CPU에서 작업 (이미 CPU에 있지만 명시적으로)
+                            crossover_state[key] = value.cpu() if torch.is_tensor(value) else value
+                            updated_keys.append(key)
+            
+            if updated_keys:
+                logger.info(f"    ✓ {module_name}: 에폭 {optimal_epoch}에서 {len(updated_keys)}개 파라미터 로드")
+            else:
+                logger.warning(f"    ⚠️ {module_name}: 매칭되는 파라미터 없음")
         
-        return crossover_model
+        # 새로운 state_dict를 모델에 로드
+        try:
+            model.load_state_dict(crossover_state, strict=False)
+            logger.info("  ✅ Parameter Crossover 완료")
+        except Exception as e:
+            logger.error(f"  ❌ State dict 로드 실패: {e}")
+            # 실패 시 원래 state 복원
+            model.load_state_dict(current_state)
+            logger.info("  ↩️ 원래 state로 복원됨")
+        
+        return model
     
     def _weighted_crossover(self,
                           model: nn.Module,

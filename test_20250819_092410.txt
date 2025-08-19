@@ -1,0 +1,521 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 730M 최종 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 60 에폭 학습 테스트 (--samples로 제한 가능)
+[0;34m[INFO][0m    - LR 스윕, Sweet Spot, Parameter Crossover 포함
+[0;34m[INFO][0m    - Advanced Training Techniques 활성화
+[0;34m[INFO][0m    ✨ 최종 통합 시스템 (730M) 사용
+2025-08-19 09:25:13,984 - RedHeart.UnifiedTrainingFinal - INFO - ⚠️ 테스트 모드: 3 에폭 실행
+2025-08-19 09:25:14,105 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+2025-08-19 09:25:14,105 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-19 09:25:14,106 - RedHeart.UnifiedTrainingFinal - INFO - Red Heart AI 최종 통합 학습 시스템 초기화
+2025-08-19 09:25:14,106 - RedHeart.UnifiedTrainingFinal - INFO -   - 모델 크기: 730M 파라미터
+2025-08-19 09:25:14,106 - RedHeart.UnifiedTrainingFinal - INFO -   - 총 에폭: 3
+2025-08-19 09:25:14,106 - RedHeart.UnifiedTrainingFinal - INFO -   - 배치 사이즈: 2 (GA=32)
+2025-08-19 09:25:14,106 - RedHeart.UnifiedTrainingFinal - INFO -   - 디바이스: cuda
+2025-08-19 09:25:14,107 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-19 09:25:14,109 - training.enhanced_checkpoint_manager - INFO - ✅ Enhanced CheckpointManager 초기화
+2025-08-19 09:25:14,109 - training.enhanced_checkpoint_manager - INFO -   - 저장 디렉토리: training/checkpoints_final
+2025-08-19 09:25:14,110 - training.enhanced_checkpoint_manager - INFO -   - 최대 체크포인트: 30개
+2025-08-19 09:25:14,110 - training.enhanced_checkpoint_manager - INFO -   - 저장 간격: 2 에폭마다
+2025-08-19 09:25:14,110 - training.lr_sweep_optimizer - INFO - ✅ LR Sweep Optimizer 초기화
+2025-08-19 09:25:14,110 - training.lr_sweep_optimizer - INFO -   - 스윕 범위: 1.0e-05 ~ 1.0e-02
+2025-08-19 09:25:14,110 - training.lr_sweep_optimizer - INFO -   - 테스트 LR 값: ['1.0e-05', '5.6e-05', '3.2e-04', '1.8e-03', '1.0e-02']
+2025-08-19 09:25:14,111 - training.lr_sweep_optimizer - INFO -   - 각 LR당 3 에폭 테스트
+2025-08-19 09:25:14,111 - training.sweet_spot_detector - INFO - ✅ Sweet Spot Detector 초기화
+2025-08-19 09:25:14,111 - training.sweet_spot_detector - INFO -   - 윈도우 크기: 5
+2025-08-19 09:25:14,111 - training.sweet_spot_detector - INFO -   - 안정성 임계값: 0.01
+2025-08-19 09:25:14,111 - training.sweet_spot_detector - INFO -   - Patience: 10
+2025-08-19 09:25:14,112 - training.parameter_crossover_system - INFO - ✅ Parameter Crossover System 초기화
+2025-08-19 09:25:14,112 - training.parameter_crossover_system - INFO -   - 전략: selective
+2025-08-19 09:25:14,112 - training.parameter_crossover_system - INFO -   - 블렌드 비율: 0.7
+2025-08-19 09:25:14,112 - training.oom_handler - INFO - ✅ OOM Handler 초기화
+2025-08-19 09:25:14,112 - training.oom_handler - INFO -   - 초기 배치 사이즈: 2
+2025-08-19 09:25:14,112 - training.oom_handler - INFO -   - 최소 배치 사이즈: 1
+2025-08-19 09:25:14,113 - training.oom_handler - INFO -   - Gradient Accumulation: 32
+2025-08-19 09:25:14,113 - training.oom_handler - INFO -   - 메모리 임계값: 85.0%
+2025-08-19 09:25:14,113 - training.oom_handler - INFO -   - 디바이스: cuda
+2025-08-19 09:25:14,113 - training.advanced_training_techniques - INFO - ✅ Advanced Training Manager 초기화
+2025-08-19 09:25:14,113 - training.advanced_training_techniques - INFO -   - label_smoothing: 활성화
+2025-08-19 09:25:14,113 - training.advanced_training_techniques - INFO -   - rdrop: 활성화
+2025-08-19 09:25:14,114 - training.advanced_training_techniques - INFO -   - ema: 활성화
+2025-08-19 09:25:14,114 - training.advanced_training_techniques - INFO -   - llrd: 활성화
+2025-08-19 09:25:14,114 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 모든 컴포넌트 초기화 완료
+2025-08-19 09:25:14,114 - RedHeart.UnifiedTrainingFinal - INFO - 🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-19 09:25:14,718 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-19 09:25:14,718 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-19 09:25:14,846 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-19 09:25:14,960 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-19 09:25:15,118 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-19 09:25:15,292 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-19 09:25:16,224 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-08-19 09:25:16,816 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-08-19 09:25:17,983 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-08-19 09:25:18,091 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-08-19 09:25:18,092 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-08-19 09:25:18,249 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-19 09:25:18,253 - RedHeart.UnifiedTrainingFinal - INFO -   초기 GPU 메모리: 0.00GB
+2025-08-19 09:25:18,673 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 백본 GPU 로드 (90.6M)
+2025-08-19 09:25:18,698 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 감정 헤드 GPU 로드 (38.3M)
+2025-08-19 09:25:18,793 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 벤담 헤드 GPU 로드 (38.3M)
+2025-08-19 09:25:18,817 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 후회 헤드 GPU 로드 (38.3M)
+2025-08-19 09:25:18,836 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ SURD 헤드 GPU 로드 (38.3M)
+2025-08-19 09:25:18,836 - RedHeart.UnifiedTrainingFinal - INFO -   🔄 Translator 모듈 초기화 중...
+2025-08-19 09:25:18,836 - RedHeart.Config - INFO - 🔍 get_system_module 호출: module_id=translator
+2025-08-19 09:25:18,836 - RedHeart.Config - INFO - 🔍 현재 등록된 모듈들: []
+2025-08-19 09:25:18,837 - RedHeart.Config - INFO - 🔍 결과: None
+2025-08-19 09:25:18,847 - local_translator - INFO - LocalTranslator 생성 - 전역 모듈로 초기화됨
+2025-08-19 09:25:18,848 - local_translator - INFO - 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-08-19 09:26:21,845 - hf_model_wrapper - DEBUG - ✅ AutoModel.from_pretrained 패치됨
+2025-08-19 09:26:21,845 - hf_model_wrapper - DEBUG - ✅ AutoModelForSequenceClassification.from_pretrained 패치됨
+2025-08-19 09:26:21,845 - hf_model_wrapper - DEBUG - ✅ AutoModelForTokenClassification.from_pretrained 패치됨
+2025-08-19 09:26:21,845 - hf_model_wrapper - DEBUG - ✅ AutoModelForCausalLM.from_pretrained 패치됨
+2025-08-19 09:26:21,846 - hf_model_wrapper - DEBUG - ✅ AutoProcessor.from_pretrained 패치됨
+2025-08-19 09:26:21,846 - hf_model_wrapper - DEBUG - ✅ AutoImageProcessor.from_pretrained 패치됨
+2025-08-19 09:26:21,846 - hf_model_wrapper - DEBUG - ✅ MarianMTModel.from_pretrained 패치됨
+2025-08-19 09:26:21,846 - hf_model_wrapper - DEBUG - ✅ ElectraForSequenceClassification.from_pretrained 패치됨
+2025-08-19 09:26:21,846 - hf_model_wrapper - INFO - ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-08-19 09:26:22,342 - hf_model_wrapper - INFO - 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-08-19 09:26:22,343 - hf_model_wrapper - DEBUG - CPU 전용 owner(translator) → device=cpu 강제
+2025-08-19 09:26:23,122 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-08-19 09:26:23,395 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /Helsinki-NLP/opus-mt-ko-en/resolve/main/custom_generate/generate.py HTTP/1.1" 404 0
+2025-08-19 09:26:23,403 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1189.3MB (학습가능: True)
+2025-08-19 09:26:23,406 - local_translator - INFO - ✅ OPUS-MT 모델 로드 완료 (소요시간: 64.6초, 디바이스: cpu)
+2025-08-19 09:26:23,406 - local_translator - INFO - 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-08-19 09:26:23,441 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-19 09:26:23,441 - dynamic_swap_manager - INFO - RedHeartDynamicSwapManager 초기화 완료
+2025-08-19 09:26:23,441 - asyncio - DEBUG - Using selector: EpollSelector
+2025-08-19 09:26:23,442 - local_translator - DEBUG - DSM 등록을 위한 이벤트 루프 생성
+2025-08-19 09:26:23,443 - dynamic_swap_manager - INFO - [DSM] translator 크기: 297.6MB (mgr_id=137666946622544)
+2025-08-19 09:26:23,443 - dynamic_swap_manager - INFO -    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-08-19 09:26:23,443 - dynamic_swap_manager - DEBUG -    master_model_registry에 translator 등록 (priority=3)
+2025-08-19 09:26:23,444 - dynamic_swap_manager - INFO - [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-08-19 09:26:23,444 - local_translator - INFO - ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-08-19 09:26:23,444 - RedHeart.Config - INFO - 🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+2025-08-19 09:26:23,444 - RedHeart.Config - INFO - 🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+2025-08-19 09:26:23,444 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ LocalTranslator 초기화 및 전역 등록 완료
+2025-08-19 09:26:23,445 - RedHeart.UnifiedTrainingFinal - INFO -   🔧 Advanced Wrappers 생성 중...
+2025-08-19 09:26:33,972 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 7.2%, 필요: 500MB)
+2025-08-19 09:26:33,975 - RedHeart.Config - INFO - 🔍 get_system_module 호출: module_id=translator
+2025-08-19 09:26:33,975 - RedHeart.Config - INFO - 🔍 현재 등록된 모듈들: ['translator']
+2025-08-19 09:26:33,975 - RedHeart.Config - INFO - 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-08-19 09:26:34,470 - RedHeartLinux.AdvancedEmotion - INFO - ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-08-19 09:26:34,691 - RedHeartLinux.AdvancedEmotion - INFO - 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-08-19 09:26:34,692 - RedHeartLinux.AdvancedEmotion - INFO -   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-08-19 09:26:34,692 - RedHeartLinux.AdvancedEmotion - INFO -   - emotion_moe None 여부: False
+2025-08-19 09:26:34,700 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-19 09:26:34,717 - RedHeartLinux.AdvancedEmotion - INFO - ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-08-19 09:26:34,717 - RedHeartLinux.AdvancedEmotion - INFO -   - DSP 시뮬레이터: 20M 파라미터
+2025-08-19 09:26:34,718 - RedHeartLinux.AdvancedEmotion - INFO -   - 칼만 필터: 융합용
+2025-08-19 09:26:34,795 - RedHeartLinux.AdvancedEmotion - INFO - 계층적 감정 모델 초기화 완료
+2025-08-19 09:26:34,796 - RedHeart.AdvancedLLM - INFO - 모델 설정 준비 완료: ['helpingai']
+2025-08-19 09:26:34,796 - RedHeart.AdvancedLLM - INFO - 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-08-19 09:26:34,796 - RedHeartLinux.AdvancedEmotion - INFO - LLM 엔진 연결 완료
+2025-08-19 09:26:34,796 - RedHeartLinux.AdvancedEmotion - INFO - 고급 감정 분석 시스템이 초기화되었습니다.
+2025-08-19 09:26:34,797 - RedHeartLinux.AdvancedEmotion - INFO - 🔍 hierarchical_model이 이미 존재함
+2025-08-19 09:26:34,797 - advanced_analyzer_wrappers - INFO -   - biometric_processor 등록 (10M)
+2025-08-19 09:26:34,797 - advanced_analyzer_wrappers - INFO -   - multimodal_fusion 등록 (10M)
+2025-08-19 09:26:34,797 - advanced_analyzer_wrappers - INFO -   - temporal_emotion 등록 (10M)
+2025-08-19 09:26:34,797 - advanced_analyzer_wrappers - INFO -   - cultural_nuance 등록 (13M)
+2025-08-19 09:26:34,798 - advanced_analyzer_wrappers - INFO -   - advanced_moe 등록 (5M)
+2025-08-19 09:26:34,798 - advanced_analyzer_wrappers - INFO -   - emotion_moe 등록
+2025-08-19 09:26:34,798 - advanced_analyzer_wrappers - INFO - ✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+2025-08-19 09:26:35,151 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:35,360 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /klue/bert-base/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2025-08-19 09:26:35,368 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/klue/bert-base/77c8b3d707df785034b4e50f2da5d37be5f0f546/tokenizer_config.json HTTP/1.1" 200 0
+2025-08-19 09:26:35,586 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/klue/bert-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2025-08-19 09:26:36,054 - advanced_regret_analyzer - INFO - ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-08-19 09:26:36,089 - advanced_regret_analyzer - INFO - 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-08-19 09:26:36,089 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:36,089 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-08-19 09:26:36,090 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-19 09:26:36,090 - advanced_regret_analyzer - INFO - 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-08-19 09:26:36,090 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:36,090 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook GPU 메모리 관리 활성화
+2025-08-19 09:26:36,090 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook 시스템 초기화 완료
+2025-08-19 09:26:36,091 - RedHeart.PhaseControllerHook - INFO - 성능 모니터링 시작
+2025-08-19 09:26:36,091 - advanced_regret_analyzer - INFO - 후회 분석기 PhaseController Hook 초기화 완료
+2025-08-19 09:26:36,091 - advanced_regret_analyzer - INFO - Advanced Regret Analyzer initialized on cuda
+2025-08-19 09:26:36,091 - advanced_regret_analyzer - INFO - 동적 임계값 시스템 통합 완료
+2025-08-19 09:26:36,092 - advanced_analyzer_wrappers - INFO -   - regret_network 등록 (3M)
+2025-08-19 09:26:36,092 - advanced_analyzer_wrappers - INFO -   - counterfactual_sim 등록 (15M)
+2025-08-19 09:26:36,092 - advanced_analyzer_wrappers - INFO -   - temporal_propagation 등록 (12M)
+2025-08-19 09:26:36,092 - advanced_analyzer_wrappers - INFO -   - decision_tree 등록 (10M)
+2025-08-19 09:26:36,092 - advanced_analyzer_wrappers - INFO -   - bayesian_inference 등록 (10M)
+2025-08-19 09:26:36,093 - advanced_analyzer_wrappers - INFO - ✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+2025-08-19 09:26:36,272 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 12.9%, 필요: 500MB)
+2025-08-19 09:26:36,403 - RedHeart.AdvancedSURDAnalyzer - INFO - ✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+2025-08-19 09:26:36,433 - RedHeart.AdvancedSURDAnalyzer - INFO - 새로운 고급 SURD 모델 초기화 완료
+2025-08-19 09:26:36,433 - RedHeart.AdvancedSURDAnalyzer - INFO - LLM 엔진 연결 완료
+2025-08-19 09:26:36,434 - RedHeart.AdvancedSURDAnalyzer - INFO - 고급 SURD 분석 시스템 초기화 완료
+2025-08-19 09:26:36,434 - advanced_analyzer_wrappers - INFO -   - deep_causal 등록 (10M)
+2025-08-19 09:26:36,434 - advanced_analyzer_wrappers - INFO -   - info_decomposition 등록 (8M)
+2025-08-19 09:26:36,434 - advanced_analyzer_wrappers - INFO -   - neural_causal_model 등록 (5M)
+2025-08-19 09:26:36,434 - advanced_analyzer_wrappers - INFO - ✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+2025-08-19 09:26:35,635 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-08-19 09:26:35,649 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)
+2025-08-19 09:26:35,649 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:35,649 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-08-19 09:26:35,649 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-19 09:26:35,650 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-08-19 09:26:35,650 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로딩 중...
+2025-08-19 09:26:35,650 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 17.0%, 필요: 100MB)
+2025-08-19 09:26:35,654 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로드: cuda (100MB)
+2025-08-19 09:26:35,654 - RedHeart.AdvancedBenthamCalculator - INFO - 메모리 사용량: RAM 2699MB, GPU 1390MB
+2025-08-19 09:26:35,655 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:35,655 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook GPU 메모리 관리 활성화
+2025-08-19 09:26:35,655 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook 시스템 초기화 완료
+2025-08-19 09:26:35,655 - RedHeart.PhaseControllerHook - INFO - 성능 모니터링 시작
+2025-08-19 09:26:35,656 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 PhaseController Hook 초기화 완료
+2025-08-19 09:26:35,656 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-19 09:26:35,656 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 GPU 메모리 관리 활성화
+2025-08-19 09:26:35,656 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-19 09:26:35,656 - RedHeart.LegalExpertSystem - INFO - inference 모드 - 법률 전문가 시스템 활성화
+2025-08-19 09:26:35,656 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-08-19 09:26:35,657 - RedHeart.AdvancedBenthamCalculator - INFO - 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-08-19 09:26:35,657 - RedHeart.AdvancedBenthamCalculator - INFO - 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-08-19 09:26:35,658 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-08-19 09:26:35,659 - RedHeart.AdvancedBenthamCalculator - INFO -    - 파라미터 수: 3,137
+2025-08-19 09:26:35,659 - RedHeart.AdvancedBenthamCalculator - INFO - 트랜스포머 맥락 분석기 로딩 중...
+2025-08-19 09:26:35,659 - config - INFO - GPU 로딩 워커 스레드 시작
+2025-08-19 09:26:35,660 - RedHeart.Config - INFO - 순차적 GPU 로딩 시스템 시작
+2025-08-19 09:26:35,660 - asyncio - DEBUG - Using selector: EpollSelector
+2025-08-19 09:26:35,661 - RedHeart.Config - INFO - GPU 로딩 시작: bentham_emotion_classifier (예상 메모리: 732MB)
+2025-08-19 09:26:35,661 - hf_model_wrapper - INFO - 🔄 HF 파이프라인 생성 중: text-classification (모델: j-hartmann/emotion-english-distilroberta-base, 소유자: advanced_bentham_calculator)
+2025-08-19 09:26:35,661 - hf_model_wrapper - INFO - 📊 파이프라인 로드 전 메모리 요청: advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base (1000.0MB)
+2025-08-19 09:26:35,661 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+2025-08-19 09:26:35,662 - workflow_aware_memory_manager - DEBUG - [GPU BLOCKING] 여유 공간: free=6795.6MB, reserved_free=5.8MB, total=6801.4MB
+2025-08-19 09:26:35,662 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] ✅ advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base 할당 성공 (폴링)
+2025-08-19 09:26:35,871 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/config.json HTTP/1.1" 307 0
+2025-08-19 09:26:35,878 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/j-hartmann/emotion-english-distilroberta-base/0e1cd914e3d46199ed785853e12b57304e04178b/config.json HTTP/1.1" 200 0
+2025-08-19 09:26:35,882 - hf_model_wrapper - INFO - 🔄 HF 모델 로딩 중: j-hartmann/emotion-english-distilroberta-base (소유자: transformers.pipelines.base)
+2025-08-19 09:26:35,883 - hf_model_wrapper - INFO - 📊 모델 로드 전 메모리 요청: transformers.pipelines.base_emotion-english-distilroberta-base (1000.0MB)
+2025-08-19 09:26:35,883 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] transformers.pipelines.base_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+2025-08-19 09:26:35,883 - workflow_aware_memory_manager - DEBUG - [GPU BLOCKING] 여유 공간: free=6795.6MB, reserved_free=5.8MB, total=6801.4MB
+2025-08-19 09:26:35,884 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] ✅ transformers.pipelines.base_emotion-english-distilroberta-base 할당 성공 (폴링)
+2025-08-19 09:26:45,169 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/model.safetensors HTTP/1.1" 404 0
+2025-08-19 09:26:45,171 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-08-19 09:26:45,398 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base HTTP/1.1" 200 5096
+2025-08-19 09:26:45,632 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/main HTTP/1.1" 200 11013
+2025-08-19 09:26:45,861 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/discussions?p=0 HTTP/1.1" 200 35391
+2025-08-19 09:26:46,091 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/refs%2Fpr%2F3017 HTTP/1.1" 200 11763
+2025-08-19 09:26:46,200 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1253.1MB (학습가능: True)
+2025-08-19 09:26:46,200 - hf_model_wrapper - INFO - ✅ 모델 'transformers.pipelines.base_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: transformers.pipelines.base, 크기: 1253.1MB)
+2025-08-19 09:26:46,300 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors.index.json HTTP/1.1" 404 0
+2025-08-19 09:26:46,453 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2025-08-19 09:26:46,541 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors HTTP/1.1" 302 0
+Device set to use cuda:0
+2025-08-19 09:26:46,547 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1253.1MB (학습가능: True)
+2025-08-19 09:26:46,547 - hf_model_wrapper - INFO - ✅ 모델 'advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: advanced_bentham_calculator, 크기: 1253.1MB)
+2025-08-19 09:26:46,547 - RedHeart.Config - INFO - GPU 로딩 성공: bentham_emotion_classifier (사용률: 17.0% → 20.8%, 실제: 307MB)
+2025-08-19 09:26:46,548 - advanced_analyzer_wrappers - INFO -   - cross_cultural 등록
+2025-08-19 09:26:46,548 - advanced_analyzer_wrappers - INFO -   - deep_ethics 등록
+2025-08-19 09:26:46,548 - advanced_analyzer_wrappers - INFO -   - default_network 등록
+2025-08-19 09:26:46,549 - advanced_analyzer_wrappers - INFO -   - ethics_moe 등록
+2025-08-19 09:26:46,549 - advanced_analyzer_wrappers - INFO -   - long_term_predictor 등록
+2025-08-19 09:26:46,549 - advanced_analyzer_wrappers - INFO -   - neural_predictor 등록
+2025-08-19 09:26:46,549 - advanced_analyzer_wrappers - INFO -   - social_impact 등록
+2025-08-19 09:26:46,550 - RedHeart.AdvancedBenthamCalculator - INFO - 가중치 레이어들 로딩 중...
+2025-08-19 09:26:46,550 - RedHeart.AdvancedBenthamCalculator - INFO - 메모리 사용량: RAM 2703MB, GPU 1704MB
+2025-08-19 09:26:46,550 - advanced_analyzer_wrappers - INFO - ✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+2025-08-19 09:26:46,553 - advanced_analyzer_wrappers - INFO - ✅ Advanced Analyzer Wrappers 생성 완료
+2025-08-19 09:26:46,553 - advanced_analyzer_wrappers - INFO -   - 총 Wrapper 수: 4
+2025-08-19 09:26:46,553 - advanced_analyzer_wrappers - INFO -   - 총 파라미터: 190,575,565
+2025-08-19 09:26:46,554 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Advanced Wrappers 생성 완료 (190.6M)
+2025-08-19 09:26:46,956 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ emotion 분석기 GPU 로드
+2025-08-19 09:26:47,078 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ bentham 분석기 GPU 로드
+2025-08-19 09:26:47,279 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ regret 분석기 GPU 로드
+2025-08-19 09:26:47,294 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ surd 분석기 GPU 로드
+2025-08-19 09:26:47,299 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_emotion Wrapper GPU 로드
+2025-08-19 09:26:47,303 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_regret Wrapper GPU 로드
+2025-08-19 09:26:47,304 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_surd Wrapper GPU 로드
+2025-08-19 09:26:47,318 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_bentham Wrapper GPU 로드
+2025-08-19 09:26:47,321 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Phase0 네트워크 GPU 로드
+2025-08-19 09:26:47,331 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Phase2 네트워크 GPU 로드
+2025-08-19 09:26:47,343 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Hierarchical Integrator GPU 로드
+2025-08-19 09:26:47,350 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ DSP Simulator GPU 로드
+2025-08-19 09:26:47,351 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Kalman Filter GPU 로드
+2025-08-19 09:26:47,351 - RedHeart.UnifiedTrainingFinal - INFO -   최종 GPU 메모리: 3.14GB (증가: 3.14GB)
+2025-08-19 09:26:47,351 - RedHeart.UnifiedTrainingFinal - INFO -   GPU 사용률: 39.3% / 8.0GB
+2025-08-19 09:26:47,389 - training.advanced_training_techniques - DEBUG -   Layer 0: LR=2.1e-05 (241 params)
+2025-08-19 09:26:47,389 - training.advanced_training_techniques - DEBUG -   Layer 1: LR=2.6e-05 (170 params)
+2025-08-19 09:26:47,389 - training.advanced_training_techniques - DEBUG -   Layer 2: LR=3.3e-05 (216 params)
+2025-08-19 09:26:47,390 - training.advanced_training_techniques - DEBUG -   Layer 3: LR=4.1e-05 (100 params)
+2025-08-19 09:26:47,390 - training.advanced_training_techniques - DEBUG -   Layer 4: LR=5.1e-05 (78 params)
+2025-08-19 09:26:47,390 - training.advanced_training_techniques - DEBUG -   Layer 5: LR=6.4e-05 (66 params)
+2025-08-19 09:26:47,390 - training.advanced_training_techniques - DEBUG -   Layer 6: LR=8.0e-05 (20 params)
+2025-08-19 09:26:47,390 - training.advanced_training_techniques - DEBUG -   Layer 7: LR=1.0e-04 (54 params)
+2025-08-19 09:26:47,391 - training.advanced_training_techniques - INFO - ✅ LLRD 초기화: 8개 레이어
+2025-08-19 09:26:47,391 - training.advanced_training_techniques - INFO -   - Base LR: 1.0e-04
+2025-08-19 09:26:47,391 - training.advanced_training_techniques - INFO -   - Decay Rate: 0.8
+2025-08-19 09:26:47,391 - training.advanced_training_techniques - INFO - ✅ Advanced Training 컴포넌트 초기화 완료
+2025-08-19 09:26:47,392 - RedHeart.UnifiedTrainingFinal - INFO -   백본: 90.6M
+2025-08-19 09:26:47,392 - RedHeart.UnifiedTrainingFinal - INFO -   emotion_head: 17.3M
+2025-08-19 09:26:47,392 - RedHeart.UnifiedTrainingFinal - INFO -   bentham_head: 13.9M
+2025-08-19 09:26:47,393 - RedHeart.UnifiedTrainingFinal - INFO -   regret_head: 19.9M
+2025-08-19 09:26:47,393 - RedHeart.UnifiedTrainingFinal - INFO -   surd_head: 12.0M
+2025-08-19 09:26:47,394 - RedHeart.UnifiedTrainingFinal - INFO -   Neural Analyzers: 368.2M
+2025-08-19 09:26:47,396 - RedHeart.UnifiedTrainingFinal - INFO -   Advanced Wrappers: 190.6M
+2025-08-19 09:26:47,396 - RedHeart.UnifiedTrainingFinal - INFO -   Phase Networks: 15.7M
+2025-08-19 09:26:47,397 - RedHeart.UnifiedTrainingFinal - INFO -   DSP & Kalman: 2.3M
+2025-08-19 09:26:47,397 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 모델 초기화 완료: 총 730.5M 파라미터
+2025-08-19 09:26:47,646 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 데이터 로더 초기화: Train=9414, Val=1046
+2025-08-19 09:26:47,648 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 옵티마이저 및 스케줄러 초기화 완료
+2025-08-19 09:26:47,648 - RedHeart.UnifiedTrainingFinal - WARNING - ⚠️ 파라미터 업데이트 비활성화 - 검증 모드
+2025-08-19 09:26:47,648 - RedHeart.UnifiedTrainingFinal - INFO - 
+======================================================================
+2025-08-19 09:26:47,648 - RedHeart.UnifiedTrainingFinal - INFO - 🚀 학습 시작
+2025-08-19 09:26:47,649 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-19 09:26:47,649 - RedHeart.UnifiedTrainingFinal - INFO - 
+======================================================================
+2025-08-19 09:26:47,649 - RedHeart.UnifiedTrainingFinal - INFO - 🔍 Learning Rate Sweep 시작...
+2025-08-19 09:26:47,649 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-19 09:26:47,649 - training.lr_sweep_optimizer - INFO - 🔍 LR Sweep 시작...
+2025-08-19 09:26:47,650 - training.lr_sweep_optimizer - INFO - 
+[1/5] LR=1.0e-05 테스트
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+2025-08-19 09:26:49,193 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=1.0000, val=1.0000
+2025-08-19 09:26:50,402 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=1.0000, val=1.0000
+2025-08-19 09:26:51,610 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=1.0000, val=1.0000
+2025-08-19 09:26:51,991 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 1.0000
+2025-08-19 09:26:51,991 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 1.0000
+2025-08-19 09:26:51,992 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 0.0000
+2025-08-19 09:26:51,992 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 1.0000
+2025-08-19 09:26:51,992 - training.lr_sweep_optimizer - INFO - 
+[2/5] LR=5.6e-05 테스트
+2025-08-19 09:26:53,801 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=1.0000, val=1.0000
+2025-08-19 09:26:55,074 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=1.0000, val=1.0000
+2025-08-19 09:26:56,359 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=1.0000, val=1.0000
+2025-08-19 09:26:56,795 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 1.0000
+2025-08-19 09:26:56,796 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 1.0000
+2025-08-19 09:26:56,796 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 0.0000
+2025-08-19 09:26:56,796 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 1.0000
+2025-08-19 09:26:56,796 - training.lr_sweep_optimizer - INFO - 
+[3/5] LR=3.2e-04 테스트
+2025-08-19 09:26:58,483 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=1.0000, val=1.0000
+2025-08-19 09:26:59,758 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=1.0000, val=1.0000
+2025-08-19 09:27:01,027 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=1.0000, val=1.0000
+2025-08-19 09:27:01,465 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 1.0000
+2025-08-19 09:27:01,465 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 1.0000
+2025-08-19 09:27:01,465 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 0.0000
+2025-08-19 09:27:01,465 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 1.0000
+2025-08-19 09:27:01,466 - training.lr_sweep_optimizer - INFO - 
+[4/5] LR=1.8e-03 테스트
+2025-08-19 09:27:03,077 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=1.0000, val=1.0000
+2025-08-19 09:27:04,339 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=1.0000, val=1.0000
+2025-08-19 09:27:05,605 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=1.0000, val=1.0000
+2025-08-19 09:27:05,937 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 1.0000
+2025-08-19 09:27:05,937 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 1.0000
+2025-08-19 09:27:05,937 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 0.0000
+2025-08-19 09:27:05,938 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 1.0000
+2025-08-19 09:27:05,938 - training.lr_sweep_optimizer - INFO - 
+[5/5] LR=1.0e-02 테스트
+2025-08-19 09:27:05,929 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=1.0000, val=1.0000
+2025-08-19 09:27:07,191 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=1.0000, val=1.0000
+2025-08-19 09:27:08,463 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=1.0000, val=1.0000
+2025-08-19 09:27:08,886 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 1.0000
+2025-08-19 09:27:08,886 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 1.0000
+2025-08-19 09:27:08,886 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 0.0000
+2025-08-19 09:27:08,886 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 1.0000
+2025-08-19 09:27:08,887 - training.lr_sweep_optimizer - INFO - 
+🏆 최적 LR 선택: 1.0e-05
+2025-08-19 09:27:08,887 - training.lr_sweep_optimizer - INFO -    - 종합 점수: 0.4500
+2025-08-19 09:27:08,892 - training.lr_sweep_optimizer - INFO - 📊 스윕 결과 저장: training/lr_sweep_results/lr_sweep_20250819_092708.json
+2025-08-19 09:27:08,919 - matplotlib.pyplot - DEBUG - Loaded backend Agg version v2.2.
+2025-08-19 09:27:08,922 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2025-08-19 09:27:08,923 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,923 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,923 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,923 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,924 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,924 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,924 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:08,924 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,925 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,925 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:08,925 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:08,925 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,925 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,926 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,926 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,926 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,926 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,926 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,927 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,927 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,927 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,927 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,927 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-19 09:27:08,928 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,928 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,928 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,928 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:08,928 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-19 09:27:08,929 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,929 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,929 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-19 09:27:08,929 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,929 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,930 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,930 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,930 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,930 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,931 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-19 09:27:08,931 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,931 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,931 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,931 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,932 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,932 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,932 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,932 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,932 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,933 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,933 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,933 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,933 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-19 09:27:08,933 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,934 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,934 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,934 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,934 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,935 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,935 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-19 09:27:08,935 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,935 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,935 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:08,936 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,936 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,936 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,936 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,937 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:08,937 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:08,937 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:08,937 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-19 09:27:09,047 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+2025-08-19 09:27:09,048 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,048 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,048 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,048 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,048 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,049 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,049 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:09,049 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,049 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,049 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,050 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,051 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,052 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-19 09:27:09,052 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,052 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,052 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,052 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,053 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-19 09:27:09,054 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,055 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,056 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,056 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,056 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,056 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,056 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,057 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-19 09:27:09,058 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,059 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,059 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,059 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,059 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-19 09:27:09,059 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-19 09:27:09,060 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-19 09:27:09,060 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-19 09:27:10,182 - training.lr_sweep_optimizer - INFO - 📈 시각화 저장: training/lr_sweep_results/lr_sweep_plot_20250819_092709.png
+2025-08-19 09:27:10,186 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 옵티마이저 및 스케줄러 초기화 완료
+2025-08-19 09:27:10,186 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 최적 LR 선택: 1.0e-05
+2025-08-19 09:27:10,187 - RedHeart.UnifiedTrainingFinal - INFO - 
+📌 Epoch 1/3
+2025-08-19 09:27:10,353 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-19 09:27:10,354 - training.oom_handler - INFO -    - CPU: 5.0% (4.0/98.2 GB)
+2025-08-19 09:27:10,354 - training.oom_handler - INFO -    - GPU: 47.5% (3.8/8.0 GB)
+2025-08-19 09:27:10,354 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-19 09:27:10,354 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 1115, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 1111, in main
+    trainer.train()
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 963, in train
+    train_metrics = self.train_epoch(epoch)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 655, in train_epoch
+    loss, metrics = self._forward_step(batch)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 751, in _forward_step
+    if self.config.verbose and batch_idx < 3:
+       ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'UnifiedTrainingConfig' object has no attribute 'verbose'
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

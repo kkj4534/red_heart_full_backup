@@ -107,6 +107,7 @@ class UnifiedTrainingConfig:
         
         # 로깅
         self.log_interval = 10
+        self.verbose = False  # 상세 출력 설정
         self.val_interval = 100
 
 
@@ -140,8 +141,8 @@ class UnifiedModel(nn.Module):
         # 신경망 분석기 (368M)
         self.neural_analyzers = create_neural_analyzers(input_dim=896)
         
-        # Advanced 분석기 래퍼 (112M)
-        self.advanced_wrappers = create_advanced_analyzer_wrappers()
+        # Advanced 분석기 래퍼 (112M) - translator 초기화 후 생성
+        self.advanced_wrappers = None  # 나중에 초기화
         
         # Phase 네트워크 (4.3M)
         self.phase0_net = Phase0ProjectionNet()
@@ -157,7 +158,7 @@ class UnifiedModel(nn.Module):
             self.kalman_filter = None
         
     def forward(self, x, task='emotion'):
-        """순전파
+        """순전파 - GPU 메모리 효율적 처리
         
         Args:
             x: 입력 텐서
@@ -166,7 +167,11 @@ class UnifiedModel(nn.Module):
         Returns:
             해당 태스크의 출력 텐서 (dict가 아닌 tensor)
         """
-        # 백본 처리
+        # 입력을 디바이스로 이동 (필요시)
+        if x.device != self.backbone.parameters().__next__().device:
+            x = x.to(self.backbone.parameters().__next__().device)
+        
+        # 백본 처리 (이미 GPU에 있음)
         backbone_outputs = self.backbone(x, task=task)
         
         # 태스크별 특징 추출
@@ -176,18 +181,29 @@ class UnifiedModel(nn.Module):
             # 모든 태스크 출력의 평균 사용
             features = torch.stack(list(backbone_outputs.values())).mean(dim=0)
         
-        # 태스크별 헤드 적용
+        # 태스크별 헤드 적용 (모두 GPU에 있음)
         if task == 'emotion':
+            # EmotionHead가 dict를 반환하면 'emotions' 키 추출
             output = self.emotion_head(features)
+            if isinstance(output, dict):
+                output = output.get('emotions', output.get('emotion_logits', list(output.values())[0]))
         elif task == 'bentham':
             output = self.bentham_head(features)
+            if isinstance(output, dict):
+                output = output.get('bentham_scores', list(output.values())[0])
         elif task == 'regret':
             output = self.regret_head(features)
+            if isinstance(output, dict):
+                output = output.get('regret_score', list(output.values())[0])
         elif task == 'surd':
             output = self.surd_head(features)
+            if isinstance(output, dict):
+                output = output.get('surd_values', output.get('surd_scores', list(output.values())[0]))
         else:
             # 기본값: emotion
             output = self.emotion_head(features)
+            if isinstance(output, dict):
+                output = output.get('emotions', output.get('emotion_logits', list(output.values())[0]))
         
         return output
 
@@ -198,6 +214,7 @@ class UnifiedTrainer:
     def __init__(self, config: UnifiedTrainingConfig):
         self.config = config
         self.device = get_device()
+        self.verbose = config.verbose  # V2와 동일하게 verbose 설정
         
         logger.info("=" * 70)
         logger.info("Red Heart AI 최종 통합 학습 시스템 초기화")
@@ -280,9 +297,120 @@ class UnifiedTrainer:
         logger.info("✅ 모든 컴포넌트 초기화 완료")
     
     def _initialize_model(self):
-        """모델 초기화"""
-        # 실제 730M 모델 초기화
-        self.model = UnifiedModel(self.config).to(self.device)
+        """모델 초기화 - v2 방식 차용 (순차적 GPU 로드)"""
+        logger.info("🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...")
+        
+        # 실제 730M 모델 초기화 (CPU에서 생성)
+        self.model = UnifiedModel(self.config)
+        
+        # GPU 메모리 상태 확인
+        if self.device.type == 'cuda':
+            gpu_mem_before = torch.cuda.memory_allocated() / (1024**3)
+            logger.info(f"  초기 GPU 메모리: {gpu_mem_before:.2f}GB")
+        
+        # 순차적으로 컴포넌트를 GPU로 이동 (7GB까지 활용)
+        # 1. 백본 (90.6M) - 항상 GPU
+        self.model.backbone = self.model.backbone.to(self.device)
+        logger.info(f"  ✅ 백본 GPU 로드 (90.6M)")
+        
+        # 2. 모든 헤드 (153M) - GPU에 유지 (이전엔 필요시만 로드)
+        self.model.emotion_head = self.model.emotion_head.to(self.device)
+        logger.info(f"  ✅ 감정 헤드 GPU 로드 (38.3M)")
+        
+        self.model.bentham_head = self.model.bentham_head.to(self.device)
+        logger.info(f"  ✅ 벤담 헤드 GPU 로드 (38.3M)")
+        
+        self.model.regret_head = self.model.regret_head.to(self.device)
+        logger.info(f"  ✅ 후회 헤드 GPU 로드 (38.3M)")
+        
+        self.model.surd_head = self.model.surd_head.to(self.device)
+        logger.info(f"  ✅ SURD 헤드 GPU 로드 (38.3M)")
+        
+        # 3. Translator 모듈 초기화 (Advanced 분석기 의존성)
+        logger.info("  🔄 Translator 모듈 초기화 중...")
+        try:
+            from config import get_system_module, register_system_module
+            existing_translator = get_system_module('translator')
+            if existing_translator is None:
+                from local_translator import LocalTranslator
+                translator = LocalTranslator()
+                register_system_module('translator', translator)
+                logger.info("  ✅ LocalTranslator 초기화 및 전역 등록 완료")
+            else:
+                logger.info("  ℹ️ Translator가 이미 등록되어 있습니다")
+        except Exception as e:
+            logger.error(f"  ❌ Translator 초기화 실패: {e}")
+            logger.warning("     Advanced Emotion Wrapper가 제한됩니다")
+        
+        # Translator 초기화 후 Advanced Wrappers 생성
+        if self.model.advanced_wrappers is None:
+            logger.info("  🔧 Advanced Wrappers 생성 중...")
+            from advanced_analyzer_wrappers import create_advanced_analyzer_wrappers
+            self.model.advanced_wrappers = create_advanced_analyzer_wrappers()
+            
+            # Advanced Wrappers 파라미터 수 확인
+            wrapper_params = 0
+            if self.model.advanced_wrappers:
+                for name, wrapper in self.model.advanced_wrappers.items():
+                    if hasattr(wrapper, 'parameters'):
+                        params = sum(p.numel() for p in wrapper.parameters())
+                        wrapper_params += params
+            logger.info(f"  ✅ Advanced Wrappers 생성 완료 ({wrapper_params/1e6:.1f}M)")
+        
+        # 4. Neural Analyzers (368M) - GPU 여유 있으면 로드  
+        if hasattr(self.model, 'neural_analyzers') and self.model.neural_analyzers:
+            try:
+                for name, analyzer in self.model.neural_analyzers.items():
+                    analyzer.to(self.device)
+                    logger.info(f"  ✅ {name} 분석기 GPU 로드")
+            except RuntimeError as e:
+                if 'out of memory' in str(e).lower():
+                    logger.warning(f"  ⚠️ Neural Analyzers는 메모리 부족으로 CPU 유지")
+                else:
+                    raise
+        
+        # 5. Advanced Wrappers (112M) - GPU 여유 있으면 로드
+        if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
+            try:
+                for name, wrapper in self.model.advanced_wrappers.items():
+                    wrapper.to(self.device)
+                    logger.info(f"  ✅ {name} Wrapper GPU 로드")
+            except RuntimeError as e:
+                if 'out of memory' in str(e).lower():
+                    logger.warning(f"  ⚠️ Advanced Wrappers는 메모리 부족으로 CPU 유지")
+                else:
+                    raise
+        
+        # 6. Phase Networks (4.3M) - 작으니까 GPU로
+        if hasattr(self.model, 'phase0_net') and self.model.phase0_net:
+            self.model.phase0_net = self.model.phase0_net.to(self.device)
+            logger.info(f"  ✅ Phase0 네트워크 GPU 로드")
+        
+        if hasattr(self.model, 'phase2_net') and self.model.phase2_net:
+            self.model.phase2_net = self.model.phase2_net.to(self.device)
+            logger.info(f"  ✅ Phase2 네트워크 GPU 로드")
+        
+        if hasattr(self.model, 'hierarchical_integrator') and self.model.hierarchical_integrator:
+            self.model.hierarchical_integrator = self.model.hierarchical_integrator.to(self.device)
+            logger.info(f"  ✅ Hierarchical Integrator GPU 로드")
+        
+        # 7. DSP & Kalman (2.3M) - 작으니까 GPU로
+        if hasattr(self.model, 'dsp_simulator') and self.model.dsp_simulator:
+            self.model.dsp_simulator = self.model.dsp_simulator.to(self.device)
+            logger.info(f"  ✅ DSP Simulator GPU 로드")
+        
+        if hasattr(self.model, 'kalman_filter') and self.model.kalman_filter:
+            self.model.kalman_filter = self.model.kalman_filter.to(self.device)
+            logger.info(f"  ✅ Kalman Filter GPU 로드")
+        
+        # GPU 메모리 사용량 확인
+        if self.device.type == 'cuda':
+            gpu_mem_after = torch.cuda.memory_allocated() / (1024**3)
+            logger.info(f"  최종 GPU 메모리: {gpu_mem_after:.2f}GB (증가: {gpu_mem_after - gpu_mem_before:.2f}GB)")
+            
+            # 전체 GPU 메모리 정보
+            total_gpu = torch.cuda.get_device_properties(0).total_memory / (1024**3)
+            logger.info(f"  GPU 사용률: {gpu_mem_after/total_gpu*100:.1f}% / {total_gpu:.1f}GB")
         
         # Advanced Training 초기화
         self.training_manager.initialize(
@@ -291,9 +419,65 @@ class UnifiedTrainer:
             base_lr=self.config.base_lr
         )
         
-        # 파라미터 수 확인
-        total_params = sum(p.numel() for p in self.model.parameters())
-        logger.info(f"✅ 모델 초기화 완료: {total_params/1e6:.1f}M 파라미터")
+        # 파라미터 수 확인 (v2처럼 각 컴포넌트별로 계산)
+        total_params = 0
+        
+        # 백본
+        backbone_params = sum(p.numel() for p in self.model.backbone.parameters())
+        total_params += backbone_params
+        logger.info(f"  백본: {backbone_params/1e6:.1f}M")
+        
+        # 헤드들
+        head_params = 0
+        for name in ['emotion_head', 'bentham_head', 'regret_head', 'surd_head']:
+            if hasattr(self.model, name):
+                head = getattr(self.model, name)
+                params = sum(p.numel() for p in head.parameters())
+                head_params += params
+                logger.info(f"  {name}: {params/1e6:.1f}M")
+        total_params += head_params
+        
+        # Neural Analyzers
+        if hasattr(self.model, 'neural_analyzers') and self.model.neural_analyzers:
+            analyzer_params = 0
+            for name, analyzer in self.model.neural_analyzers.items():
+                params = sum(p.numel() for p in analyzer.parameters())
+                analyzer_params += params
+            total_params += analyzer_params
+            logger.info(f"  Neural Analyzers: {analyzer_params/1e6:.1f}M")
+        
+        # Advanced Wrappers
+        if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
+            wrapper_params = 0
+            for name, wrapper in self.model.advanced_wrappers.items():
+                if hasattr(wrapper, 'parameters'):
+                    params = sum(p.numel() for p in wrapper.parameters())
+                    wrapper_params += params
+            total_params += wrapper_params
+            logger.info(f"  Advanced Wrappers: {wrapper_params/1e6:.1f}M")
+        
+        # Phase Networks
+        phase_params = 0
+        for name in ['phase0_net', 'phase2_net', 'hierarchical_integrator']:
+            if hasattr(self.model, name) and getattr(self.model, name) is not None:
+                net = getattr(self.model, name)
+                params = sum(p.numel() for p in net.parameters())
+                phase_params += params
+        if phase_params > 0:
+            total_params += phase_params
+            logger.info(f"  Phase Networks: {phase_params/1e6:.1f}M")
+        
+        # DSP & Kalman
+        dsp_kalman_params = 0
+        if hasattr(self.model, 'dsp_simulator') and self.model.dsp_simulator:
+            dsp_kalman_params += sum(p.numel() for p in self.model.dsp_simulator.parameters())
+        if hasattr(self.model, 'kalman_filter') and self.model.kalman_filter:
+            dsp_kalman_params += sum(p.numel() for p in self.model.kalman_filter.parameters())
+        if dsp_kalman_params > 0:
+            total_params += dsp_kalman_params
+            logger.info(f"  DSP & Kalman: {dsp_kalman_params/1e6:.1f}M")
+        
+        logger.info(f"✅ 모델 초기화 완료: 총 {total_params/1e6:.1f}M 파라미터")
     
     def _initialize_dataloaders(self):
         """데이터 로더 초기화"""
@@ -319,6 +503,16 @@ class UnifiedTrainer:
         class RedHeartDataset(Dataset):
             def __init__(self, data_list):
                 self.data = data_list
+                # label 매핑 (v2에서 처럼 TargetMapper 대신 직접 처리)
+                self.label_to_idx = {
+                    'AUTHOR': 0,
+                    'EVERYBODY': 1,
+                    'INFO': 2,
+                    'NOBODY': 3,
+                    'OTHER': 4
+                }
+                # 감정 매핑 (emotions dict에서 추출)
+                self.emotion_keys = ['joy', 'anger', 'surprise', 'disgust', 'sadness', 'shame', 'fear']
                 
             def __len__(self):
                 return len(self.data)
@@ -328,12 +522,41 @@ class UnifiedTrainer:
                 # 텐서 변환
                 text_embedding = torch.randn(100, 768)  # 실제로는 텍스트 임베딩 사용
                 
+                # label 문자열을 숫자로 변환
+                label_str = item.get('label', 'OTHER')
+                label_idx = self.label_to_idx.get(label_str, 4)  # 기본값 4 (OTHER)
+                
+                # emotions dict에서 감정 벡터 추출
+                emotions = item.get('emotions', {})
+                if isinstance(emotions, dict):
+                    # 7개 기본 감정 추출
+                    emotion_vector = [emotions.get(key, 0.0) for key in self.emotion_keys]
+                    # 가장 높은 값의 인덱스를 라벨로
+                    emotion_label = torch.argmax(torch.tensor(emotion_vector)).item()
+                else:
+                    emotion_label = 0  # 기본값
+                
+                # bentham_scores 처리 (dict -> 10차원 벡터)
+                bentham_keys = [
+                    'intensity', 'duration', 'certainty', 'propinquity',
+                    'purity', 'extent', 'fecundity', 'remoteness', 
+                    'succession', 'utility'
+                ]
+                
+                bentham_scores = item.get('bentham_scores', {})
+                if isinstance(bentham_scores, dict):
+                    # dict에서 값 추출 (없으면 0.5 기본값)
+                    bentham_vector = [bentham_scores.get(key, 0.5) for key in bentham_keys]
+                else:
+                    # dict가 아니면 기본값 사용
+                    bentham_vector = [0.5] * 10
+                
                 return {
                     'input': text_embedding,
-                    'emotion_label': torch.tensor(item.get('label', 0), dtype=torch.long),
-                    'bentham_label': torch.tensor(item.get('bentham_scores', [0.5]*10)[:10], dtype=torch.float),
-                    'regret_label': torch.tensor(item.get('regret_factor', 0), dtype=torch.long),
-                    'surd_label': torch.tensor(0, dtype=torch.long)  # SURD 라벨 기본값
+                    'emotion_label': torch.tensor(emotion_label, dtype=torch.long),
+                    'bentham_label': torch.tensor(bentham_vector, dtype=torch.float),
+                    'regret_label': torch.tensor(item.get('regret_factor', 0.0), dtype=torch.float),
+                    'surd_label': torch.tensor(label_idx, dtype=torch.long)  # label을 SURD에도 사용
                 }
         
         # 전체 데이터셋 생성
@@ -518,40 +741,303 @@ class UnifiedTrainer:
         return avg_metrics
     
     def _forward_step(self, batch: Dict) -> Tuple[torch.Tensor, Dict]:
-        """Forward step"""
-        # 데이터 준비
+        """
+        학습 스텝 - V2의 3단계 워크플로우 복원
+        1. FORWARD: 데이터 → 백본 → 헤드
+        2. COMPUTE: 손실 계산 + Neural Analyzers + DSP/Kalman
+        3. UPDATE: 역전파 + 최적화
+        """
+        batch_idx = self.global_step % 100  # 로깅용
+        
+        # ========== STAGE 1: FORWARD ==========
+        if self.verbose and batch_idx < 3:
+            logger.info("    [STAGE 1] Forward Pass 시작")
+        
+        # 데이터 준비 - 입력 추출
         inputs = batch['input'].to(self.device)
-        emotion_labels = batch.get('emotion_label', batch.get('label', torch.zeros(inputs.size(0), dtype=torch.long))).to(self.device)
         
-        # 현재 태스크 결정 (순환적으로 태스크 학습)
-        task_order = ['emotion', 'bentham', 'regret', 'surd']
-        current_task = task_order[self.global_step % len(task_order)]
+        # 백본 통과
+        backbone_outputs = self.model.backbone(inputs, return_all_tasks=True)
+        features = backbone_outputs.get('emotion', inputs)  # 896차원
         
-        # Forward pass - 이제 모델이 텐서를 반환함
-        outputs = self.model(inputs, task=current_task)
+        if self.verbose and batch_idx < 3:
+            logger.info(f"      - 백본 출력 shape: {features.shape}")
+            logger.info(f"      - 백본 출력 키: {list(backbone_outputs.keys())}")
         
-        # 손실 계산 - 직접 텐서 사용
-        if self.config.enable_label_smoothing or self.config.enable_rdrop:
-            # Advanced Training 사용 시 - 모델을 다시 호출하지 않고 출력 사용
-            def model_wrapper(x):
-                return self.model(x, task=current_task)
+        # ========== STAGE 2: COMPUTE LOSSES ==========
+        if self.verbose and batch_idx < 3:
+            logger.info("    [STAGE 2] Compute Loss")
+        
+        # 헤드 손실 계산
+        head_losses = []
+        individual_losses = {}  # 개별 손실 저장용
+        individual_accs = {}    # 개별 정확도 저장용
+        
+        # 감정 헤드
+        if hasattr(self.model, 'emotion_head'):
+            emotion_output = self.model.emotion_head(features)
+            emotion_pred = emotion_output['emotions'] if isinstance(emotion_output, dict) else emotion_output
+            emotion_target = batch['emotion_label'].to(self.device)
+            emotion_loss = self.model.emotion_head.compute_loss(emotion_pred, emotion_target)
+            head_losses.append(emotion_loss)
+            individual_losses['emotion_loss'] = emotion_loss.item()
+            # accuracy 계산 (classification task)
+            emotion_acc = (emotion_pred.argmax(dim=-1) == emotion_target).float().mean().item()
+            individual_accs['emotion_acc'] = emotion_acc
+            if self.verbose and batch_idx < 3:
+                logger.info(f"      - 감정 손실: {emotion_loss.item():.6f}, 정확도: {emotion_acc:.4f}")
+        
+        # 벤담 헤드
+        if hasattr(self.model, 'bentham_head'):
+            bentham_output = self.model.bentham_head(features)
+            bentham_pred = bentham_output['bentham_scores'] if isinstance(bentham_output, dict) else bentham_output
+            bentham_target = batch['bentham_label'].to(self.device)
+            bentham_loss = self.model.bentham_head.compute_loss(bentham_pred, bentham_target)
+            head_losses.append(bentham_loss)
+            individual_losses['bentham_loss'] = bentham_loss.item()
+            # accuracy 계산 (regression task - threshold 기반)
+            bentham_acc = ((bentham_pred - bentham_target).abs() < 0.1).float().mean().item()
+            individual_accs['bentham_acc'] = bentham_acc
+            if self.verbose and batch_idx < 3:
+                logger.info(f"      - 벤담 손실: {bentham_loss.item():.6f}, 정확도: {bentham_acc:.4f}")
+        
+        # 후회 헤드
+        if hasattr(self.model, 'regret_head'):
+            regret_output = self.model.regret_head(features)
+            regret_pred = regret_output['regret_score'] if isinstance(regret_output, dict) else regret_output
+            regret_target = batch['regret_label'].to(self.device)
+            regret_loss = self.model.regret_head.compute_loss(regret_pred, regret_target)
+            head_losses.append(regret_loss)
+            individual_losses['regret_loss'] = regret_loss.item()
+            # accuracy 계산 (regression task)
+            regret_acc = ((regret_pred - regret_target).abs() < 0.1).float().mean().item()
+            individual_accs['regret_acc'] = regret_acc
+            if self.verbose and batch_idx < 3:
+                logger.info(f"      - 후회 손실: {regret_loss.item():.6f}, 정확도: {regret_acc:.4f}")
+        
+        # SURD 헤드
+        if hasattr(self.model, 'surd_head'):
+            surd_output = self.model.surd_head(features)
+            surd_pred = surd_output['surd_values'] if isinstance(surd_output, dict) else surd_output
             
-            loss = self.training_manager.compute_loss(
-                model=model_wrapper,
-                inputs=inputs,
-                labels=emotion_labels
-            )
-        else:
-            # 기본 손실 함수
-            criterion = nn.CrossEntropyLoss()
-            loss = criterion(outputs, emotion_labels)
+            # SURD 타겟을 실제 데이터에서 계산
+            batch_size = surd_pred.shape[0]
+            surd_target = torch.zeros((batch_size, 4), device=self.device)
+            
+            # Synergy: 감정 다양성 (엔트로피 기반)
+            if 'emotion_label' in batch:
+                emotion_probs = F.one_hot(batch['emotion_label'].to(self.device), num_classes=7).float()
+                emotion_entropy = -(emotion_probs * (emotion_probs + 1e-10).log()).sum(dim=1)
+                surd_target[:, 0] = emotion_entropy / np.log(7)  # 정규화
+            
+            # Unique: 레이블 고유성 (one-hot 인코딩)
+            if 'surd_label' in batch:
+                label_unique = F.one_hot(batch['surd_label'].to(self.device), num_classes=5).float()
+                surd_target[:, 1] = label_unique.max(dim=1)[0]  # 최대값 = 1.0
+            
+            # Redundant: 벤담 상관도 (평균과 분산)
+            if 'bentham_label' in batch:
+                bentham = batch['bentham_label'].to(self.device)
+                bentham_mean = bentham.mean(dim=1)
+                bentham_std = bentham.std(dim=1) + 1e-10
+                surd_target[:, 2] = 1.0 - (bentham_std / (bentham_mean + 1e-10)).clamp(0, 1)
+            
+            # Deterministic: 후회 결정성 (절대값)
+            if 'regret_label' in batch:
+                regret = batch['regret_label'].to(self.device)
+                if regret.dim() == 1:
+                    regret = regret.unsqueeze(1)
+                surd_target[:, 3] = regret.abs().squeeze()
+            
+            surd_loss = self.model.surd_head.compute_loss(surd_pred, surd_target)
+            head_losses.append(surd_loss)
+            individual_losses['surd_loss'] = surd_loss.item()
+            # accuracy 계산 (multi-dimensional regression)
+            surd_acc = ((surd_pred - surd_target).abs() < 0.1).float().mean().item()
+            individual_accs['surd_acc'] = surd_acc
+            if self.verbose and batch_idx < 3:
+                logger.info(f"      - SURD 손실: {surd_loss.item():.6f}, 정확도: {surd_acc:.4f}")
         
-        # 모듈별 메트릭
+        # ========== STAGE 2: NEURAL ANALYZERS ==========
+        if self.verbose and batch_idx < 3:
+            logger.info("    [STAGE 2] Neural Analyzer Processing")
+        
+        analyzer_losses = []
+        dsp_output = None
+        neural_emotion_output = None
+        
+        # Neural Emotion Analyzer 처리 (먼저)
+        if hasattr(self.model, 'neural_analyzers') and 'emotion' in self.model.neural_analyzers:
+            try:
+                emotion_analyzer = self.model.neural_analyzers['emotion']
+                neural_emotion_output = emotion_analyzer(features)
+                
+                if 'emotion_logits' in neural_emotion_output:
+                    target = batch['emotion_label'].to(self.device)
+                    if target.dim() == 1:
+                        target = F.one_hot(target, num_classes=7).float()
+                    emotion_loss = F.cross_entropy(neural_emotion_output['emotion_logits'], target)
+                    analyzer_losses.append(emotion_loss)
+                    if self.verbose and batch_idx < 3:
+                        logger.info(f"      - neural_emotion 손실: {emotion_loss.item():.6f}")
+            except Exception as e:
+                logger.error(f"    ❌ neural_emotion 처리 실패: {e}")
+        
+        # DSP Simulator 처리
+        if hasattr(self.model, 'dsp_simulator') and self.model.dsp_simulator:
+            try:
+                # DSP는 384차원 입력 필요
+                if not hasattr(self, 'dsp_projection'):
+                    self.dsp_projection = torch.nn.Linear(features.shape[-1], 384).to(self.device)
+                
+                dsp_input = self.dsp_projection(features)
+                dsp_output = self.model.dsp_simulator(dsp_input)
+                
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - DSP 출력 처리됨")
+            except Exception as e:
+                logger.warning(f"    ⚠️ DSP 처리 실패: {e}")
+        
+        # Kalman Filter 처리 (neural_emotion + DSP 필요)
+        if hasattr(self.model, 'kalman_filter') and self.model.kalman_filter and \
+           dsp_output is not None and neural_emotion_output is not None:
+            try:
+                traditional_emotions = neural_emotion_output.get('emotion_logits', None)
+                dsp_emotions = dsp_output.get('final_emotions', None) if isinstance(dsp_output, dict) else dsp_output
+                
+                if traditional_emotions is not None and dsp_emotions is not None:
+                    kalman_output = self.model.kalman_filter(
+                        traditional_emotions=traditional_emotions,
+                        dsp_emotions=dsp_emotions
+                    )
+                    if self.verbose and batch_idx < 3:
+                        logger.info(f"      - Kalman 필터 출력 처리됨")
+            except Exception as e:
+                logger.warning(f"    ⚠️ Kalman 처리 실패: {e}")
+        
+        # 나머지 Neural Analyzers 처리
+        if hasattr(self.model, 'neural_analyzers'):
+            for name, analyzer in self.model.neural_analyzers.items():
+                if name == 'emotion':  # 이미 처리함
+                    continue
+                    
+                try:
+                    analyzer_output = analyzer(features)
+                    
+                    # 각 analyzer별 손실 계산
+                    if 'bentham' in name and 'bentham_scores' in analyzer_output:
+                        target = batch['bentham_label'].to(self.device)
+                        analyzer_loss = F.mse_loss(analyzer_output['bentham_scores'], target)
+                        analyzer_losses.append(analyzer_loss)
+                        if self.verbose and batch_idx < 3:
+                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}")
+                    
+                    elif 'regret' in name and 'regret_score' in analyzer_output:
+                        target = batch['regret_label'].to(self.device)
+                        analyzer_loss = F.smooth_l1_loss(analyzer_output['regret_score'], target)
+                        analyzer_losses.append(analyzer_loss)
+                        if self.verbose and batch_idx < 3:
+                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}")
+                    
+                    elif 'surd' in name and 'surd_scores' in analyzer_output:
+                        # SURD analyzer도 4차원 타겟 필요
+                        batch_size = analyzer_output['surd_scores'].shape[0]
+                        target = torch.zeros((batch_size, 4), device=self.device)
+                        
+                        # 실제 데이터로 SURD 계산 (위와 동일)
+                        if 'emotion_label' in batch:
+                            emotion_probs = F.one_hot(batch['emotion_label'].to(self.device), num_classes=7).float()
+                            emotion_entropy = -(emotion_probs * (emotion_probs + 1e-10).log()).sum(dim=1)
+                            target[:, 0] = emotion_entropy / np.log(7)
+                        
+                        if 'surd_label' in batch:
+                            label_unique = F.one_hot(batch['surd_label'].to(self.device), num_classes=5).float()
+                            target[:, 1] = label_unique.max(dim=1)[0]
+                        
+                        if 'bentham_label' in batch:
+                            bentham = batch['bentham_label'].to(self.device)
+                            bentham_mean = bentham.mean(dim=1)
+                            bentham_std = bentham.std(dim=1) + 1e-10
+                            target[:, 2] = 1.0 - (bentham_std / (bentham_mean + 1e-10)).clamp(0, 1)
+                        
+                        if 'regret_label' in batch:
+                            regret = batch['regret_label'].to(self.device)
+                            if regret.dim() == 1:
+                                regret = regret.unsqueeze(1)
+                            target[:, 3] = regret.abs().squeeze()
+                        
+                        analyzer_loss = F.mse_loss(analyzer_output['surd_scores'], target)
+                        analyzer_losses.append(analyzer_loss)
+                        if self.verbose and batch_idx < 3:
+                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}")
+                    
+                except Exception as e:
+                    if hasattr(self.config, 'debug') and self.config.debug:
+                        logger.error(f"    {name} 처리 실패: {e}")
+                    else:
+                        logger.error(f"    {name} 처리 실패: {e}")
+        
+        # Advanced Wrappers 처리
+        if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
+            for name, wrapper in self.model.advanced_wrappers.items():
+                try:
+                    wrapper_output = wrapper(features)
+                    
+                    # Advanced wrapper 손실 (간단히 처리)
+                    if isinstance(wrapper_output, dict) and any(key in wrapper_output for key in ['emotion', 'bentham', 'regret', 'surd']):
+                        # 적절한 손실 계산
+                        pass  # TODO: wrapper별 손실 구현 필요
+                        
+                except Exception as e:
+                    if self.config.debug:
+                        logger.error(f"    {name} wrapper 처리 실패: {e}")
+        
+        # 전체 손실 통합 (V2처럼: 헤드 70%, Analyzer 30%)
+        all_losses = head_losses + analyzer_losses
+        
+        if all_losses:
+            if head_losses and analyzer_losses:
+                head_loss = sum(head_losses) / len(head_losses)
+                analyzer_loss = sum(analyzer_losses) / len(analyzer_losses)
+                loss = 0.7 * head_loss + 0.3 * analyzer_loss
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - 헤드 손실: {head_loss.item():.6f}")
+                    logger.info(f"      - 분석기 손실: {analyzer_loss.item():.6f}")
+                    logger.info(f"      - 전체 손실: {loss.item():.6f}")
+            else:
+                loss = sum(all_losses) / len(all_losses)
+        else:
+            # NO FALLBACK - 손실이 없으면 에러
+            raise RuntimeError("손실 계산 실패: 헤드나 분석기가 손실을 생성하지 못함")
+        
+        # 메트릭 - 개별 모듈 손실 포함
         metrics = {
             'loss': loss.item(),
-            f'{current_task}_loss': loss.item(),
-            'current_task': current_task
+            'train_loss': loss.item(),  # 전체 손실 (backward 호환)
+            'head_losses': len(head_losses),
+            'analyzer_losses': len(analyzer_losses),
+            'total_losses': len(all_losses)
         }
+        
+        # 개별 헤드 손실 및 정확도 추가
+        metrics.update(individual_losses)
+        metrics.update(individual_accs)
+        
+        # 백본 손실 (전체 손실과 동일하게 설정)
+        metrics['backbone_loss'] = loss.item()
+        metrics['backbone_acc'] = 0.0  # 백본은 별도 accuracy 없음
+        
+        # Neural Analyzer 손실
+        if analyzer_losses:
+            metrics['analyzer_loss'] = sum(al.item() for al in analyzer_losses) / len(analyzer_losses)
+            metrics['analyzer_acc'] = 0.0  # Analyzer는 accuracy 계산이 복잡하므로 일단 0
+        else:
+            metrics['analyzer_loss'] = 0.0
+            metrics['analyzer_acc'] = 0.0
+        
+        # validation 메트릭 (같은 값으로 설정 - 나중에 validate()에서 덮어씌워짐)
+        metrics['val_loss'] = loss.item()
+        metrics['val_acc'] = metrics.get('emotion_acc', 0.0)  # 대표로 emotion accuracy 사용
         
         return loss, metrics
     
@@ -580,14 +1066,52 @@ class UnifiedTrainer:
             else:
                 val_metrics = {}
             
-            # 메트릭 통합
+            # 메트릭 통합 및 모듈별 그룹화
             all_metrics = {**train_metrics, **val_metrics}
+            
+            # 모듈별 메트릭으로 재구성 (sweet_spot_detector 호환)
+            module_metrics = {
+                'backbone': {
+                    'loss': all_metrics.get('backbone_loss', all_metrics.get('train_loss', 0)),
+                    'accuracy': all_metrics.get('backbone_acc', 0)
+                },
+                'emotion_head': {
+                    'loss': all_metrics.get('emotion_loss', 0),
+                    'accuracy': all_metrics.get('emotion_acc', 0)
+                },
+                'bentham_head': {
+                    'loss': all_metrics.get('bentham_loss', 0),
+                    'accuracy': all_metrics.get('bentham_acc', 0)
+                },
+                'regret_head': {
+                    'loss': all_metrics.get('regret_loss', 0),
+                    'accuracy': all_metrics.get('regret_acc', 0)
+                },
+                'surd_head': {
+                    'loss': all_metrics.get('surd_loss', 0),
+                    'accuracy': all_metrics.get('surd_acc', 0)
+                },
+                'neural_analyzers': {
+                    'loss': all_metrics.get('analyzer_loss', 0),
+                    'accuracy': all_metrics.get('analyzer_acc', 0)
+                },
+                'system': {
+                    'loss': all_metrics.get('val_loss', all_metrics.get('train_loss', 0)),
+                    'accuracy': all_metrics.get('val_acc', 0)
+                }
+            }
+            
+            # 디버그: 메트릭 검증
+            if epoch == 1 and self.verbose:
+                logger.info("\n  📊 메트릭 검증 (Epoch 1):")
+                for module_name, metrics in module_metrics.items():
+                    logger.info(f"    - {module_name}: loss={metrics['loss']:.4f}, acc={metrics['accuracy']:.4f}")
             
             # Sweet Spot 업데이트
             if self.config.enable_sweet_spot:
                 self.sweet_spot_detector.update(
                     epoch=epoch,
-                    module_metrics=all_metrics,
+                    module_metrics=module_metrics,
                     learning_rate=self.optimizer.param_groups[0]['lr']
                 )
             
@@ -625,13 +1149,29 @@ class UnifiedTrainer:
         """학습 마무리 처리"""
         logger.info("\n🔧 최종 처리 시작...")
         
-        # Sweet Spot 분석 결과 저장
+        # Sweet Spot 종합 분석 실행
         if self.config.enable_sweet_spot:
-            optimal_epochs = self.sweet_spot_detector.get_optimal_epochs()
-            logger.info(f"  🎯 모듈별 최적 에폭: {optimal_epochs}")
-            
-            analysis_results = self.sweet_spot_detector.export_analysis()
-            logger.info(f"  📊 Sweet Spot 분석 저장: {analysis_results['json_file']}")
+            logger.info("\n🎯 Sweet Spot 종합 분석 시작...")
+            try:
+                # 5가지 고급 분석 기법 적용
+                analysis_results = self.sweet_spot_detector.analyze_all(
+                    output_dir='training/sweet_spot_analysis'
+                )
+                
+                # 기존 메서드도 호출 (호환성 유지)
+                optimal_epochs = self.sweet_spot_detector.get_optimal_epochs()
+                logger.info(f"  📊 모듈별 최적 에폭: {optimal_epochs}")
+                
+                # 추가 분석 결과 로깅
+                for module, result in analysis_results.items():
+                    rec = result['recommendation']
+                    logger.info(f"    - {module}: Epoch {rec['epoch']} (신뢰도: {rec['confidence']:.1%})")
+                    
+            except Exception as e:
+                logger.error(f"Sweet Spot 분석 실패: {e}")
+                # 기본 분석만 수행
+                analysis_results = self.sweet_spot_detector.export_analysis()
+                logger.info(f"  📊 기본 분석 저장: {analysis_results['json_file']}")
         
         # Parameter Crossover 실행
         if self.config.enable_crossover and self.config.enable_sweet_spot:
@@ -682,6 +1222,9 @@ def main():
     
     # 설정 생성
     config = UnifiedTrainingConfig()
+    
+    # args에서 설정 적용
+    config.verbose = args.verbose
     
     # 테스트 모드
     if args.test:

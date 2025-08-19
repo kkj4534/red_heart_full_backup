@@ -147,23 +147,43 @@ class OOMHandler:
         # 메모리 정리
         self._clear_memory()
         
-        # # 배치 사이즈 감소 (주석 처리: 배치 사이즈 2에서 더 이상 감소하지 않음)
-        # if self.current_batch_size > self.min_batch_size:
-        #     old_batch_size = self.current_batch_size
-        #     self.current_batch_size = max(self.min_batch_size, self.current_batch_size // 2)
-        #     self.batch_size_history.append(self.current_batch_size)
-        #     
-        #     # Gradient Accumulation 조정 (유효 배치 사이즈 유지)
-        #     effective_batch = old_batch_size * self.gradient_accumulation
-        #     self.gradient_accumulation = effective_batch // self.current_batch_size
-        #     
-        #     logger.info(f"  📉 배치 사이즈 조정: {old_batch_size} → {self.current_batch_size}")
-        #     logger.info(f"  📊 Gradient Accumulation 조정: {self.gradient_accumulation}")
-        #     
-        #     return True
+        # 배치 사이즈는 2로 유지하되, 메모리 정리 후 재시도
+        if self.current_batch_size == 2:
+            logger.warning("  ⚠️ OOM 발생: 배치 사이즈 2 유지")
+            logger.info("  🔄 메모리 정리 후 재시도...")
+            
+            # 더 적극적인 메모리 정리
+            if self.has_gpu:
+                torch.cuda.synchronize()
+                torch.cuda.empty_cache()
+                
+                # 메모리 상태 로그
+                gpu_mem = torch.cuda.memory_allocated() / (1024**3)
+                gpu_reserved = torch.cuda.memory_reserved() / (1024**3)
+                logger.info(f"    GPU 메모리: {gpu_mem:.2f}GB 할당, {gpu_reserved:.2f}GB 예약")
+            
+            # CPU 가비지 컬렉션
+            import gc
+            gc.collect()
+            
+            # 한 번 더 재시도 기회 제공
+            return True
         
-        # 배치 사이즈 감소 대신 바로 False 반환
-        logger.warning("  ⚠️ OOM 발생: 배치 사이즈 2 유지 (폴백 비활성화)")
+        # 배치 사이즈가 2보다 큰 경우에만 감소
+        if self.current_batch_size > self.min_batch_size:
+            old_batch_size = self.current_batch_size
+            self.current_batch_size = max(self.min_batch_size, self.current_batch_size // 2)
+            self.batch_size_history.append(self.current_batch_size)
+            
+            # Gradient Accumulation 조정 (유효 배치 사이즈 유지)
+            effective_batch = old_batch_size * self.gradient_accumulation
+            self.gradient_accumulation = effective_batch // self.current_batch_size
+            
+            logger.info(f"  📉 배치 사이즈 조정: {old_batch_size} → {self.current_batch_size}")
+            logger.info(f"  📊 Gradient Accumulation 조정: {self.gradient_accumulation}")
+            
+            return True
+        
         return False
         
         # DSM 활성화 시도

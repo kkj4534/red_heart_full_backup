@@ -176,7 +176,7 @@ class LayerWiseLRDecay:
     def __init__(self,
                  model: nn.Module,
                  base_lr: float = 1e-4,
-                 decay_rate: float = 0.8,
+                 decay_rate: float = 0.95,  # 8개 레이어에 적절한 값 (0.95^7 = 0.7)
                  num_layers: Optional[int] = None):
         """
         Args:
@@ -203,12 +203,20 @@ class LayerWiseLRDecay:
         logger.info(f"  - Decay Rate: {decay_rate}")
     
     def _count_layers(self) -> int:
-        """모델의 레이어 수 계산"""
-        layer_count = 0
+        """모델의 레이어 수 계산 - 주요 encoder 레이어만 카운트"""
+        import re
+        layer_indices = set()
+        
+        # transformer_encoder.layers.숫자 패턴으로 정확히 매칭
         for name, _ in self.model.named_modules():
-            if any(layer_type in name for layer_type in ['layer', 'block', 'encoder']):
-                layer_count += 1
-        return max(1, layer_count)
+            # backbone.transformer_encoder.layers.0 형식
+            match = re.search(r'transformer_encoder\.layers\.(\d+)$', name)
+            if match:
+                layer_indices.add(int(match.group(1)))
+        
+        # 레이어가 없으면 기본값 8 사용 (Red Heart 백본 기본값)
+        layer_count = len(layer_indices) if layer_indices else 8
+        return layer_count
     
     def _create_param_groups(self) -> List[Dict]:
         """레이어별 파라미터 그룹 생성"""
@@ -227,7 +235,7 @@ class LayerWiseLRDecay:
         
         # 각 레이어에 대한 파라미터 그룹 생성
         for layer_idx in sorted(layer_params.keys()):
-            # 깊은 레이어일수록 낮은 학습률
+            # 깊은 레이어일수록 낮은 학습률 (LLRD 원칙)
             lr_scale = self.decay_rate ** (self.num_layers - layer_idx - 1)
             layer_lr = self.base_lr * lr_scale
             

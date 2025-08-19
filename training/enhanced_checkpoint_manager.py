@@ -106,13 +106,29 @@ class EnhancedCheckpointManager:
         checkpoint_name = f"checkpoint_epoch_{epoch:04d}_lr_{lr:.6f}_{timestamp}.pt"
         checkpoint_path = self.checkpoint_dir / checkpoint_name
         
-        # 체크포인트 데이터 구성
+        # 체크포인트 데이터 구성 (CPU로 이동하여 GPU 메모리 절약)
+        # Optimizer state를 CPU로 이동 (중첩된 구조 처리)
+        optimizer_state_cpu = {}
+        opt_state = optimizer.state_dict()
+        
+        # state와 param_groups 처리
+        if 'state' in opt_state:
+            optimizer_state_cpu['state'] = {}
+            for key, state in opt_state['state'].items():
+                optimizer_state_cpu['state'][key] = {
+                    k: v.cpu() if torch.is_tensor(v) else v
+                    for k, v in state.items()
+                }
+        
+        if 'param_groups' in opt_state:
+            optimizer_state_cpu['param_groups'] = opt_state['param_groups']
+        
         checkpoint_data = {
             'epoch': epoch,
             'lr': lr,
             'timestamp': timestamp,
-            'model_state': self._extract_modular_states(model),
-            'optimizer_state': optimizer.state_dict(),
+            'model_state': self._extract_modular_states(model),  # 이미 CPU로 이동됨
+            'optimizer_state': optimizer_state_cpu,
             'scheduler_state': scheduler.state_dict() if scheduler else None,
             'metrics': metrics,
             'sweet_spots': self.sweet_spots.copy()
@@ -149,7 +165,7 @@ class EnhancedCheckpointManager:
         return str(checkpoint_path)
     
     def _extract_modular_states(self, model: Any) -> Dict[str, Any]:
-        """모델을 모듈별로 분리하여 state_dict 추출"""
+        """모델을 모듈별로 분리하여 state_dict 추출 (GPU→CPU 이동)"""
         modular_states = {}
         
         # Group A: Backbone + Heads
@@ -159,7 +175,10 @@ class EnhancedCheckpointManager:
             if hasattr(model, module_name):
                 module = getattr(model, module_name)
                 if module is not None:
-                    modular_states[module_name] = module.state_dict()
+                    # GPU → CPU 이동하여 메모리 절약
+                    modular_states[module_name] = {
+                        k: v.cpu() for k, v in module.state_dict().items()
+                    }
         
         # Group B: Neural Analyzers
         group_b_modules = ['neural_emotion', 'neural_bentham', 
@@ -168,7 +187,10 @@ class EnhancedCheckpointManager:
             if hasattr(model, module_name):
                 module = getattr(model, module_name)
                 if module is not None:
-                    modular_states[module_name] = module.state_dict()
+                    # GPU → CPU 이동하여 메모리 절약
+                    modular_states[module_name] = {
+                        k: v.cpu() for k, v in module.state_dict().items()
+                    }
         
         # Group C: DSP + Kalman
         group_c_modules = ['emotion_dsp', 'kalman_filter']
@@ -176,7 +198,10 @@ class EnhancedCheckpointManager:
             if hasattr(model, module_name):
                 module = getattr(model, module_name)
                 if module is not None:
-                    modular_states[module_name] = module.state_dict()
+                    # GPU → CPU 이동하여 메모리 절약
+                    modular_states[module_name] = {
+                        k: v.cpu() for k, v in module.state_dict().items()
+                    }
         
         # Independent: Advanced Analyzers
         independent_modules = ['advanced_emotion', 'advanced_regret', 
@@ -185,7 +210,10 @@ class EnhancedCheckpointManager:
             if hasattr(model, module_name):
                 module = getattr(model, module_name)
                 if module is not None:
-                    modular_states[module_name] = module.state_dict()
+                    # GPU → CPU 이동하여 메모리 절약
+                    modular_states[module_name] = {
+                        k: v.cpu() for k, v in module.state_dict().items()
+                    }
         
         return modular_states
     
