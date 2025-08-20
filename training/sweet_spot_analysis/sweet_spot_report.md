@@ -1,76 +1,31 @@
 # 🎯 Sweet Spot Analysis Report
 
-Generated: 2025-08-20 19:32:24
+Generated: 2025-08-20 23:30:38
 
 ## 📊 Summary
 
 | Module | Recommended Epoch | Confidence | Key Reasoning |
 |--------|------------------|------------|---------------|
-| backbone | 2 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| emotion_head | 2 | 66.7% | 높은 투표 신뢰도 (66.7%) |
-| bentham_head | 3 | 33.3% | N/A |
-| regret_head | 3 | 66.7% | MCDA 점수 우수 (0.849), 높은 투표 신뢰도 (66.7%) |
-| surd_head | 2 | 66.7% | MCDA 점수 우수 (0.843), 높은 투표 신뢰도 (66.7%) |
-| neural_analyzers | 1 | 50.0% | N/A |
-| system | 2 | 100.0% | 높은 투표 신뢰도 (100.0%) |
+| bentham_head | 1 | 66.7% | 높은 투표 신뢰도 (66.7%) |
+| surd_head | 1 | 66.7% | 높은 투표 신뢰도 (66.7%) |
+| regret_head | 1 | 66.7% | MCDA 점수 우수 (0.848), 높은 투표 신뢰도 (66.7%) |
+| neural_analyzers | 2 | 100.0% | 높은 투표 신뢰도 (100.0%) |
+| system | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
+| emotion_head | 1 | 66.7% | 높은 투표 신뢰도 (66.7%) |
+| backbone | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
 
 ## 🔍 Detailed Analysis
-
-### Module: backbone
-
-**Plateau Detection:** Not detected
-
-**MCDA Analysis:**
-- Best Epoch: 2
-- Best Score: 0.449
-
-**Ensemble Voting:**
-- Selected: Epoch 2
-- Confidence: 100.0%
-- Votes: 2/2
-
----
-
-### Module: emotion_head
-
-**Plateau Detection:** Not detected
-
-**MCDA Analysis:**
-- Best Epoch: 2
-- Best Score: 0.450
-
-**Ensemble Voting:**
-- Selected: Epoch 2
-- Confidence: 66.7%
-- Votes: 2/3
-
----
 
 ### Module: bentham_head
 
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 3
-- Best Score: 0.556
+- Best Epoch: 2
+- Best Score: 0.549
 
 **Ensemble Voting:**
-- Selected: Epoch 3
-- Confidence: 33.3%
-- Votes: 1/3
-
----
-
-### Module: regret_head
-
-**Plateau Detection:** Not detected
-
-**MCDA Analysis:**
-- Best Epoch: 3
-- Best Score: 0.849
-
-**Ensemble Voting:**
-- Selected: Epoch 3
+- Selected: Epoch 1
 - Confidence: 66.7%
 - Votes: 2/3
 
@@ -82,10 +37,25 @@ Generated: 2025-08-20 19:32:24
 
 **MCDA Analysis:**
 - Best Epoch: 2
-- Best Score: 0.843
+- Best Score: 0.547
 
 **Ensemble Voting:**
-- Selected: Epoch 2
+- Selected: Epoch 1
+- Confidence: 66.7%
+- Votes: 2/3
+
+---
+
+### Module: regret_head
+
+**Plateau Detection:** Not detected
+
+**MCDA Analysis:**
+- Best Epoch: 1
+- Best Score: 0.848
+
+**Ensemble Voting:**
+- Selected: Epoch 1
 - Confidence: 66.7%
 - Votes: 2/3
 
@@ -96,13 +66,13 @@ Generated: 2025-08-20 19:32:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: nan
+- Best Epoch: 2
+- Best Score: 0.450
 
 **Ensemble Voting:**
-- Selected: Epoch 1
-- Confidence: 50.0%
-- Votes: 1/2
+- Selected: Epoch 2
+- Confidence: 100.0%
+- Votes: 2/2
 
 ---
 
@@ -111,11 +81,41 @@ Generated: 2025-08-20 19:32:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 2
+- Best Epoch: 1
 - Best Score: 0.449
 
 **Ensemble Voting:**
-- Selected: Epoch 2
+- Selected: Epoch 1
+- Confidence: 100.0%
+- Votes: 2/2
+
+---
+
+### Module: emotion_head
+
+**Plateau Detection:** Not detected
+
+**MCDA Analysis:**
+- Best Epoch: 1
+- Best Score: 0.582
+
+**Ensemble Voting:**
+- Selected: Epoch 1
+- Confidence: 66.7%
+- Votes: 2/3
+
+---
+
+### Module: backbone
+
+**Plateau Detection:** Not detected
+
+**MCDA Analysis:**
+- Best Epoch: 1
+- Best Score: 0.449
+
+**Ensemble Voting:**
+- Selected: Epoch 1
 - Confidence: 100.0%
 - Votes: 2/2
 
@@ -134,7 +134,7 @@ thresholds = {
         'stability': 0.15,
         'gradient_health': 0.15
     },
-    'min_confidence': 0.55
+    'min_confidence': 0.65
 }
 ```
 

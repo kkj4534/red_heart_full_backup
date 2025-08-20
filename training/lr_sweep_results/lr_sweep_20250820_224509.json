@@ -1,0 +1,43 @@
+{
+  "best_lr": 1e-05,
+  "sweep_timestamp": "2025-08-20T22:45:09.318869",
+  "lr_candidates": [
+    1e-05,
+    5.623413251903491e-05,
+    0.00031622776601683794,
+    0.0017782794100389228,
+    0.01
+  ],
+  "results": {
+    "1.0e-05": {
+      "final_train_loss": 0.016471570488065482,
+      "final_val_loss": 0.021362464241683483,
+      "convergence_speed": 1.0,
+      "stability_score": 0.9843405509829786
+    },
+    "5.6e-05": {
+      "final_train_loss": 0.013103794639464468,
+      "final_val_loss": 0.02365006836131215,
+      "convergence_speed": 1.0,
+      "stability_score": 0.9813301877429451
+    },
+    "3.2e-04": {
+      "final_train_loss": 0.011767532455269247,
+      "final_val_loss": 0.027499129250645637,
+      "convergence_speed": 1.0,
+      "stability_score": 0.9687469751924498
+    },
+    "1.8e-03": {
+      "final_train_loss": 0.01141051622806117,
+      "final_val_loss": 0.02226012334227562,
+      "convergence_speed": 1.0,
+      "stability_score": 0.8940907148479158
+    },
+    "1.0e-02": {
+      "final_train_loss": 0.014671471621841192,
+      "final_val_loss": 0.02511130189523101,
+      "convergence_speed": 1.0,
+      "stability_score": 0.4266270841944561
+    }
+  }
+}
