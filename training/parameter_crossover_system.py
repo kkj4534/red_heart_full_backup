@@ -144,8 +144,48 @@ class ParameterCrossoverSystem:
             # 해당 모듈의 파라미터만 업데이트
             updated_keys = []
             
-            # checkpoint_state가 모듈별로 저장된 경우
-            if module_name in checkpoint_state:
+            # Special case 1: neural_analyzers dict 처리
+            if module_name == 'neural_analyzers' and module_name in checkpoint_state:
+                neural_states = checkpoint_state[module_name]
+                if isinstance(neural_states, dict):
+                    # nested dict 구조 처리
+                    for analyzer_name, analyzer_state in neural_states.items():
+                        if isinstance(analyzer_state, dict):
+                            for param_key, param_value in analyzer_state.items():
+                                full_key = f"neural_analyzers.{analyzer_name}.{param_key}"
+                                if full_key in crossover_state:
+                                    crossover_state[full_key] = param_value.cpu() if torch.is_tensor(param_value) else param_value
+                                    updated_keys.append(full_key)
+                    if not updated_keys:
+                        # 키가 안맞으면 다른 형식 시도 (dict of dict이 아닌 경우)
+                        for key, value in neural_states.items():
+                            if torch.is_tensor(value):
+                                # 직접 매핑 시도
+                                crossover_state[f"neural_analyzers.{key}"] = value.cpu()
+                                updated_keys.append(f"neural_analyzers.{key}")
+            
+            # Special case 2: system 처리 (통합 파라미터)
+            elif module_name == 'system' and module_name in checkpoint_state:
+                system_state = checkpoint_state[module_name]
+                if isinstance(system_state, dict) and 'meta' not in system_state:
+                    # system의 백본 통합 레이어 처리
+                    for sub_module, sub_state in system_state.items():
+                        if sub_module != 'meta' and isinstance(sub_state, dict):
+                            for key, value in sub_state.items():
+                                # backbone.final_norm 등의 실제 키로 매핑
+                                if 'backbone_final_norm' in sub_module:
+                                    full_key = f"backbone.final_norm.{key}"
+                                elif 'backbone_output_projection' in sub_module:
+                                    full_key = f"backbone.output_projection.{key}"
+                                else:
+                                    full_key = f"{sub_module}.{key}"
+                                
+                                if full_key in crossover_state:
+                                    crossover_state[full_key] = value.cpu() if torch.is_tensor(value) else value
+                                    updated_keys.append(full_key)
+            
+            # 일반적인 경우: checkpoint_state가 모듈별로 저장된 경우
+            elif module_name in checkpoint_state:
                 module_state = checkpoint_state[module_name]
                 # 모듈의 state_dict를 crossover_state에 추가
                 for key, value in module_state.items():

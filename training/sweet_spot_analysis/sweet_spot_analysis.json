@@ -3,14 +3,14 @@
     "module": "backbone",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        0.7758842922584099,
+        0.75655607112735,
+        0.776124976409173
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.0,
+        0.0,
+        0.0
       ],
       "epochs": [
         1,
@@ -34,13 +34,13 @@
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          0.15232698984765194,
+          0.4486371950334276,
+          0.1486371950334276
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_epoch_idx": 1,
+        "best_epoch": 2,
+        "best_score": 0.4486371950334276,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -50,19 +50,19 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
-          "min_loss": "0"
+          "mcda": 1,
+          "min_loss": "1"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
+        "selected_epoch_idx": 1,
+        "selected_epoch": 2,
         "votes": 2,
         "total_voters": 2,
         "confidence": 1.0
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
+      "epoch_idx": 1,
+      "epoch": 2,
       "confidence": 1.0,
       "reasoning": [
         "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
@@ -73,14 +73,14 @@
     "module": "emotion_head",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        2.14496757458901,
+        2.1424319256332134,
+        2.1473266639754045
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.0,
+        0.0,
+        0.0
       ],
       "epochs": [
         1,
@@ -107,13 +107,13 @@
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          0.2942900979249886,
+          0.44970079274845487,
+          0.14970079274845485
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_epoch_idx": 1,
+        "best_epoch": 2,
+        "best_score": 0.44970079274845487,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -123,23 +123,23 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
+          "mcda": 1,
           "task": 0,
-          "min_loss": "0"
+          "min_loss": "1"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
-        "votes": 3,
+        "selected_epoch_idx": 1,
+        "selected_epoch": 2,
+        "votes": 2,
         "total_voters": 3,
-        "confidence": 1.0
+        "confidence": 0.6666666666666666
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
-      "confidence": 1.0,
+      "epoch_idx": 1,
+      "epoch": 2,
+      "confidence": 0.6666666666666666,
       "reasoning": [
-        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (66.7%)"
       ]
     }
   },
@@ -147,14 +147,14 @@
     "module": "bentham_head",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        0.34352624957693695,
+        0.3373723233806016,
+        0.34340235293671306
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.018769917441783298,
+        0.005927342344538431,
+        0.01923730644307016
       ],
       "epochs": [
         1,
@@ -181,13 +181,13 @@
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          0.5355241103505268,
+          0.4495703992158264,
+          0.5556102818665615
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_epoch_idx": 2,
+        "best_epoch": 3,
+        "best_score": 0.5556102818665615,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -197,38 +197,36 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
+          "mcda": 2,
           "task": 0,
-          "min_loss": "0"
+          "min_loss": "1"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
-        "votes": 3,
+        "selected_epoch_idx": 2,
+        "selected_epoch": 3,
+        "votes": 1,
         "total_voters": 3,
-        "confidence": 1.0
+        "confidence": 0.3333333333333333
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
-      "confidence": 1.0,
-      "reasoning": [
-        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
-      ]
+      "epoch_idx": 2,
+      "epoch": 3,
+      "confidence": 0.3333333333333333,
+      "reasoning": []
     }
   },
   "regret_head": {
     "module": "regret_head",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        0.13607395345016496,
+        0.14650547911144124,
+        0.1360564698235009
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.021085617165923092,
+        0.0014340344168260039,
+        0.023263224984066286
       ],
       "epochs": [
         1,
@@ -255,13 +253,13 @@
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          0.8088607300656012,
+          0.1492653763504476,
+          0.8492653763504475
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_epoch_idx": 2,
+        "best_epoch": 3,
+        "best_score": 0.8492653763504475,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -271,23 +269,24 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
+          "mcda": 2,
           "task": 0,
-          "min_loss": "0"
+          "min_loss": "2"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
-        "votes": 3,
+        "selected_epoch_idx": 2,
+        "selected_epoch": 3,
+        "votes": 2,
         "total_voters": 3,
-        "confidence": 1.0
+        "confidence": 0.6666666666666666
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
-      "confidence": 1.0,
+      "epoch_idx": 2,
+      "epoch": 3,
+      "confidence": 0.6666666666666666,
       "reasoning": [
-        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+        "MCDA \uc810\uc218 \uc6b0\uc218 (0.849)",
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (66.7%)"
       ]
     }
   },
@@ -295,14 +294,14 @@
     "module": "surd_head",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        0.5550846453682491,
+        0.4526411635697914,
+        0.5545182465076042
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.16831315062672617,
+        0.1806883365200765,
+        0.16868493732738474
       ],
       "epochs": [
         1,
@@ -329,13 +328,13 @@
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          0.1431080079142392,
+          0.8431080079142391,
+          0.1567838426434215
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_epoch_idx": 1,
+        "best_epoch": 2,
+        "best_score": 0.8431080079142391,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -345,23 +344,24 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
+          "mcda": 1,
           "task": 0,
-          "min_loss": "0"
+          "min_loss": "1"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
-        "votes": 3,
+        "selected_epoch_idx": 1,
+        "selected_epoch": 2,
+        "votes": 2,
         "total_voters": 3,
-        "confidence": 1.0
+        "confidence": 0.6666666666666666
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
-      "confidence": 1.0,
+      "epoch_idx": 1,
+      "epoch": 2,
+      "confidence": 0.6666666666666666,
       "reasoning": [
-        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
+        "MCDA \uc810\uc218 \uc6b0\uc218 (0.843)",
+        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (66.7%)"
       ]
     }
   },
@@ -369,14 +369,14 @@
     "module": "neural_analyzers",
     "metrics": {
       "losses": [
-        0,
-        0,
-        0
+        0.7314837339281244,
+        0.7257988929882535,
+        0.7313227491285703
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.0,
+        0.0,
+        0.0
       ],
       "epochs": [
         1,
@@ -395,18 +395,18 @@
         "detected": false
       },
       "task_scores": {
-        "stability": 1.0,
-        "convergence": 0.0
+        "stability": 0.9973642330498824,
+        "convergence": 8.046592850147541e-05
       },
       "mcda": {
         "scores": [
-          0.44999999999999996,
-          0.44999999999999996,
-          0.44999999999999996
+          NaN,
+          NaN,
+          NaN
         ],
         "best_epoch_idx": 0,
         "best_epoch": 1,
-        "best_score": 0.44999999999999996,
+        "best_score": NaN,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -417,36 +417,34 @@
       "voting": {
         "candidates": {
           "mcda": 0,
-          "min_loss": "0"
+          "min_loss": "1"
         },
         "selected_epoch_idx": 0,
         "selected_epoch": 1,
-        "votes": 2,
+        "votes": 1,
         "total_voters": 2,
-        "confidence": 1.0
+        "confidence": 0.5
       }
     },
     "recommendation": {
       "epoch_idx": 0,
       "epoch": 1,
-      "confidence": 1.0,
-      "reasoning": [
-        "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"
-      ]
+      "confidence": 0.5,
+      "reasoning": []
     }
   },
   "system": {
     "module": "system",
     "metrics": {
       "losses": [
-        0,
-        0.750080489633644,
-        0
+        0.7758842922584099,
+        0.75655607112735,
+        0.776124976409173
       ],
       "accuracies": [
-        0,
-        0,
-        0
+        0.0,
+        0.0,
+        0.0
       ],
       "epochs": [
         1,
@@ -470,13 +468,13 @@
       },
       "mcda": {
         "scores": [
-          0.41081631232239985,
-          0.11081631232239984,
-          0.41081631232239985
+          0.15232698984765194,
+          0.4486371950334276,
+          0.1486371950334276
         ],
-        "best_epoch_idx": 0,
-        "best_epoch": 1,
-        "best_score": 0.41081631232239985,
+        "best_epoch_idx": 1,
+        "best_epoch": 2,
+        "best_score": 0.4486371950334276,
         "weights": {
           "loss": 0.3,
           "accuracy": 0.4,
@@ -486,19 +484,19 @@
       },
       "voting": {
         "candidates": {
-          "mcda": 0,
-          "min_loss": "0"
+          "mcda": 1,
+          "min_loss": "1"
         },
-        "selected_epoch_idx": 0,
-        "selected_epoch": 1,
+        "selected_epoch_idx": 1,
+        "selected_epoch": 2,
         "votes": 2,
         "total_voters": 2,
         "confidence": 1.0
       }
     },
     "recommendation": {
-      "epoch_idx": 0,
-      "epoch": 1,
+      "epoch_idx": 1,
+      "epoch": 2,
       "confidence": 1.0,
       "reasoning": [
         "\ub192\uc740 \ud22c\ud45c \uc2e0\ub8b0\ub3c4 (100.0%)"

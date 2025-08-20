@@ -46,19 +46,32 @@ class SweetSpotDetector:
         self.patience = patience
         self.min_epochs = min_epochs
         
-        # 모듈별 메트릭 히스토리
+        # 모듈별 메트릭 히스토리 (train/val 분리)
         self.module_histories = defaultdict(lambda: {
-            'losses': [],
-            'accuracies': [],
+            'train_losses': [],
+            'val_losses': [],
+            'train_accuracies': [],
+            'val_accuracies': [],
             'epochs': [],
             'gradients': [],
-            'learning_rates': []
+            'learning_rates': [],
+            'overfitting_scores': [],  # val_loss - train_loss
+            'generalization_gaps': []  # val_acc - train_acc
+        })
+        
+        # 모듈간 상호작용 메트릭
+        self.interaction_metrics = defaultdict(lambda: {
+            'synergy_scores': [],  # 모듈 조합 시너지
+            'correlation_matrix': [],  # 모듈간 성능 상관관계
+            'coupling_strength': [],  # 모듈간 결합도
+            'information_flow': []  # 모듈간 정보 흐름
         })
         
         # Sweet Spot 정보
         self.sweet_spots = {}
         self.convergence_points = {}
         self.overfitting_points = {}
+        self.interaction_sweet_spots = {}  # 모듈 조합 최적점
         
         logger.info("✅ Sweet Spot Detector 초기화")
         logger.info(f"  - 윈도우 크기: {window_size}")
@@ -67,26 +80,43 @@ class SweetSpotDetector:
     
     def update(self, 
                epoch: int,
-               module_metrics: Dict[str, Dict[str, float]],
+               train_module_metrics: Dict[str, Dict[str, float]],
+               val_module_metrics: Dict[str, Dict[str, float]],
                learning_rate: float = None):
         """
-        메트릭 업데이트 및 Sweet Spot 탐지
+        메트릭 업데이트 및 Sweet Spot 탐지 (train/val 분리)
         
         Args:
             epoch: 현재 에폭
-            module_metrics: 모듈별 메트릭 딕셔너리
+            train_module_metrics: 학습 모듈별 메트릭 딕셔너리
+            val_module_metrics: 검증 모듈별 메트릭 딕셔너리
             learning_rate: 현재 학습률
         """
-        for module_name, metrics in module_metrics.items():
+        # 모든 모듈 이름 수집
+        all_modules = set(train_module_metrics.keys()) | set(val_module_metrics.keys())
+        
+        for module_name in all_modules:
             history = self.module_histories[module_name]
+            train_metrics = train_module_metrics.get(module_name, {})
+            val_metrics = val_module_metrics.get(module_name, {})
             
             # 히스토리 업데이트
             history['epochs'].append(epoch)
-            history['losses'].append(metrics.get('loss', 0))
-            history['accuracies'].append(metrics.get('accuracy', 0))
+            history['train_losses'].append(train_metrics.get('loss', 0))
+            history['val_losses'].append(val_metrics.get('loss', 0))
+            history['train_accuracies'].append(train_metrics.get('accuracy', 0))
+            history['val_accuracies'].append(val_metrics.get('accuracy', 0))
             
-            if 'gradient_norm' in metrics:
-                history['gradients'].append(metrics['gradient_norm'])
+            # 과적합 점수 계산 (val_loss - train_loss)
+            overfitting_score = val_metrics.get('loss', 0) - train_metrics.get('loss', 0)
+            history['overfitting_scores'].append(overfitting_score)
+            
+            # 일반화 갭 계산 (train_acc - val_acc)
+            generalization_gap = train_metrics.get('accuracy', 0) - val_metrics.get('accuracy', 0)
+            history['generalization_gaps'].append(generalization_gap)
+            
+            if 'gradient_norm' in train_metrics:
+                history['gradients'].append(train_metrics['gradient_norm'])
             
             if learning_rate:
                 history['learning_rates'].append(learning_rate)
@@ -95,73 +125,85 @@ class SweetSpotDetector:
             if epoch >= self.min_epochs:
                 self._detect_sweet_spot(module_name, epoch)
                 self._detect_convergence(module_name, epoch)
-                self._detect_overfitting(module_name, epoch)
+                self._detect_overfitting_improved(module_name, epoch)
+        
+        # 모듈간 상호작용 분석
+        if epoch >= self.min_epochs:
+            self._analyze_module_interactions(epoch, all_modules)
     
     def _detect_sweet_spot(self, module_name: str, epoch: int):
-        """모듈별 Sweet Spot 탐지"""
+        """모듈별 Sweet Spot 탐지 (train/val 균형 고려)"""
         history = self.module_histories[module_name]
-        losses = history['losses']
+        val_losses = history['val_losses']
+        train_losses = history['train_losses']
         
-        if len(losses) < self.window_size:
+        if len(val_losses) < self.window_size:
             return
         
         # 최근 윈도우의 손실
-        recent_losses = losses[-self.window_size:]
+        recent_val_losses = val_losses[-self.window_size:]
+        recent_train_losses = train_losses[-self.window_size:]
+        recent_overfitting = history['overfitting_scores'][-self.window_size:]
         
-        # 조건 1: 낮은 손실
-        avg_loss = np.mean(recent_losses)
+        # 조건 1: 낮은 검증 손실
+        avg_val_loss = np.mean(recent_val_losses)
+        avg_train_loss = np.mean(recent_train_losses)
         
         # 조건 2: 안정성 (낮은 분산)
-        loss_std = np.std(recent_losses)
-        is_stable = loss_std < self.stability_threshold
+        val_std = np.std(recent_val_losses)
+        is_stable = val_std < self.stability_threshold
         
         # 조건 3: 수렴 (손실 감소율이 낮음)
-        if len(losses) >= self.window_size * 2:
-            prev_window = losses[-self.window_size*2:-self.window_size]
-            improvement = (np.mean(prev_window) - avg_loss) / np.mean(prev_window)
+        if len(val_losses) >= self.window_size * 2:
+            prev_window = val_losses[-self.window_size*2:-self.window_size]
+            improvement = (np.mean(prev_window) - avg_val_loss) / (np.mean(prev_window) + 1e-10)
             is_converged = abs(improvement) < 0.01  # 1% 미만 개선
         else:
             is_converged = False
         
-        # 조건 4: 과적합 없음 (검증 손실이 증가하지 않음)
-        # 실제 구현에서는 val_loss도 추적 필요
-        is_not_overfitting = True  # 현재는 간단히 처리
+        # 조건 4: 과적합 제어
+        avg_overfitting = np.mean(recent_overfitting)
+        is_not_overfitting = avg_overfitting < 0.1  # 10% 미만 차이
         
         # Sweet Spot 판단
-        if is_stable and (is_converged or avg_loss < 0.1):
+        if is_stable and is_not_overfitting and (is_converged or avg_val_loss < 0.1):
             # 이전 Sweet Spot보다 나은지 확인
             if module_name not in self.sweet_spots or \
-               avg_loss < self.sweet_spots[module_name]['loss']:
+               avg_val_loss < self.sweet_spots[module_name]['val_loss']:
                 
                 self.sweet_spots[module_name] = {
                     'epoch': epoch,
-                    'loss': avg_loss,
-                    'std': loss_std,
+                    'val_loss': avg_val_loss,
+                    'train_loss': avg_train_loss,
+                    'loss': avg_val_loss,  # 호환성 유지
+                    'std': val_std,
                     'stable': is_stable,
-                    'converged': is_converged
+                    'converged': is_converged,
+                    'overfitting_score': avg_overfitting
                 }
                 
                 logger.info(f"  🎯 Sweet Spot 발견: {module_name}")
                 logger.info(f"     - 에폭: {epoch}")
-                logger.info(f"     - 손실: {avg_loss:.4f} (±{loss_std:.4f})")
+                logger.info(f"     - Val Loss: {avg_val_loss:.4f} (±{val_std:.4f})")
+                logger.info(f"     - Overfitting: {avg_overfitting:.4f}")
     
     def _detect_convergence(self, module_name: str, epoch: int):
-        """수렴 시점 탐지"""
+        """수렴 시점 탐지 (val_loss 기준)"""
         history = self.module_histories[module_name]
-        losses = history['losses']
+        val_losses = history['val_losses']
         
-        if len(losses) < self.patience:
+        if len(val_losses) < self.patience:
             return
         
         # 최근 patience 에폭 동안의 개선 확인
-        recent_losses = losses[-self.patience:]
-        best_recent = min(recent_losses)
+        recent_val_losses = val_losses[-self.patience:]
+        best_recent = min(recent_val_losses)
         
         # 개선이 거의 없으면 수렴으로 판단
         improvements = []
-        for i in range(1, len(recent_losses)):
-            if recent_losses[i-1] > 0:
-                improvement = (recent_losses[i-1] - recent_losses[i]) / recent_losses[i-1]
+        for i in range(1, len(recent_val_losses)):
+            if recent_val_losses[i-1] > 0:
+                improvement = (recent_val_losses[i-1] - recent_val_losses[i]) / recent_val_losses[i-1]
                 improvements.append(improvement)
         
         avg_improvement = np.mean(improvements) if improvements else 0
@@ -170,30 +212,101 @@ class SweetSpotDetector:
             if module_name not in self.convergence_points:
                 self.convergence_points[module_name] = {
                     'epoch': epoch,
-                    'loss': best_recent,
+                    'val_loss': best_recent,
+                    'train_loss': history['train_losses'][-1] if history['train_losses'] else 0,
                     'improvement_rate': avg_improvement
                 }
                 logger.info(f"  📊 수렴 감지: {module_name} @ epoch {epoch}")
     
-    def _detect_overfitting(self, module_name: str, epoch: int):
-        """과적합 시점 탐지"""
+    def _detect_overfitting_improved(self, module_name: str, epoch: int):
+        """개선된 과적합 시점 탐지 (train/val 갭 기반)"""
         history = self.module_histories[module_name]
-        losses = history['losses']
+        val_losses = history['val_losses']
+        train_losses = history['train_losses']
+        overfitting_scores = history['overfitting_scores']
         
-        # 실제로는 train/val loss 비교 필요
-        # 여기서는 간단한 휴리스틱 사용
-        if len(losses) >= self.window_size * 3:
-            # 손실이 다시 증가하기 시작하면 과적합 의심
-            recent = np.mean(losses[-self.window_size:])
-            previous = np.mean(losses[-self.window_size*2:-self.window_size])
+        if len(val_losses) < self.window_size * 2:
+            return
+        
+        # 최근 윈도우의 과적합 점수
+        recent_overfitting = np.mean(overfitting_scores[-self.window_size:])
+        prev_overfitting = np.mean(overfitting_scores[-self.window_size*2:-self.window_size])
+        
+        # 검증 손실 증가 확인
+        recent_val = np.mean(val_losses[-self.window_size:])
+        prev_val = np.mean(val_losses[-self.window_size*2:-self.window_size])
+        val_increase = (recent_val - prev_val) / (prev_val + 1e-10)
+        
+        # 학습 손실은 계속 감소하는지 확인
+        recent_train = np.mean(train_losses[-self.window_size:])
+        prev_train = np.mean(train_losses[-self.window_size*2:-self.window_size])
+        train_decrease = (prev_train - recent_train) / (prev_train + 1e-10)
+        
+        # 과적합 조건: val loss 증가 & train loss 감소 & 과적합 점수 증가
+        if (val_increase > 0.02 and  # val loss 2% 이상 증가
+            train_decrease > 0.01 and  # train loss는 계속 감소
+            recent_overfitting > prev_overfitting * 1.2):  # 과적합 점수 20% 증가
             
-            if recent > previous * 1.05:  # 5% 이상 증가
-                if module_name not in self.overfitting_points:
-                    self.overfitting_points[module_name] = {
-                        'epoch': epoch - self.window_size,  # 증가 시작 시점
-                        'loss_increase': (recent - previous) / previous
-                    }
-                    logger.warning(f"  ⚠️ 과적합 감지: {module_name} @ epoch {epoch - self.window_size}")
+            if module_name not in self.overfitting_points:
+                self.overfitting_points[module_name] = {
+                    'epoch': epoch - self.window_size,  # 과적합 시작 시점
+                    'val_increase': val_increase,
+                    'train_decrease': train_decrease,
+                    'overfitting_score': recent_overfitting
+                }
+                logger.warning(f"  ⚠️ 과적합 감지: {module_name} @ epoch {epoch - self.window_size}")
+                logger.warning(f"     - Val 증가: {val_increase:.2%}, Train 감소: {train_decrease:.2%}")
+    
+    def _analyze_module_interactions(self, epoch: int, module_names: set):
+        """모듈간 상호작용 분석"""
+        import itertools
+        
+        # 모듈 쌍별 상관관계 계산
+        correlation_matrix = {}
+        synergy_scores = {}
+        
+        module_list = list(module_names)
+        for mod1, mod2 in itertools.combinations(module_list, 2):
+            if mod1 not in self.module_histories or mod2 not in self.module_histories:
+                continue
+                
+            # 최근 손실값들의 상관관계
+            losses1 = self.module_histories[mod1]['val_losses'][-self.window_size:]
+            losses2 = self.module_histories[mod2]['val_losses'][-self.window_size:]
+            
+            if len(losses1) == len(losses2) and len(losses1) > 1:
+                correlation = np.corrcoef(losses1, losses2)[0, 1]
+                correlation_matrix[f"{mod1}-{mod2}"] = correlation
+                
+                # 시너지 점수: 음의 상관관계는 보완적, 양의 상관관계는 의존적
+                if correlation < -0.3:  # 보완적 관계
+                    synergy_scores[f"{mod1}-{mod2}"] = 1.0 - abs(correlation)
+                elif correlation > 0.7:  # 강한 의존 관계
+                    synergy_scores[f"{mod1}-{mod2}"] = correlation * 0.5
+                else:  # 독립적 관계
+                    synergy_scores[f"{mod1}-{mod2}"] = 0.7
+        
+        # 전체 모듈 조합의 시너지 계산
+        if synergy_scores:
+            avg_synergy = np.mean(list(synergy_scores.values()))
+            
+            # 상호작용 메트릭 저장
+            self.interaction_metrics[epoch] = {
+                'synergy_scores': synergy_scores,
+                'correlation_matrix': correlation_matrix,
+                'avg_synergy': avg_synergy,
+                'module_count': len(module_list)
+            }
+            
+            # Sweet Spot 조합 찾기
+            if avg_synergy > 0.7 and epoch not in self.interaction_sweet_spots:
+                self.interaction_sweet_spots[epoch] = {
+                    'synergy': avg_synergy,
+                    'best_pairs': sorted(synergy_scores.items(), 
+                                        key=lambda x: x[1], reverse=True)[:3]
+                }
+                logger.info(f"  🔗 모듈 상호작용 Sweet Spot @ epoch {epoch}")
+                logger.info(f"     - 평균 시너지: {avg_synergy:.3f}")
     
     def get_optimal_epochs(self) -> Dict[str, int]:
         """
@@ -214,11 +327,11 @@ class SweetSpotDetector:
             # 과적합 직전 사용
             elif module_name in self.overfitting_points:
                 optimal_epochs[module_name] = max(1, self.overfitting_points[module_name]['epoch'] - 1)
-            # 기본값: 최저 손실 에폭
+            # 기본값: 최저 검증 손실 에폭
             else:
-                losses = self.module_histories[module_name]['losses']
-                if losses:
-                    optimal_epochs[module_name] = losses.index(min(losses)) + 1
+                val_losses = self.module_histories[module_name]['val_losses']
+                if val_losses:
+                    optimal_epochs[module_name] = val_losses.index(min(val_losses)) + 1
         
         return optimal_epochs
     
@@ -236,11 +349,22 @@ class SweetSpotDetector:
             return {'status': 'not_found'}
         
         history = self.module_histories[module_name]
+        # train/val 분리된 손실 처리
+        train_losses = history.get('train_losses', [])
+        val_losses = history.get('val_losses', [])
+        
+        # validation loss를 주요 지표로 사용 (과적합 방지)
+        primary_losses = val_losses if val_losses else train_losses
+        
         status = {
             'total_epochs': len(history['epochs']),
-            'current_loss': history['losses'][-1] if history['losses'] else None,
-            'best_loss': min(history['losses']) if history['losses'] else None,
-            'best_epoch': history['losses'].index(min(history['losses'])) + 1 if history['losses'] else None
+            'current_train_loss': train_losses[-1] if train_losses else None,
+            'current_val_loss': val_losses[-1] if val_losses else None,
+            'best_train_loss': min(train_losses) if train_losses else None,
+            'best_val_loss': min(val_losses) if val_losses else None,
+            'best_epoch': val_losses.index(min(val_losses)) + 1 if val_losses else 
+                         (train_losses.index(min(train_losses)) + 1 if train_losses else None),
+            'overfitting_score': (val_losses[-1] - train_losses[-1]) if (val_losses and train_losses) else None
         }
         
         # Sweet Spot 정보
@@ -273,9 +397,12 @@ class SweetSpotDetector:
         
         fig, axes = plt.subplots(2, 2, figsize=(12, 10))
         
-        # 1. 손실 곡선
+        # 1. 손실 곡선 (train/val 분리)
         ax = axes[0, 0]
-        ax.plot(history['epochs'], history['losses'], 'b-', label='Loss', alpha=0.7)
+        if history.get('train_losses'):
+            ax.plot(history['epochs'], history['train_losses'], 'b-', label='Train Loss', alpha=0.7)
+        if history.get('val_losses'):
+            ax.plot(history['epochs'], history['val_losses'], 'r-', label='Val Loss', alpha=0.7)
         
         # Sweet Spot 표시
         if module_name in self.sweet_spots:
@@ -318,10 +445,14 @@ class SweetSpotDetector:
             ax.set_yscale('log')
             ax.grid(True, alpha=0.3)
         
-        # 4. 손실 변화율
+        # 4. 손실 변화율 (validation 기준)
         ax = axes[1, 1]
-        if len(history['losses']) > 1:
-            loss_changes = np.diff(history['losses'])
+        val_losses = history.get('val_losses', [])
+        train_losses = history.get('train_losses', [])
+        primary_losses = val_losses if val_losses else train_losses
+        
+        if len(primary_losses) > 1:
+            loss_changes = np.diff(primary_losses)
             ax.plot(history['epochs'][1:], loss_changes, 'b-', alpha=0.7)
             ax.axhline(y=0, color='k', linestyle='-', alpha=0.3)
             ax.set_xlabel('Epoch')
@@ -438,9 +569,12 @@ class SweetSpotDetector:
             task_scores['combined'] = np.mean(list(task_scores.values()))
             
         elif 'analyzer' in module:
-            # Analyzer 특화 메트릭
-            task_scores['stability'] = 1.0 / (1.0 + np.std(metrics.get('losses', [1.0])))
-            task_scores['convergence'] = self._calculate_convergence_rate(metrics.get('losses', []))
+            # Analyzer 특화 메트릭 (validation 우선)
+            val_losses = metrics.get('val_losses', [])
+            train_losses = metrics.get('train_losses', [])
+            losses = val_losses if val_losses else train_losses
+            task_scores['stability'] = 1.0 / (1.0 + np.std(losses if losses else [1.0]))
+            task_scores['convergence'] = self._calculate_convergence_rate(losses)
             
         elif 'kalman' in module or 'dsp' in module:
             # DSP/Kalman 특화 메트릭
@@ -449,8 +583,11 @@ class SweetSpotDetector:
         
         else:
             # 기본 메트릭
-            task_scores['accuracy'] = np.mean(metrics.get('accuracies', [0]))
-            task_scores['loss_improvement'] = self._calculate_improvement(metrics.get('losses', []))
+            val_losses = metrics.get('val_losses', [])
+            train_losses = metrics.get('train_losses', [])
+            losses = val_losses if val_losses else train_losses
+            task_scores['accuracy'] = np.mean(metrics.get('val_accuracies', metrics.get('accuracies', [0])))
+            task_scores['loss_improvement'] = self._calculate_improvement(losses)
         
         return task_scores
     
@@ -482,10 +619,18 @@ class SweetSpotDetector:
     def mcda_analysis(self, module: str, metrics: Dict) -> Dict:
         """Multi-Criteria Decision Analysis"""
         
-        # 기준별 점수 계산
+        # 기준별 점수 계산 (validation 우선)
+        val_losses = metrics.get('val_losses', [])
+        train_losses = metrics.get('train_losses', [])
+        val_accs = metrics.get('val_accuracies', [])
+        train_accs = metrics.get('train_accuracies', [])
+        
+        losses = val_losses if val_losses else train_losses
+        accuracies = val_accs if val_accs else train_accs
+        
         criteria = {
-            'loss': 1.0 - np.array(metrics.get('losses', [1.0])),  # Lower is better
-            'accuracy': np.array(metrics.get('accuracies', [0])),
+            'loss': 1.0 - np.array(losses if losses else [1.0]),  # Lower is better
+            'accuracy': np.array(accuracies if accuracies else [0]),
             'stability': self._calculate_stability_scores(metrics),
             'gradient_health': self._calculate_gradient_health(metrics)
         }
@@ -525,7 +670,9 @@ class SweetSpotDetector:
     
     def _calculate_stability_scores(self, metrics: Dict) -> np.ndarray:
         """안정성 점수 계산"""
-        losses = metrics.get('losses', [])
+        val_losses = metrics.get('val_losses', [])
+        train_losses = metrics.get('train_losses', [])
+        losses = val_losses if val_losses else train_losses
         if len(losses) < 3:
             return np.zeros(len(losses))
         
@@ -579,8 +726,11 @@ class SweetSpotDetector:
         if task_scores and 'combined' in task_scores:
             candidates['task'] = task_scores.get('best_idx', 0)
         
-        # Minimum loss
-        losses = self.module_histories.get(module, {}).get('losses', [])
+        # Minimum loss (validation 우선)
+        module_history = self.module_histories.get(module, {})
+        val_losses = module_history.get('val_losses', [])
+        train_losses = module_history.get('train_losses', [])
+        losses = val_losses if val_losses else train_losses
         if losses:
             candidates['min_loss'] = np.argmin(losses)
         
@@ -623,10 +773,15 @@ class SweetSpotDetector:
         # 디버그: 수집된 메트릭 확인
         logger.debug("📊 수집된 메트릭 확인:")
         for module_name, history in self.module_histories.items():
-            if history['losses']:
-                logger.debug(f"  - {module_name}: {len(history['losses'])}개 에폭, "
-                           f"첫 손실={history['losses'][0]:.4f}, "
-                           f"마지막 손실={history['losses'][-1]:.4f}")
+            train_losses = history.get('train_losses', [])
+            val_losses = history.get('val_losses', [])
+            
+            if train_losses or val_losses:
+                if val_losses:
+                    logger.debug(f"  - {module_name}: {len(val_losses)}개 에폭, "
+                               f"Val: 첫={val_losses[0]:.4f}, 마지막={val_losses[-1]:.4f}")
+                if train_losses:
+                    logger.debug(f"    Train: 첫={train_losses[0]:.4f}, 마지막={train_losses[-1]:.4f}")
         
         output_path = Path(output_dir)
         output_path.mkdir(exist_ok=True, parents=True)
@@ -640,8 +795,10 @@ class SweetSpotDetector:
             metrics = self.module_histories[module_name]
             analyses = {}
             
-            # 1. Statistical Plateau Detection
-            losses = metrics.get('losses', [])
+            # 1. Statistical Plateau Detection (validation 우선)
+            val_losses = metrics.get('val_losses', [])
+            train_losses = metrics.get('train_losses', [])
+            losses = val_losses if val_losses else train_losses
             analyses['plateau'] = self.statistical_plateau_detection(losses)
             
             # 2. Task-Specific Metrics
@@ -735,7 +892,9 @@ class SweetSpotDetector:
             # 1. Loss curve with plateau
             ax = axes[0, 0]
             epochs = metrics.get('epochs', [])
-            losses = metrics.get('losses', [])
+            val_losses = metrics.get('val_losses', [])
+            train_losses = metrics.get('train_losses', [])
+            losses = val_losses if val_losses else train_losses
             
             if epochs and losses:
                 ax.plot(epochs, losses, 'b-', label='Training Loss')

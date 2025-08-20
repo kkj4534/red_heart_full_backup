@@ -1,18 +1,18 @@
 # 🎯 Sweet Spot Analysis Report
 
-Generated: 2025-08-19 16:11:24
+Generated: 2025-08-20 19:32:24
 
 ## 📊 Summary
 
 | Module | Recommended Epoch | Confidence | Key Reasoning |
 |--------|------------------|------------|---------------|
-| backbone | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| emotion_head | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| bentham_head | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| regret_head | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| surd_head | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| neural_analyzers | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
-| system | 1 | 100.0% | 높은 투표 신뢰도 (100.0%) |
+| backbone | 2 | 100.0% | 높은 투표 신뢰도 (100.0%) |
+| emotion_head | 2 | 66.7% | 높은 투표 신뢰도 (66.7%) |
+| bentham_head | 3 | 33.3% | N/A |
+| regret_head | 3 | 66.7% | MCDA 점수 우수 (0.849), 높은 투표 신뢰도 (66.7%) |
+| surd_head | 2 | 66.7% | MCDA 점수 우수 (0.843), 높은 투표 신뢰도 (66.7%) |
+| neural_analyzers | 1 | 50.0% | N/A |
+| system | 2 | 100.0% | 높은 투표 신뢰도 (100.0%) |
 
 ## 🔍 Detailed Analysis
 
@@ -21,11 +21,11 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: 0.450
+- Best Epoch: 2
+- Best Score: 0.449
 
 **Ensemble Voting:**
-- Selected: Epoch 1
+- Selected: Epoch 2
 - Confidence: 100.0%
 - Votes: 2/2
 
@@ -36,13 +36,13 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
+- Best Epoch: 2
 - Best Score: 0.450
 
 **Ensemble Voting:**
-- Selected: Epoch 1
-- Confidence: 100.0%
-- Votes: 3/3
+- Selected: Epoch 2
+- Confidence: 66.7%
+- Votes: 2/3
 
 ---
 
@@ -51,13 +51,13 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: 0.450
+- Best Epoch: 3
+- Best Score: 0.556
 
 **Ensemble Voting:**
-- Selected: Epoch 1
-- Confidence: 100.0%
-- Votes: 3/3
+- Selected: Epoch 3
+- Confidence: 33.3%
+- Votes: 1/3
 
 ---
 
@@ -66,13 +66,13 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: 0.450
+- Best Epoch: 3
+- Best Score: 0.849
 
 **Ensemble Voting:**
-- Selected: Epoch 1
-- Confidence: 100.0%
-- Votes: 3/3
+- Selected: Epoch 3
+- Confidence: 66.7%
+- Votes: 2/3
 
 ---
 
@@ -81,13 +81,13 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: 0.450
+- Best Epoch: 2
+- Best Score: 0.843
 
 **Ensemble Voting:**
-- Selected: Epoch 1
-- Confidence: 100.0%
-- Votes: 3/3
+- Selected: Epoch 2
+- Confidence: 66.7%
+- Votes: 2/3
 
 ---
 
@@ -97,12 +97,12 @@ Generated: 2025-08-19 16:11:24
 
 **MCDA Analysis:**
 - Best Epoch: 1
-- Best Score: 0.450
+- Best Score: nan
 
 **Ensemble Voting:**
 - Selected: Epoch 1
-- Confidence: 100.0%
-- Votes: 2/2
+- Confidence: 50.0%
+- Votes: 1/2
 
 ---
 
@@ -111,11 +111,11 @@ Generated: 2025-08-19 16:11:24
 **Plateau Detection:** Not detected
 
 **MCDA Analysis:**
-- Best Epoch: 1
-- Best Score: 0.411
+- Best Epoch: 2
+- Best Score: 0.449
 
 **Ensemble Voting:**
-- Selected: Epoch 1
+- Selected: Epoch 2
 - Confidence: 100.0%
 - Votes: 2/2
 
@@ -134,7 +134,7 @@ thresholds = {
         'stability': 0.15,
         'gradient_health': 0.15
     },
-    'min_confidence': 0.80
+    'min_confidence': 0.55
 }
 ```
 

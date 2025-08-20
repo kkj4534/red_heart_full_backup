@@ -114,9 +114,10 @@ class UnifiedTrainingConfig:
 class UnifiedModel(nn.Module):
     """Red Heart AI 730M 통합 모델"""
     
-    def __init__(self, config: UnifiedTrainingConfig):
+    def __init__(self, config: UnifiedTrainingConfig, device=None):
         super().__init__()
         self.config = config
+        self.device = device if device else torch.device('cpu')
         
         # 백본 설정
         backbone_config = {
@@ -140,6 +141,10 @@ class UnifiedModel(nn.Module):
         
         # 신경망 분석기 (368M)
         self.neural_analyzers = create_neural_analyzers(input_dim=896)
+        # 각 analyzer를 device로 이동
+        if self.device and self.device != torch.device('cpu'):
+            for name in self.neural_analyzers:
+                self.neural_analyzers[name] = self.neural_analyzers[name].to(self.device)
         
         # Advanced 분석기 래퍼 (112M) - translator 초기화 후 생성
         self.advanced_wrappers = None  # 나중에 초기화
@@ -300,8 +305,8 @@ class UnifiedTrainer:
         """모델 초기화 - v2 방식 차용 (순차적 GPU 로드)"""
         logger.info("🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...")
         
-        # 실제 730M 모델 초기화 (CPU에서 생성)
-        self.model = UnifiedModel(self.config)
+        # 실제 730M 모델 초기화 (디바이스 전달)
+        self.model = UnifiedModel(self.config, device=self.device)
         
         # GPU 메모리 상태 확인
         if self.device.type == 'cuda':
@@ -361,7 +366,7 @@ class UnifiedTrainer:
         if hasattr(self.model, 'neural_analyzers') and self.model.neural_analyzers:
             try:
                 for name, analyzer in self.model.neural_analyzers.items():
-                    analyzer.to(self.device)
+                    self.model.neural_analyzers[name] = analyzer.to(self.device)
                     logger.info(f"  ✅ {name} 분석기 GPU 로드")
             except RuntimeError as e:
                 if 'out of memory' in str(e).lower():
@@ -373,7 +378,7 @@ class UnifiedTrainer:
         if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
             try:
                 for name, wrapper in self.model.advanced_wrappers.items():
-                    wrapper.to(self.device)
+                    self.model.advanced_wrappers[name] = wrapper.to(self.device)
                     logger.info(f"  ✅ {name} Wrapper GPU 로드")
             except RuntimeError as e:
                 if 'out of memory' in str(e).lower():
@@ -1066,52 +1071,101 @@ class UnifiedTrainer:
             else:
                 val_metrics = {}
             
-            # 메트릭 통합 및 모듈별 그룹화
+            # 메트릭 통합 및 모듈별 그룹화 (train/val 분리)
             all_metrics = {**train_metrics, **val_metrics}
             
-            # 모듈별 메트릭으로 재구성 (sweet_spot_detector 호환)
-            module_metrics = {
+            # 학습 모듈별 메트릭
+            train_module_metrics = {
                 'backbone': {
-                    'loss': all_metrics.get('backbone_loss', all_metrics.get('train_loss', 0)),
-                    'accuracy': all_metrics.get('backbone_acc', 0)
+                    'loss': train_metrics.get('backbone_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('backbone_acc', 0),
+                    'gradient_norm': train_metrics.get('backbone_grad_norm', 0)
                 },
                 'emotion_head': {
-                    'loss': all_metrics.get('emotion_loss', 0),
-                    'accuracy': all_metrics.get('emotion_acc', 0)
+                    'loss': train_metrics.get('emotion_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('emotion_acc', 0),
+                    'gradient_norm': train_metrics.get('emotion_grad_norm', 0)
                 },
                 'bentham_head': {
-                    'loss': all_metrics.get('bentham_loss', 0),
-                    'accuracy': all_metrics.get('bentham_acc', 0)
+                    'loss': train_metrics.get('bentham_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('bentham_acc', 0),
+                    'gradient_norm': train_metrics.get('bentham_grad_norm', 0)
                 },
                 'regret_head': {
-                    'loss': all_metrics.get('regret_loss', 0),
-                    'accuracy': all_metrics.get('regret_acc', 0)
+                    'loss': train_metrics.get('regret_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('regret_acc', 0),
+                    'gradient_norm': train_metrics.get('regret_grad_norm', 0)
                 },
                 'surd_head': {
-                    'loss': all_metrics.get('surd_loss', 0),
-                    'accuracy': all_metrics.get('surd_acc', 0)
+                    'loss': train_metrics.get('surd_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('surd_acc', 0),
+                    'gradient_norm': train_metrics.get('surd_grad_norm', 0)
                 },
                 'neural_analyzers': {
-                    'loss': all_metrics.get('analyzer_loss', 0),
-                    'accuracy': all_metrics.get('analyzer_acc', 0)
+                    'loss': train_metrics.get('analyzer_loss', train_metrics.get('train_loss', 0)),
+                    'accuracy': train_metrics.get('analyzer_acc', 0),
+                    'gradient_norm': train_metrics.get('analyzer_grad_norm', 0)
                 },
                 'system': {
-                    'loss': all_metrics.get('val_loss', all_metrics.get('train_loss', 0)),
-                    'accuracy': all_metrics.get('val_acc', 0)
+                    'loss': train_metrics.get('train_loss', 0),
+                    'accuracy': train_metrics.get('train_acc', 0),
+                    'gradient_norm': train_metrics.get('total_grad_norm', 0)
                 }
             }
+            
+            # 검증 모듈별 메트릭 (val_metrics가 있을 때만)
+            if val_metrics:
+                val_module_metrics = {
+                    'backbone': {
+                        'loss': val_metrics.get('backbone_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('backbone_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'emotion_head': {
+                        'loss': val_metrics.get('emotion_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('emotion_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'bentham_head': {
+                        'loss': val_metrics.get('bentham_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('bentham_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'regret_head': {
+                        'loss': val_metrics.get('regret_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('regret_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'surd_head': {
+                        'loss': val_metrics.get('surd_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('surd_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'neural_analyzers': {
+                        'loss': val_metrics.get('analyzer_loss', val_metrics.get('val_loss', 0)),
+                        'accuracy': val_metrics.get('analyzer_acc', val_metrics.get('val_acc', 0))
+                    },
+                    'system': {
+                        'loss': val_metrics.get('val_loss', 0),
+                        'accuracy': val_metrics.get('val_acc', 0)
+                    }
+                }
+            else:
+                # 검증이 없는 에폭은 train 메트릭을 복사 (호환성)
+                val_module_metrics = train_module_metrics.copy()
             
             # 디버그: 메트릭 검증
             if epoch == 1 and self.verbose:
                 logger.info("\n  📊 메트릭 검증 (Epoch 1):")
-                for module_name, metrics in module_metrics.items():
+                logger.info("  [Train]")
+                for module_name, metrics in train_module_metrics.items():
                     logger.info(f"    - {module_name}: loss={metrics['loss']:.4f}, acc={metrics['accuracy']:.4f}")
+                if val_metrics:
+                    logger.info("  [Validation]")
+                    for module_name, metrics in val_module_metrics.items():
+                        logger.info(f"    - {module_name}: loss={metrics['loss']:.4f}, acc={metrics['accuracy']:.4f}")
             
-            # Sweet Spot 업데이트
+            # Sweet Spot 업데이트 (train/val 분리)
             if self.config.enable_sweet_spot:
                 self.sweet_spot_detector.update(
                     epoch=epoch,
-                    module_metrics=module_metrics,
+                    train_module_metrics=train_module_metrics,
+                    val_module_metrics=val_module_metrics,
                     learning_rate=self.optimizer.param_groups[0]['lr']
                 )
             

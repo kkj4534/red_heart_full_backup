@@ -1,0 +1,93 @@
+{
+  "crossover_strategy": "selective",
+  "module_best_epochs": {
+    "loss": {
+      "epoch": 2,
+      "metric": 0.75655607112735
+    },
+    "train_loss": {
+      "epoch": 2,
+      "metric": 0.75655607112735
+    },
+    "head_losses": {
+      "epoch": 2,
+      "metric": 4.0
+    },
+    "analyzer_losses": {
+      "epoch": 2,
+      "metric": 4.0
+    },
+    "total_losses": {
+      "epoch": 2,
+      "metric": 8.0
+    },
+    "emotion_loss": {
+      "epoch": 2,
+      "metric": 2.1424319256332134
+    },
+    "bentham_loss": {
+      "epoch": 2,
+      "metric": 0.3373723233806016
+    },
+    "regret_loss": {
+      "epoch": 2,
+      "metric": 0.14650547911144124
+    },
+    "surd_loss": {
+      "epoch": 2,
+      "metric": 0.4526411635697914
+    },
+    "emotion_acc": {
+      "epoch": 2,
+      "metric": 0.0
+    },
+    "bentham_acc": {
+      "epoch": 2,
+      "metric": 0.005927342344538431
+    },
+    "regret_acc": {
+      "epoch": 2,
+      "metric": 0.0014340344168260039
+    },
+    "surd_acc": {
+      "epoch": 2,
+      "metric": 0.1806883365200765
+    },
+    "backbone_loss": {
+      "epoch": 2,
+      "metric": 0.75655607112735
+    },
+    "backbone_acc": {
+      "epoch": 2,
+      "metric": 0.0
+    },
+    "analyzer_loss": {
+      "epoch": 2,
+      "metric": 0.7257988929882535
+    },
+    "analyzer_acc": {
+      "epoch": 2,
+      "metric": 0.0
+    },
+    "val_loss": {
+      "epoch": 2,
+      "metric": 0.75655607112735
+    },
+    "val_acc": {
+      "epoch": 2,
+      "metric": 0.0
+    }
+  },
+  "timestamp": "2025-08-20T19:32:39.397285",
+  "metadata": {
+    "optimal_epochs": {
+      "backbone": 2,
+      "emotion_head": 2,
+      "bentham_head": 2,
+      "regret_head": 3,
+      "surd_head": 2,
+      "neural_analyzers": 2,
+      "system": 2
+    }
+  }
+}

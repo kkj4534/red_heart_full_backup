@@ -28,12 +28,12 @@ class EnhancedCheckpointManager:
     def __init__(self, 
                  checkpoint_dir: str = "training/checkpoints",
                  max_checkpoints: int = 30,
-                 save_interval: int = 2):
+                 save_interval: int = 1):
         """
         Args:
             checkpoint_dir: 체크포인트 저장 디렉토리
             max_checkpoints: 최대 체크포인트 개수 (기본 30개)
-            save_interval: 저장 간격 (기본 2 에폭마다)
+            save_interval: 저장 간격 (기본 1 에폭마다 - 모든 에폭 저장)
         """
         self.checkpoint_dir = Path(checkpoint_dir)
         self.checkpoint_dir.mkdir(parents=True, exist_ok=True)
@@ -75,7 +75,7 @@ class EnhancedCheckpointManager:
     
     def should_save_checkpoint(self, epoch: int) -> bool:
         """현재 에폭에서 체크포인트를 저장해야 하는지 확인"""
-        # 짝수 에폭마다 저장 (60 에폭 중 30개)
+        # save_interval=1일 때 모든 에폭 저장
         return epoch % self.save_interval == 0
     
     def save_checkpoint(self,
@@ -180,17 +180,32 @@ class EnhancedCheckpointManager:
                         k: v.cpu() for k, v in module.state_dict().items()
                     }
         
-        # Group B: Neural Analyzers
-        group_b_modules = ['neural_emotion', 'neural_bentham', 
-                          'neural_regret', 'neural_surd']
-        for module_name in group_b_modules:
-            if hasattr(model, module_name):
-                module = getattr(model, module_name)
-                if module is not None:
-                    # GPU → CPU 이동하여 메모리 절약
-                    modular_states[module_name] = {
-                        k: v.cpu() for k, v in module.state_dict().items()
-                    }
+        # Neural Analyzers Dict 처리 (368M 파라미터)
+        if hasattr(model, 'neural_analyzers'):
+            neural_analyzers = getattr(model, 'neural_analyzers')
+            if isinstance(neural_analyzers, dict):
+                # dict 전체를 하나의 모듈로 저장
+                neural_states = {}
+                for analyzer_name, analyzer_module in neural_analyzers.items():
+                    if analyzer_module is not None:
+                        # 각 analyzer의 state를 nested dict로 저장
+                        neural_states[analyzer_name] = {
+                            k: v.cpu() for k, v in analyzer_module.state_dict().items()
+                        }
+                if neural_states:
+                    modular_states['neural_analyzers'] = neural_states
+                    logger.debug(f"  ✓ neural_analyzers dict 저장: {len(neural_states)}개 분석기")
+            else:
+                # dict가 아닌 경우 기존 방식 (fallback)
+                group_b_modules = ['neural_emotion', 'neural_bentham', 
+                                  'neural_regret', 'neural_surd']
+                for module_name in group_b_modules:
+                    if hasattr(model, module_name):
+                        module = getattr(model, module_name)
+                        if module is not None:
+                            modular_states[module_name] = {
+                                k: v.cpu() for k, v in module.state_dict().items()
+                            }
         
         # Group C: DSP + Kalman
         group_c_modules = ['emotion_dsp', 'kalman_filter']
@@ -214,6 +229,39 @@ class EnhancedCheckpointManager:
                     modular_states[module_name] = {
                         k: v.cpu() for k, v in module.state_dict().items()
                     }
+        
+        # System: 전체 시스템 통합 파라미터
+        # 전체 모델의 통합 성능을 위한 완전한 state_dict 저장
+        # 이를 통해 모듈별 최적화와 전체 시스템 최적화를 모두 추적
+        if hasattr(model, 'state_dict'):
+            # 전체 모델 state_dict를 저장 (메모리 효율을 위해 선택적으로)
+            # 핵심 통합 파라미터만 저장 (백본의 마지막 레이어 등)
+            system_state = {}
+            
+            # 백본의 통합 레이어 (마지막 레이어들)
+            if hasattr(model, 'backbone'):
+                backbone = getattr(model, 'backbone')
+                if hasattr(backbone, 'final_norm'):
+                    final_norm = getattr(backbone, 'final_norm')
+                    system_state['backbone_final_norm'] = {
+                        k: v.cpu() for k, v in final_norm.state_dict().items()
+                    }
+                if hasattr(backbone, 'output_projection'):
+                    output_proj = getattr(backbone, 'output_projection')
+                    system_state['backbone_output_projection'] = {
+                        k: v.cpu() for k, v in output_proj.state_dict().items()
+                    }
+            
+            # 통합 메트릭 및 메타데이터
+            system_state['meta'] = {
+                'total_modules': len(modular_states),
+                'timestamp': datetime.now().isoformat(),
+                'module_names': list(modular_states.keys()),
+                'total_parameters': sum(p.numel() for p in model.parameters()),
+                'trainable_parameters': sum(p.numel() for p in model.parameters() if p.requires_grad)
+            }
+            
+            modular_states['system'] = system_state
         
         return modular_states
     

@@ -1,0 +1,1088 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 730M 최종 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 60 에폭 학습 테스트 (--samples로 제한 가능)
+[0;34m[INFO][0m    - LR 스윕, Sweet Spot, Parameter Crossover 포함
+[0;34m[INFO][0m    - Advanced Training Techniques 활성화
+[0;34m[INFO][0m    ✨ 최종 통합 시스템 (730M) 사용
+2025-08-20 18:12:19,826 - RedHeart.UnifiedTrainingFinal - INFO - ⚠️ 테스트 모드: 3 에폭 실행
+2025-08-20 18:12:19,938 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+2025-08-20 18:12:19,939 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-20 18:12:19,939 - RedHeart.UnifiedTrainingFinal - INFO - Red Heart AI 최종 통합 학습 시스템 초기화
+2025-08-20 18:12:19,939 - RedHeart.UnifiedTrainingFinal - INFO -   - 모델 크기: 730M 파라미터
+2025-08-20 18:12:19,939 - RedHeart.UnifiedTrainingFinal - INFO -   - 총 에폭: 3
+2025-08-20 18:12:19,939 - RedHeart.UnifiedTrainingFinal - INFO -   - 배치 사이즈: 2 (GA=32)
+2025-08-20 18:12:19,940 - RedHeart.UnifiedTrainingFinal - INFO -   - 디바이스: cuda
+2025-08-20 18:12:19,940 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-20 18:12:19,945 - training.enhanced_checkpoint_manager - INFO -   - 기존 메타데이터 로드: 2개 체크포인트
+2025-08-20 18:12:19,945 - training.enhanced_checkpoint_manager - INFO - ✅ Enhanced CheckpointManager 초기화
+2025-08-20 18:12:19,945 - training.enhanced_checkpoint_manager - INFO -   - 저장 디렉토리: training/checkpoints_final
+2025-08-20 18:12:19,946 - training.enhanced_checkpoint_manager - INFO -   - 최대 체크포인트: 30개
+2025-08-20 18:12:19,946 - training.enhanced_checkpoint_manager - INFO -   - 저장 간격: 2 에폭마다
+2025-08-20 18:12:19,946 - training.lr_sweep_optimizer - INFO - ✅ LR Sweep Optimizer 초기화
+2025-08-20 18:12:19,946 - training.lr_sweep_optimizer - INFO -   - 스윕 범위: 1.0e-05 ~ 1.0e-02
+2025-08-20 18:12:19,946 - training.lr_sweep_optimizer - INFO -   - 테스트 LR 값: ['1.0e-05', '5.6e-05', '3.2e-04', '1.8e-03', '1.0e-02']
+2025-08-20 18:12:19,947 - training.lr_sweep_optimizer - INFO -   - 각 LR당 3 에폭 테스트
+2025-08-20 18:12:19,947 - training.sweet_spot_detector - INFO - ✅ Sweet Spot Detector 초기화
+2025-08-20 18:12:19,947 - training.sweet_spot_detector - INFO -   - 윈도우 크기: 5
+2025-08-20 18:12:19,947 - training.sweet_spot_detector - INFO -   - 안정성 임계값: 0.01
+2025-08-20 18:12:19,947 - training.sweet_spot_detector - INFO -   - Patience: 10
+2025-08-20 18:12:19,947 - training.parameter_crossover_system - INFO - ✅ Parameter Crossover System 초기화
+2025-08-20 18:12:19,948 - training.parameter_crossover_system - INFO -   - 전략: selective
+2025-08-20 18:12:19,948 - training.parameter_crossover_system - INFO -   - 블렌드 비율: 0.7
+2025-08-20 18:12:19,948 - training.oom_handler - INFO - ✅ OOM Handler 초기화
+2025-08-20 18:12:19,948 - training.oom_handler - INFO -   - 초기 배치 사이즈: 2
+2025-08-20 18:12:19,948 - training.oom_handler - INFO -   - 최소 배치 사이즈: 1
+2025-08-20 18:12:19,948 - training.oom_handler - INFO -   - Gradient Accumulation: 32
+2025-08-20 18:12:19,949 - training.oom_handler - INFO -   - 메모리 임계값: 85.0%
+2025-08-20 18:12:19,949 - training.oom_handler - INFO -   - 디바이스: cuda
+2025-08-20 18:12:19,949 - training.advanced_training_techniques - INFO - ✅ Advanced Training Manager 초기화
+2025-08-20 18:12:19,949 - training.advanced_training_techniques - INFO -   - label_smoothing: 활성화
+2025-08-20 18:12:19,949 - training.advanced_training_techniques - INFO -   - rdrop: 활성화
+2025-08-20 18:12:19,950 - training.advanced_training_techniques - INFO -   - ema: 활성화
+2025-08-20 18:12:19,950 - training.advanced_training_techniques - INFO -   - llrd: 활성화
+2025-08-20 18:12:19,950 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 모든 컴포넌트 초기화 완료
+2025-08-20 18:12:19,950 - RedHeart.UnifiedTrainingFinal - INFO - 🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-20 18:12:20,433 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-20 18:12:20,433 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-20 18:12:20,555 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-20 18:12:20,663 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-20 18:12:20,895 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-20 18:12:20,987 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-20 18:12:21,881 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-08-20 18:12:22,453 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-08-20 18:12:23,571 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-08-20 18:12:23,672 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-08-20 18:12:23,673 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-08-20 18:12:24,497 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-20 18:12:24,500 - RedHeart.UnifiedTrainingFinal - INFO -   초기 GPU 메모리: 1.39GB
+2025-08-20 18:12:24,626 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 백본 GPU 로드 (90.6M)
+2025-08-20 18:12:24,648 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 감정 헤드 GPU 로드 (38.3M)
+2025-08-20 18:12:24,669 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 벤담 헤드 GPU 로드 (38.3M)
+2025-08-20 18:12:24,691 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ 후회 헤드 GPU 로드 (38.3M)
+2025-08-20 18:12:24,708 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ SURD 헤드 GPU 로드 (38.3M)
+2025-08-20 18:12:24,708 - RedHeart.UnifiedTrainingFinal - INFO -   🔄 Translator 모듈 초기화 중...
+2025-08-20 18:12:24,709 - RedHeart.Config - INFO - 🔍 get_system_module 호출: module_id=translator
+2025-08-20 18:12:24,709 - RedHeart.Config - INFO - 🔍 현재 등록된 모듈들: []
+2025-08-20 18:12:24,709 - RedHeart.Config - INFO - 🔍 결과: None
+2025-08-20 18:12:24,717 - local_translator - INFO - LocalTranslator 생성 - 전역 모듈로 초기화됨
+2025-08-20 18:12:24,717 - local_translator - INFO - 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-08-20 18:13:28,327 - hf_model_wrapper - DEBUG - ✅ AutoModel.from_pretrained 패치됨
+2025-08-20 18:13:28,327 - hf_model_wrapper - DEBUG - ✅ AutoModelForSequenceClassification.from_pretrained 패치됨
+2025-08-20 18:13:28,327 - hf_model_wrapper - DEBUG - ✅ AutoModelForTokenClassification.from_pretrained 패치됨
+2025-08-20 18:13:28,327 - hf_model_wrapper - DEBUG - ✅ AutoModelForCausalLM.from_pretrained 패치됨
+2025-08-20 18:13:28,328 - hf_model_wrapper - DEBUG - ✅ AutoProcessor.from_pretrained 패치됨
+2025-08-20 18:13:28,328 - hf_model_wrapper - DEBUG - ✅ AutoImageProcessor.from_pretrained 패치됨
+2025-08-20 18:13:28,328 - hf_model_wrapper - DEBUG - ✅ MarianMTModel.from_pretrained 패치됨
+2025-08-20 18:13:28,328 - hf_model_wrapper - DEBUG - ✅ ElectraForSequenceClassification.from_pretrained 패치됨
+2025-08-20 18:13:28,328 - hf_model_wrapper - INFO - ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-08-20 18:13:28,798 - hf_model_wrapper - INFO - 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-08-20 18:13:28,799 - hf_model_wrapper - DEBUG - CPU 전용 owner(translator) → device=cpu 강제
+2025-08-20 18:13:29,468 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-08-20 18:13:29,694 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /Helsinki-NLP/opus-mt-ko-en/resolve/main/custom_generate/generate.py HTTP/1.1" 404 0
+2025-08-20 18:13:29,702 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1189.3MB (학습가능: True)
+2025-08-20 18:13:29,704 - local_translator - INFO - ✅ OPUS-MT 모델 로드 완료 (소요시간: 65.0초, 디바이스: cpu)
+2025-08-20 18:13:29,704 - local_translator - INFO - 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-08-20 18:13:29,735 - workflow_aware_memory_manager - INFO - ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-08-20 18:13:29,735 - dynamic_swap_manager - INFO - RedHeartDynamicSwapManager 초기화 완료
+2025-08-20 18:13:29,735 - asyncio - DEBUG - Using selector: EpollSelector
+2025-08-20 18:13:29,735 - local_translator - DEBUG - DSM 등록을 위한 이벤트 루프 생성
+2025-08-20 18:13:29,736 - dynamic_swap_manager - INFO - [DSM] translator 크기: 297.6MB (mgr_id=137889119622816)
+2025-08-20 18:13:29,737 - dynamic_swap_manager - INFO -    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-08-20 18:13:29,737 - dynamic_swap_manager - DEBUG -    master_model_registry에 translator 등록 (priority=3)
+2025-08-20 18:13:29,737 - dynamic_swap_manager - INFO - [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-08-20 18:13:29,737 - local_translator - INFO - ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-08-20 18:13:29,737 - RedHeart.Config - INFO - 🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+2025-08-20 18:13:29,738 - RedHeart.Config - INFO - 🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+2025-08-20 18:13:29,738 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ LocalTranslator 초기화 및 전역 등록 완료
+2025-08-20 18:13:29,738 - RedHeart.UnifiedTrainingFinal - INFO -   🔧 Advanced Wrappers 생성 중...
+2025-08-20 18:13:40,071 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 24.6%, 필요: 500MB)
+2025-08-20 18:13:40,073 - RedHeart.Config - INFO - 🔍 get_system_module 호출: module_id=translator
+2025-08-20 18:13:40,073 - RedHeart.Config - INFO - 🔍 현재 등록된 모듈들: ['translator']
+2025-08-20 18:13:40,074 - RedHeart.Config - INFO - 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-08-20 18:13:40,504 - RedHeartLinux.AdvancedEmotion - INFO - ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-08-20 18:13:40,567 - RedHeartLinux.AdvancedEmotion - INFO - 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-08-20 18:13:40,568 - RedHeartLinux.AdvancedEmotion - INFO -   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-08-20 18:13:40,568 - RedHeartLinux.AdvancedEmotion - INFO -   - emotion_moe None 여부: False
+2025-08-20 18:13:40,575 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-20 18:13:40,600 - RedHeartLinux.AdvancedEmotion - INFO - ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-08-20 18:13:40,600 - RedHeartLinux.AdvancedEmotion - INFO -   - DSP 시뮬레이터: 20M 파라미터
+2025-08-20 18:13:40,601 - RedHeartLinux.AdvancedEmotion - INFO -   - 칼만 필터: 융합용
+2025-08-20 18:13:40,675 - RedHeartLinux.AdvancedEmotion - INFO - 계층적 감정 모델 초기화 완료
+2025-08-20 18:13:40,676 - RedHeart.AdvancedLLM - INFO - 모델 설정 준비 완료: ['helpingai']
+2025-08-20 18:13:40,676 - RedHeart.AdvancedLLM - INFO - 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-08-20 18:13:40,677 - RedHeartLinux.AdvancedEmotion - INFO - LLM 엔진 연결 완료
+2025-08-20 18:13:40,677 - RedHeartLinux.AdvancedEmotion - INFO - 고급 감정 분석 시스템이 초기화되었습니다.
+2025-08-20 18:13:40,677 - RedHeartLinux.AdvancedEmotion - INFO - 🔍 hierarchical_model이 이미 존재함
+2025-08-20 18:13:40,677 - advanced_analyzer_wrappers - INFO -   - biometric_processor 등록 (10M)
+2025-08-20 18:13:40,677 - advanced_analyzer_wrappers - INFO -   - multimodal_fusion 등록 (10M)
+2025-08-20 18:13:40,678 - advanced_analyzer_wrappers - INFO -   - temporal_emotion 등록 (10M)
+2025-08-20 18:13:40,678 - advanced_analyzer_wrappers - INFO -   - cultural_nuance 등록 (13M)
+2025-08-20 18:13:40,678 - advanced_analyzer_wrappers - INFO -   - advanced_moe 등록 (5M)
+2025-08-20 18:13:40,678 - advanced_analyzer_wrappers - INFO -   - emotion_moe 등록
+2025-08-20 18:13:40,678 - advanced_analyzer_wrappers - INFO - ✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+2025-08-20 18:13:41,030 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:41,235 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /klue/bert-base/resolve/main/tokenizer_config.json HTTP/1.1" 307 0
+2025-08-20 18:13:41,243 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/klue/bert-base/77c8b3d707df785034b4e50f2da5d37be5f0f546/tokenizer_config.json HTTP/1.1" 200 0
+2025-08-20 18:13:41,449 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/klue/bert-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+2025-08-20 18:13:41,820 - advanced_regret_analyzer - INFO - ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-08-20 18:13:41,847 - advanced_regret_analyzer - INFO - 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-08-20 18:13:41,847 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:41,847 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-08-20 18:13:41,848 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-20 18:13:41,848 - advanced_regret_analyzer - INFO - 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-08-20 18:13:41,848 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:41,848 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook GPU 메모리 관리 활성화
+2025-08-20 18:13:41,848 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook 시스템 초기화 완료
+2025-08-20 18:13:41,849 - RedHeart.PhaseControllerHook - INFO - 성능 모니터링 시작
+2025-08-20 18:13:41,849 - advanced_regret_analyzer - INFO - 후회 분석기 PhaseController Hook 초기화 완료
+2025-08-20 18:13:41,849 - advanced_regret_analyzer - INFO - Advanced Regret Analyzer initialized on cuda
+2025-08-20 18:13:41,849 - advanced_regret_analyzer - INFO - 동적 임계값 시스템 통합 완료
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO -   - regret_network 등록 (3M)
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO -   - counterfactual_sim 등록 (15M)
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO -   - temporal_propagation 등록 (12M)
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO -   - decision_tree 등록 (10M)
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO -   - bayesian_inference 등록 (10M)
+2025-08-20 18:13:41,850 - advanced_analyzer_wrappers - INFO - ✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+2025-08-20 18:13:42,033 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 30.3%, 필요: 500MB)
+2025-08-20 18:13:42,147 - RedHeart.AdvancedSURDAnalyzer - INFO - ✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+2025-08-20 18:13:42,175 - RedHeart.AdvancedSURDAnalyzer - INFO - 새로운 고급 SURD 모델 초기화 완료
+2025-08-20 18:13:42,176 - RedHeart.AdvancedSURDAnalyzer - INFO - LLM 엔진 연결 완료
+2025-08-20 18:13:42,176 - RedHeart.AdvancedSURDAnalyzer - INFO - 고급 SURD 분석 시스템 초기화 완료
+2025-08-20 18:13:42,176 - advanced_analyzer_wrappers - INFO -   - deep_causal 등록 (10M)
+2025-08-20 18:13:42,176 - advanced_analyzer_wrappers - INFO -   - info_decomposition 등록 (8M)
+2025-08-20 18:13:42,177 - advanced_analyzer_wrappers - INFO -   - neural_causal_model 등록 (5M)
+2025-08-20 18:13:42,177 - advanced_analyzer_wrappers - INFO - ✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+2025-08-20 18:13:42,728 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-08-20 18:13:42,741 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)
+2025-08-20 18:13:42,741 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:42,741 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-08-20 18:13:42,742 - RedHeart.ThreeViewScenarioSystem - INFO - 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-20 18:13:42,742 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-08-20 18:13:42,742 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로딩 중...
+2025-08-20 18:13:42,743 - RedHeart.Config - INFO - GPU 직접 사용: None (사용률: 34.3%, 필요: 100MB)
+2025-08-20 18:13:42,747 - RedHeart.AdvancedBenthamCalculator - INFO - 신경망 가중치 예측기 로드: cuda (100MB)
+2025-08-20 18:13:42,748 - RedHeart.AdvancedBenthamCalculator - INFO - 메모리 사용량: RAM 1763MB, GPU 2813MB
+2025-08-20 18:13:42,748 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:42,748 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook GPU 메모리 관리 활성화
+2025-08-20 18:13:42,748 - RedHeart.PhaseControllerHook - INFO - PhaseController Hook 시스템 초기화 완료
+2025-08-20 18:13:42,749 - RedHeart.PhaseControllerHook - INFO - 성능 모니터링 시작
+2025-08-20 18:13:42,749 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 PhaseController Hook 초기화 완료
+2025-08-20 18:13:42,749 - dynamic_gpu_manager - INFO - Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-08-20 18:13:42,749 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 GPU 메모리 관리 활성화
+2025-08-20 18:13:42,749 - RedHeart.LegalExpertSystem - INFO - 법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-08-20 18:13:42,750 - RedHeart.LegalExpertSystem - INFO - inference 모드 - 법률 전문가 시스템 활성화
+2025-08-20 18:13:42,750 - RedHeart.AdvancedBenthamCalculator - INFO - 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-08-20 18:13:42,750 - RedHeart.AdvancedBenthamCalculator - INFO - 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-08-20 18:13:42,750 - RedHeart.AdvancedBenthamCalculator - INFO - 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-08-20 18:13:42,752 - RedHeart.AdvancedBenthamCalculator - INFO - ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-08-20 18:13:42,752 - RedHeart.AdvancedBenthamCalculator - INFO -    - 파라미터 수: 3,137
+2025-08-20 18:13:42,752 - RedHeart.AdvancedBenthamCalculator - INFO - 트랜스포머 맥락 분석기 로딩 중...
+2025-08-20 18:13:42,753 - config - INFO - GPU 로딩 워커 스레드 시작
+2025-08-20 18:13:42,753 - RedHeart.Config - INFO - 순차적 GPU 로딩 시스템 시작
+2025-08-20 18:13:42,753 - asyncio - DEBUG - Using selector: EpollSelector
+2025-08-20 18:13:42,754 - RedHeart.Config - INFO - GPU 로딩 시작: bentham_emotion_classifier (예상 메모리: 732MB)
+2025-08-20 18:13:42,754 - hf_model_wrapper - INFO - 🔄 HF 파이프라인 생성 중: text-classification (모델: j-hartmann/emotion-english-distilroberta-base, 소유자: advanced_bentham_calculator)
+2025-08-20 18:13:42,755 - hf_model_wrapper - INFO - 📊 파이프라인 로드 전 메모리 요청: advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base (1000.0MB)
+2025-08-20 18:13:42,755 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+2025-08-20 18:13:42,755 - workflow_aware_memory_manager - DEBUG - [GPU BLOCKING] 여유 공간: free=5371.6MB, reserved_free=6.8MB, total=5378.3MB
+2025-08-20 18:13:42,755 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] ✅ advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base 할당 성공 (폴링)
+2025-08-20 18:13:42,959 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/config.json HTTP/1.1" 307 0
+2025-08-20 18:13:42,967 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /api/resolve-cache/models/j-hartmann/emotion-english-distilroberta-base/0e1cd914e3d46199ed785853e12b57304e04178b/config.json HTTP/1.1" 200 0
+2025-08-20 18:13:42,971 - hf_model_wrapper - INFO - 🔄 HF 모델 로딩 중: j-hartmann/emotion-english-distilroberta-base (소유자: transformers.pipelines.base)
+2025-08-20 18:13:42,971 - hf_model_wrapper - INFO - 📊 모델 로드 전 메모리 요청: transformers.pipelines.base_emotion-english-distilroberta-base (1000.0MB)
+2025-08-20 18:13:42,972 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] transformers.pipelines.base_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+2025-08-20 18:13:42,972 - workflow_aware_memory_manager - DEBUG - [GPU BLOCKING] 여유 공간: free=5371.6MB, reserved_free=6.8MB, total=5378.3MB
+2025-08-20 18:13:42,973 - workflow_aware_memory_manager - INFO - [GPU BLOCKING] ✅ transformers.pipelines.base_emotion-english-distilroberta-base 할당 성공 (폴링)
+2025-08-20 18:13:51,863 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/main/model.safetensors HTTP/1.1" 404 0
+2025-08-20 18:13:51,865 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): huggingface.co:443
+2025-08-20 18:13:52,182 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base HTTP/1.1" 200 5087
+2025-08-20 18:13:52,395 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/main HTTP/1.1" 200 11013
+2025-08-20 18:13:52,624 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/discussions?p=0 HTTP/1.1" 200 35391
+2025-08-20 18:13:52,838 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/commits/refs%2Fpr%2F3017 HTTP/1.1" 200 11763
+2025-08-20 18:13:52,864 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1253.1MB (학습가능: True)
+2025-08-20 18:13:52,865 - hf_model_wrapper - INFO - ✅ 모델 'transformers.pipelines.base_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: transformers.pipelines.base, 크기: 1253.1MB)
+2025-08-20 18:13:53,050 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors.index.json HTTP/1.1" 404 0
+2025-08-20 18:13:53,105 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "GET /api/models/j-hartmann/emotion-english-distilroberta-base/tree/main/additional_chat_templates?recursive=False&expand=False HTTP/1.1" 404 64
+Device set to use cuda:0
+2025-08-20 18:13:53,191 - hf_model_wrapper - DEBUG - 모델 크기 추정: 1253.1MB (학습가능: True)
+2025-08-20 18:13:53,191 - hf_model_wrapper - INFO - ✅ 모델 'advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: advanced_bentham_calculator, 크기: 1253.1MB)
+2025-08-20 18:13:53,191 - RedHeart.Config - INFO - GPU 로딩 성공: bentham_emotion_classifier (사용률: 34.3% → 38.2%, 실제: 307MB)
+2025-08-20 18:13:53,192 - advanced_analyzer_wrappers - INFO -   - cross_cultural 등록
+2025-08-20 18:13:53,192 - advanced_analyzer_wrappers - INFO -   - deep_ethics 등록
+2025-08-20 18:13:53,192 - advanced_analyzer_wrappers - INFO -   - default_network 등록
+2025-08-20 18:13:53,192 - advanced_analyzer_wrappers - INFO -   - ethics_moe 등록
+2025-08-20 18:13:53,192 - advanced_analyzer_wrappers - INFO -   - long_term_predictor 등록
+2025-08-20 18:13:53,193 - advanced_analyzer_wrappers - INFO -   - neural_predictor 등록
+2025-08-20 18:13:53,193 - advanced_analyzer_wrappers - INFO -   - social_impact 등록
+2025-08-20 18:13:53,193 - RedHeart.AdvancedBenthamCalculator - INFO - 가중치 레이어들 로딩 중...
+2025-08-20 18:13:53,194 - RedHeart.AdvancedBenthamCalculator - INFO - 메모리 사용량: RAM 1767MB, GPU 3127MB
+2025-08-20 18:13:53,194 - advanced_analyzer_wrappers - INFO - ✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+2025-08-20 18:13:53,196 - advanced_analyzer_wrappers - INFO - ✅ Advanced Analyzer Wrappers 생성 완료
+2025-08-20 18:13:53,196 - advanced_analyzer_wrappers - INFO -   - 총 Wrapper 수: 4
+2025-08-20 18:13:53,196 - advanced_analyzer_wrappers - INFO -   - 총 파라미터: 190,575,565
+2025-08-20 18:13:53,197 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Advanced Wrappers 생성 완료 (190.6M)
+2025-08-20 18:13:53,202 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ emotion 분석기 GPU 로드
+2025-08-20 18:13:53,205 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ bentham 분석기 GPU 로드
+2025-08-20 18:13:53,210 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ regret 분석기 GPU 로드
+2025-08-20 18:13:53,211 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ surd 분석기 GPU 로드
+2025-08-20 18:13:53,214 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_emotion Wrapper GPU 로드
+2025-08-20 18:13:53,218 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_regret Wrapper GPU 로드
+2025-08-20 18:13:53,219 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_surd Wrapper GPU 로드
+2025-08-20 18:13:53,254 - urllib3.connectionpool - DEBUG - https://huggingface.co:443 "HEAD /j-hartmann/emotion-english-distilroberta-base/resolve/refs%2Fpr%2F3017/model.safetensors HTTP/1.1" 302 0
+2025-08-20 18:13:53,452 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ advanced_bentham Wrapper GPU 로드
+2025-08-20 18:13:53,477 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Phase0 네트워크 GPU 로드
+2025-08-20 18:13:53,507 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Phase2 네트워크 GPU 로드
+2025-08-20 18:13:53,544 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Hierarchical Integrator GPU 로드
+2025-08-20 18:13:53,560 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ DSP Simulator GPU 로드
+2025-08-20 18:13:53,562 - RedHeart.UnifiedTrainingFinal - INFO -   ✅ Kalman Filter GPU 로드
+2025-08-20 18:13:53,562 - RedHeart.UnifiedTrainingFinal - INFO -   최종 GPU 메모리: 3.13GB (증가: 1.74GB)
+2025-08-20 18:13:53,562 - RedHeart.UnifiedTrainingFinal - INFO -   GPU 사용률: 39.2% / 8.0GB
+2025-08-20 18:13:53,588 - training.advanced_training_techniques - DEBUG -   Layer 0: LR=2.1e-05 (241 params)
+2025-08-20 18:13:53,589 - training.advanced_training_techniques - DEBUG -   Layer 1: LR=2.6e-05 (170 params)
+2025-08-20 18:13:53,589 - training.advanced_training_techniques - DEBUG -   Layer 2: LR=3.3e-05 (216 params)
+2025-08-20 18:13:53,589 - training.advanced_training_techniques - DEBUG -   Layer 3: LR=4.1e-05 (100 params)
+2025-08-20 18:13:53,589 - training.advanced_training_techniques - DEBUG -   Layer 4: LR=5.1e-05 (78 params)
+2025-08-20 18:13:53,589 - training.advanced_training_techniques - DEBUG -   Layer 5: LR=6.4e-05 (66 params)
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - DEBUG -   Layer 6: LR=8.0e-05 (20 params)
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - DEBUG -   Layer 7: LR=1.0e-04 (54 params)
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - INFO - ✅ LLRD 초기화: 8개 레이어
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - INFO -   - Base LR: 1.0e-04
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - INFO -   - Decay Rate: 0.8
+2025-08-20 18:13:53,590 - training.advanced_training_techniques - INFO - ✅ Advanced Training 컴포넌트 초기화 완료
+2025-08-20 18:13:53,591 - RedHeart.UnifiedTrainingFinal - INFO -   백본: 90.6M
+2025-08-20 18:13:53,591 - RedHeart.UnifiedTrainingFinal - INFO -   emotion_head: 17.3M
+2025-08-20 18:13:53,592 - RedHeart.UnifiedTrainingFinal - INFO -   bentham_head: 13.9M
+2025-08-20 18:13:53,592 - RedHeart.UnifiedTrainingFinal - INFO -   regret_head: 19.9M
+2025-08-20 18:13:53,592 - RedHeart.UnifiedTrainingFinal - INFO -   surd_head: 12.0M
+2025-08-20 18:13:53,593 - RedHeart.UnifiedTrainingFinal - INFO -   Neural Analyzers: 368.2M
+2025-08-20 18:13:53,595 - RedHeart.UnifiedTrainingFinal - INFO -   Advanced Wrappers: 190.6M
+2025-08-20 18:13:53,595 - RedHeart.UnifiedTrainingFinal - INFO -   Phase Networks: 15.7M
+2025-08-20 18:13:53,596 - RedHeart.UnifiedTrainingFinal - INFO -   DSP & Kalman: 2.3M
+2025-08-20 18:13:53,596 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 모델 초기화 완료: 총 730.5M 파라미터
+2025-08-20 18:13:53,835 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 데이터 로더 초기화: Train=9414, Val=1046
+2025-08-20 18:13:53,836 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 옵티마이저 및 스케줄러 초기화 완료
+2025-08-20 18:13:53,837 - RedHeart.UnifiedTrainingFinal - WARNING - ⚠️ 파라미터 업데이트 비활성화 - 검증 모드
+2025-08-20 18:13:53,837 - RedHeart.UnifiedTrainingFinal - INFO - 
+======================================================================
+2025-08-20 18:13:53,837 - RedHeart.UnifiedTrainingFinal - INFO - 🚀 학습 시작
+2025-08-20 18:13:53,837 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-20 18:13:53,837 - RedHeart.UnifiedTrainingFinal - INFO - 
+======================================================================
+2025-08-20 18:13:53,838 - RedHeart.UnifiedTrainingFinal - INFO - 🔍 Learning Rate Sweep 시작...
+2025-08-20 18:13:53,838 - RedHeart.UnifiedTrainingFinal - INFO - ======================================================================
+2025-08-20 18:13:53,838 - training.lr_sweep_optimizer - INFO - 🔍 LR Sweep 시작...
+2025-08-20 18:13:53,838 - training.lr_sweep_optimizer - INFO - 
+[1/5] LR=1.0e-05 테스트
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+2025-08-20 18:14:18,550 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=0.0347, val=0.0265
+2025-08-20 18:14:43,413 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=0.0201, val=0.0241
+2025-08-20 18:15:07,521 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=0.0179, val=0.0266
+2025-08-20 18:15:07,673 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 0.0179
+2025-08-20 18:15:07,674 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 0.0266
+2025-08-20 18:15:07,674 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 1.0000
+2025-08-20 18:15:07,674 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 0.9830
+2025-08-20 18:15:07,674 - training.lr_sweep_optimizer - INFO - 
+[2/5] LR=5.6e-05 테스트
+2025-08-20 18:15:32,101 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=0.0274, val=0.0349
+2025-08-20 18:15:55,230 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=0.0175, val=0.0311
+2025-08-20 18:16:18,300 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=0.0130, val=0.0229
+2025-08-20 18:16:18,458 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 0.0130
+2025-08-20 18:16:18,459 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 0.0229
+2025-08-20 18:16:18,459 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 1.0000
+2025-08-20 18:16:18,459 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 0.9795
+2025-08-20 18:16:18,459 - training.lr_sweep_optimizer - INFO - 
+[3/5] LR=3.2e-04 테스트
+2025-08-20 18:16:42,032 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=0.0443, val=0.0357
+2025-08-20 18:17:05,583 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=0.0160, val=0.0263
+2025-08-20 18:17:28,637 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=0.0117, val=0.0234
+2025-08-20 18:17:28,801 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 0.0117
+2025-08-20 18:17:28,801 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 0.0234
+2025-08-20 18:17:28,802 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 1.0000
+2025-08-20 18:17:28,802 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 0.9696
+2025-08-20 18:17:28,802 - training.lr_sweep_optimizer - INFO - 
+[4/5] LR=1.8e-03 테스트
+2025-08-20 18:17:52,184 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=0.1771, val=0.0306
+2025-08-20 18:18:15,323 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=0.0146, val=0.0237
+2025-08-20 18:18:38,439 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=0.0129, val=0.0232
+2025-08-20 18:18:38,604 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 0.0129
+2025-08-20 18:18:38,604 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 0.0232
+2025-08-20 18:18:38,604 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 1.0000
+2025-08-20 18:18:38,605 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 0.9169
+2025-08-20 18:18:38,605 - training.lr_sweep_optimizer - INFO - 
+[5/5] LR=1.0e-02 테스트
+2025-08-20 18:19:02,356 - training.lr_sweep_optimizer - DEBUG -     Epoch 1: train=11.8029, val=0.0577
+2025-08-20 18:19:25,528 - training.lr_sweep_optimizer - DEBUG -     Epoch 2: train=0.0232, val=0.0241
+2025-08-20 18:19:50,058 - training.lr_sweep_optimizer - DEBUG -     Epoch 3: train=0.0136, val=0.0247
+2025-08-20 18:19:50,221 - training.lr_sweep_optimizer - INFO -   - 최종 train loss: 0.0136
+2025-08-20 18:19:50,222 - training.lr_sweep_optimizer - INFO -   - 최종 val loss: 0.0247
+2025-08-20 18:19:50,222 - training.lr_sweep_optimizer - INFO -   - 수렴 속도: 1.0000
+2025-08-20 18:19:50,222 - training.lr_sweep_optimizer - INFO -   - 안정성 점수: 0.1519
+2025-08-20 18:19:50,222 - training.lr_sweep_optimizer - INFO - 
+🏆 최적 LR 선택: 5.6e-05
+2025-08-20 18:19:50,223 - training.lr_sweep_optimizer - INFO -    - 종합 점수: 0.9871
+2025-08-20 18:19:50,227 - training.lr_sweep_optimizer - INFO - 📊 스윕 결과 저장: training/lr_sweep_results/lr_sweep_20250820_181950.json
+2025-08-20 18:19:50,249 - matplotlib.pyplot - DEBUG - Loaded backend Agg version v2.2.
+2025-08-20 18:19:50,253 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2025-08-20 18:19:50,253 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,254 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,255 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,256 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,256 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,256 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,256 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,256 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-20 18:19:50,257 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,258 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,259 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,260 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,261 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,261 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,261 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,261 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,261 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,262 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-20 18:19:50,263 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,264 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,264 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,264 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,264 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,265 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-20 18:19:50,372 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0.
+2025-08-20 18:19:50,373 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,373 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,373 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,373 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,374 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,375 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,376 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,377 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-20 18:19:50,377 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,377 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,377 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,377 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,378 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-20 18:19:50,379 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono-Italic[wght].ttf', name='Ubuntu Sans Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-RI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-BI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-C.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,380 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-L.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono[wght].ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-R.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-RI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-B.ttf', name='Ubuntu Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,381 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-M.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-Italic[wght].ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans-Italic[wdth,wght].ttf', name='Ubuntu Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSans[wdth,wght].ttf', name='Ubuntu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,382 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuSansMono[wght].ttf', name='Ubuntu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Th.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu[wdth,wght].ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-MI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,383 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/UbuntuMono-BI.ttf', name='Ubuntu Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-R.ttf', name='Ubuntu', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-Italic[wdth,wght].ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/ubuntu/Ubuntu-LI.ttf', name='Ubuntu', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-20 18:19:50,384 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=12.0 to DejaVu Sans ('/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-20 18:19:51,414 - training.lr_sweep_optimizer - INFO - 📈 시각화 저장: training/lr_sweep_results/lr_sweep_plot_20250820_181950.png
+2025-08-20 18:19:51,430 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 옵티마이저 및 스케줄러 초기화 완료
+2025-08-20 18:19:51,430 - RedHeart.UnifiedTrainingFinal - INFO - ✅ 최적 LR 선택: 5.6e-05
+2025-08-20 18:19:51,430 - RedHeart.UnifiedTrainingFinal - INFO - 
+📌 Epoch 1/3
+2025-08-20 18:19:51,632 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:51,633 - training.oom_handler - INFO -    - CPU: 5.9% (4.9/98.2 GB)
+2025-08-20 18:19:51,633 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:51,633 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:51,634 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:52,520 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][0/4707] Loss: 0.5732, LR: 2.1e-05
+2025-08-20 18:19:52,522 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:52,522 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:52,522 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:52,522 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:52,522 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:52,715 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][1/4707] Loss: 0.5639, LR: 2.1e-05
+2025-08-20 18:19:52,716 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:52,717 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:52,717 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:52,717 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:52,717 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:52,905 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][2/4707] Loss: 0.5653, LR: 2.1e-05
+2025-08-20 18:19:52,907 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:52,907 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:52,907 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:52,907 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:52,907 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:53,095 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][3/4707] Loss: 0.6260, LR: 2.1e-05
+2025-08-20 18:19:53,097 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:53,097 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:53,097 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:53,097 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:53,097 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:53,284 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][4/4707] Loss: 0.6605, LR: 2.1e-05
+2025-08-20 18:19:53,285 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:53,285 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:53,285 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:53,286 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:53,286 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:53,473 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][5/4707] Loss: 0.5649, LR: 2.1e-05
+2025-08-20 18:19:53,474 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:53,474 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:53,475 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:53,475 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:53,475 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:53,662 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][6/4707] Loss: 0.5847, LR: 2.1e-05
+2025-08-20 18:19:53,663 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:53,663 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:53,664 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:53,664 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:53,664 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:53,851 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][7/4707] Loss: 0.5616, LR: 2.1e-05
+2025-08-20 18:19:53,852 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:53,852 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:53,853 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:53,853 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:53,853 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:54,040 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][8/4707] Loss: 0.6016, LR: 2.1e-05
+2025-08-20 18:19:54,042 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:54,042 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:54,042 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:54,042 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:54,042 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:54,230 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][9/4707] Loss: 0.6080, LR: 2.1e-05
+2025-08-20 18:19:54,231 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:54,231 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:54,231 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:54,231 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:54,232 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:54,431 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][10/4707] Loss: 0.5854, LR: 2.1e-05
+2025-08-20 18:19:54,433 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:54,433 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:54,433 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:54,434 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:54,434 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:54,621 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][11/4707] Loss: 0.6176, LR: 2.1e-05
+2025-08-20 18:19:54,623 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:54,623 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:54,623 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:54,623 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:54,623 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:54,811 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][12/4707] Loss: 0.5643, LR: 2.1e-05
+2025-08-20 18:19:54,812 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:54,813 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:54,813 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:54,813 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:54,813 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,000 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][13/4707] Loss: 0.5792, LR: 2.1e-05
+2025-08-20 18:19:55,001 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,001 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,001 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,001 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,001 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,188 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][14/4707] Loss: 0.5697, LR: 2.1e-05
+2025-08-20 18:19:55,189 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,190 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,190 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,190 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,190 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,377 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][15/4707] Loss: 0.5918, LR: 2.1e-05
+2025-08-20 18:19:55,378 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,379 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,379 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,379 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,379 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,566 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][16/4707] Loss: 0.5925, LR: 2.1e-05
+2025-08-20 18:19:55,567 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,567 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,567 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,568 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,568 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,755 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][17/4707] Loss: 0.5481, LR: 2.1e-05
+2025-08-20 18:19:55,756 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,756 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,757 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,757 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,757 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:55,944 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][18/4707] Loss: 0.6134, LR: 2.1e-05
+2025-08-20 18:19:55,946 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:55,946 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:55,946 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:55,946 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:55,946 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:56,141 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][19/4707] Loss: 0.5662, LR: 2.1e-05
+2025-08-20 18:19:56,143 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:56,143 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:56,143 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:56,143 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:56,143 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:56,331 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][20/4707] Loss: 0.5743, LR: 2.1e-05
+2025-08-20 18:19:56,333 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:56,333 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:56,333 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:56,333 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:56,333 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:56,521 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][21/4707] Loss: 0.5957, LR: 2.1e-05
+2025-08-20 18:19:56,523 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:56,523 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:56,523 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:56,523 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:56,523 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:56,710 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][22/4707] Loss: 0.5365, LR: 2.1e-05
+2025-08-20 18:19:56,712 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:56,712 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:56,712 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:56,712 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:56,712 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:56,900 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][23/4707] Loss: 0.6139, LR: 2.1e-05
+2025-08-20 18:19:56,901 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:56,902 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:56,902 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:56,902 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:56,902 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:57,088 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][24/4707] Loss: 0.5350, LR: 2.1e-05
+2025-08-20 18:19:57,089 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:57,089 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:57,090 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:57,090 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:57,090 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:57,275 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][25/4707] Loss: 0.5917, LR: 2.1e-05
+2025-08-20 18:19:57,276 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:57,276 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:57,277 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:57,277 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:57,277 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:57,461 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][26/4707] Loss: 0.6384, LR: 2.1e-05
+2025-08-20 18:19:57,463 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:57,463 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:57,463 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:57,463 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:57,463 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:57,652 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][27/4707] Loss: 0.6279, LR: 2.1e-05
+2025-08-20 18:19:57,653 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:57,653 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:57,654 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:57,654 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:57,654 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:58,388 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][28/4707] Loss: 0.5636, LR: 2.1e-05
+2025-08-20 18:19:58,390 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:58,390 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:58,390 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:58,391 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:58,391 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:58,729 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][29/4707] Loss: 0.5740, LR: 2.1e-05
+2025-08-20 18:19:58,731 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:58,731 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:58,732 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:58,732 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:58,732 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:59,015 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][30/4707] Loss: 0.5495, LR: 2.1e-05
+2025-08-20 18:19:59,017 - training.oom_handler - INFO - 📊 메모리 상태 (Step 0):
+2025-08-20 18:19:59,017 - training.oom_handler - INFO -    - CPU: 6.1% (5.1/98.2 GB)
+2025-08-20 18:19:59,017 - training.oom_handler - INFO -    - GPU: 102.8% (5.4/8.0 GB)
+2025-08-20 18:19:59,017 - training.oom_handler - INFO -    - 배치 사이즈: 2
+2025-08-20 18:19:59,018 - training.oom_handler - INFO -    - OOM 발생 횟수: 0
+2025-08-20 18:19:59,130 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:19:59,306 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][31/4707] Loss: 0.6526, LR: 2.1e-05
+2025-08-20 18:19:59,503 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][32/4707] Loss: 0.6243, LR: 2.1e-05
+2025-08-20 18:19:59,690 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][33/4707] Loss: 0.5370, LR: 2.1e-05
+2025-08-20 18:19:59,877 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][34/4707] Loss: 0.6006, LR: 2.1e-05
+2025-08-20 18:20:00,068 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][35/4707] Loss: 0.5671, LR: 2.1e-05
+2025-08-20 18:20:00,263 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][36/4707] Loss: 0.6289, LR: 2.1e-05
+2025-08-20 18:20:00,463 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][37/4707] Loss: 0.6235, LR: 2.1e-05
+2025-08-20 18:20:00,660 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][38/4707] Loss: 0.5907, LR: 2.1e-05
+2025-08-20 18:20:00,857 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][39/4707] Loss: 0.5244, LR: 2.1e-05
+2025-08-20 18:20:01,054 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][40/4707] Loss: 0.5763, LR: 2.1e-05
+2025-08-20 18:20:01,247 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][41/4707] Loss: 0.6112, LR: 2.1e-05
+2025-08-20 18:20:01,435 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][42/4707] Loss: 0.5018, LR: 2.1e-05
+2025-08-20 18:20:01,622 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][43/4707] Loss: 0.5698, LR: 2.1e-05
+2025-08-20 18:20:01,808 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][44/4707] Loss: 0.6131, LR: 2.1e-05
+2025-08-20 18:20:01,995 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][45/4707] Loss: 0.6882, LR: 2.1e-05
+2025-08-20 18:20:02,182 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][46/4707] Loss: 0.6302, LR: 2.1e-05
+2025-08-20 18:20:02,369 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][47/4707] Loss: 0.6054, LR: 2.1e-05
+2025-08-20 18:20:02,556 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][48/4707] Loss: 0.5896, LR: 2.1e-05
+2025-08-20 18:20:02,743 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][49/4707] Loss: 0.5689, LR: 2.1e-05
+2025-08-20 18:20:02,931 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][50/4707] Loss: 0.6243, LR: 2.1e-05
+2025-08-20 18:20:03,119 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][51/4707] Loss: 0.5731, LR: 2.1e-05
+2025-08-20 18:20:03,306 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][52/4707] Loss: 0.6017, LR: 2.1e-05
+2025-08-20 18:20:03,493 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][53/4707] Loss: 0.5812, LR: 2.1e-05
+2025-08-20 18:20:03,680 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][54/4707] Loss: 0.6651, LR: 2.1e-05
+2025-08-20 18:20:03,868 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][55/4707] Loss: 0.6189, LR: 2.1e-05
+2025-08-20 18:20:04,055 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][56/4707] Loss: 0.6707, LR: 2.1e-05
+2025-08-20 18:20:04,245 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][57/4707] Loss: 0.5944, LR: 2.1e-05
+2025-08-20 18:20:04,432 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][58/4707] Loss: 0.5431, LR: 2.1e-05
+2025-08-20 18:20:04,619 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][59/4707] Loss: 0.6287, LR: 2.1e-05
+2025-08-20 18:20:04,807 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][60/4707] Loss: 0.5657, LR: 2.1e-05
+2025-08-20 18:20:04,995 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][61/4707] Loss: 0.5636, LR: 2.1e-05
+2025-08-20 18:20:05,183 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][62/4707] Loss: 0.5961, LR: 2.1e-05
+2025-08-20 18:20:05,294 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:05,375 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][63/4707] Loss: 0.6056, LR: 2.1e-05
+2025-08-20 18:20:05,558 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][64/4707] Loss: 0.5586, LR: 2.1e-05
+2025-08-20 18:20:05,748 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][65/4707] Loss: 0.5649, LR: 2.1e-05
+2025-08-20 18:20:05,954 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][66/4707] Loss: 0.5778, LR: 2.1e-05
+2025-08-20 18:20:06,143 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][67/4707] Loss: 0.5431, LR: 2.1e-05
+2025-08-20 18:20:06,331 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][68/4707] Loss: 0.5745, LR: 2.1e-05
+2025-08-20 18:20:06,519 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][69/4707] Loss: 0.5772, LR: 2.1e-05
+2025-08-20 18:20:06,706 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][70/4707] Loss: 0.6380, LR: 2.1e-05
+2025-08-20 18:20:06,894 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][71/4707] Loss: 0.6166, LR: 2.1e-05
+2025-08-20 18:20:07,082 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][72/4707] Loss: 0.6117, LR: 2.1e-05
+2025-08-20 18:20:07,276 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][73/4707] Loss: 0.6131, LR: 2.1e-05
+2025-08-20 18:20:07,480 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][74/4707] Loss: 0.6162, LR: 2.1e-05
+2025-08-20 18:20:07,711 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][75/4707] Loss: 0.5501, LR: 2.1e-05
+2025-08-20 18:20:07,920 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][76/4707] Loss: 0.6017, LR: 2.1e-05
+2025-08-20 18:20:08,140 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][77/4707] Loss: 0.5542, LR: 2.1e-05
+2025-08-20 18:20:08,347 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][78/4707] Loss: 0.6242, LR: 2.1e-05
+2025-08-20 18:20:08,544 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][79/4707] Loss: 0.5439, LR: 2.1e-05
+2025-08-20 18:20:08,748 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][80/4707] Loss: 0.5304, LR: 2.1e-05
+2025-08-20 18:20:08,937 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][81/4707] Loss: 0.6282, LR: 2.1e-05
+2025-08-20 18:20:09,132 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][82/4707] Loss: 0.6306, LR: 2.1e-05
+2025-08-20 18:20:09,452 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][83/4707] Loss: 0.5830, LR: 2.1e-05
+2025-08-20 18:20:09,676 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][84/4707] Loss: 0.6381, LR: 2.1e-05
+2025-08-20 18:20:09,903 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][85/4707] Loss: 0.6025, LR: 2.1e-05
+2025-08-20 18:20:10,128 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][86/4707] Loss: 0.5455, LR: 2.1e-05
+2025-08-20 18:20:10,317 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][87/4707] Loss: 0.6151, LR: 2.1e-05
+2025-08-20 18:20:10,537 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][88/4707] Loss: 0.5928, LR: 2.1e-05
+2025-08-20 18:20:11,003 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][89/4707] Loss: 0.5761, LR: 2.1e-05
+2025-08-20 18:20:11,341 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][90/4707] Loss: 0.5819, LR: 2.1e-05
+2025-08-20 18:20:11,530 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][91/4707] Loss: 0.6367, LR: 2.1e-05
+2025-08-20 18:20:11,718 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][92/4707] Loss: 0.5623, LR: 2.1e-05
+2025-08-20 18:20:11,906 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][93/4707] Loss: 0.6285, LR: 2.1e-05
+2025-08-20 18:20:12,095 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][94/4707] Loss: 0.6043, LR: 2.1e-05
+2025-08-20 18:20:12,207 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:12,295 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][95/4707] Loss: 0.5512, LR: 2.1e-05
+2025-08-20 18:20:12,488 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][96/4707] Loss: 0.6030, LR: 2.1e-05
+2025-08-20 18:20:12,685 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][97/4707] Loss: 0.5976, LR: 2.1e-05
+2025-08-20 18:20:12,882 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][98/4707] Loss: 0.5761, LR: 2.1e-05
+2025-08-20 18:20:13,083 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][99/4707] Loss: 0.5609, LR: 2.1e-05
+2025-08-20 18:20:13,281 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][100/4707] Loss: 0.7167, LR: 2.1e-05
+2025-08-20 18:20:13,474 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][101/4707] Loss: 0.6323, LR: 2.1e-05
+2025-08-20 18:20:13,662 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][102/4707] Loss: 0.6008, LR: 2.1e-05
+2025-08-20 18:20:13,852 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][103/4707] Loss: 0.6058, LR: 2.1e-05
+2025-08-20 18:20:14,041 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][104/4707] Loss: 0.6028, LR: 2.1e-05
+2025-08-20 18:20:14,230 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][105/4707] Loss: 0.5956, LR: 2.1e-05
+2025-08-20 18:20:14,418 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][106/4707] Loss: 0.5710, LR: 2.1e-05
+2025-08-20 18:20:14,606 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][107/4707] Loss: 0.5504, LR: 2.1e-05
+2025-08-20 18:20:14,795 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][108/4707] Loss: 0.5803, LR: 2.1e-05
+2025-08-20 18:20:14,982 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][109/4707] Loss: 0.6550, LR: 2.1e-05
+2025-08-20 18:20:15,173 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][110/4707] Loss: 0.5552, LR: 2.1e-05
+2025-08-20 18:20:15,385 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][111/4707] Loss: 0.5856, LR: 2.1e-05
+2025-08-20 18:20:15,595 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][112/4707] Loss: 0.6477, LR: 2.1e-05
+2025-08-20 18:20:15,888 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][113/4707] Loss: 0.5752, LR: 2.1e-05
+2025-08-20 18:20:16,127 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][114/4707] Loss: 0.6187, LR: 2.1e-05
+2025-08-20 18:20:16,342 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][115/4707] Loss: 0.6001, LR: 2.1e-05
+2025-08-20 18:20:16,532 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][116/4707] Loss: 0.6092, LR: 2.1e-05
+2025-08-20 18:20:16,743 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][117/4707] Loss: 0.6263, LR: 2.1e-05
+2025-08-20 18:20:16,933 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][118/4707] Loss: 0.7165, LR: 2.1e-05
+2025-08-20 18:20:17,171 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][119/4707] Loss: 0.5657, LR: 2.1e-05
+2025-08-20 18:20:17,398 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][120/4707] Loss: 0.6653, LR: 2.1e-05
+2025-08-20 18:20:17,590 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][121/4707] Loss: 0.5712, LR: 2.1e-05
+2025-08-20 18:20:17,777 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][122/4707] Loss: 0.6191, LR: 2.1e-05
+2025-08-20 18:20:18,069 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][123/4707] Loss: 0.5320, LR: 2.1e-05
+2025-08-20 18:20:18,292 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][124/4707] Loss: 0.5878, LR: 2.1e-05
+2025-08-20 18:20:18,532 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][125/4707] Loss: 0.6196, LR: 2.1e-05
+2025-08-20 18:20:18,763 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][126/4707] Loss: 0.5671, LR: 2.1e-05
+2025-08-20 18:20:18,876 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:18,966 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][127/4707] Loss: 0.6185, LR: 2.1e-05
+2025-08-20 18:20:19,149 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][128/4707] Loss: 0.5942, LR: 2.1e-05
+2025-08-20 18:20:19,338 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][129/4707] Loss: 0.5696, LR: 2.1e-05
+2025-08-20 18:20:19,526 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][130/4707] Loss: 0.6512, LR: 2.1e-05
+2025-08-20 18:20:19,714 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][131/4707] Loss: 0.6592, LR: 2.1e-05
+2025-08-20 18:20:19,902 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][132/4707] Loss: 0.6278, LR: 2.1e-05
+2025-08-20 18:20:20,090 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][133/4707] Loss: 0.5476, LR: 2.1e-05
+2025-08-20 18:20:20,347 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][134/4707] Loss: 0.5688, LR: 2.1e-05
+2025-08-20 18:20:20,574 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][135/4707] Loss: 0.5943, LR: 2.1e-05
+2025-08-20 18:20:20,814 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][136/4707] Loss: 0.5438, LR: 2.1e-05
+2025-08-20 18:20:21,066 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][137/4707] Loss: 0.5662, LR: 2.1e-05
+2025-08-20 18:20:21,281 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][138/4707] Loss: 0.5827, LR: 2.1e-05
+2025-08-20 18:20:21,486 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][139/4707] Loss: 0.5354, LR: 2.1e-05
+2025-08-20 18:20:21,728 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][140/4707] Loss: 0.5805, LR: 2.1e-05
+2025-08-20 18:20:21,952 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][141/4707] Loss: 0.5817, LR: 2.1e-05
+2025-08-20 18:20:22,169 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][142/4707] Loss: 0.5374, LR: 2.1e-05
+2025-08-20 18:20:22,399 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][143/4707] Loss: 0.6322, LR: 2.1e-05
+2025-08-20 18:20:22,607 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][144/4707] Loss: 0.6114, LR: 2.1e-05
+2025-08-20 18:20:22,812 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][145/4707] Loss: 0.5875, LR: 2.1e-05
+2025-08-20 18:20:23,019 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][146/4707] Loss: 0.6435, LR: 2.1e-05
+2025-08-20 18:20:23,229 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][147/4707] Loss: 0.5822, LR: 2.1e-05
+2025-08-20 18:20:23,448 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][148/4707] Loss: 0.5791, LR: 2.1e-05
+2025-08-20 18:20:23,679 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][149/4707] Loss: 0.5873, LR: 2.1e-05
+2025-08-20 18:20:23,896 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][150/4707] Loss: 0.5965, LR: 2.1e-05
+2025-08-20 18:20:24,099 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][151/4707] Loss: 0.6060, LR: 2.1e-05
+2025-08-20 18:20:24,298 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][152/4707] Loss: 0.5378, LR: 2.1e-05
+2025-08-20 18:20:24,488 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][153/4707] Loss: 0.6044, LR: 2.1e-05
+2025-08-20 18:20:24,676 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][154/4707] Loss: 0.5616, LR: 2.1e-05
+2025-08-20 18:20:24,864 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][155/4707] Loss: 0.5709, LR: 2.1e-05
+2025-08-20 18:20:25,053 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][156/4707] Loss: 0.6220, LR: 2.1e-05
+2025-08-20 18:20:25,241 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][157/4707] Loss: 0.5622, LR: 2.1e-05
+2025-08-20 18:20:25,429 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][158/4707] Loss: 0.6444, LR: 2.1e-05
+2025-08-20 18:20:25,546 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:25,628 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][159/4707] Loss: 0.6232, LR: 2.1e-05
+2025-08-20 18:20:25,810 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][160/4707] Loss: 0.6209, LR: 2.1e-05
+2025-08-20 18:20:25,998 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][161/4707] Loss: 0.6424, LR: 2.1e-05
+2025-08-20 18:20:26,228 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][162/4707] Loss: 0.5861, LR: 2.1e-05
+2025-08-20 18:20:26,427 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][163/4707] Loss: 0.5731, LR: 2.1e-05
+2025-08-20 18:20:26,615 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][164/4707] Loss: 0.5945, LR: 2.1e-05
+2025-08-20 18:20:26,824 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][165/4707] Loss: 0.6863, LR: 2.1e-05
+2025-08-20 18:20:27,034 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][166/4707] Loss: 0.5764, LR: 2.1e-05
+2025-08-20 18:20:27,230 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][167/4707] Loss: 0.6638, LR: 2.1e-05
+2025-08-20 18:20:27,435 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][168/4707] Loss: 0.5727, LR: 2.1e-05
+2025-08-20 18:20:27,648 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][169/4707] Loss: 0.6344, LR: 2.1e-05
+2025-08-20 18:20:27,882 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][170/4707] Loss: 0.6691, LR: 2.1e-05
+2025-08-20 18:20:28,113 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][171/4707] Loss: 0.5919, LR: 2.1e-05
+2025-08-20 18:20:28,372 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][172/4707] Loss: 0.5456, LR: 2.1e-05
+2025-08-20 18:20:28,609 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][173/4707] Loss: 0.5786, LR: 2.1e-05
+2025-08-20 18:20:28,843 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][174/4707] Loss: 0.6425, LR: 2.1e-05
+2025-08-20 18:20:29,101 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][175/4707] Loss: 0.5697, LR: 2.1e-05
+2025-08-20 18:20:29,375 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][176/4707] Loss: 0.6376, LR: 2.1e-05
+2025-08-20 18:20:29,611 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][177/4707] Loss: 0.5728, LR: 2.1e-05
+2025-08-20 18:20:29,810 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][178/4707] Loss: 0.5554, LR: 2.1e-05
+2025-08-20 18:20:29,997 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][179/4707] Loss: 0.6466, LR: 2.1e-05
+2025-08-20 18:20:30,227 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][180/4707] Loss: 0.5880, LR: 2.1e-05
+2025-08-20 18:20:30,436 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][181/4707] Loss: 0.6064, LR: 2.1e-05
+2025-08-20 18:20:30,628 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][182/4707] Loss: 0.5488, LR: 2.1e-05
+2025-08-20 18:20:30,824 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][183/4707] Loss: 0.5371, LR: 2.1e-05
+2025-08-20 18:20:31,039 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][184/4707] Loss: 0.5268, LR: 2.1e-05
+2025-08-20 18:20:31,227 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][185/4707] Loss: 0.6457, LR: 2.1e-05
+2025-08-20 18:20:31,413 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][186/4707] Loss: 0.5761, LR: 2.1e-05
+2025-08-20 18:20:31,613 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][187/4707] Loss: 0.6230, LR: 2.1e-05
+2025-08-20 18:20:31,801 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][188/4707] Loss: 0.6280, LR: 2.1e-05
+2025-08-20 18:20:31,987 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][189/4707] Loss: 0.5354, LR: 2.1e-05
+2025-08-20 18:20:32,198 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][190/4707] Loss: 0.5963, LR: 2.1e-05
+2025-08-20 18:20:32,310 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:32,389 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][191/4707] Loss: 0.5318, LR: 2.1e-05
+2025-08-20 18:20:32,571 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][192/4707] Loss: 0.6402, LR: 2.1e-05
+2025-08-20 18:20:32,765 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][193/4707] Loss: 0.5498, LR: 2.1e-05
+2025-08-20 18:20:32,952 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][194/4707] Loss: 0.5364, LR: 2.1e-05
+2025-08-20 18:20:33,138 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][195/4707] Loss: 0.6847, LR: 2.1e-05
+2025-08-20 18:20:33,330 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][196/4707] Loss: 0.6049, LR: 2.1e-05
+2025-08-20 18:20:33,519 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][197/4707] Loss: 0.5021, LR: 2.1e-05
+2025-08-20 18:20:33,706 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][198/4707] Loss: 0.5920, LR: 2.1e-05
+2025-08-20 18:20:33,893 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][199/4707] Loss: 0.5448, LR: 2.1e-05
+2025-08-20 18:20:34,080 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][200/4707] Loss: 0.6605, LR: 2.1e-05
+2025-08-20 18:20:34,273 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][201/4707] Loss: 0.5849, LR: 2.1e-05
+2025-08-20 18:20:34,465 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][202/4707] Loss: 0.5954, LR: 2.1e-05
+2025-08-20 18:20:34,653 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][203/4707] Loss: 0.6344, LR: 2.1e-05
+2025-08-20 18:20:34,840 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][204/4707] Loss: 0.5751, LR: 2.1e-05
+2025-08-20 18:20:35,027 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][205/4707] Loss: 0.6318, LR: 2.1e-05
+2025-08-20 18:20:35,215 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][206/4707] Loss: 0.5933, LR: 2.1e-05
+2025-08-20 18:20:35,402 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][207/4707] Loss: 0.5928, LR: 2.1e-05
+2025-08-20 18:20:35,589 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][208/4707] Loss: 0.5537, LR: 2.1e-05
+2025-08-20 18:20:35,779 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][209/4707] Loss: 0.5474, LR: 2.1e-05
+2025-08-20 18:20:35,966 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][210/4707] Loss: 0.6313, LR: 2.1e-05
+2025-08-20 18:20:36,155 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][211/4707] Loss: 0.5619, LR: 2.1e-05
+2025-08-20 18:20:36,344 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][212/4707] Loss: 0.5737, LR: 2.1e-05
+2025-08-20 18:20:36,533 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][213/4707] Loss: 0.5895, LR: 2.1e-05
+2025-08-20 18:20:36,720 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][214/4707] Loss: 0.5468, LR: 2.1e-05
+2025-08-20 18:20:36,908 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][215/4707] Loss: 0.5654, LR: 2.1e-05
+2025-08-20 18:20:37,096 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][216/4707] Loss: 0.5755, LR: 2.1e-05
+2025-08-20 18:20:37,283 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][217/4707] Loss: 0.5969, LR: 2.1e-05
+2025-08-20 18:20:37,471 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][218/4707] Loss: 0.5752, LR: 2.1e-05
+2025-08-20 18:20:37,659 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][219/4707] Loss: 0.5534, LR: 2.1e-05
+2025-08-20 18:20:37,847 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][220/4707] Loss: 0.5764, LR: 2.1e-05
+2025-08-20 18:20:38,035 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][221/4707] Loss: 0.6070, LR: 2.1e-05
+2025-08-20 18:20:38,223 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][222/4707] Loss: 0.6385, LR: 2.1e-05
+2025-08-20 18:20:38,334 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:38,414 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][223/4707] Loss: 0.5698, LR: 2.1e-05
+2025-08-20 18:20:38,597 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][224/4707] Loss: 0.6411, LR: 2.1e-05
+2025-08-20 18:20:38,785 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][225/4707] Loss: 0.6305, LR: 2.1e-05
+2025-08-20 18:20:38,973 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][226/4707] Loss: 0.5573, LR: 2.1e-05
+2025-08-20 18:20:39,161 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][227/4707] Loss: 0.6232, LR: 2.1e-05
+2025-08-20 18:20:39,350 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][228/4707] Loss: 0.5403, LR: 2.1e-05
+2025-08-20 18:20:39,540 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][229/4707] Loss: 0.6030, LR: 2.1e-05
+2025-08-20 18:20:39,727 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][230/4707] Loss: 0.5828, LR: 2.1e-05
+2025-08-20 18:20:39,916 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][231/4707] Loss: 0.6128, LR: 2.1e-05
+2025-08-20 18:20:40,104 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][232/4707] Loss: 0.5530, LR: 2.1e-05
+2025-08-20 18:20:40,292 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][233/4707] Loss: 0.6288, LR: 2.1e-05
+2025-08-20 18:20:40,491 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][234/4707] Loss: 0.5297, LR: 2.1e-05
+2025-08-20 18:20:40,680 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][235/4707] Loss: 0.6123, LR: 2.1e-05
+2025-08-20 18:20:40,868 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][236/4707] Loss: 0.5825, LR: 2.1e-05
+2025-08-20 18:20:41,055 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][237/4707] Loss: 0.5449, LR: 2.1e-05
+2025-08-20 18:20:41,245 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][238/4707] Loss: 0.5804, LR: 2.1e-05
+2025-08-20 18:20:41,434 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][239/4707] Loss: 0.5627, LR: 2.1e-05
+2025-08-20 18:20:41,622 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][240/4707] Loss: 0.5600, LR: 2.1e-05
+2025-08-20 18:20:41,810 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][241/4707] Loss: 0.5708, LR: 2.1e-05
+2025-08-20 18:20:41,998 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][242/4707] Loss: 0.5978, LR: 2.1e-05
+2025-08-20 18:20:42,186 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][243/4707] Loss: 0.6567, LR: 2.1e-05
+2025-08-20 18:20:42,375 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][244/4707] Loss: 0.5980, LR: 2.1e-05
+2025-08-20 18:20:42,562 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][245/4707] Loss: 0.6196, LR: 2.1e-05
+2025-08-20 18:20:42,750 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][246/4707] Loss: 0.6314, LR: 2.1e-05
+2025-08-20 18:20:42,938 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][247/4707] Loss: 0.5760, LR: 2.1e-05
+2025-08-20 18:20:43,126 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][248/4707] Loss: 0.7034, LR: 2.1e-05
+2025-08-20 18:20:43,313 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][249/4707] Loss: 0.6657, LR: 2.1e-05
+2025-08-20 18:20:43,502 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][250/4707] Loss: 0.6284, LR: 2.1e-05
+2025-08-20 18:20:43,690 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][251/4707] Loss: 0.5993, LR: 2.1e-05
+2025-08-20 18:20:43,879 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][252/4707] Loss: 0.6009, LR: 2.1e-05
+2025-08-20 18:20:44,098 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][253/4707] Loss: 0.5878, LR: 2.1e-05
+2025-08-20 18:20:44,304 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][254/4707] Loss: 0.5906, LR: 2.1e-05
+2025-08-20 18:20:44,419 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:44,517 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][255/4707] Loss: 0.5693, LR: 2.1e-05
+2025-08-20 18:20:44,713 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][256/4707] Loss: 0.6311, LR: 2.1e-05
+2025-08-20 18:20:44,908 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][257/4707] Loss: 0.6094, LR: 2.1e-05
+2025-08-20 18:20:45,096 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][258/4707] Loss: 0.6263, LR: 2.1e-05
+2025-08-20 18:20:45,284 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][259/4707] Loss: 0.5445, LR: 2.1e-05
+2025-08-20 18:20:45,476 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][260/4707] Loss: 0.6248, LR: 2.1e-05
+2025-08-20 18:20:45,664 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][261/4707] Loss: 0.5667, LR: 2.1e-05
+2025-08-20 18:20:45,852 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][262/4707] Loss: 0.6257, LR: 2.1e-05
+2025-08-20 18:20:46,041 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][263/4707] Loss: 0.5536, LR: 2.1e-05
+2025-08-20 18:20:46,229 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][264/4707] Loss: 0.5252, LR: 2.1e-05
+2025-08-20 18:20:46,417 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][265/4707] Loss: 0.5541, LR: 2.1e-05
+2025-08-20 18:20:46,606 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][266/4707] Loss: 0.6192, LR: 2.1e-05
+2025-08-20 18:20:46,795 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][267/4707] Loss: 0.5867, LR: 2.1e-05
+2025-08-20 18:20:46,987 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][268/4707] Loss: 0.6470, LR: 2.1e-05
+2025-08-20 18:20:47,175 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][269/4707] Loss: 0.5728, LR: 2.1e-05
+2025-08-20 18:20:47,364 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][270/4707] Loss: 0.5520, LR: 2.1e-05
+2025-08-20 18:20:47,558 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][271/4707] Loss: 0.5801, LR: 2.1e-05
+2025-08-20 18:20:47,747 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][272/4707] Loss: 0.5543, LR: 2.1e-05
+2025-08-20 18:20:47,936 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][273/4707] Loss: 0.5496, LR: 2.1e-05
+2025-08-20 18:20:48,130 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][274/4707] Loss: 0.6706, LR: 2.1e-05
+2025-08-20 18:20:48,318 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][275/4707] Loss: 0.5867, LR: 2.1e-05
+2025-08-20 18:20:48,507 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][276/4707] Loss: 0.6041, LR: 2.1e-05
+2025-08-20 18:20:48,697 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][277/4707] Loss: 0.5904, LR: 2.1e-05
+2025-08-20 18:20:48,885 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][278/4707] Loss: 0.5287, LR: 2.1e-05
+2025-08-20 18:20:49,073 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][279/4707] Loss: 0.5507, LR: 2.1e-05
+2025-08-20 18:20:49,262 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][280/4707] Loss: 0.6198, LR: 2.1e-05
+2025-08-20 18:20:49,450 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][281/4707] Loss: 0.5936, LR: 2.1e-05
+2025-08-20 18:20:49,638 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][282/4707] Loss: 0.5869, LR: 2.1e-05
+2025-08-20 18:20:49,828 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][283/4707] Loss: 0.5963, LR: 2.1e-05
+2025-08-20 18:20:50,016 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][284/4707] Loss: 0.5701, LR: 2.1e-05
+2025-08-20 18:20:50,204 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][285/4707] Loss: 0.6181, LR: 2.1e-05
+2025-08-20 18:20:50,393 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][286/4707] Loss: 0.5700, LR: 2.1e-05
+2025-08-20 18:20:50,505 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:50,604 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][287/4707] Loss: 0.5930, LR: 2.1e-05
+2025-08-20 18:20:50,787 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][288/4707] Loss: 0.5410, LR: 2.1e-05
+2025-08-20 18:20:50,975 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][289/4707] Loss: 0.5323, LR: 2.1e-05
+2025-08-20 18:20:51,167 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][290/4707] Loss: 0.6313, LR: 2.1e-05
+2025-08-20 18:20:51,355 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][291/4707] Loss: 0.6172, LR: 2.1e-05
+2025-08-20 18:20:51,543 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][292/4707] Loss: 0.6301, LR: 2.1e-05
+2025-08-20 18:20:51,734 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][293/4707] Loss: 0.5134, LR: 2.1e-05
+2025-08-20 18:20:51,923 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][294/4707] Loss: 0.5823, LR: 2.1e-05
+2025-08-20 18:20:52,111 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][295/4707] Loss: 0.5931, LR: 2.1e-05
+2025-08-20 18:20:52,300 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][296/4707] Loss: 0.5387, LR: 2.1e-05
+2025-08-20 18:20:52,490 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][297/4707] Loss: 0.6417, LR: 2.1e-05
+2025-08-20 18:20:52,679 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][298/4707] Loss: 0.5870, LR: 2.1e-05
+2025-08-20 18:20:52,868 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][299/4707] Loss: 0.6223, LR: 2.1e-05
+2025-08-20 18:20:53,056 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][300/4707] Loss: 0.6288, LR: 2.1e-05
+2025-08-20 18:20:53,246 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][301/4707] Loss: 0.6181, LR: 2.1e-05
+2025-08-20 18:20:53,436 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][302/4707] Loss: 0.5475, LR: 2.1e-05
+2025-08-20 18:20:53,624 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][303/4707] Loss: 0.6096, LR: 2.1e-05
+2025-08-20 18:20:53,818 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][304/4707] Loss: 0.6327, LR: 2.1e-05
+2025-08-20 18:20:54,006 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][305/4707] Loss: 0.5435, LR: 2.1e-05
+2025-08-20 18:20:54,195 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][306/4707] Loss: 0.5639, LR: 2.1e-05
+2025-08-20 18:20:54,387 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][307/4707] Loss: 0.6745, LR: 2.1e-05
+2025-08-20 18:20:54,575 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][308/4707] Loss: 0.6331, LR: 2.1e-05
+2025-08-20 18:20:54,763 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][309/4707] Loss: 0.5267, LR: 2.1e-05
+2025-08-20 18:20:54,952 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][310/4707] Loss: 0.5752, LR: 2.1e-05
+2025-08-20 18:20:55,140 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][311/4707] Loss: 0.6604, LR: 2.1e-05
+2025-08-20 18:20:55,329 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][312/4707] Loss: 0.6150, LR: 2.1e-05
+2025-08-20 18:20:55,519 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][313/4707] Loss: 0.6082, LR: 2.1e-05
+2025-08-20 18:20:55,707 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][314/4707] Loss: 0.6172, LR: 2.1e-05
+2025-08-20 18:20:55,898 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][315/4707] Loss: 0.5725, LR: 2.1e-05
+2025-08-20 18:20:56,086 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][316/4707] Loss: 0.6313, LR: 2.1e-05
+2025-08-20 18:20:56,275 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][317/4707] Loss: 0.6286, LR: 2.1e-05
+2025-08-20 18:20:56,463 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][318/4707] Loss: 0.5608, LR: 2.1e-05
+2025-08-20 18:20:56,574 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:20:56,656 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][319/4707] Loss: 0.5637, LR: 2.1e-05
+2025-08-20 18:20:56,839 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][320/4707] Loss: 0.6345, LR: 2.1e-05
+2025-08-20 18:20:57,027 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][321/4707] Loss: 0.5845, LR: 2.1e-05
+2025-08-20 18:20:57,215 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][322/4707] Loss: 0.6020, LR: 2.1e-05
+2025-08-20 18:20:57,405 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][323/4707] Loss: 0.5854, LR: 2.1e-05
+2025-08-20 18:20:57,593 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][324/4707] Loss: 0.6026, LR: 2.1e-05
+2025-08-20 18:20:57,781 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][325/4707] Loss: 0.5834, LR: 2.1e-05
+2025-08-20 18:20:57,969 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][326/4707] Loss: 0.5549, LR: 2.1e-05
+2025-08-20 18:20:58,158 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][327/4707] Loss: 0.6160, LR: 2.1e-05
+2025-08-20 18:20:58,352 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][328/4707] Loss: 0.6236, LR: 2.1e-05
+2025-08-20 18:20:58,540 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][329/4707] Loss: 0.6125, LR: 2.1e-05
+2025-08-20 18:20:58,730 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][330/4707] Loss: 0.6068, LR: 2.1e-05
+2025-08-20 18:20:58,925 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][331/4707] Loss: 0.5561, LR: 2.1e-05
+2025-08-20 18:20:59,114 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][332/4707] Loss: 0.6078, LR: 2.1e-05
+2025-08-20 18:20:59,302 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][333/4707] Loss: 0.6004, LR: 2.1e-05
+2025-08-20 18:20:59,493 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][334/4707] Loss: 0.5577, LR: 2.1e-05
+2025-08-20 18:20:59,681 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][335/4707] Loss: 0.5890, LR: 2.1e-05
+2025-08-20 18:20:59,869 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][336/4707] Loss: 0.5823, LR: 2.1e-05
+2025-08-20 18:21:00,059 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][337/4707] Loss: 0.5515, LR: 2.1e-05
+2025-08-20 18:21:00,251 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][338/4707] Loss: 0.5447, LR: 2.1e-05
+2025-08-20 18:21:00,446 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][339/4707] Loss: 0.5531, LR: 2.1e-05
+2025-08-20 18:21:00,635 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][340/4707] Loss: 0.6545, LR: 2.1e-05
+2025-08-20 18:21:00,823 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][341/4707] Loss: 0.6021, LR: 2.1e-05
+2025-08-20 18:21:01,012 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][342/4707] Loss: 0.5501, LR: 2.1e-05
+2025-08-20 18:21:01,201 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][343/4707] Loss: 0.6145, LR: 2.1e-05
+2025-08-20 18:21:01,398 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][344/4707] Loss: 0.5368, LR: 2.1e-05
+2025-08-20 18:21:01,589 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][345/4707] Loss: 0.6092, LR: 2.1e-05
+2025-08-20 18:21:01,777 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][346/4707] Loss: 0.6110, LR: 2.1e-05
+2025-08-20 18:21:01,965 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][347/4707] Loss: 0.5937, LR: 2.1e-05
+2025-08-20 18:21:02,151 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][348/4707] Loss: 0.5690, LR: 2.1e-05
+2025-08-20 18:21:02,337 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][349/4707] Loss: 0.5803, LR: 2.1e-05
+2025-08-20 18:21:02,524 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][350/4707] Loss: 0.6042, LR: 2.1e-05
+2025-08-20 18:21:02,634 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:21:02,715 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][351/4707] Loss: 0.5886, LR: 2.1e-05
+2025-08-20 18:21:02,895 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][352/4707] Loss: 0.5576, LR: 2.1e-05
+2025-08-20 18:21:03,081 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][353/4707] Loss: 0.6064, LR: 2.1e-05
+2025-08-20 18:21:03,268 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][354/4707] Loss: 0.6240, LR: 2.1e-05
+2025-08-20 18:21:03,454 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][355/4707] Loss: 0.5630, LR: 2.1e-05
+2025-08-20 18:21:03,640 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][356/4707] Loss: 0.5988, LR: 2.1e-05
+2025-08-20 18:21:03,826 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][357/4707] Loss: 0.6445, LR: 2.1e-05
+2025-08-20 18:21:04,012 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][358/4707] Loss: 0.5831, LR: 2.1e-05
+2025-08-20 18:21:04,198 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][359/4707] Loss: 0.6271, LR: 2.1e-05
+2025-08-20 18:21:04,385 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][360/4707] Loss: 0.5763, LR: 2.1e-05
+2025-08-20 18:21:04,571 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][361/4707] Loss: 0.5859, LR: 2.1e-05
+2025-08-20 18:21:04,759 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][362/4707] Loss: 0.6505, LR: 2.1e-05
+2025-08-20 18:21:04,945 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][363/4707] Loss: 0.5807, LR: 2.1e-05
+2025-08-20 18:21:05,132 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][364/4707] Loss: 0.5865, LR: 2.1e-05
+2025-08-20 18:21:05,318 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][365/4707] Loss: 0.5960, LR: 2.1e-05
+2025-08-20 18:21:05,514 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][366/4707] Loss: 0.5827, LR: 2.1e-05
+2025-08-20 18:21:05,702 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][367/4707] Loss: 0.6139, LR: 2.1e-05
+2025-08-20 18:21:05,889 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][368/4707] Loss: 0.5695, LR: 2.1e-05
+2025-08-20 18:21:06,079 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][369/4707] Loss: 0.5545, LR: 2.1e-05
+2025-08-20 18:21:06,274 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][370/4707] Loss: 0.5866, LR: 2.1e-05
+2025-08-20 18:21:06,463 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][371/4707] Loss: 0.5920, LR: 2.1e-05
+2025-08-20 18:21:06,650 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][372/4707] Loss: 0.5551, LR: 2.1e-05
+2025-08-20 18:21:06,841 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][373/4707] Loss: 0.6810, LR: 2.1e-05
+2025-08-20 18:21:07,028 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][374/4707] Loss: 0.5620, LR: 2.1e-05
+2025-08-20 18:21:07,215 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][375/4707] Loss: 0.6397, LR: 2.1e-05
+2025-08-20 18:21:07,405 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][376/4707] Loss: 0.5794, LR: 2.1e-05
+2025-08-20 18:21:07,591 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][377/4707] Loss: 0.5785, LR: 2.1e-05
+2025-08-20 18:21:07,778 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][378/4707] Loss: 0.6348, LR: 2.1e-05
+2025-08-20 18:21:07,967 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][379/4707] Loss: 0.5922, LR: 2.1e-05
+2025-08-20 18:21:08,155 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][380/4707] Loss: 0.6037, LR: 2.1e-05
+2025-08-20 18:21:08,341 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][381/4707] Loss: 0.5863, LR: 2.1e-05
+2025-08-20 18:21:08,528 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][382/4707] Loss: 0.6163, LR: 2.1e-05
+2025-08-20 18:21:08,639 - RedHeart.UnifiedTrainingFinal - DEBUG -   [검증] 파라미터 업데이트 건너뜀
+2025-08-20 18:21:08,720 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][383/4707] Loss: 0.6036, LR: 2.1e-05
+2025-08-20 18:21:08,904 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][384/4707] Loss: 0.7445, LR: 2.1e-05
+2025-08-20 18:21:09,092 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][385/4707] Loss: 0.5783, LR: 2.1e-05
+2025-08-20 18:21:09,279 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][386/4707] Loss: 0.5686, LR: 2.1e-05
+2025-08-20 18:21:09,473 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][387/4707] Loss: 0.5901, LR: 2.1e-05
+2025-08-20 18:21:09,661 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][388/4707] Loss: 0.6128, LR: 2.1e-05
+2025-08-20 18:21:09,848 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][389/4707] Loss: 0.5526, LR: 2.1e-05
+2025-08-20 18:21:10,039 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][390/4707] Loss: 0.5869, LR: 2.1e-05
+2025-08-20 18:21:10,227 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][391/4707] Loss: 0.6000, LR: 2.1e-05
+2025-08-20 18:21:10,414 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][392/4707] Loss: 0.6523, LR: 2.1e-05
+2025-08-20 18:21:10,604 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][393/4707] Loss: 0.5480, LR: 2.1e-05
+2025-08-20 18:21:10,792 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][394/4707] Loss: 0.6015, LR: 2.1e-05
+2025-08-20 18:21:11,004 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][395/4707] Loss: 0.6263, LR: 2.1e-05
+2025-08-20 18:21:11,192 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][396/4707] Loss: 0.6134, LR: 2.1e-05
+2025-08-20 18:21:11,386 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][397/4707] Loss: 0.4726, LR: 2.1e-05
+2025-08-20 18:21:11,599 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][398/4707] Loss: 0.6219, LR: 2.1e-05
+2025-08-20 18:21:11,787 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][399/4707] Loss: 0.5946, LR: 2.1e-05
+2025-08-20 18:21:11,979 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][400/4707] Loss: 0.5834, LR: 2.1e-05
+2025-08-20 18:21:12,168 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][401/4707] Loss: 0.5385, LR: 2.1e-05
+2025-08-20 18:21:12,385 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][402/4707] Loss: 0.6826, LR: 2.1e-05
+2025-08-20 18:21:12,588 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][403/4707] Loss: 0.5866, LR: 2.1e-05
+2025-08-20 18:21:12,876 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][404/4707] Loss: 0.5771, LR: 2.1e-05
+2025-08-20 18:21:13,253 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][405/4707] Loss: 0.5965, LR: 2.1e-05
+2025-08-20 18:21:13,548 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][406/4707] Loss: 0.6381, LR: 2.1e-05
+2025-08-20 18:21:13,792 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][407/4707] Loss: 0.5996, LR: 2.1e-05
+2025-08-20 18:21:14,004 - RedHeart.UnifiedTrainingFinal - INFO -   [Epoch 1][408/4707] Loss: 0.5379, LR: 2.1e-05
+Terminated
+[1;33m[WARNING][0m 학습 중단됨
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료
