@@ -35,6 +35,7 @@ from training.advanced_training_techniques import AdvancedTrainingManager
 # 프로젝트 모듈
 from config import ADVANCED_CONFIG, get_device
 from data_loader import PreprocessedDataLoader
+from sentence_transformer_singleton import get_sentence_transformer
 
 # 실제 모델 모듈들
 from unified_backbone import RedHeartUnifiedBackbone
@@ -72,8 +73,8 @@ class UnifiedTrainingConfig:
         self.gradient_accumulation = 32  # 유효 배치 = 64
         self.base_lr = 1e-4
         
-        # LR 스윕 설정
-        self.lr_sweep_enabled = True
+        # LR 스윕 설정 (독립 실행)
+        self.lr_sweep_enabled = False  # 본 학습에서는 비활성화
         self.lr_sweep_range = (1e-5, 1e-2)
         self.lr_sweep_points = 5
         
@@ -139,12 +140,12 @@ class UnifiedModel(nn.Module):
         self.regret_head = RegretHead(input_dim=896) 
         self.surd_head = SURDHead(input_dim=896)
         
-        # 신경망 분석기 (368M)
-        self.neural_analyzers = create_neural_analyzers(input_dim=896)
+        # 신경망 분석기 (368M) - nn.ModuleDict로 감싸서 parameters()에 포함되도록
+        analyzers_dict = create_neural_analyzers(input_dim=896)
+        self.neural_analyzers = nn.ModuleDict(analyzers_dict)
         # 각 analyzer를 device로 이동
         if self.device and self.device != torch.device('cpu'):
-            for name in self.neural_analyzers:
-                self.neural_analyzers[name] = self.neural_analyzers[name].to(self.device)
+            self.neural_analyzers = self.neural_analyzers.to(self.device)
         
         # Advanced 분석기 래퍼 (112M) - translator 초기화 후 생성
         self.advanced_wrappers = None  # 나중에 초기화
@@ -162,55 +163,93 @@ class UnifiedModel(nn.Module):
             self.dsp_simulator = None
             self.kalman_filter = None
         
-    def forward(self, x, task='emotion'):
-        """순전파 - GPU 메모리 효율적 처리
+    def forward(self, x, task='emotion', return_all=False):
+        """순전파 - 모든 모듈 사용 (730M 전체)
         
         Args:
             x: 입력 텐서
             task: 현재 학습 중인 태스크
+            return_all: 모든 출력 반환 여부 (학습 시 True)
             
         Returns:
-            해당 태스크의 출력 텐서 (dict가 아닌 tensor)
+            return_all=False: 해당 태스크의 출력 텐서
+            return_all=True: dict with 'head_output', 'neural_output', 'wrapper_output'
         """
         # 입력을 디바이스로 이동 (필요시)
         if x.device != self.backbone.parameters().__next__().device:
             x = x.to(self.backbone.parameters().__next__().device)
         
-        # 백본 처리 (이미 GPU에 있음)
+        # 백본 처리 (90.6M)
         backbone_outputs = self.backbone(x, task=task)
         
         # 태스크별 특징 추출
         if task in backbone_outputs:
             features = backbone_outputs[task]
         else:
-            # 모든 태스크 출력의 평균 사용
             features = torch.stack(list(backbone_outputs.values())).mean(dim=0)
         
-        # 태스크별 헤드 적용 (모두 GPU에 있음)
-        if task == 'emotion':
-            # EmotionHead가 dict를 반환하면 'emotions' 키 추출
-            output = self.emotion_head(features)
-            if isinstance(output, dict):
-                output = output.get('emotions', output.get('emotion_logits', list(output.values())[0]))
-        elif task == 'bentham':
-            output = self.bentham_head(features)
-            if isinstance(output, dict):
-                output = output.get('bentham_scores', list(output.values())[0])
-        elif task == 'regret':
-            output = self.regret_head(features)
-            if isinstance(output, dict):
-                output = output.get('regret_score', list(output.values())[0])
-        elif task == 'surd':
-            output = self.surd_head(features)
-            if isinstance(output, dict):
-                output = output.get('surd_values', output.get('surd_scores', list(output.values())[0]))
-        else:
-            # 기본값: emotion
-            output = self.emotion_head(features)
-            if isinstance(output, dict):
-                output = output.get('emotions', output.get('emotion_logits', list(output.values())[0]))
+        outputs = {}
         
-        return output
+        # 1. 헤드 출력 (153M)
+        if task == 'emotion':
+            head_output = self.emotion_head(features)
+            if isinstance(head_output, dict):
+                head_output = head_output.get('emotions', head_output.get('emotion_logits', list(head_output.values())[0]))
+        elif task == 'bentham':
+            head_output = self.bentham_head(features)
+            if isinstance(head_output, dict):
+                head_output = head_output.get('bentham_scores', list(head_output.values())[0])
+        elif task == 'regret':
+            head_output = self.regret_head(features)
+            if isinstance(head_output, dict):
+                head_output = head_output.get('regret_score', list(head_output.values())[0])
+        elif task == 'surd':
+            head_output = self.surd_head(features)
+            if isinstance(head_output, dict):
+                head_output = head_output.get('surd_values', output.get('surd_scores', list(head_output.values())[0]))
+        else:
+            head_output = self.emotion_head(features)
+            if isinstance(head_output, dict):
+                head_output = head_output.get('emotions', head_output.get('emotion_logits', list(head_output.values())[0]))
+        
+        outputs['head'] = head_output
+        
+        # 2. Neural Analyzers 출력 (368.2M)
+        if self.neural_analyzers and task in self.neural_analyzers:
+            neural_output = self.neural_analyzers[task](features)
+            if isinstance(neural_output, dict):
+                # dict면 첫 번째 텐서 추출
+                neural_output = list(neural_output.values())[0] if neural_output else features
+            outputs['neural'] = neural_output
+        else:
+            outputs['neural'] = features  # fallback
+        
+        # 3. Advanced Wrappers 출력 (112M) - 초기화된 경우만
+        if self.advanced_wrappers and task in self.advanced_wrappers:
+            wrapper_output = self.advanced_wrappers[task](features)
+            if isinstance(wrapper_output, dict):
+                wrapper_output = list(wrapper_output.values())[0] if wrapper_output else features
+            outputs['wrapper'] = wrapper_output
+        else:
+            outputs['wrapper'] = features  # fallback
+        
+        # 4. Phase Networks (4.3M)
+        if hasattr(self, 'phase0_net') and self.phase0_net:
+            phase0_out = self.phase0_net(features)
+            outputs['phase0'] = phase0_out
+        
+        # 5. DSP & Kalman (2.3M)
+        if hasattr(self, 'dsp_simulator') and self.dsp_simulator and task == 'emotion':
+            # DSP는 emotion 태스크에서만 사용
+            dsp_out = self.dsp_simulator.process(head_output)
+            outputs['dsp'] = dsp_out
+        
+        # return_all이면 모든 출력 반환 (학습 시 사용)
+        if return_all:
+            return outputs
+        else:
+            # 기본: head 출력만 반환
+            return head_output
 
 
 class UnifiedTrainer:
@@ -351,7 +390,9 @@ class UnifiedTrainer:
         if self.model.advanced_wrappers is None:
             logger.info("  🔧 Advanced Wrappers 생성 중...")
             from advanced_analyzer_wrappers import create_advanced_analyzer_wrappers
-            self.model.advanced_wrappers = create_advanced_analyzer_wrappers()
+            wrappers_dict = create_advanced_analyzer_wrappers()
+            # nn.ModuleDict로 감싸서 parameters()에 포함되도록
+            self.model.advanced_wrappers = nn.ModuleDict(wrappers_dict) if wrappers_dict else None
             
             # Advanced Wrappers 파라미터 수 확인
             wrapper_params = 0
@@ -483,6 +524,34 @@ class UnifiedTrainer:
             logger.info(f"  DSP & Kalman: {dsp_kalman_params/1e6:.1f}M")
         
         logger.info(f"✅ 모델 초기화 완료: 총 {total_params/1e6:.1f}M 파라미터")
+        
+        # 730M 타겟 확인
+        target_params = 730e6
+        if abs(total_params - target_params) > 10e6:  # 10M 이상 차이나면 경고
+            logger.warning(f"⚠️ 파라미터 개수 불일치!")
+            logger.warning(f"   목표: {target_params/1e6:.1f}M")
+            logger.warning(f"   실제: {total_params/1e6:.1f}M")
+            logger.warning(f"   차이: {(total_params - target_params)/1e6:.1f}M")
+            
+            # 상세 분석
+            logger.warning("📊 모듈별 파라미터 분석:")
+            all_params_dict = {}
+            for name, module in self.model.named_children():
+                if hasattr(module, 'parameters'):
+                    params = sum(p.numel() for p in module.parameters())
+                    if params > 0:
+                        all_params_dict[name] = params/1e6
+                        logger.warning(f"   - {name}: {params/1e6:.1f}M")
+            
+            # 파라미터가 학습에 참여하는지 확인
+            trainable_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
+            logger.warning(f"   학습 가능 파라미터: {trainable_params/1e6:.1f}M")
+            
+            # 파라미터가 optimizer에 등록되었는지 확인
+            optimizer_params = sum(p.numel() for group in self.optimizer.param_groups for p in group['params'])
+            logger.warning(f"   Optimizer 파라미터: {optimizer_params/1e6:.1f}M")
+        else:
+            logger.info(f"✅ 목표 파라미터 수 달성: {total_params/1e6:.1f}M ≈ 730M")
     
     def _initialize_dataloaders(self):
         """데이터 로더 초기화"""
@@ -496,9 +565,17 @@ class UnifiedTrainer:
                 logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
                 raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
         
-        # JSON 데이터 로드
-        with open(preprocessed_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
+        # 임베딩이 포함된 파일이 있는지 먼저 확인
+        embedded_path = Path(str(preprocessed_path).replace('.json', '.embedded.json'))
+        if embedded_path.exists():
+            logger.info(f"🎯 임베딩 파일 발견: {embedded_path}")
+            with open(embedded_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        else:
+            # JSON 데이터 로드
+            logger.info(f"📂 기본 데이터 로드: {preprocessed_path}")
+            with open(preprocessed_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
         
         # 샘플 수 제한 (테스트 모드에서)
         if hasattr(self.config, 'max_samples') and self.config.max_samples:
@@ -506,8 +583,12 @@ class UnifiedTrainer:
         
         # 데이터셋 클래스
         class RedHeartDataset(Dataset):
-            def __init__(self, data_list):
+            def __init__(self, data_list, preprocessed_path=None):
                 self.data = data_list
+                self.preprocessed_path = preprocessed_path
+                self.embedding_manager = None  # 지연 초기화
+                self.embeddings_modified = False  # 임베딩 수정 여부 추적
+                
                 # label 매핑 (v2에서 처럼 TargetMapper 대신 직접 처리)
                 self.label_to_idx = {
                     'AUTHOR': 0,
@@ -519,13 +600,66 @@ class UnifiedTrainer:
                 # 감정 매핑 (emotions dict에서 추출)
                 self.emotion_keys = ['joy', 'anger', 'surprise', 'disgust', 'sadness', 'shame', 'fear']
                 
+                # 임베딩 상태 확인
+                self._check_embeddings()
+                
             def __len__(self):
                 return len(self.data)
             
             def __getitem__(self, idx):
                 item = self.data[idx]
-                # 텐서 변환
-                text_embedding = torch.randn(100, 768)  # 실제로는 텍스트 임베딩 사용
+                # 실제 텍스트 추출
+                text = item.get('text', '') + ' ' + item.get('title', '')
+                
+                # 텍스트 임베딩은 사전 처리된 데이터에서 사용
+                # preprocessed 데이터에 이미 embedding이 있으면 사용
+                if 'embedding' in item:
+                    text_embedding = torch.tensor(item['embedding'], dtype=torch.float32)
+                    # 100x768 크기로 조정
+                    if text_embedding.shape[0] < 100:
+                        # 패딩
+                        pad_size = 100 - text_embedding.shape[0]
+                        text_embedding = torch.cat([text_embedding, torch.zeros(pad_size, 768)], dim=0)
+                    elif text_embedding.shape[0] > 100:
+                        # 자르기
+                        text_embedding = text_embedding[:100]
+                else:
+                    # 임베딩이 없으면 SentenceTransformer로 생성
+                    if self.embedding_manager is None:
+                        try:
+                            self.embedding_manager = get_sentence_transformer(
+                                'sentence-transformers/all-MiniLM-L6-v2',
+                                device='cuda' if torch.cuda.is_available() else 'cpu'
+                            )
+                        except Exception as e:
+                            logger.error(f"❌ SentenceTransformer 로드 실패: {e}")
+                            logger.error("임베딩 생성이 불가능합니다. 시스템 종료.")
+                            raise RuntimeError(f"SentenceTransformer 필수 모듈 로드 실패: {e}")
+                    
+                    if self.embedding_manager:
+                        try:
+                            # 텍스트 임베딩 생성
+                            embedding = self.embedding_manager.encode(text[:512])  # 최대 512자
+                            text_embedding = torch.tensor(embedding, dtype=torch.float32)
+                            
+                            # 100x768 형태로 확장 (문장을 여러 번 반복)
+                            if text_embedding.dim() == 1:
+                                text_embedding = text_embedding.unsqueeze(0)
+                            
+                            # 100개 토큰으로 확장
+                            text_embedding = text_embedding.repeat(100, 1)
+                            
+                            # 생성된 임베딩을 데이터에 저장
+                            self.data[idx]['embedding'] = text_embedding.numpy().tolist()
+                            self.embeddings_modified = True
+                            
+                        except Exception as e:
+                            logger.error(f"❌ 임베딩 생성 실패: {e}")
+                            logger.error(f"텍스트: {text[:50]}...")
+                            raise RuntimeError(f"임베딩 생성 실패: {e}")
+                    else:
+                        logger.error("❌ SentenceTransformer 모델이 초기화되지 않았습니다.")
+                        raise RuntimeError("SentenceTransformer 모델 초기화 실패")
                 
                 # label 문자열을 숫자로 변환
                 label_str = item.get('label', 'OTHER')
@@ -563,16 +697,47 @@ class UnifiedTrainer:
                     'regret_label': torch.tensor(item.get('regret_factor', 0.0), dtype=torch.float),
                     'surd_label': torch.tensor(label_idx, dtype=torch.long)  # label을 SURD에도 사용
                 }
+            
+            def _check_embeddings(self):
+                """임베딩 상태 확인"""
+                total_items = len(self.data)
+                items_with_embedding = sum(1 for item in self.data if 'embedding' in item)
+                items_without_embedding = total_items - items_with_embedding
+                
+                logger.info(f"📊 임베딩 상태:")
+                logger.info(f"  - 전체 데이터: {total_items}개")
+                logger.info(f"  - 임베딩 있음: {items_with_embedding}개 ({items_with_embedding/total_items*100:.1f}%)")
+                logger.info(f"  - 임베딩 없음: {items_without_embedding}개 ({items_without_embedding/total_items*100:.1f}%)")
+                
+                if items_without_embedding > 0:
+                    logger.warning(f"⚠️ {items_without_embedding}개 항목에 임베딩이 없습니다. 자동 생성됩니다.")
+            
+            def save_embeddings(self):
+                """생성된 임베딩을 파일에 저장"""
+                if not self.embeddings_modified:
+                    return
+                
+                if self.preprocessed_path:
+                    # 원본 파일명에서 .embedded.json 파일 생성
+                    embedded_path = Path(str(self.preprocessed_path).replace('.json', '.embedded.json'))
+                    
+                    try:
+                        # 전체 데이터 저장
+                        with open(embedded_path, 'w', encoding='utf-8') as f:
+                            json.dump(self.data, f, ensure_ascii=False, indent=2)
+                        logger.info(f"✅ 임베딩이 저장되었습니다: {embedded_path}")
+                        self.embeddings_modified = False
+                    except Exception as e:
+                        logger.error(f"임베딩 저장 실패: {e}")
         
-        # 전체 데이터셋 생성
-        dataset = RedHeartDataset(data)
-        val_size = int(len(dataset) * self.config.validation_split)
-        train_size = len(dataset) - val_size
+        # 학습/검증 데이터 분할
+        val_size = int(len(data) * self.config.validation_split)
+        train_data = data[val_size:]
+        val_data = data[:val_size]
         
-        # 학습/검증 분할  
-        train_dataset, val_dataset = torch.utils.data.random_split(
-            dataset, [train_size, val_size]
-        )
+        # 데이터셋 생성 (preprocessed_path 전달)
+        train_dataset = RedHeartDataset(train_data, preprocessed_path)
+        val_dataset = RedHeartDataset(val_data, preprocessed_path)
         
         self.train_loader = DataLoader(
             train_dataset,
@@ -651,6 +816,9 @@ class UnifiedTrainer:
         self.model.train()
         epoch_losses = []
         module_metrics = {}
+        batch_gradients = {}  # 모든 배치의 gradient norm 저장
+        total_batches = len(self.train_loader)
+        completed_batches = 0
         
         for batch_idx, batch in enumerate(self.train_loader):
             # OOM 핸들링
@@ -675,24 +843,77 @@ class UnifiedTrainer:
             loss = loss / self.config.gradient_accumulation
             loss.backward()
             
-            # Gradient Accumulation
-            if (batch_idx + 1) % self.config.gradient_accumulation == 0:
-                # Gradient norm 계산 및 clipping
-                total_grad_norm = torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
+            # 매 배치마다 gradient norm 계산 (accumulation 여부와 무관)
+            with torch.no_grad():
+                # 전체 모델의 gradient norm
+                total_grad_norm = 0.0
+                for p in self.model.parameters():
+                    if p.grad is not None:
+                        param_norm = p.grad.data.norm(2).item()
+                        total_grad_norm += param_norm ** 2
+                total_grad_norm = total_grad_norm ** 0.5
                 
                 # 모듈별 gradient norm 계산
                 for name, module in self.model.named_children():
-                    if any(p.grad is not None for p in module.parameters()):
-                        grad_norm = torch.nn.utils.clip_grad_norm_(module.parameters(), max_norm=float('inf'))
-                        metrics[f'{name}_grad_norm'] = grad_norm.item()
+                    module_grad_norm = 0.0
+                    for p in module.parameters():
+                        if p.grad is not None:
+                            param_norm = p.grad.data.norm(2).item()
+                            module_grad_norm += param_norm ** 2
+                    module_grad_norm = module_grad_norm ** 0.5
+                    
+                    if module_grad_norm > 0:
+                        if f'{name}_grad_norm' not in batch_gradients:
+                            batch_gradients[f'{name}_grad_norm'] = []
+                        batch_gradients[f'{name}_grad_norm'].append(module_grad_norm)
+                        metrics[f'{name}_grad_norm'] = module_grad_norm
                 
-                # 전체 gradient norm 메트릭에 추가
-                metrics['total_grad_norm'] = total_grad_norm.item()
+                if total_grad_norm > 0:
+                    if 'total_grad_norm' not in batch_gradients:
+                        batch_gradients['total_grad_norm'] = []
+                    batch_gradients['total_grad_norm'].append(total_grad_norm)
+                    metrics['total_grad_norm'] = total_grad_norm
+            
+            # Gradient Accumulation
+            if (batch_idx + 1) % self.config.gradient_accumulation == 0:
+                # Gradient clipping
+                torch.nn.utils.clip_grad_norm_(self.model.parameters(), max_norm=1.0)
                 
                 # Optimizer step (파라미터 업데이트 플래그 확인)
                 if not self.no_param_update:
+                    # 파라미터 업데이트 전 값 저장 (샘플링)
+                    param_before = {}
+                    if batch_idx == 0 or batch_idx % 100 == 0:  # 첫 배치와 100배치마다 체크
+                        for name, module in self.model.named_children():
+                            if hasattr(module, 'parameters'):
+                                # 첫 번째 파라미터만 샘플링
+                                for p in module.parameters():
+                                    if p.requires_grad and p.grad is not None:
+                                        param_before[name] = p.data.clone().mean().item()
+                                        break
+                    
                     self.optimizer.step()
                     self.scheduler.step()
+                    
+                    # 파라미터 업데이트 후 확인
+                    if param_before:
+                        param_updated = []
+                        param_not_updated = []
+                        for name, module in self.model.named_children():
+                            if name in param_before:
+                                for p in module.parameters():
+                                    if p.requires_grad and p.grad is not None:
+                                        param_after = p.data.mean().item()
+                                        if abs(param_after - param_before[name]) > 1e-8:
+                                            param_updated.append(name)
+                                        else:
+                                            param_not_updated.append(name)
+                                        break
+                        
+                        if param_updated:
+                            logger.debug(f"  ✅ 파라미터 업데이트됨 (batch {batch_idx}): {', '.join(param_updated)}")
+                        if param_not_updated:
+                            logger.warning(f"  ⚠️ 파라미터 미업데이트 (batch {batch_idx}): {', '.join(param_not_updated)}")
                     
                     # EMA update
                     self.training_manager.step()
@@ -717,10 +938,25 @@ class UnifiedTrainer:
                 if key not in module_metrics:
                     module_metrics[key] = []
                 module_metrics[key].append(value)
+            
+            completed_batches += 1
+        
+        # 배치 루프 완료 확인
+        if completed_batches != total_batches:
+            logger.error(f"  ⚠️ 에폭 {epoch} 불완전 종료: {completed_batches}/{total_batches} 배치만 처리됨")
+            logger.error(f"     마지막 처리 배치 인덱스: {completed_batches - 1}")
+        else:
+            logger.info(f"  ✅ 에폭 {epoch} 완료: {completed_batches}/{total_batches} 배치 모두 처리")
+        
+        # gradient norm 평균 추가 (모든 배치의 평균)
+        for key, values in batch_gradients.items():
+            module_metrics[key] = values
         
         # 에폭 평균
         avg_metrics = {k: np.mean(v) for k, v in module_metrics.items()}
         avg_metrics['loss'] = np.mean(epoch_losses)
+        avg_metrics['completed_batches'] = completed_batches
+        avg_metrics['total_batches'] = total_batches
         
         return avg_metrics
     
@@ -809,9 +1045,10 @@ class UnifiedTrainer:
             bentham_loss = self.model.bentham_head.compute_loss(bentham_pred, bentham_target)
             head_losses.append(bentham_loss)
             individual_losses['bentham_loss'] = bentham_loss.item()
-            # accuracy 계산 (regression task - threshold 기반)
-            # 초기 학습 단계를 고려하여 임계값 완화 (0.1 -> 0.5)
-            bentham_acc = ((bentham_pred - bentham_target).abs() < 0.5).float().mean().item()
+            # accuracy 계산 (regression task - 동적 threshold 기반)
+            # 학습 진행에 따라 점진적으로 엄격한 기준 적용
+            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+            bentham_acc = ((bentham_pred - bentham_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['bentham_acc'] = bentham_acc
             if self.verbose and batch_idx < 3:
                 logger.info(f"      - 벤담 손실: {bentham_loss.item():.6f}, 정확도: {bentham_acc:.4f}")
@@ -824,9 +1061,10 @@ class UnifiedTrainer:
             regret_loss = self.model.regret_head.compute_loss(regret_pred, regret_target)
             head_losses.append(regret_loss)
             individual_losses['regret_loss'] = regret_loss.item()
-            # accuracy 계산 (regression task)
-            # 초기 학습 단계를 고려하여 임계값 완화 (0.1 -> 0.5)
-            regret_acc = ((regret_pred - regret_target).abs() < 0.5).float().mean().item()
+            # accuracy 계산 (regression task - 동적 threshold 기반)
+            # 학습 진행에 따라 점진적으로 엄격한 기준 적용
+            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+            regret_acc = ((regret_pred - regret_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['regret_acc'] = regret_acc
             if self.verbose and batch_idx < 3:
                 logger.info(f"      - 후회 손실: {regret_loss.item():.6f}, 정확도: {regret_acc:.4f}")
@@ -868,9 +1106,11 @@ class UnifiedTrainer:
             surd_loss = self.model.surd_head.compute_loss(surd_pred, surd_target)
             head_losses.append(surd_loss)
             individual_losses['surd_loss'] = surd_loss.item()
-            # accuracy 계산 (multi-dimensional regression)
-            # 초기 학습 단계를 고려하여 임곀4값 완화 (0.1 -> 0.3)
-            surd_acc = ((surd_pred - surd_target).abs() < 0.3).float().mean().item()
+            # accuracy 계산 (multi-dimensional regression - 동적 threshold 기반)
+            # 학습 진행에 따라 점진적으로 엄격한 기준 적용
+            # SURD는 4차원이므로 약간 더 완화된 기준 적용
+            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.35 if self.current_epoch <= 30 else 0.25
+            surd_acc = ((surd_pred - surd_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['surd_acc'] = surd_acc
             if self.verbose and batch_idx < 3:
                 logger.info(f"      - SURD 손실: {surd_loss.item():.6f}, 정확도: {surd_acc:.4f}")
@@ -946,15 +1186,30 @@ class UnifiedTrainer:
                         target = batch['bentham_label'].to(self.device)
                         analyzer_loss = F.mse_loss(analyzer_output['bentham_scores'], target)
                         analyzer_losses.append(analyzer_loss)
+                        
+                        # Analyzer accuracy 계산 (regression - 동적 임곀4값)
+                        with torch.no_grad():
+                            # 에폭에 따라 임곀4값 조절
+                            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+                            analyzer_acc = ((analyzer_output['bentham_scores'] - target).abs() < dynamic_threshold).float().mean().item()
+                            analyzer_accuracies.append(analyzer_acc)
+                        
                         if self.verbose and batch_idx < 3:
-                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}")
+                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}, 정확도: {analyzer_acc:.4f}")
                     
                     elif 'regret' in name and 'regret_score' in analyzer_output:
                         target = batch['regret_label'].to(self.device)
                         analyzer_loss = F.smooth_l1_loss(analyzer_output['regret_score'], target)
                         analyzer_losses.append(analyzer_loss)
+                        
+                        # Analyzer accuracy 계산 (regression - 동적 임곀4값)
+                        with torch.no_grad():
+                            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+                            analyzer_acc = ((analyzer_output['regret_score'] - target).abs() < dynamic_threshold).float().mean().item()
+                            analyzer_accuracies.append(analyzer_acc)
+                        
                         if self.verbose and batch_idx < 3:
-                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}")
+                            logger.info(f"      - {name} 손실: {analyzer_loss.item():.6f}, 정확도: {analyzer_acc:.4f}")
                     
                     elif 'surd' in name and 'surd_scores' in analyzer_output:
                         # SURD analyzer도 4차원 타겟 필요
@@ -1044,25 +1299,76 @@ class UnifiedTrainer:
         metrics['backbone_loss'] = loss.item()
         metrics['backbone_acc'] = 0.0  # 백본은 별도 accuracy 없음
         
-        # Neural Analyzer 손실
+        # Neural Analyzer 손실 및 정확도
         if analyzer_losses:
             metrics['analyzer_loss'] = sum(al.item() for al in analyzer_losses) / len(analyzer_losses)
-            metrics['analyzer_acc'] = 0.0  # Analyzer는 accuracy 계산이 복잡하므로 일단 0
+            # 실제 analyzer accuracy 계산 (평균)
+            metrics['analyzer_acc'] = np.mean(analyzer_accuracies) if analyzer_accuracies else 0.0
         else:
             metrics['analyzer_loss'] = 0.0
             metrics['analyzer_acc'] = 0.0
         
-        # 전체 accuracy 계산 (head들의 평균)
-        acc_values = []
-        for key in ['emotion_acc', 'bentham_acc', 'regret_acc', 'surd_acc']:
-            if key in metrics and metrics[key] > 0:
-                acc_values.append(metrics[key])
+        # 전체 accuracy 계산 (가중 평균)
+        # 각 태스크의 중요도: emotion(30%), bentham(25%), regret(20%), surd(15%), analyzer(10%)
+        weighted_acc = 0.0
+        weights_sum = 0.0
+        
+        task_weights = {
+            'emotion_acc': 0.30,
+            'bentham_acc': 0.25,
+            'regret_acc': 0.20,
+            'surd_acc': 0.15,
+            'analyzer_acc': 0.10
+        }
+        
+        for task, weight in task_weights.items():
+            if task in metrics and metrics[task] > 0:
+                weighted_acc += metrics[task] * weight
+                weights_sum += weight
         
         # train/val 메트릭
         metrics['train_loss'] = loss.item()
-        metrics['train_acc'] = np.mean(acc_values) if acc_values else 0.0
+        metrics['train_acc'] = weighted_acc / weights_sum if weights_sum > 0 else 0.0
         metrics['val_loss'] = loss.item()  # validate()에서 덮어씌워짐
         metrics['val_acc'] = metrics['train_acc']  # validate()에서 덮어씌워짐
+        
+        # 모듈 상호작용 메트릭 계산 (실제 구현)
+        with torch.no_grad():
+            # 1. 모듈 간 손실 상관관계
+            if len(individual_losses) > 1:
+                loss_values = list(individual_losses.values())
+                if len(loss_values) >= 2:
+                    # 손실 간 상관성 계산 (낮을수록 좋음 - 독립적인 학습)
+                    loss_tensor = torch.tensor(loss_values)
+                    loss_std = loss_tensor.std().item()
+                    loss_mean = loss_tensor.mean().item()
+                    metrics['module_loss_variance'] = loss_std
+                    metrics['module_loss_mean'] = loss_mean
+                    # 변동계수 (Coefficient of Variation)
+                    metrics['module_loss_cv'] = loss_std / (loss_mean + 1e-10)
+            
+            # 2. 모듈 간 정확도 시너지
+            if len(individual_accs) > 1:
+                acc_values_list = list(individual_accs.values())
+                if len(acc_values_list) >= 2:
+                    acc_tensor = torch.tensor(acc_values_list)
+                    # 정확도 간 일관성 (높을수록 좋음)
+                    acc_std = acc_tensor.std().item()
+                    acc_mean = acc_tensor.mean().item()
+                    metrics['module_acc_consistency'] = 1.0 - (acc_std / (acc_mean + 1e-10))
+                    
+                    # 시너지 점수: 전체 정확도가 개별 평균보다 높으면 양의 시너지
+                    synergy_score = metrics['train_acc'] - acc_mean
+                    metrics['module_synergy_score'] = synergy_score
+            
+            # 3. Head-Analyzer 상호작용
+            if analyzer_accuracies and len(individual_accs) > 0:
+                head_acc_mean = np.mean(list(individual_accs.values()))
+                analyzer_acc_mean = np.mean(analyzer_accuracies)
+                # Head와 Analyzer 간 성능 격차 (작을수록 균형적)
+                metrics['head_analyzer_gap'] = abs(head_acc_mean - analyzer_acc_mean)
+                # 상호 보완 지수
+                metrics['head_analyzer_complement'] = min(head_acc_mean, analyzer_acc_mean) / (max(head_acc_mean, analyzer_acc_mean) + 1e-10)
         
         return loss, metrics
     
@@ -1088,8 +1394,21 @@ class UnifiedTrainer:
                 logger.error(f"  ❌ 에폭 {epoch} 학습 중 오류: {e}")
                 train_metrics = {'train_loss': float('inf')}
             
-            # 검증 (모든 에폭에서 실행 - 테스트 모드나 작은 에폭 수일 때)
-            if self.config.total_epochs <= 5 or epoch % 2 == 0:  # 5 에폭 이하거나 짝수 에폭
+            # 검증 실행 조건 (설정 가능)
+            should_validate = False
+            if hasattr(self.config, 'val_interval'):
+                # val_interval이 설정되어 있으면 해당 간격으로 검증
+                should_validate = (epoch % self.config.val_interval == 0)
+            else:
+                # 기본 로직: 테스트 모드나 작은 에폭 수일 때는 자주 검증
+                if self.config.total_epochs <= 5:
+                    should_validate = True  # 모든 에폭에서 검증
+                elif self.config.total_epochs <= 20:
+                    should_validate = (epoch % 2 == 0)  # 짝수 에폭마다
+                else:
+                    should_validate = (epoch % 5 == 0) or (epoch == self.config.total_epochs)  # 5 에폭마다 또는 마지막
+            
+            if should_validate:
                 val_metrics = self.validate()
                 logger.info(f"  Validation Loss: {val_metrics['val_loss']:.4f}")
             else:
@@ -1216,17 +1535,21 @@ class UnifiedTrainer:
                 self.best_loss = all_metrics['loss']
                 logger.info(f"  🏆 최고 성능 갱신: {self.best_loss:.4f}")
             
-            # 마지막 에폭 강제 체크포인트 저장
-            if epoch == self.config.total_epochs and checkpoint_path is None:
-                logger.info("  📌 마지막 에폭 강제 체크포인트 저장...")
-                checkpoint_path = self.checkpoint_manager.save_checkpoint(
-                    epoch=epoch,
-                    model=self.model,
-                    optimizer=self.optimizer,
-                    scheduler=self.scheduler,
-                    metrics=all_metrics,
-                    lr=self.optimizer.param_groups[0]['lr']
-                )
+            # 체크포인트 저장 확인 및 마지막 에폭 강제 저장
+            if epoch == self.config.total_epochs:
+                # 마지막 에폭은 무조건 저장
+                if checkpoint_path is None:
+                    logger.info("  📌 마지막 에폭 체크포인트 강제 저장...")
+                    checkpoint_path = self.checkpoint_manager.save_checkpoint(
+                        epoch=epoch,
+                        model=self.model,
+                        optimizer=self.optimizer,
+                        scheduler=self.scheduler,
+                        metrics=all_metrics,
+                        lr=self.optimizer.param_groups[0]['lr']
+                    )
+                else:
+                    logger.info(f"  ✅ 마지막 에폭 체크포인트 저장됨: {checkpoint_path}")
         
         logger.info("\n" + "=" * 70)
         logger.info(f"✅ {self.config.total_epochs} 에폭 학습 완료!")
@@ -1289,6 +1612,13 @@ class UnifiedTrainer:
         if self.config.enable_oom_handler:
             oom_stats = self.oom_handler.save_stats()
             logger.info(f"  📊 OOM 통계 저장: {oom_stats}")
+        
+        # 생성된 임베딩 저장
+        if hasattr(self.train_loader.dataset, 'save_embeddings'):
+            logger.info("\n💾 생성된 임베딩 저장 중...")
+            self.train_loader.dataset.save_embeddings()
+        if hasattr(self.val_loader.dataset, 'save_embeddings'):
+            self.val_loader.dataset.save_embeddings()
         
         logger.info("\n" + "=" * 70)
         logger.info("🎉 모든 작업 완료!")

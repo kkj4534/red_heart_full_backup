@@ -397,6 +397,27 @@ run_learning_system() {
             print_status "   - LR 스윕, Sweet Spot, Parameter Crossover 포함"
             print_status "   - Advanced Training Techniques 활성화"
             
+            # --lr-sweep 옵션 확인
+            if [[ "$@" == *"--lr-sweep"* ]]; then
+                print_status "🔍 Hierarchical LR Sweep (5-5-5-5) 실행 모드"
+                print_status "   - 25개 포인트로 최적 LR 탐색"
+                print_status "   - 각 LR은 독립적으로 초기 가중치에서 시작"
+                
+                if [ -f "training/run_hierarchical_lr_sweep.py" ]; then
+                    python training/run_hierarchical_lr_sweep.py
+                    exit_code=$?
+                    if [ $exit_code -eq 0 ]; then
+                        print_success "✅ LR 스윕 완료! 최적 LR이 training/lr_sweep_results/optimal_lr.json에 저장됨"
+                    else
+                        print_error "❌ LR 스윕 실패 (exit code: $exit_code)"
+                    fi
+                    exit $exit_code
+                else
+                    print_error "❌ training/run_hierarchical_lr_sweep.py를 찾을 수 없습니다"
+                    exit 1
+                fi
+            fi
+            
             # 새로운 최종 시스템이 있으면 우선 사용
             if [ -f "training/unified_training_final.py" ]; then
                 print_status "   ✨ 최종 통합 시스템 (730M) 사용"
