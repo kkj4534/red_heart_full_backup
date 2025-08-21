@@ -446,6 +446,9 @@ class RegretHead(MultiTaskHead):
     
     def compute_loss(self, predictions: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
         """후회 손실 (Huber Loss - 이상치에 강건)"""
+        # predictions shape 조정 (batch_size, 1) -> (batch_size,)
+        if predictions.dim() > 1 and predictions.shape[-1] == 1:
+            predictions = predictions.squeeze(-1)
         return F.smooth_l1_loss(predictions, targets)
     
     def _log_params(self):

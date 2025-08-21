@@ -629,7 +629,8 @@ class UnifiedTrainer:
                         try:
                             self.embedding_manager = get_sentence_transformer(
                                 'sentence-transformers/all-MiniLM-L6-v2',
-                                device='cuda' if torch.cuda.is_available() else 'cpu'
+                                device='cuda' if torch.cuda.is_available() else 'cpu',
+                                cache_folder=os.path.expanduser('~/.cache/huggingface/hub')
                             )
                         except Exception as e:
                             logger.error(f"❌ SentenceTransformer 로드 실패: {e}")
@@ -645,6 +646,11 @@ class UnifiedTrainer:
                             # 100x768 형태로 확장 (문장을 여러 번 반복)
                             if text_embedding.dim() == 1:
                                 text_embedding = text_embedding.unsqueeze(0)
+                            
+                            # 384차원을 768차원으로 패딩 (all-MiniLM-L6-v2는 384차원 출력)
+                            if text_embedding.shape[-1] == 384:
+                                padding = torch.zeros(text_embedding.shape[0], 384, dtype=torch.float32)
+                                text_embedding = torch.cat([text_embedding, padding], dim=-1)  # (1, 768)
                             
                             # 100개 토큰으로 확장
                             text_embedding = text_embedding.repeat(100, 1)

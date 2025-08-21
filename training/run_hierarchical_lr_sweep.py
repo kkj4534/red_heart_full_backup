@@ -15,10 +15,11 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import logging
 from datetime import datetime
+import time
 import json
 from pathlib import Path
 import numpy as np
-from sentence_transformer_singleton import get_sentence_transformer
+from sentence_transformer_singleton import get_sentence_transformer, SentenceTransformerManager
 
 # 로깅 설정
 logging.basicConfig(
@@ -81,7 +82,8 @@ class RedHeartDataset(Dataset):
                 try:
                     self.embedding_manager = get_sentence_transformer(
                         'sentence-transformers/all-MiniLM-L6-v2',
-                        device='cuda' if torch.cuda.is_available() else 'cpu'
+                        device='cuda' if torch.cuda.is_available() else 'cpu',
+                        cache_folder=os.path.expanduser('~/.cache/huggingface/hub')
                     )
                 except Exception as e:
                     logger.error(f"❌ SentenceTransformer 로드 실패: {e}")
@@ -94,6 +96,12 @@ class RedHeartDataset(Dataset):
                     text_embedding = torch.tensor(embedding, dtype=torch.float32)
                     if text_embedding.dim() == 1:
                         text_embedding = text_embedding.unsqueeze(0)
+                    
+                    # 384차원을 768차원으로 패딩 (all-MiniLM-L6-v2는 384차원 출력)
+                    if text_embedding.shape[-1] == 384:
+                        padding = torch.zeros(text_embedding.shape[0], 384, dtype=torch.float32)
+                        text_embedding = torch.cat([text_embedding, padding], dim=-1)  # (1, 768)
+                    
                     text_embedding = text_embedding.repeat(100, 1)
                     self.data[idx]['embedding'] = text_embedding.numpy().tolist()
                     self.embeddings_modified = True
@@ -236,16 +244,153 @@ def main():
         with open(preprocessed_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
     
-    # 학습/검증 데이터 분할 (90:10)
+    # 전체 데이터 임베딩 생성 (나중에 학습용으로 일부만 사용)
+    total_data_count = len(data)
+    logger.info(f"  - 전체 데이터: {total_data_count}개")
+    
+    # 학습/검증 데이터 분할 (90:10) - 임베딩은 전체에 대해 생성
     val_size = int(len(data) * 0.1)
-    train_data = data[val_size:][:1000]  # LR 스윕용으로 일부만 사용
-    val_data = data[:val_size][:100]     # 검증용 일부만 사용
+    all_train_data = data[val_size:]  # 전체 학습 데이터
+    all_val_data = data[:val_size]    # 전체 검증 데이터
+    
+    # LR 스윕용으로 일부만 샘플링 (임베딩은 전체에 대해 이미 생성됨)
+    train_data = all_train_data[:1000]  # LR 스윕용 학습 데이터
+    val_data = all_val_data[:100]       # LR 스윕용 검증 데이터
     
     logger.info(f"  - 전체 데이터: {len(data)}개")
     logger.info(f"  - LR 스윕용 학습 데이터: {len(train_data)}개")
     logger.info(f"  - LR 스윕용 검증 데이터: {len(val_data)}개")
     
-    # 실제 데이터셋 사용
+    # 전체 데이터셋 생성 (임베딩 생성용)
+    logger.info("\n🔄 전체 데이터 임베딩 생성 중...")
+    full_dataset = RedHeartDataset(data, preprocessed_path)
+    
+    # 임베딩이 없는 데이터 확인 및 생성
+    missing_embeddings = 0
+    for idx, item in enumerate(data):
+        if 'embedding' not in item or item.get('embedding') is None:
+            missing_embeddings += 1
+    
+    if missing_embeddings > 0:
+        logger.info(f"  - 임베딩 생성 필요: {missing_embeddings}개 / {len(data)}개")
+        logger.info("  - 배치 처리 시작 (30개씩, 각 배치 타임아웃 13분)")
+        
+        # 진행 상황 로그 파일
+        progress_log_path = Path(f'training/lr_sweep_results/embedding_progress_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log')
+        
+        batch_size = 30  # 30개씩 배치 처리
+        total_batches = (len(full_dataset) + batch_size - 1) // batch_size
+        successful_count = 0
+        failed_count = 0
+        
+        # 배치 단위로 처리
+        for batch_idx in range(total_batches):
+            batch_start = batch_idx * batch_size
+            batch_end = min(batch_start + batch_size, len(full_dataset))
+            batch_items = batch_end - batch_start
+            
+            # 진행률 계산
+            progress = (batch_start / len(full_dataset)) * 100
+            eta_batches = total_batches - batch_idx
+            eta_minutes = eta_batches * 0.5  # 배치당 평균 30초 예상
+            
+            logger.info(f"\n  📦 배치 {batch_idx + 1}/{total_batches} 처리 중...")
+            logger.info(f"    - 범위: {batch_start} ~ {batch_end-1} ({batch_items}개)")
+            logger.info(f"    - 진행률: {progress:.1f}%")
+            logger.info(f"    - 예상 남은 시간: {eta_minutes:.1f}분")
+            
+            # 진행 상황 로그 파일에 기록
+            with open(progress_log_path, 'a') as f:
+                f.write(f"[{datetime.now().isoformat()}] 배치 {batch_idx + 1}/{total_batches}: {batch_start}-{batch_end-1} (진행률: {progress:.1f}%)\n")
+            
+            batch_success = 0
+            batch_fail = 0
+            batch_start_time = time.time()
+            retry_count = 0  # 재시도 횟수 추적
+            
+            # 현재 배치의 아이템들 처리
+            for idx in range(batch_start, batch_end):
+                success = False
+                for retry in range(2):  # 최대 2번 시도 (원본 + 재시도 1번)
+                    try:
+                        _ = full_dataset[idx]  # 이 과정에서 임베딩이 생성됨
+                        batch_success += 1
+                        successful_count += 1
+                        success = True
+                        break
+                    except Exception as e:
+                        logger.error(f"    ❌ 임베딩 생성 실패 (idx={idx}, 시도 {retry+1}/2): {e}")
+                        
+                        if retry == 0:  # 첫 번째 실패 시 서버 재시작
+                            logger.info(f"    🔄 서버 재시작 시도 중...")
+                            try:
+                                # SentenceTransformer 서버 재시작
+                                manager = SentenceTransformerManager()
+                                manager.restart_server(
+                                    'sentence-transformers/all-MiniLM-L6-v2',
+                                    device='cuda' if torch.cuda.is_available() else 'cpu'
+                                )
+                                
+                                # embedding_manager 재초기화
+                                full_dataset.embedding_manager = None
+                                retry_count += 1
+                                logger.info(f"    ✅ 서버 재시작 완료, 재시도 중...")
+                                time.sleep(2)  # 서버 안정화 대기
+                            except Exception as restart_error:
+                                logger.error(f"    ❌ 서버 재시작 실패: {restart_error}")
+                                break
+                        else:  # 두 번째 실패 시
+                            batch_fail += 1
+                            failed_count += 1
+                            logger.error(f"    ❌❌ 재시도 후에도 실패 (idx={idx})")
+                            
+                            # 로그 파일에 기록
+                            with open(progress_log_path, 'a') as f:
+                                f.write(f"[{datetime.now().isoformat()}] 최종 실패! idx={idx}, 에러: {e}\n")
+                                f.write(f"현재 상태 - 성공: {successful_count}, 실패: {failed_count}\n")
+                            
+                            # 같은 위치에서 계속 실패하면 종료
+                            if retry_count > 0:  # 서버 재시작 후에도 실패한 경우
+                                logger.error(f"\n🔴 서버 재시작 후에도 동일 위치에서 실패. 프로세스 종료.")
+                                logger.error(f"   - 성공: {successful_count}개")
+                                logger.error(f"   - 실패: {failed_count}개")
+                                raise RuntimeError(f"임베딩 생성 최종 실패. 인덱스: {idx}")
+                            break
+                
+                if not success and retry_count == 0:
+                    # 첫 번째 항목 실패 시 스킵하고 계속 진행
+                    logger.warning(f"    ⚠️ 인덱스 {idx} 스킵하고 계속 진행")
+            
+            batch_elapsed = time.time() - batch_start_time
+            logger.info(f"    ✅ 배치 완료: 성공 {batch_success}개 (소요시간: {batch_elapsed:.1f}초)")
+            
+            # 로그 파일에 배치 완료 기록
+            with open(progress_log_path, 'a') as f:
+                f.write(f"[{datetime.now().isoformat()}] 배치 {batch_idx + 1} 완료: 성공 {batch_success}개, 시간 {batch_elapsed:.1f}초\n")
+            
+            # 주기적으로 임베딩 저장 (10배치마다)
+            if (batch_idx + 1) % 10 == 0:
+                logger.info(f"  💾 중간 저장 중... (배치 {batch_idx + 1})")
+                full_dataset.save_embeddings()
+                logger.info(f"     저장 완료")
+        
+        # 최종 임베딩 저장
+        full_dataset.save_embeddings()
+        
+        # 최종 통계
+        logger.info(f"\n  ✅ 전체 데이터 임베딩 생성 완료")
+        logger.info(f"     - 성공: {successful_count}개")
+        logger.info(f"     - 실패: {failed_count}개")
+        logger.info(f"     - 진행 로그: {progress_log_path}")
+        
+        with open(progress_log_path, 'a') as f:
+            f.write(f"\n[{datetime.now().isoformat()}] === 임베딩 생성 완료 ===\n")
+            f.write(f"총 성공: {successful_count}개\n")
+            f.write(f"총 실패: {failed_count}개\n")
+    else:
+        logger.info("  ✅ 모든 데이터에 임베딩이 이미 존재")
+    
+    # LR 스윕용 데이터셋 (이미 생성된 임베딩 사용)
     train_dataset = RedHeartDataset(train_data, preprocessed_path)
     val_dataset = RedHeartDataset(val_data, preprocessed_path)
     
@@ -359,13 +504,10 @@ def main():
         raise
     
     finally:
-        # 생성된 임베딩 저장
-        if 'train_dataset' in locals() and hasattr(train_dataset, 'save_embeddings'):
-            logger.info("\n💾 학습 데이터셋 임베딩 저장 중...")
-            train_dataset.save_embeddings()
-        if 'val_dataset' in locals() and hasattr(val_dataset, 'save_embeddings'):
-            logger.info("💾 검증 데이터셋 임베딩 저장 중...")
-            val_dataset.save_embeddings()
+        # 생성된 임베딩 저장 (전체 데이터셋)
+        if 'full_dataset' in locals() and hasattr(full_dataset, 'save_embeddings'):
+            logger.info("\n💾 전체 데이터셋 임베딩 저장 중...")
+            full_dataset.save_embeddings()
         
         # GPU 메모리 정리
         if device.type == 'cuda':

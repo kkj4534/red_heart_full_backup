@@ -26,6 +26,14 @@ import numpy as np
 os.environ['TRANSFORMERS_OFFLINE'] = '1'
 os.environ['HF_DATASETS_OFFLINE'] = '1'
 os.environ['HF_HUB_OFFLINE'] = '1'  # HuggingFace Hub 오프라인 모드
+os.environ['TRANSFORMERS_VERBOSITY'] = 'error'  # 경고 메시지 최소화
+os.environ['HF_HUB_DISABLE_TELEMETRY'] = '1'  # 텔레메트리 비활성화
+
+# HuggingFace 캐시 디렉토리 명시적 설정
+HF_HOME = os.path.expanduser('~/.cache/huggingface')
+os.environ['HF_HOME'] = HF_HOME
+os.environ['HUGGINGFACE_HUB_CACHE'] = os.path.join(HF_HOME, 'hub')
+os.environ['TRANSFORMERS_CACHE'] = os.path.join(HF_HOME, 'hub')
 
 def setup_logging():
     """서버 전용 로깅 설정"""
@@ -110,25 +118,121 @@ class SentenceTransformerServer:
             from sentence_transformers import SentenceTransformer
             
             # 캐시 폴더 설정 - 기존 Hugging Face 캐시 활용
-            if cache_folder is None:
-                # 기존 캐시된 모델이 있는 위치 사용
-                cache_folder = os.path.join("models", "sentence_transformers")
-            os.makedirs(cache_folder, exist_ok=True)
+            # cache_folder가 전달된 경우 사용, 아니면 기본 경로 사용
+            if cache_folder:
+                hf_cache_dir = cache_folder
+            else:
+                hf_cache_dir = os.path.expanduser('~/.cache/huggingface/hub')
             
-            # 환경 변수로 Hugging Face 캐시 디렉토리 설정
-            os.environ['HUGGINGFACE_HUB_CACHE'] = cache_folder
-            os.environ['TRANSFORMERS_CACHE'] = cache_folder
+            # 캐시된 모델 경로 확인
+            model_path = None
+            # HuggingFace Hub 캐시 형식으로 확인
+            hub_model_name = f"models--{model_name.replace('/', '--')}"
+            hub_path = os.path.join(hf_cache_dir, hub_model_name)
             
-            # 모델 로딩 (프로세스 격리 환경에서 안전)
-            self.model = SentenceTransformer(
-                model_name,
-                device=device,
-                cache_folder=cache_folder
-            )
+            self.logger.info(f"HuggingFace 캐시 디렉토리: {hf_cache_dir}")
+            self.logger.info(f"모델 캐시 경로 확인 중: {hub_path}")
+            
+            if os.path.exists(hub_path):
+                # 스냅샷 찾기
+                snapshots_dir = os.path.join(hub_path, 'snapshots')
+                if os.path.exists(snapshots_dir):
+                    snapshot_dirs = [d for d in os.listdir(snapshots_dir) 
+                                   if os.path.isdir(os.path.join(snapshots_dir, d))]
+                    if snapshot_dirs:
+                        # 가장 최근 스냅샷 사용
+                        model_path = os.path.join(snapshots_dir, snapshot_dirs[0])
+                        self.logger.info(f"캐시된 모델 발견: {model_path}")
+                        
+                        # 모델 파일 존재 확인
+                        model_files = os.listdir(model_path)
+                        self.logger.info(f"모델 파일 목록: {model_files}")
+                else:
+                    self.logger.warning(f"스냅샷 디렉토리 없음: {snapshots_dir}")
+            else:
+                self.logger.warning(f"모델 캐시 경로 없음: {hub_path}")
+            
+            # 모델 로딩 - 캐시된 경로에서 직접 로드
+            if model_path and os.path.exists(model_path):
+                try:
+                    self.logger.info(f"캐시된 모델 직접 로드 중: {model_path}")
+                    
+                    # 방법 1: 캐시 경로에서 직접 로드 (local_files_only 추가)
+                    self.model = SentenceTransformer(
+                        model_path,
+                        device=device,
+                        local_files_only=True
+                    )
+                    
+                    self.logger.info(f"캐시된 모델 로드 성공: {model_path}")
+                    
+                except Exception as e:
+                    self.logger.warning(f"직접 로드 실패, 대체 방법 시도: {e}")
+                    
+                    # 방법 2: transformers 라이브러리로 수동 로드
+                    from transformers import AutoModel, AutoTokenizer
+                    from sentence_transformers import models
+                    
+                    # 토크나이저와 모델을 개별적으로 로드
+                    tokenizer = AutoTokenizer.from_pretrained(
+                        model_path,
+                        local_files_only=True
+                    )
+                    
+                    transformer = AutoModel.from_pretrained(
+                        model_path,
+                        local_files_only=True
+                    )
+                    
+                    # SentenceTransformer 모듈 수동 구성
+                    # 1_Pooling 디렉토리에서 설정 읽기
+                    pooling_config_path = os.path.join(model_path, '1_Pooling', 'config.json')
+                    if os.path.exists(pooling_config_path):
+                        import json
+                        with open(pooling_config_path, 'r') as f:
+                            pooling_config = json.load(f)
+                        
+                        word_embedding_model = models.Transformer(
+                            model_name_or_path=model_path,
+                            max_seq_length=pooling_config.get('max_seq_length', 512)
+                        )
+                        
+                        pooling_model = models.Pooling(
+                            word_embedding_dimension=pooling_config.get('word_embedding_dimension', 384),
+                            pooling_mode_cls_token=pooling_config.get('pooling_mode_cls_token', False),
+                            pooling_mode_mean_tokens=pooling_config.get('pooling_mode_mean_tokens', True),
+                            pooling_mode_max_tokens=pooling_config.get('pooling_mode_max_tokens', False),
+                            pooling_mode_mean_sqrt_len_tokens=pooling_config.get('pooling_mode_mean_sqrt_len_tokens', False)
+                        )
+                    else:
+                        # 기본 설정 사용
+                        word_embedding_model = models.Transformer(model_name_or_path=model_path)
+                        pooling_model = models.Pooling(
+                            word_embedding_model.get_word_embedding_dimension(),
+                            pooling_mode_mean_tokens=True,
+                            pooling_mode_cls_token=False,
+                            pooling_mode_max_tokens=False
+                        )
+                    
+                    # 정규화 레이어 추가 (all-MiniLM-L6-v2는 정규화 사용)
+                    normalize_layer = models.Normalize()
+                    
+                    self.model = SentenceTransformer(
+                        modules=[word_embedding_model, pooling_model, normalize_layer],
+                        device=device
+                    )
+                    
+                    self.logger.info(f"대체 방법으로 모델 로드 성공")
+            else:
+                # 캐시된 모델이 없는 경우 에러
+                error_msg = f"캐시된 모델을 찾을 수 없습니다: {model_name}\n"
+                error_msg += f"확인된 경로: {hub_path}\n"
+                error_msg += "모델을 먼저 다운로드하거나 캐시 경로를 확인하세요."
+                raise FileNotFoundError(error_msg)
             
             self.model_name = model_name
             self.device = device
-            self.cache_folder = cache_folder
+            self.cache_folder = hf_cache_dir
             
             self.logger.info(f"모델 로딩 성공: {model_name}")
             
@@ -172,14 +276,19 @@ class SentenceTransformerServer:
             
             self.logger.info(f"텍스트 인코딩 시작: {len(texts)}개 텍스트")
             
-            # 임베딩 생성
-            embeddings = self.model.encode(texts, **kwargs)
+            # 임베딩 생성 - gradient 추적 비활성화
+            with torch.no_grad():
+                embeddings = self.model.encode(texts, **kwargs)
             
             # numpy array를 list로 변환 (JSON 직렬화용)
             if isinstance(embeddings, np.ndarray):
                 embeddings_list = embeddings.tolist()
             else:
                 embeddings_list = embeddings
+            
+            # GPU 메모리 정리 (메모리 누수 방지)
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
             
             self.logger.info(f"텍스트 인코딩 완료: {len(texts)}개 → {len(embeddings_list)}개 임베딩")
             

@@ -127,7 +127,7 @@ class SentenceTransformerManager:
                 client = SentenceTransformerClient(
                     server_script_path=self._server_script_path,
                     startup_timeout=60.0,  # 충분한 시간
-                    request_timeout=120.0
+                    request_timeout=180.0  # 3분 (메모리 정리 후 충분한 시간)
                 )
                 
                 # 서버 시작 및 모델 로딩
@@ -215,6 +215,28 @@ class SentenceTransformerManager:
             memory_info['gpu_cached'] = torch.cuda.memory_reserved() / (1024 * 1024)
         
         return memory_info
+    
+    def restart_server(self, model_name: str, device: str = None):
+        """특정 모델의 서버 재시작"""
+        if device is None:
+            device = str(get_device())
+        
+        model_key = f"{model_name}_{device}"
+        
+        # 기존 클라이언트 종료
+        if model_key in self._clients:
+            try:
+                logger.info(f"서버 재시작 중: {model_key}")
+                self._clients[model_key].stop_server()
+                del self._clients[model_key]
+            except Exception as e:
+                logger.warning(f"서버 종료 실패: {e}")
+        
+        # GPU 메모리 정리
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+        
+        logger.info(f"서버 재시작 완료: {model_key}")
     
     def clear_cache(self):
         """모델 캐시 정리"""

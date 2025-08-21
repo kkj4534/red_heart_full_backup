@@ -296,47 +296,34 @@ class SentenceTransformerClient:
     
     def send_request(self, request: Dict[str, Any], auto_reconnect: bool = True) -> Dict[str, Any]:
         """
-        요청 전송 (자동 재연결 포함)
+        요청 전송 (재연결 없이 실패 시 즉시 종료)
         
         Args:
             request: 요청 딕셔너리
-            auto_reconnect: 자동 재연결 활성화
+            auto_reconnect: (더 이상 사용되지 않음, 호환성을 위해 유지)
             
         Returns:
             응답 딕셔너리
         """
         with self.request_lock:
-            max_retries = 2 if auto_reconnect else 1
-            last_error = None
-            
-            for attempt in range(max_retries):
-                try:
-                    # 연결 상태 확인
-                    if not self.is_connected:
-                        if not self.start_server():
-                            raise RuntimeError("서버 시작 실패")
-                    
-                    # 요청 전송
-                    response = self._send_request_raw(request)
-                    if response:
-                        return response
-                    else:
-                        raise RuntimeError("응답 없음")
+            # 재연결 로직 제거 - 실패 시 즉시 에러 발생
+            try:
+                # 연결 상태 확인
+                if not self.is_connected:
+                    if not self.start_server():
+                        raise RuntimeError("서버 시작 실패")
                 
-                except Exception as e:
-                    last_error = e
-                    logger.warning(f"요청 실패 (시도 {attempt + 1}/{max_retries}): {e}")
-                    
-                    # 재연결 시도
-                    if attempt < max_retries - 1 and auto_reconnect:
-                        logger.info("재연결 시도 중...")
-                        self._cleanup_process()
-                        time.sleep(1.0)
+                # 요청 전송
+                response = self._send_request_raw(request)
+                if response:
+                    return response
+                else:
+                    raise RuntimeError("응답 없음")
             
-            # 모든 시도 실패
-            error_msg = f"요청 전송 완전 실패: {last_error}"
-            logger.error(error_msg)
-            raise RuntimeError(error_msg)
+            except Exception as e:
+                logger.error(f"요청 전송 실패: {e}")
+                # 재연결 시도 없이 즉시 에러 발생
+                raise RuntimeError(f"요청 실패 (재연결 없음): {e}") from e
     
     def load_model(self, model_name: str, device: str = None, cache_folder: str = None) -> Dict[str, Any]:
         """

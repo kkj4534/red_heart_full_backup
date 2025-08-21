@@ -245,6 +245,18 @@ activate_integrated_environment() {
 # 통합 환경 활성화
 activate_integrated_environment
 
+# HuggingFace 오프라인 모드 설정 (캐시된 모델만 사용)
+export TRANSFORMERS_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_VERBOSITY=error
+export HF_HUB_DISABLE_TELEMETRY=1
+export HF_HOME=~/.cache/huggingface
+export HUGGINGFACE_HUB_CACHE=~/.cache/huggingface/hub
+export TRANSFORMERS_CACHE=~/.cache/huggingface/hub
+
+print_status "🔐 HuggingFace 오프라인 모드 활성화 (캐시된 모델만 사용)"
+
 # 학습 시스템 실행 함수
 run_learning_system() {
     local mode="${1:-auto}"
