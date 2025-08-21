@@ -15,6 +15,7 @@ import asyncio
 import threading
 import time
 from typing import Dict, Optional, Any, List
+import torch
 from sentence_transformer_client import SentenceTransformerClient
 from config import MODELS_DIR, get_device
 

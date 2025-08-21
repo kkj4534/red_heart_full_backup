@@ -21,6 +21,7 @@ import traceback
 import os
 from typing import Dict, List, Any, Optional
 import numpy as np
+import torch
 
 # 환경 변수 설정 - 오프라인 모드 활성화 (캐시된 모델만 사용)
 os.environ['TRANSFORMERS_OFFLINE'] = '1'

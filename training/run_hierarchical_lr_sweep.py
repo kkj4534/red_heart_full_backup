@@ -284,6 +284,8 @@ def main():
         failed_count = 0
         total_retry_count = 0  # 전체 프로세스의 누적 재시도 횟수
         max_total_retries = 3  # 최대 허용 재시도 횟수
+        total_skip_count = 0  # 전체 스킵 횟수
+        max_total_skips = 5  # 최대 허용 스킵 횟수
         
         # 배치 단위로 처리
         for batch_idx in range(total_batches):
@@ -334,6 +336,8 @@ def main():
                                 raise RuntimeError(f"누적 재시도 {total_retry_count}회 초과로 종료")
                             
                             logger.info(f"    🔄 서버 재시작 시도 중... (누적 {total_retry_count+1}/{max_total_retries})")
+                            total_retry_count += 1  # 시도 자체를 카운트
+                            
                             try:
                                 # SentenceTransformer 서버 재시작
                                 manager = SentenceTransformerManager()
@@ -344,12 +348,11 @@ def main():
                                 
                                 # embedding_manager 재초기화
                                 full_dataset.embedding_manager = None
-                                total_retry_count += 1
                                 logger.info(f"    ✅ 서버 재시작 완료, 재시도 중...")
                                 time.sleep(2)  # 서버 안정화 대기
                             except Exception as restart_error:
                                 logger.error(f"    ❌ 서버 재시작 실패: {restart_error}")
-                                break
+                                # break 제거 - 두 번째 시도 진행
                         else:  # 두 번째 실패 시
                             batch_fail += 1
                             failed_count += 1
@@ -363,8 +366,20 @@ def main():
                             break
                 
                 if not success:
+                    # 스킵 횟수 확인
+                    total_skip_count += 1
+                    if total_skip_count >= max_total_skips:
+                        logger.error(f"\n🔴 누적 스킵 횟수 {total_skip_count}개 초과. 프로세스 종료.")
+                        logger.error(f"   - 성공: {successful_count}개")
+                        logger.error(f"   - 실패: {failed_count}개")
+                        logger.error(f"   - 스킵: {total_skip_count}개")
+                        with open(progress_log_path, 'a') as f:
+                            f.write(f"[{datetime.now().isoformat()}] 누적 스킵 초과\n")
+                            f.write(f"최종 상태 - 성공: {successful_count}, 실패: {failed_count}, 스킵: {total_skip_count}\n")
+                        raise RuntimeError(f"누적 스킵 {total_skip_count}개 초과로 종료")
+                    
                     # 실패한 항목 스킵하고 계속 진행
-                    logger.warning(f"    ⚠️ 인덱스 {idx} 스킵하고 계속 진행")
+                    logger.warning(f"    ⚠️ 인덱스 {idx} 스킵하고 계속 진행 (누적 스킵: {total_skip_count}/{max_total_skips})")
             
             batch_elapsed = time.time() - batch_start_time
             logger.info(f"    ✅ 배치 완료: 성공 {batch_success}개 (소요시간: {batch_elapsed:.1f}초)")
