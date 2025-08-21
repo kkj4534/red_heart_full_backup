@@ -58,6 +58,7 @@ class SentenceTransformerClient:
         self.process: Optional[subprocess.Popen] = None
         self.is_connected = False
         self.connection_lock = threading.RLock()
+        self._stderr_thread = None  # stderr 드레인 스레드
         
         # 통신 관리
         self.request_lock = threading.RLock()
@@ -110,6 +111,39 @@ class SentenceTransformerClient:
         logger.warning(f"venv python을 찾을 수 없음. fallback 사용: {current_python}")
         return current_python
     
+    def _start_stderr_drain(self):
+        """
+        stderr 드레인 스레드 시작
+        버퍼가 가득 차지 않도록 지속적으로 stderr를 읽어서 로깅
+        """
+        def _drain():
+            """백그라운드에서 stderr를 계속 읽는 함수"""
+            try:
+                if not self.process or not self.process.stderr:
+                    return
+                
+                logger.info("stderr 드레인 스레드 시작")
+                
+                # iter를 사용해 라인 단위로 읽기
+                for line in iter(self.process.stderr.readline, ''):
+                    if not line:
+                        break
+                    
+                    # 서버 로그를 DEBUG 레벨로 기록 (너무 많은 로그 방지)
+                    line = line.rstrip()
+                    if line:
+                        logger.debug(f"[server-stderr] {line}")
+                
+                logger.info("stderr 드레인 스레드 종료")
+                
+            except Exception as e:
+                logger.debug(f"stderr 드레인 중 예외 발생 (정상적일 수 있음): {e}")
+        
+        # 데몬 스레드로 시작 (메인 프로세스 종료 시 자동 종료)
+        self._stderr_thread = threading.Thread(target=_drain, daemon=True, name="stderr-drain")
+        self._stderr_thread.start()
+        logger.info("stderr 드레인 스레드 생성 완료")
+    
     def start_server(self) -> bool:
         """
         서버 프로세스 시작
@@ -159,6 +193,9 @@ class SentenceTransformerClient:
                     cwd=os.path.dirname(os.path.abspath(self.server_script_path)) or ".",
                     env=env  # 환경변수 전달
                 )
+                
+                # stderr 드레인 스레드 시작 (버퍼 오버플로우 방지)
+                self._start_stderr_drain()
                 
                 # 서버 시작 대기 및 health check
                 start_time = time.time()
@@ -241,6 +278,13 @@ class SentenceTransformerClient:
             if self.process.stderr:
                 self.process.stderr.close()
             self.process = None
+        
+        # stderr 드레인 스레드 종료 대기
+        if self._stderr_thread and self._stderr_thread.is_alive():
+            logger.debug("stderr 드레인 스레드 종료 대기")
+            # 데몬 스레드이므로 join 타임아웃 설정
+            self._stderr_thread.join(timeout=1.0)
+            self._stderr_thread = None
         
         self.is_connected = False
     

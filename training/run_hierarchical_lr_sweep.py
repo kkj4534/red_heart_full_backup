@@ -282,6 +282,8 @@ def main():
         total_batches = (len(full_dataset) + batch_size - 1) // batch_size
         successful_count = 0
         failed_count = 0
+        total_retry_count = 0  # 전체 프로세스의 누적 재시도 횟수
+        max_total_retries = 3  # 최대 허용 재시도 횟수
         
         # 배치 단위로 처리
         for batch_idx in range(total_batches):
@@ -306,7 +308,6 @@ def main():
             batch_success = 0
             batch_fail = 0
             batch_start_time = time.time()
-            retry_count = 0  # 재시도 횟수 추적
             
             # 현재 배치의 아이템들 처리
             for idx in range(batch_start, batch_end):
@@ -322,7 +323,17 @@ def main():
                         logger.error(f"    ❌ 임베딩 생성 실패 (idx={idx}, 시도 {retry+1}/2): {e}")
                         
                         if retry == 0:  # 첫 번째 실패 시 서버 재시작
-                            logger.info(f"    🔄 서버 재시작 시도 중...")
+                            # 누적 재시도 횟수 확인
+                            if total_retry_count >= max_total_retries:
+                                logger.error(f"\n🔴 누적 재시도 횟수 {total_retry_count}회 초과. 프로세스 종료.")
+                                logger.error(f"   - 성공: {successful_count}개")
+                                logger.error(f"   - 실패: {failed_count}개")
+                                with open(progress_log_path, 'a') as f:
+                                    f.write(f"[{datetime.now().isoformat()}] 누적 재시도 초과\n")
+                                    f.write(f"최종 상태 - 성공: {successful_count}, 실패: {failed_count}\n")
+                                raise RuntimeError(f"누적 재시도 {total_retry_count}회 초과로 종료")
+                            
+                            logger.info(f"    🔄 서버 재시작 시도 중... (누적 {total_retry_count+1}/{max_total_retries})")
                             try:
                                 # SentenceTransformer 서버 재시작
                                 manager = SentenceTransformerManager()
@@ -333,7 +344,7 @@ def main():
                                 
                                 # embedding_manager 재초기화
                                 full_dataset.embedding_manager = None
-                                retry_count += 1
+                                total_retry_count += 1
                                 logger.info(f"    ✅ 서버 재시작 완료, 재시도 중...")
                                 time.sleep(2)  # 서버 안정화 대기
                             except Exception as restart_error:
@@ -349,16 +360,10 @@ def main():
                                 f.write(f"[{datetime.now().isoformat()}] 최종 실패! idx={idx}, 에러: {e}\n")
                                 f.write(f"현재 상태 - 성공: {successful_count}, 실패: {failed_count}\n")
                             
-                            # 같은 위치에서 계속 실패하면 종료
-                            if retry_count > 0:  # 서버 재시작 후에도 실패한 경우
-                                logger.error(f"\n🔴 서버 재시작 후에도 동일 위치에서 실패. 프로세스 종료.")
-                                logger.error(f"   - 성공: {successful_count}개")
-                                logger.error(f"   - 실패: {failed_count}개")
-                                raise RuntimeError(f"임베딩 생성 최종 실패. 인덱스: {idx}")
                             break
                 
-                if not success and retry_count == 0:
-                    # 첫 번째 항목 실패 시 스킵하고 계속 진행
+                if not success:
+                    # 실패한 항목 스킵하고 계속 진행
                     logger.warning(f"    ⚠️ 인덱스 {idx} 스킵하고 계속 진행")
             
             batch_elapsed = time.time() - batch_start_time
