@@ -409,6 +409,16 @@ run_learning_system() {
             print_status "   - LR 스윕, Sweet Spot, Parameter Crossover 포함"
             print_status "   - Advanced Training Techniques 활성화"
             
+            # --samples 값 추출
+            SAMPLES=""
+            for i in "$@"; do
+                if [[ "$prev_arg" == "--samples" ]]; then
+                    SAMPLES="$i"
+                    break
+                fi
+                prev_arg="$i"
+            done
+            
             # --lr-sweep 옵션 확인
             if [[ "$@" == *"--lr-sweep"* ]]; then
                 print_status "🔍 Hierarchical LR Sweep (5-5-5-5) 실행 모드"
@@ -416,14 +426,55 @@ run_learning_system() {
                 print_status "   - 각 LR은 독립적으로 초기 가중치에서 시작"
                 
                 if [ -f "training/run_hierarchical_lr_sweep.py" ]; then
-                    python training/run_hierarchical_lr_sweep.py
+                    # --debug, --verbose 등의 옵션 전달 (--lr-sweep, --no-param-update 제외)
+                    SWEEP_ARGS=""
+                    for arg in "$@"; do
+                        if [[ "$arg" == "--debug" ]] || [[ "$arg" == "--verbose" ]]; then
+                            SWEEP_ARGS="$SWEEP_ARGS $arg"
+                        fi
+                    done
+                    python training/run_hierarchical_lr_sweep.py $SWEEP_ARGS
                     exit_code=$?
                     if [ $exit_code -eq 0 ]; then
                         print_success "✅ LR 스윕 완료! 최적 LR이 training/lr_sweep_results/optimal_lr.json에 저장됨"
+                        
+                        # 최적 LR로 자동 학습 테스트 실행
+                        if [ -f "training/lr_sweep_results/optimal_lr.json" ]; then
+                            OPTIMAL_LR=$(python -c "import json; print(json.load(open('training/lr_sweep_results/optimal_lr.json'))['optimal_lr'])")
+                            print_status "🎯 최적 LR($OPTIMAL_LR)로 학습 테스트 시작..."
+                            
+                            # unified_training_final.py 실행 (--no-param-update 포함)
+                            # --lr-sweep 옵션 제거하여 전달
+                            FILTERED_ARGS=""
+                            for arg in "$@"; do
+                                if [[ "$arg" != "--lr-sweep" ]]; then
+                                    FILTERED_ARGS="$FILTERED_ARGS $arg"
+                                fi
+                            done
+                            
+                            if [ -f "training/unified_training_final.py" ]; then
+                                python training/unified_training_final.py \
+                                    --lr $OPTIMAL_LR \
+                                    --epochs ${SAMPLES:-3} \
+                                    --no-param-update \
+                                    --verbose $FILTERED_ARGS
+                                
+                                test_exit_code=$?
+                                if [ $test_exit_code -eq 0 ]; then
+                                    print_success "✅ 학습 테스트 완료!"
+                                else
+                                    print_error "❌ 학습 테스트 실패 (exit code: $test_exit_code)"
+                                fi
+                                exit $test_exit_code
+                            else
+                                print_warning "학습 테스트 스킵 (unified_training_final.py 없음)"
+                            fi
+                        fi
                     else
                         print_error "❌ LR 스윕 실패 (exit code: $exit_code)"
+                        exit $exit_code
                     fi
-                    exit $exit_code
+                    exit 0
                 else
                     print_error "❌ training/run_hierarchical_lr_sweep.py를 찾을 수 없습니다"
                     exit 1
@@ -584,7 +635,7 @@ show_learning_help() {
     echo "  --samples N         # 처리할 샘플 수"
     echo "  --epochs N          # 훈련 에포크 수"
     echo "  --batch-size N      # 배치 크기"
-    echo "  --learning-rate F   # 학습률"
+    echo "  --lr F              # 학습률"
     echo "  --strategy S        # 훈련 전략 (adaptive/parallel/round_robin)"
     echo "  --timeout N         # 최대 실행 시간 (초)"
     echo "  --dashboard-port N  # 대시보드 포트"
@@ -595,7 +646,7 @@ show_learning_help() {
     echo "기존 시스템 옵션 (real_integrated_training.py):"
     echo "  --samples N         # 처리할 샘플 수"
     echo "  --batch-size N      # 배치 크기"
-    echo "  --learning-rate F   # 학습률"
+    echo "  --lr F              # 학습률"
     echo "  --verbose           # 상세 로그 출력"
     echo "  --debug             # 디버그 모드"
     echo ""

@@ -1,0 +1,479 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m 🔐 HuggingFace 오프라인 모드 활성화 (캐시된 모델만 사용)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 730M 최종 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 60 에폭 학습 테스트 (--samples로 제한 가능)
+[0;34m[INFO][0m    - LR 스윕, Sweet Spot, Parameter Crossover 포함
+[0;34m[INFO][0m    - Advanced Training Techniques 활성화
+[0;34m[INFO][0m 🔍 Hierarchical LR Sweep (5-5-5-5) 실행 모드
+[0;34m[INFO][0m    - 25개 포인트로 최적 LR 탐색
+[0;34m[INFO][0m    - 각 LR은 독립적으로 초기 가중치에서 시작
+INFO:__main__:================================================================================
+INFO:__main__:🚀 독립적인 Hierarchical Learning Rate Sweep 시작
+INFO:__main__:================================================================================
+INFO:__main__:Device: cuda
+INFO:__main__:GPU: NVIDIA GeForce RTX 2070 SUPER
+INFO:__main__:GPU Memory: 8.6 GB
+INFO:__main__:
+📊 모델 설정:
+INFO:__main__:  - d_model: 896
+INFO:__main__:  - num_heads: 16
+INFO:__main__:  - num_layers: 6
+INFO:__main__:  - dropout: 0.1
+INFO:__main__:
+🔧 모델 생성 중...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+INFO:unified_backbone:백본 총 파라미터: 90,624,132 (90.62M)
+INFO:unified_backbone:학습 가능 파라미터: 90,624,132 (90.62M)
+INFO:unified_heads:감정 헤드 파라미터: 17,254,583 (17.25M)
+INFO:unified_heads:벤담 헤드 파라미터: 13,871,919 (13.87M)
+INFO:unified_heads:후회 헤드 파라미터: 19,897,161 (19.90M)
+INFO:unified_heads:SURD 헤드 파라미터: 12,025,739 (12.03M)
+INFO:analyzer_neural_modules:NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+INFO:analyzer_neural_modules:NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+INFO:analyzer_neural_modules:NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+INFO:analyzer_neural_modules:NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+INFO:analyzer_neural_modules:전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:__main__:  - 총 파라미터: 539.9M
+INFO:__main__:  - 학습 가능 파라미터: 539.9M
+INFO:__main__:  - 초기 가중치 저장 완료
+INFO:__main__:
+📁 데이터 로더 생성 중...
+INFO:__main__:🧱 청크 모드 강제 활성화 - claude_api_preprocessing/embedded
+INFO:__main__:📂 청크가 없음 - 원본 데이터 로드 후 청크 생성
+INFO:__main__:📂 원본 데이터 로드: claude_api_preprocessing/claude_preprocessed_complete.json
+INFO:__main__:⚠️ 단일 임베딩 파일은 무시하고 처음부터 청크 생성
+INFO:__main__:  - 전체 데이터: 10460개
+INFO:__main__:  - 전체 데이터: 10460개
+INFO:__main__:  - LR 스윕용 학습 데이터: 1000개
+INFO:__main__:  - LR 스윕용 검증 데이터: 100개
+INFO:__main__:
+🔄 전체 데이터 임베딩 생성 중...
+INFO:__main__:📊 임베딩 상태:
+INFO:__main__:  - 전체 데이터: 10460개
+INFO:__main__:  - 임베딩 있음: 0개 (0.0%)
+INFO:__main__:  - 임베딩 없음: 10460개 (100.0%)
+WARNING:__main__:⚠️ 10460개 항목에 임베딩이 없습니다. 자동 생성됩니다.
+INFO:__main__:  - 임베딩 생성 필요: 10460개 / 10460개
+INFO:__main__:  - 배치 처리 시작 (30개씩, 각 배치 타임아웃 13분)
+INFO:__main__:
+  📦 배치 1/349 처리 중...
+INFO:__main__:    - 범위: 0 ~ 29 (30개)
+INFO:__main__:    - 진행률: 0.0%
+INFO:__main__:    - 예상 남은 시간: 174.5분
+INFO:sentence_transformer_singleton:새 클라이언트 생성 시작: sentence-transformers/all-MiniLM-L6-v2_cuda
+INFO:sentence_transformer_client:현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+INFO:sentence_transformer_client:SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+INFO:sentence_transformer_client:Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+INFO:sentence_transformer_singleton:서버 시작 및 모델 로딩: sentence-transformers/all-MiniLM-L6-v2 (device: cuda)
+INFO:sentence_transformer_client:SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+INFO:sentence_transformer_client:PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+INFO:sentence_transformer_client:VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+INFO:sentence_transformer_client:stderr 드레인 스레드 시작
+INFO:sentence_transformer_client:stderr 드레인 스레드 생성 완료
+INFO:sentence_transformer_client:서버 연결 성공
+INFO:sentence_transformer_client:모델 로딩 요청: sentence-transformers/all-MiniLM-L6-v2 (device: cuda)
+INFO:sentence_transformer_client:모델 로딩 성공: sentence-transformers/all-MiniLM-L6-v2
+INFO:sentence_transformer_singleton:클라이언트 생성 및 모델 로딩 성공: sentence-transformers/all-MiniLM-L6-v2_cuda
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 107.3초)
+INFO:__main__:
+  📦 배치 2/349 처리 중...
+INFO:__main__:    - 범위: 30 ~ 59 (30개)
+INFO:__main__:    - 진행률: 0.3%
+INFO:__main__:    - 예상 남은 시간: 174.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.3초)
+INFO:__main__:
+  📦 배치 3/349 처리 중...
+INFO:__main__:    - 범위: 60 ~ 89 (30개)
+INFO:__main__:    - 진행률: 0.6%
+INFO:__main__:    - 예상 남은 시간: 173.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.3초)
+INFO:__main__:
+  📦 배치 4/349 처리 중...
+INFO:__main__:    - 범위: 90 ~ 119 (30개)
+INFO:__main__:    - 진행률: 0.9%
+INFO:__main__:    - 예상 남은 시간: 173.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 5/349 처리 중...
+INFO:__main__:    - 범위: 120 ~ 149 (30개)
+INFO:__main__:    - 진행률: 1.1%
+INFO:__main__:    - 예상 남은 시간: 172.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 6/349 처리 중...
+INFO:__main__:    - 범위: 150 ~ 179 (30개)
+INFO:__main__:    - 진행률: 1.4%
+INFO:__main__:    - 예상 남은 시간: 172.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 7/349 처리 중...
+INFO:__main__:    - 범위: 180 ~ 209 (30개)
+INFO:__main__:    - 진행률: 1.7%
+INFO:__main__:    - 예상 남은 시간: 171.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 8/349 처리 중...
+INFO:__main__:    - 범위: 210 ~ 239 (30개)
+INFO:__main__:    - 진행률: 2.0%
+INFO:__main__:    - 예상 남은 시간: 171.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 9/349 처리 중...
+INFO:__main__:    - 범위: 240 ~ 269 (30개)
+INFO:__main__:    - 진행률: 2.3%
+INFO:__main__:    - 예상 남은 시간: 170.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: -1.9초)
+INFO:__main__:
+  📦 배치 10/349 처리 중...
+INFO:__main__:    - 범위: 270 ~ 299 (30개)
+INFO:__main__:    - 진행률: 2.6%
+INFO:__main__:    - 예상 남은 시간: 170.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:  💾 중간 저장 중... (배치 10)
+INFO:embedding_chunker:기존 청크 삭제 중...
+INFO:embedding_chunker:청크 생성 시작: 10460개 아이템 → 11개 청크
+INFO:embedding_chunker:청크 0/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 1/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 2/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 3/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 4/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 5/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 6/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 7/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 8/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 9/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 10/10 저장: 460개 아이템
+INFO:embedding_chunker:✅ 청크 생성 완료: 11개 청크, 10460개 인덱스
+INFO:__main__:✅ 임베딩이 청크로 저장되었습니다
+INFO:__main__:     저장 완료
+INFO:__main__:
+  📦 배치 11/349 처리 중...
+INFO:__main__:    - 범위: 300 ~ 329 (30개)
+INFO:__main__:    - 진행률: 2.9%
+INFO:__main__:    - 예상 남은 시간: 169.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.6초)
+INFO:__main__:
+  📦 배치 12/349 처리 중...
+INFO:__main__:    - 범위: 330 ~ 359 (30개)
+INFO:__main__:    - 진행률: 3.2%
+INFO:__main__:    - 예상 남은 시간: 169.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 13/349 처리 중...
+INFO:__main__:    - 범위: 360 ~ 389 (30개)
+INFO:__main__:    - 진행률: 3.4%
+INFO:__main__:    - 예상 남은 시간: 168.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 14/349 처리 중...
+INFO:__main__:    - 범위: 390 ~ 419 (30개)
+INFO:__main__:    - 진행률: 3.7%
+INFO:__main__:    - 예상 남은 시간: 168.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 15/349 처리 중...
+INFO:__main__:    - 범위: 420 ~ 449 (30개)
+INFO:__main__:    - 진행률: 4.0%
+INFO:__main__:    - 예상 남은 시간: 167.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 16/349 처리 중...
+INFO:__main__:    - 범위: 450 ~ 479 (30개)
+INFO:__main__:    - 진행률: 4.3%
+INFO:__main__:    - 예상 남은 시간: 167.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 17/349 처리 중...
+INFO:__main__:    - 범위: 480 ~ 509 (30개)
+INFO:__main__:    - 진행률: 4.6%
+INFO:__main__:    - 예상 남은 시간: 166.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.9초)
+INFO:__main__:
+  📦 배치 18/349 처리 중...
+INFO:__main__:    - 범위: 510 ~ 539 (30개)
+INFO:__main__:    - 진행률: 4.9%
+INFO:__main__:    - 예상 남은 시간: 166.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 19/349 처리 중...
+INFO:__main__:    - 범위: 540 ~ 569 (30개)
+INFO:__main__:    - 진행률: 5.2%
+INFO:__main__:    - 예상 남은 시간: 165.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 20/349 처리 중...
+INFO:__main__:    - 범위: 570 ~ 599 (30개)
+INFO:__main__:    - 진행률: 5.4%
+INFO:__main__:    - 예상 남은 시간: 165.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:  💾 중간 저장 중... (배치 20)
+INFO:embedding_chunker:기존 청크 삭제 중...
+INFO:embedding_chunker:청크 생성 시작: 10460개 아이템 → 11개 청크
+INFO:embedding_chunker:청크 0/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 1/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 2/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 3/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 4/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 5/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 6/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 7/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 8/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 9/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 10/10 저장: 460개 아이템
+INFO:embedding_chunker:✅ 청크 생성 완료: 11개 청크, 10460개 인덱스
+INFO:__main__:✅ 임베딩이 청크로 저장되었습니다
+INFO:__main__:     저장 완료
+INFO:__main__:
+  📦 배치 21/349 처리 중...
+INFO:__main__:    - 범위: 600 ~ 629 (30개)
+INFO:__main__:    - 진행률: 5.7%
+INFO:__main__:    - 예상 남은 시간: 164.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.7초)
+INFO:__main__:
+  📦 배치 22/349 처리 중...
+INFO:__main__:    - 범위: 630 ~ 659 (30개)
+INFO:__main__:    - 진행률: 6.0%
+INFO:__main__:    - 예상 남은 시간: 164.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 23/349 처리 중...
+INFO:__main__:    - 범위: 660 ~ 689 (30개)
+INFO:__main__:    - 진행률: 6.3%
+INFO:__main__:    - 예상 남은 시간: 163.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 24/349 처리 중...
+INFO:__main__:    - 범위: 690 ~ 719 (30개)
+INFO:__main__:    - 진행률: 6.6%
+INFO:__main__:    - 예상 남은 시간: 163.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 25/349 처리 중...
+INFO:__main__:    - 범위: 720 ~ 749 (30개)
+INFO:__main__:    - 진행률: 6.9%
+INFO:__main__:    - 예상 남은 시간: 162.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 26/349 처리 중...
+INFO:__main__:    - 범위: 750 ~ 779 (30개)
+INFO:__main__:    - 진행률: 7.2%
+INFO:__main__:    - 예상 남은 시간: 162.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 27/349 처리 중...
+INFO:__main__:    - 범위: 780 ~ 809 (30개)
+INFO:__main__:    - 진행률: 7.5%
+INFO:__main__:    - 예상 남은 시간: 161.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 28/349 처리 중...
+INFO:__main__:    - 범위: 810 ~ 839 (30개)
+INFO:__main__:    - 진행률: 7.7%
+INFO:__main__:    - 예상 남은 시간: 161.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 29/349 처리 중...
+INFO:__main__:    - 범위: 840 ~ 869 (30개)
+INFO:__main__:    - 진행률: 8.0%
+INFO:__main__:    - 예상 남은 시간: 160.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 30/349 처리 중...
+INFO:__main__:    - 범위: 870 ~ 899 (30개)
+INFO:__main__:    - 진행률: 8.3%
+INFO:__main__:    - 예상 남은 시간: 160.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:  💾 중간 저장 중... (배치 30)
+INFO:embedding_chunker:기존 청크 삭제 중...
+INFO:embedding_chunker:청크 생성 시작: 10460개 아이템 → 11개 청크
+INFO:embedding_chunker:청크 0/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 1/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 2/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 3/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 4/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 5/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 6/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 7/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 8/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 9/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 10/10 저장: 460개 아이템
+INFO:embedding_chunker:✅ 청크 생성 완료: 11개 청크, 10460개 인덱스
+INFO:__main__:✅ 임베딩이 청크로 저장되었습니다
+INFO:__main__:     저장 완료
+INFO:__main__:
+  📦 배치 31/349 처리 중...
+INFO:__main__:    - 범위: 900 ~ 929 (30개)
+INFO:__main__:    - 진행률: 8.6%
+INFO:__main__:    - 예상 남은 시간: 159.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.6초)
+INFO:__main__:
+  📦 배치 32/349 처리 중...
+INFO:__main__:    - 범위: 930 ~ 959 (30개)
+INFO:__main__:    - 진행률: 8.9%
+INFO:__main__:    - 예상 남은 시간: 159.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 33/349 처리 중...
+INFO:__main__:    - 범위: 960 ~ 989 (30개)
+INFO:__main__:    - 진행률: 9.2%
+INFO:__main__:    - 예상 남은 시간: 158.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 34/349 처리 중...
+INFO:__main__:    - 범위: 990 ~ 1019 (30개)
+INFO:__main__:    - 진행률: 9.5%
+INFO:__main__:    - 예상 남은 시간: 158.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 35/349 처리 중...
+INFO:__main__:    - 범위: 1020 ~ 1049 (30개)
+INFO:__main__:    - 진행률: 9.8%
+INFO:__main__:    - 예상 남은 시간: 157.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 36/349 처리 중...
+INFO:__main__:    - 범위: 1050 ~ 1079 (30개)
+INFO:__main__:    - 진행률: 10.0%
+INFO:__main__:    - 예상 남은 시간: 157.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 37/349 처리 중...
+INFO:__main__:    - 범위: 1080 ~ 1109 (30개)
+INFO:__main__:    - 진행률: 10.3%
+INFO:__main__:    - 예상 남은 시간: 156.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 38/349 처리 중...
+INFO:__main__:    - 범위: 1110 ~ 1139 (30개)
+INFO:__main__:    - 진행률: 10.6%
+INFO:__main__:    - 예상 남은 시간: 156.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 39/349 처리 중...
+INFO:__main__:    - 범위: 1140 ~ 1169 (30개)
+INFO:__main__:    - 진행률: 10.9%
+INFO:__main__:    - 예상 남은 시간: 155.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 40/349 처리 중...
+INFO:__main__:    - 범위: 1170 ~ 1199 (30개)
+INFO:__main__:    - 진행률: 11.2%
+INFO:__main__:    - 예상 남은 시간: 155.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:  💾 중간 저장 중... (배치 40)
+INFO:embedding_chunker:기존 청크 삭제 중...
+INFO:embedding_chunker:청크 생성 시작: 10460개 아이템 → 11개 청크
+INFO:embedding_chunker:청크 0/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 1/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 2/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 3/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 4/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 5/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 6/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 7/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 8/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 9/10 저장: 1000개 아이템
+INFO:embedding_chunker:청크 10/10 저장: 460개 아이템
+INFO:embedding_chunker:✅ 청크 생성 완료: 11개 청크, 10460개 인덱스
+INFO:__main__:✅ 임베딩이 청크로 저장되었습니다
+INFO:__main__:     저장 완료
+INFO:__main__:
+  📦 배치 41/349 처리 중...
+INFO:__main__:    - 범위: 1200 ~ 1229 (30개)
+INFO:__main__:    - 진행률: 11.5%
+INFO:__main__:    - 예상 남은 시간: 154.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.7초)
+INFO:__main__:
+  📦 배치 42/349 처리 중...
+INFO:__main__:    - 범위: 1230 ~ 1259 (30개)
+INFO:__main__:    - 진행률: 11.8%
+INFO:__main__:    - 예상 남은 시간: 154.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 43/349 처리 중...
+INFO:__main__:    - 범위: 1260 ~ 1289 (30개)
+INFO:__main__:    - 진행률: 12.0%
+INFO:__main__:    - 예상 남은 시간: 153.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 44/349 처리 중...
+INFO:__main__:    - 범위: 1290 ~ 1319 (30개)
+INFO:__main__:    - 진행률: 12.3%
+INFO:__main__:    - 예상 남은 시간: 153.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 45/349 처리 중...
+INFO:__main__:    - 범위: 1320 ~ 1349 (30개)
+INFO:__main__:    - 진행률: 12.6%
+INFO:__main__:    - 예상 남은 시간: 152.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 46/349 처리 중...
+INFO:__main__:    - 범위: 1350 ~ 1379 (30개)
+INFO:__main__:    - 진행률: 12.9%
+INFO:__main__:    - 예상 남은 시간: 152.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 1.4초)
+INFO:__main__:
+  📦 배치 47/349 처리 중...
+INFO:__main__:    - 범위: 1380 ~ 1409 (30개)
+INFO:__main__:    - 진행률: 13.2%
+INFO:__main__:    - 예상 남은 시간: 151.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 48/349 처리 중...
+INFO:__main__:    - 범위: 1410 ~ 1439 (30개)
+INFO:__main__:    - 진행률: 13.5%
+INFO:__main__:    - 예상 남은 시간: 151.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.4초)
+INFO:__main__:
+  📦 배치 49/349 처리 중...
+INFO:__main__:    - 범위: 1440 ~ 1469 (30개)
+INFO:__main__:    - 진행률: 13.8%
+INFO:__main__:    - 예상 남은 시간: 150.5분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:
+  📦 배치 50/349 처리 중...
+INFO:__main__:    - 범위: 1470 ~ 1499 (30개)
+INFO:__main__:    - 진행률: 14.1%
+INFO:__main__:    - 예상 남은 시간: 150.0분
+INFO:__main__:    ✅ 배치 완료: 성공 30개 (소요시간: 0.5초)
+INFO:__main__:  💾 중간 저장 중... (배치 50)
+INFO:embedding_chunker:기존 청크 삭제 중...
+INFO:embedding_chunker:청크 생성 시작: 10460개 아이템 → 11개 청크
+Terminated
+[1;33m[WARNING][0m 학습 중단됨
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

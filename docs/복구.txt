@@ -28,14 +28,14 @@ cd /mnt/c/large_project/linux_red_heart
 다음은 o3가 방금 제시한 제안이야. 너도 같이 로그 기반으로 코드를 분석하고 나서, 너의 분석과 함께 제안의 유효성을 코드베이스를 읽으며 확인하고, 유효하다면 깊이 생각하며 프로젝트 규칙을 따라 작업을 꼼꼼하게 진행을 하고, 아니라면 반론할 지점을 명확히 정리해서 답변하고 대기해. 특히, 만약 유효하다 판단하고 작업을 해야 겠다고 생각하면, 코드베이스를 자세하게 들여다 보면서 자세하고 정확한 해결법을 찾을 수 있도록 분석하고, 빠지는 작업 없이 정확히 이행할 수 있도록 꼼꼼하게 다뤄
 
 nohup
-● Bash( timeout 1200 bash run_learning.sh unified-test --samples 3 --debug --verbose > test_gate9_$(date
+● Bash( timeout 1200 bash run_learning.sh unified-test --samples 3 --debug --verbose > test_$(date
       +%Y%m%d_%H%M%S).txt 2>&1 &)
 이 명령어를 통해서 테스트를 진행하되, 로그 파일을 txt파일로 내가 받을 수 있도록 해. 테스트가 실행되는지 확인하고 로그파일 이름을 확인한 뒤, 나에게 전달하면 이후 내가 확인하고 따로 지시를 내릴테니 이 작업만 하고 내 명령을 대기하고 있어.
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 과거  Bash(timeout 1200 ./run_learning.sh test --samples 3 --duration 600)
 
-현재  ● Bash(nohup timeout 1200 bash run_learning.sh unified-test --samples 3 --debug --verbose
+현재  nohup timeout 3600 bash run_learning.sh unified-test --samples 3 --lr-sweep --no-param-update --debug --verbose > test_$(date +%Y%m%d_%H%M%S).txt 2>&1 &)
 
 
 전처리

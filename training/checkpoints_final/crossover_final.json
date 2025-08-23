@@ -2,92 +2,160 @@
   "crossover_strategy": "selective",
   "module_best_epochs": {
     "loss": {
-      "epoch": 2,
-      "metric": 0.7771662045163361
+      "epoch": 3,
+      "metric": 0.6203515899581517
     },
     "train_loss": {
-      "epoch": 2,
-      "metric": 0.7771662045163361
+      "epoch": 3,
+      "metric": 0.6203515899581517
     },
     "head_losses": {
-      "epoch": 2,
+      "epoch": 1,
       "metric": 4.0
     },
     "analyzer_losses": {
-      "epoch": 2,
+      "epoch": 1,
       "metric": 4.0
     },
     "total_losses": {
-      "epoch": 2,
+      "epoch": 1,
       "metric": 8.0
     },
     "emotion_loss": {
-      "epoch": 2,
-      "metric": 1.4717299530200703
+      "epoch": 3,
+      "metric": 1.1590179139473191
     },
     "bentham_loss": {
-      "epoch": 2,
-      "metric": 0.37950085089265956
+      "epoch": 3,
+      "metric": 0.40980906683230617
     },
     "regret_loss": {
-      "epoch": 2,
-      "metric": 0.14393847022583106
+      "epoch": 1,
+      "metric": 0.11199647447938332
     },
     "surd_loss": {
       "epoch": 2,
-      "metric": 1.2104860719713608
+      "metric": 0.6155013147815159
     },
     "emotion_acc": {
       "epoch": 2,
-      "metric": 0.0
+      "metric": 0.4451880178457616
     },
     "bentham_acc": {
-      "epoch": 2,
-      "metric": 0.07399617723166145
+      "epoch": 3,
+      "metric": 0.45169960468254045
     },
     "regret_acc": {
-      "epoch": 2,
-      "metric": 0.0028680688336520078
+      "epoch": 3,
+      "metric": 0.6635330359039728
     },
     "surd_acc": {
-      "epoch": 2,
-      "metric": 0.21892925430210325
+      "epoch": 1,
+      "metric": 0.41690567240280435
     },
     "backbone_loss": {
-      "epoch": 2,
-      "metric": 0.7771662045163361
+      "epoch": 3,
+      "metric": 0.6203515899581517
     },
     "backbone_acc": {
-      "epoch": 2,
+      "epoch": 1,
       "metric": 0.0
     },
     "analyzer_loss": {
       "epoch": 2,
-      "metric": 0.7205884041548235
+      "metric": 0.7261536210034987
     },
     "analyzer_acc": {
-      "epoch": 2,
-      "metric": 0.0
+      "epoch": 3,
+      "metric": 0.4418525626882515
+    },
+    "train_acc": {
+      "epoch": 1,
+      "metric": 0.5397065568812115
     },
     "val_loss": {
-      "epoch": 2,
-      "metric": 0.7771662045163361
+      "epoch": 3,
+      "metric": 0.6203515899581517
     },
     "val_acc": {
+      "epoch": 1,
+      "metric": 0.5397065568812115
+    },
+    "module_loss_variance": {
+      "epoch": 3,
+      "metric": 0.4496809293351559
+    },
+    "module_loss_mean": {
+      "epoch": 3,
+      "metric": 0.5749730033899331
+    },
+    "module_loss_cv": {
+      "epoch": 3,
+      "metric": 0.7802647624599658
+    },
+    "module_acc_consistency": {
+      "epoch": 3,
+      "metric": 0.4816298931496177
+    },
+    "module_synergy_score": {
+      "epoch": 1,
+      "metric": 0.0436992791268844
+    },
+    "head_analyzer_gap": {
+      "epoch": 3,
+      "metric": 0.13327490980534107
+    },
+    "head_analyzer_complement": {
       "epoch": 2,
-      "metric": 0.0
+      "metric": 0.7438317867946719
+    },
+    "backbone_grad_norm": {
+      "epoch": 1,
+      "metric": 1.5032959543461493
+    },
+    "emotion_head_grad_norm": {
+      "epoch": 1,
+      "metric": 2.707836733227543
+    },
+    "bentham_head_grad_norm": {
+      "epoch": 1,
+      "metric": 0.5671820840501294
+    },
+    "regret_head_grad_norm": {
+      "epoch": 1,
+      "metric": 0.6855252330074189
+    },
+    "surd_head_grad_norm": {
+      "epoch": 2,
+      "metric": 1.83839360500656
+    },
+    "neural_analyzers_grad_norm": {
+      "epoch": 1,
+      "metric": 0.32844338813133706
+    },
+    "total_grad_norm": {
+      "epoch": 1,
+      "metric": 3.731405530015468
+    },
+    "completed_batches": {
+      "epoch": 1,
+      "metric": 4707
+    },
+    "total_batches": {
+      "epoch": 1,
+      "metric": 4707
     }
   },
-  "timestamp": "2025-08-20T23:30:58.664032",
+  "timestamp": "2025-08-23T09:53:29.583821",
   "metadata": {
     "optimal_epochs": {
+      "regret_head": 1,
+      "backbone": 3,
+      "emotion_head": 1,
+      "surd_head": 2,
+      "neural_analyzers": 1,
       "bentham_head": 1,
-      "surd_head": 1,
-      "regret_head": 3,
-      "neural_analyzers": 2,
-      "system": 1,
-      "emotion_head": 2,
-      "backbone": 1
+      "system": 3
     }
   }
 }

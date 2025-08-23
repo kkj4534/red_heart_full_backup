@@ -1,0 +1,243 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m 🔐 HuggingFace 오프라인 모드 활성화 (캐시된 모델만 사용)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 730M 최종 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 60 에폭 학습 테스트 (--samples로 제한 가능)
+[0;34m[INFO][0m    - LR 스윕, Sweet Spot, Parameter Crossover 포함
+[0;34m[INFO][0m    - Advanced Training Techniques 활성화
+[0;34m[INFO][0m 🔍 Hierarchical LR Sweep (5-5-5-5) 실행 모드
+[0;34m[INFO][0m    - 25개 포인트로 최적 LR 탐색
+[0;34m[INFO][0m    - 각 LR은 독립적으로 초기 가중치에서 시작
+2025-08-21 17:30:17,041 - __main__ - INFO - ================================================================================
+2025-08-21 17:30:17,041 - __main__ - INFO - 🚀 독립적인 Hierarchical Learning Rate Sweep 시작
+2025-08-21 17:30:17,042 - __main__ - INFO - ================================================================================
+2025-08-21 17:30:17,127 - __main__ - INFO - Device: cuda
+2025-08-21 17:30:17,169 - __main__ - INFO - GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-08-21 17:30:17,170 - __main__ - INFO - GPU Memory: 8.6 GB
+2025-08-21 17:30:17,170 - __main__ - INFO - 
+📊 모델 설정:
+2025-08-21 17:30:17,171 - __main__ - INFO -   - d_model: 896
+2025-08-21 17:30:17,171 - __main__ - INFO -   - num_heads: 16
+2025-08-21 17:30:17,171 - __main__ - INFO -   - num_layers: 6
+2025-08-21 17:30:17,172 - __main__ - INFO -   - dropout: 0.1
+2025-08-21 17:30:17,172 - __main__ - INFO - 
+🔧 모델 생성 중...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-08-21 17:30:17,702 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-21 17:30:17,702 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-21 17:30:17,910 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-21 17:30:18,020 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-21 17:30:18,174 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-21 17:30:18,270 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-21 17:30:19,185 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-08-21 17:30:19,780 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-08-21 17:30:20,937 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-08-21 17:30:21,042 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-08-21 17:30:21,044 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-08-21 17:30:21,936 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-21 17:30:22,221 - __main__ - INFO -   - 총 파라미터: 539.9M
+2025-08-21 17:30:22,222 - __main__ - INFO -   - 학습 가능 파라미터: 539.9M
+2025-08-21 17:30:35,847 - __main__ - INFO -   - 초기 가중치 저장 완료
+2025-08-21 17:30:35,847 - __main__ - INFO - 
+📁 데이터 로더 생성 중...
+2025-08-21 17:30:35,849 - __main__ - INFO - 📂 기본 데이터 로드: claude_api_preprocessing/claude_preprocessed_complete.json
+2025-08-21 17:30:36,098 - __main__ - INFO -   - 전체 데이터: 10460개
+2025-08-21 17:30:36,099 - __main__ - INFO -   - LR 스윕용 학습 데이터: 1000개
+2025-08-21 17:30:36,099 - __main__ - INFO -   - LR 스윕용 검증 데이터: 100개
+2025-08-21 17:30:36,099 - __main__ - INFO - 📊 임베딩 상태:
+2025-08-21 17:30:36,100 - __main__ - INFO -   - 전체 데이터: 1000개
+2025-08-21 17:30:36,100 - __main__ - INFO -   - 임베딩 있음: 0개 (0.0%)
+2025-08-21 17:30:36,100 - __main__ - INFO -   - 임베딩 없음: 1000개 (100.0%)
+2025-08-21 17:30:36,101 - __main__ - WARNING - ⚠️ 1000개 항목에 임베딩이 없습니다. 자동 생성됩니다.
+2025-08-21 17:30:36,101 - __main__ - INFO - 📊 임베딩 상태:
+2025-08-21 17:30:36,102 - __main__ - INFO -   - 전체 데이터: 100개
+2025-08-21 17:30:36,102 - __main__ - INFO -   - 임베딩 있음: 0개 (0.0%)
+2025-08-21 17:30:36,102 - __main__ - INFO -   - 임베딩 없음: 100개 (100.0%)
+2025-08-21 17:30:36,103 - __main__ - WARNING - ⚠️ 100개 항목에 임베딩이 없습니다. 자동 생성됩니다.
+2025-08-21 17:30:36,103 - __main__ - INFO -   - Train batches: 500
+2025-08-21 17:30:36,104 - __main__ - INFO -   - Val batches: 50
+2025-08-21 17:30:36,104 - __main__ - INFO - 
+⚙️ Sweep 설정:
+2025-08-21 17:30:36,104 - __main__ - INFO -   - 테스트 에폭: 3
+2025-08-21 17:30:36,105 - __main__ - INFO -   - 테스트 스텝/에폭: 50
+2025-08-21 17:30:36,105 - __main__ - INFO -   - 예상 총 포인트: 25개 (5-5-5-5 전략)
+2025-08-21 17:30:36,105 - __main__ - INFO -   - 각 LR은 독립적으로 초기 가중치에서 시작
+2025-08-21 17:30:36,106 - training.hierarchical_lr_sweep - INFO - ======================================================================
+2025-08-21 17:30:36,107 - training.hierarchical_lr_sweep - INFO - 🎯 Hierarchical LR Sweep 초기화
+2025-08-21 17:30:36,107 - training.hierarchical_lr_sweep - INFO -   - 전략: 5-5-5-5 (총 25개 포인트)
+2025-08-21 17:30:36,107 - training.hierarchical_lr_sweep - INFO -   - 테스트 에폭: 3
+2025-08-21 17:30:36,108 - training.hierarchical_lr_sweep - INFO -   - 테스트 스텝: 50/epoch
+2025-08-21 17:30:36,108 - training.hierarchical_lr_sweep - INFO -   - 기존 테스트 LR: 0개
+2025-08-21 17:30:36,108 - training.hierarchical_lr_sweep - INFO - ======================================================================
+2025-08-21 17:30:36,109 - __main__ - INFO - 
+================================================================================
+2025-08-21 17:30:36,109 - __main__ - INFO - 📌 각 LR 테스트는 동일한 초기 가중치에서 독립적으로 시작됩니다
+2025-08-21 17:30:36,109 - __main__ - INFO - ================================================================================
+2025-08-21 17:30:36,110 - training.hierarchical_lr_sweep - INFO - 
+🚀 Hierarchical LR Sweep 시작...
+2025-08-21 17:30:36,110 - training.hierarchical_lr_sweep - INFO - 
+📊 [Stage 0] 초기 탐색: [1e-05, 5.6e-05, 0.00032, 0.0018, 0.01]
+2025-08-21 17:30:36,111 - training.hierarchical_lr_sweep - INFO - 
+  📌 LR 1.0e-05 테스트 시작 (Stage 0)
+2025-08-21 17:30:36,513 - unified_backbone - INFO - 백본 총 파라미터: 90,624,132 (90.62M)
+2025-08-21 17:30:36,514 - unified_backbone - INFO - 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-08-21 17:30:36,583 - unified_heads - INFO - 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-08-21 17:30:36,640 - unified_heads - INFO - 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-08-21 17:30:36,718 - unified_heads - INFO - 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-08-21 17:30:36,766 - unified_heads - INFO - SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-08-21 17:30:37,527 - analyzer_neural_modules - INFO - NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-08-21 17:30:38,034 - analyzer_neural_modules - INFO - NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-08-21 17:30:39,217 - analyzer_neural_modules - INFO - NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-08-21 17:30:39,295 - analyzer_neural_modules - INFO - NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-08-21 17:30:39,296 - analyzer_neural_modules - INFO - 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-08-21 17:30:40,056 - emotion_dsp_simulator - INFO - EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-08-21 17:31:16,490 - sentence_transformer_singleton - INFO - 새 클라이언트 생성 시작: sentence-transformers/all-MiniLM-L6-v2_cuda
+2025-08-21 17:31:16,493 - sentence_transformer_client - INFO - 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+2025-08-21 17:31:16,494 - sentence_transformer_client - INFO - SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-08-21 17:31:16,494 - sentence_transformer_client - INFO - Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+2025-08-21 17:31:16,494 - sentence_transformer_singleton - INFO - 서버 시작 및 모델 로딩: sentence-transformers/all-MiniLM-L6-v2 (device: cuda)
+2025-08-21 17:31:16,495 - sentence_transformer_client - INFO - SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-08-21 17:31:16,495 - sentence_transformer_client - INFO - PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-08-21 17:31:16,496 - sentence_transformer_client - INFO - VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-08-21 17:31:26,942 - sentence_transformer_client - INFO - 서버 연결 성공
+2025-08-21 17:31:26,943 - sentence_transformer_client - INFO - 모델 로딩 요청: sentence-transformers/all-MiniLM-L6-v2 (device: cuda)
+2025-08-21 17:32:29,203 - sentence_transformer_client - ERROR - 모델 로딩 실패: 모델 로딩 실패: sentence-transformers/all-MiniLM-L6-v2 - We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+2025-08-21 17:32:29,203 - sentence_transformer_singleton - ERROR - 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2_cuda, 오류: 모델 로딩 실패: 모델 로딩 실패: sentence-transformers/all-MiniLM-L6-v2 - We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+2025-08-21 17:32:29,204 - sentence_transformer_singleton - ERROR - 오류 타입: RuntimeError
+2025-08-21 17:32:29,207 - sentence_transformer_singleton - ERROR - 스택 트레이스: Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 149, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: sentence-transformers/all-MiniLM-L6-v2 - We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+2025-08-21 17:32:29,208 - __main__ - ERROR - ❌ SentenceTransformer 로드 실패: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+2025-08-21 17:32:29,208 - __main__ - ERROR - LR 스윕에 필수적인 임베딩 모듈 로드 실패
+2025-08-21 17:32:29,209 - __main__ - ERROR - ❌ 스윕 실행 중 오류: SentenceTransformer 필수 모듈 로드 실패: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+2025-08-21 17:32:29,226 - __main__ - ERROR - Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 149, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: sentence-transformers/all-MiniLM-L6-v2 - We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 82, in __getitem__
+    self.embedding_manager = get_sentence_transformer(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 336, in get_sentence_transformer
+    return _manager.get_model(model_name, device, cache_folder)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 163, in get_model
+    raise RuntimeError(f"SentenceTransformer 모델 로드 실패: {model_name}") from e
+RuntimeError: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 297, in main
+    results = sweep.run_hierarchical_sweep(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/hierarchical_lr_sweep.py", line 145, in run_hierarchical_sweep
+    result = self._test_single_lr(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/hierarchical_lr_sweep.py", line 252, in _test_single_lr
+    for step, batch in enumerate(train_loader):
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 89, in __getitem__
+    raise RuntimeError(f"SentenceTransformer 필수 모듈 로드 실패: {e}")
+RuntimeError: SentenceTransformer 필수 모듈 로드 실패: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+
+2025-08-21 17:32:29,226 - __main__ - INFO - 
+💾 학습 데이터셋 임베딩 저장 중...
+2025-08-21 17:32:29,227 - __main__ - INFO - 💾 검증 데이터셋 임베딩 저장 중...
+2025-08-21 17:32:29,227 - __main__ - INFO - 
+🧹 GPU 메모리 정리 완료
+2025-08-21 17:32:29,326 - __main__ - INFO -   - 임시 초기 가중치 파일 삭제
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 149, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: sentence-transformers/all-MiniLM-L6-v2 - We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.
+Check your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 82, in __getitem__
+    self.embedding_manager = get_sentence_transformer(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 336, in get_sentence_transformer
+    return _manager.get_model(model_name, device, cache_folder)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 163, in get_model
+    raise RuntimeError(f"SentenceTransformer 모델 로드 실패: {model_name}") from e
+RuntimeError: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 383, in <module>
+    results = main()
+              ^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 297, in main
+    results = sweep.run_hierarchical_sweep(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/hierarchical_lr_sweep.py", line 145, in run_hierarchical_sweep
+    result = self._test_single_lr(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/hierarchical_lr_sweep.py", line 252, in _test_single_lr
+    for step, batch in enumerate(train_loader):
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 701, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 757, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 52, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/run_hierarchical_lr_sweep.py", line 89, in __getitem__
+    raise RuntimeError(f"SentenceTransformer 필수 모듈 로드 실패: {e}")
+RuntimeError: SentenceTransformer 필수 모듈 로드 실패: SentenceTransformer 모델 로드 실패: sentence-transformers/all-MiniLM-L6-v2
+2025-08-21 17:32:29,502 - sentence_transformer_client - INFO - 서버 종료 중...
+2025-08-21 17:32:30,652 - sentence_transformer_client - INFO - 서버 정상 종료
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

@@ -24,6 +24,9 @@ import time
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+# 청크 임베딩 지원 추가
+from embedding_chunker import EmbeddingChunkManager
+
 # 커스텀 모듈 임포트
 from training.enhanced_checkpoint_manager import EnhancedCheckpointManager
 from training.lr_sweep_optimizer import LRSweepOptimizer
@@ -79,7 +82,7 @@ class UnifiedTrainingConfig:
         self.lr_sweep_points = 5
         
         # 체크포인트 설정
-        self.checkpoint_interval = 2  # 짝수 에폭마다 저장 (30개)
+        self.checkpoint_interval = 1  # 매 에폭마다 저장
         self.checkpoint_dir = "training/checkpoints_final"
         
         # Advanced Training
@@ -149,6 +152,9 @@ class UnifiedModel(nn.Module):
         
         # Advanced 분석기 래퍼 (112M) - translator 초기화 후 생성
         self.advanced_wrappers = None  # 나중에 초기화
+        
+        # 분석기 레지스트리 생성
+        self.analyzers = {}
         
         # Phase 네트워크 (4.3M)
         self.phase0_net = Phase0ProjectionNet()
@@ -458,6 +464,15 @@ class UnifiedTrainer:
             total_gpu = torch.cuda.get_device_properties(0).total_memory / (1024**3)
             logger.info(f"  GPU 사용률: {gpu_mem_after/total_gpu*100:.1f}% / {total_gpu:.1f}GB")
         
+        # 분석기 레지스트리 업데이트
+        if hasattr(self.model, 'neural_analyzers') and self.model.neural_analyzers:
+            for name, analyzer in self.model.neural_analyzers.items():
+                self.model.analyzers[f"neural_{name}"] = analyzer
+        
+        if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
+            for name, wrapper in self.model.advanced_wrappers.items():
+                self.model.analyzers[f"advanced_{name}"] = wrapper
+        
         # Advanced Training 초기화
         self.training_manager.initialize(
             model=self.model,
@@ -552,28 +567,92 @@ class UnifiedTrainer:
             logger.warning(f"   Optimizer 파라미터: {optimizer_params/1e6:.1f}M")
         else:
             logger.info(f"✅ 목표 파라미터 수 달성: {total_params/1e6:.1f}M ≈ 730M")
+        
+        # 모듈 요약 로그 출력
+        self._log_module_summary()
+    
+    def _log_module_summary(self):
+        """모듈 요약 로그 출력"""
+        logger.info("\n📊 모듈 구성 요약:")
+        logger.info("=" * 60)
+        
+        # 주요 컴포넌트
+        logger.info("📌 주요 컴포넌트:")
+        components = [
+            ('백본', self.model.backbone),
+            ('감정 헤드', self.model.emotion_head),
+            ('벤담 헤드', self.model.bentham_head),
+            ('후회 헤드', self.model.regret_head),
+            ('SURD 헤드', self.model.surd_head)
+        ]
+        
+        for name, module in components:
+            if module:
+                params = sum(p.numel() for p in module.parameters())
+                logger.info(f"  - {name:20s}: {params/1e6:8.2f}M 파라미터")
+        
+        # 분석기들
+        if self.model.analyzers:
+            logger.info("\n📌 분석기 모듈:")
+            for name, analyzer in self.model.analyzers.items():
+                params = sum(p.numel() for p in analyzer.parameters())
+                logger.info(f"  - {name:24s}: {params/1e6:8.2f}M 파라미터")
+        
+        # Advanced Training 상태
+        logger.info("\n📌 Advanced Training 기법:")
+        logger.info(f"  - Label Smoothing: {'✅' if self.config.enable_label_smoothing else '❌'}")
+        logger.info(f"  - R-Drop: {'✅' if self.config.enable_rdrop else '❌'}")
+        logger.info(f"  - EMA: {'✅' if self.config.enable_ema else '❌'}")
+        logger.info(f"  - LLRD: {'✅' if self.config.enable_llrd else '❌'}")
+        logger.info(f"  - Sweet Spot Detection: {'✅' if self.config.enable_sweet_spot else '❌'}")
+        logger.info(f"  - Parameter Crossover: {'✅' if self.config.enable_crossover else '❌'}")
+        
+        logger.info("=" * 60)
     
     def _initialize_dataloaders(self):
-        """데이터 로더 초기화"""
-        # 실제 데이터 로드
-        preprocessed_path = Path("claude_api_preprocessing/claude_preprocessed_complete.json")
+        """데이터 로더 초기화 (청크 방식 우선)"""
         
-        if not preprocessed_path.exists():
-            # 대체 경로 시도
-            preprocessed_path = Path("for_learn_dataset/claude_preprocessed_complete.json")
-            if not preprocessed_path.exists():
-                logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
-                raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
+        # 청크 임베딩 강제 사용
+        embeddings_dir = Path("claude_api_preprocessing/embedded")
+        embeddings_dir.mkdir(parents=True, exist_ok=True)
         
-        # 임베딩이 포함된 파일이 있는지 먼저 확인
-        embedded_path = Path(str(preprocessed_path).replace('.json', '.embedded.json'))
-        if embedded_path.exists():
-            logger.info(f"🎯 임베딩 파일 발견: {embedded_path}")
-            with open(embedded_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
+        # 청크 매니저 생성
+        chunk_manager = EmbeddingChunkManager(str(embeddings_dir))
+        logger.info(f"🧱 청크 모드 활성화 - {embeddings_dir}")
+        
+        # 기존 청크가 있는지 확인
+        if (embeddings_dir / "metadata.json").exists():
+            logger.info("📦 기존 청크 임베딩 로드")
+            stats = chunk_manager.get_statistics()
+            logger.info(f"  - 청크 수: {stats['total_chunks']}개")
+            logger.info(f"  - 전체 데이터: {stats['total_items']:,}개")
+            logger.info(f"  - 임베딩 완료: {stats['total_embedded']:,}개 ({stats['embedding_ratio']*100:.1f}%)")
+            
+            # 청크에서 데이터 로드
+            data = []
+            metadata = chunk_manager.load_metadata()
+            for chunk_info in metadata['chunks']:
+                chunk_data = chunk_manager.load_chunk(chunk_info['chunk_idx'])
+                data.extend(chunk_data)
+            
+            logger.info(f"  - 로드 완료: {len(data)}개 아이템")
+            preprocessed_path = None  # 청크 사용 시 경로 없음
+            
         else:
-            # JSON 데이터 로드
-            logger.info(f"📂 기본 데이터 로드: {preprocessed_path}")
+            # 청크가 없으면 원본 파일에서 로드
+            logger.info("📂 청크가 없음 - 원본 데이터 로드")
+            preprocessed_path = Path("claude_api_preprocessing/claude_preprocessed_complete.json")
+            
+            if not preprocessed_path.exists():
+                # 대체 경로 시도
+                preprocessed_path = Path("for_learn_dataset/claude_preprocessed_complete.json")
+                if not preprocessed_path.exists():
+                    logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
+                    raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
+            
+            # 단일 임베딩 파일은 절대 읽지 않음 - 원본 데이터만 로드
+            logger.info(f"📂 원본 데이터 로드: {preprocessed_path}")
+            logger.info("⚠️ 단일 임베딩 파일은 무시하고 청크 방식 사용")
             with open(preprocessed_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
         
@@ -583,11 +662,13 @@ class UnifiedTrainer:
         
         # 데이터셋 클래스
         class RedHeartDataset(Dataset):
-            def __init__(self, data_list, preprocessed_path=None):
+            def __init__(self, data_list, preprocessed_path=None, chunk_manager=None):
                 self.data = data_list
                 self.preprocessed_path = preprocessed_path
+                self.chunk_manager = chunk_manager  # 청크 매니저
                 self.embedding_manager = None  # 지연 초기화
                 self.embeddings_modified = False  # 임베딩 수정 여부 추적
+                self.use_chunks = chunk_manager is not None
                 
                 # label 매핑 (v2에서 처럼 TargetMapper 대신 직접 처리)
                 self.label_to_idx = {
@@ -719,31 +800,34 @@ class UnifiedTrainer:
                     logger.warning(f"⚠️ {items_without_embedding}개 항목에 임베딩이 없습니다. 자동 생성됩니다.")
             
             def save_embeddings(self):
-                """생성된 임베딩을 파일에 저장"""
+                """생성된 임베딩을 저장 (청크 방식 우선)"""
                 if not self.embeddings_modified:
                     return
                 
-                if self.preprocessed_path:
-                    # 원본 파일명에서 .embedded.json 파일 생성
-                    embedded_path = Path(str(self.preprocessed_path).replace('.json', '.embedded.json'))
-                    
+                if self.use_chunks and self.chunk_manager:
+                    # 청크 방식으로 저장
                     try:
-                        # 전체 데이터 저장
-                        with open(embedded_path, 'w', encoding='utf-8') as f:
-                            json.dump(self.data, f, ensure_ascii=False, indent=2)
-                        logger.info(f"✅ 임베딩이 저장되었습니다: {embedded_path}")
+                        self.chunk_manager.create_chunks_from_embedded_data(self.data, rebuild=not self.chunk_manager.metadata_file.exists())
+                        logger.info(f"✅ 임베딩이 청크로 저장되었습니다")
                         self.embeddings_modified = False
                     except Exception as e:
-                        logger.error(f"임베딩 저장 실패: {e}")
+                        logger.error(f"청크 임베딩 저장 실패: {e}")
+                else:
+                    # 청크 매니저가 없는 경우 경고
+                    logger.warning("⚠️ 청크 매니저가 없어 임베딩을 저장하지 않습니다. 청크 모드를 사용하세요.")
         
         # 학습/검증 데이터 분할
         val_size = int(len(data) * self.config.validation_split)
         train_data = data[val_size:]
         val_data = data[:val_size]
         
-        # 데이터셋 생성 (preprocessed_path 전달)
-        train_dataset = RedHeartDataset(train_data, preprocessed_path)
-        val_dataset = RedHeartDataset(val_data, preprocessed_path)
+        # 데이터셋 생성 (preprocessed_path와 chunk_manager 전달)
+        train_dataset = RedHeartDataset(train_data, preprocessed_path, chunk_manager)
+        val_dataset = RedHeartDataset(val_data, preprocessed_path, chunk_manager)
+        
+        # 데이터셋 크기 저장
+        train_size = len(train_dataset)
+        val_size_actual = len(val_dataset)
         
         self.train_loader = DataLoader(
             train_dataset,
@@ -761,7 +845,7 @@ class UnifiedTrainer:
             pin_memory=True
         )
         
-        logger.info(f"✅ 데이터 로더 초기화: Train={train_size}, Val={val_size}")
+        logger.info(f"✅ 데이터 로더 초기화: Train={train_size}, Val={val_size_actual}")
     
     def _initialize_optimizer(self):
         """옵티마이저 초기화"""
@@ -1126,6 +1210,7 @@ class UnifiedTrainer:
             logger.info("    [STAGE 2] Neural Analyzer Processing")
         
         analyzer_losses = []
+        analyzer_accuracies = []  # 누락된 초기화 추가
         dsp_output = None
         neural_emotion_output = None
         
@@ -1256,25 +1341,71 @@ class UnifiedTrainer:
                         logger.error(f"    {name} 처리 실패: {e}")
         
         # Advanced Wrappers 처리
+        wrapper_losses = []
+        wrapper_accuracies = []
         if hasattr(self.model, 'advanced_wrappers') and self.model.advanced_wrappers:
+            if self.verbose and batch_idx < 3:
+                logger.info("    [Advanced Wrappers] 처리 시작")
+            
             for name, wrapper in self.model.advanced_wrappers.items():
                 try:
                     wrapper_output = wrapper(features)
                     
-                    # Advanced wrapper 손실 (간단히 처리)
-                    if isinstance(wrapper_output, dict) and any(key in wrapper_output for key in ['emotion', 'bentham', 'regret', 'surd']):
-                        # 적절한 손실 계산
-                        pass  # TODO: wrapper별 손실 구현 필요
+                    # Advanced wrapper 손실 계산
+                    if isinstance(wrapper_output, dict):
+                        wrapper_loss = 0
+                        wrapper_acc_list = []
+                        
+                        # 각 태스크별 손실 계산
+                        if 'emotion' in wrapper_output:
+                            target = batch.get('emotion_target', batch.get('emotions', None))
+                            if target is not None:
+                                target = target.to(self.device)
+                                loss = F.mse_loss(wrapper_output['emotion'], target)
+                                wrapper_loss += loss
+                                acc = 1.0 - torch.mean(torch.abs(wrapper_output['emotion'] - target)).item()
+                                wrapper_acc_list.append(acc)
+                        
+                        if 'bentham' in wrapper_output:
+                            target = batch.get('bentham_target', batch.get('bentham', None))
+                            if target is not None:
+                                target = target.to(self.device)
+                                loss = F.mse_loss(wrapper_output['bentham'], target)
+                                wrapper_loss += loss
+                                acc = 1.0 - torch.mean(torch.abs(wrapper_output['bentham'] - target)).item()
+                                wrapper_acc_list.append(acc)
+                        
+                        if wrapper_loss > 0:
+                            wrapper_losses.append(wrapper_loss)
+                            individual_losses[f'advanced_{name}_loss'] = wrapper_loss.item()
+                            
+                            if wrapper_acc_list:
+                                avg_acc = np.mean(wrapper_acc_list)
+                                wrapper_accuracies.append(avg_acc)
+                                individual_accs[f'advanced_{name}_acc'] = avg_acc
+                            
+                            if self.verbose and batch_idx < 3:
+                                logger.info(f"      - Advanced {name} 손실: {wrapper_loss.item():.6f}, 정확도: {avg_acc:.4f}")
                         
                 except Exception as e:
                     if self.config.debug:
-                        logger.error(f"    {name} wrapper 처리 실패: {e}")
+                        logger.error(f"    Advanced {name} wrapper 처리 실패: {e}")
         
-        # 전체 손실 통합 (V2처럼: 헤드 70%, Analyzer 30%)
-        all_losses = head_losses + analyzer_losses
+        # 전체 손실 통합 (헤드 60%, Analyzer 25%, Advanced 15%)
+        all_losses = head_losses + analyzer_losses + wrapper_losses
         
         if all_losses:
-            if head_losses and analyzer_losses:
+            if head_losses and analyzer_losses and wrapper_losses:
+                head_loss = sum(head_losses) / len(head_losses)
+                analyzer_loss = sum(analyzer_losses) / len(analyzer_losses)
+                wrapper_loss = sum(wrapper_losses) / len(wrapper_losses)
+                loss = 0.6 * head_loss + 0.25 * analyzer_loss + 0.15 * wrapper_loss
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - 헤드 손실: {head_loss.item():.6f}")
+                    logger.info(f"      - 분석기 손실: {analyzer_loss.item():.6f}")
+                    logger.info(f"      - Advanced 손실: {wrapper_loss.item():.6f}")
+                    logger.info(f"      - 전체 손실: {loss.item():.6f}")
+            elif head_losses and analyzer_losses:
                 head_loss = sum(head_losses) / len(head_losses)
                 analyzer_loss = sum(analyzer_losses) / len(analyzer_losses)
                 loss = 0.7 * head_loss + 0.3 * analyzer_loss

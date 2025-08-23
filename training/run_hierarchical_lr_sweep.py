@@ -20,6 +20,8 @@ import json
 from pathlib import Path
 import numpy as np
 from sentence_transformer_singleton import get_sentence_transformer, SentenceTransformerManager
+sys.path.append(str(Path(__file__).parent.parent))
+from embedding_chunker import EmbeddingChunkManager
 
 # 로깅 설정
 logging.basicConfig(
@@ -38,12 +40,14 @@ from training.hierarchical_lr_sweep import HierarchicalLRSweep
 
 
 class RedHeartDataset(Dataset):
-    """실제 Red Heart 데이터셋"""
-    def __init__(self, data_list, preprocessed_path=None):
+    """실제 Red Heart 데이터셋 - 청크 임베딩 지원"""
+    def __init__(self, data_list, preprocessed_path=None, chunk_manager=None):
         self.data = data_list
         self.preprocessed_path = preprocessed_path
+        self.chunk_manager = chunk_manager  # 청크 매니저
         self.embedding_manager = None  # 지연 초기화
         self.embeddings_modified = False
+        self.use_chunks = chunk_manager is not None
         
         # label 매핑
         self.label_to_idx = {
@@ -157,19 +161,23 @@ class RedHeartDataset(Dataset):
             logger.warning(f"⚠️ {items_without_embedding}개 항목에 임베딩이 없습니다. 자동 생성됩니다.")
     
     def save_embeddings(self):
-        """생성된 임베딩을 파일에 저장"""
+        """생성된 임베딩을 저장 (청크 방식만 사용)"""
         if not self.embeddings_modified:
             return
         
-        if self.preprocessed_path:
-            embedded_path = Path(str(self.preprocessed_path).replace('.json', '.embedded.json'))
+        if self.use_chunks and self.chunk_manager:
+            # 청크 방식으로 저장 (rebuild=False로 기존 청크 유지하며 업데이트)
             try:
-                with open(embedded_path, 'w', encoding='utf-8') as f:
-                    json.dump(self.data, f, ensure_ascii=False, indent=2)
-                logger.info(f"✅ 임베딩이 저장되었습니다: {embedded_path}")
+                # 첫 저장이거나 명시적 요청시에만 rebuild
+                rebuild = not (self.chunk_manager.metadata_file.exists())
+                self.chunk_manager.create_chunks_from_embedded_data(self.data, rebuild=rebuild)
+                logger.info(f"✅ 임베딩이 청크로 저장되었습니다")
                 self.embeddings_modified = False
             except Exception as e:
-                logger.error(f"임베딩 저장 실패: {e}")
+                logger.error(f"청크 임베딩 저장 실패: {e}")
+        else:
+            # 청크 매니저가 없는 경우 경고만 출력
+            logger.warning("⚠️ 청크 매니저가 없어 임베딩을 저장하지 않습니다. 청크 모드를 사용하세요.")
 
 
 def main():
@@ -224,23 +232,44 @@ def main():
     # 데이터 로더 생성
     logger.info("\n📁 데이터 로더 생성 중...")
     
-    # 실제 데이터 로드
-    preprocessed_path = Path("claude_api_preprocessing/claude_preprocessed_complete.json")
+    # 청크 임베딩 강제 사용 (항상 청크 디렉토리 사용)
+    embeddings_dir = Path("claude_api_preprocessing/embedded")
+    embeddings_dir.mkdir(parents=True, exist_ok=True)
     
-    if not preprocessed_path.exists():
-        preprocessed_path = Path("for_learn_dataset/claude_preprocessed_complete.json")
-        if not preprocessed_path.exists():
-            logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
-            raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
+    # 청크 매니저 항상 생성
+    chunk_manager = EmbeddingChunkManager(str(embeddings_dir))
+    logger.info(f"🧱 청크 모드 강제 활성화 - {embeddings_dir}")
     
-    # 임베딩이 포함된 파일이 있는지 먼저 확인
-    embedded_path = Path(str(preprocessed_path).replace('.json', '.embedded.json'))
-    if embedded_path.exists():
-        logger.info(f"🎯 임베딩 파일 발견: {embedded_path}")
-        with open(embedded_path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
+    # 기존 청크가 있는지 확인
+    if (embeddings_dir / "metadata.json").exists():
+        logger.info("📦 기존 청크 임베딩 로드")
+        stats = chunk_manager.get_statistics()
+        logger.info(f"  - 청크 수: {stats['total_chunks']}개")
+        logger.info(f"  - 전체 데이터: {stats['total_items']:,}개")
+        logger.info(f"  - 임베딩 완료: {stats['total_embedded']:,}개 ({stats['embedding_ratio']*100:.1f}%)")
+        
+        # 청크에서 데이터 로드
+        data = []
+        metadata = chunk_manager.load_metadata()
+        for chunk_info in metadata['chunks']:
+            chunk_data = chunk_manager.load_chunk(chunk_info['chunk_idx'])
+            data.extend(chunk_data)
+        
+        preprocessed_path = None  # 청크 사용 시 경로 없음
     else:
-        logger.info(f"📂 기본 데이터 로드: {preprocessed_path}")
+        # 청크가 없으면 원본 파일에서 로드하여 청크 생성
+        logger.info("📂 청크가 없음 - 원본 데이터 로드 후 청크 생성")
+        preprocessed_path = Path("claude_api_preprocessing/claude_preprocessed_complete.json")
+        
+        if not preprocessed_path.exists():
+            preprocessed_path = Path("for_learn_dataset/claude_preprocessed_complete.json")
+            if not preprocessed_path.exists():
+                logger.error(f"전처리된 데이터를 찾을 수 없습니다: {preprocessed_path}")
+                raise FileNotFoundError(f"전처리된 데이터 파일이 없습니다")
+        
+        # 단일 임베딩 파일은 절대 읽지 않음 - 원본 데이터만 로드
+        logger.info(f"📂 원본 데이터 로드: {preprocessed_path}")
+        logger.info("⚠️ 단일 임베딩 파일은 무시하고 처음부터 청크 생성")
         with open(preprocessed_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
     
@@ -263,7 +292,7 @@ def main():
     
     # 전체 데이터셋 생성 (임베딩 생성용)
     logger.info("\n🔄 전체 데이터 임베딩 생성 중...")
-    full_dataset = RedHeartDataset(data, preprocessed_path)
+    full_dataset = RedHeartDataset(data, preprocessed_path, chunk_manager)
     
     # 임베딩이 없는 데이터 확인 및 생성
     missing_embeddings = 0
@@ -411,8 +440,8 @@ def main():
         logger.info("  ✅ 모든 데이터에 임베딩이 이미 존재")
     
     # LR 스윕용 데이터셋 (이미 생성된 임베딩 사용)
-    train_dataset = RedHeartDataset(train_data, preprocessed_path)
-    val_dataset = RedHeartDataset(val_data, preprocessed_path)
+    train_dataset = RedHeartDataset(train_data, preprocessed_path, chunk_manager)
+    val_dataset = RedHeartDataset(val_data, preprocessed_path, chunk_manager)
     
     train_loader = DataLoader(
         train_dataset,
@@ -514,6 +543,16 @@ def main():
         logger.info(f"  1. 최적 LR ({results['best_lr']:.1e})로 본격 학습 시작")
         logger.info(f"  2. unified_training_final.py의 base_lr을 {results['best_lr']:.1e}로 설정")
         logger.info(f"  3. 60 에폭 전체 학습 실행")
+        
+        # 최적 LR 저장 (다음 단계에서 사용)
+        optimal_lr_path = lr_sweep_dir / 'optimal_lr.json'
+        with open(optimal_lr_path, 'w') as f:
+            json.dump({
+                'optimal_lr': results['best_lr'],
+                'best_val_loss': results['best_loss'],  # best_loss 키 사용
+                'timestamp': datetime.now().isoformat()
+            }, f, indent=2)
+        logger.info(f"\n💾 최적 LR 저장: {optimal_lr_path}")
         
         return results
         

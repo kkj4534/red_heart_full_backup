@@ -1,0 +1,333 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m 🔐 HuggingFace 오프라인 모드 활성화 (캐시된 모델만 사용)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-test
+[0;34m[INFO][0m 🧪 730M 최종 통합 시스템 학습 테스트 모드...
+[0;34m[INFO][0m    - 60 에폭 학습 테스트 (--samples로 제한 가능)
+[0;34m[INFO][0m    - LR 스윕, Sweet Spot, Parameter Crossover 포함
+[0;34m[INFO][0m    - Advanced Training Techniques 활성화
+[0;34m[INFO][0m    ✨ 최종 통합 시스템 (730M) 사용
+INFO:sentence_transformer_singleton:SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+INFO:RedHeart.UnifiedTrainingFinal:⚠️ 테스트 모드: 3 에폭 실행
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+INFO:RedHeart.UnifiedTrainingFinal:======================================================================
+INFO:RedHeart.UnifiedTrainingFinal:Red Heart AI 최종 통합 학습 시스템 초기화
+INFO:RedHeart.UnifiedTrainingFinal:  - 모델 크기: 730M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - 총 에폭: 3
+INFO:RedHeart.UnifiedTrainingFinal:  - 배치 사이즈: 2 (GA=32)
+INFO:RedHeart.UnifiedTrainingFinal:  - 디바이스: cuda
+INFO:RedHeart.UnifiedTrainingFinal:======================================================================
+INFO:training.enhanced_checkpoint_manager:  - 기존 메타데이터 로드: 5개 체크포인트
+INFO:training.enhanced_checkpoint_manager:✅ Enhanced CheckpointManager 초기화
+INFO:training.enhanced_checkpoint_manager:  - 저장 디렉토리: training/checkpoints_final
+INFO:training.enhanced_checkpoint_manager:  - 최대 체크포인트: 30개
+INFO:training.enhanced_checkpoint_manager:  - 저장 간격: 1 에폭마다
+INFO:training.sweet_spot_detector:✅ Sweet Spot Detector 초기화
+INFO:training.sweet_spot_detector:  - 윈도우 크기: 5
+INFO:training.sweet_spot_detector:  - 안정성 임계값: 0.01
+INFO:training.sweet_spot_detector:  - Patience: 10
+INFO:training.parameter_crossover_system:✅ Parameter Crossover System 초기화
+INFO:training.parameter_crossover_system:  - 전략: selective
+INFO:training.parameter_crossover_system:  - 블렌드 비율: 0.7
+INFO:training.oom_handler:✅ OOM Handler 초기화
+INFO:training.oom_handler:  - 초기 배치 사이즈: 2
+INFO:training.oom_handler:  - 최소 배치 사이즈: 1
+INFO:training.oom_handler:  - Gradient Accumulation: 32
+INFO:training.oom_handler:  - 메모리 임계값: 85.0%
+INFO:training.oom_handler:  - 디바이스: cuda
+INFO:training.advanced_training_techniques:✅ Advanced Training Manager 초기화
+INFO:training.advanced_training_techniques:  - label_smoothing: 활성화
+INFO:training.advanced_training_techniques:  - rdrop: 활성화
+INFO:training.advanced_training_techniques:  - ema: 활성화
+INFO:training.advanced_training_techniques:  - llrd: 활성화
+INFO:RedHeart.UnifiedTrainingFinal:✅ 모든 컴포넌트 초기화 완료
+INFO:RedHeart.UnifiedTrainingFinal:🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+INFO:unified_backbone:백본 총 파라미터: 90,624,132 (90.62M)
+INFO:unified_backbone:학습 가능 파라미터: 90,624,132 (90.62M)
+INFO:unified_heads:감정 헤드 파라미터: 17,254,583 (17.25M)
+INFO:unified_heads:벤담 헤드 파라미터: 13,871,919 (13.87M)
+INFO:unified_heads:후회 헤드 파라미터: 19,897,161 (19.90M)
+INFO:unified_heads:SURD 헤드 파라미터: 12,025,739 (12.03M)
+INFO:analyzer_neural_modules:NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+INFO:analyzer_neural_modules:NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+INFO:analyzer_neural_modules:NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+INFO:analyzer_neural_modules:NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+INFO:analyzer_neural_modules:전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:RedHeart.UnifiedTrainingFinal:  초기 GPU 메모리: 1.39GB
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 백본 GPU 로드 (90.6M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 감정 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 벤담 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 후회 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ SURD 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  🔄 Translator 모듈 초기화 중...
+INFO:RedHeart.Config:🔍 get_system_module 호출: module_id=translator
+INFO:RedHeart.Config:🔍 현재 등록된 모듈들: []
+INFO:RedHeart.Config:🔍 결과: None
+INFO:local_translator:LocalTranslator 생성 - 전역 모듈로 초기화됨
+INFO:local_translator:🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+DEBUG:hf_model_wrapper:✅ AutoModel.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForSequenceClassification.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForTokenClassification.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoModelForCausalLM.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoProcessor.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ AutoImageProcessor.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ MarianMTModel.from_pretrained 패치됨
+DEBUG:hf_model_wrapper:✅ ElectraForSequenceClassification.from_pretrained 패치됨
+INFO:hf_model_wrapper:✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+DEBUG:hf_model_wrapper:CPU 전용 owner(translator) → device=cpu 강제
+DEBUG:hf_model_wrapper:모델 크기 추정: 1189.3MB (학습가능: True)
+INFO:local_translator:✅ OPUS-MT 모델 로드 완료 (소요시간: 77.8초, 디바이스: cpu)
+INFO:local_translator:📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+INFO:workflow_aware_memory_manager:✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+INFO:dynamic_swap_manager:RedHeartDynamicSwapManager 초기화 완료
+DEBUG:asyncio:Using selector: EpollSelector
+DEBUG:local_translator:DSM 등록을 위한 이벤트 루프 생성
+INFO:dynamic_swap_manager:[DSM] translator 크기: 297.6MB (mgr_id=131499778521424)
+INFO:dynamic_swap_manager:   💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+DEBUG:dynamic_swap_manager:   master_model_registry에 translator 등록 (priority=3)
+INFO:dynamic_swap_manager:[REGISTER HEAD] translator (297.6MB, 우선순위: high)
+INFO:local_translator:✅ Translator를 DSM에 등록 (HIGH priority)
+INFO:RedHeart.Config:🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+INFO:RedHeart.Config:🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ LocalTranslator 초기화 및 전역 등록 완료
+INFO:RedHeart.UnifiedTrainingFinal:  🔧 Advanced Wrappers 생성 중...
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 24.6%, 필요: 500MB)
+INFO:RedHeart.Config:🔍 get_system_module 호출: module_id=translator
+INFO:RedHeart.Config:🔍 현재 등록된 모듈들: ['translator']
+INFO:RedHeart.Config:🔍 결과: <class 'local_translator.LocalTranslator'>
+INFO:RedHeartLinux.AdvancedEmotion:✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+INFO:RedHeartLinux.AdvancedEmotion:감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+INFO:RedHeartLinux.AdvancedEmotion:  - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+INFO:RedHeartLinux.AdvancedEmotion:  - emotion_moe None 여부: False
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:RedHeartLinux.AdvancedEmotion:✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+INFO:RedHeartLinux.AdvancedEmotion:  - DSP 시뮬레이터: 20M 파라미터
+INFO:RedHeartLinux.AdvancedEmotion:  - 칼만 필터: 융합용
+INFO:RedHeartLinux.AdvancedEmotion:계층적 감정 모델 초기화 완료
+INFO:RedHeart.AdvancedLLM:모델 설정 준비 완료: ['helpingai']
+INFO:RedHeart.AdvancedLLM:동적 GPU-RAM 스왑 시스템 초기화 완료
+INFO:RedHeartLinux.AdvancedEmotion:LLM 엔진 연결 완료
+INFO:RedHeartLinux.AdvancedEmotion:고급 감정 분석 시스템이 초기화되었습니다.
+INFO:RedHeartLinux.AdvancedEmotion:🔍 hierarchical_model이 이미 존재함
+INFO:advanced_analyzer_wrappers:  - biometric_processor 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - multimodal_fusion 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - temporal_emotion 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - cultural_nuance 등록 (13M)
+INFO:advanced_analyzer_wrappers:  - advanced_moe 등록 (5M)
+INFO:advanced_analyzer_wrappers:  - emotion_moe 등록
+INFO:advanced_analyzer_wrappers:✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:advanced_regret_analyzer:✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+INFO:advanced_regret_analyzer:후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:advanced_regret_analyzer:후회 분석기 3뷰 시나리오 시스템 초기화 완료
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook GPU 메모리 관리 활성화
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook 시스템 초기화 완료
+INFO:RedHeart.PhaseControllerHook:성능 모니터링 시작
+INFO:advanced_regret_analyzer:후회 분석기 PhaseController Hook 초기화 완료
+INFO:advanced_regret_analyzer:Advanced Regret Analyzer initialized on cuda
+INFO:advanced_regret_analyzer:동적 임계값 시스템 통합 완료
+INFO:advanced_analyzer_wrappers:  - regret_network 등록 (3M)
+INFO:advanced_analyzer_wrappers:  - counterfactual_sim 등록 (15M)
+INFO:advanced_analyzer_wrappers:  - temporal_propagation 등록 (12M)
+INFO:advanced_analyzer_wrappers:  - decision_tree 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - bayesian_inference 등록 (10M)
+INFO:advanced_analyzer_wrappers:✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 30.3%, 필요: 500MB)
+INFO:RedHeart.AdvancedSURDAnalyzer:✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+INFO:RedHeart.AdvancedSURDAnalyzer:새로운 고급 SURD 모델 초기화 완료
+INFO:RedHeart.AdvancedSURDAnalyzer:LLM 엔진 연결 완료
+INFO:RedHeart.AdvancedSURDAnalyzer:고급 SURD 분석 시스템 초기화 완료
+INFO:advanced_analyzer_wrappers:  - deep_causal 등록 (10M)
+INFO:advanced_analyzer_wrappers:  - info_decomposition 등록 (8M)
+INFO:advanced_analyzer_wrappers:  - neural_causal_model 등록 (5M)
+INFO:advanced_analyzer_wrappers:✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+INFO:RedHeart.AdvancedBenthamCalculator:✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.ThreeViewScenarioSystem:3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+INFO:RedHeart.AdvancedBenthamCalculator:신경망 가중치 예측기 로딩 중...
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 34.3%, 필요: 100MB)
+INFO:RedHeart.AdvancedBenthamCalculator:신경망 가중치 예측기 로드: cuda (100MB)
+INFO:RedHeart.AdvancedBenthamCalculator:메모리 사용량: RAM 1765MB, GPU 2813MB
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook GPU 메모리 관리 활성화
+INFO:RedHeart.PhaseControllerHook:PhaseController Hook 시스템 초기화 완료
+INFO:RedHeart.PhaseControllerHook:성능 모니터링 시작
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 PhaseController Hook 초기화 완료
+INFO:dynamic_gpu_manager:Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+INFO:RedHeart.LegalExpertSystem:법률 전문가 시스템 GPU 메모리 관리 활성화
+INFO:RedHeart.LegalExpertSystem:법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+INFO:RedHeart.LegalExpertSystem:inference 모드 - 법률 전문가 시스템 활성화
+INFO:RedHeart.AdvancedBenthamCalculator:벤담 계산기 법률 전문가 시스템 초기화 완료
+INFO:RedHeart.AdvancedBenthamCalculator:고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+INFO:RedHeart.AdvancedBenthamCalculator:🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+INFO:RedHeart.AdvancedBenthamCalculator:✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+INFO:RedHeart.AdvancedBenthamCalculator:   - 파라미터 수: 3,137
+INFO:RedHeart.AdvancedBenthamCalculator:트랜스포머 맥락 분석기 로딩 중...
+INFO:config:GPU 로딩 워커 스레드 시작
+INFO:RedHeart.Config:순차적 GPU 로딩 시스템 시작
+DEBUG:asyncio:Using selector: EpollSelector
+INFO:RedHeart.Config:GPU 로딩 시작: bentham_emotion_classifier (예상 메모리: 732MB)
+INFO:hf_model_wrapper:🔄 HF 파이프라인 생성 중: text-classification (모델: j-hartmann/emotion-english-distilroberta-base, 소유자: advanced_bentham_calculator)
+INFO:hf_model_wrapper:📊 파이프라인 로드 전 메모리 요청: advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base (1000.0MB)
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+DEBUG:workflow_aware_memory_manager:[GPU BLOCKING] 여유 공간: free=5371.6MB, reserved_free=6.8MB, total=5378.3MB
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] ✅ advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base 할당 성공 (폴링)
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: j-hartmann/emotion-english-distilroberta-base (소유자: transformers.pipelines.base)
+INFO:hf_model_wrapper:📊 모델 로드 전 메모리 요청: transformers.pipelines.base_emotion-english-distilroberta-base (1000.0MB)
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] transformers.pipelines.base_emotion-english-distilroberta-base: 1000.0MB 동기 요청 시작
+DEBUG:workflow_aware_memory_manager:[GPU BLOCKING] 여유 공간: free=5371.6MB, reserved_free=6.8MB, total=5378.3MB
+INFO:workflow_aware_memory_manager:[GPU BLOCKING] ✅ transformers.pipelines.base_emotion-english-distilroberta-base 할당 성공 (폴링)
+DEBUG:hf_model_wrapper:모델 크기 추정: 1253.1MB (학습가능: True)
+INFO:hf_model_wrapper:✅ 모델 'transformers.pipelines.base_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: transformers.pipelines.base, 크기: 1253.1MB)
+DEBUG:hf_model_wrapper:모델 크기 추정: 1253.1MB (학습가능: True)
+INFO:hf_model_wrapper:✅ 모델 'advanced_bentham_calculator_pipeline_emotion-english-distilroberta-base' 메모리 매니저에 등록됨 (소유자: advanced_bentham_calculator, 크기: 1253.1MB)
+INFO:RedHeart.Config:GPU 로딩 성공: bentham_emotion_classifier (사용률: 34.3% → 38.2%, 실제: 307MB)
+INFO:advanced_analyzer_wrappers:  - cross_cultural 등록
+INFO:advanced_analyzer_wrappers:  - deep_ethics 등록
+INFO:advanced_analyzer_wrappers:  - default_network 등록
+INFO:advanced_analyzer_wrappers:  - ethics_moe 등록
+INFO:advanced_analyzer_wrappers:  - long_term_predictor 등록
+INFO:advanced_analyzer_wrappers:  - neural_predictor 등록
+INFO:advanced_analyzer_wrappers:  - social_impact 등록
+INFO:RedHeart.AdvancedBenthamCalculator:가중치 레이어들 로딩 중...
+INFO:RedHeart.AdvancedBenthamCalculator:메모리 사용량: RAM 1768MB, GPU 3127MB
+INFO:advanced_analyzer_wrappers:✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+INFO:advanced_analyzer_wrappers:✅ Advanced Analyzer Wrappers 생성 완료
+INFO:advanced_analyzer_wrappers:  - 총 Wrapper 수: 4
+INFO:advanced_analyzer_wrappers:  - 총 파라미터: 190,575,565
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ Advanced Wrappers 생성 완료 (190.6M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ emotion 분석기 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ bentham 분석기 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ regret 분석기 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ surd 분석기 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ advanced_emotion Wrapper GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ advanced_regret Wrapper GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ advanced_surd Wrapper GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ advanced_bentham Wrapper GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ Phase0 네트워크 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ Phase2 네트워크 GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ Hierarchical Integrator GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ DSP Simulator GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ Kalman Filter GPU 로드
+INFO:RedHeart.UnifiedTrainingFinal:  최종 GPU 메모리: 3.13GB (증가: 1.74GB)
+INFO:RedHeart.UnifiedTrainingFinal:  GPU 사용률: 39.2% / 8.0GB
+DEBUG:training.advanced_training_techniques:  Layer 0: LR=1.2e-05 (631 params)
+DEBUG:training.advanced_training_techniques:  Layer 1: LR=1.5e-05 (494 params)
+DEBUG:training.advanced_training_techniques:  Layer 2: LR=1.8e-05 (436 params)
+DEBUG:training.advanced_training_techniques:  Layer 3: LR=2.3e-05 (300 params)
+DEBUG:training.advanced_training_techniques:  Layer 4: LR=2.9e-05 (238 params)
+DEBUG:training.advanced_training_techniques:  Layer 5: LR=3.6e-05 (178 params)
+DEBUG:training.advanced_training_techniques:  Layer 6: LR=4.5e-05 (66 params)
+DEBUG:training.advanced_training_techniques:  Layer 7: LR=5.6e-05 (246 params)
+INFO:training.advanced_training_techniques:✅ LLRD 초기화: 8개 레이어
+INFO:training.advanced_training_techniques:  - Base LR: 5.6e-05
+INFO:training.advanced_training_techniques:  - Decay Rate: 0.8
+INFO:training.advanced_training_techniques:✅ Advanced Training 컴포넌트 초기화 완료
+INFO:RedHeart.UnifiedTrainingFinal:  백본: 90.6M
+INFO:RedHeart.UnifiedTrainingFinal:  emotion_head: 17.3M
+INFO:RedHeart.UnifiedTrainingFinal:  bentham_head: 13.9M
+INFO:RedHeart.UnifiedTrainingFinal:  regret_head: 19.9M
+INFO:RedHeart.UnifiedTrainingFinal:  surd_head: 12.0M
+INFO:RedHeart.UnifiedTrainingFinal:  Neural Analyzers: 368.2M
+INFO:RedHeart.UnifiedTrainingFinal:  Advanced Wrappers: 190.6M
+INFO:RedHeart.UnifiedTrainingFinal:  Phase Networks: 15.7M
+INFO:RedHeart.UnifiedTrainingFinal:  DSP & Kalman: 2.3M
+INFO:RedHeart.UnifiedTrainingFinal:✅ 모델 초기화 완료: 총 730.5M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:✅ 목표 파라미터 수 달성: 730.5M ≈ 730M
+INFO:RedHeart.UnifiedTrainingFinal:
+📊 모듈 구성 요약:
+INFO:RedHeart.UnifiedTrainingFinal:============================================================
+INFO:RedHeart.UnifiedTrainingFinal:📌 주요 컴포넌트:
+INFO:RedHeart.UnifiedTrainingFinal:  - 백본                  :    90.62M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - 감정 헤드               :    17.25M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - 벤담 헤드               :    13.87M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - 후회 헤드               :    19.90M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - SURD 헤드             :    12.03M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:
+📌 분석기 모듈:
+INFO:RedHeart.UnifiedTrainingFinal:  - neural_emotion          :   122.60M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - neural_bentham          :    78.28M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - neural_regret           :   153.87M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - neural_surd             :    13.47M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - advanced_advanced_emotion:    63.00M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - advanced_advanced_regret:    44.16M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - advanced_advanced_surd  :     7.56M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - advanced_advanced_bentham:    75.84M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:
+📌 Advanced Training 기법:
+INFO:RedHeart.UnifiedTrainingFinal:  - Label Smoothing: ✅
+INFO:RedHeart.UnifiedTrainingFinal:  - R-Drop: ✅
+INFO:RedHeart.UnifiedTrainingFinal:  - EMA: ✅
+INFO:RedHeart.UnifiedTrainingFinal:  - LLRD: ✅
+INFO:RedHeart.UnifiedTrainingFinal:  - Sweet Spot Detection: ✅
+INFO:RedHeart.UnifiedTrainingFinal:  - Parameter Crossover: ✅
+INFO:RedHeart.UnifiedTrainingFinal:============================================================
+INFO:RedHeart.UnifiedTrainingFinal:🧱 청크 모드 활성화 - claude_api_preprocessing/embedded
+INFO:RedHeart.UnifiedTrainingFinal:📦 기존 청크 임베딩 로드
+INFO:RedHeart.UnifiedTrainingFinal:  - 청크 수: 11개
+INFO:RedHeart.UnifiedTrainingFinal:  - 전체 데이터: 10,460개
+INFO:RedHeart.UnifiedTrainingFinal:  - 임베딩 완료: 10,460개 (100.0%)
+INFO:RedHeart.UnifiedTrainingFinal:  - 로드 완료: 10460개 아이템
+INFO:RedHeart.UnifiedTrainingFinal:📊 임베딩 상태:
+INFO:RedHeart.UnifiedTrainingFinal:  - 전체 데이터: 9414개
+INFO:RedHeart.UnifiedTrainingFinal:  - 임베딩 있음: 9414개 (100.0%)
+INFO:RedHeart.UnifiedTrainingFinal:  - 임베딩 없음: 0개 (0.0%)
+INFO:RedHeart.UnifiedTrainingFinal:📊 임베딩 상태:
+INFO:RedHeart.UnifiedTrainingFinal:  - 전체 데이터: 1046개
+INFO:RedHeart.UnifiedTrainingFinal:  - 임베딩 있음: 1046개 (100.0%)
+INFO:RedHeart.UnifiedTrainingFinal:  - 임베딩 없음: 0개 (0.0%)
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 1821, in <module>
+    main()
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 1802, in main
+    trainer = UnifiedTrainer(config)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 284, in __init__
+    self._initialize_dataloaders()
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 844, in _initialize_dataloaders
+    logger.info(f"✅ 데이터 로더 초기화: Train={train_size}, Val={val_size}")
+                                                ^^^^^^^^^^
+NameError: name 'train_size' is not defined
+[0;34m[INFO][0m 학습 시스템 정리 중...
+[0;34m[INFO][0m GPU 메모리 정리...
+[0;32m[SUCCESS][0m 정리 완료

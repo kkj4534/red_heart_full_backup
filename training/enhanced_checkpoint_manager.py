@@ -157,7 +157,12 @@ class EnhancedCheckpointManager:
         
         logger.info(f"💾 체크포인트 저장: {checkpoint_path}")
         logger.info(f"   - 에폭: {epoch}, LR: {lr:.6f}")
-        logger.info(f"   - 메트릭: loss={metrics.get('loss', 'N/A'):.4f}")
+        # loss 값이 있는지 확인하고 적절한 포맷 적용
+        loss_val = metrics.get('loss', 'N/A')
+        if isinstance(loss_val, (int, float)) and loss_val != float('inf'):
+            logger.info(f"   - 메트릭: loss={loss_val:.4f}")
+        else:
+            logger.info(f"   - 메트릭: loss={loss_val}")
         
         # 오래된 체크포인트 정리
         self._cleanup_old_checkpoints()
