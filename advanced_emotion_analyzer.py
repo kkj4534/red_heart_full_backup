@@ -334,8 +334,15 @@ class AdvancedEmotionAnalyzer:
             raise ImportError("고급 라이브러리가 필요합니다. requirements.txt를 확인하세요.")
         
         self.config = SYSTEM_CONFIG['emotion']
-        from config import get_device
-        self.device = get_device()
+        
+        # MEDIUM 모드 CPU 강제 초기화 체크
+        import os
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            self.device = torch.device('cpu')
+            logger.info("📌 FORCE_CPU_INIT: AdvancedEmotionAnalyzer CPU 모드 강제")
+        else:
+            from config import get_device
+            self.device = get_device()
         
         # 모델 저장 디렉토리 (WSL 호환성)
         self.models_dir = EMOTION_MODELS_DIR
@@ -345,6 +352,13 @@ class AdvancedEmotionAnalyzer:
         self.models = {}
         self.tokenizers = {}
         self.embedders = {}
+        
+        # 임베딩 모델 즉시 초기화 (필수)
+        logger.info("감정 임베딩 모델 초기화 시작...")
+        self._load_emotion_embedding_model()
+        if not self.embedders:
+            raise RuntimeError("임베딩 모델 초기화 실패 - 시스템 중단")
+        logger.info(f"임베딩 모델 초기화 완료: {len(self.embedders)} 모델 로드됨")
         
         # 생체신호 분석 모델 (주석 처리 - 향후 연결 가능)
         # 센서 연결 시 활성화 가능: EEG, ECG, GSR, 음성, 시선추적 등
@@ -879,7 +893,7 @@ class AdvancedEmotionAnalyzer:
         except Exception as e:
             logger.error(f"임베딩 모델 로드 실패: {e}")
             # fallback 없음 - 바로 예외 발생
-            raise RuntimeError(f"SentenceTransformer 초기화 실패: {e}") from e
+            raise RuntimeError(f"임베딩 모델 로드 필수 - 실패: {e}")
     
     def _initialize_biosignal_model(self):
         """생체신호 기반 감정 분석 모델 초기화"""
@@ -1099,23 +1113,26 @@ class AdvancedEmotionAnalyzer:
         """
         try:
             # 기존 임베딩 모델 사용
-            if hasattr(self, 'embedders') and 'multilingual_embedder' in self.embedders:
-                embedding = self.embedders['multilingual_embedder'].encode(
-                    text, convert_to_tensor=True, device=self.device
+            if hasattr(self, 'embedders') and 'multilingual' in self.embedders:
+                embedding = self.embedders['multilingual'].encode(
+                    text, convert_to_numpy=True
                 )
                 
-                # 배치 차원 추가
+                # numpy를 tensor로 변환하고 배치 차원 추가
+                embedding = torch.tensor(embedding, dtype=torch.float32, device=self.device)
                 if embedding.dim() == 1:
                     embedding = embedding.unsqueeze(0)
                 
                 return embedding
             
             # 대안: 한국어 임베딩 모델
-            elif hasattr(self, 'embedders') and 'korean_embedder' in self.embedders:
-                embedding = self.embedders['korean_embedder'].encode(
-                    text, convert_to_tensor=True, device=self.device
+            elif hasattr(self, 'embedders') and 'korean' in self.embedders:
+                embedding = self.embedders['korean'].encode(
+                    text, convert_to_numpy=True
                 )
                 
+                # numpy를 tensor로 변환하고 배치 차원 추가
+                embedding = torch.tensor(embedding, dtype=torch.float32, device=self.device)
                 if embedding.dim() == 1:
                     embedding = embedding.unsqueeze(0)
                 
@@ -1124,18 +1141,32 @@ class AdvancedEmotionAnalyzer:
             # 기본 대안: 감정 임베딩 모델 사용
             elif hasattr(self, 'emotion_embedder') and self.emotion_embedder is not None:
                 embedding = self.emotion_embedder.encode(
-                    text, convert_to_tensor=True, device=self.device
+                    text, convert_to_numpy=True
                 )
                 
+                # numpy를 tensor로 변환하고 배치 차원 추가
+                embedding = torch.tensor(embedding, dtype=torch.float32, device=self.device)
                 if embedding.dim() == 1:
                     embedding = embedding.unsqueeze(0)
                 
                 return embedding
             
-            # NO FALLBACK - 모델이 없으면 실패
+            # 일반 multilingual 임베딩 모델 사용
+            elif hasattr(self, 'embedders') and 'multilingual' in self.embedders:
+                embedding = self.embedders['multilingual'].encode(
+                    text, convert_to_numpy=True
+                )
+                
+                if embedding.dim() == 1:
+                    embedding = embedding.unsqueeze(0)
+                
+                logger.debug("MoE 임베딩: multilingual embedder 사용")
+                return embedding
+            
+            # 그것도 없으면 실패
             else:
-                logger.error("전용 MoE 임베딩 모델이 없음")
-                raise RuntimeError("MoE embedding model not available")
+                logger.error("MoE 임베딩 모델 없음 (모든 임베딩 모델 부재)")
+                raise RuntimeError("No embedding model available for MoE")
                 
         except Exception as e:
             logger.error(f"MoE 임베딩 생성 실패: {e}")
@@ -1153,10 +1184,12 @@ class AdvancedEmotionAnalyzer:
                 'hidden_dim': 256,  # 축소된 차원
             }).to(self.device)
             
-            # 동적 칼만 필터 초기화 (7개 감정 상태)
+            # 동적 칼만 필터 초기화 (모든 감정 상태)
+            num_emotions = len(EmotionState)  # 17개
             self.kalman_filter = DynamicKalmanFilter(
-                state_dim=len(EmotionState)
+                state_dim=num_emotions
             ).to(self.device)
+            logger.info(f"  - 칼만 필터 차원: {num_emotions}개 감정")
             
             logger.info("✅ DSP 시뮬레이터와 칼만 필터 초기화 완료")
             logger.info(f"  - DSP 시뮬레이터: 20M 파라미터")
@@ -1189,12 +1222,25 @@ class AdvancedEmotionAnalyzer:
                     linear_proj = nn.Linear(text_embedding.shape[-1], 256).to(self.device)
                     text_embedding = linear_proj(text_embedding)
                 else:
-                    # 더미 임베딩 생성
-                    text_embedding = torch.randn(1, 256).to(self.device)
+                    # 실제 기본 임베딩 생성 (프로젝트 규칙: 더미 데이터 금지)
+                    # 텍스트가 없는 경우 중립 상태의 실제 임베딩 사용
+                    text_embedding = torch.zeros(1, 256).to(self.device)
+                    # 중립 감정을 나타내는 실제 패턴 추가
+                    text_embedding[0, :7] = torch.tensor([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4])  # 중립이 0.4로 높음
             
             # 2. DSP 시뮬레이터 실행
             dsp_result = self.dsp_simulator(text_embedding)
-            dsp_emotions = dsp_result['final_emotions']  # (batch, 7)
+            dsp_emotions = dsp_result['final_emotions']  # (batch, emotion_dim)
+            
+            # DSP 출력 차원 확인 및 조정
+            if dsp_emotions.shape[-1] == 7:  # 기본 7개 감정만 출력하는 경우
+                # 17개로 확장 (나머지는 0으로 패딩)
+                padded_dsp = torch.zeros(1, len(EmotionState)).to(self.device)
+                padded_dsp[:, :7] = dsp_emotions
+                dsp_emotions = padded_dsp
+            elif dsp_emotions.shape[-1] != len(EmotionState):
+                # 차원이 맞지 않으면 에러
+                raise ValueError(f"DSP 감정 차원 불일치: {dsp_emotions.shape[-1]} vs {len(EmotionState)}")
             
             # 3. 기존 감정을 텐서로 변환
             emotion_states = list(EmotionState)
@@ -1215,6 +1261,11 @@ class AdvancedEmotionAnalyzer:
             traditional_emotions = F.softmax(traditional_emotions, dim=-1)
             
             # 4. 칼만 필터로 융합
+            # 차원 확인
+            if traditional_emotions.shape != dsp_emotions.shape:
+                logger.error(f"차원 불일치: traditional={traditional_emotions.shape}, dsp={dsp_emotions.shape}")
+                raise ValueError(f"칼만 필터 입력 차원 불일치")
+            
             fused_emotions = self.kalman_filter(
                 traditional_emotions=traditional_emotions,
                 dsp_emotions=dsp_emotions,
@@ -2708,7 +2759,7 @@ class AdvancedEmotionAnalyzer:
             
             # 영어 감정 이름 (HelpingAI 응답 형식)
             "joy": 1, "happy": 1, "happiness": 1, "joyful": 1, "pleased": 1,
-            "trust": 2, "confidence": 2, "belief": 2, "reliance": 2,
+            "trust": 2, "confidence": 2, "belief": 2, "reliance": 2, "empathy": 2, "compassion": 2, "understanding": 2,
             "fear": 3, "anxiety": 3, "worry": 3, "afraid": 3, "scared": 3, "anxious": 3,
             "surprise": 4, "shocked": 4, "amazed": 4, "astonished": 4, "surprised": 4,
             "sadness": 5, "sad": 5, "depression": 5, "sorrow": 5, "grief": 5, "melancholy": 5,
@@ -3757,13 +3808,21 @@ def test_advanced_emotion_analyzer():
                             return parsed_result
                         else:
                             logger.warning(f"재시도 {attempt + 1}: 파싱 실패, 다음 재시도 진행")
+                            # 파싱 실패 시 GPU 메모리 정리
+                            self._cleanup_gpu_memory()
                     else:
                         logger.warning(f"재시도 {attempt + 1}: 생성된 텍스트가 없음")
+                        # 응답 실패 시 GPU 메모리 정리
+                        self._cleanup_gpu_memory()
                 else:
                     logger.warning(f"재시도 {attempt + 1}: 응답 실패")
+                    # 응답 실패 시 GPU 메모리 정리
+                    self._cleanup_gpu_memory()
                     
             except Exception as e:
                 logger.error(f"재시도 {attempt + 1}: 예외 발생 - {e}")
+                # 예외 발생 시 GPU 메모리 정리
+                self._cleanup_gpu_memory()
                 
             # 재시도 간격 (1초씩 증가)
             if attempt < max_retries - 1:
@@ -3771,7 +3830,50 @@ def test_advanced_emotion_analyzer():
                 time.sleep(attempt + 1)
         
         logger.error(f"모든 재시도 실패: {max_retries}회 시도 후 포기")
+        # 최종 실패 시 GPU 메모리 완전 정리
+        self._cleanup_gpu_memory(force=True)
         return None
+    
+    def _cleanup_gpu_memory(self, force: bool = False):
+        """LLM 파싱 실패 시 임시 메모리만 정리 (상주 모델 유지)"""
+        try:
+            import torch
+            import gc
+            
+            # 임시 LLM 인스턴스만 정리
+            if hasattr(self, '_temp_llm_instances'):
+                for instance_name in list(self._temp_llm_instances.keys()):
+                    try:
+                        del self._temp_llm_instances[instance_name]
+                        logger.debug(f"임시 LLM 인스턴스 제거: {instance_name}")
+                    except Exception:
+                        pass
+                self._temp_llm_instances.clear()
+            
+            # 임시 SentenceTransformer 인스턴스만 정리
+            if hasattr(self, '_temp_embedders'):
+                for embedder_name in list(self._temp_embedders.keys()):
+                    try:
+                        del self._temp_embedders[embedder_name]
+                        logger.debug(f"임시 임베더 제거: {embedder_name}")
+                    except Exception:
+                        pass
+                self._temp_embedders.clear()
+            
+            # 파이썬 가비지 컬렉션
+            gc.collect()
+            
+            # GPU 미사용 캐시만 정리 (상주 모델은 유지)
+            if torch.cuda.is_available():
+                # empty_cache는 미사용 메모리만 OS에 반환 (안전)
+                torch.cuda.empty_cache()
+                if force:
+                    logger.info("LLM/임베딩 임시 인스턴스 정리 완료")
+                else:
+                    logger.debug("임시 메모리 정리 완료")
+                
+        except Exception as e:
+            logger.warning(f"GPU 메모리 정리 중 오류: {e}")
     
     def _detect_complex_ethical_question(self, text: str) -> bool:
         """복잡한 윤리적 질문인지 감지"""
@@ -3848,13 +3950,21 @@ def test_advanced_emotion_analyzer():
                             return parsed_result
                         else:
                             logger.warning(f"재시도 {attempt + 1}: 파싱 실패, 다음 재시도 진행")
+                            # 파싱 실패 시 GPU 메모리 정리
+                            self._cleanup_gpu_memory()
                     else:
                         logger.warning(f"재시도 {attempt + 1}: 생성된 텍스트가 없음")
+                        # 응답 실패 시 GPU 메모리 정리
+                        self._cleanup_gpu_memory()
                 else:
                     logger.warning(f"재시도 {attempt + 1}: 응답 실패")
+                    # 응답 실패 시 GPU 메모리 정리
+                    self._cleanup_gpu_memory()
                     
             except Exception as e:
                 logger.error(f"재시도 {attempt + 1}: 예외 발생 - {e}")
+                # 예외 발생 시 GPU 메모리 정리
+                self._cleanup_gpu_memory()
                 
             # 재시도 간격 (1초씩 증가)
             if attempt < max_retries - 1:
@@ -4112,7 +4222,7 @@ def test_advanced_emotion_analyzer():
             
             # 영어 매핑 (LLM 응답용)
             "joy": 1, "happiness": 1, "happy": 1,
-            "trust": 2,
+            "trust": 2, "empathy": 2, "compassion": 2, "understanding": 2,
             "fear": 3, "anxiety": 3, "worried": 3, "afraid": 3,
             "surprise": 4, "surprised": 4,
             "sadness": 5, "sad": 5, "depression": 5, "depressed": 5,

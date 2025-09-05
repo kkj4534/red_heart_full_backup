@@ -202,53 +202,96 @@ class Phase2CommunityNet(nn.Module):
 class HierarchicalEmotionIntegrator(nn.Module):
     """Phase 0-1-2 통합 모듈
     
-    3단계 계층적 감정 시스템을 통합하여 학습
+    후회 메커니즘을 통한 계층적 감정 시스템 통합
+    - Phase 0: 타자 관점 (후회를 통해 인식한 "느꼈어야 할" 감정)
+    - Phase 1: 자신 관점 (현재 느끼는 감정)
+    - Phase 2: 공동체 관점 (집단 내 감정 패턴)
     """
     
-    def __init__(self):
+    def __init__(self, input_dim: int = 896, emotion_dim: int = 7):
         super().__init__()
         
-        # Phase별 네트워크
-        self.phase0_net = Phase0ProjectionNet()
-        self.phase1_net = None  # Phase1은 이미 구현됨 (EmpathyNet)
-        self.phase2_net = Phase2CommunityNet()
+        # 감정 차원 투영 레이어
+        self.emotion_projection = nn.Linear(input_dim, emotion_dim * 3)  # self, other, community
         
-        # 통합 레이어
-        self.integration_layer = nn.Sequential(
-            nn.Linear(7 + 10, 32),  # Phase0(7) + Phase2(10)
+        # Phase별 처리 레이어
+        # Phase 0: 타자 관점 변환 (후회를 통한 학습)
+        self.other_transform = nn.Sequential(
+            nn.Linear(emotion_dim, 32),
             nn.LayerNorm(32),
             nn.GELU(),
-            nn.Linear(32, 7)  # 최종 7차원 감정
+            nn.Linear(32, emotion_dim)
         )
         
+        # Phase 2: 공동체 패턴 추출
+        self.community_transform = nn.Sequential(
+            nn.Linear(emotion_dim, 32),
+            nn.LayerNorm(32),
+            nn.GELU(),
+            nn.Linear(32, emotion_dim)
+        )
+        
+        # 계층적 통합 레이어
+        self.hierarchical_fusion = nn.Sequential(
+            nn.Linear(emotion_dim * 3, 64),  # self + other + community
+            nn.LayerNorm(64),
+            nn.GELU(),
+            nn.Dropout(0.2),
+            
+            nn.Linear(64, 128),
+            nn.LayerNorm(128),
+            nn.GELU(),
+            
+            nn.Linear(128, input_dim)  # 원래 차원으로 복원
+        )
+        
+        # 후회 기반 가중치 학습
+        self.regret_weight = nn.Parameter(torch.tensor(0.5))
+        
     def forward(self, 
-                other_emotion: torch.Tensor,
-                individual_emotions: torch.Tensor,
-                context: Optional[Dict] = None) -> Dict[str, torch.Tensor]:
+                features: torch.Tensor,
+                phase0_out: Optional[torch.Tensor] = None,
+                phase2_out: Optional[torch.Tensor] = None) -> torch.Tensor:
         """
-        통합 감정 처리
+        계층적 감정 통합 처리
         
         Args:
-            other_emotion: 타자 감정
-            individual_emotions: 개인들 감정
-            context: 추가 맥락 정보
+            features: 입력 특징 벡터 [batch_size, input_dim]
+            phase0_out: 외부 Phase0 출력 (있으면 사용)
+            phase2_out: 외부 Phase2 출력 (있으면 사용)
             
         Returns:
-            각 Phase별 출력과 통합 결과
+            통합된 특징 벡터 [batch_size, input_dim]
         """
-        # Phase 0: 타자→자신 투영
-        phase0_out = self.phase0_net(other_emotion)
+        batch_size = features.shape[0]
         
-        # Phase 2: 개인→공동체
-        cultural_context = context.get('culture', 'global') if context else 'global'
-        phase2_out = self.phase2_net(individual_emotions, cultural_context)
+        # 감정 차원으로 투영 후 3개로 분리
+        emotions = self.emotion_projection(features)
+        emotions = emotions.view(batch_size, 3, -1)  # [batch, 3, emotion_dim]
         
-        # 통합
-        combined = torch.cat([phase0_out, phase2_out], dim=-1)
-        integrated = self.integration_layer(combined)
+        self_emotion = emotions[:, 0, :]  # 자신의 감정
+        other_emotion_raw = emotions[:, 1, :]  # 타자 관점 (후회 기반)
+        community_emotion_raw = emotions[:, 2, :]  # 공동체 패턴
         
-        return {
-            'phase0_projection': phase0_out,
-            'phase2_community': phase2_out,
-            'integrated_emotion': integrated
-        }
+        # Phase0 처리: 타자 관점 변환 (또는 외부 입력 사용)
+        if phase0_out is not None and phase0_out.shape[-1] == 7:
+            other_emotion = phase0_out
+        else:
+            other_emotion = self.other_transform(other_emotion_raw)
+            # 후회 가중치 적용 (후회가 클수록 타자 관점 강화)
+            other_emotion = other_emotion * torch.sigmoid(self.regret_weight)
+        
+        # Phase2 처리: 공동체 패턴 (또는 외부 입력 사용)
+        if phase2_out is not None and phase2_out.shape[-1] <= 10:
+            # Phase2 출력이 있으면 패딩해서 사용
+            community_emotion = F.pad(phase2_out, (0, max(0, 7 - phase2_out.shape[-1])))[:, :7]
+        else:
+            # 배치 내 평균으로 공동체 패턴 시뮬레이션
+            community_avg = community_emotion_raw.mean(dim=0, keepdim=True).expand(batch_size, -1)
+            community_emotion = self.community_transform(community_avg)
+        
+        # 계층적 통합
+        combined = torch.cat([self_emotion, other_emotion, community_emotion], dim=-1)
+        integrated = self.hierarchical_fusion(combined)
+        
+        return integrated

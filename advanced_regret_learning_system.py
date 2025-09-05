@@ -729,6 +729,142 @@ class AdvancedRegretLearningSystem:
         # 딕셔너리 기반 통계 모델을 사용하므로 None 반환
         logger.warning("AdvancedRegretLearningSystem: PyTorch 네트워크가 없음 (딕셔너리 기반 모델)")
         return None
+    
+    async def analyze(self, counterfactuals: Any = None, 
+                      bentham_score: Dict[str, float] = None) -> Dict[str, Any]:
+        """
+        후회 분석 (간단한 분석 인터페이스)
+        
+        Args:
+            counterfactuals: 반사실적 시나리오
+            bentham_score: 벤담 점수
+            
+        Returns:
+            분석 결과
+        """
+        result = {
+            'regret_level': 0.0,
+            'learning_insights': [],
+            'suggested_alternatives': [],
+            'confidence': 0.0
+        }
+        
+        try:
+            # 1. 반사실 시나리오가 있으면 분석
+            if counterfactuals:
+                if hasattr(counterfactuals, 'scenarios'):
+                    # 시나리오별 후회 수준 계산
+                    regret_scores = []
+                    for scenario in counterfactuals.scenarios[:3]:
+                        # 간단한 후회 점수 계산
+                        scenario_score = getattr(scenario, 'hedonic_score', 0.5)
+                        current_score = bentham_score.get('final_score', 0.5) if bentham_score else 0.5
+                        regret = max(0, scenario_score - current_score)
+                        regret_scores.append(regret)
+                    
+                    result['regret_level'] = np.mean(regret_scores) if regret_scores else 0.0
+                
+                # 2. 학습 인사이트 생성
+                if result['regret_level'] > 0.3:
+                    result['learning_insights'].append("높은 후회 수준 - 대안적 선택 고려 필요")
+                    result['learning_insights'].append("더 나은 결과를 위한 행동 패턴 재검토")
+                elif result['regret_level'] > 0.1:
+                    result['learning_insights'].append("중간 수준 후회 - 부분적 개선 가능")
+                else:
+                    result['learning_insights'].append("낮은 후회 - 현재 선택이 적절함")
+            
+            # 3. 벤담 점수 기반 분석
+            if bentham_score:
+                score = bentham_score.get('final_score', 0.5)
+                if score < 0.3:
+                    result['learning_insights'].append("벤담 점수 낮음 - 윤리적 재고려 필요")
+                elif score > 0.7:
+                    result['learning_insights'].append("벤담 점수 높음 - 긍정적 결과 예상")
+            
+            # 4. 대안 제시 (suggest_alternatives 활용)
+            analysis_data = {
+                'regret_level': result['regret_level'],
+                'bentham_score': bentham_score,
+                'counterfactuals': counterfactuals
+            }
+            result['suggested_alternatives'] = await self.suggest_alternatives(analysis_data)
+            
+            # 5. 신뢰도 계산
+            result['confidence'] = 0.7 if counterfactuals else 0.3
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"후회 분석 실패: {e}")
+            return result
+    
+    async def suggest_alternatives(self, analysis_data: Dict[str, Any]) -> List[str]:
+        """후회 분석 기반 대안 시나리오 제안
+        
+        MD 문서 사양: Phase 2에서 후회 분석으로 추가 시나리오 제안
+        높은 후회 가능성이 있는 시나리오들을 찾아 대안 생성
+        """
+        alternatives = []
+        
+        try:
+            # 현재 분석에서 후회 요소 추출
+            bentham_score = analysis_data.get('bentham', {})
+            emotion_data = analysis_data.get('emotion', {})
+            
+            # 후회 유형별 대안 생성
+            
+            # 1. 강도(intensity) 기반 대안
+            if bentham_score.get('intensity', 0) < 0.5:
+                alternatives.append("더 적극적인 개입을 통해 영향력을 높이는 방안")
+            
+            # 2. 지속성(duration) 기반 대안
+            if bentham_score.get('duration', 0) < 0.3:
+                alternatives.append("장기적 관점에서 지속 가능한 해결책 모색")
+            
+            # 3. 확실성(certainty) 기반 대안
+            if bentham_score.get('certainty', 0) < 0.6:
+                alternatives.append("더 많은 정보 수집 후 신중한 결정")
+            
+            # 4. 범위(extent) 기반 대안
+            if bentham_score.get('extent', 0) < 0.4:
+                alternatives.append("더 많은 이해관계자를 고려한 포괄적 접근")
+            
+            # 5. 감정 데이터 기반 대안
+            if emotion_data:
+                primary_emotion = emotion_data.get('primary_emotion', '')
+                if 'fear' in str(primary_emotion).lower():
+                    alternatives.append("두려움을 극복하고 용기 있는 선택 고려")
+                elif 'anger' in str(primary_emotion).lower():
+                    alternatives.append("감정을 가라앉히고 이성적 판단 추구")
+                elif 'sadness' in str(primary_emotion).lower():
+                    alternatives.append("긍정적 측면을 찾아 희망적 대안 모색")
+            
+            # 6. 과거 학습 기반 대안 (메모리에서)
+            for phase, memories in self.regret_memories.items():
+                if memories:
+                    # 최근 유사 상황에서 낮은 후회를 보인 대안 찾기
+                    low_regret_memories = [m for m in memories if m.intensity < 0.3]
+                    if low_regret_memories:
+                        latest = low_regret_memories[-1]
+                        if hasattr(latest, 'alternative_action') and latest.alternative_action:
+                            alternatives.append(f"과거 성공 사례 참고: {latest.alternative_action}")
+            
+            # 중복 제거 및 제한
+            alternatives = list(dict.fromkeys(alternatives))[:6]  # 최대 6개
+            
+            # 대안이 없으면 기본 대안 제공
+            if not alternatives:
+                alternatives = [
+                    "현재 선택을 재검토하고 다른 관점 고려",
+                    "단계적 접근을 통한 위험 최소화",
+                    "협력적 해결 방안 모색"
+                ]
+            
+        except Exception as e:
+            logger.error(f"대안 생성 실패: {e}")
+            alternatives = ["대안 생성 중 오류 발생"]
+        
+        return alternatives
 
 async def test_regret_learning_system():
     """후회 학습 시스템 테스트"""

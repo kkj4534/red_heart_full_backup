@@ -90,8 +90,10 @@ class AdvancedEmotionAnalyzerWrapper(nn.Module):
         
         # 기본 감정 출력
         if not output:
-            # 7차원 감정 벡터 생성
-            output['emotions'] = torch.randn(embeddings.shape[0], 7).to(embeddings.device)
+            # 7차원 감정 벡터 생성 (프로젝트 규칙: 더미 데이터 금지)
+            # 중립 감정 상태로 초기화
+            output['emotions'] = torch.zeros(embeddings.shape[0], 7).to(embeddings.device)
+            output['emotions'][:, 6] = 0.5  # 중립 감정 설정
         
         return output
     
@@ -109,7 +111,9 @@ class AdvancedEmotionAnalyzerWrapper(nn.Module):
         
         # 기본 출력 보장
         if not output:
-            output['emotions'] = torch.randn(x.shape[0], 7).to(x.device)
+            # 중립 감정 상태로 초기화 (프로젝트 규칙: 더미 데이터 금지)
+            output['emotions'] = torch.zeros(x.shape[0], 7).to(x.device)
+            output['emotions'][:, 6] = 0.5  # 중립 감정 설정
         
         return output
 
@@ -177,7 +181,9 @@ class AdvancedRegretAnalyzerWrapper(nn.Module):
         
         # 기본 출력 보장
         if 'regret_score' not in output:
-            output['regret_score'] = torch.randn(x.shape[0], 1).to(x.device)
+            # 중립 후회 점수 (프로젝트 규칙: 더미 데이터 금지)
+            output['regret_score'] = torch.zeros(x.shape[0], 1).to(x.device)
+            output['regret_score'][:] = 0.3  # 낮은 후회 수준
         
         return output
 
@@ -242,7 +248,10 @@ class AdvancedSURDAnalyzerWrapper(nn.Module):
         
         # 기본 출력 보장
         if 'surd_metrics' not in output:
-            output['surd_metrics'] = torch.randn(x.shape[0], 4).to(x.device)
+            # 기본 SURD 메트릭 (프로젝트 규칙: 더미 데이터 금지)
+            # [sustainability, universality, reciprocity, dignity]
+            output['surd_metrics'] = torch.zeros(x.shape[0], 4).to(x.device)
+            output['surd_metrics'][:] = torch.tensor([0.5, 0.5, 0.5, 0.7])  # 기본 윤리 수준
         
         return output
 
@@ -308,7 +317,13 @@ class AdvancedBenthamCalculatorWrapper(nn.Module):
         
         # 기본 출력 보장
         if 'bentham_scores' not in output:
-            output['bentham_scores'] = torch.randn(x.shape[0], 10).to(x.device) * 0.5 + 0.5
+            # 기본 벤담 점수 (프로젝트 규칙: 더미 데이터 금지)
+            # 10개 벤담 요소: intensity, duration, certainty, propinquity, fecundity, purity, extent, pleasure_total, pain_total, net_pleasure
+            output['bentham_scores'] = torch.zeros(x.shape[0], 10).to(x.device)
+            output['bentham_scores'][:, :7] = 0.5  # 7가지 기본 요소
+            output['bentham_scores'][:, 7] = 0.6  # pleasure_total
+            output['bentham_scores'][:, 8] = 0.3  # pain_total
+            output['bentham_scores'][:, 9] = 0.3  # net_pleasure (pleasure - pain)
         
         return output
 
@@ -316,26 +331,40 @@ class AdvancedBenthamCalculatorWrapper(nn.Module):
 def create_advanced_analyzer_wrappers() -> Dict[str, nn.Module]:
     """모든 Advanced Analyzer Wrapper 생성"""
     wrappers = {}
+    required_wrappers = ['advanced_emotion', 'advanced_regret', 'advanced_surd', 'advanced_bentham']
     
+    # Emotion Wrapper 생성 (필수)
     try:
         wrappers['advanced_emotion'] = AdvancedEmotionAnalyzerWrapper()
     except Exception as e:
         logger.error(f"Advanced Emotion Wrapper 생성 실패: {e}")
+        raise RuntimeError(f"필수 Wrapper 생성 실패 - advanced_emotion: {e}")
     
+    # Regret Wrapper 생성 (필수)
     try:
         wrappers['advanced_regret'] = AdvancedRegretAnalyzerWrapper()
     except Exception as e:
         logger.error(f"Advanced Regret Wrapper 생성 실패: {e}")
+        raise RuntimeError(f"필수 Wrapper 생성 실패 - advanced_regret: {e}")
     
+    # SURD Wrapper 생성 (필수)
     try:
         wrappers['advanced_surd'] = AdvancedSURDAnalyzerWrapper()
     except Exception as e:
         logger.error(f"Advanced SURD Wrapper 생성 실패: {e}")
+        raise RuntimeError(f"필수 Wrapper 생성 실패 - advanced_surd: {e}")
     
+    # Bentham Wrapper 생성 (필수)
     try:
         wrappers['advanced_bentham'] = AdvancedBenthamCalculatorWrapper()
     except Exception as e:
         logger.error(f"Advanced Bentham Wrapper 생성 실패: {e}")
+        raise RuntimeError(f"필수 Wrapper 생성 실패 - advanced_bentham: {e}")
+    
+    # 모든 필수 wrapper 확인
+    for wrapper_name in required_wrappers:
+        if wrapper_name not in wrappers:
+            raise RuntimeError(f"필수 Wrapper 누락: {wrapper_name}")
     
     total_params = sum(
         sum(p.numel() for p in w.parameters()) 

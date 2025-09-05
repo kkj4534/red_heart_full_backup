@@ -433,7 +433,7 @@ SYSTEM_CONFIG = {
     
     # 고급 의미 분석 설정 (80M 파라미터 - 반사실적 추론에 집중)
     'semantic': {
-        'sentence_model': 'paraphrase-multilingual-mpnet-base-v2',
+        'sentence_model': 'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
         'korean_model': 'jhgan/ko-sroberta-multitask',
         'similarity_threshold': 0.75,
         'cache_size': 10000,

@@ -33,6 +33,7 @@ from config import ADVANCED_CONFIG, get_gpu_memory_info, get_smart_device
 from workflow_aware_memory_manager import (
     WorkflowAwareMemoryManager, WorkflowStage, WorkflowTracker
 )
+from waup_policy import WAUPManager, WAUPConfig, WorkflowPhase
 
 # 로거 설정
 logger = logging.getLogger(__name__)
@@ -69,6 +70,13 @@ class SwapableModel:
     priority_score: float = 50.0  # 워크플로우 기반 동적 점수 (0-100)
     workflow_group: Optional[str] = None  # 연계된 모듈 그룹
     avoid_unload: bool = False  # 점수가 매우 높을 때 언로드 회피 플래그
+    owner_obj: Any = None  # 원본 소유자 객체 (예: UnifiedModel)
+    owner_attr: Optional[str] = None  # 원본 속성 이름 (예: 'emotion_head')
+    # WAUP 관련 속성
+    phase_relevance: float = 0.2  # 현재 단계와의 관련성 (0~1)
+    pin_type: Optional[str] = None  # 'pin', 'soft', None
+    unload_preferred: bool = False  # 언로드 선호 플래그
+    reload_cost: float = 0.5  # 재로드 비용 추정치 (0~1)
     
     def __post_init__(self):
         self.last_access = datetime.now()
@@ -235,6 +243,9 @@ class RedHeartDynamicSwapManager:
     def __init__(self, config: Dict[str, Any] = None):
         self.config = config or ADVANCED_CONFIG.get('dynamic_swap_config', {})
         
+        # WAUP 관리자 초기화
+        self.waup_manager = WAUPManager()
+        
         # 기본 우선순위 테이블 - 동적 우선순위 지원
         # 초기값만 제공, 실제로는 워크플로우 단계별 priority_score로 동적 조정됨
         self.DEFAULT_PRIORITIES = {
@@ -265,6 +276,11 @@ class RedHeartDynamicSwapManager:
         self.models: Dict[str, SwapableModel] = {}
         self.gpu_resident_models: Dict[str, nn.Module] = {}
         self.ram_models: Dict[str, SwapableModel] = {}
+        
+        # LLM 전용 스왑 관리
+        self.llm_models: Dict[str, Any] = {}  # LLM 모델 인스턴스들
+        self.llm_on_gpu: Optional[str] = None  # 현재 GPU에 있는 LLM
+        self.llm_swap_lock = threading.Lock()  # LLM 스왑 동기화
         
         # 예측 및 최적화 컴포넌트
         self.task_predictor = TaskSequencePredictor()
@@ -327,7 +343,8 @@ class RedHeartDynamicSwapManager:
             
         logger.info("동적 스왑 매니저 종료 완료")
         
-    def register_model(self, name: str, model: nn.Module, priority: SwapPriority = None):
+    def register_model(self, name: str, model: nn.Module, priority: SwapPriority = None,
+                      owner_obj=None, owner_attr: str = None):
         """모델 등록 - NO FALLBACK 정책 (nn.Module 필수)
         
         Args:
@@ -357,7 +374,15 @@ class RedHeartDynamicSwapManager:
         logger.info(f"[DSM] {name} 크기: {size_mb:.1f}MB (mgr_id={id(self)})")
         
         # 모델의 현재 device를 확인하여 location 결정
-        is_cuda = any(p.is_cuda for p in model.parameters()) if hasattr(model, 'parameters') else False
+        # 더 정확한 GPU 체크 (일부 모델은 parameters()가 없을 수 있음)
+        is_cuda = False
+        if hasattr(model, 'parameters'):
+            is_cuda = any(p.is_cuda for p in model.parameters())
+        elif hasattr(model, 'device'):
+            is_cuda = str(model.device).startswith('cuda')
+        elif hasattr(model, 'weight') and hasattr(model.weight, 'device'):
+            is_cuda = str(model.weight.device).startswith('cuda')
+        
         location = SwapLocation.GPU if is_cuda else SwapLocation.RAM
         
         swapable_model = SwapableModel(
@@ -367,7 +392,9 @@ class RedHeartDynamicSwapManager:
             priority=priority,
             last_access=datetime.now(),
             size_mb=size_mb,
-            status='ready'  # 항상 ready (NO deferred)
+            status='ready',  # 항상 ready (NO deferred)
+            owner_obj=owner_obj,  # 원본 소유자 저장
+            owner_attr=owner_attr  # 원본 속성 이름 저장
         )
             
         # 기존 키가 있으면 교체 로깅
@@ -418,36 +445,219 @@ class RedHeartDynamicSwapManager:
             
         logger.info(f"[REGISTER HEAD] {name} ({size_mb:.1f}MB, 우선순위: {priority.value})")
     
-    def update_workflow_priorities(self, workflow_stage: WorkflowStage, required_models: List[str], 
+    def get_workflow_stage_modules(self, workflow_stage: WorkflowStage) -> Tuple[List[str], Dict[str, List[str]]]:
+        """워크플로우 단계별 필수 모듈과 연관 모듈 반환"""
+        
+        # 추론 워크플로우 단계별 필수 모듈 정의
+        stage_modules = {
+            WorkflowStage.INITIALIZATION: {
+                'required': ['unified_backbone', 'translator'],
+                'related': {}
+            },
+            WorkflowStage.TEXT_PREPROCESSING: {
+                'required': ['translator'],
+                'related': {'text_utils': ['tokenizer', 'text_normalizer']}
+            },
+            WorkflowStage.EMBEDDING_GENERATION: {
+                'required': ['semantic_analyzer', 'sentence_transformer'],
+                'related': {'embedders': ['embedders_multilingual', 'embedders_korean']}
+            },
+            WorkflowStage.BACKBONE_FORWARD: {
+                'required': ['unified_backbone'],
+                'related': {'heads': ['emotion_head', 'bentham_head', 'regret_head', 'surd_head']}
+            },
+            WorkflowStage.EMOTION_ANALYSIS: {
+                'required': ['emotion_head', 'neural_emotion', 'advanced_emotion'],
+                'related': {
+                    'emotion_support': ['emotion_moe', 'emotion_dsp', 'hierarchical_emotion'],
+                    'embedders': ['embedders_multilingual', 'embedders_korean']
+                }
+            },
+            WorkflowStage.BENTHAM_CALCULATION: {
+                'required': ['bentham_head', 'neural_bentham', 'advanced_bentham'],
+                'related': {
+                    'bentham_support': ['ethics_moe', 'neural_predictor'],
+                    'legal': ['legal_expert_system']
+                }
+            },
+            WorkflowStage.REGRET_ANALYSIS: {
+                'required': ['regret_head', 'neural_regret', 'advanced_regret'],
+                'related': {
+                    'regret_support': ['regret_network', 'counterfactual_sim', 'temporal_propagation'],
+                    'experience': ['experience_database']
+                }
+            },
+            WorkflowStage.SURD_ANALYSIS: {
+                'required': ['surd_head', 'neural_surd', 'advanced_surd'],
+                'related': {
+                    'surd_support': ['deep_causal', 'info_decomposition', 'neural_causal_model']
+                }
+            },
+            WorkflowStage.COUNTERFACTUAL_REASONING: {
+                'required': ['counterfactual_reasoning', 'advanced_bentham'],
+                'related': {
+                    'cf_support': ['hypothesis_generator', 'action_candidate_generator']
+                }
+            },
+            WorkflowStage.THREE_VIEW_SCENARIO: {
+                'required': ['three_view_scenario', 'advanced_bentham', 'advanced_regret'],
+                'related': {
+                    '3view_support': ['scenario_generator', 'perspective_analyzer']
+                }
+            },
+            WorkflowStage.LEGAL_EXPERT_ANALYSIS: {
+                'required': ['legal_expert_system', 'advanced_bentham'],
+                'related': {
+                    'legal_support': ['case_database', 'legal_reasoning']
+                }
+            },
+            WorkflowStage.META_INTEGRATION: {
+                'required': ['meta_integration', 'unified_backbone'],
+                'related': {
+                    'all_heads': ['emotion_head', 'bentham_head', 'regret_head', 'surd_head']
+                }
+            },
+            WorkflowStage.CIRCUIT_PROCESSING: {
+                'required': ['emotion_ethics_regret_circuit'],
+                'related': {
+                    'circuit_deps': ['advanced_emotion', 'advanced_bentham', 'advanced_regret']
+                }
+            },
+            WorkflowStage.HEAD_PROCESSING: {
+                'required': ['emotion_head', 'bentham_head', 'regret_head', 'surd_head'],
+                'related': {}
+            },
+            WorkflowStage.SYNERGY_COMPUTATION: {
+                'required': ['unified_backbone', 'meta_integration'],
+                'related': {}
+            },
+            WorkflowStage.FINALIZATION: {
+                'required': ['unified_backbone'],
+                'related': {}
+            }
+        }
+        
+        # 학습 관련 단계도 추가
+        stage_modules.update({
+            WorkflowStage.DATA_LOADING: {
+                'required': ['data_loader', 'tokenizer'],
+                'related': {}
+            },
+            WorkflowStage.LOSS_COMPUTATION: {
+                'required': ['loss_calculator'],
+                'related': {}
+            },
+            WorkflowStage.BACKWARD_PASS: {
+                'required': ['unified_backbone', 'emotion_head', 'bentham_head', 'regret_head', 'surd_head'],
+                'related': {}
+            },
+            WorkflowStage.OPTIMIZATION: {
+                'required': ['optimizer'],
+                'related': {}
+            },
+            WorkflowStage.EVALUATION: {
+                'required': ['evaluator'],
+                'related': {}
+            }
+        })
+        
+        # 기본값
+        if workflow_stage not in stage_modules:
+            return [], {}
+            
+        stage_info = stage_modules[workflow_stage]
+        return stage_info['required'], stage_info.get('related', {})
+    
+    def update_workflow_priorities(self, workflow_stage: WorkflowStage, required_models: List[str] = None, 
                                  related_groups: Dict[str, List[str]] = None):
-        """워크플로우 기반 동적 우선순위 업데이트
+        """워크플로우 기반 동적 우선순위 업데이트 (의존성 인식)
         
         Args:
             workflow_stage: 현재 워크플로우 단계
-            required_models: 현 단계에서 필요한 모델들
+            required_models: 현 단계에서 필요한 모델들 (None이면 자동 결정)
             related_groups: 연계된 모듈 그룹 {그룹명: [모델들]}
         """
+        # 워크플로우 스테이지별 필수/연관 모듈 자동 결정
+        if required_models is None:
+            required_models, auto_related_groups = self.get_workflow_stage_modules(workflow_stage)
+            if related_groups is None:
+                related_groups = auto_related_groups
+        
         related_groups = related_groups or {}
         
-        # 워크플로우 단계별 기본 점수
+        # GPU 사용률 확인 (동적 조정용)
+        from config import get_gpu_memory_info
+        gpu_info = get_gpu_memory_info()
+        gpu_usage = gpu_info['usage_percent'] if gpu_info else 0
+        
+        # WAUP로 단계 전환 처리
+        try:
+            # WorkflowStage를 WorkflowPhase로 매핑
+            phase_map = {
+                WorkflowStage.TEXT_PREPROCESSING: WorkflowPhase.INGEST,
+                WorkflowStage.EMBEDDING_GENERATION: WorkflowPhase.EMBED,
+                WorkflowStage.EMOTION_ANALYSIS: WorkflowPhase.EMO_DSP,
+                WorkflowStage.BENTHAM_CALCULATION: WorkflowPhase.BENTHAM,
+                WorkflowStage.REGRET_ANALYSIS: WorkflowPhase.REGRET,
+                WorkflowStage.SURD_ANALYSIS: WorkflowPhase.SURD,
+                WorkflowStage.META_INTEGRATION: WorkflowPhase.INTEGRATE,
+                WorkflowStage.CIRCUIT_PROCESSING: WorkflowPhase.INTEGRATE,
+            }
+            
+            if workflow_stage in phase_map:
+                phase = phase_map[workflow_stage]
+                self.waup_manager.on_enter_phase(phase, self.models)
+                logger.info(f"[WAUP] {phase.value} 단계 진입 - 우선순위 업데이트")
+        except Exception as e:
+            logger.debug(f"WAUP 단계 전환 실패: {e}")
+        
+        # 워크플로우 단계별 기본 점수 (추론 워크플로우 추가)
         stage_base_scores = {
-            WorkflowStage.INITIALIZATION: 30.0,
+            # 초기화
+            WorkflowStage.INITIALIZATION: 80.0,
             WorkflowStage.DATA_LOADING: 40.0,
-            WorkflowStage.BACKBONE_FORWARD: 85.0,  # 백본 단계에서는 높은 점수
-            WorkflowStage.HEAD_PROCESSING: 80.0,
-            WorkflowStage.SYNERGY_COMPUTATION: 75.0,
+            
+            # 추론 단계
+            WorkflowStage.TEXT_PREPROCESSING: 75.0,
+            WorkflowStage.EMBEDDING_GENERATION: 80.0,
+            WorkflowStage.BACKBONE_FORWARD: 95.0,  # 백본은 최우선
+            
+            # 개별 분석 (병렬 가능)
+            WorkflowStage.EMOTION_ANALYSIS: 85.0,
+            WorkflowStage.BENTHAM_CALCULATION: 85.0,
+            WorkflowStage.REGRET_ANALYSIS: 85.0,
+            WorkflowStage.SURD_ANALYSIS: 85.0,
+            
+            # 고급 분석
+            WorkflowStage.COUNTERFACTUAL_REASONING: 80.0,
+            WorkflowStage.THREE_VIEW_SCENARIO: 80.0,
+            WorkflowStage.LEGAL_EXPERT_ANALYSIS: 75.0,
+            
+            # 통합
+            WorkflowStage.HEAD_PROCESSING: 90.0,
+            WorkflowStage.SYNERGY_COMPUTATION: 85.0,
+            WorkflowStage.META_INTEGRATION: 90.0,
+            WorkflowStage.CIRCUIT_PROCESSING: 85.0,
+            
+            # 학습
             WorkflowStage.LOSS_COMPUTATION: 70.0,
-            WorkflowStage.BACKWARD_PASS: 85.0,
+            WorkflowStage.BACKWARD_PASS: 90.0,
             WorkflowStage.OPTIMIZATION: 60.0,
+            
+            # 완료
             WorkflowStage.EVALUATION: 50.0,
             WorkflowStage.FINALIZATION: 30.0
         }
         
         base_score = stage_base_scores.get(workflow_stage, 50.0)
         
-        # 모든 모델의 점수를 초기화 (기본 낮은 점수)
+        # 모든 모델의 점수를 초기화 (매우 낮은 점수)
         for name, model in self.models.items():
-            model.priority_score = 20.0  # 사용 안 하는 모델은 낮은 점수
+            model.priority_score = 15.0  # 무관한 모델은 매우 낮게
+            model.workflow_group = None
+            # GPU 사용률 높으면 avoid_unload 해제
+            if gpu_usage > 88:
+                model.avoid_unload = False
         
         # 필요한 모델들에 높은 점수 부여
         for model_name in required_models:
@@ -455,44 +665,175 @@ class RedHeartDynamicSwapManager:
                 self.models[model_name].priority_score = base_score
                 self.models[model_name].workflow_group = f"{workflow_stage.value}_primary"
                 
-                # 백본은 항상 더 높은 점수
-                if model_name == "unified_backbone" and workflow_stage in [
-                    WorkflowStage.BACKBONE_FORWARD, WorkflowStage.BACKWARD_PASS
-                ]:
+                # 특수 모델 처리
+                if model_name == "unified_backbone":
                     self.models[model_name].priority_score = 95.0
+                    # GPU 90% 이하에서만 보호
+                    self.models[model_name].avoid_unload = (gpu_usage < 90)
+                elif model_name == "translator":
+                    self.models[model_name].priority_score = 90.0
+                    # GPU 85% 이하에서만 보호
+                    self.models[model_name].avoid_unload = (gpu_usage < 85)
         
-        # 연계된 그룹에 같은 점수 부여
+        # 연계된 그룹에 중간 점수 부여
         for group_name, group_models in related_groups.items():
-            group_score = base_score - 5.0  # 주 모델보다 약간 낮은 점수
+            group_score = base_score - 15.0  # 필수보다 15점 낮게
             for model_name in group_models:
                 if model_name in self.models:
-                    self.models[model_name].priority_score = group_score
+                    # 이미 높은 점수가 있으면 유지
+                    if self.models[model_name].priority_score < group_score:
+                        self.models[model_name].priority_score = group_score
                     self.models[model_name].workflow_group = group_name
         
-        # 점수 기반으로 우선순위 재설정 (순수 점수제)
+        # 점수 기반으로 우선순위 재설정 (GPU 사용률 고려)
         for name, model in self.models.items():
-            # 점수만으로 우선순위 결정 (CRITICAL 제거, 동적 시스템 일관화)
             if model.priority_score >= 90.0:
-                # 90점 이상은 극히 중요 (백본 등) - 하지만 절대 언로드 불가는 아님
                 model.priority = SwapPriority.HIGH
-                # 점수가 매우 높으면 언로드 회피 플래그 설정
-                model.avoid_unload = True
+                # GPU 사용률에 따라 동적 조정
+                model.avoid_unload = (gpu_usage < 88)
             elif model.priority_score >= 70.0:
                 model.priority = SwapPriority.HIGH
-                model.avoid_unload = False
+                model.avoid_unload = False  # 70-90점은 언로드 가능
             elif model.priority_score >= 50.0:
                 model.priority = SwapPriority.MEDIUM
-                model.avoid_unload = False
-            elif model.priority_score >= 30.0:
-                model.priority = SwapPriority.LOW
                 model.avoid_unload = False
             else:
                 model.priority = SwapPriority.LOW
                 model.avoid_unload = False
         
-        logger.info(f"[워크플로우] {workflow_stage.value} 단계 우선순위 업데이트")
+        logger.info(f"[워크플로우] {workflow_stage.value} 단계 우선순위 업데이트 (GPU: {gpu_usage:.1f}%)")
         logger.debug(f"  필수 모델: {required_models[:5]} (점수: {base_score})")
         logger.debug(f"  연계 그룹: {list(related_groups.keys())[:3]}")
+        
+        # GPU 사용률 높으면 즉시 스마트 언로드
+        if gpu_usage > 85:
+            self._trigger_immediate_unload(gpu_usage)
+    
+    def _trigger_immediate_unload(self, gpu_usage: float):
+        """GPU 사용률이 높을 때 즉시 언로드 트리거"""
+        logger.info(f"[즉시 언로드] GPU {gpu_usage:.1f}% - 낮은 우선순위 모델 정리")
+        
+        # GPU에 있는 모든 모델 재스캔 (gpu_resident_models가 누락될 수 있음)
+        self._rescan_gpu_models()
+        
+        # 점수 30 이하 모델들을 즉시 언로드 대상으로
+        unload_candidates = []
+        for name, model in self.gpu_resident_models.items():
+            model_info = self.models.get(name)
+            if model_info:
+                score = model_info.priority_score
+                # 점수가 낮고 avoid_unload가 False인 모델들
+                if score < 30 and not model_info.avoid_unload:
+                    unload_candidates.append((name, score, model_info.size_mb))
+        
+        if unload_candidates:
+            # 점수 낮은 순으로 정렬
+            unload_candidates.sort(key=lambda x: x[1])
+            logger.info(f"  언로드 후보 ({len(unload_candidates)}개): {[n for n, _, _ in unload_candidates[:5]]}")
+            
+            # 언로드 작업 실행 (동기 방식으로 즉시 실행)
+            for name, score, size_mb in unload_candidates[:3]:  # 최대 3개만
+                logger.info(f"    [언로드 실행] {name}: 점수 {score:.1f}, 크기 {size_mb:.1f}MB")
+                # 동기적 언로드 실행
+                self._sync_unload_model(name)
+        else:
+            logger.debug("  즉시 언로드 가능한 모델 없음")
+    
+    def _rescan_gpu_models(self):
+        """GPU에 있는 모든 모델을 재스캔하여 gpu_resident_models 업데이트"""
+        import torch
+        
+        # 현재 gpu_resident_models에 없지만 실제로 GPU에 있는 모델 찾기
+        for name, model_info in self.models.items():
+            if name not in self.gpu_resident_models:
+                model = model_info.model
+                if model is not None:
+                    # 모델이 실제로 GPU에 있는지 확인
+                    is_on_gpu = False
+                    try:
+                        if hasattr(model, 'parameters'):
+                            is_on_gpu = any(p.is_cuda for p in model.parameters())
+                        elif hasattr(model, 'device'):
+                            is_on_gpu = str(model.device).startswith('cuda')
+                        elif hasattr(model, 'weight') and hasattr(model.weight, 'device'):
+                            is_on_gpu = str(model.weight.device).startswith('cuda')
+                    except:
+                        pass
+                    
+                    if is_on_gpu:
+                        # GPU에 있지만 등록되지 않은 모델 발견
+                        logger.info(f"  [재스캔] {name}이 GPU에 있지만 미등록 상태 - 추가")
+                        self.gpu_resident_models[name] = model
+                        model_info.location = SwapLocation.GPU
+        
+        logger.debug(f"  GPU resident 모델 수: {len(self.gpu_resident_models)}")
+    
+    def _sync_unload_model(self, name: str):
+        """동기적으로 모델을 GPU에서 언로드"""
+        if name not in self.gpu_resident_models:
+            if name in self.models and self.models[name].model is not None:
+                model = self.models[name].model
+                if hasattr(model, 'device') and str(model.device).startswith('cuda'):
+                    logger.debug(f"models에서 {name} 발견, GPU에서 언로드 시도")
+                else:
+                    return
+            else:
+                return
+        else:
+            model = self.gpu_resident_models[name]
+        
+        try:
+            # GPU 메모리 사용량 측정 (언로드 전)
+            from config import get_gpu_memory_info
+            before_info = get_gpu_memory_info()
+            before_mb = before_info['allocated_mb'] if before_info else 0
+            
+            # GPU에서 모델 제거 - 원본 참조를 직접 업데이트해야 함!
+            if hasattr(model, 'to'):
+                # 중요: models 딕셔너리의 원본 참조를 직접 CPU로 변경
+                cpu_model = model.to('cpu')
+                self.models[name].model = cpu_model
+                
+                # UnifiedModel 같은 원본 소유자의 속성도 업데이트
+                if self.models[name].owner_obj and self.models[name].owner_attr:
+                    setattr(self.models[name].owner_obj, self.models[name].owner_attr, cpu_model)
+                    logger.debug(f"    원본 참조도 업데이트: {self.models[name].owner_attr}")
+                    
+                model = cpu_model  # 업데이트된 참조 사용
+            elif hasattr(model, 'cpu'):
+                cpu_model = model.cpu()
+                self.models[name].model = cpu_model
+                
+                # 원본 소유자의 속성도 업데이트
+                if self.models[name].owner_obj and self.models[name].owner_attr:
+                    setattr(self.models[name].owner_obj, self.models[name].owner_attr, cpu_model)
+                    logger.debug(f"    원본 참조도 업데이트: {self.models[name].owner_attr}")
+                    
+                model = cpu_model
+            
+            # CUDA 캐시 정리
+            import torch
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()  # GPU 작업 완료 대기
+            
+            # GPU resident에서 제거
+            if name in self.gpu_resident_models:
+                del self.gpu_resident_models[name]
+            
+            # RAM 모델로 등록 - 동일한 참조 사용
+            self.ram_models[name] = model
+            self.models[name].location = SwapLocation.RAM
+            
+            # GPU 메모리 측정 (언로드 후)
+            after_info = get_gpu_memory_info()
+            after_mb = after_info['allocated_mb'] if after_info else 0
+            freed_mb = before_mb - after_mb
+            
+            logger.info(f"    ✅ {name} 언로드 완료 (해제: {freed_mb:.1f}MB, GPU→RAM)")
+            
+        except Exception as e:
+            logger.error(f"동기 언로드 실패: {name}, 오류: {str(e)}")
     
     def get_model_priority_score(self, model_name: str) -> float:
         """모델의 현재 우선순위 점수 반환"""
@@ -502,40 +843,34 @@ class RedHeartDynamicSwapManager:
     
     def get_workflow_aware_unload_candidates(self, required_mb: float, 
                                             exclude_models: Set[str] = None) -> List[str]:
-        """워크플로우 인식 언로드 후보 선정
-        
-        점수가 낮은 모델부터 언로드 후보로 선정
+        """워크플로우 인식 언로드 후보 선정 (WAUP 사용)
         """
         exclude_models = exclude_models or set()
-        candidates = []
         
-        for name, model in self.gpu_resident_models.items():
-            if name not in exclude_models:
-                model_info = self.models[name]
-                score = model_info.priority_score
-                size_mb = model_info.size_mb
-                
-                # avoid_unload 플래그가 설정된 모델은 최대한 회피 (점수 90+ 모델)
-                # 하지만 절대 금지는 아님 (동적 시스템)
-                if not model_info.avoid_unload:
-                    candidates.append((name, score, size_mb))
-                else:
-                    # avoid_unload는 최후의 선택지로 남겨둠
-                    logger.debug(f"  {name} 언로드 회피 (점수: {score:.1f}, avoid_unload=True)")
+        # GPU 사용률 확인
+        gpu_info = get_gpu_memory_info()
+        gpu_usage = gpu_info['usage_percent'] if gpu_info else 85.0
         
-        # 점수가 낮은 순으로 정렬
-        candidates.sort(key=lambda x: x[1])
+        # GPU에 있는 모델만 필터링
+        gpu_models = {}
+        for name in self.gpu_resident_models:
+            if name not in exclude_models and name in self.models:
+                gpu_models[name] = self.models[name]
         
-        # 필요한 메모리만큼만 선택
-        selected = []
-        freed_mb = 0.0
+        # WAUP로 후보 선정
+        candidates = self.waup_manager.select_unload_candidates(
+            gpu_models, required_mb, gpu_usage
+        )
         
-        for name, score, size_mb in candidates:
-            if freed_mb >= required_mb:
-                break
-            selected.append(name)
-            freed_mb += size_mb
-            logger.debug(f"  언로드 후보: {name} (점수: {score:.1f}, 크기: {size_mb:.1f}MB)")
+        # 이름만 추출
+        selected = [name for name, score in candidates]
+        
+        if selected:
+            logger.info(f"  [WAUP] 언로드 후보 ({len(selected)}개): {selected[:5]}...")  # 처음 5개만 로깅
+            for name, score in candidates[:3]:  # 상위 3개 상세 로깅
+                if name in self.models:
+                    model_info = self.models[name]
+                    logger.debug(f"    - {name}: EvictScore={score:.3f}, 크기={model_info.size_mb:.1f}MB")
         
         return selected
         
@@ -566,12 +901,18 @@ class RedHeartDynamicSwapManager:
             device = get_smart_device(memory_required_mb=self.models[name].size_mb * 1.2)
             
             if device.type == 'cuda':
-                model = model.to(device)
-                model.eval()  # 추론 모드로 설정
+                gpu_model = model.to(device)
+                gpu_model.eval()  # 추론 모드로 설정
                 
                 # GPU 상주 모델로 등록
-                self.gpu_resident_models[name] = model
+                self.gpu_resident_models[name] = gpu_model
+                self.models[name].model = gpu_model
                 self.models[name].location = SwapLocation.GPU
+                
+                # 원본 소유자의 속성도 GPU 모델로 업데이트
+                if self.models[name].owner_obj and self.models[name].owner_attr:
+                    setattr(self.models[name].owner_obj, self.models[name].owner_attr, gpu_model)
+                    logger.debug(f"원본 참조를 GPU로 업데이트: {self.models[name].owner_attr}")
                 
                 # RAM에서 제거
                 if name in self.ram_models:
@@ -589,7 +930,7 @@ class RedHeartDynamicSwapManager:
                 if self.preload_prediction:
                     asyncio.create_task(self._predictive_preload(name))
                     
-                return model
+                return gpu_model
             else:
                 # GPU 메모리 부족 - CPU에서 실행
                 logger.warning(f"GPU 메모리 부족으로 CPU에서 실행: {name}")
@@ -633,7 +974,7 @@ class RedHeartDynamicSwapManager:
             return False
     
     async def unload_model_from_gpu(self, name: str):
-        """모델을 GPU에서 언로드"""
+        """모델을 GPU에서 언로드 (실제 메모리 해제 포함)"""
         if name not in self.gpu_resident_models:
             logger.warning(f"언로드 요청된 모델 {name}이 gpu_resident_models에 없음")
             # models에서 찾아보기
@@ -669,6 +1010,15 @@ class RedHeartDynamicSwapManager:
                 for submodule in model.modules():
                     if hasattr(submodule, 'to'):
                         submodule.to('cpu')
+            
+            # 🔥 실제 GPU 메모리 해제 - 핵심 추가!
+            if name in self.gpu_resident_models:
+                del self.gpu_resident_models[name]
+            
+            # GPU 캐시 완전 정리
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                torch.cuda.ipc_collect()  # OS 레벨 메모리 반환
             
             # 상태 업데이트
             if name in self.gpu_resident_models:
@@ -711,6 +1061,142 @@ class RedHeartDynamicSwapManager:
             return self.gpu_resident_models[name]
         else:
             return await self.load_model_to_gpu(name)
+    
+    def register_llm_model(self, name: str, model_instance: Any):
+        """LLM 모델 등록 (Llama 객체 등)"""
+        self.llm_models[name] = {
+            'model': model_instance,
+            'location': 'gpu' if self.llm_on_gpu == name else 'ram',
+            'last_access': datetime.now()
+        }
+        logger.info(f"LLM 모델 등록: {name}")
+    
+    def swap_llm_to_gpu(self, name: str) -> Any:
+        """LLM을 GPU로 스왑"""
+        with self.llm_swap_lock:
+            if self.llm_on_gpu == name:
+                logger.debug(f"LLM {name}이 이미 GPU에 있음")
+                return self.llm_models[name]['model']
+            
+            # 현재 GPU에 있는 LLM 언로드
+            if self.llm_on_gpu:
+                logger.info(f"현재 LLM {self.llm_on_gpu}을 RAM으로 언로드")
+                current_llm = self.llm_models[self.llm_on_gpu]
+                
+                # Llama 모델인 경우 특별 처리
+                if hasattr(current_llm['model'], 'model'):
+                    # llama-cpp-python 모델
+                    # GPU 레이어를 0으로 설정하여 CPU로 이동
+                    current_llm['model'].model.n_gpu_layers = 0
+                    current_llm['location'] = 'ram'
+                    
+                    # GPU 메모리 정리
+                    if torch.cuda.is_available():
+                        torch.cuda.empty_cache()
+                        torch.cuda.ipc_collect()
+                
+                self.llm_on_gpu = None
+            
+            # 요청된 LLM을 GPU로 로드
+            if name in self.llm_models:
+                logger.info(f"LLM {name}을 GPU로 로드")
+                target_llm = self.llm_models[name]
+                
+                # Llama 모델인 경우 GPU 레이어 설정
+                if hasattr(target_llm['model'], 'model'):
+                    # GPU 레이어 수 복원 (target_gpu_layers 또는 기본 35)
+                    gpu_layers = getattr(target_llm['model'], 'target_gpu_layers', 35)
+                    target_llm['model'].model.n_gpu_layers = gpu_layers
+                    target_llm['location'] = 'gpu'
+                    logger.info(f"GPU 레이어 {gpu_layers}개로 설정")
+                
+                self.llm_on_gpu = name
+                target_llm['last_access'] = datetime.now()
+                
+                logger.info(f"LLM {name} GPU 로드 완료")
+                return target_llm['model']
+            else:
+                raise ValueError(f"등록되지 않은 LLM: {name}")
+    
+    def swap_llm_to_ram(self, name: str):
+        """LLM을 RAM으로 스왑"""
+        with self.llm_swap_lock:
+            if name not in self.llm_models:
+                logger.warning(f"등록되지 않은 LLM: {name}")
+                return
+            
+            if self.llm_on_gpu == name:
+                logger.info(f"LLM {name}을 RAM으로 언로드")
+                llm_info = self.llm_models[name]
+                
+                # Llama 모델인 경우 GPU 레이어를 0으로
+                if hasattr(llm_info['model'], 'model'):
+                    llm_info['model'].model.n_gpu_layers = 0
+                    llm_info['location'] = 'ram'
+                
+                self.llm_on_gpu = None
+                
+                # GPU 메모리 정리
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                    torch.cuda.ipc_collect()
+                
+                logger.info(f"LLM {name} RAM 언로드 완료")
+    
+    async def safe_unload_unused_models(self, grace_period_ms: int = 100):
+        """사용하지 않는 모델 안전하게 언로드 - race condition 방지"""
+        logger.info("🔒 안전한 언로드 시작: 사용하지 않는 모델 정리")
+        
+        unloaded_count = 0
+        freed_memory = 0
+        
+        # 언로드 후보 선정 (우선순위와 마지막 접근 시간 기반)
+        candidates = []
+        for name, model_info in self.models.items():
+            if name in self.gpu_resident_models:
+                # CRITICAL이 아니고, 최근 사용하지 않은 모델
+                if model_info.priority != SwapPriority.CRITICAL:
+                    last_access = model_info.last_access_time
+                    idle_time = (datetime.now() - last_access).total_seconds() * 1000
+                    
+                    if idle_time > grace_period_ms:
+                        candidates.append((name, idle_time, model_info.priority))
+        
+        # 우선순위가 낮고 오래된 것부터 언로드
+        candidates.sort(key=lambda x: (x[2].value, -x[1]))
+        
+        for name, idle_time, priority in candidates:
+            try:
+                # 모델이 사용 중인지 확인 (참조 카운트 체크)
+                model = self.gpu_resident_models.get(name)
+                if model is None:
+                    continue
+                    
+                import sys
+                ref_count = sys.getrefcount(model)
+                # 기본 참조(3개) 이상이면 다른 곳에서 사용 중
+                if ref_count > 3:
+                    logger.warning(f"⚠️ {name} 사용 중 (참조 {ref_count}개), 건너뜀")
+                    continue
+                
+                # 안전하게 언로드
+                before_mb = get_gpu_memory_info()['allocated_mb']
+                await self.unload_model_from_gpu(name)
+                after_mb = get_gpu_memory_info()['allocated_mb']
+                
+                freed = before_mb - after_mb
+                freed_memory += freed
+                unloaded_count += 1
+                logger.info(f"✅ {name} 안전 언로드: {freed:.1f}MB 해제 (유휴 {idle_time/1000:.1f}초)")
+                
+                # 메모리가 충분히 확보되면 중단
+                if get_gpu_memory_info()['free_mb'] > 2000:  # 2GB 이상 확보
+                    break
+                    
+            except Exception as e:
+                logger.error(f"❌ {name} 언로드 실패: {e}")
+        
+        logger.info(f"🔒 안전한 언로드 완료: {unloaded_count}개 모델, {freed_memory:.1f}MB 해제")
             
     async def load_head_to_gpu(self, head_name: str, timeout: float = None) -> nn.Module:
         """헤드 특화 GPU 로딩 메소드 - 헤드별 최적화 및 시너지 고려"""
@@ -1406,6 +1892,16 @@ class RedHeartDynamicSwapManager:
             # 후보가 없으면 더 이상 언로드 불가 - 무한 루프 방지
             if not unload_candidates:
                 logger.warning("[언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다")
+                
+                # 현재 등록된 모델 리스트 출력
+                logger.warning("[DSM] 현재 등록된 모델 상태:")
+                if not self.models:
+                    logger.warning("  [등록된 모델 없음]")
+                else:
+                    for name, model_info in self.models.items():
+                        location = model_info.location.name if hasattr(model_info.location, 'name') else str(model_info.location)
+                        logger.warning(f"  - {name}: {location}, {model_info.size_mb:.1f}MB, priority={model_info.priority.value}")
+                
                 logger.warning(f"[DSM] GPU 사용률 {current_usage*100:.1f}%로 목표 {target_usage*100:.1f}% 달성 실패")
                 return False
             

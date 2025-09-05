@@ -1,0 +1,4 @@
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 1594
+    except Exception as e:
+    ^^^^^^
+SyntaxError: invalid syntax

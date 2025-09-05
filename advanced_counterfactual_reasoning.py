@@ -228,9 +228,13 @@ class LiteraryHypothesisGenerator:
         try:
             from sentence_transformer_singleton import get_sentence_transformer
             
+            # MEDIUM 모드 CPU 강제
+            import os
+            device = 'cpu' if os.environ.get('FORCE_CPU_INIT', '0') == '1' else None
+            
             self.embedding_model = get_sentence_transformer(
-                'paraphrase-multilingual-mpnet-base-v2',
-                device='cpu'
+                'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
+                device=device
             )
         except Exception as e:
             logger.warning(f"임베딩 모델 로드 실패: {e}")
@@ -394,6 +398,579 @@ class LiteraryHypothesisGenerator:
             
         except Exception as e:
             logger.error(f"패턴 기반 가설 생성 실패: {e}")
+            return []
+    
+    async def _generate_archetype_based_hypotheses(self, base_situation: Dict[str, Any],
+                                                  context: LiteraryContext, 
+                                                  scenario_type: ScenarioType,
+                                                  count: int) -> List[SituationHypothesis]:
+        """캐릭터 원형 기반 가설 생성"""
+        hypotheses = []
+        
+        try:
+            # 상황에 맞는 캐릭터 원형 선택
+            relevant_archetypes = self._select_relevant_archetypes(scenario_type, base_situation)
+            
+            for i, archetype_name in enumerate(relevant_archetypes[:count]):
+                archetype = self.character_archetypes.get(archetype_name, {})
+                hypothesis = SituationHypothesis(
+                    base_situation=base_situation,
+                    literary_context=context
+                )
+                
+                # 원형에 따른 가설적 행동 요인
+                hypothesis.hypothesized_factors = {
+                    'character_type': archetype_name,
+                    'primary_traits': archetype.get('traits', []),
+                    'core_motivations': archetype.get('motivations', []),
+                    'likely_actions': self._predict_archetype_actions(archetype_name, base_situation),
+                    'emotional_drivers': self._derive_emotional_drivers(archetype)
+                }
+                
+                # 증거 및 가정
+                hypothesis.evidence_support = [
+                    f"캐릭터 원형: {archetype_name}",
+                    f"핵심 특성: {', '.join(archetype.get('traits', []))}"
+                ]
+                hypothesis.assumptions = [
+                    f"{archetype_name} 원형의 행동 패턴을 따른다고 가정",
+                    f"주요 동기: {', '.join(archetype.get('motivations', []))}"
+                ]
+                
+                # 서사적 요소
+                hypothesis.narrative_elements = {
+                    'archetype': archetype_name,
+                    'typical_dilemmas': archetype.get('typical_dilemmas', []),
+                    'character_arc': self._predict_character_arc(archetype_name, scenario_type),
+                    'relationship_dynamics': self._analyze_relationship_dynamics(archetype_name, base_situation)
+                }
+                
+                hypotheses.append(hypothesis)
+            
+            return hypotheses
+            
+        except Exception as e:
+            logger.error(f"원형 기반 가설 생성 실패: {e}")
+            return []
+    
+    def _select_relevant_archetypes(self, scenario_type: ScenarioType, 
+                                   situation: Dict[str, Any]) -> List[str]:
+        """상황에 적합한 캐릭터 원형 선택"""
+        all_archetypes = list(self.character_archetypes.keys())
+        
+        # 시나리오 유형별 원형 매칭
+        if scenario_type == ScenarioType.MORAL_DILEMMA:
+            return ['hero', 'mentor']
+        elif scenario_type == ScenarioType.RELATIONSHIP_CONFLICT:
+            return ['innocent', 'mentor']
+        else:
+            # 기본적으로 모든 원형 고려
+            return all_archetypes
+    
+    def _predict_archetype_actions(self, archetype_name: str, 
+                                  situation: Dict[str, Any]) -> List[str]:
+        """원형별 예상 행동 예측"""
+        actions_map = {
+            'hero': ['직접 대면', '정의 구현', '희생적 선택'],
+            'mentor': ['조언 제공', '지혜로운 중재', '교훈 전달'],
+            'innocent': ['화해 시도', '신뢰 유지', '긍정적 해석']
+        }
+        return actions_map.get(archetype_name, ['상황 관찰', '신중한 판단'])
+    
+    def _derive_emotional_drivers(self, archetype: Dict[str, Any]) -> List[str]:
+        """원형의 감정적 동기 도출"""
+        traits = archetype.get('traits', [])
+        drivers = []
+        
+        if '용기' in traits:
+            drivers.append('두려움 극복')
+        if '지혜' in traits:
+            drivers.append('통찰력 추구')
+        if '순수' in traits:
+            drivers.append('선의 신뢰')
+            
+        return drivers if drivers else ['기본적 동기']
+    
+    def _predict_character_arc(self, archetype_name: str, 
+                              scenario_type: ScenarioType) -> List[str]:
+        """캐릭터 성장 궤적 예측"""
+        arc_map = {
+            'hero': ['도전 직면', '시련 극복', '성장', '승리'],
+            'mentor': ['관찰', '개입', '가르침', '물러남'],
+            'innocent': ['충격', '혼란', '학습', '성숙']
+        }
+        return arc_map.get(archetype_name, ['시작', '전개', '결말'])
+    
+    def _analyze_relationship_dynamics(self, archetype_name: str, 
+                                      situation: Dict[str, Any]) -> Dict[str, str]:
+        """관계 역학 분석"""
+        text = situation.get('text', '')
+        
+        dynamics = {
+            'conflict_role': 'protagonist' if archetype_name == 'hero' else 'supporter',
+            'relationship_tendency': 'confrontational' if '싸웠' in text else 'collaborative',
+            'resolution_approach': 'direct' if archetype_name == 'hero' else 'indirect'
+        }
+        
+        return dynamics
+    
+    async def _generate_creative_variations(self, base_situation: Dict[str, Any],
+                                          context: LiteraryContext, 
+                                          count: int) -> List[SituationHypothesis]:
+        """창의적 변형 가설 생성"""
+        hypotheses = []
+        
+        try:
+            # 창의적 변형 시나리오 생성
+            variation_types = ['reversal', 'escalation', 'unexpected_twist', 'parallel_reality']
+            
+            for i, variation_type in enumerate(variation_types[:count]):
+                hypothesis = SituationHypothesis(
+                    base_situation=base_situation,
+                    literary_context=context
+                )
+                
+                # 변형 유형별 가설 요인
+                if variation_type == 'reversal':
+                    hypothesis.hypothesized_factors = {
+                        'variation_type': 'reversal',
+                        'changed_elements': ['의도의 반전', '입장 바꾸기'],
+                        'potential_outcomes': ['화해', '이해', '새로운 갈등']
+                    }
+                elif variation_type == 'escalation':
+                    hypothesis.hypothesized_factors = {
+                        'variation_type': 'escalation',
+                        'changed_elements': ['갈등 심화', '감정 고조'],
+                        'potential_outcomes': ['결별', '대립', '극적 화해']
+                    }
+                elif variation_type == 'unexpected_twist':
+                    hypothesis.hypothesized_factors = {
+                        'variation_type': 'unexpected_twist',
+                        'changed_elements': ['숨겨진 진실', '제3자 개입'],
+                        'potential_outcomes': ['재평가', '새로운 동맹', '예상치 못한 해결']
+                    }
+                else:  # parallel_reality
+                    hypothesis.hypothesized_factors = {
+                        'variation_type': 'parallel_reality',
+                        'changed_elements': ['다른 선택', '시간 역행'],
+                        'potential_outcomes': ['대안적 현실', '다른 결과', '학습']
+                    }
+                
+                # 증거와 가정
+                hypothesis.evidence_support = [f"창의적 변형: {variation_type}"]
+                hypothesis.assumptions = [f"{variation_type} 시나리오 가능성"]
+                
+                # 서사적 요소
+                hypothesis.narrative_elements = {
+                    'variation_type': variation_type,
+                    'narrative_impact': self._assess_narrative_impact(variation_type),
+                    'emotional_shift': self._predict_emotional_shift(variation_type, base_situation)
+                }
+                
+                hypotheses.append(hypothesis)
+            
+            return hypotheses
+            
+        except Exception as e:
+            logger.error(f"창의적 변형 가설 생성 실패: {e}")
+            return []
+    
+    def _assess_narrative_impact(self, variation_type: str) -> str:
+        """서사적 영향 평가"""
+        impact_map = {
+            'reversal': '극적 전환',
+            'escalation': '긴장 고조',
+            'unexpected_twist': '놀라움과 재해석',
+            'parallel_reality': '다층적 이해'
+        }
+        return impact_map.get(variation_type, '서사적 변화')
+    
+    def _predict_emotional_shift(self, variation_type: str, situation: Dict[str, Any]) -> List[str]:
+        """감정 변화 예측"""
+        shift_map = {
+            'reversal': ['분노→이해', '실망→희망'],
+            'escalation': ['불안→공포', '실망→분노'],
+            'unexpected_twist': ['혼란→깨달음', '의심→확신'],
+            'parallel_reality': ['후회→수용', '아쉬움→만족']
+        }
+        return shift_map.get(variation_type, ['변화 예측 중'])
+    
+    async def _validate_and_score_hypothesis(self, hypothesis: SituationHypothesis,
+                                            context: LiteraryContext) -> None:
+        """가설의 타당성 검증 및 점수 계산
+        
+        Args:
+            hypothesis: 검증할 가설
+            context: 문학적 맥락
+        """
+        try:
+            # 1. 개연성 점수 계산 (plausibility_score)
+            plausibility = await self._calculate_plausibility(hypothesis, context)
+            hypothesis.plausibility_score = plausibility
+            
+            # 2. 도덕적 가중치 계산 (moral_weight)
+            moral_weight = await self._calculate_moral_weight(hypothesis, context)
+            hypothesis.moral_weight = moral_weight
+            
+            # 3. 문화적 관련성 계산 (cultural_relevance)
+            cultural_relevance = await self._calculate_cultural_relevance(hypothesis, context)
+            hypothesis.cultural_relevance = cultural_relevance
+            
+            # 4. 감정적 영향 계산 (emotional_impact)
+            emotional_impact = await self._calculate_emotional_impact(hypothesis, context)
+            hypothesis.emotional_impact = emotional_impact
+            
+            # 5. 증거 지원 및 가정 추출
+            evidence, assumptions = await self._extract_evidence_and_assumptions(hypothesis, context)
+            hypothesis.evidence_support = evidence
+            hypothesis.assumptions = assumptions
+            
+            # 6. 인과 사슬 구성
+            causal_chains = await self._build_causal_chains(hypothesis, context)
+            hypothesis.causal_chains = causal_chains
+            
+            logger.debug(f"가설 검증 완료: 개연성={plausibility:.2f}, 도덕={moral_weight:.2f}, 문화={cultural_relevance:.2f}")
+            
+        except Exception as e:
+            logger.error(f"가설 검증 실패: {e}")
+            # 기본값 설정
+            hypothesis.plausibility_score = 0.5
+            hypothesis.moral_weight = 0.5
+            hypothesis.cultural_relevance = 0.5
+            hypothesis.emotional_impact = {'neutral': 0.5}
+    
+    async def _calculate_plausibility(self, hypothesis: SituationHypothesis,
+                                     context: LiteraryContext) -> float:
+        """가설의 개연성 점수 계산"""
+        try:
+            plausibility = 0.5  # 기본값
+            
+            # 1. 문학적 맥락과의 일치도 확인
+            if context.themes:
+                theme_match = 0.0
+                hypothesis_text = str(hypothesis.hypothesized_factors)
+                for theme in context.themes:
+                    if theme.lower() in hypothesis_text.lower():
+                        theme_match += 0.2
+                plausibility += min(0.3, theme_match)
+            
+            # 2. 인과관계의 논리성 평가
+            if hypothesis.narrative_elements:
+                # 동기와 행동의 일치도
+                if 'motivation' in hypothesis.narrative_elements and 'action' in hypothesis.narrative_elements:
+                    plausibility += 0.2
+                # 결과의 예측 가능성
+                if 'expected_outcome' in hypothesis.narrative_elements:
+                    plausibility += 0.1
+            
+            # 3. 캐릭터 아크타입과의 일관성
+            if context.character_archetypes:  # character_archetypes는 List[str] 타입
+                arc_consistency = 0.0
+                if 'character_type' in hypothesis.hypothesized_factors:
+                    hypothesized_type = hypothesis.hypothesized_factors.get('character_type', '').lower()
+                    # 아크타입 문자열과 직접 비교
+                    for archetype in context.character_archetypes:
+                        if archetype.lower() == hypothesized_type or hypothesized_type in archetype.lower():
+                            arc_consistency = 0.3
+                            break
+                plausibility += arc_consistency
+            
+            # 4. 문학적 패턴과의 부합도
+            if hypothesis.literary_context.themes:
+                pattern_match = len(set(hypothesis.literary_context.themes) & set(context.themes)) / max(len(context.themes), 1)
+                plausibility += pattern_match * 0.2
+            
+            # 정규화 (0~1 범위)
+            plausibility = max(0.0, min(1.0, plausibility))
+            
+            return plausibility
+            
+        except Exception as e:
+            logger.error(f"개연성 계산 실패: {e}")
+            return 0.5
+    
+    async def _calculate_moral_weight(self, hypothesis: SituationHypothesis,
+                                     context: LiteraryContext) -> float:
+        """도덕적 가중치 계산"""
+        try:
+            moral_weight = 0.5  # 기본값
+            
+            # 벤담 계산기 활용 (있는 경우)
+            if hasattr(self, 'bentham_calculator') and self.bentham_calculator:
+                try:
+                    # 가설 상황을 벤담 계산기에 전달
+                    bentham_params = {
+                        'situation': hypothesis.base_situation,
+                        'factors': hypothesis.hypothesized_factors
+                    }
+                    # 감정 데이터를 벤담 10차원으로 변환
+                    from semantic_emotion_bentham_mapper import SemanticEmotionBenthamMapper
+                    mapper = SemanticEmotionBenthamMapper()
+                    
+                    # hypothesis의 감정 영향이 있으면 사용, 없으면 기본값
+                    if hasattr(hypothesis, 'emotional_impact') and hypothesis.emotional_impact:
+                        bentham_10d = mapper.map_emotion_to_bentham(hypothesis.emotional_impact)
+                    else:
+                        # 기본 중립 감정으로 매핑
+                        bentham_10d = mapper.map_emotion_to_bentham({'valence': 0, 'arousal': 0, 'dominance': 0, 
+                                                                    'certainty': 0.5, 'surprise': 0, 'anticipation': 0})
+                    
+                    # 기존 bentham_params와 병합
+                    bentham_10d.update(bentham_params)
+                    
+                    bentham_result = await self.bentham_calculator.calculate_with_experience_integration(bentham_10d)
+                    
+                    # 벤담 점수에서 도덕적 가중치 추출
+                    if bentham_result and 'moral_score' in bentham_result:
+                        moral_weight = bentham_result['moral_score']
+                    elif bentham_result and 'weighted_score' in bentham_result:
+                        moral_weight = bentham_result['weighted_score'] / 10.0  # 10점 만점을 0~1로 정규화
+                        
+                except Exception as e:
+                    logger.debug(f"벤담 계산기 사용 실패, 대체 방법 사용: {e}")
+            
+            # 대체 방법: 키워드 기반 도덕성 평가
+            moral_keywords = {
+                'positive': ['정의', '선행', '도움', '배려', '희생', '용기', '정직', '신뢰'],
+                'negative': ['해악', '거짓', '배신', '이기심', '욕심', '분노', '복수']
+            }
+            
+            hypothesis_text = str(hypothesis.hypothesized_factors).lower()
+            
+            positive_score = sum(1 for word in moral_keywords['positive'] if word in hypothesis_text)
+            negative_score = sum(1 for word in moral_keywords['negative'] if word in hypothesis_text)
+            
+            # 긍정/부정 균형에 따른 도덕 가중치 조정
+            if positive_score > negative_score:
+                moral_weight += (positive_score - negative_score) * 0.1
+            else:
+                moral_weight -= (negative_score - positive_score) * 0.1
+            
+            # 정규화
+            moral_weight = max(0.0, min(1.0, moral_weight))
+            
+            return moral_weight
+            
+        except Exception as e:
+            logger.error(f"도덕적 가중치 계산 실패: {e}")
+            return 0.5
+    
+    async def _calculate_cultural_relevance(self, hypothesis: SituationHypothesis,
+                                           context: LiteraryContext) -> float:
+        """문화적 관련성 계산"""
+        try:
+            cultural_relevance = 0.5  # 기본값
+            
+            # 한국 문화 특정 요소들
+            korean_cultural_elements = {
+                'family_values': ['가족', '부모', '효도', '형제', '자매'],
+                'social_hierarchy': ['선배', '후배', '상사', '부하', '연장자'],
+                'collectivism': ['우리', '함께', '공동체', '단체', '모임'],
+                'education': ['공부', '학업', '시험', '대학', '성적'],
+                'respect': ['예의', '존중', '인사', '격식', '예절']
+            }
+            
+            hypothesis_text = str(hypothesis.hypothesized_factors).lower()
+            
+            # 각 문화 요소별 점수 계산
+            element_scores = []
+            for category, keywords in korean_cultural_elements.items():
+                category_score = sum(1 for word in keywords if word in hypothesis_text)
+                if category_score > 0:
+                    element_scores.append(min(1.0, category_score * 0.3))
+            
+            # 평균 문화 관련성 점수
+            if element_scores:
+                cultural_relevance = np.mean(element_scores)
+            
+            # 문학적 맥락의 문화 시대 고려
+            if context.cultural_period:  # cultural_period는 str 타입
+                period_lower = context.cultural_period.lower()
+                if 'korean' in period_lower or '한국' in context.cultural_period or '조선' in context.cultural_period or '고려' in context.cultural_period:
+                    cultural_relevance += 0.2
+                elif 'asian' in period_lower or '동양' in context.cultural_period or '동아시아' in context.cultural_period:
+                    cultural_relevance += 0.1
+                elif '현대' in context.cultural_period or 'modern' in period_lower or 'contemporary' in period_lower:
+                    cultural_relevance += 0.15  # 현대 한국 문화 맥락
+            
+            # 정규화
+            cultural_relevance = max(0.0, min(1.0, cultural_relevance))
+            
+            return cultural_relevance
+            
+        except Exception as e:
+            logger.error(f"문화적 관련성 계산 실패: {e}")
+            return 0.5
+    
+    async def _calculate_emotional_impact(self, hypothesis: SituationHypothesis,
+                                         context: LiteraryContext) -> Dict[str, float]:
+        """감정적 영향 계산"""
+        try:
+            emotional_impact = {}
+            
+            # 감정 분석기 활용 (있는 경우)
+            if hasattr(self, 'emotion_analyzer') and self.emotion_analyzer:
+                try:
+                    # 가설 상황의 감정 분석
+                    emotion_result = await self.emotion_analyzer.analyze({
+                        'text': str(hypothesis.hypothesized_factors),
+                        'context': hypothesis.base_situation
+                    })
+                    
+                    if emotion_result and 'emotions' in emotion_result:
+                        emotional_impact = emotion_result['emotions']
+                        
+                except Exception as e:
+                    logger.debug(f"감정 분석기 사용 실패, 대체 방법 사용: {e}")
+            
+            # 대체 방법: 키워드 기반 감정 평가
+            if not emotional_impact:
+                emotion_keywords = {
+                    'joy': ['기쁨', '행복', '즐거움', '웃음', '만족'],
+                    'sadness': ['슬픔', '눈물', '아픔', '상실', '그리움'],
+                    'anger': ['분노', '화', '짜증', '불만', '격분'],
+                    'fear': ['두려움', '무서움', '공포', '불안', '걱정'],
+                    'surprise': ['놀람', '충격', '예상외', '뜻밖', '깜짝'],
+                    'love': ['사랑', '애정', '정', '마음', '감정']
+                }
+                
+                hypothesis_text = str(hypothesis.hypothesized_factors).lower()
+                
+                for emotion, keywords in emotion_keywords.items():
+                    score = sum(0.2 for word in keywords if word in hypothesis_text)
+                    if score > 0:
+                        emotional_impact[emotion] = min(1.0, score)
+                
+                # 기본 감정이 없으면 중립 설정
+                if not emotional_impact:
+                    emotional_impact = {'neutral': 0.5}
+            
+            # 감정 강도 정규화
+            total_intensity = sum(emotional_impact.values())
+            if total_intensity > 0:
+                emotional_impact = {k: v/total_intensity for k, v in emotional_impact.items()}
+            
+            return emotional_impact
+            
+        except Exception as e:
+            logger.error(f"감정적 영향 계산 실패: {e}")
+            return {'neutral': 0.5}
+    
+    async def _extract_evidence_and_assumptions(self, hypothesis: SituationHypothesis,
+                                                context: LiteraryContext) -> Tuple[List[str], List[str]]:
+        """증거와 가정 추출"""
+        try:
+            evidence = []
+            assumptions = []
+            
+            # 증거: 명시적으로 주어진 사실들
+            if hypothesis.base_situation:
+                for key, value in hypothesis.base_situation.items():
+                    if isinstance(value, str) and len(value) > 10:
+                        evidence.append(f"{key}: {value[:50]}...")
+                    else:
+                        evidence.append(f"{key}: {value}")
+            
+            # 가정: 추론된 요소들
+            if hypothesis.hypothesized_factors:
+                for key, value in hypothesis.hypothesized_factors.items():
+                    if key in ['predicted_outcome', 'expected_reaction', 'possible_consequence']:
+                        assumptions.append(f"{key}: {value}")
+            
+            # 문학적 맥락에서 추가 증거 추출
+            if context.themes:
+                evidence.append(f"주제: {', '.join(context.themes[:3])}")
+            
+            # 캐릭터 아크타입에서 가정 추출
+            if context.character_archetypes:  # List[str] 타입
+                for archetype in context.character_archetypes[:2]:
+                    # 아크타입별 예상 발전 방향 매핑
+                    development_map = {
+                        'hero': '성장과 극복',
+                        'mentor': '지혜 전수',
+                        'innocent': '순수성 보존 또는 상실',
+                        'lover': '관계의 심화',
+                        'rebel': '기존 질서 도전',
+                        'caregiver': '희생과 봉사'
+                    }
+                    development = development_map.get(archetype.lower(), f'{archetype} 특성 발현')
+                    assumptions.append(f"캐릭터 발전: {development}")
+            
+            return evidence[:5], assumptions[:5]  # 최대 5개씩
+            
+        except Exception as e:
+            logger.error(f"증거/가정 추출 실패: {e}")
+            return [], []
+    
+    async def _build_causal_chains(self, hypothesis: SituationHypothesis,
+                                  context: LiteraryContext) -> List[Dict[str, Any]]:
+        """인과 사슬 구성"""
+        try:
+            causal_chains = []
+            
+            # 기본 인과 사슬: 원인 -> 행동 -> 결과
+            basic_chain = {
+                'type': 'basic',
+                'steps': []
+            }
+            
+            # 원인 추출
+            if 'cause' in hypothesis.hypothesized_factors:
+                basic_chain['steps'].append({
+                    'stage': 'cause',
+                    'content': hypothesis.hypothesized_factors['cause']
+                })
+            elif hypothesis.base_situation:
+                basic_chain['steps'].append({
+                    'stage': 'cause',
+                    'content': '초기 상황'
+                })
+            
+            # 행동 추출
+            if 'action' in hypothesis.hypothesized_factors:
+                basic_chain['steps'].append({
+                    'stage': 'action',
+                    'content': hypothesis.hypothesized_factors['action']
+                })
+            
+            # 결과 추출
+            if 'outcome' in hypothesis.hypothesized_factors:
+                basic_chain['steps'].append({
+                    'stage': 'outcome',
+                    'content': hypothesis.hypothesized_factors['outcome']
+                })
+            
+            if len(basic_chain['steps']) > 1:
+                causal_chains.append(basic_chain)
+            
+            # 감정적 인과 사슬
+            if hypothesis.emotional_impact:
+                emotion_chain = {
+                    'type': 'emotional',
+                    'steps': [
+                        {'stage': 'trigger', 'content': '감정 유발 상황'},
+                        {'stage': 'emotion', 'content': list(hypothesis.emotional_impact.keys())[0]},
+                        {'stage': 'response', 'content': '감정적 반응'}
+                    ]
+                }
+                causal_chains.append(emotion_chain)
+            
+            # 도덕적 인과 사슬
+            if hypothesis.moral_weight > 0.6:
+                moral_chain = {
+                    'type': 'moral',
+                    'steps': [
+                        {'stage': 'dilemma', 'content': '도덕적 갈등'},
+                        {'stage': 'choice', 'content': '윤리적 선택'},
+                        {'stage': 'consequence', 'content': '도덕적 결과'}
+                    ]
+                }
+                causal_chains.append(moral_chain)
+            
+            return causal_chains[:3]  # 최대 3개 체인
+            
+        except Exception as e:
+            logger.error(f"인과 사슬 구성 실패: {e}")
             return []
     
     def _select_relevant_patterns(self, scenario_type: ScenarioType, 
@@ -950,39 +1527,69 @@ class AdvancedCounterfactualReasoning:
                                      action: ActionCandidate) -> float:
         """벤담 계산기를 활용한 쾌락 점수 계산"""
         try:
-            # 행위 후보를 벤담 계산기 입력 형식으로 변환
-            bentham_input = {
-                'action_description': action.action_description,
-                'context': {
-                    'situation': hypothesis.situation_description,
-                    'emotional_state': hypothesis.emotional_state,
-                    'literary_context': hypothesis.literary_parallels,
-                    'cultural_context': hypothesis.cultural_expectations
-                },
-                'expected_outcomes': action.expected_outcomes,
-                'emotional_consequences': action.emotional_consequences,
-                'time_horizon': action.time_horizon,
-                'stakeholders': action.stakeholders,
-                'confidence_level': action.confidence_level
+            # 감정 데이터를 벤담 10차원으로 변환
+            from semantic_emotion_bentham_mapper import SemanticEmotionBenthamMapper
+            mapper = SemanticEmotionBenthamMapper()
+            
+            # 감정 영향을 벤담 파라미터로 변환
+            bentham_params = mapper.map_emotion_to_bentham(hypothesis.emotional_impact)
+            
+            # 추가 3개 파라미터는 mapper가 이미 생성함 (external_cost, redistribution_effect, self_damage)
+            # 하지만 액션 기반 조정 필요
+            if action.ethical_constraints:
+                bentham_params['external_cost'] = min(1.0, bentham_params.get('external_cost', 0.5) + len(action.ethical_constraints) * 0.1)
+            
+            if action.stakeholders_affected:
+                bentham_params['redistribution_effect'] = min(1.0, bentham_params.get('redistribution_effect', 0.5) + len(action.stakeholders_affected) * 0.05)
+            
+            # self_damage는 예상되는 부정적 결과에 따라 조정
+            negative_outcomes = sum(1 for k, v in action.emotional_consequences.items() 
+                                  if any(neg in k.lower() for neg in ['guilt', 'regret', 'shame']))
+            if negative_outcomes > 0:
+                bentham_params['self_damage'] = min(1.0, bentham_params.get('self_damage', 0.5) + negative_outcomes * 0.15)
+            
+            # 벤담 계산기 입력 형식으로 구성
+            bentham_input = bentham_params  # 이제 10개 키를 모두 포함
+            
+            # 추가 컨텍스트 정보 (선택적)
+            bentham_input['action_description'] = action.description
+            bentham_input['context'] = {
+                'situation': str(hypothesis.base_situation),
+                'emotional_state': hypothesis.emotional_impact,
+                'literary_context': hypothesis.literary_context.themes,
+                'cultural_relevance': hypothesis.cultural_relevance
             }
             
             # 벤담 계산기로 정교한 쾌락 점수 계산
-            bentham_result = await self.bentham_calculator.calculate_enhanced(
+            bentham_result = await self.bentham_calculator.calculate_with_experience_integration(
                 bentham_input,
-                use_ai_weights=True,
-                context_analysis=True
+                experience_db=None,  # 경험 DB는 선택적
+                use_cache=True  # 캐싱 활용
             )
             
             # 벤담 결과를 0-1 범위로 정규화
-            hedonic_score = bentham_result.get('hedonic_score', 0.5)
+            # EnhancedHedonicResult는 dataclass이므로 속성으로 접근
+            if hasattr(bentham_result, 'final_score'):
+                hedonic_score = bentham_result.final_score
+            elif hasattr(bentham_result, 'hedonic_score'):
+                hedonic_score = bentham_result.hedonic_score
+            else:
+                # hedonic_values가 있으면 전체 평균 계산
+                if hasattr(bentham_result, 'hedonic_values'):
+                    hv = bentham_result.hedonic_values
+                    scores = [hv.intensity, hv.duration, hv.certainty, hv.propinquity,
+                             hv.fecundity, hv.purity, hv.extent]
+                    hedonic_score = sum(scores) / len(scores)
+                else:
+                    hedonic_score = 0.5
             
             # 추가적인 문학적 맥락 고려
             literary_bonus = 0.0
-            if hypothesis.literary_parallels:
-                # 문학적 패턴이 있으면 보너스 (긍정적 결말 패턴)
-                positive_patterns = ['redemption', 'growth', 'sacrifice_reward', 'wisdom_gained']
-                for pattern in hypothesis.literary_parallels:
-                    if any(pos in pattern.lower() for pos in positive_patterns):
+            if hypothesis.literary_context.themes:  # LiteraryContext의 themes 확인
+                # 문학적 주제가 있으면 보너스 (긍정적 주제 패턴)
+                positive_themes = ['redemption', 'growth', 'sacrifice', 'wisdom', '성장', '구원', '희생', '지혜']
+                for theme in hypothesis.literary_context.themes:
+                    if any(pos in theme.lower() for pos in positive_themes):
                         literary_bonus += 0.05
             
             final_score = min(1.0, hedonic_score + literary_bonus)
@@ -992,31 +1599,45 @@ class AdvancedCounterfactualReasoning:
             
         except Exception as e:
             logger.error(f"벤담 기반 쾌락 점수 계산 실패: {e}")
-            # 폴백: 기존 방식으로 계산
-            return await self._calculate_hedonic_score_fallback(hypothesis, action)
-    
-    async def _calculate_hedonic_score_fallback(self, hypothesis: SituationHypothesis, 
-                                              action: ActionCandidate) -> float:
-        """벤담 계산기 실패 시 폴백 쾌락 점수 계산"""
-        try:
-            # 감정적 결과 기반 계산
-            emotional_outcomes = action.emotional_consequences
-            
-            positive_emotions = emotional_outcomes.get('satisfaction', 0) + emotional_outcomes.get('pride', 0) + emotional_outcomes.get('peace', 0)
-            negative_emotions = emotional_outcomes.get('guilt', 0) + emotional_outcomes.get('regret', 0)
-            
-            hedonic_score = (positive_emotions - negative_emotions) / 3.0
-            
-            # 예상 결과의 긍정성 고려
-            outcome_positivity = sum(v for k, v in action.expected_outcomes.items() if 'positive' in k or 'benefit' in k or 'growth' in k)
-            
-            # 최종 점수 (0-1 범위로 정규화)
-            final_score = (hedonic_score * 0.7 + outcome_positivity * 0.3)
-            return max(0.0, min(1.0, final_score))
-            
-        except Exception as e:
-            logger.error(f"폴백 쾌락 점수 계산 실패: {e}")
-            return 0.5
+            # 프로젝트 규칙: 폴백 제거, 직접 계산 구현
+            # 타입 안정성을 위한 조건적 처리 (주석 명시)
+            try:
+                # 감정적 결과 기반 직접 계산
+                emotional_outcomes = action.emotional_consequences if action.emotional_consequences else {}
+                
+                # 긍정/부정 감정 합산
+                positive_sum = 0.0
+                negative_sum = 0.0
+                
+                for emotion, value in emotional_outcomes.items():
+                    emotion_lower = emotion.lower()
+                    # 타입 체크 및 감정 분류 (조건적 분류식 구조)
+                    if isinstance(value, (int, float)):
+                        if any(pos in emotion_lower for pos in ['satisfaction', 'pride', 'peace', 'joy', 'hope']):
+                            positive_sum += value
+                        elif any(neg in emotion_lower for neg in ['guilt', 'regret', 'shame', 'fear', 'anger']):
+                            negative_sum += value
+                
+                # 쾌락 점수 계산
+                emotional_balance = (positive_sum - negative_sum) / max(len(emotional_outcomes), 1)
+                
+                # 예상 결과 긍정성 평가
+                outcome_score = 0.0
+                if action.expected_outcomes:
+                    for outcome, val in action.expected_outcomes.items():
+                        if isinstance(val, (int, float)):
+                            # 긍정적 결과 키워드 확인
+                            if any(pos in outcome.lower() for pos in ['positive', 'benefit', 'growth', 'improve', 'success']):
+                                outcome_score += val
+                
+                # 최종 점수 계산 (0-1 범위)
+                final_score = emotional_balance * 0.7 + outcome_score * 0.3
+                return max(0.0, min(1.0, final_score))
+                
+            except Exception as calc_error:
+                logger.error(f"직접 쾌락 점수 계산 실패: {calc_error}")
+                # 계산 불가능한 경우 예외 재발생
+                raise ValueError(f"쾌락 점수 계산 불가: {calc_error}")
     
     async def _calculate_moral_score(self, hypothesis: SituationHypothesis, 
                                    action: ActionCandidate) -> float:
@@ -1044,7 +1665,8 @@ class AdvancedCounterfactualReasoning:
             
         except Exception as e:
             logger.error(f"도덕 점수 계산 실패: {e}")
-            return 0.5
+            # 프로젝트 규칙: 폴백 제거, 예외 재발생
+            raise ValueError(f"도덕 점수 계산 불가: {e}")
     
     async def _calculate_practical_score(self, hypothesis: SituationHypothesis, 
                                        action: ActionCandidate) -> float:
@@ -1067,7 +1689,8 @@ class AdvancedCounterfactualReasoning:
             
         except Exception as e:
             logger.error(f"실용 점수 계산 실패: {e}")
-            return 0.5
+            # 프로젝트 규칙: 폴백 제거, 예외 재발생
+            raise ValueError(f"실용 점수 계산 불가: {e}")
     
     async def _predict_detailed_outcomes(self, hypothesis: SituationHypothesis, 
                                        action: ActionCandidate) -> Dict[str, Any]:

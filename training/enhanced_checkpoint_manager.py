@@ -78,6 +78,18 @@ class EnhancedCheckpointManager:
         # save_interval=1일 때 모든 에폭 저장
         return epoch % self.save_interval == 0
     
+    def should_keep_optimizer(self, epoch: int) -> bool:
+        """optimizer_state를 유지해야 하는지 결정
+        
+        50 에폭 전략:
+        - 10, 20, 30, 40, 50: 마일스톤 유지 (재개 가능)
+        - 나머지: 제거 (공간 절약, 크로스오버만 가능)
+        """
+        # 10 에폭 단위로 optimizer_state 저장
+        if epoch % 10 == 0:
+            return True
+        return False
+    
     def save_checkpoint(self,
                        epoch: int,
                        model: Any,
@@ -123,16 +135,25 @@ class EnhancedCheckpointManager:
         if 'param_groups' in opt_state:
             optimizer_state_cpu['param_groups'] = opt_state['param_groups']
         
+        # optimizer_state 저장 여부 결정
+        keep_optimizer = self.should_keep_optimizer(epoch)
+        
         checkpoint_data = {
             'epoch': epoch,
             'lr': lr,
             'timestamp': timestamp,
             'model_state': self._extract_modular_states(model),  # 이미 CPU로 이동됨
-            'optimizer_state': optimizer_state_cpu,
             'scheduler_state': scheduler.state_dict() if scheduler else None,
-            'metrics': metrics,
-            'sweet_spots': self.sweet_spots.copy()
+            'metrics': metrics,  # 현재 에폭의 메트릭만
+            # sweet_spots 제거 - 누적 방지
         }
+        
+        # optimizer_state는 조건부로 추가
+        if keep_optimizer:
+            checkpoint_data['optimizer_state'] = optimizer_state_cpu
+            logger.info(f"   - Optimizer state 유지 (에폭 {epoch})")
+        else:
+            logger.info(f"   - Optimizer state 제거 (공간 절약)")
         
         # 저장
         torch.save(checkpoint_data, checkpoint_path)
@@ -157,6 +178,7 @@ class EnhancedCheckpointManager:
         
         logger.info(f"💾 체크포인트 저장: {checkpoint_path}")
         logger.info(f"   - 에폭: {epoch}, LR: {lr:.6f}")
+        # optimizer 저장 정보는 이미 위에서 출력됨
         # loss 값이 있는지 확인하고 적절한 포맷 적용
         loss_val = metrics.get('loss', 'N/A')
         if isinstance(loss_val, (int, float)) and loss_val != float('inf'):
@@ -188,7 +210,8 @@ class EnhancedCheckpointManager:
         # Neural Analyzers Dict 처리 (368M 파라미터)
         if hasattr(model, 'neural_analyzers'):
             neural_analyzers = getattr(model, 'neural_analyzers')
-            if isinstance(neural_analyzers, dict):
+            # nn.ModuleDict도 처리 가능하도록 수정
+            if hasattr(neural_analyzers, 'items'):  # dict-like 객체인지 확인
                 # dict 전체를 하나의 모듈로 저장
                 neural_states = {}
                 for analyzer_name, analyzer_module in neural_analyzers.items():
@@ -212,9 +235,20 @@ class EnhancedCheckpointManager:
                                 k: v.cpu() for k, v in module.state_dict().items()
                             }
         
-        # Group C: DSP + Kalman
-        group_c_modules = ['emotion_dsp', 'kalman_filter']
-        for module_name in group_c_modules:
+        # Group C: Phase Networks (중요: 크로스오버 필수)
+        phase_modules = ['phase0_net', 'phase2_net', 'hierarchical_integrator']
+        for module_name in phase_modules:
+            if hasattr(model, module_name):
+                module = getattr(model, module_name)
+                if module is not None:
+                    modular_states[module_name] = {
+                        k: v.cpu() for k, v in module.state_dict().items()
+                    }
+                    logger.debug(f"  ✓ {module_name} 저장 완료")
+        
+        # Group D: DSP + Kalman
+        group_d_modules = ['dsp_simulator', 'kalman_filter']
+        for module_name in group_d_modules:
             if hasattr(model, module_name):
                 module = getattr(model, module_name)
                 if module is not None:
@@ -223,17 +257,19 @@ class EnhancedCheckpointManager:
                         k: v.cpu() for k, v in module.state_dict().items()
                     }
         
-        # Independent: Advanced Analyzers
-        independent_modules = ['advanced_emotion', 'advanced_regret', 
-                              'advanced_surd', 'advanced_bentham']
-        for module_name in independent_modules:
-            if hasattr(model, module_name):
-                module = getattr(model, module_name)
-                if module is not None:
-                    # GPU → CPU 이동하여 메모리 절약
-                    modular_states[module_name] = {
-                        k: v.cpu() for k, v in module.state_dict().items()
-                    }
+        # Advanced Wrappers Dict 처리 (중요: 크로스오버 필수)
+        if hasattr(model, 'advanced_wrappers'):
+            advanced_wrappers = getattr(model, 'advanced_wrappers')
+            if advanced_wrappers is not None and hasattr(advanced_wrappers, 'items'):
+                wrapper_states = {}
+                for wrapper_name, wrapper_module in advanced_wrappers.items():
+                    if wrapper_module is not None:
+                        wrapper_states[wrapper_name] = {
+                            k: v.cpu() for k, v in wrapper_module.state_dict().items()
+                        }
+                if wrapper_states:
+                    modular_states['advanced_wrappers'] = wrapper_states
+                    logger.debug(f"  ✓ advanced_wrappers dict 저장: {len(wrapper_states)}개 래퍼")
         
         # System: 전체 시스템 통합 파라미터
         # 전체 모델의 통합 성능을 위한 완전한 state_dict 저장
@@ -271,7 +307,7 @@ class EnhancedCheckpointManager:
         return modular_states
     
     def _update_metrics_history(self, epoch: int, metrics: Dict[str, Any]):
-        """메트릭 히스토리 업데이트"""
+        """메트릭 히스토리 업데이트 - 별도 파일로 저장하여 누적 방지"""
         # 전체 메트릭
         self.metrics_history['global'].append({
             'epoch': epoch,
@@ -288,6 +324,11 @@ class EnhancedCheckpointManager:
                     'epoch': epoch,
                     'value': value
                 })
+        
+        # 별도 파일로 저장 (체크포인트와 분리)
+        history_file = self.checkpoint_dir / "metrics_history.json"
+        with open(history_file, 'w') as f:
+            json.dump(self.metrics_history, f, indent=2)
     
     def _detect_sweet_spots(self, epoch: int, metrics: Dict[str, Any]):
         """Sweet Spot 자동 탐지"""
@@ -310,6 +351,11 @@ class EnhancedCheckpointManager:
                             'std': std_dev
                         }
                         logger.info(f"  🎯 Sweet Spot 발견: {module_name} @ epoch {epoch}")
+                        
+                        # Sweet spots도 별도 파일로 저장
+                        sweet_spots_file = self.checkpoint_dir / "sweet_spots.json"
+                        with open(sweet_spots_file, 'w') as f:
+                            json.dump(self.sweet_spots, f, indent=2)
     
     def _cleanup_old_checkpoints(self):
         """오래된 체크포인트 정리"""
@@ -346,7 +392,13 @@ class EnhancedCheckpointManager:
         checkpoint_data = torch.load(checkpoint_path, map_location='cpu')
         logger.info(f"✅ 체크포인트 로드: {checkpoint_path}")
         logger.info(f"   - 에폭: {checkpoint_data['epoch']}")
-        logger.info(f"   - LR: {checkpoint_data['lr']:.6f}")
+        logger.info(f"   - LR: {checkpoint_data.get('lr', 'N/A')}")
+        
+        # optimizer_state 존재 여부 확인
+        if 'optimizer_state' in checkpoint_data:
+            logger.info(f"   - Optimizer state: 포함 (학습 재개 가능)")
+        else:
+            logger.info(f"   - Optimizer state: 없음 (파라미터 크로스오버만 가능)")
         
         return checkpoint_data
     

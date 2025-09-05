@@ -74,7 +74,46 @@ class SentenceTransformerManager:
         """
         # 모델별 고유 키 생성
         if device is None:
-            device = str(get_device())
+            # FORCE_CPU_INIT 환경변수 체크 추가
+            import os
+            if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+                device = 'cpu'
+                logger.info("📌 FORCE_CPU_INIT 감지: CPU 디바이스 강제 설정")
+            else:
+                device = str(get_device())
+        
+        # CPU 모드에서는 직접 로드 (subprocess 우회)
+        if device == 'cpu' or device == 'cpu:0':
+            logger.info(f"📌 CPU 모드: {model_name} 직접 로드 (subprocess 우회)")
+            from sentence_transformers import SentenceTransformer
+            import os  # CPU 블록 내에서도 os 필요
+            if cache_folder is None:
+                cache_folder = os.path.join(MODELS_DIR, 'sentence_transformers')
+            os.makedirs(cache_folder, exist_ok=True)
+            
+            # 직접 CPU에서 로드
+            model = SentenceTransformer(model_name, device='cpu', cache_folder=cache_folder)
+            
+            # SimpleCPUProxy로 래핑하여 호환성 유지
+            class SimpleCPUProxy:
+                def __init__(self, model):
+                    self.model = model
+                    
+                def encode(self, sentences, **kwargs):
+                    return self.model.encode(sentences, **kwargs)
+                
+                def get_sentence_embedding_dimension(self):
+                    return self.model.get_sentence_embedding_dimension()
+                    
+                @property
+                def device(self):
+                    return torch.device('cpu')
+                    
+                @property
+                def max_seq_length(self):
+                    return self.model.max_seq_length
+            
+            return SimpleCPUProxy(model)
         
         model_key = f"{model_name}_{device}"
         
@@ -85,7 +124,7 @@ class SentenceTransformerManager:
                 health_result = self._clients[model_key].health_check(force=False)
                 if health_result.get("status") == "success":
                     logger.info(f"기존 클라이언트 재사용: {model_key}")
-                    return SentenceTransformerProxy(self._clients[model_key])
+                    return SentenceTransformerProxy(self._clients[model_key], model_key)
                 else:
                     logger.warning(f"기존 클라이언트 불안정 - 재생성: {model_key}")
                     # 기존 클라이언트 정리
@@ -114,7 +153,7 @@ class SentenceTransformerManager:
             # 다시 한 번 확인 (다른 스레드에서 생성했을 수 있음)
             if model_key in self._clients:
                 logger.info(f"대기 중 다른 스레드에서 생성 완료: {model_key}")
-                return SentenceTransformerProxy(self._clients[model_key])
+                return SentenceTransformerProxy(self._clients[model_key], model_key)
             
             try:
                 logger.info(f"새 클라이언트 생성 시작: {model_key}")
@@ -153,7 +192,7 @@ class SentenceTransformerManager:
                 self._clients[model_key] = client
                 logger.info(f"클라이언트 생성 및 모델 로딩 성공: {model_key}")
                 
-                return SentenceTransformerProxy(client)
+                return SentenceTransformerProxy(client, model_key)
                 
             except Exception as e:
                 logger.error(f"모델 로드 실패: {model_key}, 오류: {e}")
@@ -239,6 +278,32 @@ class SentenceTransformerManager:
         
         logger.info(f"서버 재시작 완료: {model_key}")
     
+    def unload_model_from_gpu(self, model_key: str):
+        """특정 모델을 GPU에서 언로드 (서버는 유지, GPU 메모리만 해제)"""
+        if model_key not in self._clients:
+            return
+        
+        try:
+            # GPU 모델인 경우에만 언로드
+            if 'cuda' in model_key or 'gpu' in model_key:
+                logger.info(f"GPU 메모리 해제 중: {model_key}")
+                # 서버에 GPU 메모리 해제 요청
+                # 여기서는 서버를 종료하고 재시작하는 방식 사용
+                client = self._clients[model_key]
+                
+                # 서버 종료 (GPU 메모리 해제)
+                client.stop_server()
+                
+                # 클라이언트 제거 (재사용시 다시 생성됨)
+                del self._clients[model_key]
+                
+                # GPU 캐시 정리
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                    logger.info(f"GPU 메모리 해제 완료: {model_key}")
+        except Exception as e:
+            logger.warning(f"GPU 언로드 실패: {model_key}, 오류: {e}")
+    
     def clear_cache(self):
         """모델 캐시 정리"""
         logger.info("클라이언트 캐시 정리 시작")
@@ -263,9 +328,10 @@ class SentenceTransformerProxy:
     내부적으로는 subprocess server와 통신
     """
     
-    def __init__(self, client: SentenceTransformerClient):
+    def __init__(self, client: SentenceTransformerClient, model_key: str = None):
         self.client = client
         self._model_info = None
+        self._model_key = model_key  # GPU 언로드를 위한 키 저장
         
         # 모델 정보 캐시
         try:
@@ -278,14 +344,21 @@ class SentenceTransformerProxy:
     def encode(self, sentences: List[str], **kwargs) -> List[List[float]]:
         """
         텍스트를 임베딩으로 변환 (SentenceTransformer 호환)
+        GPU 사용 후 자동으로 메모리 해제
         
         Args:
             sentences: 인코딩할 텍스트 리스트
-            **kwargs: 추가 인자
+            **kwargs: 추가 인자 (auto_unload=False로 언로드 비활성화 가능)
             
         Returns:
             임베딩 리스트
         """
+        # auto_unload 옵션 확인 (기본값: GPU는 True, CPU는 False)
+        if 'cuda' in str(self.device) or 'gpu' in str(self.device):
+            auto_unload = kwargs.pop('auto_unload', True)  # GPU는 기본적으로 언로드
+        else:
+            auto_unload = kwargs.pop('auto_unload', False)  # CPU는 유지
+        
         # 단일 문자열을 리스트로 변환
         if isinstance(sentences, str):
             sentences = [sentences]
@@ -293,20 +366,34 @@ class SentenceTransformerProxy:
         else:
             return_single = False
         
-        # 서버에 인코딩 요청
-        response = self.client.encode_texts(sentences, **kwargs)
-        
-        if response.get("status") != "success":
-            error_msg = response.get("error", "Unknown error")
-            raise RuntimeError(f"텍스트 인코딩 실패: {error_msg}")
-        
-        embeddings = response.get("result", {}).get("embeddings", [])
-        
-        # 단일 문자열 입력이었다면 단일 결과 반환
-        if return_single and embeddings:
-            return embeddings[0]
-        
-        return embeddings
+        try:
+            # 서버에 인코딩 요청
+            response = self.client.encode_texts(sentences, **kwargs)
+            
+            if response.get("status") != "success":
+                error_msg = response.get("error", "Unknown error")
+                raise RuntimeError(f"텍스트 인코딩 실패: {error_msg}")
+            
+            embeddings = response.get("result", {}).get("embeddings", [])
+            
+            # 단일 문자열 입력이었다면 단일 결과 반환
+            if return_single and embeddings:
+                return embeddings[0]
+            
+            return embeddings
+            
+        finally:
+            # GPU 사용 후 자동 언로드 (GPU 모델인 경우에만)
+            if auto_unload and self._model_key and ('cuda' in str(self.device) or 'gpu' in str(self.device)):
+                try:
+                    logger.debug(f"임베딩 완료, GPU 메모리 즉시 해제: {self._model_key}")
+                    # 전역 매니저를 통해 GPU 언로드
+                    _manager.unload_model_from_gpu(self._model_key)
+                    # GPU 캐시도 즉시 정리
+                    torch.cuda.empty_cache()
+                    torch.cuda.synchronize()  # GPU 연산 완료 대기
+                except Exception as e:
+                    logger.warning(f"GPU 자동 언로드 실패: {e}")
     
     @property
     def max_seq_length(self) -> Optional[int]:

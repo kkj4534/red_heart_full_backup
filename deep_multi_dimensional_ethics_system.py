@@ -497,26 +497,137 @@ class CareEthicsEngine(EthicsReasoningEngine):
             potential_conflicts=conflicts
         )
 
+class JusticeTheoryEngine(EthicsReasoningEngine):
+    """정의론 추론 엔진 (롤스의 정의론 기반)"""
+    
+    def get_school(self) -> EthicsSchool:
+        return EthicsSchool.JUSTICE_THEORY
+    
+    def reason(self, dilemma: EthicalDilemma) -> EthicsReasoning:
+        """정의론적 추론"""
+        
+        reasoning_process = ["정의론적 관점에서 분석 시작 (롤스의 정의론 기반)"]
+        
+        # 정의의 원칙들
+        justice_principles = {
+            'equal_liberty': 0.0,          # 평등한 자유의 원칙
+            'fair_opportunity': 0.0,        # 공정한 기회균등의 원칙
+            'difference_principle': 0.0,    # 차등의 원칙 (최소수혜자 우선)
+            'procedural_fairness': 0.0,     # 절차적 공정성
+            'distributive_justice': 0.0,    # 분배 정의
+            'rectificatory_justice': 0.0    # 교정 정의
+        }
+        
+        scenario_lower = dilemma.scenario.lower()
+        
+        # 평등한 자유의 원칙
+        if any(word in scenario_lower for word in ['자유', '권리', '자율', '선택']):
+            justice_principles['equal_liberty'] = 0.9
+            reasoning_process.append("평등한 자유의 원칙이 최우선")
+        
+        # 공정한 기회균등
+        if any(word in scenario_lower for word in ['기회', '교육', '접근', '참여']):
+            justice_principles['fair_opportunity'] = 0.8
+            reasoning_process.append("공정한 기회균등 원칙 적용")
+        
+        # 차등의 원칙 (최소수혜자 우선)
+        worst_off = [s for s in dilemma.stakeholders if s.vulnerability > 0.8]
+        if worst_off:
+            justice_principles['difference_principle'] = min(0.95, 0.6 + len(worst_off) * 0.15)
+            reasoning_process.append(f"최소수혜자 {len(worst_off)}명 우선 고려 (차등의 원칙)")
+        
+        # 절차적 공정성
+        if any(word in scenario_lower for word in ['절차', '과정', '심사', '평가']):
+            justice_principles['procedural_fairness'] = 0.8
+            reasoning_process.append("절차적 공정성 확보 필요")
+        
+        # 분배 정의
+        if any(word in scenario_lower for word in ['분배', '배분', '할당', '자원']):
+            justice_principles['distributive_justice'] = 0.85
+            reasoning_process.append("분배 정의 원칙 적용")
+        
+        # 교정 정의
+        if any(word in scenario_lower for word in ['보상', '배상', '회복', '교정']):
+            justice_principles['rectificatory_justice'] = 0.8
+            reasoning_process.append("교정 정의 원칙 고려")
+        
+        # 무지의 베일 (Veil of Ignorance) 테스트
+        reasoning_process.append("무지의 베일 뒤에서 판단 (원초적 입장)")
+        
+        # 최소수혜자 분석
+        if dilemma.stakeholders:
+            vulnerable_ratio = len(worst_off) / len(dilemma.stakeholders)
+            if vulnerable_ratio > 0.3:
+                reasoning_process.append(f"취약계층 비율 {vulnerable_ratio:.1%} - 특별 보호 필요")
+                veil_of_ignorance_score = 0.9
+            else:
+                veil_of_ignorance_score = 0.7
+        else:
+            veil_of_ignorance_score = 0.6
+        
+        # 사회계약론적 접근
+        reasoning_process.append("합리적 개인들 간의 사회계약 관점 적용")
+        
+        # 전체 정의 점수 계산
+        justice_scores = [score for score in justice_principles.values() if score > 0]
+        if justice_scores:
+            # 차등의 원칙에 가중치 부여
+            if justice_principles['difference_principle'] > 0:
+                weighted_score = (np.mean(justice_scores) * 0.7 + 
+                                justice_principles['difference_principle'] * 0.3)
+            else:
+                weighted_score = np.mean(justice_scores)
+            
+            ethical_score = weighted_score * veil_of_ignorance_score
+            confidence = 0.85  # 정의론은 체계적 원칙 기반
+        else:
+            ethical_score = 0.6
+            confidence = 0.5
+        
+        # 핵심 원칙
+        key_principles = ["원초적 입장", "무지의 베일", "최소수혜자 우선"]
+        active_principles = [prin for prin, score in justice_principles.items() if score > 0.7]
+        key_principles.extend(active_principles)
+        
+        # 잠재적 갈등
+        conflicts = []
+        if justice_principles['equal_liberty'] > 0.7 and justice_principles['difference_principle'] > 0.7:
+            conflicts.append("자유와 평등 간의 긴장 관계")
+        
+        if len(worst_off) > 0 and len([s for s in dilemma.stakeholders if s.power_level > 0.7]) > 0:
+            conflicts.append("권력 불균형 상황에서 정의 실현의 어려움")
+        
+        return EthicsReasoning(
+            school=self.get_school(),
+            reasoning_process=reasoning_process,
+            ethical_score=ethical_score,
+            confidence=confidence,
+            key_principles=key_principles,
+            potential_conflicts=conflicts
+        )
+
 class DeepMultiDimensionalEthicsSystem:
     """심층 다차원 윤리 추론 시스템"""
     
     def __init__(self):
         self.logger = logger
         
-        # 윤리 추론 엔진들
+        # 윤리 추론 엔진들 (MD 문서 B안: 5개 윤리 시스템)
         self.reasoning_engines = {
             EthicsSchool.UTILITARIANISM: UtilitarianEngine(),
             EthicsSchool.VIRTUE_ETHICS: VirtueEthicsEngine(),
             EthicsSchool.DEONTOLOGICAL: DeontologicalEngine(),
-            EthicsSchool.CARE_ETHICS: CareEthicsEngine()
+            EthicsSchool.CARE_ETHICS: CareEthicsEngine(),
+            EthicsSchool.JUSTICE_THEORY: JusticeTheoryEngine()  # 5번째 윤리 시스템 추가
         }
         
         # 학파별 가중치 (문화적/상황적으로 조정 가능)
         self.school_weights = {
-            EthicsSchool.UTILITARIANISM: 0.3,
-            EthicsSchool.VIRTUE_ETHICS: 0.25,
-            EthicsSchool.DEONTOLOGICAL: 0.25,
-            EthicsSchool.CARE_ETHICS: 0.2
+            EthicsSchool.UTILITARIANISM: 0.25,
+            EthicsSchool.VIRTUE_ETHICS: 0.2,
+            EthicsSchool.DEONTOLOGICAL: 0.2,
+            EthicsSchool.CARE_ETHICS: 0.15,
+            EthicsSchool.JUSTICE_THEORY: 0.2  # 정의론 가중치 추가
         }
         
         # 추론 히스토리

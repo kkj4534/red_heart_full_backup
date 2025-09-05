@@ -1,0 +1,108 @@
+🚀 Red Heart AI 통합 학습 시스템 시작
+===========================================
+[0;34m[INFO][0m 작업 디렉토리: /mnt/c/large_project/linux_red_heart
+[0;34m[INFO][0m Red Heart AI 통합 환경 상태 확인 중...
+[0;32m[SUCCESS][0m ✅ red_heart_env 가상환경 존재
+[0;32m[SUCCESS][0m ✅ faiss-test conda 환경 존재
+[0;32m[SUCCESS][0m ✅ FAISS 설치됨 및 작동 확인
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ 주요 패키지 (torch, transformers, numpy) 설치됨
+[0;32m[SUCCESS][0m 🎉 모든 환경이 이미 준비되어 있습니다!
+✅ Red Heart AI 통합 환경 활성화 완료
+   - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+   - conda: faiss-test (함께 활성화됨)
+   - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+   - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;32m[SUCCESS][0m ✅ Red Heart AI 통합 환경 활성화 완료
+[0;32m[SUCCESS][0m    - venv: /mnt/c/large_project/linux_red_heart/red_heart_env
+[0;32m[SUCCESS][0m    - conda: faiss-test 환경 준비됨
+[0;32m[SUCCESS][0m    - python: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python
+[0;32m[SUCCESS][0m    - 환경 분리: faiss→conda subprocess, 나머지→venv
+[0;34m[INFO][0m 🔐 HuggingFace 오프라인 모드 활성화 (캐시된 모델만 사용)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 시작
+[0;34m[INFO][0m 환경 분리: conda(faiss) + venv(transformers,torch)
+[0;34m[INFO][0m Red Heart AI 통합 학습 시스템 실행 시작...
+[0;34m[INFO][0m 실행 모드: unified-train
+[0;34m[INFO][0m 📚 730M 최종 통합 시스템 훈련 모드...
+[0;34m[INFO][0m    ✨ 최종 통합 시스템 (730M) 사용
+[0;34m[INFO][0m    - 60 에폭 전체 학습
+[0;34m[INFO][0m    - 30개 체크포인트 저장
+INFO:sentence_transformer_singleton:SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+INFO:RedHeart.Config:GPU 직접 사용: None (사용률: 0.0%, 필요: 500MB)
+INFO:RedHeart.UnifiedTrainingFinal:======================================================================
+INFO:RedHeart.UnifiedTrainingFinal:Red Heart AI 최종 통합 학습 시스템 초기화
+INFO:RedHeart.UnifiedTrainingFinal:  - 모델 크기: 730M 파라미터
+INFO:RedHeart.UnifiedTrainingFinal:  - 총 에폭: 60
+INFO:RedHeart.UnifiedTrainingFinal:  - 배치 사이즈: 2 (GA=32)
+INFO:RedHeart.UnifiedTrainingFinal:  - 디바이스: cuda
+INFO:RedHeart.UnifiedTrainingFinal:======================================================================
+INFO:training.enhanced_checkpoint_manager:✅ Enhanced CheckpointManager 초기화
+INFO:training.enhanced_checkpoint_manager:  - 저장 디렉토리: training/checkpoints_final
+INFO:training.enhanced_checkpoint_manager:  - 최대 체크포인트: 30개
+INFO:training.enhanced_checkpoint_manager:  - 저장 간격: 1 에폭마다
+INFO:training.sweet_spot_detector:✅ Sweet Spot Detector 초기화
+INFO:training.sweet_spot_detector:  - 윈도우 크기: 5
+INFO:training.sweet_spot_detector:  - 안정성 임계값: 0.01
+INFO:training.sweet_spot_detector:  - Patience: 10
+INFO:training.parameter_crossover_system:✅ Parameter Crossover System 초기화
+INFO:training.parameter_crossover_system:  - 전략: selective
+INFO:training.parameter_crossover_system:  - 블렌드 비율: 0.7
+INFO:training.oom_handler:✅ OOM Handler 초기화
+INFO:training.oom_handler:  - 초기 배치 사이즈: 2
+INFO:training.oom_handler:  - 최소 배치 사이즈: 1
+INFO:training.oom_handler:  - Gradient Accumulation: 32
+INFO:training.oom_handler:  - 메모리 임계값: 85.0%
+INFO:training.oom_handler:  - 디바이스: cuda
+INFO:training.advanced_training_techniques:✅ Advanced Training Manager 초기화
+INFO:training.advanced_training_techniques:  - label_smoothing: 활성화
+INFO:training.advanced_training_techniques:  - rdrop: 활성화
+INFO:training.advanced_training_techniques:  - ema: 활성화
+INFO:training.advanced_training_techniques:  - llrd: 활성화
+INFO:RedHeart.UnifiedTrainingFinal:✅ 모든 컴포넌트 초기화 완료
+INFO:RedHeart.UnifiedTrainingFinal:🔧 모델 초기화 시작 (순차적 GPU 로드 방식)...
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+INFO:unified_backbone:백본 총 파라미터: 90,624,132 (90.62M)
+INFO:unified_backbone:학습 가능 파라미터: 90,624,132 (90.62M)
+INFO:unified_heads:감정 헤드 파라미터: 17,254,583 (17.25M)
+INFO:unified_heads:벤담 헤드 파라미터: 13,871,919 (13.87M)
+INFO:unified_heads:후회 헤드 파라미터: 19,897,161 (19.90M)
+INFO:unified_heads:SURD 헤드 파라미터: 12,025,739 (12.03M)
+INFO:analyzer_neural_modules:NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+INFO:analyzer_neural_modules:NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+INFO:analyzer_neural_modules:NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+INFO:analyzer_neural_modules:NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+INFO:analyzer_neural_modules:전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+INFO:emotion_dsp_simulator:EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+INFO:RedHeart.UnifiedTrainingFinal:  초기 GPU 메모리: 1.39GB
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 백본 GPU 로드 (90.6M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 감정 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 벤담 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ 후회 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ SURD 헤드 GPU 로드 (38.3M)
+INFO:RedHeart.UnifiedTrainingFinal:  🔄 Translator 모듈 초기화 중...
+INFO:RedHeart.Config:🔍 get_system_module 호출: module_id=translator
+INFO:RedHeart.Config:🔍 현재 등록된 모듈들: []
+INFO:RedHeart.Config:🔍 결과: None
+INFO:local_translator:LocalTranslator 생성 - 전역 모듈로 초기화됨
+INFO:local_translator:🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/transformers/utils/hub.py:111: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+INFO:hf_model_wrapper:✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+INFO:hf_model_wrapper:🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+INFO:local_translator:✅ OPUS-MT 모델 로드 완료 (소요시간: 50.7초, 디바이스: cpu)
+INFO:local_translator:📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+INFO:workflow_aware_memory_manager:✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+INFO:dynamic_swap_manager:RedHeartDynamicSwapManager 초기화 완료
+INFO:dynamic_swap_manager:[DSM] translator 크기: 297.6MB (mgr_id=125582158826816)
+INFO:dynamic_swap_manager:   💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+INFO:dynamic_swap_manager:[REGISTER HEAD] translator (297.6MB, 우선순위: high)
+INFO:local_translator:✅ Translator를 DSM에 등록 (HIGH priority)
+INFO:RedHeart.Config:🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+INFO:RedHeart.Config:🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+INFO:RedHeart.UnifiedTrainingFinal:  ✅ LocalTranslator 초기화 및 전역 등록 완료
+INFO:RedHeart.UnifiedTrainingFinal:  🔧 Advanced Wrappers 생성 중...

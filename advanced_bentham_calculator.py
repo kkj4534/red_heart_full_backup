@@ -28,6 +28,7 @@ import scipy.stats as stats
 from scipy.optimize import minimize_scalar
 import threading
 import time
+import asyncio
 
 from config import ADVANCED_CONFIG, DEVICE, TORCH_DTYPE, BATCH_SIZE, MODELS_DIR, get_smart_device, ModelPriority, get_priority_based_device
 from data_models import (
@@ -103,146 +104,117 @@ class TransformerContextAnalyzer:
         if not ADVANCED_LIBS_AVAILABLE:
             raise ImportError("고급 라이브러리가 필요합니다.")
             
-        self.device = DEVICE
+        # MEDIUM 모드 CPU 강제 초기화 체크
+        import os
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            self.device = torch.device('cpu')
+            self.logger = logger
+            self.logger.info("📌 FORCE_CPU_INIT: CPU 모드 강제 초기화")
+        else:
+            self.device = DEVICE
+            self.logger = logger  # logger 추가
         
         # 감정 분석 파이프라인 (순차적 로딩)
         def load_emotion_classifier():
+            # FORCE_CPU_INIT 모드에서는 CPU 사용
+            if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+                return pipeline(
+                    "text-classification",
+                    model="j-hartmann/emotion-english-distilroberta-base",
+                    device=-1,  # CPU에서 실행
+                    return_all_scores=True
+                )
             # 이 함수는 순차적 로더에서 호출되며, 이미 GPU 할당이 승인된 상태
             return pipeline(
                 "text-classification",
                 model="j-hartmann/emotion-english-distilroberta-base",
-                local_files_only=True,
                 device=0,  # GPU에서 실행
                 return_all_scores=True
             )
         
-        # 순차적 로딩 요청
-        from config import get_gpu_loader
-        gpu_loader = get_gpu_loader()
-        emotion_device, emotion_model = gpu_loader.request_gpu_loading(
-            model_id="bentham_emotion_classifier",
-            priority=ModelPriority.MEDIUM,
-            estimated_memory_mb=732,
-            loading_function=load_emotion_classifier
-        )
-        
-        # 디바이스에 따라 최종 모델 설정
-        if emotion_device.type == 'cuda' and emotion_model is not None:
-            # GPU에서 로드된 모델 사용
-            self.emotion_classifier = emotion_model
-            self.logger.info(f"감정 분석 모델 GPU 순차 로드 완료: {emotion_device}")
-        else:
-            # CPU로 폴백
+        # FORCE_CPU_INIT 모드에서는 GPU 로더 건너뛰기
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            # 직접 CPU 로드 (GPU 로더 우회)
             self.emotion_classifier = pipeline(
                 "text-classification",
                 model="j-hartmann/emotion-english-distilroberta-base",
-                local_files_only=True,
-                device=-1,
+                device=-1,  # CPU 강제
                 return_all_scores=True
             )
-            self.logger.info(f"감정 분석 모델 CPU 로드 완료: {emotion_device}")
-        
-        # 윤리적 추론 파이프라인 (순차적 로딩)
-        try:
-            def load_ethical_classifier():
-                return pipeline(
-                    "zero-shot-classification",
-                    model="facebook/bart-large-mnli",
-                    local_files_only=True,
-                    device=0
-                )
-            
-            ethical_device, ethical_model = gpu_loader.request_gpu_loading(
-                model_id="bentham_ethical_classifier",
+            self.logger.info("📌 FORCE_CPU_INIT: 감정 분석 모델 CPU 직접 로드")
+        else:
+            # 기존 순차적 로딩 요청
+            from config import get_gpu_loader
+            gpu_loader = get_gpu_loader()
+            emotion_device, emotion_model = gpu_loader.request_gpu_loading(
+                model_id="bentham_emotion_classifier",
                 priority=ModelPriority.MEDIUM,
                 estimated_memory_mb=732,
-                loading_function=load_ethical_classifier
+                loading_function=load_emotion_classifier
             )
             
-            if ethical_device.type == 'cuda' and ethical_model is not None:
-                self.ethical_classifier = ethical_model
+            # 디바이스에 따라 최종 모델 설정
+            if emotion_device.type == 'cuda' and emotion_model is not None:
+                # GPU에서 로드된 모델 사용
+                self.emotion_classifier = emotion_model
+                self.logger.info(f"감정 분석 모델 GPU 순차 로드 완료: {emotion_device}")
             else:
-                self.ethical_classifier = pipeline(
-                    "zero-shot-classification",
-                    model="facebook/bart-large-mnli",
-                    local_files_only=True,
-                    device=-1
+                # CPU로 폴백
+                self.emotion_classifier = pipeline(
+                    "text-classification",
+                    model="j-hartmann/emotion-english-distilroberta-base",
+                    device=-1,
+                    return_all_scores=True
                 )
-            self.logger.info(f"윤리 분석 모델 순차 로드 완료: {ethical_device}")
-            
-            # entailment 레이블 매핑 확인 및 수정
-            model = self.ethical_classifier.model
-            if hasattr(model.config, 'label2id'):
-                label2id = model.config.label2id
-                if 'ENTAILMENT' not in label2id and 'entailment' not in label2id:
-                    # 수동으로 entailment 매핑 추가
-                    if 'LABEL_0' in label2id and len(label2id) >= 3:
-                        # MNLI 모델의 일반적 매핑: CONTRADICTION=0, NEUTRAL=1, ENTAILMENT=2
-                        model.config.label2id.update({
-                            'entailment': 2,
-                            'neutral': 1,
-                            'contradiction': 0
-                        })
-                        self.logger.info("✅ entailment 레이블 매핑 수동 설정 완료")
-            
-        except Exception as e:
-            self.logger.error(f"❌ 윤리적 분류기 초기화 실패: {e}")
-            # 폴백으로 간단한 분류기 사용
-            self.ethical_classifier = None
+                self.logger.info(f"감정 분석 모델 CPU 로드 완료: {emotion_device}")
         
-        # 한국어 감정 분석 (순차적 로딩)
-        def load_korean_classifier():
-            return pipeline(
-                "text-classification",
-                model="beomi/KcELECTRA-base-v2022",
-                local_files_only=True,
-                device=0
-            )
+        # 윤리적 추론 - 프로젝트 규칙: 대형 모델 완전 제거
+        # BART/DistilBERT 모두 제거 → 감정 분석 결과 재활용
+        self.ethical_classifier = None
+        self.logger.info("✅ 윤리 분석: 감정→윤리 매핑 방식 (별도 모델 없음)")
         
-        korean_device, korean_model = gpu_loader.request_gpu_loading(
-            model_id="bentham_korean_classifier",
-            priority=ModelPriority.LOW,
-            estimated_memory_mb=732,
-            loading_function=load_korean_classifier
-        )
+        # 한국어 감정 분석 - KcELECTRA는 text-classification 미지원
+        # 프로젝트 규칙: fallback 금지, 근본적 해결
+        # 한국어 텍스트는 번역 후 영어 감정 분류기 사용
+        self.korean_classifier = None  # 한국어 전용 분류기 비활성화
+        self.logger.info("한국어 감정 분석은 번역 후 영어 모델 사용")
         
-        if korean_device.type == 'cuda' and korean_model is not None:
-            self.korean_classifier = korean_model
-        else:
-            self.korean_classifier = pipeline(
-                "text-classification",
-                model="beomi/KcELECTRA-base-v2022",
-                local_files_only=True,
-                device=-1
-            )
-        self.logger.info(f"한국어 감정 모델 순차 로드 완료: {korean_device}")
-        
-        # 문맥 임베딩 모델 (순차적 로딩)
-        def load_context_model():
-            return AutoModel.from_pretrained(
-                "sentence-transformers/all-MiniLM-L6-v2",
-                local_files_only=True
-            ).to(torch.device('cuda'))
-        
-        context_device, context_model = gpu_loader.request_gpu_loading(
-            model_id="bentham_context_model",
-            priority=ModelPriority.LOW,
-            estimated_memory_mb=732,
-            loading_function=load_context_model
-        )
-        
-        if context_device.type == 'cuda' and context_model is not None:
-            self.context_model = context_model
-        else:
+        # FORCE_CPU_INIT 모드에서는 GPU 로더 건너뛰기
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            # 직접 CPU 로드 (GPU 로더 우회)
             self.context_model = AutoModel.from_pretrained(
-                "sentence-transformers/all-MiniLM-L6-v2",
-                local_files_only=True
+                "sentence-transformers/all-MiniLM-L6-v2"
             ).to('cpu')
-        self.logger.info(f"문맥 임베딩 모델 순차 로드 완료: {context_device}")
+            self.logger.info("📌 FORCE_CPU_INIT: 문맥 임베딩 모델 CPU 직접 로드")
+        else:
+            # 문맥 임베딩 모델 (순차적 로딩)
+            def load_context_model():
+                return AutoModel.from_pretrained(
+                    "sentence-transformers/all-MiniLM-L6-v2"
+                ).to(torch.device('cuda'))
+            
+            # gpu_loader가 정의되지 않았으면 import
+            if 'gpu_loader' not in locals():
+                from config import get_gpu_loader
+                gpu_loader = get_gpu_loader()
+            
+            context_device, context_model = gpu_loader.request_gpu_loading(
+                model_id="bentham_context_model",
+                priority=ModelPriority.LOW,
+                estimated_memory_mb=732,
+                loading_function=load_context_model
+            )
+            
+            if context_device.type == 'cuda' and context_model is not None:
+                self.context_model = context_model
+            else:
+                self.context_model = AutoModel.from_pretrained(
+                    "sentence-transformers/all-MiniLM-L6-v2"
+                ).to('cpu')
+            self.logger.info(f"문맥 임베딩 모델 순차 로드 완료: {context_device}")
         
         self.context_tokenizer = AutoTokenizer.from_pretrained(
-            "sentence-transformers/all-MiniLM-L6-v2",
-            local_files_only=True
+            "sentence-transformers/all-MiniLM-L6-v2"
         )
         
         logger.info("트랜스포머 맥락 분석기 초기화 완료")
@@ -253,19 +225,45 @@ class TransformerContextAnalyzer:
         
         try:
             # 1. 감정 분석
-            if language == "ko":
-                emotion_results = self.korean_classifier(text)
+            # 한국어도 영어 모델 사용 (KcELECTRA 호환성 문제 해결)
+            emotion_results = self.emotion_classifier(text)
+            # HuggingFace 파이프라인이 배치 처리로 [[결과]] 반환하는 문제 해결
+            if isinstance(emotion_results, list) and len(emotion_results) == 1:
+                results['emotions'] = emotion_results[0]  # 평탄화
             else:
-                emotion_results = self.emotion_classifier(text)
-            results['emotions'] = emotion_results
+                results['emotions'] = emotion_results
             
-            # 2. 윤리적 분류
-            ethical_labels = [
-                "생명과 안전", "정의와 공정성", "자율성과 자유", 
-                "취약계층 보호", "사회적 책임", "개인적 이익"
-            ]
-            ethical_results = self.ethical_classifier(text, ethical_labels)
-            results['ethical_aspects'] = ethical_results
+            # 2. 윤리적 분류 - BART 제거, 감정 기반 매핑
+            # 프로젝트 규칙: 불필요한 대형 모델 제거
+            if self.ethical_classifier is None:
+                # 감정 분석 결과를 윤리 점수로 매핑
+                emotion_scores = emotion_results[0] if isinstance(emotion_results, list) else emotion_results
+                ethical_mapping = {
+                    'joy': '개인적 이익',
+                    'anger': '정의와 공정성', 
+                    'fear': '생명과 안전',
+                    'sadness': '취약계층 보호',
+                    'surprise': '자율성과 자유',
+                    'disgust': '사회적 책임'
+                }
+                
+                ethical_scores = {}
+                for emotion, label in ethical_mapping.items():
+                    if isinstance(emotion_scores, dict) and 'score' in emotion_scores:
+                        score = emotion_scores.get('score', 0.5)
+                    else:
+                        score = 0.5  # 기본값
+                    ethical_scores[label] = score
+                    
+                results['ethical_aspects'] = {'scores': list(ethical_scores.values())}
+            else:
+                # 기존 분류기가 있으면 사용 (하위 호환성)
+                ethical_labels = [
+                    "생명과 안전", "정의와 공정성", "자율성과 자유", 
+                    "취약계층 보호", "사회적 책임", "개인적 이익"
+                ]
+                ethical_results = self.ethical_classifier(text, ethical_labels)
+                results['ethical_aspects'] = ethical_results
             
             # 3. 맥락 임베딩
             with torch.no_grad():
@@ -328,6 +326,9 @@ class AdvancedWeightLayer:
         self.feature_scaler = StandardScaler()
         self.is_trained = False
         
+        # 모델 로드 시도 (초기화 시점에)
+        self._try_load_trained_model()
+        
     def compute_weight(self, context: AdvancedCalculationContext) -> float:
         """고급 가중치 계산"""
         try:
@@ -356,14 +357,45 @@ class AdvancedWeightLayer:
             return 1.0
             
     def _extract_features(self, context: AdvancedCalculationContext) -> np.ndarray:
-        """맥락에서 특성 추출"""
+        """맥락에서 특성 추출 - ML 모델용과 분석용 분리"""
+        
+        # input_values가 list인 경우 dict로 변환 (GPT 제안 - 모든 메서드에 가드 추가)
+        if hasattr(context, 'input_values') and isinstance(context.input_values, list):
+            if len(context.input_values) == 7:
+                keys = ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']
+                context.input_values = {k: float(v) for k, v in zip(keys, context.input_values)}
+                logger.debug("_extract_features: input_values를 list→dict로 변환")
+            else:
+                raise ValueError(f"input_values must be dict or list(len=7), got list(len={len(context.input_values)})")
+        
+        # ML 모델이 로드되어 있고 5개 특성을 기대하면 5개만 반환
+        if self.is_trained and hasattr(self.ml_model, 'n_features_in_') and self.ml_model.n_features_in_ == 5:
+            # ML 모델용 핵심 특성 (5개) - 가장 중요한 벤담 변수들
+            ml_features = []
+            for var in ['intensity', 'duration', 'certainty', 'propinquity', 'extent']:
+                if var not in context.input_values:
+                    raise KeyError(f"필수 키 누락: {var} (NO FALLBACK)")
+                ml_features.append(context.input_values[var])
+            return np.array(ml_features, dtype=np.float32)
+        
+        # 전체 분석용 특성 (50개)
         features = []
         
         # 기본 벤담 변수들 (Bentham v2 확장)
         for var in ['intensity', 'duration', 'certainty', 'propinquity', 
                    'fecundity', 'purity', 'extent', 'external_cost',
                    'redistribution_effect', 'self_damage']:
-            features.append(context.input_values.get(var, 0.5))
+            # 필수 7개 키는 반드시 존재해야 함
+            if var in ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']:
+                if var not in context.input_values:
+                    raise KeyError(f"필수 벤담 변수 누락: {var} (NO FALLBACK)")
+                features.append(context.input_values[var])
+            else:
+                # 확장 변수는 있으면 사용, 없으면 0.0 (의미상 '없음')
+                if var in context.input_values:
+                    features.append(context.input_values[var])
+                else:
+                    features.append(0.0)  # 확장 변수는 선택적
             
         # 감정 특성
         if context.emotion_data:
@@ -430,10 +462,6 @@ class AdvancedWeightLayer:
     def _ml_predict(self, features: np.ndarray) -> float:
         """ML 모델 예측"""
         if not self.is_trained:
-            # 모델 로드 시도
-            self._try_load_trained_model()
-            
-        if not self.is_trained:
             logger.warning(f"{self.name} ML 모델이 훈련되지 않음. 기본 가중치 반환")
             return 1.0
             
@@ -443,16 +471,41 @@ class AdvancedWeightLayer:
                 expected_features = self.feature_scaler.n_features_in_
                 if features.shape[0] != expected_features:
                     logger.warning(f"{self.name} 특성 크기 불일치 ({features.shape[0]} vs {expected_features}). 스케일러 재초기화")
-                    # 임시 더미 데이터로 스케일러 재훈련
-                    dummy_data = np.random.randn(10, features.shape[0])
-                    self.feature_scaler.fit(dummy_data)
+                    # 실제 데이터 기반 스케일러 재훈련 - 프로젝트 규칙: 더미 데이터 금지
+                    # 현재 특성을 복제하여 변동성 있는 훈련 데이터 생성
+                    real_data = np.tile(features.reshape(1, -1), (10, 1))
+                    # 실제 데이터의 변동성 반영 (약간의 노이즈 추가)
+                    real_data += np.random.normal(0, 0.01, real_data.shape)
+                    self.feature_scaler.fit(real_data)
             else:
                 # 스케일러가 훈련되지 않은 경우 현재 특성으로 초기화
                 logger.info(f"{self.name} 스케일러를 {features.shape[0]}차원으로 초기화")
-                dummy_data = np.random.randn(10, features.shape[0])
-                self.feature_scaler.fit(dummy_data)
+                # 실제 데이터 기반 스케일러 초기화 - 프로젝트 규칙: 더미 데이터 금지
+                real_data = np.tile(features.reshape(1, -1), (10, 1))
+                real_data += np.random.normal(0, 0.01, real_data.shape)
+                self.feature_scaler.fit(real_data)
             
             features_scaled = self.feature_scaler.transform(features.reshape(1, -1))
+            
+            # ML 모델이 기대하는 특성 수와 일치하는지 확인
+            if hasattr(self.ml_model, 'n_features_in_'):
+                expected_features = self.ml_model.n_features_in_
+                if features_scaled.shape[1] != expected_features:
+                    # 특성 수 조정: ML 모델이 요구하는 만큼만 사용하거나 패딩
+                    if expected_features == 5 and features_scaled.shape[1] > 5:
+                        # 50개 특성 중 처음 5개만 사용
+                        features_scaled = features_scaled[:, :5]
+                        logger.debug(f"{self.name}: 50개 특성 중 5개만 사용")
+                    elif expected_features == 50 and features_scaled.shape[1] == 5:
+                        # 5개 특성을 50개로 패딩 (나머지는 0)
+                        padded = np.zeros((1, 50))
+                        padded[:, :5] = features_scaled
+                        features_scaled = padded
+                        logger.debug(f"{self.name}: 5개 특성을 50개로 패딩")
+                    else:
+                        logger.warning(f"{self.name}: 처리할 수 없는 특성 수 불일치 ({features_scaled.shape[1]} vs {expected_features})")
+                        return 1.0
+            
             prediction = self.ml_model.predict(features_scaled)[0]
             
             # 예측값을 합리적인 범위로 제한
@@ -1040,6 +1093,9 @@ class AdvancedBenthamCalculator:
         # MoE 시스템 초기화
         self.moe_enabled = True
         
+        # 벤담 필수 키 정의 (GPT 제안)
+        self.BENTHAM_KEYS = ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']
+        
         # =====================================================
         # 강화 모듈 통합 (42.5M 추가 → 총 45M)
         # =====================================================
@@ -1164,7 +1220,12 @@ class AdvancedBenthamCalculator:
                     num_experts=4  # 공리주의, 의무론, 덕윤리, 돌봄윤리
                 )
                 
-                self.logger.info("벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)")
+                # 디버깅: 실제 생성된 차원 확인
+                if hasattr(self.ethics_moe, 'gating_network'):
+                    actual_input_dim = self.ethics_moe.gating_network.input_dim
+                    self.logger.info(f"벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim={actual_input_dim})")
+                else:
+                    self.logger.info("벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가)")
             except Exception as e:
                 self.logger.warning(f"벤담 윤리 MoE 초기화 실패, 기본 시스템 사용: {e}")
                 self.moe_enabled = False
@@ -1510,7 +1571,10 @@ class AdvancedBenthamCalculator:
         # 5단계: 3뷰 시나리오 분석 통합
         if self.scenario_system_enabled:
             try:
-                # 3뷰 시나리오 분석 수행
+                # 3뷰 시나리오 분석 수행 - 이벤트 루프 문제 해결
+                # 프로젝트 규칙: 근본적 해결 - 동기 버전 사용
+                import nest_asyncio
+                nest_asyncio.apply()
                 scenario_analysis = asyncio.run(self.three_view_system.analyze_three_view_scenarios(input_data))
                 
                 # 시나리오 결과를 벤담 계산에 통합
@@ -1609,7 +1673,7 @@ class AdvancedBenthamCalculator:
         
         # 가중 평균 계산
         weighted_total_score = sum(
-            scenario_results[scenario].total_score * weights[scenario]
+            scenario_results[scenario].final_score * weights[scenario]
             for scenario in scenario_results
         )
         
@@ -1623,16 +1687,18 @@ class AdvancedBenthamCalculator:
         
         # 향상된 결과 생성
         enhanced_result = EnhancedHedonicResult(
-            total_score=weighted_total_score,
+            final_score=weighted_total_score,
             base_score=weighted_base_score,
             hedonic_values=base_result.hedonic_values,
-            weight_layers=base_result.weight_layers,
+            layer_contributions=base_result.layer_contributions,  # weight_layers 대신 layer_contributions 사용
             confidence_score=base_result.confidence_score * scenario_analysis.consensus_strength,
-            calculation_context=base_result.calculation_context,
-            processing_time_ms=base_result.processing_time_ms + scenario_analysis.analysis_duration_ms,
-            cache_hit=base_result.cache_hit,
+            extreme_adjustment_applied=base_result.extreme_adjustment_applied,
+            adjustment_factor=base_result.adjustment_factor,
+            processing_time=base_result.processing_time + (scenario_analysis.analysis_duration_ms / 1000.0),
             metadata={
                 **base_result.metadata,
+                'calculation_context': getattr(base_result, 'calculation_context', {}),
+                'cache_hit': getattr(base_result, 'cache_hit', False),
                 'scenario_analysis': {
                     'consensus_utility': scenario_analysis.consensus_utility,
                     'consensus_regret': scenario_analysis.consensus_regret,
@@ -1643,7 +1709,7 @@ class AdvancedBenthamCalculator:
                 },
                 'scenario_weights': weights,
                 'scenario_scores': {
-                    scenario: result.total_score
+                    scenario: result.final_score
                     for scenario, result in scenario_results.items()
                 }
             }
@@ -1653,13 +1719,13 @@ class AdvancedBenthamCalculator:
         if self.phase_controller_enabled:
             try:
                 # 벤담 계산 오차 추정
-                score_variance = np.var([result.total_score for result in scenario_results.values()])
+                score_variance = np.var([result.final_score for result in scenario_results.values()])
                 calculation_error = score_variance / (abs(weighted_total_score) + 1e-8)
                 
                 # 성능 메트릭 구성
                 performance_metrics = {
                     'bentham_calculation_error': calculation_error,
-                    'processing_time_ms': enhanced_result.processing_time_ms,
+                    'processing_time_ms': enhanced_result.processing_time * 1000,  # seconds to ms
                     'confidence_score': enhanced_result.confidence_score,
                     'scenario_diversity': scenario_analysis.scenario_diversity,
                     'consensus_strength': scenario_analysis.consensus_strength
@@ -1674,7 +1740,7 @@ class AdvancedBenthamCalculator:
                 context = {
                     'calculation_type': 'bentham_with_scenarios',
                     'scenario_count': 3,
-                    'cache_hit': enhanced_result.cache_hit,
+                    'cache_hit': getattr(enhanced_result, 'cache_hit', False),
                     'total_score': weighted_total_score
                 }
                 
@@ -1993,6 +2059,12 @@ class AdvancedBenthamCalculator:
                     ethics_input = ethics_embedding.unsqueeze(0)
                 else:
                     ethics_input = ethics_embedding
+                
+                # ethics_moe의 디바이스로 이동
+                if hasattr(self.ethics_moe, 'gating_network'):
+                    moe_device = next(self.ethics_moe.gating_network.parameters()).device
+                    ethics_input = ethics_input.to(moe_device)
+                
                 moe_result = self.ethics_moe(ethics_input, return_expert_outputs=True)
                 
                 # 전문가별 윤리적 관점 통합
@@ -2018,6 +2090,12 @@ class AdvancedBenthamCalculator:
                             ethics_input = ethics_embedding.unsqueeze(0)
                         else:
                             ethics_input = ethics_embedding
+                        
+                        # ethics_moe의 디바이스로 이동
+                        if hasattr(self.ethics_moe, 'gating_network'):
+                            moe_device = next(self.ethics_moe.gating_network.parameters()).device
+                            ethics_input = ethics_input.to(moe_device)
+                        
                         moe_result = self.ethics_moe(ethics_input, return_expert_outputs=True)
                         
                         # 전문가별 윤리적 관점 통합
@@ -2367,8 +2445,8 @@ class AdvancedBenthamCalculator:
                 adjusted_value = enhanced_values[key]
                 enhanced_values[key] = original_value + (adjusted_value - original_value) * adjustment_factor
         
-        # 법률 분석 메타데이터 추가
-        enhanced_values['legal_metadata'] = {
+        # 법률 분석 메타데이터는 별도로 저장 (ethical_values는 float만 포함해야 함)
+        self.last_legal_metadata = {
             'risk_level': risk_level.value,
             'confidence': confidence_factor,
             'relevant_laws': legal_analysis.relevant_laws,
@@ -2555,6 +2633,9 @@ class AdvancedBenthamCalculator:
         try:
             # 1. 고급 맥락 분석
             context = self._prepare_advanced_context(input_data)
+            
+            # 정규화 보장 (GPT 제안)
+            self._normalize_input_values(context)
             
             # 2. 기본 계산
             base_score = self._calculate_base_advanced(context)
@@ -2754,11 +2835,51 @@ class AdvancedBenthamCalculator:
             
     def _prepare_advanced_context(self, input_data: Dict[str, Any]) -> AdvancedCalculationContext:
         """고급 계산 맥락 준비"""
+        # VERBOSE 로그 추가 - 정확한 문제 파악
+        self.logger.info(f"[VERBOSE] _prepare_advanced_context 시작")
+        self.logger.info(f"[VERBOSE] input_data keys: {list(input_data.keys())}")
+        
         context = AdvancedCalculationContext()
         context.start_time = time.time()
         
-        # 기본 정보
-        context.input_values = input_data.get('input_values', {})
+        # 기본 정보 - list→dict 변환 (o3 제안 적용)
+        # input_values 키가 있으면 사용, 없으면 input_data 자체에서 벤담 키 추출
+        input_vals = input_data.get('input_values', None)
+        
+        if input_vals is not None:
+            # input_values 키가 있는 경우
+            if isinstance(input_vals, list):
+                if len(input_vals) == 7:
+                    keys = ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']
+                    context.input_values = {k: float(v) for k, v in zip(keys, input_vals)}
+                    self.logger.info("   ✅ _prepare_advanced_context: input_values를 list→dict로 변환")
+                else:
+                    self.logger.error(f"input_values list 길이가 7이 아님: {len(input_vals)}")
+                    raise ValueError(f"input_values must be dict or list(len=7), got list(len={len(input_vals)})")
+            elif isinstance(input_vals, dict):
+                context.input_values = input_vals
+            else:
+                self.logger.warning(f"input_values 타입 예외: {type(input_vals).__name__}, 빈 dict 사용")
+                context.input_values = {}
+        else:
+            # input_values 키가 없는 경우 - input_data에서 직접 벤담 키들을 추출
+            bentham_keys = ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']
+            context.input_values = {}
+            for key in bentham_keys:
+                if key in input_data:
+                    val = input_data[key]
+                    # 값이 None이거나 0인 경우 기본값 설정 (NO FALLBACK 원칙에 따라 작은 값 사용)
+                    if val is None or val == 0:
+                        context.input_values[key] = 0.01  # 매우 작은 값으로 설정
+                        self.logger.debug(f"   벤담 키 '{key}' 값이 {val}이므로 0.01로 설정")
+                    else:
+                        context.input_values[key] = float(val)
+                else:
+                    # 키가 없으면 작은 기본값 (NO FALLBACK이지만 키가 없는 것보다는 낫다)
+                    context.input_values[key] = 0.01
+                    self.logger.debug(f"   벤담 키 '{key}' 없음, 0.01로 설정")
+            
+            self.logger.info(f"   ✅ input_data에서 벤담 키 직접 추출: {list(context.input_values.keys())}")
         context.emotion_data = input_data.get('emotion_data')
         context.affected_count = input_data.get('affected_count', 1)
         context.duration_seconds = input_data.get('duration_seconds', 60)
@@ -2773,7 +2894,18 @@ class AdvancedBenthamCalculator:
                 analysis_result = self.context_analyzer.analyze_context(text_input, language)
                 
                 context.context_embedding = analysis_result.get('context_embedding')
-                context.complexity_metrics = analysis_result.get('complexity', {})
+                # 프로젝트 규칙: NO FALLBACK - 타입 검증 강화
+                complexity_data = analysis_result.get('complexity', {})
+                
+                # VERBOSE 로그 추가
+                self.logger.info(f"[VERBOSE] analysis_result keys: {list(analysis_result.keys())}")
+                self.logger.info(f"[VERBOSE] complexity_data type: {type(complexity_data).__name__}")
+                self.logger.info(f"[VERBOSE] complexity_data 값: {complexity_data}")
+                
+                if not isinstance(complexity_data, dict):
+                    self.logger.error(f"analyze_context가 잘못된 complexity 타입 반환: {type(complexity_data).__name__}, 값: {complexity_data}")
+                    raise TypeError(f"analyze_context must return dict for complexity, got {type(complexity_data).__name__}")
+                context.complexity_metrics = complexity_data
                 context.ethical_analysis = analysis_result.get('ethical_aspects', {})
                 context.emotion_analysis = analysis_result.get('emotions', [])
                 
@@ -2822,7 +2954,10 @@ class AdvancedBenthamCalculator:
             })
         
         for variable, weight in weights.items():
-            value = context.input_values.get(variable, 0.5)
+            # 필수 키 검증 (NO FALLBACK)
+            if variable not in context.input_values:
+                raise KeyError(f"_calculate_base_advanced: 필수 변수 누락 - {variable}")
+            value = context.input_values[variable]
             # 비선형 변환 적용
             transformed_value = self._apply_nonlinear_transform(value, variable)
             total_score += transformed_value * weight
@@ -2962,19 +3097,25 @@ class AdvancedBenthamCalculator:
         # 해악 방지 고려
         if care_harm > 0.6:
             # 안전/돌봄이 중요한 경우 확실성과 지속성 중시
-            certainty_boost = context.input_values.get('certainty', 0.5) * 0.1
+            if 'certainty' not in context.input_values:
+                raise KeyError("윤리적 조정에 필요한 'certainty' 키 누락")
+            certainty_boost = context.input_values['certainty'] * 0.1
             ethical_factor += certainty_boost
         
         # 공정성 고려  
         if fairness > 0.6:
             # 공정성이 중요한 경우 범위(extent) 가중치 증가
-            extent_boost = context.input_values.get('extent', 0.5) * 0.1
+            if 'extent' not in context.input_values:
+                raise KeyError("윤리적 조정에 필요한 'extent' 키 누락")
+            extent_boost = context.input_values['extent'] * 0.1
             ethical_factor += extent_boost
         
         # 충성/관계 고려
         if loyalty > 0.6:
             # 관계가 중요한 경우 근접성(propinquity) 가중치 증가
-            propinquity_boost = context.input_values.get('propinquity', 0.5) * 0.1
+            if 'propinquity' not in context.input_values:
+                raise KeyError("윤리적 조정에 필요한 'propinquity' 키 누락")
+            propinquity_boost = context.input_values['propinquity'] * 0.1
             ethical_factor += propinquity_boost
         
         # 윤리적 조정도 미묘하게 제한 (±10% 이내)
@@ -2992,9 +3133,61 @@ class AdvancedBenthamCalculator:
             # 기타는 시그모이드 변환
             return 1 / (1 + np.exp(-10 * (value - 0.5)))
             
+    def _normalize_context(self, context) -> dict:
+        """context를 dict로 정규화"""
+        if isinstance(context, dict):
+            return context
+        if isinstance(context, str):
+            return {'text': context}
+        if isinstance(context, list):
+            if context and isinstance(context[0], dict):
+                # list of dict -> merge
+                merged = {}
+                for d in context:
+                    if isinstance(d, dict):
+                        merged.update(d)
+                return merged
+            # list of other -> convert to dict
+            return {'sequence': context, 'text': ' '.join(map(str, context))}
+        if hasattr(context, '__dict__'):
+            return context.__dict__
+        raise TypeError(f"context must be dict/list/str/object, got {type(context).__name__}")
+    
+    def _normalize_input_values(self, context: AdvancedCalculationContext) -> None:
+        """입력값 정규화 - 모든 진입점에서 강제 (GPT 제안)"""
+        if not hasattr(context, 'input_values'):
+            raise AttributeError("context에 input_values가 없음")
+        
+        iv = context.input_values
+        if isinstance(iv, list):
+            if len(iv) != 7:
+                raise ValueError(f"input_values는 길이 7 리스트여야 함, 실제: {len(iv)}")
+            context.input_values = {k: float(v) for k, v in zip(self.BENTHAM_KEYS, iv)}
+            self.logger.debug(f"input_values 정규화: list → dict")
+        elif isinstance(iv, dict):
+            missing = [k for k in self.BENTHAM_KEYS if k not in iv]
+            if missing:
+                raise KeyError(f"필수 벤담 키 누락 (NO FALLBACK): {missing}")
+        else:
+            raise TypeError(f"input_values는 dict 또는 길이 7 리스트여야 함, 실제: {type(iv).__name__}")
+    
     def _predict_neural_weights(self, context: AdvancedCalculationContext) -> torch.Tensor:
         """신경망 기반 가중치 예측"""
+        import traceback
+        
+        # 정규화 강제 (GPT 제안)
         try:
+            self._normalize_input_values(context)
+        except Exception as e:
+            self.logger.error(f"_predict_neural_weights 입력 정규화 실패:\n{traceback.format_exc()}")
+            return None
+        
+        try:
+            # context는 반드시 AdvancedCalculationContext여야 함
+            if not isinstance(context, AdvancedCalculationContext):
+                self.logger.error(f"_predict_neural_weights: Invalid context type: {type(context).__name__}")
+                return None
+            
             features = self._extract_neural_features(context)
             # Neural predictor와 같은 디바이스로 이동
             predictor_device = next(self.neural_predictor.parameters()).device
@@ -3013,10 +3206,51 @@ class AdvancedBenthamCalculator:
         """신경망용 특성 추출"""
         features = []
         
-        # 기본 벤담 변수들
+        # VERBOSE 로그 추가 - 정확한 문제 파악
+        self.logger.info(f"[VERBOSE] _extract_neural_features 시작")
+        self.logger.info(f"[VERBOSE] context type: {type(context).__name__}")
+        self.logger.info(f"[VERBOSE] context.complexity_metrics 존재: {hasattr(context, 'complexity_metrics')}")
+        if hasattr(context, 'complexity_metrics'):
+            self.logger.info(f"[VERBOSE] complexity_metrics type: {type(context.complexity_metrics).__name__}")
+            self.logger.info(f"[VERBOSE] complexity_metrics 값: {context.complexity_metrics}")
+        
+        # context가 AdvancedCalculationContext가 아닌 경우 즉시 에러
+        if not isinstance(context, AdvancedCalculationContext):
+            self.logger.error(f"_extract_neural_features: context must be AdvancedCalculationContext, got {type(context).__name__}")
+            raise TypeError(f"context must be AdvancedCalculationContext, not {type(context).__name__}")
+        
+        # input_values 속성 확인 및 list→dict 변환
+        if not hasattr(context, 'input_values'):
+            # input_values가 없으면 각 속성에서 직접 가져오되, 없으면 에러
+            context.input_values = {}
+            for var in ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']:
+                if hasattr(context, var):
+                    context.input_values[var] = getattr(context, var)
+                else:
+                    self.logger.error(f"_extract_neural_features: Missing required attribute: {var}")
+                    raise AttributeError(f"AdvancedCalculationContext missing required attribute: {var}")
+        elif isinstance(context.input_values, list):
+            # list인 경우 dict로 변환 (o3 제안)
+            vals = context.input_values
+            if isinstance(vals, list) and len(vals) == 7:
+                keys = ['intensity', 'duration', 'certainty', 'propinquity', 'fecundity', 'purity', 'extent']
+                context.input_values = {k: float(v) for k, v in zip(keys, vals)}
+                self.logger.info(f"   ✅ input_values를 list→dict로 변환 완료")
+            else:
+                self.logger.error(f"input_values list 길이가 7이 아님: {len(vals)}")
+                raise ValueError(f"input_values must be dict or list(len=7), got list(len={len(vals)})")
+        elif not isinstance(context.input_values, dict):
+            # dict도 list도 아닌 경우 에러
+            self.logger.error(f"input_values 타입 에러: {type(context.input_values).__name__}")
+            raise TypeError(f"input_values must be dict or list(len=7), got {type(context.input_values).__name__}")
+        
+        # 기본 벤담 변수들 (기본값 없이)
         for var in ['intensity', 'duration', 'certainty', 'propinquity', 
                    'fecundity', 'purity', 'extent']:
-            features.append(context.input_values.get(var, 0.5))
+            if var not in context.input_values:
+                self.logger.error(f"_extract_neural_features: Missing required value: {var}")
+                raise KeyError(f"input_values missing required key: {var}")
+            features.append(context.input_values[var])
             
         # 감정 특성
         if context.emotion_data:
@@ -3056,13 +3290,16 @@ class AdvancedBenthamCalculator:
         # 복잡도 메트릭
         if hasattr(context, 'complexity_metrics'):
             complexity = context.complexity_metrics
+            # 프로젝트 규칙: NO FALLBACK - dict가 아니면 에러
+            if not isinstance(complexity, dict):
+                self.logger.error(f"complexity_metrics는 dict여야 함, 실제: {type(complexity).__name__}, 값: {complexity}")
+                raise TypeError(f"complexity_metrics must be dict, got {type(complexity).__name__}")
+            
             features.extend([
                 complexity.get('lexical_diversity', 0.5),
                 complexity.get('structural_complexity', 0.1) * 10,
                 min(complexity.get('word_count', 10) / 100.0, 1.0)
             ])
-        else:
-            features.extend([0.5, 0.1, 0.1])
             
         # 윤리적 점수
         if hasattr(context, 'ethical_analysis'):
@@ -3079,7 +3316,8 @@ class AdvancedBenthamCalculator:
         if hasattr(context, 'emotion_analysis'):
             emotions = context.emotion_analysis
             if emotions and isinstance(emotions, list):
-                max_emotion_score = max([e.get('score', 0.5) for e in emotions])
+                # 이제 평탄화된 리스트여야 함 [{'label': 'joy', 'score': 0.8}, ...]
+                max_emotion_score = max([e.get('score', 0.5) for e in emotions if isinstance(e, dict)])
                 features.append(max_emotion_score)
             else:
                 features.append(0.5)

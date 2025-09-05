@@ -182,8 +182,8 @@ class GatingNetwork(nn.Module):
             nn.Linear(hidden_dim // 2, num_experts)
         )
         
-        # 다양성 촉진을 위한 레이어
-        self.diversity_layer = nn.Linear(hidden_dim // 2, num_experts)
+        # 다양성 촉진을 위한 레이어 - input_dim에서 직접 연결
+        self.diversity_layer = nn.Linear(input_dim, num_experts)
         
     def forward(self, x: torch.Tensor, temperature: float = 1.0) -> torch.Tensor:
         """
@@ -199,7 +199,7 @@ class GatingNetwork(nn.Module):
         # 게이팅 로짓 계산
         gating_logits = self.gating_network(x)
         
-        # 다양성 보너스
+        # 다양성 보너스 - 이제 x를 직접 사용 가능
         diversity_bonus = self.diversity_layer(x) * 0.1
         
         # 최종 로짓

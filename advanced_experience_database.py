@@ -127,6 +127,7 @@ class ExperienceQuery:
     max_results: int = 10
     include_metadata: bool = True
     boost_recent: bool = True
+    emotion_state: Optional[Dict[str, Any]] = None  # 감정 상태 필터
 
 @dataclass
 class ExperienceLearningState:
@@ -219,7 +220,13 @@ class AdvancedExperienceDatabase:
             'similarity_threshold': 0.8,
             'clustering_method': 'kmeans'
         })
-        self.device = get_device()
+        
+        # MEDIUM 모드 CPU 강제 초기화 체크
+        import os
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            self.device = torch.device('cpu')
+        else:
+            self.device = get_device()
         self.dtype = TORCH_DTYPE
         
         # 데이터베이스 경로 설정
@@ -252,6 +259,10 @@ class AdvancedExperienceDatabase:
         # 벡터 데이터베이스 초기화 (FAISS)
         self._initialize_vector_db()
         
+        # 메모리 기반 벡터 저장소 초기화
+        self.vectors_memory = []  # 벡터 저장소
+        self.vector_ids = []  # 벡터 ID 저장소
+        
         # 배치 처리 워커 시작
         self._start_batch_processor()
         
@@ -282,16 +293,33 @@ class AdvancedExperienceDatabase:
         
         logger.info("고급 경험 데이터베이스가 초기화되었습니다.")
     
+    def _to_vec_list(self, x):
+        """벡터를 list로 안전하게 변환"""
+        import numpy as np
+        try:
+            import torch
+            if isinstance(x, torch.Tensor):
+                return x.detach().cpu().numpy().astype('float32').tolist()
+        except ImportError:
+            pass
+        if isinstance(x, list):
+            return [float(v) for v in x]
+        if isinstance(x, np.ndarray):
+            return x.astype('float32').tolist()
+        raise TypeError(f"Unsupported vector type: {type(x)}")
+    
     def _initialize_embedding_model(self):
         """임베딩 모델 초기화 (싱글톤 매니저 사용)"""
         try:
             from sentence_transformer_singleton import get_sentence_transformer
             
             # 싱글톤 매니저를 통해 공유 인스턴스 가져오기
+            # cache_folder를 지정하지 않으면 기본 HuggingFace 캐시 사용
+            # 'sentence-transformers/' 접두사 추가
             self.embedding_model = get_sentence_transformer(
-                'paraphrase-multilingual-mpnet-base-v2',
-                device=str(self.device),
-                cache_folder=self.models_path
+                'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
+                device=str(self.device)
+                # cache_folder 제거 - 기본 경로 사용
             )
             
             # 임베딩 차원
@@ -507,7 +535,7 @@ class AdvancedExperienceDatabase:
                 try:
                     # FAISS subprocess를 통해 벡터 추가
                     result = run_faiss_subprocess('add_vectors', {
-                        'vectors': [embedding.tolist()],
+                        'vectors': [self._to_vec_list(embedding)],
                         'dimension': self.embedding_dim,
                         'index_type': self.vector_index_info['index_type']
                     })
@@ -1101,8 +1129,9 @@ class AdvancedExperienceDatabase:
                     req_id = req['request_id']
                     text = req['text']
                     
-                    # 캐시에 저장
-                    self.embedding_cache[text] = embedding
+                    # 캐시에 저장 (GPT 제안 - dict를 해시 가능한 키로 변환)
+                    cache_key = text if isinstance(text, str) else self._stable_hash(text)
+                    self.embedding_cache[cache_key] = embedding
                     
                     # 결과 저장 및 이벤트 신호
                     self.embedding_results[req_id] = embedding
@@ -1126,8 +1155,9 @@ class AdvancedExperienceDatabase:
     async def _generate_embedding(self, text: str) -> np.ndarray:
         """텍스트 임베딩 생성 - GPU 세마포어로 무한 대기 이슈 해결"""
         # 캐시 확인 (빠른 반환)
-        if text in self.embedding_cache:
-            return self.embedding_cache[text]
+        cache_key = text if isinstance(text, str) else self._stable_hash(text)
+        if cache_key in self.embedding_cache:
+            return self.embedding_cache[cache_key]
         
         # 임베딩 모델이 없는 경우 즉시 실패
         if self.embedding_model is None:
@@ -1153,8 +1183,9 @@ class AdvancedExperienceDatabase:
                     text
                 )
                 
-                # 캐시에 저장
-                self.embedding_cache[text] = embedding
+                # 캐시에 저장 (GPT 제안 - dict를 해시 가능한 키로 변환)
+                cache_key = text if isinstance(text, str) else self._stable_hash(text)
+                self.embedding_cache[cache_key] = embedding
                 return embedding
                 
             except Exception as e:
@@ -1224,7 +1255,56 @@ class AdvancedExperienceDatabase:
         # 범주형 메타데이터를 수치로 변환
         if 'emotion' in metadata:
             emotion_map = {'positive': 1.0, 'negative': -1.0, 'neutral': 0.0}
-            features[3] = emotion_map.get(metadata['emotion'], 0.0)
+            
+            # GPT B1 옵션: emotion 라벨 결정적 도출
+            em = metadata.get('emotion')
+            
+            def _coerce_emotion_label(em):
+                """emotion을 결정적 라벨로 변환 (GPT 제안)"""
+                if isinstance(em, str):
+                    return em
+                    
+                if isinstance(em, dict):
+                    # 우선순위 1: 명시적 'label' 키
+                    if 'label' in em and isinstance(em['label'], str):
+                        return em['label']
+                    
+                    # 우선순위 2: scores 배열에서 argmax
+                    scores = em.get('scores')
+                    if isinstance(scores, (list, tuple, np.ndarray)):
+                        if len(scores) >= 7:
+                            # 감정 인덱스 매핑
+                            emotion_names = ['joy', 'sadness', 'anger', 'fear', 'surprise', 'disgust', 'neutral']
+                            idx = int(np.argmax(scores[:7]))
+                            
+                            # 감정을 positive/negative/neutral로 매핑
+                            if emotion_names[idx] in ['joy', 'surprise']:
+                                return 'positive'
+                            elif emotion_names[idx] in ['sadness', 'anger', 'fear', 'disgust']:
+                                return 'negative'
+                            else:
+                                return 'neutral'
+                        else:
+                            raise ValueError(f"scores 길이 부족: {len(scores)} < 7 (NO FALLBACK)")
+                    
+                    # 우선순위 3: 중첩된 emotion 키
+                    if 'emotion' in em:
+                        return _coerce_emotion_label(em['emotion'])  # 재귀 호출
+                    
+                    # dict이지만 처리 불가
+                    raise ValueError(f"emotion dict 처리 불가 - 키: {list(em.keys())} (NO FALLBACK)")
+                
+                # 예상치 못한 타입
+                raise TypeError(f"emotion은 str 또는 dict여야 함, 실제: {type(em).__name__}")
+            
+            # 라벨 도출 및 수치 변환
+            emotion_label = _coerce_emotion_label(em)
+            
+            # 라벨 검증 (기본값 금지)
+            if emotion_label not in emotion_map:
+                raise ValueError(f"알 수 없는 emotion 라벨: {emotion_label} (허용: {list(emotion_map.keys())})")
+            
+            features[3] = emotion_map[emotion_label]
         
         # 시간 관련 특성
         if 'time_sensitivity' in metadata:
@@ -1240,7 +1320,7 @@ class AdvancedExperienceDatabase:
                 # FAISS subprocess를 통해 검색
                 result = run_faiss_subprocess('search_vectors', {
                     'vectors': self.vectors_memory,  # 기존 벡터들
-                    'query_vectors': [query_embedding.tolist()],
+                    'query_vectors': [self._to_vec_list(query_embedding)],
                     'dimension': self.embedding_dim,
                     'index_type': self.vector_index_info['index_type'],
                     'k': max_results
@@ -1376,6 +1456,17 @@ class AdvancedExperienceDatabase:
             str(query.max_results)
         ]
         return hashlib.md5("|".join(key_components).encode()).hexdigest()
+    
+    def _stable_hash(self, obj: Any) -> str:
+        """객체를 안정적인 해시 문자열로 변환 (GPT 제안)"""
+        import json
+        try:
+            # dict, list 등을 JSON으로 직렬화 후 해시
+            s = json.dumps(obj, sort_keys=True, ensure_ascii=False)
+            return hashlib.sha256(s.encode('utf-8')).hexdigest()
+        except (TypeError, ValueError):
+            # JSON 직렬화 불가능한 경우 str로 변환 후 해시
+            return hashlib.sha256(str(obj).encode('utf-8')).hexdigest()
     
     async def _update_learning_systems(self):
         """학습 시스템 업데이트"""

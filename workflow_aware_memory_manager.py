@@ -22,14 +22,38 @@ logger = logging.getLogger(__name__)
 
 class WorkflowStage(Enum):
     """워크플로우 단계"""
+    # 초기화 및 준비
     INITIALIZATION = "initialization"
     DATA_LOADING = "data_loading"
-    BACKBONE_FORWARD = "backbone_forward"
-    HEAD_PROCESSING = "head_processing"
-    SYNERGY_COMPUTATION = "synergy_computation"
+    
+    # 추론 워크플로우 단계들
+    TEXT_PREPROCESSING = "text_preprocessing"  # 텍스트 전처리 및 번역
+    EMBEDDING_GENERATION = "embedding_generation"  # 임베딩 생성
+    BACKBONE_FORWARD = "backbone_forward"  # 백본 처리
+    
+    # 개별 분석 단계들 (병렬 가능)
+    EMOTION_ANALYSIS = "emotion_analysis"  # 감정 분석
+    BENTHAM_CALCULATION = "bentham_calculation"  # 벤담 쾌락 계산
+    REGRET_ANALYSIS = "regret_analysis"  # 후회 분석
+    SURD_ANALYSIS = "surd_analysis"  # SURD 분석
+    
+    # 고급 분석 단계들
+    COUNTERFACTUAL_REASONING = "counterfactual_reasoning"  # 반사실 추론
+    THREE_VIEW_SCENARIO = "three_view_scenario"  # 3뷰 시나리오 분석
+    LEGAL_EXPERT_ANALYSIS = "legal_expert_analysis"  # 법률 전문가 시스템
+    
+    # 통합 및 종합
+    HEAD_PROCESSING = "head_processing"  # 헤드 처리 통합
+    SYNERGY_COMPUTATION = "synergy_computation"  # 시너지 계산
+    META_INTEGRATION = "meta_integration"  # 메타 통합
+    CIRCUIT_PROCESSING = "circuit_processing"  # EER 서킷 처리
+    
+    # 학습 관련 (training mode)
     LOSS_COMPUTATION = "loss_computation"
     BACKWARD_PASS = "backward_pass"
     OPTIMIZATION = "optimization"
+    
+    # 완료
     EVALUATION = "evaluation"
     FINALIZATION = "finalization"
 

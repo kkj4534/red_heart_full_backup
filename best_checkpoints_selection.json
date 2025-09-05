@@ -1,0 +1,186 @@
+{
+  "1": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0001_lr_0.000012_20250823_060212.pt",
+    "filename": "checkpoint_epoch_0001_lr_0.000012_20250823_060212.pt",
+    "epoch": 1,
+    "lr": "0.000012",
+    "timestamp": "20250823",
+    "size_mb": 586.47043800354
+  },
+  "2": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0002_lr_0.000012_20250823_085433.pt",
+    "filename": "checkpoint_epoch_0002_lr_0.000012_20250823_085433.pt",
+    "epoch": 2,
+    "lr": "0.000012",
+    "timestamp": "20250823",
+    "size_mb": 586.4734897613525
+  },
+  "3": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0003_lr_0.000012_20250823_095301.pt",
+    "filename": "checkpoint_epoch_0003_lr_0.000012_20250823_095301.pt",
+    "epoch": 3,
+    "lr": "0.000012",
+    "timestamp": "20250823",
+    "size_mb": 586.4735507965088
+  },
+  "4": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0004_lr_0.000012_20250823_233856.pt",
+    "filename": "checkpoint_epoch_0004_lr_0.000012_20250823_233856.pt",
+    "epoch": 4,
+    "lr": "0.000012",
+    "timestamp": "20250823",
+    "size_mb": 5205.380790710449
+  },
+  "5": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0005_lr_0.000012_20250824_004444.pt",
+    "filename": "checkpoint_epoch_0005_lr_0.000012_20250824_004444.pt",
+    "epoch": 5,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.380790710449
+  },
+  "6": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0006_lr_0.000012_20250824_015010.pt",
+    "filename": "checkpoint_epoch_0006_lr_0.000012_20250824_015010.pt",
+    "epoch": 6,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "7": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0007_lr_0.000012_20250824_025702.pt",
+    "filename": "checkpoint_epoch_0007_lr_0.000012_20250824_025702.pt",
+    "epoch": 7,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "8": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0008_lr_0.000012_20250824_040342.pt",
+    "filename": "checkpoint_epoch_0008_lr_0.000012_20250824_040342.pt",
+    "epoch": 8,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "9": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0009_lr_0.000012_20250824_050921.pt",
+    "filename": "checkpoint_epoch_0009_lr_0.000012_20250824_050921.pt",
+    "epoch": 9,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "10": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0010_lr_0.000012_20250824_061455.pt",
+    "filename": "checkpoint_epoch_0010_lr_0.000012_20250824_061455.pt",
+    "epoch": 10,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "11": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0011_lr_0.000012_20250824_072145.pt",
+    "filename": "checkpoint_epoch_0011_lr_0.000012_20250824_072145.pt",
+    "epoch": 11,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "12": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0012_lr_0.000012_20250824_082938.pt",
+    "filename": "checkpoint_epoch_0012_lr_0.000012_20250824_082938.pt",
+    "epoch": 12,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "13": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0013_lr_0.000012_20250824_093632.pt",
+    "filename": "checkpoint_epoch_0013_lr_0.000012_20250824_093632.pt",
+    "epoch": 13,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "14": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0014_lr_0.000012_20250824_104257.pt",
+    "filename": "checkpoint_epoch_0014_lr_0.000012_20250824_104257.pt",
+    "epoch": 14,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "15": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0015_lr_0.000012_20250824_114836.pt",
+    "filename": "checkpoint_epoch_0015_lr_0.000012_20250824_114836.pt",
+    "epoch": 15,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "16": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0016_lr_0.000012_20250824_125436.pt",
+    "filename": "checkpoint_epoch_0016_lr_0.000012_20250824_125436.pt",
+    "epoch": 16,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "17": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0017_lr_0.000012_20250824_140131.pt",
+    "filename": "checkpoint_epoch_0017_lr_0.000012_20250824_140131.pt",
+    "epoch": 17,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "18": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0018_lr_0.000012_20250824_150437.pt",
+    "filename": "checkpoint_epoch_0018_lr_0.000012_20250824_150437.pt",
+    "epoch": 18,
+    "lr": "0.000012",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "19": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0019_lr_0.000011_20250824_161130.pt",
+    "filename": "checkpoint_epoch_0019_lr_0.000011_20250824_161130.pt",
+    "epoch": 19,
+    "lr": "0.000011",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "20": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0020_lr_0.000011_20250824_172028.pt",
+    "filename": "checkpoint_epoch_0020_lr_0.000011_20250824_172028.pt",
+    "epoch": 20,
+    "lr": "0.000011",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "21": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0021_lr_0.000011_20250824_182814.pt",
+    "filename": "checkpoint_epoch_0021_lr_0.000011_20250824_182814.pt",
+    "epoch": 21,
+    "lr": "0.000011",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "22": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0022_lr_0.000011_20250824_193608.pt",
+    "filename": "checkpoint_epoch_0022_lr_0.000011_20250824_193608.pt",
+    "epoch": 22,
+    "lr": "0.000011",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  },
+  "23": {
+    "file": "training/checkpoints_final/checkpoint_epoch_0023_lr_0.000011_20250824_204202.pt",
+    "filename": "checkpoint_epoch_0023_lr_0.000011_20250824_204202.pt",
+    "epoch": 23,
+    "lr": "0.000011",
+    "timestamp": "20250824",
+    "size_mb": 5205.3810958862305
+  }
+}

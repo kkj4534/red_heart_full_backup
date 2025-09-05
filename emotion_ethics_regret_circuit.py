@@ -22,7 +22,7 @@ from advanced_bentham_calculator import AdvancedBenthamCalculator
 from advanced_emotion_analyzer import AdvancedEmotionAnalyzer  
 from advanced_regret_analyzer import AdvancedRegretAnalyzer
 ADVANCED_MODULES_AVAILABLE = True
-from data_models import EmotionData, EmotionState, EmotionIntensity
+from data_models import EmotionData, EmotionState, EmotionIntensity, EmotionType
 
 logger = logging.getLogger('RedHeart.EmotionEthicsRegretCircuit')
 
@@ -76,6 +76,11 @@ class EmotionEthicsRegretCircuit:
             self.emotion_analyzer = AdvancedEmotionAnalyzer()
             self.bentham_calculator = AdvancedBenthamCalculator()
             self.regret_analyzer = AdvancedRegretAnalyzer()
+            
+            # emotion_analyzer 초기화 (embedders 로드) - 지연 초기화로 변경
+            # 메모리 절약을 위해 첫 사용 시점에 초기화
+            self.emotion_analyzer_initialized = False
+            
             print("✅ 고급 모듈들로 회로 초기화 완료")
         else:
             raise RuntimeError("고급 모듈들이 필요합니다. 기본 모듈로는 시스템이 불완전합니다.")
@@ -227,12 +232,28 @@ class EmotionEthicsRegretCircuit:
 
     async def process_ethical_decision(self, 
                                      context: CircuitDecisionContext) -> CircuitDecisionResult:
-        """인간적 윤리 판단 과정을 통한 의사결정"""
+        """인간적 윤리 판단 과정을 통한 의사결정 (워크플로우 인식)"""
         
         start_time = time.time()
         reasoning_trace = []
         
+        # DSM 가져오기 (워크플로우 기반 동적 관리)
+        swap_manager = None
         try:
+            # config.py 대신 dynamic_swap_manager.py에서 직접 import
+            from dynamic_swap_manager import get_swap_manager
+            from workflow_aware_memory_manager import WorkflowStage
+            swap_manager = get_swap_manager()
+            if swap_manager:
+                self.logger.info(f"DSM 연결 성공: {id(swap_manager)}")
+        except Exception as e:
+            self.logger.debug(f"DSM 연결 실패 (계속 진행): {e}")
+        
+        try:
+            # 워크플로우 시작 - 초기화
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.INITIALIZATION)
+            
             # 0단계: 경험 기반 의사결정 시도
             reasoning_trace.append("0단계: 경험 데이터베이스 검색 시작")
             experience_result = await self._try_experience_based_decision(context, reasoning_trace)
@@ -255,30 +276,40 @@ class EmotionEthicsRegretCircuit:
             
             # 3단계: 다층 감정 분석 및 통합
             reasoning_trace.append("3단계: 이해관계자별 감정 분석 및 통합")
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.EMOTION_ANALYSIS)
             integrated_emotion, emotion_meta = await self._analyze_and_integrate_emotions(
                 context, reasoning_trace, stakeholder_perspectives
             )
             
             # 4단계: 윤리적 가치 추론 (반사실적 시나리오 반영)
             reasoning_trace.append("4단계: 윤리적 가치 추론 (반사실적 분석 반영)")
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.COUNTERFACTUAL_REASONING)
             ethical_values = await self._perform_ethical_reasoning(
                 integrated_emotion, context, reasoning_trace, counterfactual_scenarios
             )
             
             # 5단계: 벤담 계산 (윤리적 가치 반영)
             reasoning_trace.append("5단계: 윤리적 벤담 계산 시작")
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.BENTHAM_CALCULATION)
             bentham_result = await self._calculate_ethical_bentham(
                 integrated_emotion, ethical_values, context, reasoning_trace
             )
             
             # 6단계: 후회 예측 및 학습 편향 추출
             reasoning_trace.append("6단계: 후회 예측 및 학습 편향 시작")
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.REGRET_ANALYSIS)
             predicted_regret, learning_insights = await self._predict_regret_and_learning(
                 context, bentham_result, reasoning_trace, counterfactual_scenarios
             )
             
             # 7단계: 결과 통합 및 신뢰도 계산
             reasoning_trace.append("7단계: 결과 통합 및 평가")
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.META_INTEGRATION)
             final_result = self._integrate_final_result(
                 integrated_emotion, ethical_values, bentham_result, 
                 predicted_regret, emotion_meta, reasoning_trace, start_time
@@ -293,6 +324,10 @@ class EmotionEthicsRegretCircuit:
             # 성능 메트릭 업데이트
             self._update_performance_metrics(final_result, emotion_meta)
             
+            # 워크플로우 완료
+            if swap_manager:
+                swap_manager.update_workflow_priorities(WorkflowStage.FINALIZATION)
+            
             return final_result
             
         except Exception as e:
@@ -301,7 +336,8 @@ class EmotionEthicsRegretCircuit:
     
     async def _analyze_and_integrate_emotions(self, 
                                             context: CircuitDecisionContext,
-                                            reasoning_trace: List[str]) -> Tuple[EmotionData, Dict]:
+                                            reasoning_trace: List[str],
+                                            stakeholder_perspectives: Dict[str, Any] = None) -> Tuple[EmotionData, Dict]:
         """다층 감정 분석 및 통합"""
         
         emotion_meta = {
@@ -312,11 +348,64 @@ class EmotionEthicsRegretCircuit:
         
         # 텍스트 기반 감정 분석 (자아 감정으로 사용)
         if not context.self_emotion:
+            # emotion_analyzer 초기화 확인
+            if not self.emotion_analyzer_initialized:
+                import asyncio
+                try:
+                    # 현재 실행 중인 이벤트 루프 확인
+                    loop = asyncio.get_running_loop()
+                    # 이미 루프가 실행 중이면 코루틴으로 실행
+                    await self.emotion_analyzer.initialize()
+                except RuntimeError:
+                    # 루프가 없으면 동기 방식으로 초기화
+                    asyncio.run(self.emotion_analyzer.initialize())
+                self.emotion_analyzer_initialized = True
+            
             combined_text = f"{context.scenario_text} {context.proposed_action}"
-            context.self_emotion = self.emotion_analyzer.analyze_emotion(
+            emotion_result = self.emotion_analyzer.analyze_emotion(
                 combined_text, language='ko'
             )
-            reasoning_trace.append(f"자아 감정 분석 완료: {context.self_emotion.primary_emotion.value}")
+            
+            # dict를 EmotionData로 변환
+            if isinstance(emotion_result, dict):
+                # 감정 ID를 EmotionState로 변환
+                emotion_id = emotion_result.get('emotion', 0)
+                primary_emotion = EmotionState(emotion_id) if emotion_id in [e.value for e in EmotionState] else EmotionState.NEUTRAL
+                
+                # 강도 변환
+                intensity_val = emotion_result.get('intensity', 3)
+                intensity = EmotionIntensity(intensity_val) if intensity_val in [i.value for i in EmotionIntensity] else EmotionIntensity.MODERATE
+                
+                context.self_emotion = EmotionData(
+                    primary_emotion=primary_emotion,
+                    intensity=intensity,
+                    arousal=emotion_result.get('arousal', 0.0),
+                    valence=emotion_result.get('valence', 0.0),
+                    dominance=emotion_result.get('dominance', 0.0),
+                    confidence=emotion_result.get('confidence', 0.5),
+                    language='ko'
+                )
+            else:
+                context.self_emotion = emotion_result
+        
+        # self_emotion이 dict인 경우에도 처리 (main_unified에서 전달받은 경우)
+        if isinstance(context.self_emotion, dict):
+            emotion_id = context.self_emotion.get('emotion', 0)
+            primary_emotion = EmotionState(emotion_id) if emotion_id in [e.value for e in EmotionState] else EmotionState.NEUTRAL
+            intensity_val = context.self_emotion.get('intensity', 3)
+            intensity = EmotionIntensity(intensity_val) if intensity_val in [i.value for i in EmotionIntensity] else EmotionIntensity.MODERATE
+            
+            context.self_emotion = EmotionData(
+                primary_emotion=primary_emotion,
+                intensity=intensity,
+                arousal=context.self_emotion.get('arousal', 0.0),
+                valence=context.self_emotion.get('valence', 0.0),
+                dominance=context.self_emotion.get('dominance', 0.0),
+                confidence=context.self_emotion.get('confidence', 0.5),
+                language='ko'
+            )
+            
+        reasoning_trace.append(f"자아 감정 분석 완료: {context.self_emotion.primary_emotion.value}")
         
         # 공동체 감정 추론 (사회적 맥락 기반)
         if not context.community_emotion and context.social_context:
@@ -453,7 +542,8 @@ class EmotionEthicsRegretCircuit:
     async def _perform_ethical_reasoning(self, 
                                        integrated_emotion: EmotionData,
                                        context: CircuitDecisionContext,
-                                       reasoning_trace: List[str]) -> Dict[str, float]:
+                                       reasoning_trace: List[str],
+                                       counterfactual_scenarios: List[Dict] = None) -> Dict[str, float]:
         """감정을 바탕으로 한 윤리적 가치 추론"""
         
         # 벤담 계산기의 윤리적 추론 활용
@@ -533,7 +623,8 @@ class EmotionEthicsRegretCircuit:
     async def _predict_regret_and_learning(self, 
                                          context: CircuitDecisionContext,
                                          bentham_result: Any,
-                                         reasoning_trace: List[str]) -> Tuple[Dict[str, float], Dict[str, Any]]:
+                                         reasoning_trace: List[str],
+                                         counterfactual_scenarios: Any = None) -> Tuple[Dict[str, float], Dict[str, Any]]:
         """후회 예측 및 학습 인사이트 추출"""
         
         # 후회 분석 입력 구성
@@ -562,19 +653,36 @@ class EmotionEthicsRegretCircuit:
         # 후회 분석 실행 (outcome_data와 함께)
         regret_metrics = await self.regret_analyzer.analyze_regret(regret_input, outcome_data)
         
-        # 예측된 후회 정보
-        predicted_regret = {
-            'anticipated_regret': regret_metrics.anticipated_regret,
-            'regret_intensity': regret_metrics.regret_intensity,
-            'regret_duration': regret_metrics.regret_duration,
-            'confidence': regret_metrics.model_confidence
-        }
+        # regret_metrics가 dict인 경우 처리
+        if isinstance(regret_metrics, dict):
+            # dict인 경우 기본값 사용
+            predicted_regret = {
+                'anticipated_regret': regret_metrics.get('anticipated_regret', 0.0),
+                'regret_intensity': regret_metrics.get('regret_intensity', 0.0),
+                'regret_duration': regret_metrics.get('regret_duration', 0.0),
+                'confidence': regret_metrics.get('model_confidence', 0.5)
+            }
+            # _generate_improvement_suggestions에서 사용할 속성 설정
+            regret_metrics_obj = type('RegretMetrics', (), {
+                'anticipated_regret': regret_metrics.get('anticipated_regret', 0.0),
+                'uncertainty_estimate': regret_metrics.get('uncertainty_estimate', 0.0),
+                'model_confidence': regret_metrics.get('model_confidence', 0.5)
+            })()
+        else:
+            # 예측된 후회 정보
+            predicted_regret = {
+                'anticipated_regret': regret_metrics.anticipated_regret,
+                'regret_intensity': regret_metrics.regret_intensity,
+                'regret_duration': regret_metrics.regret_duration,
+                'confidence': regret_metrics.model_confidence
+            }
+            regret_metrics_obj = regret_metrics
         
         # 학습 인사이트
         learning_insights = {
-            'risk_aversion_tendency': regret_metrics.anticipated_regret * 0.5,
+            'risk_aversion_tendency': predicted_regret['anticipated_regret'] * 0.5,
             'decision_pattern_match': self._find_similar_decisions(context),
-            'improvement_suggestions': self._generate_improvement_suggestions(regret_metrics)
+            'improvement_suggestions': self._generate_improvement_suggestions(regret_metrics_obj)
         }
         
         reasoning_trace.append(
@@ -681,9 +789,9 @@ class EmotionEthicsRegretCircuit:
             # 경험 데이터 구성
             experience_text = f"{context.scenario_text} {context.proposed_action}"
             
+            # AdvancedExperience는 content와 metadata만 받음
             experience = AdvancedExperience(
-                text=experience_text,
-                category="ethical_decision",
+                content=experience_text,
                 metadata={
                     'ethical_score': result.final_ethical_score,
                     'regret_score': result.predicted_regret.get('anticipated_regret', 0.0),
@@ -692,13 +800,18 @@ class EmotionEthicsRegretCircuit:
                     'temporal_urgency': context.temporal_urgency,
                     'emotion_type': result.integrated_emotion.primary_emotion.value,
                     'processing_time': result.processing_time,
-                    'reasoning_steps': len(result.reasoning_trace)
-                },
-                importance_score=result.final_ethical_score * result.confidence  # 윤리점수 × 신뢰도
+                    'reasoning_steps': len(result.reasoning_trace),
+                    'importance_score': result.final_ethical_score * result.confidence  # 윤리점수 × 신뢰도
+                }
             )
             
             # 경험 데이터베이스에 저장
-            await self.experience_db.add_experience(experience)
+            await self.experience_db.store_experience(
+                experience_text=experience.content,
+                metadata=experience.metadata,
+                category='general',
+                importance_score=experience.metadata.get('importance_score', 0.5)
+            )
             
             self.logger.debug(f"경험 저장 완료: 윤리점수={result.final_ethical_score:.3f}")
             
@@ -748,6 +861,153 @@ class EmotionEthicsRegretCircuit:
             },
             'recent_decisions': len([d for d in self.decision_history if time.time() - d['timestamp'] < 3600])
         }
+    
+    async def _analyze_stakeholder_perspectives(self, 
+                                               context: CircuitDecisionContext,
+                                               reasoning_trace: List[str]) -> Dict[str, Any]:
+        """이해관계자별 다각도 관점 분석"""
+        
+        perspectives = {}
+        
+        # 이해관계자가 없으면 기본값 설정
+        if not context.stakeholders:
+            context.stakeholders = ["자신", "타인", "사회"]
+            reasoning_trace.append("기본 이해관계자 설정: 자신, 타인, 사회")
+        
+        for stakeholder in context.stakeholders:
+            # 각 이해관계자의 관점 분석
+            perspective = {
+                'name': stakeholder,
+                'impact_level': 0.5,  # 기본 영향도
+                'emotional_response': None,
+                'potential_benefits': [],
+                'potential_harms': [],
+                'priority_values': []
+            }
+            
+            # 키워드 기반 영향도 분석
+            text_lower = context.scenario_text.lower()
+            
+            if stakeholder in text_lower or stakeholder == "자신":
+                perspective['impact_level'] = 0.8
+                reasoning_trace.append(f"{stakeholder}: 직접적 영향 감지 (0.8)")
+            elif "모두" in text_lower or "전체" in text_lower:
+                perspective['impact_level'] = 0.7
+                reasoning_trace.append(f"{stakeholder}: 전체적 영향 감지 (0.7)")
+            
+            # 감정 예측 (이해관계자별)
+            if self.emotion_analyzer:
+                try:
+                    # 이해관계자 관점에서 시나리오 재구성
+                    perspective_text = f"{stakeholder}의 입장에서 {context.scenario_text}"
+                    perspective['emotional_response'] = self.emotion_analyzer.analyze_emotion(
+                        perspective_text, language='ko'
+                    )
+                except:
+                    # 감정 분석 실패시 중립적 감정
+                    perspective['emotional_response'] = EmotionData(
+                        primary_emotion=EmotionType.NEUTRAL,
+                        intensity=EmotionIntensity.MODERATE,
+                        confidence=0.5
+                    )
+            
+            # 이익/해악 분석
+            if "도움" in text_lower or "이익" in text_lower or "좋" in text_lower:
+                perspective['potential_benefits'].append("긍정적 결과 예상")
+            if "어려" in text_lower or "해악" in text_lower or "나쁘" in text_lower:
+                perspective['potential_harms'].append("부정적 영향 가능")
+            
+            # 가치 우선순위 설정
+            if stakeholder == "친구" or stakeholder == "가족":
+                perspective['priority_values'] = ["care", "loyalty"]
+            elif stakeholder == "사회" or stakeholder == "공동체":
+                perspective['priority_values'] = ["fairness", "authority"]
+            else:
+                perspective['priority_values'] = ["care", "fairness"]
+            
+            perspectives[stakeholder] = perspective
+        
+        reasoning_trace.append(f"이해관계자 {len(perspectives)}명의 관점 분석 완료")
+        return perspectives
+    
+    async def _explore_counterfactual_scenarios(self,
+                                               context: CircuitDecisionContext,
+                                               reasoning_trace: List[str]) -> List[Dict[str, Any]]:
+        """반사실적 시나리오 탐구 - '만약에' 분석"""
+        
+        scenarios = []
+        
+        # 기본 시나리오: 아무것도 하지 않았을 때
+        no_action_scenario = {
+            'type': 'no_action',
+            'description': '아무런 행동도 취하지 않는 경우',
+            'probability': 1.0,  # 항상 가능
+            'expected_regret': 0.7,  # 일반적으로 높은 후회
+            'ethical_implications': {
+                'care_harm': -0.3,  # 돌봄 부족
+                'fairness': 0.0,  # 중립
+                'loyalty': -0.2,  # 충성도 손상
+                'authority': 0.0,
+                'sanctity': 0.0
+            },
+            'reasoning': '행동하지 않음으로 인한 기회 손실과 책임 회피'
+        }
+        scenarios.append(no_action_scenario)
+        reasoning_trace.append("반사실 시나리오 1: 무행동 시나리오 생성")
+        
+        # 적극적 개입 시나리오
+        active_intervention = {
+            'type': 'active_intervention', 
+            'description': '적극적으로 개입하는 경우',
+            'probability': 0.8,  # 대부분 가능
+            'expected_regret': 0.3,  # 낮은 후회
+            'ethical_implications': {
+                'care_harm': 0.7,  # 높은 돌봄
+                'fairness': 0.5,  # 공정성 증가
+                'loyalty': 0.6,  # 충성도 표현
+                'authority': 0.2,  # 약간의 권위
+                'sanctity': 0.1
+            },
+            'reasoning': '적극적 개입으로 긍정적 변화 가능'
+        }
+        scenarios.append(active_intervention)
+        reasoning_trace.append("반사실 시나리오 2: 적극적 개입 시나리오 생성")
+        
+        # 부분적 개입 시나리오
+        partial_intervention = {
+            'type': 'partial_intervention',
+            'description': '제한적으로 개입하는 경우',
+            'probability': 0.9,  # 거의 항상 가능
+            'expected_regret': 0.5,  # 중간 후회
+            'ethical_implications': {
+                'care_harm': 0.4,  # 중간 돌봄
+                'fairness': 0.3,  # 약간의 공정성
+                'loyalty': 0.3,  # 약간의 충성도
+                'authority': 0.1,
+                'sanctity': 0.0
+            },
+            'reasoning': '균형잡힌 접근이지만 완전한 해결은 어려움'
+        }
+        scenarios.append(partial_intervention)
+        reasoning_trace.append("반사실 시나리오 3: 부분적 개입 시나리오 생성")
+        
+        # 시나리오별 결과 예측
+        for scenario in scenarios:
+            # 시간적 긴급성 반영
+            if context.temporal_urgency > 0.7:
+                scenario['time_pressure_effect'] = 'high'
+                scenario['expected_regret'] *= 1.2  # 긴급시 후회 증가
+            else:
+                scenario['time_pressure_effect'] = 'low'
+            
+            # 사회적 맥락 반영
+            if context.social_context and context.social_context.get('impact_scope') == 'community':
+                scenario['social_amplification'] = 1.5  # 공동체 영향 증폭
+            else:
+                scenario['social_amplification'] = 1.0
+        
+        reasoning_trace.append(f"총 {len(scenarios)}개의 반사실 시나리오 탐구 완료")
+        return scenarios
 
 
 # 테스트 함수

@@ -57,6 +57,24 @@ class MetaIntegrationNetwork(nn.Module):
         self.integration_dim = 512  # 통합 차원
         self.num_heads = 5  # 통합할 헤드 수
         
+        # 차원 어댑터 (o3 제안: 7차원 입력을 1280차원으로 변환)
+        self.dimension_adapters = nn.ModuleDict({
+            'emotion': nn.Sequential(
+                nn.Linear(7, 128),
+                nn.ReLU(),
+                nn.Linear(128, 512),
+                nn.ReLU(), 
+                nn.Linear(512, self.head_dim)
+            ),
+            'bentham': nn.Sequential(
+                nn.Linear(7, 128),
+                nn.ReLU(),
+                nn.Linear(128, 512),
+                nn.ReLU(),
+                nn.Linear(512, self.head_dim)
+            )
+        })
+        
         # 헤드별 입력 프로젝션 (각 헤드의 출력을 통합 차원으로)
         self.head_projections = nn.ModuleDict({
             'emotion_empathy': nn.Linear(self.head_dim, self.integration_dim),
@@ -74,10 +92,10 @@ class MetaIntegrationNetwork(nn.Module):
             batch_first=True
         )
         
-        # 통합 서킷 레이어 (config에서 지정된 대로)
+        # 통합 서킷 레이어 (o3 제안 C-1: 헤드 평균 후 고정 차원)
         circuit_layers = config.get('circuit_integration_layers', [256, 128, 64])
         layers = []
-        in_dim = self.integration_dim * self.num_heads  # 모든 헤드 concatenate
+        in_dim = self.integration_dim  # 헤드 평균 후 integration_dim만 사용
         
         for out_dim in circuit_layers:
             layers.extend([
@@ -142,13 +160,51 @@ class MetaIntegrationNetwork(nn.Module):
         # 1. 헤드별 출력 프로젝션
         projected_outputs = {}
         for head_name, output in head_outputs.items():
+            # 차원 어댑터 적용 (o3 제안: 7차원 → 1280차원)
+            if head_name in self.dimension_adapters:
+                # 7차원 입력을 1280차원으로 변환
+                if output.shape[-1] == 7:
+                    output = self.dimension_adapters[head_name](output)
+                    logger.debug(f"   {head_name}: 7→1280 차원 어댑터 적용")
+            
+            # 기존 프로젝션 적용 (1280차원 → 512차원)
             if head_name in self.head_projections:
                 projected = self.head_projections[head_name](output)
                 projected_outputs[head_name] = projected
+            elif head_name.replace('_', '-') in self.head_projections:
+                # 키 이름 변형 처리 (emotion -> emotion_empathy 등)
+                mapped_name = head_name.replace('_', '-')
+                projected = self.head_projections[mapped_name](output)
+                projected_outputs[head_name] = projected
+            else:
+                # 매핑 가능한 이름 찾기
+                if head_name == 'emotion':
+                    if 'emotion_empathy' in self.head_projections:
+                        # 먼저 차원 확인 및 어댑터 적용
+                        if output.shape[-1] != self.head_dim:
+                            if head_name in self.dimension_adapters:
+                                output = self.dimension_adapters[head_name](output)
+                        projected = self.head_projections['emotion_empathy'](output)
+                        projected_outputs[head_name] = projected
+                elif head_name == 'bentham':
+                    if 'bentham_fromm' in self.head_projections:
+                        # 먼저 차원 확인 및 어댑터 적용
+                        if output.shape[-1] != self.head_dim:
+                            if head_name in self.dimension_adapters:
+                                output = self.dimension_adapters[head_name](output)
+                        projected = self.head_projections['bentham_fromm'](output)
+                        projected_outputs[head_name] = projected
         
         # 2. 크로스 어텐션을 통한 헤드 간 상호작용
+        # projected_outputs가 비어있으면 에러 방지
+        if not projected_outputs:
+            logger.error("projected_outputs가 비어있음 - 헤드 매핑 실패")
+            # 기본 출력 생성 (NO FALLBACK 규칙 위반이지만 디버깅용)
+            raise RuntimeError("No heads were successfully projected. Check head name mapping.")
+        
         # 모든 프로젝션된 출력을 스택 (batch, num_heads, integration_dim)
         stacked_outputs = torch.stack(list(projected_outputs.values()), dim=1)
+        logger.debug(f"   스택된 출력 shape: {stacked_outputs.shape}")
         
         # 크로스 어텐션 적용
         attended_outputs, attention_weights = self.cross_attention(
@@ -183,10 +239,10 @@ class MetaIntegrationNetwork(nn.Module):
             # 기본: 단순 평균
             integrated = attended_outputs.mean(dim=1)
         
-        # 4. 통합 서킷 통과
-        # 모든 attended outputs을 concatenate
-        concat_features = attended_outputs.reshape(batch_size, -1)
-        circuit_output = self.integration_circuit(concat_features)
+        # 4. 통합 서킷 통과 (o3 제안 C-1: 헤드 평균으로 고정 차원 보장)
+        # attended_outputs: (batch, num_heads, integration_dim)를 평균하여 (batch, integration_dim)로
+        avg_features = attended_outputs.mean(dim=1)  # 헤드 축 평균
+        circuit_output = self.integration_circuit(avg_features)
         
         # 5. 최종 출력 생성
         final_output = self.output_projection(circuit_output)
@@ -296,15 +352,8 @@ class AdvancedMetaIntegrationSystem:
             
         except Exception as e:
             logger.error(f"메타 통합 실패: {e}")
-            # 폴백: 단순 평균
-            avg_output = torch.stack(list(head_outputs.values())).mean(dim=0)
-            return MetaIntegrationResult(
-                integrated_output=avg_output,
-                head_contributions={k: 1.0/len(head_outputs) for k in head_outputs},
-                integration_confidence=0.5,
-                strategy_used=IntegrationStrategy.WEIGHTED_AVERAGE,
-                meta_insights={'error': str(e), 'fallback': True}
-            )
+            # 프로젝트 규칙: NO FALLBACK - 실패는 실패
+            raise RuntimeError(f"메타 통합 실패 - 폴백 없음: {e}") from e
     
     def _select_strategy(self, head_outputs: Dict[str, torch.Tensor], 
                         context: Optional[Dict[str, Any]]) -> IntegrationStrategy:

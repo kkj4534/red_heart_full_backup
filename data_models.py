@@ -42,6 +42,9 @@ class EmotionIntensity(Enum):
     VERY_STRONG = 5
     EXTREME = 6
 
+# EmotionType은 EmotionState의 별칭
+EmotionType = EmotionState
+
 class BenthamVariable(Enum):
     """벤담의 쾌락 계산법 변수"""
     INTENSITY = 1    # 강도

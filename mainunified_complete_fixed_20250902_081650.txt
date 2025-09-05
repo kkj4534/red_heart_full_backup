@@ -1,0 +1,8 @@
+/home/kkj/.local/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:279: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:81.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 25, in <module>
+    from semantic_emotion_bentham_mapper import (
+  File "/mnt/c/large_project/linux_red_heart/semantic_emotion_bentham_mapper.py", line 12, in <module>
+    import numpy as np
+ModuleNotFoundError: No module named 'numpy'

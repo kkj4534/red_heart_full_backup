@@ -20,6 +20,7 @@ Thumbs.db
 
 # 대용량 모델 디렉토리 제외
 training/hybrid_outputs/checkpoints/
+training/checkpoints_final/*.pt
 llm_oss_20b_gguf/
 llm_oss_20b_model/
 llm_module/
@@ -46,3 +47,29 @@ preprocessed_cache/
 
 # faiss 오래된 git objects
 faiss_old/
+# API 키 보안 (매우 중요!)
+api_key_manager/config.json
+api_key_manager/*.json
+api_key_manager/*.txt
+api_key_manager/*key*
+**/anthropic_key.txt
+**/openai_key.txt
+**/*_key.txt
+**/*_secret*
+**/*credential*
+*.key
+*.env
+.env*
+
+# 대용량 데이터셋 파일
+claude_api_preprocessing/claude_preprocessed_complete.json
+claude_api_preprocessing/embedded/chunks/*.json
+claude_api_preprocessing/*.jsonl
+for_learn_dataset/scruples_real_data/**/*.jsonl
+
+# 압축 파일
+*.zip
+rclone-v1.65.0-linux-amd64/
+
+# 로그 파일 (중요하지 않음) 
+nohup.out

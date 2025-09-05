@@ -70,8 +70,8 @@ class UnifiedTrainingConfig:
         self.num_layers = 18
         self.num_heads = 20
         
-        # 학습 설정
-        self.total_epochs = 60
+        # 학습 설정 (50 에폭 제한 - 크로스오버 최적화)
+        self.total_epochs = 50
         self.micro_batch_size = 2  # 안정성을 위해 2로 시작
         self.gradient_accumulation = 32  # 유효 배치 = 64
         self.base_lr = 1e-4
@@ -157,9 +157,12 @@ class UnifiedModel(nn.Module):
         self.analyzers = {}
         
         # Phase 네트워크 (4.3M)
-        self.phase0_net = Phase0ProjectionNet()
-        self.phase2_net = Phase2CommunityNet()
-        self.hierarchical_integrator = HierarchicalEmotionIntegrator()
+        self.phase0_net = Phase0ProjectionNet(input_dim=896)
+        self.phase2_net = Phase2CommunityNet(input_dim=768)  # phase2_input_projection이 128->768로 변환
+        self.hierarchical_integrator = HierarchicalEmotionIntegrator(input_dim=896)
+        
+        # Phase2 입력 투영 레이어 (896을 7개로 나눈 후 각각을 768로 투영)
+        self.phase2_input_projection = nn.Linear(128, 768)  # 896/7=128
         
         # DSP & 칼만 필터 (2.3M)
         if EmotionDSPSimulator is not None:
@@ -222,32 +225,158 @@ class UnifiedModel(nn.Module):
         
         # 2. Neural Analyzers 출력 (368.2M)
         if self.neural_analyzers and task in self.neural_analyzers:
-            neural_output = self.neural_analyzers[task](features)
+            # 디바이스 호환성 처리 (MEDIUM 모드에서 CPU/GPU 혼재)
+            analyzer = self.neural_analyzers[task]
+            analyzer_device = next(analyzer.parameters()).device
+            if features.device != analyzer_device:
+                features_for_analyzer = features.to(analyzer_device)
+            else:
+                features_for_analyzer = features
+            
+            neural_output = analyzer(features_for_analyzer)
             if isinstance(neural_output, dict):
                 # dict면 첫 번째 텐서 추출
-                neural_output = list(neural_output.values())[0] if neural_output else features
-            outputs['neural'] = neural_output
-        else:
-            outputs['neural'] = features  # fallback
+                neural_output = list(neural_output.values())[0] if neural_output else None
+            if neural_output is not None:
+                # 출력을 원래 features 디바이스로 되돌림 (후속 처리를 위해)
+                if neural_output.device != features.device:
+                    neural_output = neural_output.to(features.device)
+                outputs['neural'] = neural_output
         
         # 3. Advanced Wrappers 출력 (112M) - 초기화된 경우만
-        if self.advanced_wrappers and task in self.advanced_wrappers:
-            wrapper_output = self.advanced_wrappers[task](features)
-            if isinstance(wrapper_output, dict):
-                wrapper_output = list(wrapper_output.values())[0] if wrapper_output else features
-            outputs['wrapper'] = wrapper_output
+        # advanced_wrappers 키 매핑 (advanced_emotion, advanced_bentham 등)
+        wrapper_key = f'advanced_{task}' if not task.startswith('advanced_') else task
+        
+        # 디버깅: advanced_wrappers 타입과 키 확인
+        if self.advanced_wrappers:
+            import logging
+            logger = logging.getLogger('UnifiedModel.Debug')
+            logger.info(f"🔍 advanced_wrappers 타입: {type(self.advanced_wrappers)}")
+            logger.info(f"🔍 advanced_wrappers 키들: {list(self.advanced_wrappers.keys()) if hasattr(self.advanced_wrappers, 'keys') else 'keys() 없음'}")
+            logger.info(f"🔍 찾는 wrapper_key: {wrapper_key}")
+            
+            if wrapper_key in self.advanced_wrappers:
+                wrapper = self.advanced_wrappers[wrapper_key]
+                logger.info(f"🔍 wrapper 타입: {type(wrapper)}")
+                
+                # wrapper가 None이거나 dict인 경우 처리
+                if wrapper is None:
+                    logger.error(f"❌ {wrapper_key} wrapper가 None입니다")
+                elif not isinstance(wrapper, nn.Module):
+                    logger.error(f"❌ {wrapper_key} wrapper가 nn.Module이 아닙니다: {type(wrapper)}")
+                    # dict인 경우 내부 구조 확인
+                    if isinstance(wrapper, dict):
+                        logger.error(f"   dict 내용: {list(wrapper.keys()) if wrapper else '빈 dict'}")
+                else:
+                    # 정상 처리 - nn.Module인 경우만
+                    wrapper_device = next(wrapper.parameters()).device
+                    if features.device != wrapper_device:
+                        features_for_wrapper = features.to(wrapper_device)
+                    else:
+                        features_for_wrapper = features
+                    
+                    wrapper_output = wrapper(features_for_wrapper)
+                    logger.info(f"🔍 wrapper 출력 타입: {type(wrapper_output)}")
+                    
+                    # 재귀적 구조 분석 함수
+                    def analyze_deep_structure(obj, prefix="", max_depth=5, current_depth=0):
+                        """객체의 정확한 구조를 재귀적으로 완전히 분석"""
+                        if current_depth >= max_depth:
+                            logger.info(f"{prefix}[최대 깊이 도달]")
+                            return None
+                        
+                        if isinstance(obj, torch.Tensor):
+                            logger.info(f"{prefix}✅ Tensor: shape={list(obj.shape)}, dtype={obj.dtype}, device={obj.device}")
+                            return obj
+                        elif isinstance(obj, dict):
+                            logger.info(f"{prefix}📦 Dict[{len(obj)} keys]: {list(obj.keys())}")
+                            tensor_found = None
+                            for k, v in obj.items():
+                                logger.info(f"{prefix}  [{k}]:")
+                                result = analyze_deep_structure(v, prefix + "    ", max_depth, current_depth + 1)
+                                if result is not None and isinstance(result, torch.Tensor) and tensor_found is None:
+                                    tensor_found = result
+                            return tensor_found
+                        elif isinstance(obj, (list, tuple)):
+                            type_name = 'List' if isinstance(obj, list) else 'Tuple'
+                            logger.info(f"{prefix}📋 {type_name}[{len(obj)} items]")
+                            tensor_found = None
+                            for i, item in enumerate(obj[:3]):  # 최대 3개만
+                                logger.info(f"{prefix}  [{i}]:")
+                                result = analyze_deep_structure(item, prefix + "    ", max_depth, current_depth + 1)
+                                if result is not None and isinstance(result, torch.Tensor) and tensor_found is None:
+                                    tensor_found = result
+                            if len(obj) > 3:
+                                logger.info(f"{prefix}  ... ({len(obj)-3} more items)")
+                            return tensor_found
+                        elif hasattr(obj, '__dict__'):
+                            logger.info(f"{prefix}🔧 Object({type(obj).__name__}): attrs={list(obj.__dict__.keys())[:5]}")
+                            return None
+                        else:
+                            logger.info(f"{prefix}📝 {type(obj).__name__}: {str(obj)[:100]}")
+                            return None
+                    
+                    # 깊이 있는 구조 분석 및 텐서 추출
+                    logger.info("🔍 === 완전한 구조 분석 시작 ===")
+                    extracted_tensor = analyze_deep_structure(wrapper_output, "  ")
+                    logger.info("🔍 === 구조 분석 완료 ===")
+                    
+                    # 추출된 텐서 사용
+                    if extracted_tensor is not None and isinstance(extracted_tensor, torch.Tensor):
+                        logger.info(f"✅ 텐서 추출 성공: shape={list(extracted_tensor.shape)}")
+                        wrapper_output = extracted_tensor
+                        
+                        # 텐서인지 최종 확인 후 바로 처리
+                        if wrapper_output.device != features.device:
+                            wrapper_output = wrapper_output.to(features.device)
+                        outputs['advanced'] = wrapper_output
+                        logger.info(f"✅ outputs['advanced'] 설정 완료: {type(outputs['advanced'])}, shape={outputs['advanced'].shape}")
+                    else:
+                        logger.error(f"❌ 텐서 추출 실패 - wrapper_output 구조에서 텐서를 찾을 수 없음")
+                        # 실패 시 advanced 키를 설정하지 않음 (프로젝트 규칙: fallback 금지)
+            else:
+                logger.warning(f"⚠️ {wrapper_key} 키가 advanced_wrappers에 없습니다")
         else:
-            outputs['wrapper'] = features  # fallback
+            logger = logging.getLogger('UnifiedModel.Debug')
+            logger.info(f"ℹ️ advanced_wrappers가 None 또는 비어있습니다: {self.advanced_wrappers}")
         
         # 4. Phase Networks (4.3M)
         if hasattr(self, 'phase0_net') and self.phase0_net:
-            phase0_out = self.phase0_net(features)
+            # 디바이스 호환성 처리
+            phase0_device = next(self.phase0_net.parameters()).device
+            if features.device != phase0_device:
+                features_for_phase0 = features.to(phase0_device)
+                phase0_out = self.phase0_net(features_for_phase0)
+                phase0_out = phase0_out.to(features.device)
+            else:
+                phase0_out = self.phase0_net(features)
             outputs['phase0'] = phase0_out
         
         # 5. DSP & Kalman (2.3M)
         if hasattr(self, 'dsp_simulator') and self.dsp_simulator and task == 'emotion':
             # DSP는 emotion 태스크에서만 사용
-            dsp_out = self.dsp_simulator.process(head_output)
+            # 디바이스 호환성 처리
+            dsp_device = next(self.dsp_simulator.parameters()).device
+            
+            # DSP는 features를 받아야 함 (hidden_dim=384), head_output(1x7)이 아님
+            # features는 백본 출력 (batch, task_dim=896)이므로 프로젝션 필요
+            if not hasattr(self, 'dsp_projection'):
+                self.dsp_projection = nn.Linear(features.shape[-1], 384).to(dsp_device)
+            
+            if features.device != dsp_device:
+                features_for_dsp = features.to(dsp_device)
+                dsp_input = self.dsp_projection(features_for_dsp)
+                dsp_out = self.dsp_simulator.forward(dsp_input)
+                # dsp_out은 dict이므로 각 텐서를 개별적으로 이동
+                if isinstance(dsp_out, dict):
+                    for key, tensor in dsp_out.items():
+                        if isinstance(tensor, torch.Tensor):
+                            dsp_out[key] = tensor.to(features.device)
+                elif isinstance(dsp_out, torch.Tensor):
+                    dsp_out = dsp_out.to(features.device)
+            else:
+                dsp_input = self.dsp_projection(features)
+                dsp_out = self.dsp_simulator.forward(dsp_input)
             outputs['dsp'] = dsp_out
         
         # return_all이면 모든 출력 반환 (학습 시 사용)
@@ -454,6 +583,11 @@ class UnifiedTrainer:
         if hasattr(self.model, 'kalman_filter') and self.model.kalman_filter:
             self.model.kalman_filter = self.model.kalman_filter.to(self.device)
             logger.info(f"  ✅ Kalman Filter GPU 로드")
+        
+        # Phase2 입력 투영 레이어 GPU 이동
+        if hasattr(self.model, 'phase2_input_projection'):
+            self.model.phase2_input_projection = self.model.phase2_input_projection.to(self.device)
+            logger.info(f"  ✅ Phase2 Input Projection GPU 로드")
         
         # GPU 메모리 사용량 확인
         if self.device.type == 'cuda':
@@ -1019,9 +1153,16 @@ class UnifiedTrainer:
             # 로깅
             if batch_idx % self.config.log_interval == 0:
                 avg_loss = np.mean(epoch_losses[-self.config.log_interval:])
-                lr = self.optimizer.param_groups[0]['lr']
+                # 전체 param_groups의 LR 정보 수집
+                lrs = [group['lr'] for group in self.optimizer.param_groups]
+                avg_lr = np.mean(lrs)
+                # 주요 레이어 LR 표시 (첫 번째, 중간, 마지막)
+                if len(lrs) > 1:
+                    lr_info = f"LR: {avg_lr:.1e} (layers: [{lrs[0]:.1e}, {lrs[len(lrs)//2]:.1e}, {lrs[-1]:.1e}])"
+                else:
+                    lr_info = f"LR: {avg_lr:.1e}"
                 logger.info(f"  [Epoch {epoch}][{batch_idx}/{len(self.train_loader)}] "
-                          f"Loss: {avg_loss:.4f}, LR: {lr:.1e}")
+                          f"Loss: {avg_loss:.4f}, {lr_info}")
             
             # 메트릭 업데이트
             for key, value in metrics.items():
@@ -1137,7 +1278,7 @@ class UnifiedTrainer:
             individual_losses['bentham_loss'] = bentham_loss.item()
             # accuracy 계산 (regression task - 동적 threshold 기반)
             # 학습 진행에 따라 점진적으로 엄격한 기준 적용
-            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+            dynamic_threshold = 0.3 if self.current_epoch <= 5 else 0.25 if self.current_epoch <= 15 else 0.2 if self.current_epoch <= 30 else 0.15
             bentham_acc = ((bentham_pred - bentham_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['bentham_acc'] = bentham_acc
             if self.verbose and batch_idx < 3:
@@ -1153,7 +1294,7 @@ class UnifiedTrainer:
             individual_losses['regret_loss'] = regret_loss.item()
             # accuracy 계산 (regression task - 동적 threshold 기반)
             # 학습 진행에 따라 점진적으로 엄격한 기준 적용
-            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+            dynamic_threshold = 0.3 if self.current_epoch <= 5 else 0.25 if self.current_epoch <= 15 else 0.2 if self.current_epoch <= 30 else 0.15
             regret_acc = ((regret_pred - regret_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['regret_acc'] = regret_acc
             if self.verbose and batch_idx < 3:
@@ -1199,7 +1340,7 @@ class UnifiedTrainer:
             # accuracy 계산 (multi-dimensional regression - 동적 threshold 기반)
             # 학습 진행에 따라 점진적으로 엄격한 기준 적용
             # SURD는 4차원이므로 약간 더 완화된 기준 적용
-            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.35 if self.current_epoch <= 30 else 0.25
+            dynamic_threshold = 0.35 if self.current_epoch <= 5 else 0.3 if self.current_epoch <= 15 else 0.25 if self.current_epoch <= 30 else 0.2
             surd_acc = ((surd_pred - surd_target).abs() < dynamic_threshold).float().mean().item()
             individual_accs['surd_acc'] = surd_acc
             if self.verbose and batch_idx < 3:
@@ -1231,6 +1372,113 @@ class UnifiedTrainer:
             except Exception as e:
                 logger.error(f"    ❌ neural_emotion 처리 실패: {e}")
         
+        # Phase0 Network 처리
+        if hasattr(self.model, 'phase0_net') and self.model.phase0_net:
+            try:
+                phase0_output = self.model.phase0_net(features)
+                # Phase0은 7차원 감정 출력 - 감정 레이블과 비교
+                if 'emotion_label' in batch and phase0_output.shape[-1] == 7:
+                    # 감정 레이블과 비교
+                    emotion_target = batch['emotion_label'].to(self.device)
+                    phase0_loss = F.cross_entropy(phase0_output, emotion_target)
+                else:
+                    # 감정 레이블이 없으면 자기 자신과의 일관성 손실
+                    phase0_loss = F.mse_loss(phase0_output, phase0_output.detach().mean(dim=0).expand_as(phase0_output))
+                
+                analyzer_losses.append(phase0_loss)
+                individual_losses['phase0_loss'] = phase0_loss.item()
+                # Phase0 accuracy
+                if 'emotion_label' in batch and phase0_output.shape[-1] == 7:
+                    phase0_acc = (phase0_output.argmax(dim=-1) == emotion_target).float().mean().item()
+                else:
+                    phase0_acc = max(0, 1.0 - phase0_loss.item())
+                individual_accs['phase0_acc'] = phase0_acc
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - Phase0 손실: {phase0_loss.item():.6f}, 정확도: {phase0_acc:.4f}")
+            except Exception as e:
+                logger.warning(f"    ⚠️ Phase0 처리 실패: {e}")
+        
+        # Phase2 Network 처리 - features를 여러 "관점"으로 분할
+        phase2_output = None
+        if hasattr(self.model, 'phase2_net') and self.model.phase2_net:
+            try:
+                # 896차원을 여러 "개인"의 관점으로 재해석
+                # 896 = 128 * 7 (7개의 감정 관점)
+                # 각 128차원을 768차원으로 투영
+                batch_size = features.shape[0]
+                
+                # features를 7개 청크로 분할
+                num_individuals = 7  # 7가지 감정 차원
+                chunk_size = features.shape[-1] // num_individuals  # 896 // 7 = 128
+                
+                # [batch_size, 896] -> [batch_size, 7, 128]
+                individuals = features.view(batch_size, num_individuals, chunk_size)
+                
+                # 각 개인을 768차원으로 투영 (Phase2 LSTM 입력 차원)
+                individuals_768 = self.model.phase2_input_projection(individuals)  # [batch_size, 7, 768]
+                
+                # Phase2로 공동체 패턴 추출
+                phase2_output = self.model.phase2_net(individuals_768, cultural_context='global')
+                
+                # Phase2는 10차원 커뮤니티 패턴 출력
+                # 공동체 일관성 손실: 같은 배치는 비슷한 공동체 패턴을 가져야 함
+                community_center = phase2_output.mean(dim=0, keepdim=True)
+                phase2_loss = F.mse_loss(phase2_output, community_center.expand_as(phase2_output)) * 0.5
+                
+                analyzer_losses.append(phase2_loss)
+                individual_losses['phase2_loss'] = phase2_loss.item()
+                phase2_acc = max(0, 1.0 - phase2_loss.item())
+                individual_accs['phase2_acc'] = phase2_acc
+                
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - Phase2 손실: {phase2_loss.item():.6f}, 품질: {phase2_acc:.4f}")
+            except Exception as e:
+                logger.warning(f"    ⚠️ Phase2 처리 실패: {e}")
+        
+        # Hierarchical Integrator 처리 (Phase0, Phase2 출력 활용)
+        if hasattr(self.model, 'hierarchical_integrator') and self.model.hierarchical_integrator:
+            try:
+                # Phase0, Phase2 출력 수집 (있으면)
+                phase0_output = None
+                phase2_output = None
+                
+                # Phase0 출력이 있으면 활용
+                if hasattr(self.model, 'phase0_net') and self.model.phase0_net:
+                    try:
+                        phase0_temp = self.model.phase0_net(features)
+                        if phase0_temp.shape[-1] == 7:
+                            phase0_output = phase0_temp
+                    except:
+                        pass
+                
+                # Phase2 출력이 있으면 활용
+                if hasattr(self.model, 'phase2_net') and self.model.phase2_net:
+                    try:
+                        phase2_temp = self.model.phase2_net(features, 'global')
+                        if phase2_temp.shape[-1] <= 10:
+                            phase2_output = phase2_temp
+                    except:
+                        pass
+                
+                # 계층적 통합 처리
+                hierarchical_output = self.model.hierarchical_integrator(
+                    features, 
+                    phase0_out=phase0_output,
+                    phase2_out=phase2_output
+                )
+                
+                # Hierarchical은 integration이므로 consistency loss 사용
+                hierarchical_loss = F.mse_loss(hierarchical_output, features) * 0.3
+                analyzer_losses.append(hierarchical_loss)
+                individual_losses['hierarchical_loss'] = hierarchical_loss.item()
+                # Hierarchical accuracy (integration quality)
+                hierarchical_acc = max(0, 1.0 - hierarchical_loss.item())
+                individual_accs['hierarchical_acc'] = hierarchical_acc
+                if self.verbose and batch_idx < 3:
+                    logger.info(f"      - Hierarchical 손실: {hierarchical_loss.item():.6f}, 품질: {hierarchical_acc:.4f}")
+            except Exception as e:
+                logger.warning(f"    ⚠️ Hierarchical 처리 실패: {e}")
+        
         # DSP Simulator 처리
         if hasattr(self.model, 'dsp_simulator') and self.model.dsp_simulator:
             try:
@@ -1241,8 +1489,30 @@ class UnifiedTrainer:
                 dsp_input = self.dsp_projection(features)
                 dsp_output = self.model.dsp_simulator(dsp_input)
                 
+                # DSP loss 계산 (감정 시뮬레이션 loss)
+                if 'emotion_label' in batch:
+                    dsp_target = F.one_hot(batch['emotion_label'].to(self.device), num_classes=7).float()
+                    if isinstance(dsp_output, dict) and 'final_emotions' in dsp_output:
+                        dsp_pred = dsp_output['final_emotions']
+                    else:
+                        dsp_pred = dsp_output
+                    
+                    # DSP 출력을 7차원으로 매핑
+                    if dsp_pred.shape[-1] != 7:
+                        if not hasattr(self, 'dsp_emotion_projection'):
+                            self.dsp_emotion_projection = torch.nn.Linear(dsp_pred.shape[-1], 7).to(self.device)
+                        dsp_pred = self.dsp_emotion_projection(dsp_pred)
+                    
+                    dsp_loss = F.cross_entropy(dsp_pred, dsp_target)
+                    analyzer_losses.append(dsp_loss)
+                    individual_losses['dsp_loss'] = dsp_loss.item()
+                    
+                    # DSP accuracy
+                    dsp_acc = (dsp_pred.argmax(dim=-1) == batch['emotion_label'].to(self.device)).float().mean().item()
+                    individual_accs['dsp_acc'] = dsp_acc
+                    
                 if self.verbose and batch_idx < 3:
-                    logger.info(f"      - DSP 출력 처리됨")
+                    logger.info(f"      - DSP 손실: {dsp_loss.item():.6f}, 정확도: {dsp_acc:.4f}")
             except Exception as e:
                 logger.warning(f"    ⚠️ DSP 처리 실패: {e}")
         
@@ -1258,8 +1528,31 @@ class UnifiedTrainer:
                         traditional_emotions=traditional_emotions,
                         dsp_emotions=dsp_emotions
                     )
+                    
+                    # Kalman filter loss (융합된 감정과 타겟 비교)
+                    if 'emotion_label' in batch:
+                        kalman_target = F.one_hot(batch['emotion_label'].to(self.device), num_classes=7).float()
+                        if isinstance(kalman_output, dict) and 'fused_emotions' in kalman_output:
+                            kalman_pred = kalman_output['fused_emotions']
+                        else:
+                            kalman_pred = kalman_output
+                        
+                        # Kalman 출력 정규화
+                        if kalman_pred.shape[-1] != 7:
+                            if not hasattr(self, 'kalman_projection'):
+                                self.kalman_projection = torch.nn.Linear(kalman_pred.shape[-1], 7).to(self.device)
+                            kalman_pred = self.kalman_projection(kalman_pred)
+                        
+                        kalman_loss = F.cross_entropy(kalman_pred, kalman_target) * 0.5
+                        analyzer_losses.append(kalman_loss)
+                        individual_losses['kalman_loss'] = kalman_loss.item()
+                        
+                        # Kalman accuracy
+                        kalman_acc = (kalman_pred.argmax(dim=-1) == batch['emotion_label'].to(self.device)).float().mean().item()
+                        individual_accs['kalman_acc'] = kalman_acc
+                        
                     if self.verbose and batch_idx < 3:
-                        logger.info(f"      - Kalman 필터 출력 처리됨")
+                        logger.info(f"      - Kalman 손실: {kalman_loss.item():.6f}, 정확도: {kalman_acc:.4f}")
             except Exception as e:
                 logger.warning(f"    ⚠️ Kalman 처리 실패: {e}")
         
@@ -1281,7 +1574,7 @@ class UnifiedTrainer:
                         # Analyzer accuracy 계산 (regression - 동적 임곀4값)
                         with torch.no_grad():
                             # 에폭에 따라 임곀4값 조절
-                            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+                            dynamic_threshold = 0.3 if self.current_epoch <= 5 else 0.25 if self.current_epoch <= 15 else 0.2 if self.current_epoch <= 30 else 0.15
                             analyzer_acc = ((analyzer_output['bentham_scores'] - target).abs() < dynamic_threshold).float().mean().item()
                             analyzer_accuracies.append(analyzer_acc)
                         
@@ -1295,7 +1588,7 @@ class UnifiedTrainer:
                         
                         # Analyzer accuracy 계산 (regression - 동적 임곀4값)
                         with torch.no_grad():
-                            dynamic_threshold = 0.5 if self.current_epoch <= 10 else 0.3 if self.current_epoch <= 30 else 0.2
+                            dynamic_threshold = 0.3 if self.current_epoch <= 5 else 0.25 if self.current_epoch <= 15 else 0.2 if self.current_epoch <= 30 else 0.15
                             analyzer_acc = ((analyzer_output['regret_score'] - target).abs() < dynamic_threshold).float().mean().item()
                             analyzer_accuracies.append(analyzer_acc)
                         
@@ -1518,8 +1811,9 @@ class UnifiedTrainer:
         # LR 스윕 실행
         self.run_lr_sweep()
         
-        # 60 에폭 학습
-        for epoch in range(1, self.config.total_epochs + 1):
+        # 60 에폭 학습 (재개 시 current_epoch부터)
+        start_epoch = self.current_epoch + 1 if self.current_epoch > 0 else 1
+        for epoch in range(start_epoch, self.config.total_epochs + 1):
             self.current_epoch = epoch
             
             logger.info(f"\n📌 Epoch {epoch}/{self.config.total_epochs}")
@@ -1750,12 +2044,8 @@ class UnifiedTrainer:
             oom_stats = self.oom_handler.save_stats()
             logger.info(f"  📊 OOM 통계 저장: {oom_stats}")
         
-        # 생성된 임베딩 저장
-        if hasattr(self.train_loader.dataset, 'save_embeddings'):
-            logger.info("\n💾 생성된 임베딩 저장 중...")
-            self.train_loader.dataset.save_embeddings()
-        if hasattr(self.val_loader.dataset, 'save_embeddings'):
-            self.val_loader.dataset.save_embeddings()
+        # 임베딩은 이미 청크 단위로 저장되어 있음 - 추가 저장 불필요
+        # save_embeddings 메서드가 없으므로 제거
         
         logger.info("\n" + "=" * 70)
         logger.info("🎉 모든 작업 완료!")
@@ -1813,10 +2103,42 @@ def main():
     # 체크포인트에서 재개
     if args.resume:
         checkpoint = trainer.checkpoint_manager.load_checkpoint(args.resume)
-        trainer.model.load_state_dict(checkpoint['model_state'])
-        trainer.optimizer.load_state_dict(checkpoint['optimizer_state'])
+        
+        # 모듈별로 저장된 state를 플랫하게 변환
+        model_state = checkpoint['model_state']
+        if isinstance(model_state, dict) and 'backbone' in model_state:
+            # 재귀적으로 중첩된 dict를 플랫 구조로 변환
+            def flatten_state_dict(state_dict, prefix=''):
+                flat = {}
+                for key, value in state_dict.items():
+                    new_key = f"{prefix}.{key}" if prefix else key
+                    if isinstance(value, dict):
+                        # 재귀적으로 처리
+                        flat.update(flatten_state_dict(value, new_key))
+                    else:
+                        flat[new_key] = value
+                return flat
+            
+            flat_state = flatten_state_dict(model_state)
+            # strict=False로 부분 로드 허용 (향후 모듈 추가/변경 대응)
+            missing, unexpected = trainer.model.load_state_dict(flat_state, strict=False)
+            logger.info(f"✅ 모듈별 체크포인트 로드 (모듈: {list(model_state.keys())})")
+            if missing:
+                logger.warning(f"⚠️ 누락된 키: {len(missing)}개")
+            if unexpected:
+                logger.warning(f"⚠️ 예상치 못한 키: {len(unexpected)}개")
+        else:
+            # 이미 플랫한 구조면 그대로 로드
+            trainer.model.load_state_dict(model_state)
+            logger.info(f"✅ 일반 체크포인트 로드")
+        
+        if 'optimizer_state' in checkpoint:
+            trainer.optimizer.load_state_dict(checkpoint['optimizer_state'])
+        if 'scheduler_state' in checkpoint and checkpoint['scheduler_state']:
+            trainer.scheduler.load_state_dict(checkpoint['scheduler_state'])
         trainer.current_epoch = checkpoint['epoch']
         logger.info(f"✅ 체크포인트에서 재개: Epoch {trainer.current_epoch}")
+        logger.info(f"   - 다음 에폭부터 학습: {trainer.current_epoch + 1}")
     
     # 학습 실행
     trainer.train()

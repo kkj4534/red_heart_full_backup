@@ -3,6 +3,7 @@ HuggingFace 모델 로딩 래퍼
 메모리 매니저와 통합하여 모든 모델 로드를 추적
 """
 
+import os
 import logging
 from typing import Any, Dict, Optional, Union, Callable
 from functools import wraps
@@ -134,7 +135,7 @@ class HFModelWrapper:
                 return False
         return True
         
-    def _register_model(self, model_id: str, model: Any, owner: str, device: torch.device):
+    def _register_model(self, model_id: str, model: Any, owner: str, device: torch.device, force_cpu_init: bool = False):
         """모델을 메모리 매니저에 등록"""
         if isinstance(model, torch.nn.Module):
             size_mb = self._estimate_model_size(model)
@@ -148,7 +149,8 @@ class HFModelWrapper:
         self._model_registry[model_id] = {
             'size_mb': size_mb,
             'device': str(device),
-            'owner': owner
+            'owner': owner,
+            'force_cpu_init': force_cpu_init  # FORCE_CPU_INIT 모드 추적
         }
         
         # 메모리 매니저에 등록
@@ -207,11 +209,17 @@ class HFModelWrapper:
         # CPU 전용 owner 확인
         CPU_ONLY_OWNERS = {"translator"}
         
+        # FORCE_CPU_INIT 환경변수 체크
+        force_cpu_init = os.environ.get('FORCE_CPU_INIT', '0') == '1'
+        
         # 디바이스 확인
         device_map = kwargs.get('device_map', None)
-        if owner in CPU_ONLY_OWNERS:
-            device = torch.device('cpu')  # CPU 전용 owner
-            logger.debug(f"CPU 전용 owner({owner}) → device=cpu 강제")
+        if owner in CPU_ONLY_OWNERS or force_cpu_init:
+            device = torch.device('cpu')  # CPU 전용 owner 또는 FORCE_CPU_INIT 모드
+            if force_cpu_init:
+                logger.debug(f"FORCE_CPU_INIT 모드 → device=cpu 강제 (owner: {owner})")
+            else:
+                logger.debug(f"CPU 전용 owner({owner}) → device=cpu 강제")
         elif device_map == "cpu":
             device = torch.device('cpu')
         elif device_map is None:
@@ -222,8 +230,8 @@ class HFModelWrapper:
         # 모델 ID 미리 생성
         model_id = f"{owner}_{model_name.split('/')[-1]}"
         
-        # 사전 메모리 요청 (GPU 모델인 경우 + CPU 전용 owner 제외)
-        if device.type == 'cuda' and self.memory_manager and owner not in CPU_ONLY_OWNERS:
+        # 사전 메모리 요청 (GPU 모델인 경우 + CPU 전용 owner 제외 + FORCE_CPU_INIT 제외)
+        if device.type == 'cuda' and self.memory_manager and owner not in CPU_ONLY_OWNERS and not force_cpu_init:
             estimated_mb = self._estimate_model_size_predicted(model_class, kwargs)
             logger.info(f"📊 모델 로드 전 메모리 요청: {model_id} ({estimated_mb:.1f}MB)")
             
@@ -267,7 +275,7 @@ class HFModelWrapper:
             model = model.to(device)
         
         # 메모리 매니저에 등록 (실제 크기로 업데이트)
-        self._register_model(model_id, model, owner, device)
+        self._register_model(model_id, model, owner, device, force_cpu_init)
         
         return model
         

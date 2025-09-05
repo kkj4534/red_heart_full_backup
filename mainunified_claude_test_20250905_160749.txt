@@ -1,0 +1,547 @@
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | ✨ Red Heart AI 통합 추론 시스템 초기화
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | ======================================================================
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | 🚀 시스템 초기화 시작...
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | ======================================================================
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | 📦 지정된 메모리 모드: medium
+2025-09-05 16:08:06 | RedHeart.MainUnified | INFO | 📦 UnifiedModel 로드 중...
+2025-09-05 16:08:10 | sentence_transformer_singleton | INFO | SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+2025-09-05 16:08:10 | training.enhanced_checkpoint_manager | INFO |   - 기존 메타데이터 로드: 30개 체크포인트
+2025-09-05 16:08:10 | training.enhanced_checkpoint_manager | INFO | ✅ Enhanced CheckpointManager 초기화
+2025-09-05 16:08:10 | training.enhanced_checkpoint_manager | INFO |   - 저장 디렉토리: training/checkpoints_final
+2025-09-05 16:08:10 | training.enhanced_checkpoint_manager | INFO |   - 최대 체크포인트: 30개
+2025-09-05 16:08:10 | training.enhanced_checkpoint_manager | INFO |   - 저장 간격: 1 에폭마다
+2025-09-05 16:08:11 | unified_backbone | INFO | 백본 총 파라미터: 90,624,132 (90.62M)
+2025-09-05 16:08:11 | unified_backbone | INFO | 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-09-05 16:08:11 | unified_heads | INFO | 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-09-05 16:08:11 | unified_heads | INFO | 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-09-05 16:08:11 | unified_heads | INFO | 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-09-05 16:08:11 | unified_heads | INFO | SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-09-05 16:08:12 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-05 16:08:12 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-05 16:08:13 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-05 16:08:13 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-05 16:08:13 | analyzer_neural_modules | INFO | 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-09-05 16:08:14 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-05 16:08:14 | RedHeart.MainUnified | INFO |    에폭 50 체크포인트 자동 검색: checkpoint_epoch_0050_lr_0.000009_20250827_154403.pt
+2025-09-05 16:08:14 | RedHeart.MainUnified | INFO |    체크포인트 로드: checkpoint_epoch_0050_lr_0.000009_20250827_154403.pt
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    ✅ 모델 가중치 로드 완료
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    - Epoch: 50
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    - Loss: unknown
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    📌 MEDIUM 모드: 백본/헤드만 GPU, analyzers는 CPU 유지
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    📊 총 파라미터: 532.4M
+2025-09-05 16:08:44 | RedHeart.MainUnified | INFO |    📊 학습가능 파라미터: 532.4M
+2025-09-05 16:08:44 | RedHeart.MainUnified | WARNING |    ⚠️ DSM이 초기화되지 않음. 지금 초기화합니다...
+2025-09-05 16:09:40 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | RedHeartDynamicSwapManager 초기화 완료
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] Global swap manager set -> id=132324695822832
+2025-09-05 16:09:40 | RedHeart.MainUnified | INFO |    ✅ DSM 긴급 초기화 완료 (ID: 132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] unified_backbone 크기: 345.7MB (mgr_id=132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO |    ✅ unified_backbone을 GPU에 등록 (location=GPU, size=345.7MB)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [REGISTER HEAD] unified_backbone (345.7MB, 우선순위: critical)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] emotion_head 크기: 65.8MB (mgr_id=132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO |    ✅ emotion_head을 GPU에 등록 (location=GPU, size=65.8MB)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [REGISTER HEAD] emotion_head (65.8MB, 우선순위: high)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] bentham_head 크기: 52.9MB (mgr_id=132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO |    ✅ bentham_head을 GPU에 등록 (location=GPU, size=52.9MB)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [REGISTER HEAD] bentham_head (52.9MB, 우선순위: high)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] regret_head 크기: 75.9MB (mgr_id=132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO |    ✅ regret_head을 GPU에 등록 (location=GPU, size=75.9MB)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [REGISTER HEAD] regret_head (75.9MB, 우선순위: high)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [DSM] surd_head 크기: 45.9MB (mgr_id=132324695822832)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO |    ✅ surd_head을 GPU에 등록 (location=GPU, size=45.9MB)
+2025-09-05 16:09:40 | dynamic_swap_manager | INFO | [REGISTER HEAD] surd_head (45.9MB, 우선순위: high)
+2025-09-05 16:09:40 | RedHeart.MainUnified | INFO |    📌 UnifiedModel DSM 등록 완료
+2025-09-05 16:09:40 | RedHeart.MainUnified | INFO | 🌐 번역기 로드 중...
+2025-09-05 16:09:40 | local_translator | INFO | LocalTranslator 생성 - 전역 모듈로 초기화됨
+2025-09-05 16:09:40 | local_translator | INFO | 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-09-05 16:09:41 | hf_model_wrapper | INFO | ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-09-05 16:09:41 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-09-05 16:09:42 | local_translator | INFO | ✅ OPUS-MT 모델 로드 완료 (소요시간: 1.6초, 디바이스: cpu)
+2025-09-05 16:09:42 | local_translator | INFO | 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-09-05 16:09:42 | dynamic_swap_manager | INFO | [DSM] translator 크기: 297.6MB (mgr_id=132324695822832)
+2025-09-05 16:09:42 | dynamic_swap_manager | INFO |    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-09-05 16:09:42 | dynamic_swap_manager | INFO | [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-09-05 16:09:42 | local_translator | INFO | ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-09-05 16:09:42 | RedHeart.Config | INFO | 🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+2025-09-05 16:09:42 | RedHeart.Config | INFO | 🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+2025-09-05 16:09:42 | RedHeart.MainUnified | INFO |    ✅ 번역기 로드 및 등록 완료
+2025-09-05 16:09:42 | RedHeart.MainUnified | INFO | 🧠 Neural Analyzers 부분 로드 중 (['emotion', 'bentham'])...
+2025-09-05 16:09:43 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,333,263 파라미터
+2025-09-05 16:09:43 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,019,458 파라미터
+2025-09-05 16:09:44 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,610,522 파라미터
+2025-09-05 16:09:44 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,276,424 파라미터
+2025-09-05 16:09:44 | analyzer_neural_modules | INFO | 전체 신경망 분석기 파라미터: 367,239,667 (367.2M)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    부분 로드 완료: ['emotion', 'bentham']
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    체크포인트 Neural Analyzers 896차원 가중치 복원 중...
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - emotion: 768→896 프로젝션 어댑터 추가
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - bentham: 768→896 프로젝션 어댑터 추가
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - regret: 768→896 프로젝션 어댑터 추가
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - surd: 768→896 프로젝션 어댑터 추가
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    ✅ 896차원 Neural Analyzers 복원 완료 (프로젝션 어댑터 사용)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - emotion: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - emotion: 122.6M params
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - bentham: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - bentham: 78.3M params
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - regret: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - regret: 153.9M params
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - surd: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    - surd: 13.5M params
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    ✅ Neural Analyzers 로드 완료
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    📌 UnifiedModel에 Neural Analyzers 전달 완료
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [DSM] neural_emotion 크기: 467.7MB (mgr_id=132324695822832)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO |    💾 neural_emotion을 RAM에 등록 (location=RAM, size=467.7MB)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [REGISTER HEAD] neural_emotion (467.7MB, 우선순위: medium)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [DSM] neural_bentham 크기: 298.6MB (mgr_id=132324695822832)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO |    💾 neural_bentham을 RAM에 등록 (location=RAM, size=298.6MB)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [REGISTER HEAD] neural_bentham (298.6MB, 우선순위: medium)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [DSM] neural_regret 크기: 587.0MB (mgr_id=132324695822832)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO |    💾 neural_regret을 RAM에 등록 (location=RAM, size=587.0MB)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [REGISTER HEAD] neural_regret (587.0MB, 우선순위: medium)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [DSM] neural_surd 크기: 51.4MB (mgr_id=132324695822832)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO |    💾 neural_surd을 RAM에 등록 (location=RAM, size=51.4MB)
+2025-09-05 16:09:44 | dynamic_swap_manager | INFO | [REGISTER HEAD] neural_surd (51.4MB, 우선순위: medium)
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    📌 Neural Analyzers DSM 등록 완료
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO | 🎯 Advanced Analyzer Wrappers 부분 로드 중 (['advanced_emotion', 'advanced_bentham'])...
+2025-09-05 16:09:44 | RedHeart.MainUnified | INFO |    📌 MEDIUM 모드: Advanced Wrappers CPU 초기화 설정
+2025-09-05 16:09:46 | RedHeartLinux.AdvancedEmotion | INFO | 📌 FORCE_CPU_INIT: AdvancedEmotionAnalyzer CPU 모드 강제
+2025-09-05 16:09:46 | RedHeartLinux.AdvancedEmotion | INFO | 감정 임베딩 모델 초기화 시작...
+2025-09-05 16:09:46 | sentence_transformer_singleton | INFO | 📌 CPU 모드: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 직접 로드 (subprocess 우회)
+2025-09-05 16:09:46 | sentence_transformers.SentenceTransformer | INFO | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-05 16:09:48 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (소유자: sentence_transformers.models.Transformer)
+2025-09-05 16:10:11 | sentence_transformer_singleton | INFO | 📌 CPU 모드: jhgan/ko-sroberta-multitask 직접 로드 (subprocess 우회)
+2025-09-05 16:10:11 | sentence_transformers.SentenceTransformer | INFO | Load pretrained SentenceTransformer: jhgan/ko-sroberta-multitask
+2025-09-05 16:10:13 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: jhgan/ko-sroberta-multitask (소유자: sentence_transformers.models.Transformer)
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 로드 완료 (싱글톤): sentence-transformers/paraphrase-multilingual-mpnet-base-v2, jhgan/ko-sroberta-multitask
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 초기화 완료: 2 모델 로드됨
+2025-09-05 16:10:16 | RedHeart.Config | INFO | 🔍 get_system_module 호출: module_id=translator
+2025-09-05 16:10:16 | RedHeart.Config | INFO | 🔍 현재 등록된 모듈들: ['translator']
+2025-09-05 16:10:16 | RedHeart.Config | INFO | 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe None 여부: False
+2025-09-05 16:10:16 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터 차원: 17개 감정
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO |   - DSP 시뮬레이터: 20M 파라미터
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터: 융합용
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 계층적 감정 모델 초기화 완료
+2025-09-05 16:10:16 | RedHeart.AdvancedLLM | INFO | 🐬 Dolphin Llama3 8B 설정: RAM 시작=예
+2025-09-05 16:10:16 | RedHeart.AdvancedLLM | INFO | 모델 설정 준비 완료: ['dolphin']
+2025-09-05 16:10:16 | RedHeart.AdvancedLLM | INFO | 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | LLM 엔진 연결 완료
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 고급 감정 분석 시스템이 초기화되었습니다.
+2025-09-05 16:10:16 | RedHeartLinux.AdvancedEmotion | INFO | 🔍 hierarchical_model이 이미 존재함
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - biometric_processor 등록 (10M)
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - multimodal_fusion 등록 (10M)
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - temporal_emotion 등록 (10M)
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - cultural_nuance 등록 (13M)
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - advanced_moe 등록 (5M)
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO |   - emotion_moe 등록
+2025-09-05 16:10:16 | advanced_analyzer_wrappers | INFO | ✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+2025-09-05 16:10:16 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-09-05 16:10:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:10:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-09-05 16:10:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | 후회 분석기 PhaseController Hook 초기화 완료
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | Advanced Regret Analyzer initialized on cuda
+2025-09-05 16:10:17 | advanced_regret_analyzer | INFO | 동적 임계값 시스템 통합 완료
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - regret_network 등록 (3M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - counterfactual_sim 등록 (15M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - temporal_propagation 등록 (12M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - decision_tree 등록 (10M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - bayesian_inference 등록 (10M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO | ✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+2025-09-05 16:10:17 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 84.5%, 필요: 500MB)
+2025-09-05 16:10:17 | RedHeart.AdvancedSURDAnalyzer | INFO | ✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+2025-09-05 16:10:17 | RedHeart.AdvancedSURDAnalyzer | INFO | 새로운 고급 SURD 모델 초기화 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedSURDAnalyzer | INFO | LLM 엔진 연결 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedSURDAnalyzer | INFO | 고급 SURD 분석 시스템 초기화 완료
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - deep_causal 등록 (10M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - info_decomposition 등록 (8M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO |   - neural_causal_model 등록 (5M)
+2025-09-05 16:10:17 | advanced_analyzer_wrappers | INFO | ✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim=512)
+2025-09-05 16:10:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:10:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | GPU 메모리 사용률 위험 수준: 88.5%
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 시작
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로딩 중...
+2025-09-05 16:10:17 | RedHeart.Config | INFO | GPU 포화 상태 - 스왑 시도: 88.5%
+2025-09-05 16:10:17 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-05 16:10:17 | dynamic_swap_manager | INFO | RedHeartDynamicSwapManager 초기화 완료
+2025-09-05 16:10:17 | RedHeart.Config | INFO | 동적 스왑 매니저 연결 성공
+2025-09-05 16:10:17 | RedHeart.Config | INFO | 안전한 스왑 스케줄러 시작됨
+2025-09-05 16:10:17 | RedHeart.Config | INFO | GPU 공간 부족: temp_model_1757056217 (사용률: 88.5%, 가용: 919.5625MB, 필요: 600MB)
+2025-09-05 16:10:17 | dynamic_swap_manager | INFO | [지능적 GPU 공간 확보] 600MB 필요, 목표 사용률: 85.0%
+2025-09-05 16:10:17 | dynamic_swap_manager | INFO | [현재 GPU] 여유: 919.5625MB, 사용률: 88.5%
+2025-09-05 16:10:17 | dynamic_swap_manager | INFO | [해제 필요] 288MB
+2025-09-05 16:10:17 | dynamic_swap_manager | WARNING | [언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+2025-09-05 16:10:17 | dynamic_swap_manager | WARNING | [DSM] 현재 등록된 모델 상태:
+2025-09-05 16:10:17 | dynamic_swap_manager | WARNING |   [등록된 모델 없음]
+2025-09-05 16:10:17 | dynamic_swap_manager | WARNING | [DSM] GPU 사용률 88.5%로 목표 85.0% 달성 실패
+2025-09-05 16:10:17 | RedHeart.Config | WARNING | 스왑 공간 부족: temp_model_1757056217 (필요: 600MB, 확보: FalseMB)
+2025-09-05 16:10:17 | RedHeart.Config | INFO | 작업 완료 기반 공간 확보 실패, CPU 사용: temp_model_1757056217
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로드: cpu (100MB)
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 3445MB, GPU 7251MB
+2025-09-05 16:10:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-05 16:10:17 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 PhaseController Hook 초기화 완료
+2025-09-05 16:10:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:10:17 | RedHeart.LegalExpertSystem | INFO | 법률 전문가 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:10:17 | RedHeart.LegalExpertSystem | INFO | 법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:10:17 | RedHeart.LegalExpertSystem | INFO | inference 모드 - 법률 전문가 시스템 활성화
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO |    - 파라미터 수: 3,137
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | GPU 메모리 사용률 위험 수준: 88.5%
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 시작
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 완료
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 트랜스포머 맥락 분석기 로딩 중...
+2025-09-05 16:10:17 | RedHeart.AdvancedBenthamCalculator | INFO | 📌 FORCE_CPU_INIT: CPU 모드 강제 초기화
+2025-09-05 16:10:17 | hf_model_wrapper | INFO | 🔄 HF 파이프라인 생성 중: text-classification (모델: j-hartmann/emotion-english-distilroberta-base, 소유자: advanced_bentham_calculator)
+2025-09-05 16:10:18 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: j-hartmann/emotion-english-distilroberta-base (소유자: transformers.pipelines.base)
+Device set to use cpu
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 📌 FORCE_CPU_INIT: 감정 분석 모델 CPU 직접 로드
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 윤리 분석: 감정→윤리 매핑 방식 (별도 모델 없음)
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 한국어 감정 분석은 번역 후 영어 모델 사용
+2025-09-05 16:10:19 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: sentence-transformers/all-MiniLM-L6-v2 (소유자: advanced_bentham_calculator)
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 📌 FORCE_CPU_INIT: 문맥 임베딩 모델 CPU 직접 로드
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 트랜스포머 맥락 분석기 초기화 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 3450MB, GPU 7251MB
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - cross_cultural 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - deep_ethics 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - default_network 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - ethics_moe 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - long_term_predictor 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - neural_predictor 등록
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - social_impact 등록
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | CRITICAL | GPU 메모리 사용률 위험 수준: 88.5%
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 시작
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 가중치 레이어들 로딩 중...
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | contextual ML 모델 로드 완료
+2025-09-05 16:10:19 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 3450MB, GPU 7251MB
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO | ✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO | ✅ Advanced Analyzer Wrappers 생성 완료
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - 총 Wrapper 수: 4
+2025-09-05 16:10:19 | advanced_analyzer_wrappers | INFO |   - 총 파라미터: 190,579,405
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |    부분 로드 완료: ['advanced_emotion', 'advanced_bentham']
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |    체크포인트에서 Advanced Wrappers 가중치 복원...
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |        Shape 불일치 감지: emotion_moe.gating_network.diversity_layer.weight
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          체크포인트: [4, 192]
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          현재 모델: [4, 768]
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          ✅ 프로젝션 적용: torch.Size([4, 192]) → torch.Size([4, 768])
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |      ✅ advanced_emotion 가중치 완전 복원 성공
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |      📊 advanced_emotion 리매핑 성공: 366/366개 키 복원
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |        Shape 불일치 감지: bentham_ethics_moe.gating_network.diversity_layer.weight
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          체크포인트: [4, 128]
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          현재 모델: [4, 512]
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |          ✅ 프로젝션 적용: torch.Size([4, 128]) → torch.Size([4, 512])
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |      ✅ advanced_bentham 가중치 완전 복원 성공
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |      📊 advanced_bentham 리매핑 성공: 326/326개 키 복원
+2025-09-05 16:10:19 | RedHeart.MainUnified | INFO |    - advanced_emotion: 63.0M params
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - advanced_bentham: 75.8M params
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    ✅ Advanced Wrappers 로드 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📌 UnifiedModel에 Advanced Wrappers 전달 완료
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO | [DSM] wrapper_advanced_emotion 크기: 240.4MB (mgr_id=132324695822832)
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO |    💾 wrapper_advanced_emotion을 RAM에 등록 (location=RAM, size=240.4MB)
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO | [REGISTER HEAD] wrapper_advanced_emotion (240.4MB, 우선순위: medium)
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO | [DSM] wrapper_advanced_bentham 크기: 289.3MB (mgr_id=132324695822832)
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO |    💾 wrapper_advanced_bentham을 RAM에 등록 (location=RAM, size=289.3MB)
+2025-09-05 16:10:20 | dynamic_swap_manager | INFO | [REGISTER HEAD] wrapper_advanced_bentham (289.3MB, 우선순위: medium)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📌 Advanced Wrappers DSM 등록 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO | 📡 DSP 컴포넌트 로드 중...
+2025-09-05 16:10:20 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    체크포인트에서 DSP 시뮬레이터 복원...
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📌 DSP 시뮬레이터 CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📊 DSP 파라미터: 2.3M
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    ✅ DSP 컴포넌트 로드 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO | 🔄 Phase Networks 로드 중...
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📌 Phase Networks CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    체크포인트에 Phase Networks 없음, 새로 초기화된 가중치 사용
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - phase0: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - phase0: 0.79M params
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - phase2: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - phase2: 7.04M params
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - hierarchical: CPU 초기화 (동적 스왑 대기)
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - hierarchical: 0.15M params
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    - output_projector: 896→768 차원 변환기 초기화
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    ✅ Phase Networks 로드 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO | 🧠 워크플로우 메모리 관리자 로드 중...
+2025-09-05 16:10:20 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    ✅ 워크플로우 메모리 관리자 로드 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO | 🔮 메타 통합 시스템 로드 중 (40M)...
+2025-09-05 16:10:20 | advanced_meta_integration_system | INFO | 고급 메타 통합 시스템 초기화 완료
+2025-09-05 16:10:20 | advanced_meta_integration_system | INFO | 통합 전략: {}
+2025-09-05 16:10:20 | advanced_meta_integration_system | INFO | 디바이스: cuda
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    📊 메타 통합 파라미터: 7.1M
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO |    ✅ 메타 통합 시스템 로드 완료
+2025-09-05 16:10:20 | RedHeart.MainUnified | INFO | 💭 반사실 추론 시스템 로드 중...
+2025-09-05 16:10:20 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 82.8%, 필요: 500MB)
+2025-09-05 16:10:20 | sentence_transformer_singleton | INFO | 새 클라이언트 생성 시작: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-05 16:10:20 | sentence_transformer_singleton | INFO | 서버 시작 및 모델 로딩: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | stderr 드레인 스레드 시작
+2025-09-05 16:10:20 | sentence_transformer_client | INFO | stderr 드레인 스레드 생성 완료
+2025-09-05 16:10:30 | sentence_transformer_client | INFO | 서버 연결 성공
+2025-09-05 16:10:30 | sentence_transformer_client | INFO | 모델 로딩 요청: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-05 16:11:56 | sentence_transformer_client | INFO | 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-05 16:11:56 | sentence_transformer_singleton | INFO | 클라이언트 생성 및 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-05 16:11:56 | RedHeart.AdvancedCounterfactual | INFO | 문학 기반 가설 생성기가 초기화되었습니다.
+2025-09-05 16:11:56 | RedHeart.AdvancedCounterfactual | INFO | 고급 행위 후보 생성기가 초기화되었습니다.
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim=512)
+2025-09-05 16:11:57 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:11:57 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:11:57 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | CRITICAL | GPU 메모리 사용률 위험 수준: 86.2%
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 시작
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 완료
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로딩 중...
+2025-09-05 16:11:57 | RedHeart.Config | INFO | GPU 포화 상태 - 스왑 시도: 86.2%
+2025-09-05 16:11:57 | RedHeart.Config | INFO | GPU 공간 부족: temp_model_1757056317 (사용률: 86.2%, 가용: 1109.5625MB, 필요: 600MB)
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [지능적 GPU 공간 확보] 600MB 필요, 목표 사용률: 85.0%
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [현재 GPU] 여유: 1109.5625MB, 사용률: 86.2%
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [해제 필요] 102MB
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [DSM] 현재 등록된 모델 상태:
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING |   [등록된 모델 없음]
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [DSM] GPU 사용률 86.2%로 목표 85.0% 달성 실패
+2025-09-05 16:11:57 | RedHeart.Config | WARNING | 스왑 공간 부족: temp_model_1757056317 (필요: 600MB, 확보: FalseMB)
+2025-09-05 16:11:57 | RedHeart.Config | INFO | 작업 완료 기반 공간 확보 실패, CPU 사용: temp_model_1757056317
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로드: cpu (100MB)
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 3566MB, GPU 7065MB
+2025-09-05 16:11:57 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:11:57 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-05 16:11:57 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-05 16:11:57 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 PhaseController Hook 초기화 완료
+2025-09-05 16:11:57 | RedHeart.LegalExpertSystem | INFO | inference 모드 - 법률 전문가 시스템 활성화
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-09-05 16:11:57 | RedHeart.AdvancedBenthamCalculator | INFO |    - 파라미터 수: 3,137
+2025-09-05 16:11:57 | RedHeart.AdvancedCounterfactual | INFO | 고급 반사실적 추론 시스템이 초기화되었습니다.
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO |    ✅ 반사실 추론 시스템 로드 완료
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO | 😔 고급 후회 학습 시스템 로드 중...
+2025-09-05 16:11:57 | advanced_regret_learning_system | INFO | 고급 후회 학습 시스템이 초기화되었습니다.
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO |    ✅ 고급 후회 학습 시스템 로드 완료
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO | ⏰ 시계열 전파 분석기 로드 중...
+2025-09-05 16:11:57 | TemporalEventPropagationAnalyzer | INFO | 시계열 사건 전파 분석기 초기화 완료
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO |    ✅ 시계열 전파 분석기 로드 완료
+2025-09-05 16:11:57 | RedHeart.MainUnified | INFO | 🎭 계층적 감정 처리기 로드 중...
+2025-09-05 16:11:57 | RedHeart.Config | INFO | GPU 포화 상태 - 스왑 시도: 86.3%
+2025-09-05 16:11:57 | RedHeart.Config | INFO | GPU 공간 부족: temp_model_1757056317 (사용률: 86.3%, 가용: 1107.5625MB, 필요: 1000MB)
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [지능적 GPU 공간 확보] 1000MB 필요, 목표 사용률: 85.0%
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [현재 GPU] 여유: 1107.5625MB, 사용률: 86.3%
+2025-09-05 16:11:57 | dynamic_swap_manager | INFO | [해제 필요] 148MB
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [DSM] 현재 등록된 모델 상태:
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING |   [등록된 모델 없음]
+2025-09-05 16:11:57 | dynamic_swap_manager | WARNING | [DSM] GPU 사용률 86.3%로 목표 85.0% 달성 실패
+2025-09-05 16:11:57 | RedHeart.Config | WARNING | 스왑 공간 부족: temp_model_1757056317 (필요: 1000MB, 확보: FalseMB)
+2025-09-05 16:11:57 | RedHeart.Config | INFO | 작업 완료 기반 공간 확보 실패, CPU 사용: temp_model_1757056317
+2025-09-05 16:11:57 | RedHeartLinux.AdvancedEmotion | INFO | 감정 임베딩 모델 초기화 시작...
+2025-09-05 16:11:57 | sentence_transformer_singleton | INFO | 📌 CPU 모드: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 직접 로드 (subprocess 우회)
+2025-09-05 16:11:57 | sentence_transformers.SentenceTransformer | INFO | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-05 16:11:58 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (소유자: sentence_transformers.models.Transformer)
+2025-09-05 16:11:58 | hf_model_wrapper | INFO | 📊 모델 로드 전 메모리 요청: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (800.0MB)
+2025-09-05 16:11:58 | workflow_aware_memory_manager | INFO | [GPU BLOCKING] sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2: 800.0MB 동기 요청 시작
+2025-09-05 16:11:58 | workflow_aware_memory_manager | INFO | [GPU BLOCKING] ✅ sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 할당 성공 (폴링)
+2025-09-05 16:11:59 | hf_model_wrapper | INFO | ✅ 모델 'sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2' 메모리 매니저에 등록됨 (소유자: sentence_transformers.models.Transformer, 크기: 4242.6MB)
+2025-09-05 16:12:02 | sentence_transformer_singleton | INFO | 📌 CPU 모드: jhgan/ko-sroberta-multitask 직접 로드 (subprocess 우회)
+2025-09-05 16:12:02 | sentence_transformers.SentenceTransformer | INFO | Load pretrained SentenceTransformer: jhgan/ko-sroberta-multitask
+2025-09-05 16:12:04 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: jhgan/ko-sroberta-multitask (소유자: sentence_transformers.models.Transformer)
+2025-09-05 16:12:04 | hf_model_wrapper | INFO | 📊 모델 로드 전 메모리 요청: sentence_transformers.models.Transformer_ko-sroberta-multitask (800.0MB)
+2025-09-05 16:12:04 | workflow_aware_memory_manager | INFO | [GPU BLOCKING] sentence_transformers.models.Transformer_ko-sroberta-multitask: 800.0MB 동기 요청 시작
+2025-09-05 16:12:04 | workflow_aware_memory_manager | INFO | [GPU BLOCKING] ✅ sentence_transformers.models.Transformer_ko-sroberta-multitask 할당 성공 (폴링)
+2025-09-05 16:12:08 | hf_model_wrapper | INFO | ✅ 모델 'sentence_transformers.models.Transformer_ko-sroberta-multitask' 메모리 매니저에 등록됨 (소유자: sentence_transformers.models.Transformer, 크기: 1687.9MB)
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 로드 완료 (싱글톤): sentence-transformers/paraphrase-multilingual-mpnet-base-v2, jhgan/ko-sroberta-multitask
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 초기화 완료: 2 모델 로드됨
+2025-09-05 16:12:10 | RedHeart.Config | INFO | 🔍 get_system_module 호출: module_id=translator
+2025-09-05 16:12:10 | RedHeart.Config | INFO | 🔍 현재 등록된 모듈들: ['translator']
+2025-09-05 16:12:10 | RedHeart.Config | INFO | 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe None 여부: False
+2025-09-05 16:12:10 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터 차원: 17개 감정
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO |   - DSP 시뮬레이터: 20M 파라미터
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터: 융합용
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 계층적 감정 모델 초기화 완료
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | LLM 엔진 연결 완료
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 고급 감정 분석 시스템이 초기화되었습니다.
+2025-09-05 16:12:10 | RedHeartLinux.AdvancedEmotion | INFO | 🔍 hierarchical_model이 이미 존재함
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim=512)
+2025-09-05 16:12:11 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:12:11 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:12:11 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | CRITICAL | GPU 메모리 사용률 위험 수준: 89.7%
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 시작
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | CRITICAL | 긴급 GPU 메모리 최적화 완료
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로딩 중...
+2025-09-05 16:12:11 | RedHeart.Config | INFO | GPU 포화 상태 - 스왑 시도: 89.7%
+2025-09-05 16:12:11 | RedHeart.Config | INFO | GPU 공간 부족: temp_model_1757056331 (사용률: 89.7%, 가용: 831.5625MB, 필요: 600MB)
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [지능적 GPU 공간 확보] 600MB 필요, 목표 사용률: 85.0%
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [현재 GPU] 여유: 831.5625MB, 사용률: 89.7%
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [해제 필요] 385MB
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [DSM] 현재 등록된 모델 상태:
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING |   [등록된 모델 없음]
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [DSM] GPU 사용률 89.7%로 목표 85.0% 달성 실패
+2025-09-05 16:12:11 | RedHeart.Config | WARNING | 스왑 공간 부족: temp_model_1757056331 (필요: 600MB, 확보: FalseMB)
+2025-09-05 16:12:11 | RedHeart.Config | INFO | 작업 완료 기반 공간 확보 실패, CPU 사용: temp_model_1757056331
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로드: cpu (100MB)
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 5703MB, GPU 7349MB
+2025-09-05 16:12:11 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 PhaseController Hook 초기화 완료
+2025-09-05 16:12:11 | RedHeart.LegalExpertSystem | INFO | inference 모드 - 법률 전문가 시스템 활성화
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-09-05 16:12:11 | RedHeart.AdvancedBenthamCalculator | INFO |    - 파라미터 수: 3,137
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-09-05 16:12:11 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:12:11 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-05 16:12:11 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-09-05 16:12:11 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-05 16:12:11 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | 후회 분석기 PhaseController Hook 초기화 완료
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | Advanced Regret Analyzer initialized on cuda
+2025-09-05 16:12:11 | advanced_regret_analyzer | INFO | 동적 임계값 시스템 통합 완료
+2025-09-05 16:12:11 | RedHeart.Config | INFO | GPU 포화 상태 - 스왑 시도: 91.9%
+2025-09-05 16:12:11 | RedHeart.Config | INFO | GPU 공간 부족: temp_model_1757056331 (사용률: 91.9%, 가용: 643.5625MB, 필요: 1000MB)
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [지능적 GPU 공간 확보] 1000MB 필요, 목표 사용률: 85.0%
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [현재 GPU] 여유: 643.5625MB, 사용률: 91.9%
+2025-09-05 16:12:11 | dynamic_swap_manager | INFO | [해제 필요] 612MB
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [언로드 불가] 더 이상 언로드할 수 있는 모델이 없습니다
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [DSM] 현재 등록된 모델 상태:
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING |   [등록된 모델 없음]
+2025-09-05 16:12:11 | dynamic_swap_manager | WARNING | [DSM] GPU 사용률 91.9%로 목표 85.0% 달성 실패
+2025-09-05 16:12:11 | RedHeart.Config | WARNING | 스왑 공간 부족: temp_model_1757056331 (필요: 1000MB, 확보: FalseMB)
+2025-09-05 16:12:11 | RedHeart.Config | INFO | 작업 완료 기반 공간 확보 실패, CPU 사용: temp_model_1757056331
+2025-09-05 16:12:11 | sentence_transformer_singleton | INFO | 📌 CPU 모드: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 직접 로드 (subprocess 우회)
+2025-09-05 16:12:11 | sentence_transformers.SentenceTransformer | INFO | Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-05 16:12:13 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (소유자: sentence_transformers.models.Transformer)
+2025-09-05 16:12:13 | hf_model_wrapper | INFO | 📊 모델 로드 전 메모리 요청: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (800.0MB)
+2025-09-05 16:12:13 | workflow_aware_memory_manager | INFO | [GPU BLOCKING] sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2: 800.0MB 동기 요청 시작
+2025-09-05 16:12:43 | workflow_aware_memory_manager | ERROR | [GPU BLOCKING] ❌ sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 할당 실패: 타임아웃 (30.0초)
+2025-09-05 16:12:43 | RedHeart.AdvancedExperienceDB | ERROR | 임베딩 모델 초기화 실패: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
+2025-09-05 16:12:43 | RedHeart.MainUnified | ERROR |    ❌ 계층적 감정 처리기 로드 실패: SentenceTransformer 초기화 실패: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
+2025-09-05 16:12:43 | RedHeart.MainUnified | ERROR | ❌ 초기화 실패: 계층적 감정 처리기 로드 필수 - 실패: SentenceTransformer 초기화 실패: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+⚠️ 경고: GPU 메모리 여유분 0.9GB - 오버헤드 위험
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+✅ 고급 모듈들로 회로 초기화 완료
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_experience_database.py", line 319, in _initialize_embedding_model
+    self.embedding_model = get_sentence_transformer(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 446, in get_sentence_transformer
+    return _manager.get_model(model_name, device, cache_folder)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 95, in get_model
+    model = SentenceTransformer(model_name, device='cpu', cache_folder=cache_folder)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 327, in __init__
+    modules, self.module_kwargs = self._load_sbert_model(
+                                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 2254, in _load_sbert_model
+    module = module_class.load(
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 541, in load
+    return cls(model_name_or_path=model_name_or_path, **init_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 88, in __init__
+    self._load_model(model_name_or_path, config, cache_dir, backend, is_peft_model, **model_args)
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 186, in _load_model
+    self.auto_model = AutoModel.from_pretrained(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/hf_model_wrapper.py", line 494, in patched_from_pretrained
+    return _hf_wrapper.wrapped_from_pretrained(cls, *args, owner=owner, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/hf_model_wrapper.py", line 257, in wrapped_from_pretrained
+    raise RuntimeError(f"[GPU] 메모리 확보 실패: {model_id} (required={is_required})")
+RuntimeError: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 1403, in _load_emotion_hierarchy
+    self.emotion_hierarchy_processor = EmotionEthicsRegretCircuit()
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/emotion_ethics_regret_circuit.py", line 91, in __init__
+    self.experience_db = AdvancedExperienceDatabase()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_experience_database.py", line 257, in __init__
+    self._initialize_embedding_model()
+  File "/mnt/c/large_project/linux_red_heart/advanced_experience_database.py", line 333, in _initialize_embedding_model
+    raise RuntimeError(f"SentenceTransformer 초기화 실패: {e}") from e
+RuntimeError: SentenceTransformer 초기화 실패: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 3305, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 3231, in main
+    await system.initialize()
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 426, in initialize
+    await self._load_emotion_hierarchy()
+  File "/mnt/c/large_project/linux_red_heart/main_unified.py", line 1407, in _load_emotion_hierarchy
+    raise RuntimeError(f"계층적 감정 처리기 로드 필수 - 실패: {e}")
+RuntimeError: 계층적 감정 처리기 로드 필수 - 실패: SentenceTransformer 초기화 실패: [GPU] 메모리 확보 실패: sentence_transformers.models.Transformer_paraphrase-multilingual-mpnet-base-v2 (required=False)
