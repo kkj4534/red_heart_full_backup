@@ -1,0 +1,74 @@
+2025-09-06 15:03:45 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-06 15:03:45 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-06 15:03:45 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-06 15:03:45 | RedHeart.MainUnified | INFO | 🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...
+2025-09-06 15:03:45 | RedHeart.MainUnified | INFO | 📌 실행 명령: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3 claude_inference.py --text AI 윤리적 문제 해결 --epoch 50 --debug
+2025-09-06 15:03:56 | ClaudeInference | INFO | ======================================================================
+2025-09-06 15:03:56 | ClaudeInference | INFO | 🚀 Claude API 독립 추론 시스템 초기화
+2025-09-06 15:03:56 | ClaudeInference | INFO | ======================================================================
+2025-09-06 15:03:56 | ClaudeInference | INFO | 📌 에폭: 50
+2025-09-06 15:03:56 | ClaudeInference | INFO | 📌 디바이스: cuda
+2025-09-06 15:03:56 | ClaudeInference | INFO | 📌 디버그 모드: True
+2025-09-06 15:03:56 | ClaudeInference | INFO | 
+📦 Phase 1: UnifiedModel 로드...
+2025-09-06 15:04:02 | sentence_transformer_singleton | INFO | SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+2025-09-06 15:04:02 | training.enhanced_checkpoint_manager | INFO |   - 기존 메타데이터 로드: 30개 체크포인트
+2025-09-06 15:04:02 | training.enhanced_checkpoint_manager | INFO | ✅ Enhanced CheckpointManager 초기화
+2025-09-06 15:04:02 | training.enhanced_checkpoint_manager | INFO |   - 저장 디렉토리: training/checkpoints_final
+2025-09-06 15:04:02 | training.enhanced_checkpoint_manager | INFO |   - 최대 체크포인트: 30개
+2025-09-06 15:04:02 | training.enhanced_checkpoint_manager | INFO |   - 저장 간격: 1 에폭마다
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-09-06 15:04:02 | unified_backbone | INFO | 백본 총 파라미터: 90,624,132 (90.62M)
+2025-09-06 15:04:02 | unified_backbone | INFO | 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-09-06 15:04:03 | unified_heads | INFO | 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-09-06 15:04:03 | unified_heads | INFO | 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-09-06 15:04:03 | unified_heads | INFO | 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-09-06 15:04:03 | unified_heads | INFO | SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-09-06 15:04:04 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-06 15:04:05 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-06 15:04:06 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-06 15:04:06 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-06 15:04:06 | analyzer_neural_modules | INFO | 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-09-06 15:04:07 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-06 15:04:07 | ClaudeInference | INFO |    체크포인트 로드: training/checkpoints_final/checkpoint_epoch_0050_lr_0.000009_20250827_154403.pt
+/mnt/c/large_project/linux_red_heart/claude_inference.py:106: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_file, map_location=self.device)
+2025-09-06 15:04:35 | ClaudeInference | INFO |    ✅ UnifiedModel 로드 완료
+2025-09-06 15:04:35 | ClaudeInference | INFO |    - Epoch: 50
+2025-09-06 15:04:35 | ClaudeInference | INFO |    - LR: 9.261697283911905e-06
+2025-09-06 15:04:35 | ClaudeInference | INFO | 
+📦 Phase 2: 번역기 로드...
+2025-09-06 15:04:35 | local_translator | INFO | LocalTranslator 생성 - 전역 모듈로 초기화됨
+2025-09-06 15:04:35 | local_translator | INFO | 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-09-06 15:05:43 | hf_model_wrapper | INFO | ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-09-06 15:05:44 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-09-06 15:05:45 | local_translator | INFO | ✅ OPUS-MT 모델 로드 완료 (소요시간: 69.6초, 디바이스: cpu)
+2025-09-06 15:05:45 | local_translator | INFO | 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-09-06 15:05:45 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-06 15:05:45 | dynamic_swap_manager | INFO | RedHeartDynamicSwapManager 초기화 완료
+2025-09-06 15:05:45 | dynamic_swap_manager | INFO | [DSM] translator 크기: 297.6MB (mgr_id=134451750627392)
+2025-09-06 15:05:45 | dynamic_swap_manager | INFO |    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-09-06 15:05:45 | dynamic_swap_manager | INFO | [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-09-06 15:05:45 | local_translator | INFO | ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-09-06 15:05:45 | ClaudeInference | INFO |    ✅ 번역기 로드 완료 (CPU)
+2025-09-06 15:05:45 | ClaudeInference | INFO | 
+📦 Phase 3: Neural Analyzers 로드...
+2025-09-06 15:05:45 | ClaudeInference | ERROR | ❌ 초기화 실패: NeuralEmotionAnalyzer.__init__() got an unexpected keyword argument 'device'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 61, in initialize
+    await self._load_neural_analyzers()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 141, in _load_neural_analyzers
+    'emotion': NeuralEmotionAnalyzer(device='cpu'),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NeuralEmotionAnalyzer.__init__() got an unexpected keyword argument 'device'
+2025-09-06 15:05:45 | ClaudeInference | ERROR | ❌ 실행 실패: NeuralEmotionAnalyzer.__init__() got an unexpected keyword argument 'device'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 342, in main
+    await system.initialize()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 61, in initialize
+    await self._load_neural_analyzers()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 141, in _load_neural_analyzers
+    'emotion': NeuralEmotionAnalyzer(device='cpu'),
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: NeuralEmotionAnalyzer.__init__() got an unexpected keyword argument 'device'

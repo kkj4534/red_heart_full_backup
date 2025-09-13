@@ -161,13 +161,40 @@ class InferenceConfig:
     enable_monitoring: bool = True
     cache_size: int = 100
     
+    # I/O Pipeline 설정
+    use_io_pipeline: bool = False  # 새로운 비동기 I/O 시스템 사용
+    use_workflow_dsm: bool = False  # WorkflowDSM 2레벨 메모리 관리
+    enriched_embedding: bool = False  # LLM 분석 결과 통합 임베딩
+    queue_size: int = 100  # IOPipeline 큐 크기
+    
     # 로깅
     verbose: bool = True
     debug: bool = False
 
 
 class UnifiedInferenceSystem:
-    """통합 추론 시스템 - 730M~922M 모델 전체 활용"""
+    """
+    통합 추론 시스템 - 730M~922M 모델 전체 활용
+    
+    ⚠️ 의도적 모놀리식 아키텍처:
+    - 성능 최우선: 실시간 추론을 위한 IPC 오버헤드 제거
+    - GPU 메모리 제약: 8GB 한계 내에서 730M 파라미터 관리
+    - 텐서 직접 전달: 프로세스 분리 시 복사 비용 회피
+    
+    순환 참조 맵:
+    UnifiedInferenceSystem
+            ↓
+    [unified_model, neural_analyzers, advanced_wrappers]
+            ↓↑ (양방향 참조)
+    [emotion_hierarchy_processor, llm_engine]
+            ↓↑
+    [io_pipeline, red_heart_core] ← NEW: I/O 분리 레이어
+    
+    I/O Pipeline 모드:
+    - --use-io-pipeline 플래그로 활성화
+    - 실패 시 시스템 정지 (폴백 비활성화)
+    - 아키텍처 일관성을 위한 의도적 설계
+    """
     
     def __init__(self, config: InferenceConfig):
         self.config = config
@@ -219,6 +246,19 @@ class UnifiedInferenceSystem:
         
         # 체크포인트 매니저
         self.checkpoint_manager = None
+        
+        # ========== 새로운 I/O 분리 시스템 ==========
+        # IOPipeline 시스템
+        self.io_pipeline = None
+        
+        # RedHeartCore 래퍼
+        self.red_heart_core = None
+        
+        # 통합 메모리 관리자 (기존 swap_manager를 대체/보완)
+        self.unified_memory_manager = None
+        
+        # LLM 플러그인 매니저 (기존 llm_engine 보완)
+        self.llm_plugin_manager = None
         
         # 캐시
         self.cache = {}
@@ -445,6 +485,10 @@ class UnifiedInferenceSystem:
             # if self.config.memory_mode.value in ['heavy', 'ultra', 'extreme']:
             #     await self._load_idle_learner()
             
+            # ========== 13. 새로운 I/O 분리 시스템 초기화 ==========
+            if self.config.get('use_io_pipeline', False):  # 설정 플래그로 제어
+                await self._init_io_pipeline_system()
+            
             self.logger.info("=" * 70)
             self.logger.info("✅ 시스템 초기화 완료!")
             self._print_system_status()
@@ -551,10 +595,10 @@ class UnifiedInferenceSystem:
             self.logger.info(f"   📊 총 파라미터: {total_params/1e6:.1f}M")
             self.logger.info(f"   📊 학습가능 파라미터: {trainable_params/1e6:.1f}M")
             
-            # DSM에 UnifiedModel 등록 (DSM이 없으면 초기화)
+            # DSM에 UnifiedModel 등록 (DSM이 없으면 초기화) - Claude 모드 제외
             if not hasattr(self, 'swap_manager') or self.swap_manager is None:
-                # DSM이 없으면 여기서 즉시 초기화
-                if self.config.llm_mode != "none":
+                # DSM이 없으면 여기서 즉시 초기화 (Claude 모드 제외)
+                if self.config.llm_mode != "none" and self.config.llm_mode != "claude":
                     self.logger.warning("   ⚠️ DSM이 초기화되지 않음. 지금 초기화합니다...")
                     try:
                         from dynamic_swap_manager import DynamicSwapManager, set_swap_manager
@@ -681,7 +725,7 @@ class UnifiedInferenceSystem:
                     self.logger.info(f"   - {name}: CPU 초기화 (동적 스왑 대기)")
                 else:
                     target_device = self.config.device
-                module.to(target_device)
+                self.neural_analyzers[name] = module.to(target_device)
                 params = sum(p.numel() for p in module.parameters())
                 self.logger.info(f"   - {name}: {params/1e6:.1f}M params")
             
@@ -726,7 +770,6 @@ class UnifiedInferenceSystem:
             
             # MEDIUM 모드에서는 CPU 초기화 강제
             if self.config.memory_mode == MemoryMode.MEDIUM:
-                import os
                 os.environ['FORCE_CPU_INIT'] = '1'
                 self.logger.info("   📌 MEDIUM 모드: Advanced Wrappers CPU 초기화 설정")
             
@@ -866,9 +909,9 @@ class UnifiedInferenceSystem:
                     wrapper.eval()
                     # MEDIUM 모드에서는 CPU로
                     if self.config.memory_mode == MemoryMode.MEDIUM:
-                        wrapper.to(torch.device('cpu'))
+                        self.advanced_wrappers[name] = wrapper.to(torch.device('cpu'))
                     else:
-                        wrapper.to(self.config.device)
+                        self.advanced_wrappers[name] = wrapper.to(self.config.device)
                 params = sum(p.numel() for p in wrapper.parameters() if hasattr(wrapper, 'parameters'))
                 self.logger.info(f"   - {name}: {params/1e6:.1f}M params")
             
@@ -988,7 +1031,7 @@ class UnifiedInferenceSystem:
                     self.logger.info(f"   - {name}: CPU 초기화 (동적 스왑 대기)")
                 else:
                     target_device = self.config.device
-                net.to(target_device)
+                self.phase_networks[name] = net.to(target_device)
                 params = sum(p.numel() for p in net.parameters())
                 self.logger.info(f"   - {name}: {params/1e6:.2f}M params")
             
@@ -1009,11 +1052,32 @@ class UnifiedInferenceSystem:
         self.logger.info("🔄 Dynamic Swap Manager 초기 초기화...")
         
         try:
-            from dynamic_swap_manager import DynamicSwapManager, set_swap_manager
+            from dynamic_swap_manager import DynamicSwapManager, WorkflowDSM, set_swap_manager, get_workflow_dsm
             
-            # DSM 싱글톤 인스턴스 생성 
+            # RedHeart DSM (Level 2) 싱글톤 인스턴스 생성 
             self.swap_manager = DynamicSwapManager.get_instance()
             set_swap_manager(self.swap_manager)
+            
+            # 워크플로우 DSM (Level 1) 초기화 - 플래그에 따라 선택적 활성화
+            if self.config.use_workflow_dsm:
+                self.workflow_dsm = get_workflow_dsm()
+                self.logger.info("   📊 2단계 DSM 구조 초기화:")
+                self.logger.info("      - Level 1: WorkflowDSM (Phase 간 GPU 관리)")
+                self.logger.info("      - Level 2: RedHeartDSM (모듈 간 세밀 제어)")
+            else:
+                self.workflow_dsm = None
+                self.logger.info("   📊 WorkflowDSM 비활성화 (--use-workflow-dsm 미사용)")
+            
+            # WorkflowDSM에서 사용할 컴포넌트 미리 등록 (나중에 실제 인스턴스로 업데이트)
+            from dynamic_swap_manager import SwapPriority
+            
+            # SentenceTransformer placeholder 등록
+            self.swap_manager.register_model(
+                'sentence_transformer',
+                nn.Linear(1, 1),  # placeholder
+                priority=SwapPriority.HIGH
+            )
+            self.logger.info("      - SentenceTransformer placeholder 등록")
             
             self.logger.info(f"   ✅ DSM 초기화 완료 (ID: {id(self.swap_manager)})")
             
@@ -1034,6 +1098,10 @@ class UnifiedInferenceSystem:
                 # API 모드 (GPT, Perplexity, DeepSeek)
                 self.logger.info(f"   🌐 API 모드 활성화: {self.config.llm_mode}")
                 
+                # API는 한국어를 직접 처리할 수 있으므로 번역기 비활성화
+                self.config.use_translator = False
+                self.logger.info("   🌐 API 모드 - 번역기 자동 비활성화 (API가 한국어 직접 처리)")
+                
                 # Dynamic Swap Manager 초기화 (이미 초기화되어 있지 않은 경우만)
                 if not hasattr(self, 'swap_manager') or self.swap_manager is None:
                     self.logger.info("   🔄 Dynamic Swap Manager 초기화...")
@@ -1047,43 +1115,85 @@ class UnifiedInferenceSystem:
                 else:
                     self.logger.info(f"   📌 DSM 이미 초기화됨 (ID: {id(self.swap_manager)})")
                 
-                # LLM 엔진 초기화
-                from llm_module.advanced_llm_engine import AdvancedLLMEngine, set_llm_engine
+                # LLM Plugin System 사용
+                from llm_plugin_system import LLMPluginManager, create_plugin, LLMBackend, LLMRequest
                 
-                self.llm_engine = AdvancedLLMEngine(use_api=self.config.llm_mode)
+                self.llm_plugin_manager = LLMPluginManager()
                 
-                # 전역 LLM 엔진 설정 (다른 모듈들이 사용할 수 있도록)
-                set_llm_engine(self.llm_engine)
+                # 백엔드 매핑
+                backend_map = {
+                    'gpt': LLMBackend.GPT,
+                    'perplexity': LLMBackend.GPT,  # GPT 호환 API
+                    'deepseek': LLMBackend.GPT,    # GPT 호환 API
+                }
                 
-                # Advanced Wrappers가 이미 로드된 경우 LLM 엔진 업데이트
-                if hasattr(self, 'advanced_wrappers') and self.advanced_wrappers:
-                    for wrapper_name, wrapper in self.advanced_wrappers.items():
-                        if hasattr(wrapper, 'llm_engine'):
-                            wrapper.llm_engine = self.llm_engine
-                            self.logger.info(f"   📌 {wrapper_name} LLM 엔진 업데이트 완료")
+                backend = backend_map.get(self.config.llm_mode, LLMBackend.GPT)
+                plugin = create_plugin(backend, {'api_key': os.environ.get('OPENAI_API_KEY', '')})
                 
-                self.logger.info(f"   ✅ {self.config.llm_mode.upper()} API 엔진 초기화 및 전역 설정 완료")
+                if plugin:
+                    await self.llm_plugin_manager.register_plugin(self.config.llm_mode, plugin)
+                    self.llm_plugin_manager.set_active_plugin(self.config.llm_mode)
+                    
+                    # 기존 코드 호환성을 위한 래퍼
+                    class LLMEngineWrapper:
+                        def __init__(self, plugin_manager):
+                            self.plugin_manager = plugin_manager
+                            
+                        async def generate(self, prompt):
+                            request = LLMRequest(prompt=prompt)
+                            response = await self.plugin_manager.generate(request)
+                            return response.text if response else ""
+                            
+                        async def generate_async(self, request):
+                            response = await self.plugin_manager.generate(request)
+                            return response
+                    
+                    self.llm_engine = LLMEngineWrapper(self.llm_plugin_manager)
+                    
+                    # Advanced Wrappers가 이미 로드된 경우 LLM 엔진 업데이트
+                    if hasattr(self, 'advanced_wrappers') and self.advanced_wrappers:
+                        for wrapper_name, wrapper in self.advanced_wrappers.items():
+                            if hasattr(wrapper, 'llm_engine'):
+                                wrapper.llm_engine = self.llm_engine
+                                self.logger.info(f"   📌 {wrapper_name} LLM 엔진 업데이트 완료")
+                    
+                    self.logger.info(f"   ✅ {self.config.llm_mode.upper()} 플러그인 초기화 완료")
+                else:
+                    self.logger.error(f"   ❌ {self.config.llm_mode} 플러그인 생성 실패")
                 
             elif self.config.llm_mode == "local":
                 # 로컬 LLM (Dolphin Llama3 8B) - 스왑 매니저 사용
                 self.logger.info("   메모리 스왑 매니저 초기화...")
                 
-                # 스왑 매니저 설정
-                swap_config = {
-                    'gpu_threshold': 7000,  # 8GB GPU 기준
-                    'ram_threshold': 16000,
-                    'llm_model_path': self.config.llm_model_path,
-                    'generate_explanation': True,
-                    'enable_optimization': True
-                }
+                # 로컬 LLM은 한국어를 직접 처리할 수 없으므로 번역기 자동 활성화
+                self.config.use_translator = True
+                self.logger.info("   🌐 로컬 LLM 모드 - 번역기 자동 활성화")
                 
-                self.swap_manager = SystemSwapManager(swap_config)
+                # UnifiedMemoryManager는 이미 초기화됨 (라인 1042)
+                # Local LLM을 위한 추가 설정만 수행
+                from unified_memory_manager import SwapPriority as UMM_SwapPriority
                 
-                # Red Heart를 RAM에 대기 (MD 문서: 초기 상태)
-                await self.swap_manager.initialize(
-                    red_heart_system=self,  # 현재 시스템 전달
-                    llm_model=None  # LLM은 아직 로드하지 않음
-                )
+                # WorkflowDSM에 LLM 엔진 등록
+                if hasattr(self, 'swap_manager') and self.swap_manager:
+                    from dynamic_swap_manager import SwapPriority
+                    self.swap_manager.register_model(
+                        'llm_engine',
+                        nn.Linear(1, 1),  # placeholder (실제 LLM은 나중에 로드)
+                        priority=SwapPriority.HIGH
+                    )
+                    self.logger.info("   📌 LLM 엔진을 WorkflowDSM에 등록")
+                
+                # 기존 SystemSwapManager 동작 에뮬레이션
+                # Red Heart 모듈들을 메모리 관리자에 등록
+                if hasattr(self, 'unified_model') and self.unified_model:
+                    self.unified_memory_manager.register_model(
+                        'unified_model',
+                        self.unified_model,
+                        priority=SwapPriority.MEDIUM,
+                        estimated_size_mb=625  # 실제 625M
+                    )
+                    # 초기에는 CPU에 유지
+                    self.unified_memory_manager.release_gpu('unified_model')
                 
                 self.logger.info("   ✅ 메모리 스왑 매니저 설정 완료")
                 self.logger.info("   📌 Red Heart는 RAM에, LLM은 필요시 로드")
@@ -1110,6 +1220,10 @@ class UnifiedInferenceSystem:
                 # Claude API 통합 (DSM 사용하지 않음, 직접 GPU 관리)
                 self.logger.info("   🌐 Claude API 모드 활성화 (DSM 비활성화)")
                 self.logger.info("   🎯 GPU 직접 관리 모드로 전환")
+                
+                # Claude는 한국어를 직접 처리할 수 있으므로 번역기 비활성화
+                self.config.use_translator = False
+                self.logger.info("   🌐 Claude 모드 - 번역기 자동 비활성화 (Claude가 한국어 직접 처리)")
                 
                 # GPU 직접 관리를 위한 헬퍼 클래스
                 import gc
@@ -1185,6 +1299,12 @@ class UnifiedInferenceSystem:
             elif self.config.llm_mode == "mcp":
                 # MCP 프로토콜
                 self.logger.info("   🌐 MCP 프로토콜 모드 활성화")
+                
+                # MCP는 백엔드에 따라 다를 수 있으므로, 
+                # 사용자가 명시적으로 설정하지 않았다면 기본적으로 번역기 활성화
+                if not hasattr(self.config, '_translator_explicitly_set'):
+                    self.config.use_translator = True
+                    self.logger.info("   🌐 MCP 모드 - 번역기 기본 활성화 (백엔드 미확정)")
                 
                 from llm_module.mcp_client import MCPClient, get_mcp_client
                 from llm_module.advanced_llm_engine import set_llm_engine
@@ -1560,6 +1680,107 @@ class UnifiedInferenceSystem:
             self.idle_learner = None
         """
     
+    async def _init_io_pipeline_system(self):
+        """새로운 I/O 분리 시스템 초기화"""
+        self.logger.info("🔌 I/O Pipeline 시스템 초기화 중...")
+        
+        try:
+            # 1. IOPipeline 초기화
+            from io_pipeline import IOPipeline
+            
+            self.io_pipeline = IOPipeline(
+                max_queue_size=self.config.get('queue_size', 100)
+            )
+            
+            self.logger.info("   ✅ IOPipeline 생성 완료")
+            
+            # 2. UnifiedMemoryManager 초기화 (기존 swap_manager 보완)
+            from unified_memory_manager import get_unified_memory_manager, MemoryMode as UMM_MemoryMode
+            
+            # 메모리 모드 매핑
+            memory_mode_map = {
+                MemoryMode.LIGHT: UMM_MemoryMode.UNIFIED,
+                MemoryMode.MEDIUM: UMM_MemoryMode.UNIFIED,
+                MemoryMode.HEAVY: UMM_MemoryMode.UNIFIED,
+            }
+            
+            umm_mode = memory_mode_map.get(self.config.memory_mode, UMM_MemoryMode.UNIFIED)
+            self.unified_memory_manager = get_unified_memory_manager(umm_mode)
+            
+            self.logger.info(f"   ✅ UnifiedMemoryManager 초기화 (모드: {umm_mode.value})")
+            
+            # 3. RedHeartCore 초기화
+            from red_heart_io import RedHeartCore
+            
+            self.red_heart_core = RedHeartCore(
+                io_pipeline=self.io_pipeline,
+                unified_model=self.unified_model,
+                config={
+                    'memory_mode': self.config.memory_mode.value,
+                    'device': str(self.config.device),
+                    'batch_size': self.config.batch_size
+                }
+            )
+            
+            # 기존 모듈들을 RedHeartCore에 등록
+            if self.unified_model:
+                self.red_heart_core.register_module(
+                    'unified_model', 
+                    self.unified_model,
+                    priority=self.unified_memory_manager.SwapPriority.CRITICAL
+                )
+            
+            if self.neural_analyzers:
+                self.red_heart_core.register_module(
+                    'neural_analyzers',
+                    self.neural_analyzers,
+                    priority=self.unified_memory_manager.SwapPriority.HIGH
+                )
+            
+            if self.advanced_wrappers:
+                self.red_heart_core.register_module(
+                    'advanced_wrappers',
+                    self.advanced_wrappers,
+                    priority=self.unified_memory_manager.SwapPriority.MEDIUM
+                )
+            
+            if self.emotion_hierarchy_processor:
+                self.red_heart_core.register_module(
+                    'emotion_circuit',
+                    self.emotion_hierarchy_processor,
+                    priority=self.unified_memory_manager.SwapPriority.MEDIUM
+                )
+            
+            # LLM 플러그인 매니저 등록
+            if self.llm_plugin_manager:
+                self.red_heart_core.register_module(
+                    'llm_plugin_manager',
+                    self.llm_plugin_manager,
+                    priority=self.unified_memory_manager.SwapPriority.LOW
+                )
+            
+            self.logger.info("   ✅ RedHeartCore 초기화 및 모듈 등록 완료")
+            
+            # 4. 처리 루프 시작
+            await self.red_heart_core.start_processing_loop()
+            
+            self.logger.info("   ✅ RedHeartCore 처리 루프 시작")
+            
+            # 5. 설정 업데이트 - 새로운 시스템 사용 플래그
+            self.config.use_io_pipeline = True
+            
+            self.logger.info("✅ I/O Pipeline 시스템 초기화 완료")
+            
+        except ImportError as e:
+            self.logger.warning(f"   ⚠️ I/O Pipeline 모듈 없음: {e}")
+            self.logger.info("   기존 동기 처리 방식 사용")
+            self.config.use_io_pipeline = False
+            
+        except Exception as e:
+            self.logger.error(f"   ❌ I/O Pipeline 초기화 실패: {e}")
+            self.config.use_io_pipeline = False
+            # 실패해도 기존 방식으로 계속 작동 가능
+    
     def _print_system_status(self):
         """시스템 상태 출력"""
         self.logger.info("\n📊 시스템 상태:")
@@ -1583,11 +1804,65 @@ class UnifiedInferenceSystem:
         self.logger.info(f"   LLM 모드: {self.config.llm_mode}")
         self.logger.info(f"   번역기: {'✅' if self.config.use_translator else '❌'}")
     
+    async def _llm_initial_analysis_independent(self, text: str) -> tuple[Optional[Dict], List]:
+        """LLM 초기 분석을 독립적으로 수행 (Advanced Wrappers 의존성 없음)"""
+        llm_initial_analysis = None
+        llm_scenarios = []
+        
+        if self.config.llm_mode != "none" and hasattr(self, 'llm_engine') and self.llm_engine:
+            self.logger.info("\n   🤖 ========== Phase 0: LLM 초기 분석 (독립 실행) ==========")
+            self.logger.info(f"   입력: {text}")
+            
+            try:
+                llm_prompt = f"""
+Analyze the following situation and provide initial analysis:
+
+Text: "{text}"
+
+Provide:
+1. Emotional state analysis (joy, sadness, anger, fear, surprise, disgust, neutral - scores 0-1)
+2. Three possible action scenarios the person might take
+3. Ethical considerations for each scenario
+4. Potential regret factors
+
+Format your response as JSON with:
+- emotions: dict of emotion_name: score
+- scenarios: list of scenario descriptions
+- ethics: list of ethical considerations
+- regret_factors: list of potential regret points
+"""
+                
+                llm_response = await self.llm_engine.generate(llm_prompt)
+                
+                # LLM 응답 파싱
+                if llm_response:
+                    # JSON 파싱 시도
+                    import json
+                    try:
+                        parsed = json.loads(llm_response)
+                        llm_initial_analysis = parsed
+                        llm_scenarios = parsed.get('scenarios', [])
+                        self.logger.info(f"   ✅ LLM 초기 분석 완료: {len(llm_scenarios)} 시나리오 생성")
+                    except:
+                        # JSON 파싱 실패시 텍스트로 저장
+                        llm_initial_analysis = {'raw_response': llm_response}
+                        self.logger.info("   ✅ LLM 초기 분석 완료 (텍스트 형식)")
+                        
+            except Exception as e:
+                self.logger.warning(f"   ⚠️ LLM 초기 분석 중 오류: {e}")
+        
+        return llm_initial_analysis, llm_scenarios
+    
     async def analyze(self, text: str, **kwargs) -> Dict[str, Any]:
         """텍스트 분석 (모든 모듈 활용)"""
         start_time = time.time()
         self.stats['total_requests'] += 1
         
+        # ========== 새로운 I/O Pipeline 시스템 사용 (활성화된 경우) ==========
+        if hasattr(self.config, 'use_io_pipeline') and self.config.use_io_pipeline and self.red_heart_core:
+            return await self._analyze_with_io_pipeline(text, **kwargs)
+        
+        # ========== 기존 동기 처리 방식 ==========
         try:
             # 캐시 확인 - kwargs를 JSON 문자열로 변환해 해시 가능하게 만듦
             import json
@@ -1605,107 +1880,29 @@ class UnifiedInferenceSystem:
                 self.logger.info(f"   번역 결과: {text}")
             
             # ========== Phase 0: LLM 초기 분석 (NEW) ==========
-            # LLM이 먼저 기초 추론과 시나리오를 제공
-            llm_initial_analysis = None
-            llm_scenarios = []
+            # WorkflowDSM Phase 전환: LLM
+            if hasattr(self, 'workflow_dsm') and self.workflow_dsm:
+                self.logger.info("   🔄 WorkflowDSM: LLM Phase 로드")
+                await self.workflow_dsm.load_phase('llm')
             
-            if self.config.llm_mode != "none" and hasattr(self, 'advanced_wrappers'):
-                self.logger.info("\n   🤖 ========== Phase 0: LLM 초기 분석 ==========")
-                self.logger.info(f"   입력: {text}")
-                
-                # Advanced Emotion Wrapper에서 LLM 사용
-                if 'advanced_emotion' in self.advanced_wrappers:
-                    try:
-                        emotion_wrapper = self.advanced_wrappers['advanced_emotion']
-                        # API 모드일 때는 self.llm_engine 사용
-                        llm_engine_to_use = None
-                        if self.config.llm_mode in ['gpt', 'claude', 'perplexity', 'deepseek', 'mcp'] and hasattr(self, 'llm_engine') and self.llm_engine:
-                            llm_engine_to_use = self.llm_engine
-                        elif hasattr(emotion_wrapper, 'llm_engine') and emotion_wrapper.llm_engine:
-                            llm_engine_to_use = emotion_wrapper.llm_engine
-                        
-                        if llm_engine_to_use:
-                            self.logger.info("   📝 LLM에게 초기 시나리오 생성 요청...")
-                            
-                            llm_prompt = f"""
-Analyze the following situation and provide initial analysis:
+            # LLM이 먼저 기초 추론과 시나리오를 제공 (독립 함수 사용)
+            llm_initial_analysis, llm_scenarios = await self._llm_initial_analysis_independent(text)
 
-Text: "{text}"
-
-Provide:
-1. Emotional state analysis (joy, sadness, anger, fear, surprise, disgust, neutral - scores 0-1)
-2. Three possible action scenarios the person might take
-3. Ethical considerations for each scenario
-4. Potential regret factors
-
-Respond in JSON format with keys:
-- "emotions": dict of emotion scores
-- "scenarios": list of 3 scenarios with "action", "ethical_score", "regret_potential"
-- "context": brief context understanding
-                            """.strip()
-                            
-                            # LLM 호출
-                            from llm_module.advanced_llm_engine import LLMRequest, TaskComplexity
-                            llm_request = LLMRequest(
-                                prompt=llm_prompt,
-                                task_type="initial_analysis",
-                                complexity=TaskComplexity.MODERATE,
-                                max_tokens=1000,
-                                temperature=0.3
-                            )
-                            llm_response_obj = await llm_engine_to_use.generate_async(llm_request)
-                            
-                            # LLMResponse 객체에서 텍스트 추출
-                            if llm_response_obj and llm_response_obj.success:
-                                llm_response = {'text': llm_response_obj.generated_text}
-                            else:
-                                llm_response = None
-                            
-                            if llm_response and 'text' in llm_response:
-                                import json
-                                try:
-                                    llm_initial_analysis = json.loads(llm_response['text'])
-                                    self.logger.info("   ✅ LLM 초기 분석 완료")
-                                    
-                                    # 감정 분석 결과 추출
-                                    if 'emotions' in llm_initial_analysis:
-                                        self.logger.info(f"   - 감정 상태: {llm_initial_analysis['emotions']}")
-                                    
-                                    # 시나리오 추출
-                                    if 'scenarios' in llm_initial_analysis:
-                                        llm_scenarios = llm_initial_analysis['scenarios']
-                                        self.logger.info(f"   - 생성된 시나리오: {len(llm_scenarios)}개")
-                                        for i, scenario in enumerate(llm_scenarios[:3]):
-                                            self.logger.info(f"     시나리오 {i+1}: {scenario.get('action', 'N/A')}")
-                                    
-                                    # 결과 저장
-                                    results['llm_initial'] = llm_initial_analysis
-                                    
-                                except json.JSONDecodeError:
-                                    # JSON 파싱 실패 시 텍스트 그대로 분석
-                                    self.logger.warning("   ⚠️ LLM 응답 JSON 파싱 실패")
-                                    llm_initial_analysis = {'raw_response': llm_response['text']}
-                                    # 텍스트에서 시나리오 추출 시도
-                                    if 'scenario' in llm_response['text'].lower():
-                                        # 간단한 텍스트 파싱으로 시나리오 추출
-                                        lines = llm_response['text'].split('\n')
-                                        for line in lines:
-                                            if 'scenario' in line.lower() or 'action' in line.lower():
-                                                llm_scenarios.append({'action': line.strip()})
-                                
-                        else:
-                            self.logger.info("   ⚠️ LLM 엔진이 없음, 건너뜀")
-                            
-                    except Exception as e:
-                        self.logger.warning(f"   ⚠️ LLM 초기 분석 실패: {e}")
-                        # 실패해도 계속 진행
-                else:
-                    self.logger.info("   ⚠️ Emotion Wrapper가 없음, LLM 초기 분석 건너뜀")
+            # WorkflowDSM Phase 전환: SentenceTransformer
+            if hasattr(self, 'workflow_dsm') and self.workflow_dsm:
+                self.logger.info("   🔄 WorkflowDSM: SentenceTransformer Phase 로드")
+                await self.workflow_dsm.load_phase('sentence_transformer')
+            
+            # 토크나이징 - enriched_embedding 플래그에 따라 LLM 분석 결과 포함 여부 결정
+            if self.config.enriched_embedding:
+                inputs = self._tokenize(text, llm_analysis=llm_initial_analysis, original_text=original_text)
             else:
-                self.logger.info("   ℹ️ LLM 모드 비활성화, 초기 분석 건너뜀")
+                inputs = self._tokenize(text)
             
-            # 토크나이징
-            inputs = self._tokenize(text)
+            # WorkflowDSM Phase 전환: RedHeart
+            if hasattr(self, 'workflow_dsm') and self.workflow_dsm:
+                self.logger.info("   🔄 WorkflowDSM: RedHeart Phase 로드")
+                await self.workflow_dsm.load_phase('redheart')
             
             results = {}
             
@@ -2336,35 +2533,35 @@ Respond in JSON format with keys:
                     
                     # 1. 백본과 헤드를 RAM으로 이동
                     if self.unified_model:
-                        self.unified_model.to('cpu')
+                        self.unified_model = self.unified_model.to('cpu')
                         self.logger.info("      - UnifiedModel → RAM")
                     
                     # 2. Neural Analyzers를 RAM으로 이동
                     if self.neural_analyzers:
                         for name, module in self.neural_analyzers.items():
-                            module.to('cpu')
+                            self.neural_analyzers[name] = module.to('cpu')
                         self.logger.info("      - Neural Analyzers → RAM")
                     
                     # 3. Advanced Wrappers를 RAM으로 이동
                     if self.advanced_wrappers:
                         for name, wrapper in self.advanced_wrappers.items():
                             if hasattr(wrapper, 'to'):
-                                wrapper.to('cpu')
+                                self.advanced_wrappers[name] = wrapper.to('cpu')
                         self.logger.info("      - Advanced Wrappers → RAM")
                     
                     # 4. Phase Networks를 RAM으로 이동
                     if self.phase_networks:
                         for name, network in self.phase_networks.items():
-                            network.to('cpu')
+                            self.phase_networks[name] = network.to('cpu')
                         self.logger.info("      - Phase Networks → RAM")
                     
                     # 5. DSP와 기타 모듈들을 RAM으로 이동
                     if self.dsp_simulator:
-                        self.dsp_simulator.to('cpu')
+                        self.dsp_simulator = self.dsp_simulator.to('cpu')
                         self.logger.info("      - DSP Simulator → RAM")
                     
                     if self.kalman_filter:
-                        self.kalman_filter.to('cpu')
+                        self.kalman_filter = self.kalman_filter.to('cpu')
                         self.logger.info("      - Kalman Filter → RAM")
                     
                     # 6. GPU 캐시 정리
@@ -2375,6 +2572,11 @@ Respond in JSON format with keys:
                     
                     # ========== Circuit 재실행 (GPU 여유 상태) ==========
                     if circuit_result is None and circuit_context_saved and self.emotion_hierarchy_processor:
+                        # WorkflowDSM Phase 전환: Circuit
+                        if hasattr(self, 'workflow_dsm') and self.workflow_dsm:
+                            self.logger.info("   🔄 WorkflowDSM: Circuit Phase 로드")
+                            await self.workflow_dsm.load_phase('circuit')
+                        
                         self.logger.info("   🔄 Circuit 재실행 (GPU 메모리 확보됨)...")
                         try:
                             # GPU에 벤담 계산기 등 로드
@@ -2401,6 +2603,11 @@ Respond in JSON format with keys:
                                 self.logger.info(f"   ✅ Circuit 재실행 성공 (신뢰도: {getattr(circuit_result, 'confidence', 0):.2f})")
                         except Exception as e:
                             self.logger.warning(f"   ⚠️ Circuit 재실행도 실패, 스킵: {e}")
+                    
+                    # WorkflowDSM Phase 전환: LLM Final
+                    if hasattr(self, 'workflow_dsm') and self.workflow_dsm:
+                        self.logger.info("   🔄 WorkflowDSM: LLM Final Phase로 전환")
+                        await self.workflow_dsm.swap_phases('circuit', 'llm')
                     
                     # LLMRequest 생성
                     from llm_module.advanced_llm_engine import LLMRequest, TaskComplexity
@@ -2850,8 +3057,8 @@ Respond in JSON format with keys:
             'positive_ratio': positive_count / len(recommendations) if recommendations else 0
         }
     
-    def _tokenize(self, text: str) -> Dict[str, torch.Tensor]:
-        """텍스트를 임베딩으로 변환"""
+    def _tokenize(self, text: str, llm_analysis: Optional[Dict] = None, original_text: Optional[str] = None) -> Dict[str, torch.Tensor]:
+        """텍스트를 임베딩으로 변환 (LLM 분석 결과 통합)"""
         # sentence_transformer를 사용한 임베딩 생성
         from sentence_transformer_singleton import get_sentence_transformer
         
@@ -2861,11 +3068,50 @@ Respond in JSON format with keys:
             device=str(self.config.device)
         )
         
-        # 텍스트를 임베딩으로 변환
-        self.logger.debug(f"입력 텍스트: {text[:50]}...")
-        self.logger.debug(f"텍스트 단어 수: {len(text.split())}")
+        # LLM 분석 결과가 있으면 통합 텍스트 생성
+        if llm_analysis:
+            # 원본 텍스트 (한국어) 포함
+            if original_text:
+                enriched_text = f"원본: {original_text}\n"
+            else:
+                enriched_text = ""
+            
+            # 번역된 텍스트
+            enriched_text += f"텍스트: {text}\n"
+            
+            # LLM 감정 분석 결과
+            if 'emotions' in llm_analysis:
+                enriched_text += f"감정 분석: {llm_analysis['emotions']}\n"
+            
+            # LLM 시나리오
+            if 'scenarios' in llm_analysis:
+                scenarios_str = " | ".join(llm_analysis['scenarios']) if isinstance(llm_analysis['scenarios'], list) else str(llm_analysis['scenarios'])
+                enriched_text += f"시나리오: {scenarios_str}\n"
+            
+            # 윤리적 고려사항
+            if 'ethics' in llm_analysis:
+                ethics_str = " | ".join(llm_analysis['ethics']) if isinstance(llm_analysis['ethics'], list) else str(llm_analysis['ethics'])
+                enriched_text += f"윤리: {ethics_str}\n"
+            
+            # 후회 요인
+            if 'regret_factors' in llm_analysis:
+                regret_str = " | ".join(llm_analysis['regret_factors']) if isinstance(llm_analysis['regret_factors'], list) else str(llm_analysis['regret_factors'])
+                enriched_text += f"후회 요인: {regret_str}\n"
+            
+            self.logger.info("   📊 LLM 분석 결과를 통합한 풍부한 텍스트 생성 완료")
+            self.logger.debug(f"통합 텍스트 길이: {len(enriched_text)} 문자")
+            
+            # 통합 텍스트를 임베딩
+            text_to_embed = enriched_text
+        else:
+            # LLM 분석이 없으면 원본 텍스트만 사용
+            text_to_embed = text
         
-        embeddings = model.encode([text])  # List[str] 입력
+        # 텍스트를 임베딩으로 변환
+        self.logger.debug(f"입력 텍스트: {text_to_embed[:50]}...")
+        self.logger.debug(f"텍스트 단어 수: {len(text_to_embed.split())}")
+        
+        embeddings = model.encode([text_to_embed])  # List[str] 입력
         self.logger.debug(f"encode 반환 타입: {type(embeddings)}")
         self.logger.debug(f"embeddings 길이: {len(embeddings) if hasattr(embeddings, '__len__') else 'N/A'}")
         
@@ -2886,15 +3132,9 @@ Respond in JSON format with keys:
             embedding_tensor = embedding_tensor.unsqueeze(0).unsqueeze(0)
             self.logger.debug(f"unsqueeze 후 shape: {embedding_tensor.shape}")
             
-            # 패딩을 위해 max_seq_length로 확장
-            # 단순히 첫 번째 위치만 실제 임베딩, 나머지는 0 패딩
-            padded_tensor = torch.zeros(
-                1, self.config.max_seq_length, embedding_tensor.shape[-1],
-                device=self.config.device, dtype=torch.float32
-            )
-            padded_tensor[:, 0, :] = embedding_tensor[0, 0, :]
-            embedding_tensor = padded_tensor
-            self.logger.debug(f"최종 패딩 후 shape: {embedding_tensor.shape}")
+            # 패딩 제거: 단일 임베딩만 사용 (메모리 512배 절감)
+            # UnifiedModel이 실제로는 단일 임베딩만 처리하므로 패딩 불필요
+            self.logger.debug(f"최종 shape (패딩 없음): {embedding_tensor.shape}")
         
         return {'embeddings': embedding_tensor}
     
@@ -3013,6 +3253,94 @@ Respond in JSON format with keys:
         
         return processed
     
+    async def _analyze_with_io_pipeline(self, text: str, **kwargs) -> Dict[str, Any]:
+        """IOPipeline과 RedHeartCore를 사용한 비동기 분석"""
+        self.logger.info("🔌 I/O Pipeline 시스템으로 분석 중...")
+        
+        try:
+            from data_structures import TaskMessage, TaskType, Priority
+            
+            # TaskMessage 생성
+            task = TaskMessage(
+                module='red_heart',
+                task_type=kwargs.get('task_type', 'emotion'),
+                data={'text': text, **kwargs},
+                priority=kwargs.get('priority', Priority.NORMAL.value),
+                task_id=f"analyze_{int(time.time()*1000)}",
+                requires_gpu=True,
+                timeout=kwargs.get('timeout', 60.0)
+            )
+            
+            # RedHeartCore로 처리
+            result = await self.red_heart_core.process_task(task)
+            
+            # 결과 확인
+            if result.is_success():
+                self.stats['successful'] += 1
+                
+                # 처리 시간 업데이트
+                if result.processing_time:
+                    self.stats['avg_time'] = (
+                        (self.stats['avg_time'] * (self.stats['successful'] - 1) + result.processing_time) 
+                        / self.stats['successful']
+                    )
+                
+                # 결과 정리
+                output = result.data
+                output['processing_time'] = result.processing_time
+                output['task_id'] = result.task_id
+                output['status'] = 'success'
+                
+                # 캐시 저장
+                import json
+                kwargs_str = json.dumps(kwargs, sort_keys=True, default=str)
+                cache_key = f"{text[:50]}_{hash(kwargs_str)}"
+                self.cache[cache_key] = output
+                
+                self.logger.info(f"✅ I/O Pipeline 처리 완료 (시간: {result.processing_time:.2f}초)")
+                return output
+                
+            else:
+                # 에러 처리 - 폴백 없이 시스템 정지
+                self.stats['failed'] += 1
+                self.logger.error(f"❌ I/O Pipeline 처리 실패: {result.error}")
+                self.logger.error(f"📊 실패 통계:")
+                self.logger.error(f"   - Task ID: {result.task_id}")
+                self.logger.error(f"   - Module: {result.module}")
+                self.logger.error(f"   - Processing Time: {result.processing_time:.2f}초" if result.processing_time else "   - Processing Time: N/A")
+                self.logger.error(f"   - Error Type: {type(result.error).__name__ if result.error else 'Unknown'}")
+                self.logger.error(f"   - Metadata: {result.metadata}")
+                
+                # I/O Pipeline 실패 시 시스템 정지 (폴백 방지를 위한 의도적 정지)
+                self.logger.critical("🛑 I/O Pipeline 실패로 시스템 정지")
+                self.logger.critical("   동기 모드 폴백은 아키텍처 일관성을 위해 비활성화됨")
+                import sys
+                sys.exit(1)
+                
+        except ImportError as e:
+            self.logger.error(f"❌ I/O Pipeline 모듈 임포트 실패: {e}")
+            self.logger.error(f"   필요 모듈: data_structures, io_pipeline, red_heart_io")
+            self.logger.error(f"   설치 확인: pip install -r requirements.txt")
+            
+            # I/O Pipeline 모듈 없음 - 시스템 정지
+            self.logger.critical("🛑 I/O Pipeline 필수 모듈 누락으로 시스템 정지")
+            import sys
+            sys.exit(1)
+            
+        except Exception as e:
+            self.logger.error(f"❌ I/O Pipeline 처리 중 예외: {e}")
+            import traceback
+            self.logger.error(f"📋 스택 트레이스:\n{traceback.format_exc()}")
+            self.logger.error(f"📊 시스템 상태:")
+            self.logger.error(f"   - Red Heart Core: {self.red_heart_core is not None}")
+            self.logger.error(f"   - IO Pipeline: {self.io_pipeline is not None}")
+            self.logger.error(f"   - Memory Manager: {self.unified_memory_manager is not None}")
+            
+            # I/O Pipeline 예외 - 시스템 정지
+            self.logger.critical("🛑 I/O Pipeline 예외로 시스템 정지")
+            import sys
+            sys.exit(1)
+    
     def _is_korean(self, text: str) -> bool:
         """한국어 텍스트 감지"""
         import re
@@ -3062,6 +3390,23 @@ Respond in JSON format with keys:
     async def cleanup(self):
         """시스템 정리 및 종료"""
         self.logger.info("🧹 시스템 정리 중...")
+        
+        # I/O Pipeline 시스템 정리
+        if hasattr(self, 'red_heart_core') and self.red_heart_core:
+            try:
+                await self.red_heart_core.stop_processing_loop()
+                self.logger.info("   ✅ RedHeartCore 처리 루프 정지")
+            except Exception as e:
+                self.logger.warning(f"   ⚠️ RedHeartCore 정지 중 오류: {e}")
+        
+        # UnifiedModel의 executor 정리
+        if hasattr(self, 'unified_model') and self.unified_model:
+            if hasattr(self.unified_model, 'cleanup_executor'):
+                try:
+                    self.unified_model.cleanup_executor()
+                    self.logger.info("   ✅ UnifiedModel executor 정리")
+                except Exception as e:
+                    self.logger.warning(f"   ⚠️ UnifiedModel executor 정리 오류: {e}")
         
         # 유휴 학습 시스템 정지
         if self.idle_learner:
@@ -3199,12 +3544,73 @@ async def main():
     parser.add_argument('--verbose', action='store_true', help='상세 로그')
     parser.add_argument('--debug', action='store_true', help='디버그 모드')
     
+    # 번역기 옵션
+    parser.add_argument('--use-translator', action='store_true', 
+                       help='번역기 강제 활성화 (기본: LLM 타입에 따라 자동)')
+    parser.add_argument('--no-translator', action='store_true',
+                       help='번역기 강제 비활성화 (기본: LLM 타입에 따라 자동)')
+    
     # 메모리 모드 직접 선택 옵션 추가
     parser.add_argument('--memory-mode', 
                        choices=['light', 'medium', 'heavy'],
                        help='메모리 모드 선택 (기본: 자동)')
     
+    # I/O Pipeline 시스템 사용
+    parser.add_argument('--use-io-pipeline', action='store_true',
+                       help='새로운 비동기 I/O Pipeline 시스템 사용')
+    parser.add_argument('--use-workflow-dsm', action='store_true',
+                       help='WorkflowDSM 2레벨 메모리 관리 시스템 사용')
+    parser.add_argument('--enriched-embedding', action='store_true',
+                       help='LLM 분석 결과를 포함한 통합 임베딩 사용')
+    
     args = parser.parse_args()
+    
+    # Claude 모드일 경우 독립 워크플로우로 전환
+    if args.llm == 'claude':
+        logger.info("🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...")
+        
+        # Claude 모드 환경변수 설정 - 로컬 LLM 비활성화
+        os.environ['REDHEART_CLAUDE_MODE'] = '1'
+        logger.info("📌 REDHEART_CLAUDE_MODE 환경변수 설정 - 로컬 LLM 엔진 비활성화")
+        
+        # Claude 모드에서도 translator를 미리 초기화하고 전역 등록
+        # 이렇게 하면 claude_inference.py에서 사용 가능
+        logger.info("📌 전역 모듈 사전 초기화 중...")
+        from local_translator import LocalTranslator
+        from config import register_system_module
+        
+        translator = LocalTranslator()
+        register_system_module('translator', translator)
+        logger.info("   ✅ 번역기 전역 등록 완료")
+        
+        # Claude 모드 환경변수 설정 - 불필요한 모듈 로드 방지
+        os.environ['REDHEART_CLAUDE_MODE'] = '1'
+        logger.info("📌 Claude 모드 환경변수 설정: REDHEART_CLAUDE_MODE=1")
+        
+        # subprocess 대신 직접 import하여 같은 프로세스에서 실행
+        # 이렇게 하면 전역 모듈 레지스트리를 공유할 수 있음
+        import claude_inference
+        
+        # argparse 인자를 claude_inference에 전달하기 위한 설정
+        class ClaudeArgs:
+            def __init__(self):
+                self.text = args.text or 'AI 윤리적 문제 해결'
+                self.epoch = args.epoch
+                self.debug = args.debug
+        
+        claude_args = ClaudeArgs()
+        
+        logger.info(f"📌 Claude Inference 직접 실행: text={claude_args.text}, epoch={claude_args.epoch}, debug={claude_args.debug}")
+        
+        # 직접 main 함수 호출 (같은 프로세스, 같은 이벤트 루프에서 실행)
+        # main() 함수가 이미 async이고 이벤트 루프 내에서 실행되고 있으므로 await 사용
+        try:
+            await claude_inference.main(claude_args)
+            logger.info("✅ Claude Inference 완료")
+            return  # 정상적으로 main() 함수 종료
+        except Exception as e:
+            logger.error(f"Claude Inference 실행 실패: {e}")
+            raise  # 예외를 상위로 전파
     
     # 설정 생성
     config = InferenceConfig(
@@ -3218,8 +3624,20 @@ async def main():
         use_phase_networks=not args.no_phase,
         llm_mode=args.llm,
         verbose=args.verbose,
-        debug=args.debug
+        debug=args.debug,
+        use_io_pipeline=args.use_io_pipeline,  # I/O Pipeline 사용 플래그
+        use_workflow_dsm=args.use_workflow_dsm,  # WorkflowDSM 사용 플래그
+        enriched_embedding=args.enriched_embedding  # 통합 임베딩 사용 플래그
     )
+    
+    # 번역기 설정 처리
+    if args.use_translator:
+        config.use_translator = True
+        config._translator_explicitly_set = True  # 명시적 설정 플래그
+    elif args.no_translator:
+        config.use_translator = False
+        config._translator_explicitly_set = True  # 명시적 설정 플래그
+    # 명시적 설정이 없으면 LLM 타입에 따라 자동 설정 (이미 구현됨)
     
     # 메모리 모드 설정
     if args.memory_mode:

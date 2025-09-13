@@ -819,8 +819,11 @@ class AdvancedSURDAnalyzer:
                 self.logger.warning(f"새로운 SURD 모델 초기화 실패: {e}")
                 self.new_models_available = False
         
-        # LLM 엔진 연결
-        if self.llm_integration_available:
+        # LLM 엔진 연결 (Claude 모드일 때는 비활성화)
+        if os.environ.get('REDHEART_CLAUDE_MODE') == 'true':
+            self.logger.info("📦 Claude 모드 감지 - 로컬 LLM 엔진 비활성화")
+            self.llm_integration_available = False
+        elif self.llm_integration_available:
             try:
                 self.llm_engine = get_llm_engine()
                 self.logger.info("LLM 엔진 연결 완료")

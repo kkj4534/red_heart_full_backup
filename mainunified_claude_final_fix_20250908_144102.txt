@@ -1,0 +1,11 @@
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO | 🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO | 📌 전역 모듈 사전 초기화 중...
+2025-09-08 14:41:19 | local_translator | INFO | LocalTranslator 생성 - lazy loading 모드
+2025-09-08 14:41:19 | RedHeart.Config | INFO | 🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+2025-09-08 14:41:19 | RedHeart.Config | INFO | 🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO |    ✅ 번역기 전역 등록 완료
+2025-09-08 14:41:19 | RedHeart.MainUnified | INFO | 📌 Claude Inference 직접 실행: text=AI 윤리적 문제 해결, epoch=50, debug=True
+2025-09-08 14:41:19 | RedHeart.MainUnified | ERROR | Claude Inference 실행 실패: asyncio.run() cannot be called from a running event loop

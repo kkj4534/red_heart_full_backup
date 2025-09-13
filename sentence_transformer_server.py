@@ -141,8 +141,23 @@ class SentenceTransformerServer:
                     snapshot_dirs = [d for d in os.listdir(snapshots_dir) 
                                    if os.path.isdir(os.path.join(snapshots_dir, d))]
                     if snapshot_dirs:
-                        # 가장 최근 스냅샷 사용
-                        model_path = os.path.join(snapshots_dir, snapshot_dirs[0])
+                        # 유효한 스냅샷 찾기 (config.json이 있는 스냅샷 우선)
+                        valid_snapshot = None
+                        for snapshot in snapshot_dirs:
+                            snapshot_path = os.path.join(snapshots_dir, snapshot)
+                            # config.json 파일이 있는지 확인
+                            if os.path.exists(os.path.join(snapshot_path, 'config.json')) or \
+                               os.path.islink(os.path.join(snapshot_path, 'config.json')):
+                                valid_snapshot = snapshot_path
+                                self.logger.info(f"유효한 스냅샷 발견: {snapshot_path}")
+                                break
+                        
+                        # 유효한 스냅샷이 없으면 첫 번째 사용
+                        if not valid_snapshot:
+                            valid_snapshot = os.path.join(snapshots_dir, snapshot_dirs[0])
+                            self.logger.warning(f"config.json이 없는 스냅샷 사용: {valid_snapshot}")
+                        
+                        model_path = valid_snapshot
                         self.logger.info(f"캐시된 모델 발견: {model_path}")
                         
                         # 모델 파일 존재 확인
@@ -158,17 +173,26 @@ class SentenceTransformerServer:
                 try:
                     self.logger.info(f"캐시된 모델 직접 로드 중: {model_path}")
                     
-                    # 방법 1: 캐시 경로에서 직접 로드 (local_files_only 추가)
+                    # 심볼릭 링크 확인 및 실제 경로 해결
+                    real_model_path = os.path.realpath(model_path)
+                    self.logger.info(f"실제 모델 경로: {real_model_path}")
+                    
+                    # 방법 1: 캐시 경로에서 직접 로드 (local_files_only 제거 - 심볼릭 링크 문제)
                     self.model = SentenceTransformer(
                         model_path,
-                        device=device,
-                        local_files_only=True
+                        device=device
+                        # local_files_only=True 제거 - 심볼릭 링크 문제 회피
                     )
                     
                     self.logger.info(f"캐시된 모델 로드 성공: {model_path}")
                     
                 except Exception as e:
                     self.logger.warning(f"직접 로드 실패, 대체 방법 시도: {e}")
+                    
+                    # model_path가 None인 경우 처리
+                    if model_path is None or not os.path.exists(model_path):
+                        self.logger.error(f"model_path가 유효하지 않음: {model_path}")
+                        raise FileNotFoundError(f"모델 경로를 찾을 수 없습니다: {model_name}")
                     
                     # 방법 2: transformers 라이브러리로 수동 로드
                     from transformers import AutoModel, AutoTokenizer
@@ -281,9 +305,12 @@ class SentenceTransformerServer:
             with torch.no_grad():
                 embeddings = self.model.encode(texts, **kwargs)
             
-            # numpy array를 list로 변환 (JSON 직렬화용)
+            # numpy array 또는 torch tensor를 list로 변환 (JSON 직렬화용)
             if isinstance(embeddings, np.ndarray):
                 embeddings_list = embeddings.tolist()
+            elif torch.is_tensor(embeddings):
+                # torch tensor인 경우 CPU로 이동 후 numpy 변환 후 리스트로
+                embeddings_list = embeddings.cpu().numpy().tolist()
             else:
                 embeddings_list = embeddings
             
@@ -375,6 +402,116 @@ class SentenceTransformerServer:
                 "traceback": traceback.format_exc()
             }
     
+    def swap_to_cpu(self) -> Dict[str, Any]:
+        """
+        모델을 GPU에서 CPU/RAM으로 이동 (GPU 메모리 해제)
+        """
+        try:
+            if self.model is None:
+                return {
+                    "status": "success",
+                    "result": {"message": "모델이 로드되지 않음"}
+                }
+            
+            # 현재 device 확인
+            if self.device == "cpu":
+                return {
+                    "status": "success",
+                    "result": {"message": "이미 CPU에 있음"}
+                }
+            
+            self.logger.info(f"모델을 GPU에서 CPU로 이동: {self.model_name}")
+            
+            # 모델을 CPU로 이동
+            self.model = self.model.to('cpu')
+            
+            # GPU 캐시 정리
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+                torch.cuda.synchronize()
+            
+            # device 정보 업데이트
+            prev_device = self.device
+            self.device = "cpu"
+            
+            self.logger.info(f"모델 이동 완료: {prev_device} → cpu")
+            
+            return {
+                "status": "success",
+                "result": {
+                    "message": f"모델을 {prev_device}에서 cpu로 이동",
+                    "current_device": "cpu"
+                }
+            }
+            
+        except Exception as e:
+            error_msg = f"GPU→CPU 스왑 실패: {str(e)}"
+            self.logger.error(error_msg)
+            return {
+                "status": "error",
+                "error": error_msg
+            }
+    
+    def swap_to_gpu(self, target_device: str = None) -> Dict[str, Any]:
+        """
+        모델을 CPU/RAM에서 GPU로 이동
+        """
+        try:
+            if self.model is None:
+                return {
+                    "status": "error",
+                    "error": "모델이 로드되지 않음"
+                }
+            
+            # target_device가 없으면 원래 device 사용
+            if target_device is None:
+                # 원래 GPU device가 있었으면 그것을 사용
+                if hasattr(self, '_original_device') and 'cuda' in self._original_device:
+                    target_device = self._original_device
+                else:
+                    target_device = "cuda"
+            
+            # 이미 GPU에 있으면 스킵
+            if self.device == target_device:
+                return {
+                    "status": "success",
+                    "result": {"message": f"이미 {target_device}에 있음"}
+                }
+            
+            self.logger.info(f"모델을 CPU에서 GPU로 이동: {self.model_name} → {target_device}")
+            
+            # GPU 사용 가능 확인
+            if not torch.cuda.is_available():
+                return {
+                    "status": "error",
+                    "error": "GPU를 사용할 수 없습니다"
+                }
+            
+            # 모델을 GPU로 이동
+            self.model = self.model.to(target_device)
+            
+            # device 정보 업데이트
+            prev_device = self.device
+            self.device = target_device
+            
+            self.logger.info(f"모델 이동 완료: {prev_device} → {target_device}")
+            
+            return {
+                "status": "success",
+                "result": {
+                    "message": f"모델을 {prev_device}에서 {target_device}로 이동",
+                    "current_device": target_device
+                }
+            }
+            
+        except Exception as e:
+            error_msg = f"CPU→GPU 스왑 실패: {str(e)}"
+            self.logger.error(error_msg)
+            return {
+                "status": "error",
+                "error": error_msg
+            }
+    
     def process_request(self, request: Dict[str, Any]) -> Dict[str, Any]:
         """
         요청 처리 메인 함수
@@ -400,6 +537,10 @@ class SentenceTransformerServer:
                         "error": "model_name이 필요합니다"
                     }
                 
+                # 원래 device 저장 (나중에 swap_to_gpu에서 사용)
+                if device and 'cuda' in device:
+                    self._original_device = device
+                
                 return self.load_model(model_name, device, cache_folder)
             
             elif action == "embed":
@@ -413,6 +554,13 @@ class SentenceTransformerServer:
                     }
                 
                 return self.encode_texts(texts, **kwargs)
+            
+            elif action == "swap_to_cpu":
+                return self.swap_to_cpu()
+            
+            elif action == "swap_to_gpu":
+                target_device = data.get("device")
+                return self.swap_to_gpu(target_device)
             
             elif action == "health":
                 return self.get_health_status()
@@ -428,7 +576,7 @@ class SentenceTransformerServer:
             else:
                 return {
                     "status": "error",
-                    "error": f"알 수 없는 action: {action}. 지원되는 action: load, embed, health, shutdown"
+                    "error": f"알 수 없는 action: {action}. 지원되는 action: load, embed, swap_to_cpu, swap_to_gpu, health, shutdown"
                 }
                 
         except Exception as e:

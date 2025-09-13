@@ -1,0 +1,13 @@
+2025-09-08 09:16:45 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-08 09:16:45 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-08 09:16:45 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+usage: main_unified.py [-h] [--text TEXT]
+                       [--mode {inference,test,demo,production}]
+                       [--checkpoint CHECKPOINT] [--epoch EPOCH] [--no-neural]
+                       [--no-wrappers] [--no-dsp] [--no-phase]
+                       [--llm {none,local,claude,mcp,gpt,perplexity,deepseek}]
+                       [--batch-size BATCH_SIZE] [--device DEVICE] [--verbose]
+                       [--debug] [--use-translator] [--no-translator]
+                       [--memory-mode {light,medium,heavy}]
+                       [--use-io-pipeline]
+main_unified.py: error: unrecognized arguments: --epochs 50 --use-workflow-dsm --enriched-embedding

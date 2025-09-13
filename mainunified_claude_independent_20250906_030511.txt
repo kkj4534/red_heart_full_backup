@@ -1,0 +1,32 @@
+2025-09-06 03:05:27 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-06 03:05:27 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-06 03:05:27 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-06 03:05:27 | RedHeart.MainUnified | INFO | 🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...
+2025-09-06 03:05:27 | RedHeart.MainUnified | INFO | 📌 실행 명령: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3 claude_inference.py --text AI 윤리적 문제 해결 --epoch 50 --debug
+2025-09-06 03:05:37 | ClaudeInference | INFO | ======================================================================
+2025-09-06 03:05:37 | ClaudeInference | INFO | 🚀 Claude API 독립 추론 시스템 초기화
+2025-09-06 03:05:37 | ClaudeInference | INFO | ======================================================================
+2025-09-06 03:05:37 | ClaudeInference | INFO | 📌 에폭: 50
+2025-09-06 03:05:37 | ClaudeInference | INFO | 📌 디바이스: cuda
+2025-09-06 03:05:37 | ClaudeInference | INFO | 📌 디버그 모드: True
+2025-09-06 03:05:37 | ClaudeInference | INFO | 
+📦 Phase 1: UnifiedModel 로드...
+2025-09-06 03:05:46 | sentence_transformer_singleton | INFO | SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+2025-09-06 03:05:46 | ClaudeInference | ERROR | ❌ 초기화 실패: EnhancedCheckpointManager.__init__() got an unexpected keyword argument 'save_dir'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 55, in initialize
+    await self._load_unified_model()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 81, in _load_unified_model
+    checkpoint_manager = EnhancedCheckpointManager(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EnhancedCheckpointManager.__init__() got an unexpected keyword argument 'save_dir'
+2025-09-06 03:05:46 | ClaudeInference | ERROR | ❌ 실행 실패: EnhancedCheckpointManager.__init__() got an unexpected keyword argument 'save_dir'
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 347, in main
+    await system.initialize()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 55, in initialize
+    await self._load_unified_model()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 81, in _load_unified_model
+    checkpoint_manager = EnhancedCheckpointManager(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: EnhancedCheckpointManager.__init__() got an unexpected keyword argument 'save_dir'

@@ -23,7 +23,8 @@ from datetime import datetime
 import json
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
-from transformers import pipeline, AutoTokenizer, AutoModel
+from transformers import pipeline, AutoTokenizer
+from sentence_transformer_singleton import SentenceTransformerManager
 import scipy.stats as stats  
 from scipy.optimize import minimize_scalar
 import threading
@@ -179,43 +180,31 @@ class TransformerContextAnalyzer:
         self.korean_classifier = None  # 한국어 전용 분류기 비활성화
         self.logger.info("한국어 감정 분석은 번역 후 영어 모델 사용")
         
-        # FORCE_CPU_INIT 모드에서는 GPU 로더 건너뛰기
-        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
-            # 직접 CPU 로드 (GPU 로더 우회)
-            self.context_model = AutoModel.from_pretrained(
-                "sentence-transformers/all-MiniLM-L6-v2"
-            ).to('cpu')
-            self.logger.info("📌 FORCE_CPU_INIT: 문맥 임베딩 모델 CPU 직접 로드")
-        else:
-            # 문맥 임베딩 모델 (순차적 로딩)
-            def load_context_model():
-                return AutoModel.from_pretrained(
-                    "sentence-transformers/all-MiniLM-L6-v2"
-                ).to(torch.device('cuda'))
-            
-            # gpu_loader가 정의되지 않았으면 import
-            if 'gpu_loader' not in locals():
-                from config import get_gpu_loader
-                gpu_loader = get_gpu_loader()
-            
-            context_device, context_model = gpu_loader.request_gpu_loading(
-                model_id="bentham_context_model",
-                priority=ModelPriority.LOW,
-                estimated_memory_mb=732,
-                loading_function=load_context_model
-            )
-            
-            if context_device.type == 'cuda' and context_model is not None:
-                self.context_model = context_model
-            else:
-                self.context_model = AutoModel.from_pretrained(
-                    "sentence-transformers/all-MiniLM-L6-v2"
-                ).to('cpu')
-            self.logger.info(f"문맥 임베딩 모델 순차 로드 완료: {context_device}")
+        # SentenceTransformer 싱글톤 사용하여 중복 로드 방지
+        st_singleton = SentenceTransformerManager()
         
-        self.context_tokenizer = AutoTokenizer.from_pretrained(
-            "sentence-transformers/all-MiniLM-L6-v2"
-        )
+        # paraphrase-multilingual-mpnet-base-v2 모델 가져오기 (이미 로드되어 있으면 재사용)
+        # Claude 모드에서 all-MiniLM-L6-v2가 없으므로 다국어 모델 사용
+        self.context_model = st_singleton.get_model("sentence-transformers/paraphrase-multilingual-mpnet-base-v2")
+        
+        # FORCE_CPU_INIT 모드 처리
+        if os.environ.get('FORCE_CPU_INIT', '0') == '1':
+            self.context_model = self.context_model.to('cpu')
+            self.logger.info("📌 FORCE_CPU_INIT: 문맥 임베딩 모델 CPU 이동")
+        else:
+            # SentenceTransformerProxy의 경우 디바이스 정보를 다르게 처리
+            if hasattr(self.context_model, '_device'):
+                device = self.context_model._device
+            else:
+                # fallback: cuda가 사용 가능하면 cuda, 아니면 cpu
+                device = 'cuda' if torch.cuda.is_available() else 'cpu'
+            self.logger.info(f"문맥 임베딩 모델 싱글톤 사용: {device}")
+        
+        # 토크나이저는 싱글톤 매니저에서 가져오기 (중복 로드 방지)
+        # 이미 global import가 있으므로 로컬 import 제거
+        # 토크나이저는 모델과 함께 관리되므로 직접 로드는 피함
+        # context_model이 이미 존재하면 그것을 활용
+        self.context_tokenizer = None  # 필요시 런타임에 로드
         
         logger.info("트랜스포머 맥락 분석기 초기화 완료")
         
@@ -267,16 +256,19 @@ class TransformerContextAnalyzer:
             
             # 3. 맥락 임베딩
             with torch.no_grad():
-                inputs = self.context_tokenizer(
-                    text, return_tensors="pt", 
-                    truncation=True, max_length=512
-                )
-                # Context model과 같은 디바이스로 이동
-                inputs = {k: v.to(next(self.context_model.parameters()).device) for k, v in inputs.items()}
+                # SentenceTransformerProxy의 encode 메서드 사용
+                # context_tokenizer가 None이므로 context_model.encode 직접 사용
+                embeddings = self.context_model.encode(text, convert_to_tensor=True)
                 
-                outputs = self.context_model(**inputs)
-                embeddings = outputs.last_hidden_state.mean(dim=1)
-                results['context_embedding'] = embeddings.cpu().numpy()
+                # 텐서로 변환된 임베딩 처리
+                if torch.is_tensor(embeddings):
+                    results['context_embedding'] = embeddings.cpu().numpy()
+                elif isinstance(embeddings, list):
+                    # 리스트인 경우 numpy array로 변환
+                    import numpy as np
+                    results['context_embedding'] = np.array(embeddings)
+                else:
+                    results['context_embedding'] = embeddings
                 
             # 4. 복잡도 분석
             complexity_metrics = self._analyze_complexity(text)
@@ -416,7 +408,19 @@ class AdvancedWeightLayer:
             
         # 맥락 임베딩 (처음 20차원만 사용)
         if hasattr(context, 'context_embedding') and context.context_embedding is not None:
-            embedding = context.context_embedding.flatten()[:20]
+            # numpy array로 확실히 변환
+            import numpy as np
+            if isinstance(context.context_embedding, list):
+                embedding = np.array(context.context_embedding)
+            else:
+                embedding = context.context_embedding
+            
+            # flatten과 슬라이싱
+            if hasattr(embedding, 'flatten'):
+                embedding = embedding.flatten()[:20]
+            else:
+                embedding = np.array(embedding).flatten()[:20]
+            
             features.extend(embedding.tolist())
         else:
             features.extend([0.0] * 20)
@@ -1572,10 +1576,12 @@ class AdvancedBenthamCalculator:
         if self.scenario_system_enabled:
             try:
                 # 3뷰 시나리오 분석 수행 - 이벤트 루프 문제 해결
-                # 프로젝트 규칙: 근본적 해결 - 동기 버전 사용
-                import nest_asyncio
-                nest_asyncio.apply()
-                scenario_analysis = asyncio.run(self.three_view_system.analyze_three_view_scenarios(input_data))
+                # 프로젝트 규칙: 근본적 해결 - run_async_safely 사용
+                from config import run_async_safely
+                scenario_analysis = run_async_safely(
+                    self.three_view_system.analyze_three_view_scenarios(input_data),
+                    timeout=120.0
+                )
                 
                 # 시나리오 결과를 벤담 계산에 통합
                 enhanced_result = self._integrate_scenario_analysis(input_data, scenario_analysis, use_cache)
@@ -3271,7 +3277,18 @@ class AdvancedBenthamCalculator:
             
         # 맥락 임베딩 요약 (주성분 분석)
         if hasattr(context, 'context_embedding') and context.context_embedding is not None:
-            embedding = context.context_embedding.flatten()
+            # numpy array로 확실히 변환
+            if isinstance(context.context_embedding, list):
+                embedding = np.array(context.context_embedding)
+            else:
+                embedding = context.context_embedding
+            
+            # flatten 처리
+            if hasattr(embedding, 'flatten'):
+                embedding = embedding.flatten()
+            else:
+                embedding = np.array(embedding).flatten()
+            
             # PCA 차원 축소 (처음 20차원 사용)
             embedding_summary = embedding[:20] if len(embedding) >= 20 else np.pad(embedding, (0, 20-len(embedding)))
             features.extend(embedding_summary.tolist())

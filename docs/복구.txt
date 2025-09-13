@@ -27,6 +27,7 @@ cd /mnt/c/large_project/linux_red_heart
 ㅡㅡㅡㅡㅡㅡ이전에 써봤던 프레임워크ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 다음은 o3가 방금 제시한 제안이야. 너도 같이 로그 기반으로 코드를 분석하고 나서, 너의 분석과 함께 제안의 유효성을 코드베이스를 읽으며 확인하고, 유효하다면 깊이 생각하며 프로젝트 규칙을 따라 작업을 꼼꼼하게 진행을 하고, 아니라면 반론할 지점을 명확히 정리해서 답변하고 대기해. 특히, 만약 유효하다 판단하고 작업을 해야 겠다고 생각하면, 코드베이스를 자세하게 들여다 보면서 자세하고 정확한 해결법을 찾을 수 있도록 분석하고, 빠지는 작업 없이 정확히 이행할 수 있도록 꼼꼼하게 다뤄
 
+
 nohup
 ● Bash( timeout 1200 bash run_learning.sh unified-test --samples 3 --debug --verbose > test_$(date
       +%Y%m%d_%H%M%S).txt 2>&1 &)
@@ -35,9 +36,90 @@ nohup
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 과거  Bash(timeout 1200 ./run_learning.sh test --samples 3 --duration 600)
 
-현재  nohup timeout 3600 bash run_learning.sh unified-test --samples 3 --lr-sweep --no-param-update --debug --verbose > test_$(date +%Y%m%d_%H%M%S).txt 2>&1 &)
+현재  nohup bash run_learning.sh unified-test --samples 3 --lr-sweep --no-param-update --debug --verbose > test_$(date +%Y%m%d_%H%M%S).txt 2>&1 &)
+
+전체 학습 nohup bash run_learning.sh unified-train --lr 5.6e-05 > training_full_$(date +%Y%m%d_%H%M%S).txt 2>&1 &)
 
 
+8월 25일 전체 학습 내용 변경됨 
+nohup bash run_learning.sh unified-train --epochs 50 --lr 5.6e-05 > training_50epochs_$(date +%Y%m%d_%H%M%S).txt
+  2>&1 &
+
+
+운용 테스트
+● Bash(source red_heart_env/bin/activate && python3 simple_inference_test.py --medium > medium_mode_gpt_final_$(date
+      +%Y%m%d_%H%M%S).txt 2>&1 &)
+
+테스트2
+● Bash(source red_heart_env/bin/activate && python3 main_unified.py --memory-mode medium --mode inference --text "오늘
+      친구와 싸웠다" > mainunified_test_$(date
+      +%Y%m%d_%H%M%S).txt 2>&1 &)
+
+테스트3 - 
+  source red_heart_env/bin/activate && python3 main_unified.py --memory-mode medium --mode inference --text "AI
+  윤리적 문제 해결" --epoch 50 --debug --llm local > mainunified_test_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+
+테스트 4 - 퍼플렉시티 api
+ source red_heart_env/bin/activate && python3 main_unified.py --memory-mode medium --mode inference --text "AI
+  윤리적 문제 해결" --epoch 50 --debug --llm perplexity > mainunified_perplexity_async_fix_$(date
+  +%Y%m%d_%H%M%S).txt 2>&1 &
+
+테스트 5 - 클로드 api
+source red_heart_env/bin/activate && python3 main_unified.py --memory-mode medium --mode inference --text "AI 윤리적 문제 해결" --epoch 50 --debug --llm claude > mainunified_cladue_async_fix_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+
+테스트6 - 최신
+ source red_heart_env/bin/activate && \
+  python3 main_unified.py \
+    --memory-mode medium \
+    --mode inference \
+    --text "AI 윤리적 문제 해결" \
+    --epoch 50 \
+    --use-io-pipeline \
+    --use-workflow-dsm \
+    --enriched-embedding \
+    --llm claude \
+    --debug \
+    > mainunified_claude_enriched_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+● 🚀 새로운 테스트 명령어 제시-시스템 재개편 이슈
+
+  source red_heart_env/bin/activate && \
+  python3 main_unified.py \
+    --memory-mode medium \
+    --mode inference \
+    --text "AI 윤리적 문제 해결" \
+    --epoch 50 \
+    --llm local \
+    --debug \
+    > mainunified_sync_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+
+  2. I/O Pipeline 모드 테스트 (권장)
+
+  source red_heart_env/bin/activate && \
+  python3 main_unified.py \
+    --memory-mode medium \
+    --mode inference \
+    --text "AI ethical problem solving" \
+    --epoch 50 \
+    --llm local \
+    --use-io-pipeline \
+    --debug \
+    --verbose \
+    > mainunified_async_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+
+  3. 간단한 테스트 모드 (빠른 검증)
+
+  source red_heart_env/bin/activate && \
+  python3 main_unified.py \
+    --memory-mode medium \
+    --mode test \
+    --llm none \
+    --use-io-pipeline \
+    --debug \
+    > mainunified_test_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
 전처리
 ● Bash(source red_heart_env/bin/activate && python3 data_preprocessing_pipeline_v3.py 2>&1 | tee
       preprocess_v3_enhanced_5samples.log)

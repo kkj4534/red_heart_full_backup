@@ -1073,6 +1073,12 @@ class RedHeartDynamicSwapManager:
     
     def swap_llm_to_gpu(self, name: str) -> Any:
         """LLM을 GPU로 스왑"""
+        import os
+        # Claude 모드에서는 LLM 스왑 비활성화
+        if os.getenv('REDHEART_CLAUDE_MODE') == '1':
+            logger.info(f"⚠️ Claude 모드 - LLM 스왑 스킵 (Claude API 사용)")
+            return None
+            
         with self.llm_swap_lock:
             if self.llm_on_gpu == name:
                 logger.debug(f"LLM {name}이 이미 GPU에 있음")
@@ -1120,6 +1126,12 @@ class RedHeartDynamicSwapManager:
     
     def swap_llm_to_ram(self, name: str):
         """LLM을 RAM으로 스왑"""
+        import os
+        # Claude 모드에서는 LLM 스왑 비활성화
+        if os.getenv('REDHEART_CLAUDE_MODE') == '1':
+            logger.info(f"⚠️ Claude 모드 - LLM RAM 스왑 스킵 (Claude API 사용)")
+            return
+            
         with self.llm_swap_lock:
             if name not in self.llm_models:
                 logger.warning(f"등록되지 않은 LLM: {name}")
@@ -2037,8 +2049,170 @@ async def example_usage():
 # 호환성을 위한 alias 제공
 DynamicSwapManager = RedHeartDynamicSwapManager
 
+class WorkflowDSM:
+    """
+    워크플로우 레벨 DSM (Level 1)
+    전체 Phase 간 GPU 독점권 관리
+    
+    LLM → SentenceTransformer → RedHeart → Circuit → LLM Final
+    각 Phase가 GPU를 독점적으로 사용
+    """
+    
+    def __init__(self, redheart_dsm: Optional[RedHeartDynamicSwapManager] = None):
+        self.redheart_dsm = redheart_dsm or RedHeartDynamicSwapManager()
+        self.logger = logging.getLogger(__name__)
+        
+        # Phase 정의 (WORKFLOW_ARCHITECTURE.md 기반)
+        self.phases = {
+            'llm': {
+                'size_mb': 4096,
+                'priority': SwapPriority.HIGH,
+                'components': ['llm_engine', 'llm_tokenizer']
+            },
+            'sentence_transformer': {
+                'size_mb': 1200,
+                'priority': SwapPriority.HIGH,
+                'components': ['sentence_transformer']
+            },
+            'redheart': {
+                'size_mb': 3072,
+                'priority': SwapPriority.CRITICAL,
+                'components': ['unified_model', 'neural_analyzers', 'advanced_wrappers']
+            },
+            'circuit': {
+                'size_mb': 1024,
+                'priority': SwapPriority.MEDIUM,
+                'components': ['emotion_ethics_regret_circuit']
+            }
+        }
+        
+        # 현재 활성 Phase
+        self.current_phase: Optional[str] = None
+        self.phase_lock = asyncio.Lock()
+        
+        # Phase 전환 통계
+        self.phase_stats = {
+            'transitions': 0,
+            'total_swap_time': 0.0,
+            'phase_times': defaultdict(float)
+        }
+        
+        self.logger.info("WorkflowDSM 초기화 완료")
+    
+    async def load_phase(self, phase_name: str) -> bool:
+        """특정 Phase를 GPU에 로드 (다른 Phase는 언로드)"""
+        async with self.phase_lock:
+            if phase_name not in self.phases:
+                self.logger.error(f"알 수 없는 Phase: {phase_name}")
+                return False
+            
+            start_time = time.time()
+            self.logger.info(f"[WorkflowDSM] Phase 전환: {self.current_phase} → {phase_name}")
+            
+            try:
+                # 현재 Phase 언로드
+                if self.current_phase and self.current_phase != phase_name:
+                    await self._unload_current_phase()
+                
+                # 새 Phase 로드
+                phase_info = self.phases[phase_name]
+                
+                # GPU 메모리 확보
+                gpu_info = get_gpu_memory_info()
+                if gpu_info:
+                    free_mb = gpu_info['free_mb']
+                    required_mb = phase_info['size_mb']
+                    
+                    if free_mb < required_mb:
+                        self.logger.info(f"  GPU 메모리 부족 ({free_mb}MB < {required_mb}MB), 정리 중...")
+                        # RedHeart DSM을 통해 메모리 확보
+                        await self.redheart_dsm._ensure_gpu_memory(required_mb)
+                
+                # Phase별 컴포넌트 로드
+                if phase_name == 'redheart':
+                    # RedHeart는 내부 DSM이 관리
+                    self.logger.info("  RedHeart Phase - 내부 DSM으로 위임")
+                    # RedHeart 컴포넌트들이 이미 등록되어 있다고 가정
+                else:
+                    # 다른 Phase는 직접 로드
+                    for component in phase_info['components']:
+                        if component in self.redheart_dsm.models:
+                            await self.redheart_dsm.load_model_to_gpu(component)
+                            self.logger.info(f"    {component} GPU 로드 완료")
+                
+                self.current_phase = phase_name
+                
+                # 통계 업데이트
+                swap_time = time.time() - start_time
+                self.phase_stats['transitions'] += 1
+                self.phase_stats['total_swap_time'] += swap_time
+                self.phase_stats['phase_times'][phase_name] += swap_time
+                
+                self.logger.info(f"  ✅ Phase {phase_name} 로드 완료 ({swap_time:.2f}초)")
+                return True
+                
+            except Exception as e:
+                self.logger.error(f"Phase 로드 실패: {phase_name}, 오류: {e}")
+                return False
+    
+    async def _unload_current_phase(self):
+        """현재 Phase를 언로드"""
+        if not self.current_phase:
+            return
+        
+        self.logger.info(f"  현재 Phase {self.current_phase} 언로드 중...")
+        phase_info = self.phases[self.current_phase]
+        
+        # Phase별 컴포넌트 언로드
+        for component in phase_info['components']:
+            if component in self.redheart_dsm.gpu_resident_models:
+                await self.redheart_dsm.unload_model_from_gpu(component)
+                self.logger.info(f"    {component} RAM으로 언로드")
+        
+        # GPU 캐시 정리
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+            torch.cuda.synchronize()
+    
+    async def swap_phases(self, from_phase: str, to_phase: str) -> bool:
+        """원자적 Phase 교체"""
+        async with self.phase_lock:
+            if self.current_phase != from_phase:
+                self.logger.warning(f"현재 Phase가 {from_phase}가 아님 (현재: {self.current_phase})")
+                return False
+            
+            return await self.load_phase(to_phase)
+    
+    async def get_phase_memory_usage(self, phase_name: str) -> Dict[str, float]:
+        """특정 Phase의 메모리 사용량 조회"""
+        if phase_name not in self.phases:
+            return {}
+        
+        phase_info = self.phases[phase_name]
+        memory_usage = {}
+        
+        for component in phase_info['components']:
+            if component in self.redheart_dsm.models:
+                model_info = self.redheart_dsm.models[component]
+                memory_usage[component] = model_info.size_mb
+        
+        return memory_usage
+    
+    def get_stats(self) -> Dict[str, Any]:
+        """워크플로우 통계 반환"""
+        return {
+            'current_phase': self.current_phase,
+            'total_transitions': self.phase_stats['transitions'],
+            'avg_transition_time': (
+                self.phase_stats['total_swap_time'] / self.phase_stats['transitions']
+                if self.phase_stats['transitions'] > 0 else 0
+            ),
+            'phase_times': dict(self.phase_stats['phase_times'])
+        }
+
 # 전역 싱글톤 인스턴스
 _swap_mgr = None
+_workflow_dsm = None
 
 def set_swap_manager(inst: Union["RedHeartDynamicSwapManager", "DynamicSwapManager"]):
     """외부(오케스트레이터)에서 생성한 DSM을 전역 공유 인스턴스로 고정."""
@@ -2053,7 +2227,14 @@ def get_swap_manager() -> DynamicSwapManager:
         _swap_mgr = DynamicSwapManager.get_instance()
     return _swap_mgr
 
-__all__ = ["RedHeartDynamicSwapManager", "DynamicSwapManager", "get_swap_manager"]
+def get_workflow_dsm() -> WorkflowDSM:
+    """전역 워크플로우 DSM 인스턴스 반환"""
+    global _workflow_dsm
+    if _workflow_dsm is None:
+        _workflow_dsm = WorkflowDSM(redheart_dsm=get_swap_manager())
+    return _workflow_dsm
+
+__all__ = ["RedHeartDynamicSwapManager", "DynamicSwapManager", "WorkflowDSM", "get_swap_manager", "get_workflow_dsm"]
 
 if __name__ == "__main__":
     asyncio.run(example_usage())

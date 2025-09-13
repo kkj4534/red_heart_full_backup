@@ -13,9 +13,41 @@ pip install numpy torch transformers sentence-transformers
 pip install matplotlib seaborn pandas jinja2 markdown
 ```
 
-## 🎮 실행 명령어
+## 🎮 실행 명령어 (V2.0 개편)
 
-### 통합 스크립트 사용 (권장)
+### 🔥 핵심 실행 명령어 (개편된 아키텍처)
+
+#### I/O Pipeline + WorkflowDSM + Claude API (권장)
+```bash
+source red_heart_env/bin/activate && \
+python3 main_unified.py \
+  --memory-mode medium \
+  --mode inference \
+  --text "AI 윤리적 문제 해결" \
+  --epochs 50 \
+  --use-io-pipeline \
+  --use-workflow-dsm \
+  --llm claude \
+  --debug \
+  > mainunified_claude_workflow_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+```
+
+#### Local LLM + 자동 번역기
+```bash
+source red_heart_env/bin/activate && \
+python3 main_unified.py \
+  --memory-mode medium \
+  --mode inference \
+  --text "복잡한 철학적 질문" \
+  --epochs 50 \
+  --use-io-pipeline \
+  --use-workflow-dsm \
+  --llm local \
+  --debug \
+  > mainunified_local_workflow_$(date +%Y%m%d_%H%M%S).txt 2>&1 &
+```
+
+### 기존 스크립트 사용 (호환성 유지)
 
 #### 기본 추론
 ```bash

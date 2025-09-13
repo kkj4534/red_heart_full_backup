@@ -75,7 +75,7 @@ class AdvancedRegretMetrics:
 class GPURegretNetwork(nn.Module):
     """CUDA 기반 후회 학습 신경망"""
     
-    def __init__(self, input_dim: int = 768, hidden_dim: int = 512):
+    def __init__(self, input_dim: int = 896, hidden_dim: int = 512):
         super().__init__()
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         

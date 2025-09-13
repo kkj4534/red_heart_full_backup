@@ -116,7 +116,20 @@ class UnifiedTrainingConfig:
 
 
 class UnifiedModel(nn.Module):
-    """Red Heart AI 730M 통합 모델"""
+    """
+    Red Heart AI 730M 통합 모델
+    
+    ⚠️ 의도적 순환 참조 아키텍처:
+    - Neural Analyzers와 양방향 참조 (GPU 메모리 효율적 공유)
+    - Advanced Wrappers와 상호 의존 (동일 임베딩 공간 활용)
+    - 단일 프로세스 내 텐서 직접 전달을 위한 모놀리식 설계
+    - 8GB GPU 제약 하에서 730M 파라미터 실시간 추론 최적화
+    
+    순환 참조 패턴:
+    UnifiedModel ←→ Neural Analyzers
+          ↓↑
+    Advanced Wrappers ←→ EmotionEthicsRegretCircuit
+    """
     
     def __init__(self, config: UnifiedTrainingConfig, device=None):
         super().__init__()
@@ -215,7 +228,7 @@ class UnifiedModel(nn.Module):
         elif task == 'surd':
             head_output = self.surd_head(features)
             if isinstance(head_output, dict):
-                head_output = head_output.get('surd_values', output.get('surd_scores', list(head_output.values())[0]))
+                head_output = head_output.get('surd_values', head_output.get('surd_scores', list(head_output.values())[0]))
         else:
             head_output = self.emotion_head(features)
             if isinstance(head_output, dict):
@@ -248,8 +261,8 @@ class UnifiedModel(nn.Module):
         wrapper_key = f'advanced_{task}' if not task.startswith('advanced_') else task
         
         # 디버깅: advanced_wrappers 타입과 키 확인
+        import logging  # 모듈 레벨 import 대신 forward 메서드 전체에서 사용 가능하도록
         if self.advanced_wrappers:
-            import logging
             logger = logging.getLogger('UnifiedModel.Debug')
             logger.info(f"🔍 advanced_wrappers 타입: {type(self.advanced_wrappers)}")
             logger.info(f"🔍 advanced_wrappers 키들: {list(self.advanced_wrappers.keys()) if hasattr(self.advanced_wrappers, 'keys') else 'keys() 없음'}")
@@ -385,6 +398,236 @@ class UnifiedModel(nn.Module):
         else:
             # 기본: head 출력만 반환
             return head_output
+    
+    # ==================== I/O 분리를 위한 비동기 처리 메서드 ====================
+    
+    async def process_async(self, task_message):
+        """TaskMessage를 비동기적으로 처리
+        
+        Args:
+            task_message: TaskMessage 객체 또는 호환 딕셔너리
+            
+        Returns:
+            ResultMessage 객체
+        """
+        import asyncio
+        import time
+        from concurrent.futures import ThreadPoolExecutor
+        
+        # TaskMessage에서 데이터 추출
+        if hasattr(task_message, 'data'):
+            data = task_message.data
+            task_type = getattr(task_message, 'task_type', 'emotion')
+            task_id = getattr(task_message, 'task_id', None)
+        else:
+            # 딕셔너리 형태로 전달된 경우
+            data = task_message
+            task_type = data.get('task_type', 'emotion')
+            task_id = data.get('task_id', None)
+        
+        start_time = time.time()
+        
+        try:
+            # 비동기 실행을 위한 executor (없으면 생성)
+            if not hasattr(self, '_executor'):
+                self._executor = ThreadPoolExecutor(max_workers=2)
+            
+            # forward 메서드를 별도 스레드에서 실행
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(
+                self._executor,
+                self._process_sync,
+                data,
+                task_type
+            )
+            
+            processing_time = time.time() - start_time
+            
+            # ResultMessage 생성 (data_structures.py 의존성 체크)
+            try:
+                from data_structures import ResultMessage
+                return ResultMessage(
+                    task_id=task_id or f"unified_{int(time.time()*1000)}",
+                    module='unified_model',
+                    task_type=task_type,
+                    status='success',
+                    data=result,
+                    processing_time=processing_time
+                )
+            except ImportError:
+                # data_structures가 없으면 딕셔너리 반환
+                return {
+                    'task_id': task_id or f"unified_{int(time.time()*1000)}",
+                    'module': 'unified_model',
+                    'task_type': task_type,
+                    'status': 'success',
+                    'data': result,
+                    'processing_time': processing_time
+                }
+                
+        except Exception as e:
+            logger.error(f"비동기 처리 오류: {e}")
+            # 에러 ResultMessage 반환
+            try:
+                from data_structures import ResultMessage
+                return ResultMessage(
+                    task_id=task_id or 'error',
+                    module='unified_model',
+                    task_type=task_type,
+                    status='error',
+                    data={},
+                    error=str(e)
+                )
+            except ImportError:
+                return {
+                    'task_id': task_id or 'error',
+                    'module': 'unified_model',
+                    'task_type': task_type,
+                    'status': 'error',
+                    'data': {},
+                    'error': str(e)
+                }
+    
+    def _process_sync(self, data, task_type='emotion'):
+        """동기 처리 헬퍼 (스레드에서 실행용)
+        
+        Args:
+            data: 입력 데이터 (텍스트 또는 임베딩)
+            task_type: 처리할 태스크 타입
+            
+        Returns:
+            처리 결과 딕셔너리
+        """
+        # 텍스트를 임베딩으로 변환 (필요시)
+        if isinstance(data, str):
+            # 텍스트인 경우 임베딩 변환 필요
+            embeddings = self._text_to_embedding(data)
+        elif isinstance(data, dict):
+            # 딕셔너리에서 필요한 데이터 추출
+            if 'embeddings' in data:
+                embeddings = data['embeddings']
+            elif 'text' in data:
+                embeddings = self._text_to_embedding(data['text'])
+            else:
+                raise ValueError("입력 데이터에 'embeddings' 또는 'text'가 필요합니다")
+        else:
+            # 이미 텐서인 경우
+            embeddings = data
+        
+        # 텐서로 변환
+        if not isinstance(embeddings, torch.Tensor):
+            embeddings = torch.tensor(embeddings, dtype=torch.float32)
+        
+        # 배치 차원 추가 (필요시)
+        if embeddings.dim() == 1:
+            embeddings = embeddings.unsqueeze(0)
+        elif embeddings.dim() == 2 and embeddings.shape[0] != 1:
+            # (seq_len, hidden_dim) -> (1, hidden_dim)으로 평균
+            embeddings = embeddings.mean(dim=0, keepdim=True)
+        
+        # 디바이스 이동
+        device = next(self.parameters()).device
+        embeddings = embeddings.to(device)
+        
+        # forward 실행 (return_all=True로 모든 출력 받기)
+        with torch.no_grad():
+            outputs = self.forward(embeddings, task=task_type, return_all=True)
+        
+        # 결과 후처리 (텐서를 파이썬 타입으로)
+        result = {}
+        for key, value in outputs.items():
+            if isinstance(value, torch.Tensor):
+                # CPU로 이동 후 리스트로 변환
+                value = value.cpu()
+                if value.dim() == 0:
+                    result[key] = value.item()
+                else:
+                    result[key] = value.tolist()
+            elif isinstance(value, dict):
+                # 중첩된 딕셔너리 처리
+                result[key] = {}
+                for k, v in value.items():
+                    if isinstance(v, torch.Tensor):
+                        v = v.cpu()
+                        result[key][k] = v.tolist() if v.dim() > 0 else v.item()
+                    else:
+                        result[key][k] = v
+            else:
+                result[key] = value
+        
+        return result
+    
+    def _text_to_embedding(self, text):
+        """텍스트를 임베딩으로 변환
+        
+        Args:
+            text: 입력 텍스트
+            
+        Returns:
+            임베딩 벡터
+        """
+        try:
+            # SentenceTransformer 사용
+            from sentence_transformer_singleton import get_sentence_transformer
+            encoder = get_sentence_transformer()
+            embeddings = encoder.encode(text, convert_to_tensor=False)
+            return embeddings
+        except ImportError:
+            # 폴백: 랜덤 임베딩 (테스트용)
+            logger.warning("SentenceTransformer를 사용할 수 없음. 랜덤 임베딩 사용")
+            return torch.randn(768)
+    
+    async def process_batch_async(self, task_messages):
+        """배치 TaskMessage를 비동기적으로 처리
+        
+        Args:
+            task_messages: TaskMessage 리스트
+            
+        Returns:
+            ResultMessage 리스트
+        """
+        import asyncio
+        
+        # 병렬 처리
+        tasks = [self.process_async(msg) for msg in task_messages]
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        
+        # 예외 처리
+        processed_results = []
+        for i, result in enumerate(results):
+            if isinstance(result, Exception):
+                logger.error(f"배치 처리 오류 [{i}]: {result}")
+                # 에러 결과 생성
+                try:
+                    from data_structures import ResultMessage
+                    error_result = ResultMessage(
+                        task_id=f"batch_error_{i}",
+                        module='unified_model',
+                        task_type='unknown',
+                        status='error',
+                        data={},
+                        error=str(result)
+                    )
+                except ImportError:
+                    error_result = {
+                        'task_id': f"batch_error_{i}",
+                        'module': 'unified_model',
+                        'task_type': 'unknown',
+                        'status': 'error',
+                        'data': {},
+                        'error': str(result)
+                    }
+                processed_results.append(error_result)
+            else:
+                processed_results.append(result)
+        
+        return processed_results
+    
+    def cleanup_executor(self):
+        """Executor 정리 (종료 시 호출)"""
+        if hasattr(self, '_executor'):
+            self._executor.shutdown(wait=True)
+            delattr(self, '_executor')
 
 
 class UnifiedTrainer:

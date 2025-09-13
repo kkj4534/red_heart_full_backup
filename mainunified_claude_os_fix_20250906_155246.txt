@@ -1,0 +1,192 @@
+2025-09-06 15:53:06 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-06 15:53:06 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-06 15:53:06 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-06 15:53:06 | RedHeart.MainUnified | INFO | 🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...
+2025-09-06 15:53:06 | RedHeart.MainUnified | INFO | 📌 실행 명령: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3 claude_inference.py --text AI 윤리적 문제 해결 --epoch 50 --debug
+2025-09-06 15:53:18 | ClaudeInference | INFO | ======================================================================
+2025-09-06 15:53:18 | ClaudeInference | INFO | 🚀 Claude API 독립 추론 시스템 초기화
+2025-09-06 15:53:18 | ClaudeInference | INFO | ======================================================================
+2025-09-06 15:53:18 | ClaudeInference | INFO | 📌 에폭: 50
+2025-09-06 15:53:18 | ClaudeInference | INFO | 📌 디바이스: cuda
+2025-09-06 15:53:18 | ClaudeInference | INFO | 📌 디버그 모드: True
+2025-09-06 15:53:18 | ClaudeInference | INFO | 
+📦 Phase 1: UnifiedModel 로드...
+2025-09-06 15:53:24 | sentence_transformer_singleton | INFO | SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+2025-09-06 15:53:24 | training.enhanced_checkpoint_manager | INFO |   - 기존 메타데이터 로드: 30개 체크포인트
+2025-09-06 15:53:24 | training.enhanced_checkpoint_manager | INFO | ✅ Enhanced CheckpointManager 초기화
+2025-09-06 15:53:24 | training.enhanced_checkpoint_manager | INFO |   - 저장 디렉토리: training/checkpoints_final
+2025-09-06 15:53:24 | training.enhanced_checkpoint_manager | INFO |   - 최대 체크포인트: 30개
+2025-09-06 15:53:24 | training.enhanced_checkpoint_manager | INFO |   - 저장 간격: 1 에폭마다
+/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/transformer.py:379: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+2025-09-06 15:53:25 | unified_backbone | INFO | 백본 총 파라미터: 90,624,132 (90.62M)
+2025-09-06 15:53:25 | unified_backbone | INFO | 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-09-06 15:53:25 | unified_heads | INFO | 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-09-06 15:53:25 | unified_heads | INFO | 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-09-06 15:53:25 | unified_heads | INFO | 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-09-06 15:53:25 | unified_heads | INFO | SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-09-06 15:53:26 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-06 15:53:27 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-06 15:53:28 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-06 15:53:28 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-06 15:53:28 | analyzer_neural_modules | INFO | 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-09-06 15:53:29 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-06 15:53:29 | ClaudeInference | INFO |    체크포인트 로드: training/checkpoints_final/checkpoint_epoch_0050_lr_0.000009_20250827_154403.pt
+/mnt/c/large_project/linux_red_heart/claude_inference.py:106: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_file, map_location=self.device)
+2025-09-06 15:53:58 | ClaudeInference | INFO |    ✅ UnifiedModel 로드 완료
+2025-09-06 15:53:58 | ClaudeInference | INFO |    - Epoch: 50
+2025-09-06 15:53:58 | ClaudeInference | INFO |    - LR: 9.261697283911905e-06
+2025-09-06 15:53:58 | ClaudeInference | INFO | 
+📦 Phase 2: 번역기 로드...
+2025-09-06 15:53:58 | local_translator | INFO | LocalTranslator 생성 - 전역 모듈로 초기화됨
+2025-09-06 15:53:58 | local_translator | INFO | 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-09-06 15:54:50 | hf_model_wrapper | INFO | ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-09-06 15:54:50 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-09-06 15:54:51 | local_translator | INFO | ✅ OPUS-MT 모델 로드 완료 (소요시간: 53.3초, 디바이스: cpu)
+2025-09-06 15:54:51 | local_translator | INFO | 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-09-06 15:54:51 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-06 15:54:51 | dynamic_swap_manager | INFO | RedHeartDynamicSwapManager 초기화 완료
+2025-09-06 15:54:51 | dynamic_swap_manager | INFO | [DSM] translator 크기: 297.6MB (mgr_id=140190565386048)
+2025-09-06 15:54:51 | dynamic_swap_manager | INFO |    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-09-06 15:54:51 | dynamic_swap_manager | INFO | [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-09-06 15:54:51 | local_translator | INFO | ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-09-06 15:54:51 | ClaudeInference | INFO |    ✅ 번역기 로드 완료 (CPU)
+2025-09-06 15:54:51 | ClaudeInference | INFO | 
+📦 Phase 3: Neural Analyzers 로드...
+2025-09-06 15:54:52 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-06 15:54:52 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-06 15:54:53 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-06 15:54:53 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-06 15:54:53 | ClaudeInference | INFO |    ✅ Neural Analyzers 로드 완료 (CPU)
+2025-09-06 15:54:53 | ClaudeInference | INFO | 
+📦 Phase 4: Advanced Wrappers 로드...
+2025-09-06 15:54:58 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 17.4%, 필요: 500MB)
+2025-09-06 15:54:58 | RedHeartLinux.AdvancedEmotion | INFO | 감정 임베딩 모델 초기화 시작...
+2025-09-06 15:54:58 | sentence_transformer_singleton | INFO | 새 클라이언트 생성 시작: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-06 15:54:58 | sentence_transformer_singleton | INFO | 서버 시작 및 모델 로딩: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | stderr 드레인 스레드 시작
+2025-09-06 15:54:58 | sentence_transformer_client | INFO | stderr 드레인 스레드 생성 완료
+2025-09-06 15:55:08 | sentence_transformer_client | INFO | 서버 연결 성공
+2025-09-06 15:55:08 | sentence_transformer_client | INFO | 모델 로딩 요청: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-06 15:56:37 | sentence_transformer_singleton | INFO | 클라이언트 생성 및 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-06 15:56:37 | sentence_transformer_singleton | INFO | 새 클라이언트 생성 시작: jhgan/ko-sroberta-multitask_cuda
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-06 15:56:37 | sentence_transformer_singleton | INFO | 서버 시작 및 모델 로딩: jhgan/ko-sroberta-multitask (device: cuda)
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | stderr 드레인 스레드 시작
+2025-09-06 15:56:37 | sentence_transformer_client | INFO | stderr 드레인 스레드 생성 완료
+2025-09-06 15:56:47 | sentence_transformer_client | INFO | 서버 연결 성공
+2025-09-06 15:56:47 | sentence_transformer_client | INFO | 모델 로딩 요청: jhgan/ko-sroberta-multitask (device: cuda)
+2025-09-06 15:58:03 | sentence_transformer_client | ERROR | 모델 로딩 실패: 모델 로딩 실패: jhgan/ko-sroberta-multitask - 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-09-06 15:58:03 | sentence_transformer_singleton | ERROR | 모델 로드 실패: jhgan/ko-sroberta-multitask_cuda, 오류: 모델 로딩 실패: 모델 로딩 실패: jhgan/ko-sroberta-multitask - 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+2025-09-06 15:58:03 | sentence_transformer_singleton | ERROR | 오류 타입: RuntimeError
+2025-09-06 15:58:03 | sentence_transformer_singleton | ERROR | 스택 트레이스: Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 187, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: jhgan/ko-sroberta-multitask - 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+
+2025-09-06 15:58:03 | RedHeartLinux.AdvancedEmotion | ERROR | 임베딩 모델 로드 실패: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+2025-09-06 15:58:03 | ClaudeInference | ERROR | ❌ 초기화 실패: 임베딩 모델 로드 필수 - 실패: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 187, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: jhgan/ko-sroberta-multitask - 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 886, in _load_emotion_embedding_model
+    self.embedders['korean'] = get_sentence_transformer(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 444, in get_sentence_transformer
+    return _manager.get_model(model_name, device, cache_folder)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 201, in get_model
+    raise RuntimeError(f"SentenceTransformer 모델 로드 실패: {model_name}") from e
+RuntimeError: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 64, in initialize
+    await self._load_advanced_wrappers()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 164, in _load_advanced_wrappers
+    'advanced_emotion': AdvancedEmotionAnalyzerWrapper(),
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_analyzer_wrappers.py", line 22, in __init__
+    self.analyzer = AdvancedEmotionAnalyzer()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 358, in __init__
+    self._load_emotion_embedding_model()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 896, in _load_emotion_embedding_model
+    raise RuntimeError(f"임베딩 모델 로드 필수 - 실패: {e}")
+RuntimeError: 임베딩 모델 로드 필수 - 실패: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+2025-09-06 15:58:03 | ClaudeInference | ERROR | ❌ 실행 실패: 임베딩 모델 로드 필수 - 실패: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 187, in get_model
+    raise RuntimeError(f"모델 로딩 실패: {error_msg}")
+RuntimeError: 모델 로딩 실패: 모델 로딩 실패: jhgan/ko-sroberta-multitask - 
+ requires the protobuf library but it was not found in your environment. Check out the instructions on the
+installation page of its repo: https://github.com/protocolbuffers/protobuf/tree/master/python#installation and follow the ones
+that match your environment. Please note that you may need to restart your runtime after installation.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 886, in _load_emotion_embedding_model
+    self.embedders['korean'] = get_sentence_transformer(
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 444, in get_sentence_transformer
+    return _manager.get_model(model_name, device, cache_folder)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/sentence_transformer_singleton.py", line 201, in get_model
+    raise RuntimeError(f"SentenceTransformer 모델 로드 실패: {model_name}") from e
+RuntimeError: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 346, in main
+    await system.initialize()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 64, in initialize
+    await self._load_advanced_wrappers()
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 164, in _load_advanced_wrappers
+    'advanced_emotion': AdvancedEmotionAnalyzerWrapper(),
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_analyzer_wrappers.py", line 22, in __init__
+    self.analyzer = AdvancedEmotionAnalyzer()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 358, in __init__
+    self._load_emotion_embedding_model()
+  File "/mnt/c/large_project/linux_red_heart/advanced_emotion_analyzer.py", line 896, in _load_emotion_embedding_model
+    raise RuntimeError(f"임베딩 모델 로드 필수 - 실패: {e}")
+RuntimeError: 임베딩 모델 로드 필수 - 실패: SentenceTransformer 모델 로드 실패: jhgan/ko-sroberta-multitask

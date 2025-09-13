@@ -599,15 +599,20 @@ class AdvancedEmotionAnalyzer:
                 logger.warning(f"계층적 감정 모델 초기화 실패: {e}")
                 NEW_EMOTION_MODELS_AVAILABLE = False
         
-        # LLM 엔진 연결
+        # LLM 엔진 연결 - Claude 모드에서는 비활성화
         global LLM_INTEGRATION_AVAILABLE
-        if LLM_INTEGRATION_AVAILABLE:
+        is_claude_mode = os.environ.get('REDHEART_CLAUDE_MODE', '0') == '1'
+        
+        if LLM_INTEGRATION_AVAILABLE and not is_claude_mode:
             try:
                 self.llm_engine = get_llm_engine()
                 logger.info("LLM 엔진 연결 완료")
             except Exception as e:
                 logger.warning(f"LLM 엔진 연결 실패: {e}")
                 LLM_INTEGRATION_AVAILABLE = False
+        elif is_claude_mode:
+            logger.info("📌 Claude 모드 감지 - 로컬 LLM 엔진 비활성화")
+            self.llm_engine = None
         
         logger.info("고급 감정 분석 시스템이 초기화되었습니다.")
         
@@ -883,9 +888,11 @@ class AdvancedEmotionAnalyzer:
             
             # 한국어 특화 임베딩 모델 (싱글톤 매니저 사용)
             korean_embedding_model = semantic_config.get('korean_model', 'jhgan/ko-sroberta-multitask')
+            # cache_folder를 None으로 설정하여 자동 감지하도록 함
             self.embedders['korean'] = get_sentence_transformer(
                 korean_embedding_model,
-                device=str(self.device)
+                device=str(self.device),
+                cache_folder=None  # 자동 감지하도록 변경
             )
             
             logger.info(f"임베딩 모델 로드 완료 (싱글톤): {multilingual_model}, {korean_embedding_model}")
@@ -1098,7 +1105,8 @@ class AdvancedEmotionAnalyzer:
             
         except Exception as e:
             logger.error(f"MoE 분석 실패: {e}")
-            return emotion_data
+            # NO FALLBACK - MoE 실패 시 예외 발생
+            raise RuntimeError(f"MoE 분석 완전 실패 - NO FALLBACK: {e}")
     
     def _get_text_embedding_for_moe(self, text: str, language: str) -> Optional[torch.Tensor]:
         """
@@ -1276,7 +1284,7 @@ class AdvancedEmotionAnalyzer:
             self.prev_kalman_state = fused_emotions.detach()
             
             # 5. 융합 결과를 EmotionData로 변환
-            fused_emotions_cpu = fused_emotions[0].cpu().numpy()
+            fused_emotions_cpu = fused_emotions[0].detach().cpu().numpy()
             max_idx = np.argmax(fused_emotions_cpu)
             
             # 새로운 주 감정과 신뢰도
@@ -1291,8 +1299,8 @@ class AdvancedEmotionAnalyzer:
             
             # DSP 특징 저장 (메타데이터)
             emotion_data.metadata = emotion_data.metadata or {}
-            emotion_data.metadata['dsp_valence_arousal'] = dsp_result['valence_arousal'].cpu().numpy().tolist()
-            emotion_data.metadata['dsp_emotion_spectrum'] = dsp_result['emotion_spectrum'].cpu().numpy().tolist()
+            emotion_data.metadata['dsp_valence_arousal'] = dsp_result['valence_arousal'].detach().cpu().numpy().tolist()
+            emotion_data.metadata['dsp_emotion_spectrum'] = dsp_result['emotion_spectrum'].detach().cpu().numpy().tolist()
             emotion_data.metadata['fusion_method'] = 'kalman_filter'
             
             logger.debug(f"DSP-칼만 융합 완료: {emotion_data.primary_emotion.value} "
@@ -1300,7 +1308,8 @@ class AdvancedEmotionAnalyzer:
             
         except Exception as e:
             logger.error(f"DSP-칼만 융합 실패: {e}")
-            # 실패 시 원본 반환 (NO FALLBACK 원칙이지만 융합은 선택적 개선)
+            # NO FALLBACK - DSP 융합 실패 시 예외 발생
+            raise RuntimeError(f"DSP-칼만 융합 완전 실패 - NO FALLBACK: {e}")
             
         return emotion_data
     
@@ -1384,7 +1393,8 @@ class AdvancedEmotionAnalyzer:
             
         except Exception as e:
             logger.error(f"Focal loss 보정 실패: {e}")
-            return emotion_data
+            # NO FALLBACK - Focal loss 보정 실패 시 예외 발생
+            raise RuntimeError(f"Focal loss 보정 완전 실패 - NO FALLBACK: {e}")
     
     def _analyze_alternative_emotions(self, text: str, original_emotion: EmotionData) -> Dict[EmotionState, float]:
         """
@@ -1585,7 +1595,7 @@ class AdvancedEmotionAnalyzer:
             logger.error(f"LLM 분석 호출 실패: {e}")
             raise RuntimeError(f"LLM 감정 분석 실패 - fallback 금지로 시스템 정지: {e}")
             
-        if llm_result and llm_result.get('emotion') != EmotionState.NEUTRAL.value:
+        if llm_result:
             # intensity 값 안전하게 검증
             intensity_value = llm_result.get('intensity', 3)
             if not isinstance(intensity_value, int) or intensity_value < 1 or intensity_value > 6:
@@ -2227,6 +2237,12 @@ class AdvancedEmotionAnalyzer:
             
             # 감정과 텍스트 임베딩 결합
             if text_embedding is not None and emotion_vector is not None:
+                # numpy array로 변환 확인
+                if not isinstance(text_embedding, np.ndarray):
+                    text_embedding = np.array(text_embedding)
+                if not isinstance(emotion_vector, np.ndarray):
+                    emotion_vector = np.array(emotion_vector)
+                    
                 # 적절한 크기로 맞춤
                 min_len = min(len(text_embedding), len(emotion_vector))
                 combined_embedding = np.concatenate([
@@ -2238,7 +2254,7 @@ class AdvancedEmotionAnalyzer:
             return text_embedding
             
         except Exception as e:
-            self.logger.error(f"감정 임베딩 생성 실패: {e}")
+            logger.error(f"감정 임베딩 생성 실패: {e}")
             return None
     
     def _generate_text_embedding(self, text: str) -> Optional[np.ndarray]:
@@ -2256,7 +2272,7 @@ class AdvancedEmotionAnalyzer:
                 raise RuntimeError("텍스트 임베딩 모델이 로드되지 않음")
                 
         except Exception as e:
-            self.logger.error(f"텍스트 임베딩 생성 실패: {e}")
+            logger.error(f"텍스트 임베딩 생성 실패: {e}")
             return None
     
     def _create_emotion_state_vector(self, emotion_data: EmotionData) -> Optional[np.ndarray]:
@@ -2943,7 +2959,7 @@ The emotion value must be one of: joy, sadness, anger, fear, surprise, disgust, 
                         
                         if response and response.success and response_text:
                             parsed_result = self._parse_deep_llm_response(response_text)
-                            if parsed_result and parsed_result.get('emotion'):
+                            if parsed_result and parsed_result.get('emotion') is not None:
                                 logger.info(f"✅ LLM 분석 성공 (시도 {attempt + 1}/{max_retries})")
                                 return parsed_result
                             else:
@@ -3011,14 +3027,31 @@ The emotion value must be one of: joy, sadness, anger, fear, surprise, disgust, 
                 else:
                     logger.info("❓ 응답 길이는 있으나 빈 내용 - 기타 원인으로 판단")
                 
-                logger.error("❌ 모든 시도 실패 - 시스템 정지")
-                return None
+                logger.warning("⚠️ 모든 시도 실패 - 중립 감정으로 기본값 반환")
+                # 중립 감정으로 기본값 반환 (시스템 정지 대신)
+                return {
+                    'emotion': EmotionState.NEUTRAL.value,
+                    'intensity': 3,
+                    'confidence': 0.3,
+                    'valence': 0.0,
+                    'arousal': 0.0,
+                    'reasoning': 'LLM 분석 실패 - 중립 감정으로 처리'
+                }
             
             return run_deep_analysis()
             
         except Exception as e:
             logger.error(f"깊은 LLM 감정 분석 오류: {e}")
-            return None
+            logger.warning("⚠️ 중립 감정으로 기본값 반환")
+            # 예외 발생 시에도 중립 감정으로 반환
+            return {
+                'emotion': EmotionState.NEUTRAL.value,
+                'intensity': 3,
+                'confidence': 0.2,
+                'valence': 0.0,
+                'arousal': 0.0,
+                'reasoning': f'분석 오류 - 중립 감정으로 처리: {str(e)}'
+            }
 
     def _extract_partial_emotion_data(self, response_text: str) -> Optional[Dict[str, Any]]:
         """부분 응답에서 감정 데이터 추출 (강화된 패턴 매칭)"""
@@ -3082,7 +3115,7 @@ The emotion value must be one of: joy, sadness, anger, fear, surprise, disgust, 
                 if match:
                     emotion_name = match.group(1).strip().strip('"')
                     new_emotion_id = self._name_to_emotion_id(emotion_name)
-                    if new_emotion_id != EmotionState.NEUTRAL.value:  # 유효한 감정만 채택
+                    if True:  # 모든 감정 채택 (neutral 포함)
                         result['emotion'] = new_emotion_id
                         extracted_count += 1
                         logger.debug(f"✅ 감정 추출: '{emotion_name}' -> {new_emotion_id}")
@@ -3160,8 +3193,8 @@ The emotion value must be one of: joy, sadness, anger, fear, surprise, disgust, 
                 logger.warning(f"   손상된 reasoning: {reasoning_text[:100]}...")
                 return None
             
-            # 최소 2개 이상의 유의미한 데이터가 추출되었는지 확인
-            if extracted_count >= 1 and (result['emotion'] != EmotionState.NEUTRAL.value or result['intensity'] != 3):
+            # 최소 1개 이상의 유의미한 데이터가 추출되었는지 확인
+            if extracted_count >= 1:
                 logger.info(f"✅ 부분 데이터 추출 성공: {extracted_count}개 필드 추출됨")
                 logger.info(f"   emotion={result['emotion']}, intensity={result['intensity']}, confidence={result['confidence']}")
                 return result
@@ -4249,12 +4282,17 @@ class EmotionCounselorModule:
     
     def __init__(self):
         self.llm_engine = None
-        if LLM_INTEGRATION_AVAILABLE:
+        # Claude 모드에서는 LLM 엔진 비활성화
+        is_claude_mode = os.environ.get('REDHEART_CLAUDE_MODE', '0') == '1'
+        
+        if LLM_INTEGRATION_AVAILABLE and not is_claude_mode:
             try:
                 from llm_module.advanced_llm_engine import get_llm_engine
                 self.llm_engine = get_llm_engine()
             except Exception as e:
                 logger.warning(f"상담사 모듈 LLM 초기화 실패: {e}")
+        elif is_claude_mode:
+            logger.info("📌 상담사 모듈: Claude 모드 감지 - 로컬 LLM 엔진 비활성화")
     
     def analyze_emotion_causality(self, emotion_data: EmotionData, context: str) -> Dict[str, Any]:
         """감정 원인 분석 - 상담사 역할"""

@@ -440,6 +440,50 @@ class SentenceTransformerClient:
         
         return response
     
+    def swap_to_cpu(self) -> Dict[str, Any]:
+        """
+        모델을 GPU에서 CPU/RAM으로 이동
+        
+        Returns:
+            스왑 결과
+        """
+        request = {"action": "swap_to_cpu"}
+        
+        logger.debug("모델을 GPU에서 CPU로 스왑 요청")
+        response = self.send_request(request)
+        
+        if response.get("status") == "success":
+            logger.debug("GPU→CPU 스왑 성공")
+        else:
+            logger.error(f"GPU→CPU 스왑 실패: {response.get('error', 'Unknown error')}")
+        
+        return response
+    
+    def swap_to_gpu(self, device: str = None) -> Dict[str, Any]:
+        """
+        모델을 CPU/RAM에서 GPU로 이동
+        
+        Args:
+            device: 타겟 GPU 디바이스 (예: 'cuda', 'cuda:0')
+            
+        Returns:
+            스왑 결과
+        """
+        request = {
+            "action": "swap_to_gpu",
+            "data": {"device": device} if device else {}
+        }
+        
+        logger.debug(f"모델을 CPU에서 GPU로 스왑 요청 (device: {device or 'auto'})")
+        response = self.send_request(request)
+        
+        if response.get("status") == "success":
+            logger.debug("CPU→GPU 스왑 성공")
+        else:
+            logger.error(f"CPU→GPU 스왑 실패: {response.get('error', 'Unknown error')}")
+        
+        return response
+    
     def health_check(self, force: bool = False) -> Dict[str, Any]:
         """
         서버 상태 확인

@@ -1,0 +1,884 @@
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO | 🖥️ 사용 디바이스: cuda
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO |    GPU: NVIDIA GeForce RTX 2070 SUPER
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO |    VRAM: 8.0GB
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO | 🔄 Claude API 모드 감지 - 독립 워크플로우로 전환...
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO | 📌 REDHEART_CLAUDE_MODE 환경변수 설정 - 로컬 LLM 엔진 비활성화
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO | 📌 전역 모듈 사전 초기화 중...
+2025-09-10 18:27:01 | local_translator | INFO | LocalTranslator 생성 - lazy loading 모드
+2025-09-10 18:27:01 | RedHeart.Config | INFO | 🔥 register_system_module 호출: module_id=translator, instance_type=<class 'local_translator.LocalTranslator'>, config_section=None
+2025-09-10 18:27:01 | RedHeart.Config | INFO | 🔥 모듈 인스턴스 등록 (config_section 없음): translator -> <class 'local_translator.LocalTranslator'>
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO |    ✅ 번역기 전역 등록 완료
+2025-09-10 18:27:01 | RedHeart.MainUnified | INFO | 📌 Claude Inference 직접 실행: text=AI 윤리적 문제 해결, epoch=50, debug=True
+2025-09-10 18:27:01 | ClaudeInference | INFO | ======================================================================
+2025-09-10 18:27:01 | ClaudeInference | INFO | 🚀 Claude API 독립 추론 시스템 초기화
+2025-09-10 18:27:01 | ClaudeInference | INFO | ======================================================================
+2025-09-10 18:27:01 | ClaudeInference | INFO | 📌 에폭: 50
+2025-09-10 18:27:01 | ClaudeInference | INFO | 📌 디바이스: cuda
+2025-09-10 18:27:01 | ClaudeInference | INFO | 📌 디버그 모드: True
+2025-09-10 18:27:01 | ClaudeInference | INFO | 
+📦 Phase 1: UnifiedModel 로드...
+2025-09-10 18:27:05 | sentence_transformer_singleton | INFO | SentenceTransformerManager 초기화 완료 (Subprocess Server 기반)
+2025-09-10 18:27:05 | training.enhanced_checkpoint_manager | INFO |   - 기존 메타데이터 로드: 30개 체크포인트
+2025-09-10 18:27:05 | training.enhanced_checkpoint_manager | INFO | ✅ Enhanced CheckpointManager 초기화
+2025-09-10 18:27:05 | training.enhanced_checkpoint_manager | INFO |   - 저장 디렉토리: training/checkpoints_final
+2025-09-10 18:27:05 | training.enhanced_checkpoint_manager | INFO |   - 최대 체크포인트: 30개
+2025-09-10 18:27:05 | training.enhanced_checkpoint_manager | INFO |   - 저장 간격: 1 에폭마다
+2025-09-10 18:27:05 | unified_backbone | INFO | 백본 총 파라미터: 90,624,132 (90.62M)
+2025-09-10 18:27:05 | unified_backbone | INFO | 학습 가능 파라미터: 90,624,132 (90.62M)
+2025-09-10 18:27:06 | unified_heads | INFO | 감정 헤드 파라미터: 17,254,583 (17.25M)
+2025-09-10 18:27:06 | unified_heads | INFO | 벤담 헤드 파라미터: 13,871,919 (13.87M)
+2025-09-10 18:27:06 | unified_heads | INFO | 후회 헤드 파라미터: 19,897,161 (19.90M)
+2025-09-10 18:27:06 | unified_heads | INFO | SURD 헤드 파라미터: 12,025,739 (12.03M)
+2025-09-10 18:27:07 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-10 18:27:07 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-10 18:27:08 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-10 18:27:09 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-10 18:27:09 | analyzer_neural_modules | INFO | 전체 신경망 분석기 파라미터: 368,222,707 (368.2M)
+2025-09-10 18:27:09 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-10 18:27:09 | ClaudeInference | INFO |    체크포인트 로드: training/checkpoints_final/checkpoint_epoch_0050_lr_0.000009_20250827_154403.pt
+2025-09-10 18:27:38 | ClaudeInference | INFO |    ✅ UnifiedModel 로드 완료
+2025-09-10 18:27:38 | ClaudeInference | INFO |    - Epoch: 50
+2025-09-10 18:27:38 | ClaudeInference | INFO |    - LR: 9.261697283911905e-06
+2025-09-10 18:27:38 | ClaudeInference | INFO | 
+📦 Phase 2: 번역기 로드...
+2025-09-10 18:27:38 | ClaudeInference | INFO |    ⚠️ Claude 모드 - 번역기 로드 스킵 (Claude API 다국어 지원)
+2025-09-10 18:27:38 | ClaudeInference | INFO | 
+📦 Phase 3: Neural Analyzers 로드...
+2025-09-10 18:27:39 | analyzer_neural_modules | INFO | NeuralEmotionAnalyzer 초기화: 122,595,407 파라미터
+2025-09-10 18:27:39 | analyzer_neural_modules | INFO | NeuralBenthamCalculator 초기화: 78,281,602 파라미터
+2025-09-10 18:27:40 | analyzer_neural_modules | INFO | NeuralRegretAnalyzer 초기화: 153,872,666 파라미터
+2025-09-10 18:27:40 | analyzer_neural_modules | INFO | NeuralSURDAnalyzer 초기화: 13,473,032 파라미터
+2025-09-10 18:27:40 | ClaudeInference | INFO |    ✅ Neural Analyzers 로드 완료 (CPU)
+2025-09-10 18:27:40 | ClaudeInference | INFO | 
+📦 Phase 4: Advanced Wrappers 로드...
+2025-09-10 18:28:29 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 17.4%, 필요: 500MB)
+2025-09-10 18:28:29 | RedHeartLinux.AdvancedEmotion | INFO | 감정 임베딩 모델 초기화 시작...
+2025-09-10 18:28:29 | sentence_transformer_singleton | INFO | 새 클라이언트 생성 시작: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-10 18:28:29 | sentence_transformer_singleton | INFO | 서버 시작 및 모델 로딩: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | stderr 드레인 스레드 시작
+2025-09-10 18:28:29 | sentence_transformer_client | INFO | stderr 드레인 스레드 생성 완료
+2025-09-10 18:28:38 | sentence_transformer_client | INFO | 서버 연결 성공
+2025-09-10 18:28:38 | sentence_transformer_client | INFO | 모델 로딩 요청: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-10 18:29:52 | sentence_transformer_singleton | INFO | 클라이언트 생성 및 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:29:52 | sentence_transformer_singleton | INFO | 새 클라이언트 생성 시작: jhgan/ko-sroberta-multitask_cuda
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | 현재 Python이 venv 환경: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | SentenceTransformer Client 초기화: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | Python 실행파일: /mnt/c/large_project/linux_red_heart/red_heart_env/bin/python3
+2025-09-10 18:29:52 | sentence_transformer_singleton | INFO | 서버 시작 및 모델 로딩: jhgan/ko-sroberta-multitask (device: cuda)
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | SentenceTransformer 서버 시작: /mnt/c/large_project/linux_red_heart/sentence_transformer_server.py
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | PYTHONPATH: /mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages:/mnt/c/large_project/linux_red_heart
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | VIRTUAL_ENV: /mnt/c/large_project/linux_red_heart/red_heart_env
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | stderr 드레인 스레드 시작
+2025-09-10 18:29:52 | sentence_transformer_client | INFO | stderr 드레인 스레드 생성 완료
+2025-09-10 18:30:03 | sentence_transformer_client | INFO | 서버 연결 성공
+2025-09-10 18:30:03 | sentence_transformer_client | INFO | 모델 로딩 요청: jhgan/ko-sroberta-multitask (device: cuda)
+2025-09-10 18:31:14 | sentence_transformer_client | INFO | 모델 로딩 성공: jhgan/ko-sroberta-multitask
+2025-09-10 18:31:14 | sentence_transformer_singleton | INFO | 클라이언트 생성 및 모델 로딩 성공: jhgan/ko-sroberta-multitask_cuda
+2025-09-10 18:31:14 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 로드 완료 (싱글톤): sentence-transformers/paraphrase-multilingual-mpnet-base-v2, jhgan/ko-sroberta-multitask
+2025-09-10 18:31:14 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 초기화 완료: 2 모델 로드됨
+2025-09-10 18:31:14 | RedHeart.Config | INFO | 🔍 get_system_module 호출: module_id=translator
+2025-09-10 18:31:14 | RedHeart.Config | INFO | 🔍 현재 등록된 모듈들: ['translator']
+2025-09-10 18:31:14 | RedHeart.Config | INFO | 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe None 여부: False
+2025-09-10 18:31:15 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터 차원: 17개 감정
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO |   - DSP 시뮬레이터: 20M 파라미터
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터: 융합용
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | 계층적 감정 모델 초기화 완료
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | 📌 Claude 모드 감지 - 로컬 LLM 엔진 비활성화
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | 고급 감정 분석 시스템이 초기화되었습니다.
+2025-09-10 18:31:15 | RedHeartLinux.AdvancedEmotion | INFO | 🔍 hierarchical_model이 이미 존재함
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - biometric_processor 등록 (10M)
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - multimodal_fusion 등록 (10M)
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - temporal_emotion 등록 (10M)
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - cultural_nuance 등록 (13M)
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - advanced_moe 등록 (5M)
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - emotion_moe 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO | ✅ Advanced Emotion Analyzer Wrapper 초기화 (48M 파라미터)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim=512)
+2025-09-10 18:31:15 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:15 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-10 18:31:15 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로딩 중...
+2025-09-10 18:31:15 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 24.4%, 필요: 100MB)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로드: cuda (100MB)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 3028MB, GPU 1998MB
+2025-09-10 18:31:15 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:15 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-10 18:31:15 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-10 18:31:15 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 PhaseController Hook 초기화 완료
+2025-09-10 18:31:15 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:15 | RedHeart.LegalExpertSystem | INFO | 법률 전문가 시스템 GPU 메모리 관리 활성화
+2025-09-10 18:31:15 | RedHeart.LegalExpertSystem | INFO | 법률 전문가 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-10 18:31:15 | RedHeart.LegalExpertSystem | INFO | inference 모드 - 법률 전문가 시스템 활성화
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-09-10 18:31:15 | RedHeart.AdvancedBenthamCalculator | INFO |    - 파라미터 수: 3,137
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - cross_cultural 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - deep_ethics 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - default_network 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - ethics_moe 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - long_term_predictor 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO |   - social_impact 등록
+2025-09-10 18:31:15 | advanced_analyzer_wrappers | INFO | ✅ Advanced Bentham Calculator Wrapper 초기화 (2.5M 파라미터)
+2025-09-10 18:31:15 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-09-10 18:31:16 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:16 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-10 18:31:16 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-09-10 18:31:16 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:16 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-10 18:31:16 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-10 18:31:16 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | 후회 분석기 PhaseController Hook 초기화 완료
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | Advanced Regret Analyzer initialized on cuda
+2025-09-10 18:31:16 | advanced_regret_analyzer | INFO | 동적 임계값 시스템 통합 완료
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - regret_network 등록 (3M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - counterfactual_sim 등록 (15M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - temporal_propagation 등록 (12M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - decision_tree 등록 (10M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - bayesian_inference 등록 (10M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO | ✅ Advanced Regret Analyzer Wrapper 초기화 (50M 파라미터)
+2025-09-10 18:31:16 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 26.6%, 필요: 500MB)
+2025-09-10 18:31:16 | RedHeart.AdvancedSURDAnalyzer | INFO | ✅ SURD 분석기 강화 모듈 통합: 12.2M 파라미터 추가
+2025-09-10 18:31:16 | RedHeart.AdvancedSURDAnalyzer | INFO | 새로운 고급 SURD 모델 초기화 완료
+2025-09-10 18:31:16 | RedHeart.AdvancedLLM | INFO | 🐬 Dolphin Llama3 8B 설정: RAM 시작=예
+2025-09-10 18:31:16 | RedHeart.AdvancedLLM | INFO | 모델 설정 준비 완료: ['dolphin']
+2025-09-10 18:31:16 | RedHeart.AdvancedLLM | INFO | 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-09-10 18:31:16 | RedHeart.AdvancedSURDAnalyzer | INFO | LLM 엔진 연결 완료
+2025-09-10 18:31:16 | RedHeart.AdvancedSURDAnalyzer | INFO | 고급 SURD 분석 시스템 초기화 완료
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - deep_causal 등록 (10M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - info_decomposition 등록 (8M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO |   - neural_causal_model 등록 (5M)
+2025-09-10 18:31:16 | advanced_analyzer_wrappers | INFO | ✅ Advanced SURD Analyzer Wrapper 초기화 (25M 파라미터)
+2025-09-10 18:31:16 | ClaudeInference | INFO |    ✅ Advanced Wrappers 로드 완료 (CPU)
+2025-09-10 18:31:16 | ClaudeInference | INFO |    ✅ UnifiedModel에 advanced_wrappers 연결 완료
+2025-09-10 18:31:16 | ClaudeInference | INFO | 
+📦 Phase 5: Emotion-Ethics-Regret Circuit 초기화...
+2025-09-10 18:31:16 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 27.1%, 필요: 500MB)
+2025-09-10 18:31:16 | RedHeartLinux.AdvancedEmotion | INFO | 감정 임베딩 모델 초기화 시작...
+2025-09-10 18:31:16 | sentence_transformer_singleton | INFO | 기존 클라이언트 재사용 (모델 로드됨): sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:31:16 | sentence_transformer_singleton | INFO | 기존 클라이언트 서버는 살아있지만 모델 미로드 - 모델 로드 시도: jhgan/ko-sroberta-multitask_cuda
+2025-09-10 18:31:16 | sentence_transformer_client | INFO | 모델 로딩 요청: jhgan/ko-sroberta-multitask (device: cuda)
+2025-09-10 18:31:16 | sentence_transformer_client | INFO | 모델 로딩 성공: jhgan/ko-sroberta-multitask
+2025-09-10 18:31:16 | sentence_transformer_singleton | INFO | 모델 로드 성공: jhgan/ko-sroberta-multitask_cuda
+2025-09-10 18:31:16 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 로드 완료 (싱글톤): sentence-transformers/paraphrase-multilingual-mpnet-base-v2, jhgan/ko-sroberta-multitask
+2025-09-10 18:31:16 | RedHeartLinux.AdvancedEmotion | INFO | 임베딩 모델 초기화 완료: 2 모델 로드됨
+2025-09-10 18:31:16 | RedHeart.Config | INFO | 🔍 get_system_module 호출: module_id=translator
+2025-09-10 18:31:16 | RedHeart.Config | INFO | 🔍 현재 등록된 모듈들: ['translator']
+2025-09-10 18:31:16 | RedHeart.Config | INFO | 🔍 결과: <class 'local_translator.LocalTranslator'>
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | ✅ 감정 분석기 강화 모듈 통합: 56.4M 파라미터 추가
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | 감정 분석용 MoE 시스템 초기화 완료 (4개 전문가)
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe 타입: <class 'mixture_of_experts.MixtureOfExperts'>
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO |   - emotion_moe None 여부: False
+2025-09-10 18:31:17 | emotion_dsp_simulator | INFO | EmotionDSPSimulator 초기화 완료 (~14M 파라미터)
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터 차원: 17개 감정
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | ✅ DSP 시뮬레이터와 칼만 필터 초기화 완료
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO |   - DSP 시뮬레이터: 20M 파라미터
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO |   - 칼만 필터: 융합용
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | 계층적 감정 모델 초기화 완료
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | 📌 Claude 모드 감지 - 로컬 LLM 엔진 비활성화
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | 고급 감정 분석 시스템이 초기화되었습니다.
+2025-09-10 18:31:17 | RedHeartLinux.AdvancedEmotion | INFO | 🔍 hierarchical_model이 이미 존재함
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 강화 모듈 통합: 72.8M 파라미터 추가
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 윤리 MoE 시스템 초기화 완료 (4개 전문가, input_dim=512)
+2025-09-10 18:31:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-10 18:31:17 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 3뷰 시나리오 시스템 초기화 완료
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로딩 중...
+2025-09-10 18:31:17 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 34.1%, 필요: 100MB)
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 신경망 가중치 예측기 로드: cuda (100MB)
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 메모리 사용량: RAM 2983MB, GPU 2794MB
+2025-09-10 18:31:17 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-10 18:31:17 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-10 18:31:17 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 PhaseController Hook 초기화 완료
+2025-09-10 18:31:17 | RedHeart.LegalExpertSystem | INFO | inference 모드 - 법률 전문가 시스템 활성화
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 벤담 계산기 법률 전문가 시스템 초기화 완료
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 고급 벤담 쾌락 계산기 초기화 완료 (레이지 로딩 활성화)
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | 🔨 벤담 계산기 기본 PyTorch 네트워크 생성 중...
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO | ✅ 벤담 계산기 기본 네트워크 생성 완료 (device: cuda:0)
+2025-09-10 18:31:17 | RedHeart.AdvancedBenthamCalculator | INFO |    - 파라미터 수: 3,137
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | ✅ 후회 분석기 강화 모듈 통합: 42.9M 파라미터 추가
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | 후회 분석용 MoE 시스템 초기화 완료 (3개 전문가)
+2025-09-10 18:31:18 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:18 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 GPU 메모리 관리 활성화
+2025-09-10 18:31:18 | RedHeart.ThreeViewScenarioSystem | INFO | 3뷰 시나리오 시스템 초기화 완료 (온디맨드 로딩 방식)
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | 후회 분석기 3뷰 시나리오 시스템 초기화 완료
+2025-09-10 18:31:18 | dynamic_gpu_manager | INFO | Dynamic GPU Manager initialized - Total GPU Memory: 8.0GB
+2025-09-10 18:31:18 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook GPU 메모리 관리 활성화
+2025-09-10 18:31:18 | RedHeart.PhaseControllerHook | INFO | PhaseController Hook 시스템 초기화 완료
+2025-09-10 18:31:18 | RedHeart.PhaseControllerHook | INFO | 성능 모니터링 시작
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | 후회 분석기 PhaseController Hook 초기화 완료
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | Advanced Regret Analyzer initialized on cuda
+2025-09-10 18:31:18 | advanced_regret_analyzer | INFO | 동적 임계값 시스템 통합 완료
+2025-09-10 18:31:18 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 36.3%, 필요: 500MB)
+2025-09-10 18:31:18 | sentence_transformer_singleton | INFO | 기존 클라이언트 서버는 살아있지만 모델 미로드 - 모델 로드 시도: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:31:18 | sentence_transformer_client | INFO | 모델 로딩 요청: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-10 18:31:18 | sentence_transformer_client | INFO | 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-10 18:31:18 | sentence_transformer_singleton | INFO | 모델 로드 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:31:18 | RedHeart.AdvancedExperienceDB | INFO | 임베딩 모델 로드 완료 (싱글톤, 차원: 768)
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | FAISS 인덱스 생성 완료: IndexFlatL2, 차원=768
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | FAISS 벡터 데이터베이스 초기화 완료 (subprocess)
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | GPU 배치 처리 워커 시작됨 (무한 대기 이슈 해결)
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | 메타데이터 데이터베이스가 초기화되었습니다.
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | 신경망 메모리 시스템이 초기화되었습니다.
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | 학습 시스템들이 초기화되었습니다.
+2025-09-10 18:31:20 | RedHeart.AdvancedExperienceDB | INFO | 고급 경험 데이터베이스가 초기화되었습니다.
+2025-09-10 18:31:20 | RedHeart.EmotionEthicsRegretCircuit | INFO | 감정-윤리-후회 삼각 회로 초기화 완료
+2025-09-10 18:31:20 | ClaudeInference | INFO |    ✅ Emotion-Ethics-Regret Circuit 초기화 완료
+2025-09-10 18:31:20 | ClaudeInference | INFO |       - 감정-윤리-후회 통합 분석 가능
+2025-09-10 18:31:20 | ClaudeInference | INFO |       - Circuit 활성화 조건: config.use_emotion_hierarchy=True
+2025-09-10 18:31:20 | ClaudeInference | INFO | 
+📦 Phase 6: Claude API 엔진 초기화...
+2025-09-10 18:31:20 | RedHeart.APIManager | WARNING | ⚠️ gpt API 키가 설정되지 않음
+2025-09-10 18:31:20 | RedHeart.APIManager | INFO | ✅ claude API 키 로드됨: sk-ant-api...
+2025-09-10 18:31:20 | RedHeart.APIManager | INFO | ✅ perplexity API 키 로드됨: pplx-0Ex4v...
+2025-09-10 18:31:20 | RedHeart.APIManager | WARNING | ⚠️ deepseek API 키가 설정되지 않음
+2025-09-10 18:31:20 | RedHeart.APIManager | INFO | 🔑 API 키 관리자 초기화 (설정 파일: /mnt/c/large_project/linux_red_heart/api_key_manager/config.json)
+2025-09-10 18:31:20 | RedHeart.AdvancedLLM | INFO | 🌐 API 모드 활성화: claude
+2025-09-10 18:31:20 | RedHeart.AdvancedLLM | INFO | 🌐 API 설정 준비 완료: claude (로컬 모델 건너뛰기)
+2025-09-10 18:31:20 | RedHeart.AdvancedLLM | INFO | 동적 GPU-RAM 스왑 시스템 초기화 완료
+2025-09-10 18:31:20 | ClaudeInference | INFO |    ✅ Claude API 엔진 초기화 완료
+2025-09-10 18:31:20 | ClaudeInference | INFO | 
+✅ 모든 컴포넌트 초기화 완료!
+2025-09-10 18:31:20 | ClaudeInference | INFO | 
+======================================================================
+2025-09-10 18:31:20 | ClaudeInference | INFO | 🎯 추론 시작
+2025-09-10 18:31:20 | ClaudeInference | INFO | ======================================================================
+2025-09-10 18:31:20 | ClaudeInference | INFO | 📝 입력 텍스트: AI 윤리적 문제 해결
+2025-09-10 18:31:20 | ClaudeInference | INFO | ⚡ Claude 모드 - 번역 스킵 (원문 그대로 사용)
+2025-09-10 18:31:20 | ClaudeInference | INFO | 
+📊 UnifiedModel 추론...
+2025-09-10 18:31:21 | ClaudeInference | INFO |    📝 텍스트 임베딩 생성 중...
+2025-09-10 18:31:21 | sentence_transformer_singleton | INFO | 기존 클라이언트 서버는 살아있지만 모델 미로드 - 모델 로드 시도: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:31:21 | sentence_transformer_client | INFO | 모델 로딩 요청: sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (device: cuda)
+2025-09-10 18:31:21 | sentence_transformer_client | INFO | 모델 로딩 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2
+2025-09-10 18:31:21 | sentence_transformer_singleton | INFO | 모델 로드 성공: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:31:22 | ClaudeInference | INFO |    🎭 감정 분석 추론...
+2025-09-10 18:31:22 | UnifiedModel.Debug | INFO | 🔍 advanced_wrappers 타입: <class 'dict'>
+2025-09-10 18:31:22 | UnifiedModel.Debug | INFO | 🔍 advanced_wrappers 키들: ['advanced_emotion', 'advanced_bentham', 'advanced_regret', 'advanced_surd']
+2025-09-10 18:31:22 | UnifiedModel.Debug | INFO | 🔍 찾는 wrapper_key: advanced_emotion
+2025-09-10 18:31:22 | UnifiedModel.Debug | INFO | 🔍 wrapper 타입: <class 'advanced_analyzer_wrappers.AdvancedEmotionAnalyzerWrapper'>
+2025-09-10 18:31:22 | advanced_analyzer_wrappers | INFO | 🔄 AdvancedEmotionAnalyzerWrapper forward 실행 시작
+2025-09-10 18:31:22 | advanced_analyzer_wrappers | INFO |    - analyze_emotion 호출: text='AI 윤리적 문제 해결...', lang=ko
+2025-09-10 18:31:22 | RedHeart.Config | INFO | GPU 직접 사용: None (사용률: 44.2%, 필요: 500MB)
+2025-09-10 18:31:22 | sensitivity_detection_singleton | INFO | SensitivityDetectionManager 초기화 완료
+2025-09-10 18:31:22 | local_translator | INFO | 🔄 Lazy loading: 번역이 필요해서 모델을 로드합니다...
+2025-09-10 18:31:22 | local_translator | INFO | 🔄 OPUS-MT 모델 로드 중: Helsinki-NLP/opus-mt-ko-en
+2025-09-10 18:31:23 | hf_model_wrapper | INFO | ✅ HF 모델 자동 등록 활성화됨 (모델, 토크나이저, 프로세서 포함)
+2025-09-10 18:31:23 | hf_model_wrapper | INFO | 🔄 HF 모델 로딩 중: Helsinki-NLP/opus-mt-ko-en (소유자: translator)
+2025-09-10 18:31:24 | local_translator | INFO | ✅ OPUS-MT 모델 로드 완료 (소요시간: 1.5초, 디바이스: cpu)
+2025-09-10 18:31:24 | local_translator | INFO | 📊 Translator는 CPU에서 초기화됨 (GPU 메모리 절약)
+2025-09-10 18:31:24 | workflow_aware_memory_manager | INFO | ✅ HF 모델 래퍼와 메모리 매니저 통합 완료
+2025-09-10 18:31:24 | dynamic_swap_manager | INFO | RedHeartDynamicSwapManager 초기화 완료
+2025-09-10 18:31:24 | dynamic_swap_manager | INFO | [DSM] translator 크기: 297.6MB (mgr_id=131592722621520)
+2025-09-10 18:31:24 | dynamic_swap_manager | INFO |    💾 translator을 RAM에 등록 (location=RAM, size=297.6MB)
+2025-09-10 18:31:24 | dynamic_swap_manager | INFO | [REGISTER HEAD] translator (297.6MB, 우선순위: high)
+2025-09-10 18:31:24 | local_translator | INFO | ✅ Translator를 DSM에 등록 (HIGH priority)
+2025-09-10 18:31:24 | RedHeart.AdvancedLLM | INFO | 🎯 작업 유형 'emotion_analysis' (복잡도: complex)에 대해 Dolphin 모델 사용
+2025-09-10 18:31:24 | RedHeart.AdvancedLLM | INFO | 🐬 Dolphin 모델 로딩 시도...
+2025-09-10 18:31:24 | RedHeart.AdvancedLLM | INFO | 🚀 모델 dolphin (llama_cpp) GPU 로딩 시작...
+2025-09-10 18:31:24 | RedHeart.AdvancedLLM | INFO | 📁 모델 경로: /mnt/c/large_project/linux_red_heart/dolphin_llama3_8b/dolphin-2.9-llama3-8b-q4_K_M.gguf
+2025-09-10 18:31:24 | RedHeart.AdvancedLLM | INFO | 💾 LLM을 RAM에서 초기화 (GPU 레이어: 0/32)
+ggml_cuda_init: GGML_CUDA_FORCE_MMQ:    yes
+ggml_cuda_init: GGML_CUDA_FORCE_CUBLAS: no
+ggml_cuda_init: found 1 CUDA devices:
+  Device 0: NVIDIA GeForce RTX 2070 SUPER, compute capability 7.5, VMM: yes
+llama_model_load_from_file_impl: using device CUDA0 (NVIDIA GeForce RTX 2070 SUPER) - 3013 MiB free
+llama_model_loader: loaded meta data with 23 key-value pairs and 291 tensors from /mnt/c/large_project/linux_red_heart/dolphin_llama3_8b/dolphin-2.9-llama3-8b-q4_K_M.gguf (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = llama
+llama_model_loader: - kv   1:                               general.name str              = E:\LLMs
+llama_model_loader: - kv   2:                           llama.vocab_size u32              = 128258
+llama_model_loader: - kv   3:                       llama.context_length u32              = 8192
+llama_model_loader: - kv   4:                     llama.embedding_length u32              = 4096
+llama_model_loader: - kv   5:                          llama.block_count u32              = 32
+llama_model_loader: - kv   6:                  llama.feed_forward_length u32              = 14336
+llama_model_loader: - kv   7:                 llama.rope.dimension_count u32              = 128
+llama_model_loader: - kv   8:                 llama.attention.head_count u32              = 32
+llama_model_loader: - kv   9:              llama.attention.head_count_kv u32              = 8
+llama_model_loader: - kv  10:     llama.attention.layer_norm_rms_epsilon f32              = 0.000010
+llama_model_loader: - kv  11:                       llama.rope.freq_base f32              = 500000.000000
+llama_model_loader: - kv  12:                          general.file_type u32              = 15
+llama_model_loader: - kv  13:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  14:                      tokenizer.ggml.tokens arr[str,128258]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  15:                      tokenizer.ggml.scores arr[f32,128258]  = [0.000000, 0.000000, 0.000000, 0.0000...
+llama_model_loader: - kv  16:                  tokenizer.ggml.token_type arr[i32,128258]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  17:                      tokenizer.ggml.merges arr[str,280147]  = ["Ġ Ġ", "Ġ ĠĠĠ", "ĠĠ ĠĠ", "...
+llama_model_loader: - kv  18:                tokenizer.ggml.bos_token_id u32              = 128000
+llama_model_loader: - kv  19:                tokenizer.ggml.eos_token_id u32              = 128256
+llama_model_loader: - kv  20:            tokenizer.ggml.padding_token_id u32              = 128001
+llama_model_loader: - kv  21:                    tokenizer.chat_template str              = {% set loop_messages = messages %}{% ...
+llama_model_loader: - kv  22:               general.quantization_version u32              = 2
+llama_model_loader: - type  f32:   65 tensors
+llama_model_loader: - type q4_K:  193 tensors
+llama_model_loader: - type q6_K:   33 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 4.58 GiB (4.89 BPW) 
+load: missing pre-tokenizer type, using: 'default'
+load:                                             
+load: ************************************        
+load: GENERATION QUALITY WILL BE DEGRADED!        
+load: CONSIDER REGENERATING THE MODEL             
+load: ************************************        
+load:                                             
+init_tokenizer: initializing tokenizer for type 2
+load: control token: 128255 '<|reserved_special_token_250|>' is not marked as EOG
+load: control token: 128254 '<|reserved_special_token_249|>' is not marked as EOG
+load: control token: 128253 '<|reserved_special_token_248|>' is not marked as EOG
+load: control token: 128251 '<|reserved_special_token_246|>' is not marked as EOG
+load: control token: 128246 '<|reserved_special_token_241|>' is not marked as EOG
+load: control token: 128243 '<|reserved_special_token_238|>' is not marked as EOG
+load: control token: 128240 '<|reserved_special_token_235|>' is not marked as EOG
+load: control token: 128239 '<|reserved_special_token_234|>' is not marked as EOG
+load: control token: 128238 '<|reserved_special_token_233|>' is not marked as EOG
+load: control token: 128237 '<|reserved_special_token_232|>' is not marked as EOG
+load: control token: 128232 '<|reserved_special_token_227|>' is not marked as EOG
+load: control token: 128228 '<|reserved_special_token_223|>' is not marked as EOG
+load: control token: 128227 '<|reserved_special_token_222|>' is not marked as EOG
+load: control token: 128225 '<|reserved_special_token_220|>' is not marked as EOG
+load: control token: 128222 '<|reserved_special_token_217|>' is not marked as EOG
+load: control token: 128215 '<|reserved_special_token_210|>' is not marked as EOG
+load: control token: 128211 '<|reserved_special_token_206|>' is not marked as EOG
+load: control token: 128210 '<|reserved_special_token_205|>' is not marked as EOG
+load: control token: 128204 '<|reserved_special_token_199|>' is not marked as EOG
+load: control token: 128203 '<|reserved_special_token_198|>' is not marked as EOG
+load: control token: 128201 '<|reserved_special_token_196|>' is not marked as EOG
+load: control token: 128197 '<|reserved_special_token_192|>' is not marked as EOG
+load: control token: 128196 '<|reserved_special_token_191|>' is not marked as EOG
+load: control token: 128195 '<|reserved_special_token_190|>' is not marked as EOG
+load: control token: 128193 '<|reserved_special_token_188|>' is not marked as EOG
+load: control token: 128191 '<|reserved_special_token_186|>' is not marked as EOG
+load: control token: 128190 '<|reserved_special_token_185|>' is not marked as EOG
+load: control token: 128185 '<|reserved_special_token_180|>' is not marked as EOG
+load: control token: 128184 '<|reserved_special_token_179|>' is not marked as EOG
+load: control token: 128182 '<|reserved_special_token_177|>' is not marked as EOG
+load: control token: 128181 '<|reserved_special_token_176|>' is not marked as EOG
+load: control token: 128177 '<|reserved_special_token_172|>' is not marked as EOG
+load: control token: 128176 '<|reserved_special_token_171|>' is not marked as EOG
+load: control token: 128175 '<|reserved_special_token_170|>' is not marked as EOG
+load: control token: 128174 '<|reserved_special_token_169|>' is not marked as EOG
+load: control token: 128173 '<|reserved_special_token_168|>' is not marked as EOG
+load: control token: 128172 '<|reserved_special_token_167|>' is not marked as EOG
+load: control token: 128168 '<|reserved_special_token_163|>' is not marked as EOG
+load: control token: 128167 '<|reserved_special_token_162|>' is not marked as EOG
+load: control token: 128166 '<|reserved_special_token_161|>' is not marked as EOG
+load: control token: 128165 '<|reserved_special_token_160|>' is not marked as EOG
+load: control token: 128162 '<|reserved_special_token_157|>' is not marked as EOG
+load: control token: 128159 '<|reserved_special_token_154|>' is not marked as EOG
+load: control token: 128155 '<|reserved_special_token_150|>' is not marked as EOG
+load: control token: 128153 '<|reserved_special_token_148|>' is not marked as EOG
+load: control token: 128152 '<|reserved_special_token_147|>' is not marked as EOG
+load: control token: 128151 '<|reserved_special_token_146|>' is not marked as EOG
+load: control token: 128148 '<|reserved_special_token_143|>' is not marked as EOG
+load: control token: 128146 '<|reserved_special_token_141|>' is not marked as EOG
+load: control token: 128144 '<|reserved_special_token_139|>' is not marked as EOG
+load: control token: 128143 '<|reserved_special_token_138|>' is not marked as EOG
+load: control token: 128141 '<|reserved_special_token_136|>' is not marked as EOG
+load: control token: 128139 '<|reserved_special_token_134|>' is not marked as EOG
+load: control token: 128138 '<|reserved_special_token_133|>' is not marked as EOG
+load: control token: 128135 '<|reserved_special_token_130|>' is not marked as EOG
+load: control token: 128133 '<|reserved_special_token_128|>' is not marked as EOG
+load: control token: 128132 '<|reserved_special_token_127|>' is not marked as EOG
+load: control token: 128131 '<|reserved_special_token_126|>' is not marked as EOG
+load: control token: 128130 '<|reserved_special_token_125|>' is not marked as EOG
+load: control token: 128128 '<|reserved_special_token_123|>' is not marked as EOG
+load: control token: 128125 '<|reserved_special_token_120|>' is not marked as EOG
+load: control token: 128121 '<|reserved_special_token_116|>' is not marked as EOG
+load: control token: 128120 '<|reserved_special_token_115|>' is not marked as EOG
+load: control token: 128119 '<|reserved_special_token_114|>' is not marked as EOG
+load: control token: 128116 '<|reserved_special_token_111|>' is not marked as EOG
+load: control token: 128112 '<|reserved_special_token_107|>' is not marked as EOG
+load: control token: 128109 '<|reserved_special_token_104|>' is not marked as EOG
+load: control token: 128107 '<|reserved_special_token_102|>' is not marked as EOG
+load: control token: 128106 '<|reserved_special_token_101|>' is not marked as EOG
+load: control token: 128105 '<|reserved_special_token_100|>' is not marked as EOG
+load: control token: 128103 '<|reserved_special_token_98|>' is not marked as EOG
+load: control token: 128100 '<|reserved_special_token_95|>' is not marked as EOG
+load: control token: 128099 '<|reserved_special_token_94|>' is not marked as EOG
+load: control token: 128098 '<|reserved_special_token_93|>' is not marked as EOG
+load: control token: 128094 '<|reserved_special_token_89|>' is not marked as EOG
+load: control token: 128088 '<|reserved_special_token_83|>' is not marked as EOG
+load: control token: 128087 '<|reserved_special_token_82|>' is not marked as EOG
+load: control token: 128086 '<|reserved_special_token_81|>' is not marked as EOG
+load: control token: 128084 '<|reserved_special_token_79|>' is not marked as EOG
+load: control token: 128082 '<|reserved_special_token_77|>' is not marked as EOG
+load: control token: 128078 '<|reserved_special_token_73|>' is not marked as EOG
+load: control token: 128075 '<|reserved_special_token_70|>' is not marked as EOG
+load: control token: 128073 '<|reserved_special_token_68|>' is not marked as EOG
+load: control token: 128072 '<|reserved_special_token_67|>' is not marked as EOG
+load: control token: 128070 '<|reserved_special_token_65|>' is not marked as EOG
+load: control token: 128065 '<|reserved_special_token_60|>' is not marked as EOG
+load: control token: 128064 '<|reserved_special_token_59|>' is not marked as EOG
+load: control token: 128062 '<|reserved_special_token_57|>' is not marked as EOG
+load: control token: 128060 '<|reserved_special_token_55|>' is not marked as EOG
+load: control token: 128059 '<|reserved_special_token_54|>' is not marked as EOG
+load: control token: 128057 '<|reserved_special_token_52|>' is not marked as EOG
+load: control token: 128056 '<|reserved_special_token_51|>' is not marked as EOG
+load: control token: 128054 '<|reserved_special_token_49|>' is not marked as EOG
+load: control token: 128051 '<|reserved_special_token_46|>' is not marked as EOG
+load: control token: 128043 '<|reserved_special_token_38|>' is not marked as EOG
+load: control token: 128042 '<|reserved_special_token_37|>' is not marked as EOG
+load: control token: 128041 '<|reserved_special_token_36|>' is not marked as EOG
+load: control token: 128040 '<|reserved_special_token_35|>' is not marked as EOG
+load: control token: 128035 '<|reserved_special_token_30|>' is not marked as EOG
+load: control token: 128033 '<|reserved_special_token_28|>' is not marked as EOG
+load: control token: 128032 '<|reserved_special_token_27|>' is not marked as EOG
+load: control token: 128029 '<|reserved_special_token_24|>' is not marked as EOG
+load: control token: 128025 '<|reserved_special_token_20|>' is not marked as EOG
+load: control token: 128024 '<|reserved_special_token_19|>' is not marked as EOG
+load: control token: 128021 '<|reserved_special_token_16|>' is not marked as EOG
+load: control token: 128020 '<|reserved_special_token_15|>' is not marked as EOG
+load: control token: 128019 '<|reserved_special_token_14|>' is not marked as EOG
+load: control token: 128018 '<|reserved_special_token_13|>' is not marked as EOG
+load: control token: 128015 '<|reserved_special_token_10|>' is not marked as EOG
+load: control token: 128013 '<|reserved_special_token_8|>' is not marked as EOG
+load: control token: 128012 '<|reserved_special_token_7|>' is not marked as EOG
+load: control token: 128010 '<|reserved_special_token_5|>' is not marked as EOG
+load: control token: 128005 '<|reserved_special_token_3|>' is not marked as EOG
+load: control token: 128004 '<|reserved_special_token_2|>' is not marked as EOG
+load: control token: 128002 '<|reserved_special_token_0|>' is not marked as EOG
+load: control token: 128249 '<|reserved_special_token_244|>' is not marked as EOG
+load: control token: 128187 '<|reserved_special_token_182|>' is not marked as EOG
+load: control token: 128180 '<|reserved_special_token_175|>' is not marked as EOG
+load: control token: 128134 '<|reserved_special_token_129|>' is not marked as EOG
+load: control token: 128179 '<|reserved_special_token_174|>' is not marked as EOG
+load: control token: 128037 '<|reserved_special_token_32|>' is not marked as EOG
+load: control token: 128045 '<|reserved_special_token_40|>' is not marked as EOG
+load: control token: 128089 '<|reserved_special_token_84|>' is not marked as EOG
+load: control token: 128212 '<|reserved_special_token_207|>' is not marked as EOG
+load: control token: 128104 '<|reserved_special_token_99|>' is not marked as EOG
+load: control token: 128205 '<|reserved_special_token_200|>' is not marked as EOG
+load: control token: 128142 '<|reserved_special_token_137|>' is not marked as EOG
+load: control token: 128028 '<|reserved_special_token_23|>' is not marked as EOG
+load: control token: 128126 '<|reserved_special_token_121|>' is not marked as EOG
+load: control token: 128198 '<|reserved_special_token_193|>' is not marked as EOG
+load: control token: 128071 '<|reserved_special_token_66|>' is not marked as EOG
+load: control token: 128092 '<|reserved_special_token_87|>' is not marked as EOG
+load: control token: 128183 '<|reserved_special_token_178|>' is not marked as EOG
+load: control token: 128140 '<|reserved_special_token_135|>' is not marked as EOG
+load: control token: 128226 '<|reserved_special_token_221|>' is not marked as EOG
+load: control token: 128007 '<|end_header_id|>' is not marked as EOG
+load: control token: 128052 '<|reserved_special_token_47|>' is not marked as EOG
+load: control token: 128053 '<|reserved_special_token_48|>' is not marked as EOG
+load: control token: 128058 '<|reserved_special_token_53|>' is not marked as EOG
+load: control token: 128150 '<|reserved_special_token_145|>' is not marked as EOG
+load: control token: 128149 '<|reserved_special_token_144|>' is not marked as EOG
+load: control token: 128209 '<|reserved_special_token_204|>' is not marked as EOG
+load: control token: 128169 '<|reserved_special_token_164|>' is not marked as EOG
+load: control token: 128157 '<|reserved_special_token_152|>' is not marked as EOG
+load: control token: 128038 '<|reserved_special_token_33|>' is not marked as EOG
+load: control token: 128178 '<|reserved_special_token_173|>' is not marked as EOG
+load: control token: 128091 '<|reserved_special_token_86|>' is not marked as EOG
+load: control token: 128115 '<|reserved_special_token_110|>' is not marked as EOG
+load: control token: 128233 '<|reserved_special_token_228|>' is not marked as EOG
+load: control token: 128145 '<|reserved_special_token_140|>' is not marked as EOG
+load: control token: 128039 '<|reserved_special_token_34|>' is not marked as EOG
+load: control token: 128136 '<|reserved_special_token_131|>' is not marked as EOG
+load: control token: 128170 '<|reserved_special_token_165|>' is not marked as EOG
+load: control token: 128236 '<|reserved_special_token_231|>' is not marked as EOG
+load: control token: 128154 '<|reserved_special_token_149|>' is not marked as EOG
+load: control token: 128049 '<|reserved_special_token_44|>' is not marked as EOG
+load: control token: 128023 '<|reserved_special_token_18|>' is not marked as EOG
+load: control token: 128003 '<|reserved_special_token_1|>' is not marked as EOG
+load: control token: 128016 '<|reserved_special_token_11|>' is not marked as EOG
+load: control token: 128113 '<|reserved_special_token_108|>' is not marked as EOG
+load: control token: 128158 '<|reserved_special_token_153|>' is not marked as EOG
+load: control token: 128223 '<|reserved_special_token_218|>' is not marked as EOG
+load: control token: 128156 '<|reserved_special_token_151|>' is not marked as EOG
+load: control token: 128008 '<|reserved_special_token_4|>' is not marked as EOG
+load: control token: 128085 '<|reserved_special_token_80|>' is not marked as EOG
+load: control token: 128160 '<|reserved_special_token_155|>' is not marked as EOG
+load: control token: 128110 '<|reserved_special_token_105|>' is not marked as EOG
+load: control token: 128247 '<|reserved_special_token_242|>' is not marked as EOG
+load: control token: 128122 '<|reserved_special_token_117|>' is not marked as EOG
+load: control token: 128050 '<|reserved_special_token_45|>' is not marked as EOG
+load: control token: 128221 '<|reserved_special_token_216|>' is not marked as EOG
+load: control token: 128244 '<|reserved_special_token_239|>' is not marked as EOG
+load: control token: 128248 '<|reserved_special_token_243|>' is not marked as EOG
+load: control token: 128213 '<|reserved_special_token_208|>' is not marked as EOG
+load: control token: 128006 '<|start_header_id|>' is not marked as EOG
+load: control token: 128208 '<|reserved_special_token_203|>' is not marked as EOG
+load: control token: 128074 '<|reserved_special_token_69|>' is not marked as EOG
+load: control token: 128234 '<|reserved_special_token_229|>' is not marked as EOG
+load: control token: 128083 '<|reserved_special_token_78|>' is not marked as EOG
+load: control token: 128224 '<|reserved_special_token_219|>' is not marked as EOG
+load: control token: 128055 '<|reserved_special_token_50|>' is not marked as EOG
+load: control token: 128097 '<|reserved_special_token_92|>' is not marked as EOG
+load: control token: 128206 '<|reserved_special_token_201|>' is not marked as EOG
+load: control token: 128081 '<|reserved_special_token_76|>' is not marked as EOG
+load: control token: 128068 '<|reserved_special_token_63|>' is not marked as EOG
+load: control token: 128067 '<|reserved_special_token_62|>' is not marked as EOG
+load: control token: 128046 '<|reserved_special_token_41|>' is not marked as EOG
+load: control token: 128194 '<|reserved_special_token_189|>' is not marked as EOG
+load: control token: 128069 '<|reserved_special_token_64|>' is not marked as EOG
+load: control token: 128000 '<|begin_of_text|>' is not marked as EOG
+load: control token: 128220 '<|reserved_special_token_215|>' is not marked as EOG
+load: control token: 128214 '<|reserved_special_token_209|>' is not marked as EOG
+load: control token: 128108 '<|reserved_special_token_103|>' is not marked as EOG
+load: control token: 128200 '<|reserved_special_token_195|>' is not marked as EOG
+load: control token: 128048 '<|reserved_special_token_43|>' is not marked as EOG
+load: control token: 128027 '<|reserved_special_token_22|>' is not marked as EOG
+load: control token: 128114 '<|reserved_special_token_109|>' is not marked as EOG
+load: control token: 128235 '<|reserved_special_token_230|>' is not marked as EOG
+load: control token: 128252 '<|reserved_special_token_247|>' is not marked as EOG
+load: control token: 128199 '<|reserved_special_token_194|>' is not marked as EOG
+load: control token: 128129 '<|reserved_special_token_124|>' is not marked as EOG
+load: control token: 128245 '<|reserved_special_token_240|>' is not marked as EOG
+load: control token: 128164 '<|reserved_special_token_159|>' is not marked as EOG
+load: control token: 128124 '<|reserved_special_token_119|>' is not marked as EOG
+load: control token: 128102 '<|reserved_special_token_97|>' is not marked as EOG
+load: control token: 128036 '<|reserved_special_token_31|>' is not marked as EOG
+load: control token: 128229 '<|reserved_special_token_224|>' is not marked as EOG
+load: control token: 128163 '<|reserved_special_token_158|>' is not marked as EOG
+load: control token: 128127 '<|reserved_special_token_122|>' is not marked as EOG
+load: control token: 128111 '<|reserved_special_token_106|>' is not marked as EOG
+load: control token: 128231 '<|reserved_special_token_226|>' is not marked as EOG
+load: control token: 128188 '<|reserved_special_token_183|>' is not marked as EOG
+load: control token: 128061 '<|reserved_special_token_56|>' is not marked as EOG
+load: control token: 128137 '<|reserved_special_token_132|>' is not marked as EOG
+load: control token: 128093 '<|reserved_special_token_88|>' is not marked as EOG
+load: control token: 128095 '<|reserved_special_token_90|>' is not marked as EOG
+load: control token: 128189 '<|reserved_special_token_184|>' is not marked as EOG
+load: control token: 128090 '<|reserved_special_token_85|>' is not marked as EOG
+load: control token: 128147 '<|reserved_special_token_142|>' is not marked as EOG
+load: control token: 128219 '<|reserved_special_token_214|>' is not marked as EOG
+load: control token: 128230 '<|reserved_special_token_225|>' is not marked as EOG
+load: control token: 128217 '<|reserved_special_token_212|>' is not marked as EOG
+load: control token: 128031 '<|reserved_special_token_26|>' is not marked as EOG
+load: control token: 128030 '<|reserved_special_token_25|>' is not marked as EOG
+load: control token: 128250 '<|reserved_special_token_245|>' is not marked as EOG
+load: control token: 128192 '<|reserved_special_token_187|>' is not marked as EOG
+load: control token: 128096 '<|reserved_special_token_91|>' is not marked as EOG
+load: control token: 128186 '<|reserved_special_token_181|>' is not marked as EOG
+load: control token: 128207 '<|reserved_special_token_202|>' is not marked as EOG
+load: control token: 128257 '<|im_start|>' is not marked as EOG
+load: control token: 128171 '<|reserved_special_token_166|>' is not marked as EOG
+load: control token: 128080 '<|reserved_special_token_75|>' is not marked as EOG
+load: control token: 128077 '<|reserved_special_token_72|>' is not marked as EOG
+load: control token: 128101 '<|reserved_special_token_96|>' is not marked as EOG
+load: control token: 128079 '<|reserved_special_token_74|>' is not marked as EOG
+load: control token: 128216 '<|reserved_special_token_211|>' is not marked as EOG
+load: control token: 128014 '<|reserved_special_token_9|>' is not marked as EOG
+load: control token: 128047 '<|reserved_special_token_42|>' is not marked as EOG
+load: control token: 128202 '<|reserved_special_token_197|>' is not marked as EOG
+load: control token: 128044 '<|reserved_special_token_39|>' is not marked as EOG
+load: control token: 128161 '<|reserved_special_token_156|>' is not marked as EOG
+load: control token: 128017 '<|reserved_special_token_12|>' is not marked as EOG
+load: control token: 128066 '<|reserved_special_token_61|>' is not marked as EOG
+load: control token: 128242 '<|reserved_special_token_237|>' is not marked as EOG
+load: control token: 128118 '<|reserved_special_token_113|>' is not marked as EOG
+load: control token: 128076 '<|reserved_special_token_71|>' is not marked as EOG
+load: control token: 128034 '<|reserved_special_token_29|>' is not marked as EOG
+load: control token: 128241 '<|reserved_special_token_236|>' is not marked as EOG
+load: control token: 128026 '<|reserved_special_token_21|>' is not marked as EOG
+load: control token: 128218 '<|reserved_special_token_213|>' is not marked as EOG
+load: control token: 128063 '<|reserved_special_token_58|>' is not marked as EOG
+load: control token: 128117 '<|reserved_special_token_112|>' is not marked as EOG
+load: control token: 128011 '<|reserved_special_token_6|>' is not marked as EOG
+load: control token: 128022 '<|reserved_special_token_17|>' is not marked as EOG
+load: control token: 128123 '<|reserved_special_token_118|>' is not marked as EOG
+load: special tokens cache size = 258
+load: token to piece cache size = 0.8000 MB
+print_info: arch             = llama
+print_info: vocab_only       = 0
+print_info: n_ctx_train      = 8192
+print_info: n_embd           = 4096
+print_info: n_layer          = 32
+print_info: n_head           = 32
+print_info: n_head_kv        = 8
+print_info: n_rot            = 128
+print_info: n_swa            = 0
+print_info: is_swa_any       = 0
+print_info: n_embd_head_k    = 128
+print_info: n_embd_head_v    = 128
+print_info: n_gqa            = 4
+print_info: n_embd_k_gqa     = 1024
+print_info: n_embd_v_gqa     = 1024
+print_info: f_norm_eps       = 0.0e+00
+print_info: f_norm_rms_eps   = 1.0e-05
+print_info: f_clamp_kqv      = 0.0e+00
+print_info: f_max_alibi_bias = 0.0e+00
+print_info: f_logit_scale    = 0.0e+00
+print_info: f_attn_scale     = 0.0e+00
+print_info: n_ff             = 14336
+print_info: n_expert         = 0
+print_info: n_expert_used    = 0
+print_info: causal attn      = 1
+print_info: pooling type     = 0
+print_info: rope type        = 0
+print_info: rope scaling     = linear
+print_info: freq_base_train  = 500000.0
+print_info: freq_scale_train = 1
+print_info: n_ctx_orig_yarn  = 8192
+print_info: rope_finetuned   = unknown
+print_info: model type       = 8B
+print_info: model params     = 8.03 B
+print_info: general.name     = E:\LLMs
+print_info: vocab type       = BPE
+print_info: n_vocab          = 128258
+print_info: n_merges         = 280147
+print_info: BOS token        = 128000 '<|begin_of_text|>'
+print_info: EOS token        = 128256 '<|im_end|>'
+print_info: EOT token        = 128256 '<|im_end|>'
+print_info: PAD token        = 128001 '<|end_of_text|>'
+print_info: LF token         = 198 'Ċ'
+print_info: EOG token        = 128001 '<|end_of_text|>'
+print_info: EOG token        = 128009 '<|eot_id|>'
+print_info: EOG token        = 128256 '<|im_end|>'
+print_info: max token length = 256
+load_tensors: loading model tensors, this can take a while... (mmap = true)
+load_tensors: layer   0 assigned to device CPU, is_swa = 0
+load_tensors: layer   1 assigned to device CPU, is_swa = 0
+load_tensors: layer   2 assigned to device CPU, is_swa = 0
+load_tensors: layer   3 assigned to device CPU, is_swa = 0
+load_tensors: layer   4 assigned to device CPU, is_swa = 0
+load_tensors: layer   5 assigned to device CPU, is_swa = 0
+load_tensors: layer   6 assigned to device CPU, is_swa = 0
+load_tensors: layer   7 assigned to device CPU, is_swa = 0
+load_tensors: layer   8 assigned to device CPU, is_swa = 0
+load_tensors: layer   9 assigned to device CPU, is_swa = 0
+load_tensors: layer  10 assigned to device CPU, is_swa = 0
+load_tensors: layer  11 assigned to device CPU, is_swa = 0
+load_tensors: layer  12 assigned to device CPU, is_swa = 0
+load_tensors: layer  13 assigned to device CPU, is_swa = 0
+load_tensors: layer  14 assigned to device CPU, is_swa = 0
+load_tensors: layer  15 assigned to device CPU, is_swa = 0
+load_tensors: layer  16 assigned to device CPU, is_swa = 0
+load_tensors: layer  17 assigned to device CPU, is_swa = 0
+load_tensors: layer  18 assigned to device CPU, is_swa = 0
+load_tensors: layer  19 assigned to device CPU, is_swa = 0
+load_tensors: layer  20 assigned to device CPU, is_swa = 0
+load_tensors: layer  21 assigned to device CPU, is_swa = 0
+load_tensors: layer  22 assigned to device CPU, is_swa = 0
+load_tensors: layer  23 assigned to device CPU, is_swa = 0
+load_tensors: layer  24 assigned to device CPU, is_swa = 0
+load_tensors: layer  25 assigned to device CPU, is_swa = 0
+load_tensors: layer  26 assigned to device CPU, is_swa = 0
+load_tensors: layer  27 assigned to device CPU, is_swa = 0
+load_tensors: layer  28 assigned to device CPU, is_swa = 0
+load_tensors: layer  29 assigned to device CPU, is_swa = 0
+load_tensors: layer  30 assigned to device CPU, is_swa = 0
+load_tensors: layer  31 assigned to device CPU, is_swa = 0
+load_tensors: layer  32 assigned to device CPU, is_swa = 0
+load_tensors: tensor 'token_embd.weight' (q4_K) (and 290 others) cannot be used with preferred buffer type CUDA_Host, using CPU instead
+load_tensors: offloading 0 repeating layers to GPU
+load_tensors: offloaded 0/33 layers to GPU
+load_tensors:   CPU_Mapped model buffer size =  4685.32 MiB
+........................................................................................
+llama_context: constructing llama_context
+llama_context: n_seq_max     = 1
+llama_context: n_ctx         = 8192
+llama_context: n_ctx_per_seq = 8192
+llama_context: n_batch       = 512
+llama_context: n_ubatch      = 512
+llama_context: causal_attn   = 1
+llama_context: flash_attn    = 0
+llama_context: freq_base     = 500000.0
+llama_context: freq_scale    = 1
+set_abort_callback: call
+llama_context:        CPU  output buffer size =     0.49 MiB
+create_memory: n_ctx = 8192 (padded)
+llama_kv_cache_unified: layer   0: dev = CPU
+llama_kv_cache_unified: layer   1: dev = CPU
+llama_kv_cache_unified: layer   2: dev = CPU
+llama_kv_cache_unified: layer   3: dev = CPU
+llama_kv_cache_unified: layer   4: dev = CPU
+llama_kv_cache_unified: layer   5: dev = CPU
+llama_kv_cache_unified: layer   6: dev = CPU
+llama_kv_cache_unified: layer   7: dev = CPU
+llama_kv_cache_unified: layer   8: dev = CPU
+llama_kv_cache_unified: layer   9: dev = CPU
+llama_kv_cache_unified: layer  10: dev = CPU
+llama_kv_cache_unified: layer  11: dev = CPU
+llama_kv_cache_unified: layer  12: dev = CPU
+llama_kv_cache_unified: layer  13: dev = CPU
+llama_kv_cache_unified: layer  14: dev = CPU
+llama_kv_cache_unified: layer  15: dev = CPU
+llama_kv_cache_unified: layer  16: dev = CPU
+llama_kv_cache_unified: layer  17: dev = CPU
+llama_kv_cache_unified: layer  18: dev = CPU
+llama_kv_cache_unified: layer  19: dev = CPU
+llama_kv_cache_unified: layer  20: dev = CPU
+llama_kv_cache_unified: layer  21: dev = CPU
+llama_kv_cache_unified: layer  22: dev = CPU
+llama_kv_cache_unified: layer  23: dev = CPU
+llama_kv_cache_unified: layer  24: dev = CPU
+llama_kv_cache_unified: layer  25: dev = CPU
+llama_kv_cache_unified: layer  26: dev = CPU
+llama_kv_cache_unified: layer  27: dev = CPU
+llama_kv_cache_unified: layer  28: dev = CPU
+llama_kv_cache_unified: layer  29: dev = CPU
+llama_kv_cache_unified: layer  30: dev = CPU
+llama_kv_cache_unified: layer  31: dev = CPU
+llama_kv_cache_unified:        CPU KV buffer size =  1024.00 MiB
+llama_kv_cache_unified: size = 1024.00 MiB (  8192 cells,  32 layers,  1 seqs), K (f16):  512.00 MiB, V (f16):  512.00 MiB
+llama_kv_cache_unified: LLAMA_SET_ROWS=0, using old ggml_cpy() method for backwards compatibility
+llama_context: enumerating backends
+llama_context: backend_ptrs.size() = 2
+llama_context: max_nodes = 65536
+llama_context: worst-case: n_tokens = 512, n_seqs = 1, n_outputs = 0
+graph_reserve: reserving a graph for ubatch with n_tokens =  512, n_seqs =  1, n_outputs =  512
+graph_reserve: reserving a graph for ubatch with n_tokens =    1, n_seqs =  1, n_outputs =    1
+graph_reserve: reserving a graph for ubatch with n_tokens =  512, n_seqs =  1, n_outputs =  512
+llama_context:      CUDA0 compute buffer size =   669.49 MiB
+llama_context:  CUDA_Host compute buffer size =    24.01 MiB
+llama_context: graph nodes  = 1158
+llama_context: graph splits = 356 (with bs=512), 1 (with bs=1)
+CUDA : ARCHS = 500,520,530,600,610,620,700,720,750,800,860,870,890,900 | FORCE_MMQ = 1 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+Model metadata: {'tokenizer.chat_template': "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}", 'tokenizer.ggml.padding_token_id': '128001', 'tokenizer.ggml.eos_token_id': '128256', 'general.quantization_version': '2', 'tokenizer.ggml.model': 'gpt2', 'general.architecture': 'llama', 'llama.rope.freq_base': '500000.000000', 'llama.context_length': '8192', 'general.name': 'E:\\LLMs', 'llama.vocab_size': '128258', 'general.file_type': '15', 'llama.embedding_length': '4096', 'llama.feed_forward_length': '14336', 'llama.attention.layer_norm_rms_epsilon': '0.000010', 'llama.rope.dimension_count': '128', 'tokenizer.ggml.bos_token_id': '128000', 'llama.attention.head_count': '32', 'llama.block_count': '32', 'llama.attention.head_count_kv': '8'}
+Available chat formats from metadata: chat_template.default
+Using gguf chat template: {% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>
+
+'+ message['content'] | trim + '<|eot_id|>' %}{% if loop.index0 == 0 %}{% set content = bos_token + content %}{% endif %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>
+
+' }}
+Using chat eos_token: <|im_end|>
+Using chat bos_token: <|begin_of_text|>
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | ✅ Llama.cpp 모델 로드 완료 (RAM 시작: True)
+2025-09-10 18:31:49 | dynamic_swap_manager | INFO | LLM 모델 등록: dolphin_llm
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | LLM 모델을 DSM에 등록: dolphin_llm
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | 🦙 Llama.cpp 모델 dolphin 로드 완료
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | ✅ 모델 dolphin GPU 로드 완료 및 활성화
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | ✅ Dolphin 모델 사용 확정
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | 🔍 ChatML 형식 감지됨 - 재처리 스킵
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | ✅ ChatML 중복 처리 방지 - 원본 프롬프트 사용
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | DSM을 통해 LLM을 GPU로 스왑 시도
+2025-09-10 18:31:49 | dynamic_swap_manager | INFO | LLM dolphin_llm을 GPU로 로드
+2025-09-10 18:31:49 | dynamic_swap_manager | INFO | GPU 레이어 32개로 설정
+2025-09-10 18:31:49 | dynamic_swap_manager | INFO | LLM dolphin_llm GPU 로드 완료
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | 🔧 LlamaCpp 생성 매개변수: max_tokens=1200, temp=0.2, top_p=0.9
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | 📝 입력 프롬프트 길이: 599 문자
+2025-09-10 18:31:49 | RedHeart.AdvancedLLM | INFO | 🚀 실제 생성 시작 - max_tokens: 1200
+llama_perf_context_print:        load time =    1167.27 ms
+llama_perf_context_print: prompt eval time =    1167.05 ms /   151 tokens (    7.73 ms per token,   129.39 tokens per second)
+llama_perf_context_print:        eval time =    7427.95 ms /    60 runs   (  123.80 ms per token,     8.08 tokens per second)
+llama_perf_context_print:       total time =    8706.55 ms /   211 tokens
+2025-09-10 18:31:58 | RedHeart.AdvancedLLM | INFO | 🔍 LlamaCpp 원시 응답: {'id': 'cmpl-353f8546-7240-4098-960d-2a8a87709d40', 'object': 'text_completion', 'created': 1757496709, 'model': '/mnt/c/large_project/linux_red_heart/dolphin_llama3_8b/dolphin-2.9-llama3-8b-q4_K_M.gguf', 'choices': [{'text': '{\n   "emotion": "joy",\n   "intensity": 3,\n   "confidence": 0.8,\n   "valence": 0.5,\n   "arousal": 0.5,\n   "reasoning": "Brief explanation of the emotional cause"\n}', 'index': 0, 'logprobs': None, 'finish_reason': 'stop'}], 'usage': {'prompt_tokens': 151, 'completion_tokens': 60, 'total_tokens': 211}}
+2025-09-10 18:31:58 | RedHeart.AdvancedLLM | INFO | ✅ 생성된 텍스트 길이: 162 문자
+2025-09-10 18:31:58 | RedHeart.AdvancedLLM | INFO | DSM을 통해 LLM을 RAM으로 언로드
+2025-09-10 18:31:58 | dynamic_swap_manager | INFO | LLM dolphin_llm을 RAM으로 언로드
+2025-09-10 18:31:58 | dynamic_swap_manager | INFO | LLM dolphin_llm RAM 언로드 완료
+2025-09-10 18:31:58 | RedHeartLinux.AdvancedEmotion | WARNING | ⚠️ 시도 1/3 실패: 
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | 🔧 LLM 응답 파싱 시작: 162 문자
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | 🔧 응답 첫 500자: {
+   "emotion": "joy",
+   "intensity": 3,
+   "confidence": 0.8,
+   "valence": 0.5,
+   "arousal": 0.5,
+   "reasoning": "Brief explanation of the emotional cause"
+}...
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | 🔧 1단계: json_repair 자동 수정 시도
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | 🔧 수정된 JSON: {"emotion": "joy", "intensity": 3, "confidence": 0.8, "valence": 0.5, "arousal": 0.5, "reasoning": "Brief explanation of the emotional cause"}...
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | ✅ json_repair 성공 (단순객체): emotion=joy -> id=1
+2025-09-10 18:31:59 | RedHeartLinux.AdvancedEmotion | INFO | ✅ LLM 분석 성공 (시도 2/3)
+2025-09-10 18:31:59 | sentence_transformer_singleton | INFO | 모델이 CPU에 있음, GPU로 스왑: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:32:00 | sentence_transformer_singleton | INFO | 모델이 CPU에 있음, GPU로 스왑: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:32:01 | sentence_transformer_singleton | INFO | 모델이 CPU에 있음, GPU로 스왑: sentence-transformers/paraphrase-multilingual-mpnet-base-v2_cuda
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | INFO |    ✅ 감정 분석 완료: ['emotions', 'valence', 'arousal']
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 wrapper 출력 타입: <class 'dict'>
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 === 완전한 구조 분석 시작 ===
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |   📦 Dict[3 keys]: ['emotions', 'valence', 'arousal']
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |     [emotions]:
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |       ✅ Tensor: shape=[1, 7], dtype=torch.float32, device=cuda:0
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |     [valence]:
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |       ✅ Tensor: shape=[1, 1], dtype=torch.float32, device=cuda:0
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |     [arousal]:
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO |       ✅ Tensor: shape=[1, 1], dtype=torch.float32, device=cuda:0
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 === 구조 분석 완료 ===
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | ✅ 텐서 추출 성공: shape=[1, 7]
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | ✅ outputs['advanced'] 설정 완료: <class 'torch.Tensor'>, shape=torch.Size([1, 7])
+2025-09-10 18:32:02 | ClaudeInference | INFO |    ⚖️ 벤담 계산 추론...
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 advanced_wrappers 타입: <class 'dict'>
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 advanced_wrappers 키들: ['advanced_emotion', 'advanced_bentham', 'advanced_regret', 'advanced_surd']
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 찾는 wrapper_key: advanced_bentham
+2025-09-10 18:32:02 | UnifiedModel.Debug | INFO | 🔍 wrapper 타입: <class 'advanced_analyzer_wrappers.AdvancedBenthamCalculatorWrapper'>
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | INFO | 🔄 AdvancedBenthamCalculatorWrapper forward 실행 시작
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | INFO |    - bentham_default_network 처리 중...
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | INFO |      입력 차원: torch.Size([1, 896])
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | INFO |      투영 후 차원: torch.Size([1, 7])
+2025-09-10 18:32:02 | advanced_analyzer_wrappers | ERROR |    ❌ bentham_default_network 처리 실패: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+2025-09-10 18:32:02 | ClaudeInference | ERROR | ❌ 추론 실패: Bentham default network 처리 실패 - NO FALLBACK: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/advanced_analyzer_wrappers.py", line 419, in forward
+    bentham_scores = self.bentham_default_network(x_projected)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_bentham_calculator.py", line 1304, in forward
+    x = self.input_fc(x)
+        ^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/large_project/linux_red_heart/claude_inference.py", line 289, in inference
+    bentham_outputs = self.unified_model(embeddings, task='bentham', return_all=True)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/training/unified_training_final.py", line 291, in forward
+    wrapper_output = wrapper(features_for_wrapper)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/red_heart_env/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/large_project/linux_red_heart/advanced_analyzer_wrappers.py", line 425, in forward
+    raise RuntimeError(f"Bentham default network 처리 실패 - NO FALLBACK: {e}")
+RuntimeError: Bentham default network 처리 실패 - NO FALLBACK: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+2025-09-10 18:32:02 | ClaudeInference | INFO | 
+🧹 리소스 정리 중...
+2025-09-10 18:32:03 | ClaudeInference | INFO | ✅ 정리 완료
+2025-09-10 18:32:03 | ClaudeInference | INFO | 
+🎉 Claude API 추론 완료!
+2025-09-10 18:32:03 | RedHeart.MainUnified | INFO | ✅ Claude Inference 완료
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+🔧 klue/bert-base 모델: 안정성 보장을 위한 15.0% 할당
+📋 Transformer 모델: 최적화된 배치 처리 방식 활성화
+✅ 고급 모듈들로 회로 초기화 완료
+✅ 경험 데이터베이스 시스템 초기화 완료

@@ -27,19 +27,25 @@ class LocalTranslator:
     - 캐싱을 통한 성능 최적화
     """
     
-    def __init__(self):
-        """로컬 번역기 초기화 (모델 즉시 로드)"""
+    def __init__(self, lazy_load: bool = True):
+        """로컬 번역기 초기화 (lazy loading 지원)
+        
+        Args:
+            lazy_load: True면 실제 번역이 필요할 때 모델 로드
+        """
         self.model_name = 'Helsinki-NLP/opus-mt-ko-en'
         self.tokenizer = None
         self.model = None
         self.device = None
         self.translation_cache = {}  # 번역 결과 캐싱
         self.initialized = False
+        self.lazy_load = lazy_load
         
-        logger.info("LocalTranslator 생성 - 전역 모듈로 초기화됨")
+        logger.info(f"LocalTranslator 생성 - {'lazy loading 모드' if lazy_load else '즉시 로드 모드'}")
         
-        # 전역 모듈로 등록되면 즉시 초기화
-        self._initialize_model()
+        # lazy_load가 False일 때만 즉시 초기화
+        if not self.lazy_load:
+            self._initialize_model()
     
     def _initialize_model(self):
         """모델 초기화 - 전역 모듈 등록 시 즉시 실행"""
@@ -260,9 +266,17 @@ class LocalTranslator:
             logger.debug("번역 캐시에서 결과 반환")
             return self.translation_cache[cache_key]
         
+        # Lazy loading: 초기화되지 않았으면 여기서 초기화
         if not self.initialized:
-            logger.error("LocalTranslator가 초기화되지 않음")
-            raise RuntimeError("LocalTranslator not initialized")
+            if self.lazy_load:
+                logger.info("🔄 Lazy loading: 번역이 필요해서 모델을 로드합니다...")
+                self._initialize_model()
+                if not self.initialized:
+                    logger.error("LocalTranslator 초기화 실패")
+                    raise RuntimeError("LocalTranslator initialization failed")
+            else:
+                logger.error("LocalTranslator가 초기화되지 않음")
+                raise RuntimeError("LocalTranslator not initialized")
         
         try:
             # 번역 수행
@@ -331,6 +345,21 @@ class LocalTranslator:
         
         # STRICT_NO_FALLBACK
         raise RuntimeError("LocalTranslator: get_pytorch_network 실패 - 모델 없음")
+    
+    async def translate_async(self, text: str) -> str:
+        """비동기 번역 메서드 - claude_inference.py 호환용
+        
+        Args:
+            text: 번역할 텍스트 (한국어)
+            
+        Returns:
+            번역된 영어 텍스트
+        """
+        import asyncio
+        
+        # 동기 메서드를 비동기로 래핑
+        loop = asyncio.get_event_loop()
+        return await loop.run_in_executor(None, self.translate_ko_to_en, text)
     
     def __repr__(self):
         return f"LocalTranslator(model={self.model_name}, initialized={self.initialized}, device={self.device})"
